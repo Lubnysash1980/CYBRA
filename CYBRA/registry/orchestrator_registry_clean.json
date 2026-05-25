@@ -1,0 +1,653 @@
+{
+  "time": 1779519863.2674887,
+  "root": "/data/data/com.termux/files/home/CYBRA",
+  "files_count": 32,
+  "scan": [
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/cybra_evolution.py",
+      "imports": [
+        "os",
+        "subprocess",
+        "time",
+        "threading",
+        "redis",
+        "json",
+        "sys",
+        "requests"
+      ],
+      "classes": [],
+      "functions": [
+        "ensure_structure",
+        "ensure_venv",
+        "ensure_files",
+        "ensure_node",
+        "start_redis",
+        "start_api",
+        "start_python_workers",
+        "show_menu"
+      ]
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/api.py",
+      "imports": [],
+      "classes": [],
+      "functions": []
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/workers.py",
+      "imports": [
+        "redis",
+        "json",
+        "time"
+      ],
+      "classes": [],
+      "functions": []
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/monitor.py",
+      "imports": [],
+      "classes": [],
+      "functions": []
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/workers_text.py",
+      "imports": [],
+      "classes": [],
+      "functions": []
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/workers_media.py",
+      "imports": [],
+      "classes": [],
+      "functions": []
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/workers_analytics.py",
+      "imports": [],
+      "classes": [],
+      "functions": []
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/hash_collector.py",
+      "error": "unmatched ')' (<unknown>, line 66)"
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/collect_api.py",
+      "imports": [
+        "fastapi",
+        "redis",
+        "json",
+        "hashlib",
+        "time",
+        "os"
+      ],
+      "classes": [],
+      "functions": [
+        "double_sha",
+        "collect_file"
+      ]
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/audit_api.py",
+      "imports": [
+        "os",
+        "json",
+        "time",
+        "hashlib",
+        "base64",
+        "threading",
+        "pickle",
+        "zlib",
+        "random",
+        "socket",
+        "select",
+        "csv",
+        "datetime",
+        "typing",
+        "enum",
+        "numpy",
+        "web3",
+        "collections",
+        "redis",
+        "redis"
+      ],
+      "classes": [
+        {
+          "class": "Worker",
+          "methods": [
+            "__init__",
+            "to_dict",
+            "from_dict"
+          ]
+        },
+        {
+          "class": "Wallet",
+          "methods": [
+            "__init__",
+            "to_dict",
+            "from_dict"
+          ]
+        },
+        {
+          "class": "Token",
+          "methods": [
+            "__init__",
+            "to_dict",
+            "from_dict"
+          ]
+        },
+        {
+          "class": "MiningConfig",
+          "methods": [
+            "__init__",
+            "load_config",
+            "_create_default_workers",
+            "save_config",
+            "add_pool",
+            "remove_pool",
+            "add_worker",
+            "remove_worker",
+            "get_worker_by_name",
+            "list_workers",
+            "add_wallet",
+            "remove_wallet",
+            "add_token",
+            "get_token"
+          ]
+        },
+        {
+          "class": "MiningStats",
+          "methods": [
+            "__init__",
+            "log",
+            "save_stats",
+            "export_csv",
+            "add_share"
+          ]
+        },
+        {
+          "class": "StratumMiner",
+          "methods": [
+            "__init__",
+            "connect_to_pool",
+            "_send",
+            "_listen_forever",
+            "_process_message",
+            "_mine_job",
+            "start_mining",
+            "stop_mining"
+          ]
+        },
+        {
+          "class": "KybraMiner",
+          "methods": [
+            "__init__",
+            "set_difficulty",
+            "mine_block",
+            "start_mining_loop",
+            "stop_mining"
+          ]
+        },
+        {
+          "class": "TokenMinter",
+          "methods": [
+            "__init__",
+            "create_token",
+            "mint_token"
+          ]
+        },
+        {
+          "class": "ParliamentSystem",
+          "methods": [
+            "__init__",
+            "_check_redis",
+            "start",
+            "stop",
+            "_run_parliament",
+            "submit_proposal"
+          ]
+        },
+        {
+          "class": "CryptoEngine",
+          "methods": [
+            "__init__",
+            "set_mode",
+            "start_real_mining",
+            "stop_real_mining",
+            "start_kybra_mining",
+            "stop_kybra_mining",
+            "mine_bitcoin_block",
+            "get_eth_balance",
+            "stake_eth"
+          ]
+        },
+        {
+          "class": "BiometricEncryption",
+          "methods": [
+            "__init__",
+            "encrypt",
+            "decrypt",
+            "verify_integrity",
+            "_xor_bytes"
+          ]
+        },
+        {
+          "class": "AutoFixSystem",
+          "methods": [
+            "__init__",
+            "apply_fix",
+            "rollback_fix",
+            "get_fix_history",
+            "auto_detect_and_fix",
+            "_generate_suggestion"
+          ]
+        },
+        {
+          "class": "GraphVisualizer",
+          "methods": [
+            "__init__",
+            "add_metric",
+            "get_metrics",
+            "show_system_status",
+            "export_metrics",
+            "import_metrics"
+          ]
+        },
+        {
+          "class": "LegalTokenization",
+          "methods": [
+            "__init__",
+            "tokenize_document",
+            "get_history",
+            "export_document",
+            "import_document"
+          ]
+        },
+        {
+          "class": "Mode",
+          "methods": []
+        }
+      ],
+      "functions": [
+        "double_sha256",
+        "merkle_root",
+        "build_block_header",
+        "bits_to_target",
+        "hash_to_int",
+        "main_menu",
+        "__init__",
+        "to_dict",
+        "from_dict",
+        "__init__",
+        "to_dict",
+        "from_dict",
+        "__init__",
+        "to_dict",
+        "from_dict",
+        "__init__",
+        "load_config",
+        "_create_default_workers",
+        "save_config",
+        "add_pool",
+        "remove_pool",
+        "add_worker",
+        "remove_worker",
+        "get_worker_by_name",
+        "list_workers",
+        "add_wallet",
+        "remove_wallet",
+        "add_token",
+        "get_token",
+        "__init__",
+        "log",
+        "save_stats",
+        "export_csv",
+        "add_share",
+        "__init__",
+        "connect_to_pool",
+        "_send",
+        "_listen_forever",
+        "_process_message",
+        "_mine_job",
+        "start_mining",
+        "stop_mining",
+        "__init__",
+        "set_difficulty",
+        "mine_block",
+        "start_mining_loop",
+        "stop_mining",
+        "__init__",
+        "create_token",
+        "mint_token",
+        "__init__",
+        "_check_redis",
+        "start",
+        "stop",
+        "_run_parliament",
+        "submit_proposal",
+        "__init__",
+        "set_mode",
+        "start_real_mining",
+        "stop_real_mining",
+        "start_kybra_mining",
+        "stop_kybra_mining",
+        "mine_bitcoin_block",
+        "get_eth_balance",
+        "stake_eth",
+        "__init__",
+        "encrypt",
+        "decrypt",
+        "verify_integrity",
+        "_xor_bytes",
+        "__init__",
+        "apply_fix",
+        "rollback_fix",
+        "get_fix_history",
+        "auto_detect_and_fix",
+        "_generate_suggestion",
+        "__init__",
+        "add_metric",
+        "get_metrics",
+        "show_system_status",
+        "export_metrics",
+        "import_metrics",
+        "__init__",
+        "tokenize_document",
+        "get_history",
+        "export_document",
+        "import_document",
+        "run",
+        "loop"
+      ]
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/cybra_super_ready.py",
+      "imports": [
+        "redis",
+        "json",
+        "threading",
+        "time",
+        "os",
+        "subprocess"
+      ],
+      "classes": [],
+      "functions": [
+        "parliament_worker",
+        "payment_worker",
+        "start_services",
+        "show_menu"
+      ]
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/cybra_registry.py",
+      "imports": [
+        "importlib"
+      ],
+      "classes": [
+        {
+          "class": "CybraRegistry",
+          "methods": [
+            "__init__",
+            "load",
+            "summary",
+            "active_modules"
+          ]
+        }
+      ],
+      "functions": [
+        "__init__",
+        "load",
+        "summary",
+        "active_modules"
+      ]
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/cybra_parliament_module.py",
+      "imports": [],
+      "classes": [
+        {
+          "class": "CyberParliament",
+          "methods": [
+            "command",
+            "protect_account",
+            "check_debt"
+          ]
+        }
+      ],
+      "functions": [
+        "command",
+        "protect_account",
+        "check_debt"
+      ]
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/cybra_orchestrator.py",
+      "imports": [
+        "ast",
+        "json",
+        "subprocess",
+        "sys",
+        "time",
+        "pathlib"
+      ],
+      "classes": [],
+      "functions": [
+        "scan_file",
+        "scan",
+        "save",
+        "main"
+      ]
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/cybra_orchestrator_clean.py",
+      "imports": [
+        "ast",
+        "json",
+        "time",
+        "pathlib"
+      ],
+      "classes": [],
+      "functions": [
+        "skip",
+        "scan_file"
+      ]
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/app/main.py",
+      "imports": [
+        "fastapi",
+        "pydantic",
+        "redis",
+        "json",
+        "time"
+      ],
+      "classes": [
+        {
+          "class": "Submission",
+          "methods": []
+        }
+      ],
+      "functions": [
+        "health",
+        "submit"
+      ]
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/core/committee.py",
+      "imports": [
+        "json",
+        "time",
+        "redis",
+        "hashlib"
+      ],
+      "classes": [],
+      "functions": [
+        "h"
+      ]
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/core/payment_exec.py",
+      "imports": [
+        "json",
+        "time",
+        "redis"
+      ],
+      "classes": [],
+      "functions": []
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/node/ev.py",
+      "imports": [
+        "redis",
+        "json",
+        "hashlib",
+        "time"
+      ],
+      "classes": [],
+      "functions": [
+        "double_sha"
+      ]
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/cybraparlamentbot/__init__.py",
+      "imports": [],
+      "classes": [],
+      "functions": []
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/cybraparlamentbot/strategy.py",
+      "imports": [],
+      "classes": [
+        {
+          "class": "MomentumEngine",
+          "methods": []
+        }
+      ],
+      "functions": []
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/cybraparlamentbot/live_ws.py",
+      "imports": [],
+      "classes": [
+        {
+          "class": "BybitLiveWS",
+          "methods": []
+        }
+      ],
+      "functions": []
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/cybraparlamentbot/risk_live.py",
+      "imports": [],
+      "classes": [
+        {
+          "class": "RiskLive",
+          "methods": []
+        }
+      ],
+      "functions": []
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/cybraparlamentbot/ai.py",
+      "imports": [],
+      "classes": [
+        {
+          "class": "AI",
+          "methods": []
+        }
+      ],
+      "functions": []
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/cybraparlamentbot/ai_parliament.py",
+      "imports": [],
+      "classes": [
+        {
+          "class": "AIParliament",
+          "methods": []
+        }
+      ],
+      "functions": []
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/modules/__init__.py",
+      "imports": [],
+      "classes": [],
+      "functions": []
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/modules/finance/finance_core.py",
+      "imports": [],
+      "classes": [
+        {
+          "class": "FinanceCore",
+          "methods": [
+            "__init__",
+            "add",
+            "balance"
+          ]
+        }
+      ],
+      "functions": [
+        "__init__",
+        "add",
+        "balance"
+      ]
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/modules/finance/__init__.py",
+      "imports": [],
+      "classes": [],
+      "functions": []
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/modules/mint/mint_core.py",
+      "imports": [
+        "hashlib",
+        "time"
+      ],
+      "classes": [
+        {
+          "class": "MintCore",
+          "methods": [
+            "create"
+          ]
+        }
+      ],
+      "functions": [
+        "create"
+      ]
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/modules/mint/__init__.py",
+      "imports": [],
+      "classes": [],
+      "functions": []
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/modules/token_factory/token_factory.py",
+      "imports": [
+        "modules.mint.mint_core"
+      ],
+      "classes": [
+        {
+          "class": "TokenFactory",
+          "methods": [
+            "__init__",
+            "create_token"
+          ]
+        }
+      ],
+      "functions": [
+        "__init__",
+        "create_token"
+      ]
+    },
+    {
+      "file": "/data/data/com.termux/files/home/CYBRA/modules/token_factory/__init__.py",
+      "imports": [],
+      "classes": [],
+      "functions": []
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+[
+  {
+    "index": 0,
+    "time": 1779703690.1011624,
+    "type": "genesis",
+    "owner_wallet": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
+    "supply": 1000000,
+    "prev_hash": "0",
+    "hash": "fa54aad91ffb2c89aa657712046859f7c6a9d48393d62e9e299867cb8318f47e"
+  }
+]

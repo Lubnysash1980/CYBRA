@@ -1,0 +1,46 @@
+{
+  "genesis": {
+    "index": 0,
+    "time": 1779705513.3522096,
+    "type": "genesis",
+    "prev_hash": "0",
+    "transactions": [
+      {
+        "to": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
+        "amount": 1000000,
+        "symbol": "TPS6"
+      }
+    ],
+    "hash": "e2c157c970e2e5614152916c8b2590b74b5a9d9da5e23415749615518f841831"
+  },
+  "test_tx_valid": true,
+  "test_block": {
+    "index": 1,
+    "time": 1779705513.3538818,
+    "type": "block",
+    "prev_hash": "e2c157c970e2e5614152916c8b2590b74b5a9d9da5e23415749615518f841831",
+    "transactions": [
+      {
+        "time": 1779705513.353129,
+        "from": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
+        "to": "tps6_test_wallet_001",
+        "amount": 100,
+        "symbol": "TPS6",
+        "hash": "9315bfad0829498e203937925700ef8ce7e52288500904af3500054551a24bfd"
+      }
+    ],
+    "hash": "4afd60afa2ce90138c277ddbb237980fd36ea93a64f922247f198b16802089a2"
+  },
+  "proof": {
+    "chain_file": "/data/data/com.termux/files/home/CYBRA/tps6/chain.json",
+    "double_sha256": "cd824fdbc0881318a9c38066261717b5030c7cf469f4d97b47f96fcd9f7279c4"
+  },
+  "status": {
+    "blocks": 2,
+    "latest_hash": "4afd60afa2ce90138c277ddbb237980fd36ea93a64f922247f198b16802089a2",
+    "balances": {
+      "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y": 999900,
+      "tps6_test_wallet_001": 100
+    }
+  }
+}
