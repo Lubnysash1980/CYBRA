@@ -1,7 +1,7 @@
 # CYBRA Executor Quality Check
 
-Issues found: 5
-Repair tasks created: 5
+Issues found: 1
+Repair tasks created: 1
 
 Queues:
 - failed: 1
