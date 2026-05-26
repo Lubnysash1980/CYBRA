@@ -1,0 +1,13 @@
+{
+  "system": "CYBRA PMZ",
+  "purpose": "historical metadata and proof registry",
+  "sources": [
+    "https://lubnysash1980.github.io/Alfapay/metadata.json",
+    "native_tokens",
+    "mainnet",
+    "proofs",
+    "posts",
+    "site"
+  ],
+  "status": "created"
+}
