@@ -1,0 +1,14 @@
+{
+  "topic": "CYBRA Executor Double-SHA AutoHeal",
+  "type": "cybra_autofix_task",
+  "status": "executed",
+  "cmd": [
+    "bash",
+    "cybra_autofix.sh"
+  ],
+  "returncode": 0,
+  "stdout": "=== CYBRA AUTOFIX START ===\nOn branch main\nYour branch is ahead of 'origin/main' by 4 commits.\n  (use \"git push\" to publish your local commits)\n\nChanges not staged for commit:\n  (use \"git add <file>...\" to update what will be committed)\n  (use \"git restore <file>...\" to discard changes in working directory)\n\tmodified:   dump.rdb\n\nUntracked files:\n  (use \"git add <file>...\" to include in what will be committed)\n\tlogs/executor/2dcc5ce9a73dce1d0bfaf3f7253db10dc7ee80a85499a720a84e2b9e74260ddb.json\n\tlogs/executor/3f8d9040a3c880ed17438de51a687b1aee67f8d1918bd225959604ae5ce0e716.json\n\tlogs/executor/453371d3e28b8905e9984b53bc5aab575cad2f1abf535537e33aed27afa5f109.json\n\tlogs/executor/84df3bb39887e881a4d17c8201f9f15495ac74575ee10f5ca803daf68bd4da34.json\n\tlogs/executor/c068a06dbe8a39dde41287854e6c133773cc87723dc2949f80b906f5ff74f54a.json\n\nno changes added to commit (use \"git add\" and/or \"git commit -a\")\n✅ CYBRA AUTOFIX DONE\nReport: posts/autofix_report.md\n",
+  "stderr": "",
+  "time": 1779818682.9424376,
+  "double_sha": "3428bac77b9a15e21d811724ab09d181354cea0ba7ffce0fb29afe9e2d93ce84"
+}

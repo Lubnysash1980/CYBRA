@@ -1,0 +1,15 @@
+{
+  "topic": "V6 test native token",
+  "type": "native_token_ecosystem_task",
+  "status": "executed",
+  "script": "create_native_token_ecosystem.sh",
+  "double_sha": "3160064db2b297dd5d71f4d2da30284cc8adbfce35a060b27fad9e8090a7e6ac",
+  "retries": 0,
+  "execution": {
+    "ok": true,
+    "returncode": 0,
+    "stdout": "On branch main\nYour branch is ahead of 'origin/main' by 9 commits.\n  (use \"git push\" to publish your local commits)\n\nChanges not staged for commit:\n  (use \"git add <file>...\" to update what will be committed)\n  (use \"git restore <file>...\" to discard changes in working directory)\n\tmodified:   dump.rdb\n\tmodified:   parliament_executor_v5.py\n\nUntracked files:\n  (use \"git add <file>...\" to include in what will be committed)\n\t__pycache__/parliament_executor_v6.cpython-313.pyc\n\tlogs/executor/050cd88343841a6bcfb0c9d7fd0912e83f33b72266d05153c166ac2363549efa.json\n\tlogs/executor/1acd9e2986856526abe474c9315dcce4c821b8c8521b0db38e09fa33c958e476.json\n\tlogs/executor/2dcc5ce9a73dce1d0bfaf3f7253db10dc7ee80a85499a720a84e2b9e74260ddb.json\n\tlogs/executor/3428bac77b9a15e21d811724ab09d181354cea0ba7ffce0fb29afe9e2d93ce84.json\n\tlogs/executor/3f8d9040a3c880ed17438de51a687b1aee67f8d1918bd225959604ae5ce0e716.json\n\tlogs/executor/453371d3e28b8905e9984b53bc5aab575cad2f1abf535537e33aed27afa5f109.json\n\tlogs/executor/51cbf626952e9e793cb401fb803a8b0fb3cf0b60bf32260b47deeddb467a0e7b.json\n\tlogs/executor/5f1c85e21ff85ebfccd79153297cf087d896f78a93a3dfd3b026b78e94e1c098.json\n\tlogs/executor/84df3bb39887e881a4d17c8201f9f15495ac74575ee10f5ca803daf68bd4da34.json\n\tlogs/executor/8c79dacb812998decb2c902c36bb42402131971fdfb9a9cac7db64c5c0c5d48c.json\n\tlogs/executor/9e345d7459d73237dad87453e567230dd61d224ed927a5e8c28989e1fe6e96c2.json\n\tlogs/executor/a3c40eeb4a90b6c9d8ff1b63659cbb680201e5cf4c2452d483c109fc0684823e.json\n\tlogs/executor/ab815c34aed264d1cb19e99d16cb4ce7f1e03a94424b0174e10b2801b4c2eb9a.json\n\tlogs/executor/bc4531baadefad6d8d275c4e6703f70746a88fd1da1bf7de214cc5252659df6a.json\n\tlogs/executor/c068a06dbe8a39dde41287854e6c133773cc87723dc2949f80b906f5ff74f54a.json\n\tlogs/executor/d05d9564f3e46c1145ea85948962c535bd9d163a48e020ba51cfaabdd2a0ed19.json\n\tlogs/executor/e0e47642b0ffa6bcf3666b320b862a2a4778630fcb27382825fd3468bee89304.json\n\tlogs/executor/fe73c567f9a896c622552a150797f4180cc92781386daff3048d2b3ee8643f86.json\n\tlogs/executor_v6/\n\tparliament_executor_v6.py\n\n\nIt took 3.47 seconds to enumerate untracked files.\nSee 'git help status' for information on how to improve this.\n\nno changes added to commit (use \"git add\" and/or \"git commit -a\")\n✅ CYBRA native token ecosystem created\n",
+    "stderr": ""
+  },
+  "time": 1779827099.618566
+}

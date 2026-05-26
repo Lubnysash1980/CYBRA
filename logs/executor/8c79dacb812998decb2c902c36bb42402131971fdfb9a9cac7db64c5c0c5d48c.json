@@ -1,0 +1,7 @@
+{
+  "topic": "CYBRA 5-Level Double-SHA Guardian Recovery",
+  "type": "executor_autoheal_task",
+  "status": "no_executor_mapping",
+  "message": "No mapping yet. AutoHeal should create mapping in next executor generation.",
+  "double_sha": "8c79dacb812998decb2c902c36bb42402131971fdfb9a9cac7db64c5c0c5d48c"
+}

@@ -23,7 +23,8 @@ ALLOWED = {
     "executor_autoheal_task": ["bash", "executor_autoheal_double_sha.sh"],
     "github_double_backend_task": ["bash", "github_double_backend.sh"],
     "codespaces_keepalive_task": ["bash", "codespace_keepalive_task.sh"],
-    "promind_ai_evolution_task": ["bash", "-lc", "mkdir -p posts && echo '# ProMind accepted' > posts/promind_status_report.md"]
+    "promind_ai_evolution_task": ["bash", "-lc", "mkdir -p posts && echo '# ProMind accepted' > posts/promind_status_report.md"],
+    "self_expanding_execution_engine_task": ["bash", "run_answer_engine.sh"]
 }
 
 def dsha(data: str) -> str:
