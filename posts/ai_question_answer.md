@@ -1,16 +1,10 @@
-# CYBRA AI Research Answer
+# CYBRA AI Question Answer
 
 ## Question
 Що таке чорна діра?
 
-## Search Status
-unknown
-
-## Title
-None
-
 ## Answer
-None
+Питання прийнято AI Parliament. Для реальної автоматичної відповіді потрібен підключений research backend або LLM/API. Зараз створено routing, post і proof.
 
-## Engine
-research_backend_v3_pure
+## Status
+handled_by_ai_question_handler
