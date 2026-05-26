@@ -1,4 +1,4 @@
 f544d4f9a725d1c2fbc1f1330b02439a0df1dd4db6ce8e02a79a5f25a537b4df  /data/data/com.termux/files/home/CYBRA/native_tokens/CYBRA/chain/genesis.json
-b55ecd201d047b4bbfc4415dd2aca0ca171cf266a139fc9d4b0b2cbf589174ed  /data/data/com.termux/files/home/CYBRA/native_tokens/CYBRA/chain/blocks.json
+2b067116e73d59e4edd51bed81a881b59b4ae8b4b72c3e3fc7674a565fe10eef  /data/data/com.termux/files/home/CYBRA/native_tokens/CYBRA/chain/blocks.json
 6a7d1496ddf861d2ac2dc8fad98c8a2168a30c4f31882f839b83b28aedb5ce00  /data/data/com.termux/files/home/CYBRA/native_tokens/CYBRA/metadata/token.json
 67663a6f7c90f2ebe3b6646eede39d0bce89b2795bbc8227af32392cb5761499  /data/data/com.termux/files/home/CYBRA/native_tokens/CYBRA/pools/pools.json
