@@ -1,9 +1,9 @@
 # CYBRA Mining Status
 
 Status: active  
-Last block: 0  
+Last block: 1  
 Miner: FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y  
 Reward: 50 CYBRA  
-Hash: e003c024da61a0231ac60e9d133fd7b4baf3f7084882cdb1b86bc65b4c7a054c
+Hash: 5b4ef75f9d952f149bfb11dbaeef81c43112fe137a332a60626cd167ec42051b
 
 Mode: native-chain mining / testnet-first.
