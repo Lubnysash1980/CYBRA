@@ -1,16 +1,16 @@
 f544d4f9a725d1c2fbc1f1330b02439a0df1dd4db6ce8e02a79a5f25a537b4df  /data/data/com.termux/files/home/CYBRA/native_tokens/CYBRA/chain/genesis.json
-2b067116e73d59e4edd51bed81a881b59b4ae8b4b72c3e3fc7674a565fe10eef  /data/data/com.termux/files/home/CYBRA/native_tokens/CYBRA/chain/blocks.json
+1775bb9bd2f969988fb4c4890e8a7e1e5c85829a9b95498b051b22ff6b2f9a09  /data/data/com.termux/files/home/CYBRA/native_tokens/CYBRA/chain/blocks.json
 6a7d1496ddf861d2ac2dc8fad98c8a2168a30c4f31882f839b83b28aedb5ce00  /data/data/com.termux/files/home/CYBRA/native_tokens/CYBRA/metadata/token.json
 67663a6f7c90f2ebe3b6646eede39d0bce89b2795bbc8227af32392cb5761499  /data/data/com.termux/files/home/CYBRA/native_tokens/CYBRA/pools/pools.json
 3390b0f5c688651513edee3d544ff8990ce6c10c490dcc37b6722ef30496c738  /data/data/com.termux/files/home/CYBRA/mainnet/CYBRA/chain/genesis.json
 67663a6f7c90f2ebe3b6646eede39d0bce89b2795bbc8227af32392cb5761499  /data/data/com.termux/files/home/CYBRA/mainnet/CYBRA/pools/pools.json
 cc0f6a80bcce2c2bf50a0d5418cf9f2e5ca80d4d965a16b13e2c5adb703fa426  /data/data/com.termux/files/home/CYBRA/mainnet/CYBRA/metadata/token.json
-611c8b646a65c11fbb141f64f33b614ec7ad6c8071a4445dd2810b18825b214c  /data/data/com.termux/files/home/CYBRA/proofs/native_tokens_hashes.txt
+cd423279129de2f4d09f08145e3e6be492eec57232d6d3838580eb00ecded412  /data/data/com.termux/files/home/CYBRA/proofs/native_tokens_hashes.txt
 0fb22ec3ba7788f3729d6e22f672fefa8467b44de5de8b623424e290d0ae572a  /data/data/com.termux/files/home/CYBRA/proofs/cybra_mainnet_hashes.txt
 eba9c17551cf26bc89cfb6005f6b95fbc66398682d66d57f7d2fb5d0819e7728  /data/data/com.termux/files/home/CYBRA/proofs/final_review_hashes.txt
 d94755dea30ea955bdb0b806c3d36cb34626bb69f6dd9f406a7f1d367c3d53e2  /data/data/com.termux/files/home/CYBRA/proofs/github_pages_hashes.txt
 9f05a4c2229221d4cb970908066853422632d40d2cce2d72ed67a983de4e44c2  /data/data/com.termux/files/home/CYBRA/proofs/pages_hashes.txt
-7eaffabc011292142f120d7b38463f0170193332a70a0b32c7c95d9d49aa3662  /data/data/com.termux/files/home/CYBRA/proofs/mining_hashes.txt
+7a54e98b623ea81ff9455696901b620b7329e605c5897169b4f7ad7cdcd67606  /data/data/com.termux/files/home/CYBRA/proofs/mining_hashes.txt
 cdc2d1aa7604bdaaaeba443859c418dc0def74d6fca5488e4da4b51d9dbec2cd  /data/data/com.termux/files/home/CYBRA/proofs/executor_v4_hash.txt
 a6f89e0e5eb49a1e1144ee50e5ad3c69c37b27dbfb4cb9ace7c0eb41a167a7b7  /data/data/com.termux/files/home/CYBRA/proofs/executor_double_sha_proof.json
 e3d25c07d8cf56aef58603484d51f5f0b9ed1a7e658a74364cfd71b064156c22  /data/data/com.termux/files/home/CYBRA/proofs/executor_v5_double_sha.json
@@ -20,7 +20,7 @@ e3d25c07d8cf56aef58603484d51f5f0b9ed1a7e658a74364cfd71b064156c22  /data/data/com
 01d693b5100893c6c130bb16d865fc5568c351b7cd85e8cb3185e6737c1c4fdf  /data/data/com.termux/files/home/CYBRA/proofs/guardian_level_4.json
 5b47220ac7d9bfd2554ab694b77dfcb40ddff8e7ea8fb980544c969b1b8a7574  /data/data/com.termux/files/home/CYBRA/proofs/guardian_level_5.json
 b7a871a6a9d771a2a1f71c3bb7dae0e5d79d1a912d20dea50e757acd5ef3fad7  /data/data/com.termux/files/home/CYBRA/proofs/guardian_5levels_report.json
-b8a45cab97184236691aca83e2f5c0d3848598f19a54de7cbbf58dcd5b4c293c  /data/data/com.termux/files/home/CYBRA/proofs/github_backend_sha256.txt
+6093f10cbdae1982f2a851b2b6b74e031b127a8ece745b13d2fa582fe35a41ea  /data/data/com.termux/files/home/CYBRA/proofs/github_backend_sha256.txt
 282f419a5eda4aad03e1a82d5b0da902e16e75aac251022cdc5ca679ffc61d7e  /data/data/com.termux/files/home/CYBRA/proofs/self_expanding_engine_hashes.txt
 9d81c1a184ac80930e467cf957df2cef91aa78f8f67f7ca32cd46bcc18e670af  /data/data/com.termux/files/home/CYBRA/proofs/emergency_alert_hash.txt
 b87daf368d123bc68c634d7b6656de97a06af22103d4055b14c155150a5747c4  /data/data/com.termux/files/home/CYBRA/proofs/executor_checker.json
@@ -39,7 +39,7 @@ a7056d7cce2b5382b4ca0a2692e992fb96feaefe6c81fd7d85fbbb6b73f7d4ba  /data/data/com
 8694d3f982f2758f2a9981c2f4d3fd2b545afd0c46e88dfba148413912135af6  /data/data/com.termux/files/home/CYBRA/posts/mainnet_png_status.md
 aa5b86047144095b7f626db6ad398d2ae0317cdb9d7ca2408afd1ea7bd71f7dd  /data/data/com.termux/files/home/CYBRA/posts/cybra_final_status.md
 4ceb09a94e5d335dd6453f1c0a602c7b9f3c841700d8798fd843bb7577af2bb7  /data/data/com.termux/files/home/CYBRA/posts/pages_autofix_status.md
-22d57ab660788e4a239d43a4139634b4ec13b27f3ad282303855ba021a43e544  /data/data/com.termux/files/home/CYBRA/posts/mining_status.md
+4f3deb6f430f5e8848049ab861411784057b781ee159a17dd0972ac4b7a245a6  /data/data/com.termux/files/home/CYBRA/posts/mining_status.md
 ebc14ff898094a8f39ff253af56680544683e5da2a2cd7860fe94866883055ab  /data/data/com.termux/files/home/CYBRA/posts/executor_autoheal_status.md
 cd6b8debe64779ed2ecc761b852b09a89612f2ca766244e366ad55f83d2346e8  /data/data/com.termux/files/home/CYBRA/posts/executor_v5_status.md
 17eb59a3fc05a303e303555987bcaec84d09c710918b88325e771a868793f989  /data/data/com.termux/files/home/CYBRA/posts/guardian_install_status.md
