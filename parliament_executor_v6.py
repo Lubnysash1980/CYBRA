@@ -28,9 +28,8 @@ SCRIPT_MAP = {
     "codespaces_keepalive_task": "codespace_keepalive_task.sh",
     "self_expanding_execution_engine_task": "run_answer_engine.sh",
     "emergency_alert_test_task": "emergency_alert_handler.sh",
-    "executor_autoheal_task": "executor_autoheal_double_sha.sh",
-    "github_double_backend_task": "github_double_backend.sh",
-    "codespaces_keepalive_task": "codespace_keepalive_task.sh"
+    "test_basic_task": "basic_task_handler.sh",
+    "ai_question_task": "ai_research_backend.sh"
 }
 
 def double_sha(data: str) -> str:
@@ -50,6 +49,7 @@ def run_script(script_name: str):
         cwd=str(BASE),
         text=True,
         capture_output=True,
+        env={**__import__("os").environ, "CYBRA_TASK_JSON": json.dumps({"type": script_name}, ensure_ascii=False)},
         timeout=1200
     )
 
