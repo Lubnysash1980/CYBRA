@@ -20,3 +20,4 @@
 
 ## Статус
 CYBRA ecosystem package prepared.
+prepared and ready for next evolution phase.
