@@ -1,0 +1,42 @@
+{
+  "time": 1779828731.448572,
+  "checked_results": 13,
+  "failed_count": 1,
+  "retry_count": 0,
+  "issues_found": 5,
+  "repair_tasks_created": 5,
+  "issues": [
+    {
+      "topic": "CYBRA Self-Expanding Execution Engine",
+      "type": "self_expanding_execution_engine_task",
+      "status": "no_executor_mapping",
+      "message": "No mapping yet. AutoHeal should create mapping in next executor generation.",
+      "double_sha": "9e345d7459d73237dad87453e567230dd61d224ed927a5e8c28989e1fe6e96c2"
+    },
+    {
+      "topic": "CYBRA 5-Level Double-SHA Guardian Recovery",
+      "type": "executor_autoheal_task",
+      "status": "no_executor_mapping",
+      "message": "No mapping yet. AutoHeal should create mapping in next executor generation.",
+      "double_sha": "8c79dacb812998decb2c902c36bb42402131971fdfb9a9cac7db64c5c0c5d48c"
+    },
+    {
+      "topic": "CYBRA Codespaces Keepalive Support",
+      "type": "codespaces_keepalive_task",
+      "status": "no_executor_mapping",
+      "message": "No mapping yet. AutoHeal should create mapping in next executor generation.",
+      "double_sha": "5f1c85e21ff85ebfccd79153297cf087d896f78a93a3dfd3b026b78e94e1c098"
+    },
+    {
+      "topic": "CYBRA GitHub Double Backend Proof",
+      "type": "github_double_backend_task",
+      "status": "no_executor_mapping",
+      "message": "No mapping yet. AutoHeal should create mapping in next executor generation.",
+      "double_sha": "51cbf626952e9e793cb401fb803a8b0fb3cf0b60bf32260b47deeddb467a0e7b"
+    },
+    {
+      "queue": "failed",
+      "raw": "{\"topic\": \"CYBRA Self-Expanding Execution Engine\", \"type\": \"self_expanding_execution_engine_task\", \"status\": \"no_executor_mapping\", \"double_sha\": \"1acd9e2986856526abe474c9315dcce4c821b8c8521b0db38e09fa33c958e476\", \"retries\": 3}"
+    }
+  ]
+}
