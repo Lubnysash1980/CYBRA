@@ -1,0 +1,9 @@
+{
+  "miner_pool": {
+    "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y": 50
+  },
+  "reward_pool": 50,
+  "difficulty": "owner_configurable_later",
+  "emission": "unlimited_until_governance_rule_set",
+  "status": "active_native_testnet"
+}

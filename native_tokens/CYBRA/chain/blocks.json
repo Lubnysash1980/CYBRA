@@ -1,0 +1,11 @@
+[
+  {
+    "index": 0,
+    "time": 1779797632.9329667,
+    "type": "mined_block",
+    "miner": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
+    "reward": 50,
+    "prev_hash": "genesis",
+    "hash": "e003c024da61a0231ac60e9d133fd7b4baf3f7084882cdb1b86bc65b4c7a054c"
+  }
+]
