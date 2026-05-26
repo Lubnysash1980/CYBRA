@@ -1,0 +1,4 @@
+echo "=== CYBRA Codespaces keepalive ==="
+date
+git status
+bash cybra_test_pipeline.sh 2>/dev/null || true
