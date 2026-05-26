@@ -27,6 +27,7 @@ SCRIPT_MAP = {
     "github_double_backend_task": "github_double_backend.sh",
     "codespaces_keepalive_task": "codespace_keepalive_task.sh",
     "self_expanding_execution_engine_task": "run_answer_engine.sh",
+    "emergency_alert_test_task": "emergency_alert_handler.sh",
     "executor_autoheal_task": "executor_autoheal_double_sha.sh",
     "github_double_backend_task": "github_double_backend.sh",
     "codespaces_keepalive_task": "codespace_keepalive_task.sh"
