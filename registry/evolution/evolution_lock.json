@@ -1,0 +1,13 @@
+{
+  "evolution": "protected",
+  "liquidation": "blocked",
+  "rules": [
+    "do_not_delete_working_modules",
+    "backup_before_change",
+    "quarantine_instead_delete",
+    "rollback_if_failed",
+    "only_upgrade",
+    "no_degradation"
+  ],
+  "status": "locked"
+}
