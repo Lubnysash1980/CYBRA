@@ -16,5 +16,14 @@
     "reward": 50,
     "prev_hash": "e003c024da61a0231ac60e9d133fd7b4baf3f7084882cdb1b86bc65b4c7a054c",
     "hash": "5b4ef75f9d952f149bfb11dbaeef81c43112fe137a332a60626cd167ec42051b"
+  },
+  {
+    "index": 2,
+    "time": 1779818678.4506693,
+    "type": "mined_block",
+    "miner": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
+    "reward": 50,
+    "prev_hash": "5b4ef75f9d952f149bfb11dbaeef81c43112fe137a332a60626cd167ec42051b",
+    "hash": "54e388dc1c7986eb23db8e09bf9b24f899e593f1e558634d78e41a4faa84cefd"
   }
 ]
