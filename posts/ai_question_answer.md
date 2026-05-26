@@ -1,10 +1,16 @@
 # CYBRA AI Research Answer
 
 ## Question
-Скільки морів на Землі?
+Що таке чорна діра?
+
+## Search Status
+error
+
+## Title
+unknown
 
 ## Answer
-Точна кількість морів залежить від класифікації. Зазвичай називають приблизно 70 морів.
+<urlopen error [Errno 7] No address associated with hostname>
 
-## Status
-research_backend_v1
+## Engine
+research_backend_v2
