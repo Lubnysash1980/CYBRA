@@ -1,0 +1,14 @@
+{
+  "topic": "CYBRA PMZ Historical Metadata Registry",
+  "type": "pmz_historical_metadata_task",
+  "status": "executed",
+  "cmd": [
+    "bash",
+    "create_pmz_registry.sh"
+  ],
+  "returncode": 0,
+  "stdout": "✅ PMZ registry created\n",
+  "stderr": "",
+  "time": 1779785119.284724,
+  "hash": "b2051875b93fa12ce3c69f6cab1c5d3ea2df95c8131463ae25210d76dd0064ee"
+}

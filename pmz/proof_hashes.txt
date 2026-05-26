@@ -9,4 +9,5 @@ a0e9e91cea018f9671ee999a406a0d7feddd8921de306728303c3f7009a2e5db  /data/data/com
 79f0b1fcfbb67511a64759031b79db7fa5fd82d2db82791c931fa281006d5a42  /data/data/com.termux/files/home/CYBRA/posts/native_token_status.md
 bba4cc37cb35e7881507b9c1188484b8d14793366e6bd46f15c41ddae4f8eed9  /data/data/com.termux/files/home/CYBRA/posts/cybra_mainnet_status.md
 a7056d7cce2b5382b4ca0a2692e992fb96feaefe6c81fd7d85fbbb6b73f7d4ba  /data/data/com.termux/files/home/CYBRA/posts/autofix_report.md
+7207d6b871816ac05f3eea69d542e7b32bff8fa24f83242068d4b01b32f47fdb  /data/data/com.termux/files/home/CYBRA/posts/pmz_status.md
 6ed8e2ad6a9c6b10d21478d54347eff303e340994a9362400e710ebc08e44b65  /data/data/com.termux/files/home/CYBRA/site/index.html
