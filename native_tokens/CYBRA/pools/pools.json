@@ -1,0 +1,6 @@
+{
+  "reserve_pool": 400000,
+  "liquidity_pool": 300000,
+  "work_pool": 200000,
+  "reward_pool": 100000
+}
