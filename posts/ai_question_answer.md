@@ -4,13 +4,13 @@
 Що таке чорна діра?
 
 ## Search Status
-error
-
-## Title
 unknown
 
+## Title
+None
+
 ## Answer
-<urlopen error [Errno 7] No address associated with hostname>
+None
 
 ## Engine
-research_backend_v2
+research_backend_v3_pure
