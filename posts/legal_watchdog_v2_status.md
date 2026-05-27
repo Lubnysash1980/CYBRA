@@ -4,7 +4,7 @@ Total requests: 12
 Approved / ready: 0
 Submitted: 12
 Pending send: 0
-Responses archived: 2
+Responses archived: 3
 Possible відписки: 0
 
 ## Action
