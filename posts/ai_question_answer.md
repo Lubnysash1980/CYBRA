@@ -1,10 +1,16 @@
-# CYBRA AI Question Answer
+# CYBRA AI Research Answer
 
 ## Question
-Що таке чорна діра?
+Скільки у моря води?
+
+## Search Status
+unknown
+
+## Title
+None
 
 ## Answer
-Питання прийнято AI Parliament. Для реальної автоматичної відповіді потрібен підключений research backend або LLM/API. Зараз створено routing, post і proof.
+None
 
-## Status
-handled_by_ai_question_handler
+## Engine
+research_backend_v3_pure
