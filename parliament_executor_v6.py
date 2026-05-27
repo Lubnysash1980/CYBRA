@@ -20,6 +20,7 @@ MAX_RETRIES = 3
 
 SCRIPT_MAP = {
     "native_token_ecosystem_task": "create_native_token_ecosystem.sh",
+    "native_token_evolution_task": "native_token_evolution.sh",
     "pmz_historical_metadata_task": "create_pmz_registry.sh",
     "cybra_autofix_task": "cybra_autofix.sh",
     "smart_autofix_mining_pool_task": "cybra_mining_autofix.sh",
@@ -29,7 +30,9 @@ SCRIPT_MAP = {
     "self_expanding_execution_engine_task": "run_answer_engine.sh",
     "emergency_alert_test_task": "emergency_alert_handler.sh",
     "test_basic_task": "basic_task_handler.sh",
-    "ai_question_task": "ai_research_backend.sh"
+    "ai_question_task": "ai_research_backend.sh",
+    "legal_registry_check_task": "legal_registry_check_handler.sh",
+    "secure_token_vault_task": "token_vault_autofix.sh"
 }
 
 def double_sha(data: str) -> str:
