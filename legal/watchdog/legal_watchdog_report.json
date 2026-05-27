@@ -1,0 +1,14 @@
+{
+  "time": 1779871512.1332521,
+  "total_requests": 12,
+  "approved_ready_for_manual_submission": 12,
+  "submitted": 0,
+  "pending_send": 12,
+  "responses": 1,
+  "possible_formal_replies": [],
+  "logic": {
+    "if_pending_send": "prepare/send reminder after owner approval",
+    "if_formal_reply": "prepare objection/escalation",
+    "if_no_response": "prepare second/third request"
+  }
+}
