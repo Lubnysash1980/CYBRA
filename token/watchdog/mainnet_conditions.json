@@ -1,0 +1,11 @@
+{
+  "owner_approval": "true",
+  "double_sha_ok": "true",
+  "workers_ok": "true",
+  "watchdog_ok": "true",
+  "vault_ok": "true",
+  "proofs_ok": "true",
+  "legal_ok": "true",
+  "autofix_ok": "true",
+  "mainnet_ready": "true"
+}
