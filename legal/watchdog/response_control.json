@@ -1,0 +1,14 @@
+{
+  "system": "legal_response_watchdog",
+  "organs": {
+    "prosecutor": {"requests": 3, "status": "waiting"},
+    "dbr": {"requests": 3, "status": "waiting"},
+    "court": {"requests": 3, "status": "waiting"},
+    "police": {"requests": 3, "status": "waiting"}
+  },
+  "logic": {
+    "if_no_response": "prepare_next_request",
+    "if_response_received": "archive_and_analyze",
+    "if_deadline_missed": "escalate"
+  }
+}
