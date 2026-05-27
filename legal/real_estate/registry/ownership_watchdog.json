@@ -1,6 +1,5 @@
 {
   "system": "real_estate_ownership_watchdog",
-  "target": "Хотянівська сільська рада Київської області",
   "mode": "manual_after_fingerprint_approval",
   "status": "active",
   "logic": {

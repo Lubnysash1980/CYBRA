@@ -1,4 +1,4 @@
-# Real Estate Evidence Registry
+# Evidence Registry
 
 - договори
 - оплати

@@ -1,4 +1,4 @@
-# Запит 3 щодо нерухомості до registry_service
+# Запит 3 щодо нерухомості до council
 
 Статус: prepared_waiting_fingerprint_approval
 
