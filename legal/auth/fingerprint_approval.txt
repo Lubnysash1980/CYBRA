@@ -1,1 +1,1 @@
-approved 2026-05-27T11:26:19+03:00
+approved_manual_fallback 2026-05-27T20:46:11+03:00 action=test_fingerprint_gate
