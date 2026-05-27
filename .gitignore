@@ -1,0 +1,3 @@
+vault/tokens/*.secret
+vault/tokens/*.key
+vault/tokens/*.env
