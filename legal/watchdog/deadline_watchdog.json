@@ -1,0 +1,6 @@
+{
+  "enabled": true,
+  "check": "manual_or_scheduled",
+  "target": "DBR follow-up response",
+  "status": "waiting"
+}

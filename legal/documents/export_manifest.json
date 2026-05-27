@@ -1,0 +1,9 @@
+{
+  "documents": [
+    "legal/timeline/case_timeline.md",
+    "legal/evidence/evidence_graph.json",
+    "legal/dbr/dbr_followup_request.md",
+    "legal/watchdog/deadline_watchdog.json"
+  ],
+  "status": "prepared"
+}
