@@ -2,10 +2,10 @@
 set -e
 
 mkdir -p legal/real_estate/{requests,evidence,timeline,registry}
-mkdir -p legal/real_estate/requests/{council,registry_service,court,police}
+mkdir -p legal/real_estate/requests/{hotiianivska_silrada,registry_service,court,police}
 mkdir -p posts proofs
 
-for ORG in council registry_service court police; do
+for ORG in hotiianivska_silrada registry_service court police; do
   for N in 1 2 3; do
 
     cat > "legal/real_estate/requests/$ORG/request_$N.md" <<MD
@@ -14,13 +14,13 @@ for ORG in council registry_service court police; do
 Статус: prepared_waiting_fingerprint_approval
 
 Тема:
-перевірка нерухомості та незавершеної форми власності, придбаної на заявника ГРАБЛАСЬКИЙ ОЛЕКСАНДР МИКОЛАЙОВИЧ  ІПН:2937002115 .
+перевірка нерухомості та незавершеної форми власності, придбаної на заявника.
 
 Об’єкт:
 нерухомість / земельна ділянка / будинок / майнові права.
 
 Орган:
-Хотянівська сільська рада київської обл. та пов’язані органи реєстрації.
+Хотянівська сільська рада Київської області та пов’язані органи реєстрації.
 
 ## Прошу надати
 - статус права власності;
@@ -45,7 +45,7 @@ MD
 done
 
 cat > legal/real_estate/evidence/evidence_registry.md <<'MD'
-# Evidence Registry
+# Real Estate Evidence Registry
 
 - договори
 - оплати
@@ -71,6 +71,7 @@ MD
 cat > legal/real_estate/registry/ownership_watchdog.json <<'JSON'
 {
   "system": "real_estate_ownership_watchdog",
+  "target": "Хотянівська сільська рада Київської області",
   "mode": "manual_after_fingerprint_approval",
   "status": "active",
   "logic": {
@@ -86,8 +87,14 @@ find legal/real_estate -type f -exec sha256sum {} \; > proofs/real_estate_legal.
 cat > posts/real_estate_legal_status.md <<'MD'
 # Real Estate Legal System
 
+Об’єкт:
+нерухомість / незавершена форма власності
+
+Орган:
+Хотянівська сільська рада Київської області
+
 Створено:
-- запити щодо нерухомості
+- 12 legal requests
 - evidence registry
 - ownership watchdog
 - timeline справи
@@ -98,6 +105,6 @@ prepared_waiting_fingerprint_approval
 MD
 
 git add legal posts proofs real_estate_legal_system.sh
-git commit -m "add real estate legal watchdog system" || true
+git commit -m "add Hotianivska real estate legal watchdog system" || true
 
 echo "✅ Real estate legal system created"
