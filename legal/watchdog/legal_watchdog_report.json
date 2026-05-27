@@ -1,9 +1,9 @@
 {
-  "time": 1779871528.3629396,
+  "time": 1779904343.0993376,
   "total_requests": 12,
-  "approved_ready_for_manual_submission": 12,
-  "submitted": 0,
-  "pending_send": 12,
+  "approved_ready_for_manual_submission": 0,
+  "submitted": 12,
+  "pending_send": 0,
   "responses": 2,
   "possible_formal_replies": [],
   "logic": {

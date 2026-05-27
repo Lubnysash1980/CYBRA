@@ -1,9 +1,9 @@
 # Legal Watchdog V2
 
 Total requests: 12
-Approved / ready: 12
-Submitted: 0
-Pending send: 12
+Approved / ready: 0
+Submitted: 12
+Pending send: 0
 Responses archived: 2
 Possible відписки: 0
 
