@@ -1,0 +1,11 @@
+{
+  "symbol": "CYBRA",
+  "model": "native_chain_no_mint_account",
+  "status": "evolution_layer_active",
+  "rules": [
+    "no_fake_balances",
+    "proof_required",
+    "upgrade_only",
+    "no_real_mainnet_without_owner_approval"
+  ]
+}
