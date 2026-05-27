@@ -1,14 +1,28 @@
 {
   "system": "legal_response_watchdog",
+  "submission_mode": "manual_after_fingerprint_approval",
   "organs": {
-    "prosecutor": {"requests": 3, "status": "waiting"},
-    "dbr": {"requests": 3, "status": "waiting"},
-    "court": {"requests": 3, "status": "waiting"},
-    "police": {"requests": 3, "status": "waiting"}
+    "prosecutor": {
+      "requests": 3,
+      "status": "waiting_approval"
+    },
+    "dbr": {
+      "requests": 3,
+      "status": "waiting_approval"
+    },
+    "court": {
+      "requests": 3,
+      "status": "waiting_approval"
+    },
+    "police": {
+      "requests": 3,
+      "status": "waiting_approval"
+    }
   },
   "logic": {
     "if_no_response": "prepare_next_request",
     "if_response_received": "archive_and_analyze",
-    "if_deadline_missed": "escalate"
+    "if_deadline_missed": "escalate",
+    "before_send": "require_fingerprint_confirmation"
   }
 }

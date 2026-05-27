@@ -6,3 +6,7 @@
 - 3 запити до суду
 - 3 запити до поліції
 - watchdog контролю відповіді
+- fingerprint/manual approval gate
+
+Статус:
+prepared_waiting_fingerprint_approval
