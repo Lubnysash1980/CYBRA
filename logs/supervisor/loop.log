@@ -246,3 +246,66 @@ Another git process seems to be running in this repository, or the lock file may
     "write proofs"
   ]
 }
+The following paths are ignored by one of your .gitignore files:
+logs
+hint: Use -f if you really want to add them.
+hint: Disable this message with "git config set advice.addIgnoredFile false"
+{
+  "time": 1779981296.2537131,
+  "status": "ok",
+  "checks": {
+    "redis": {
+      "ok": true,
+      "code": 0,
+      "out": "PONG\n",
+      "err": ""
+    },
+    "worker": {
+      "ok": true,
+      "code": 0,
+      "out": "19225\n",
+      "err": ""
+    },
+    "queue": {
+      "ok": true,
+      "code": 0,
+      "out": "QUEUE: 0\nRESULTS: 1176\nAUDIT: 1171\n",
+      "err": ""
+    },
+    "failed": {
+      "ok": true,
+      "code": 0,
+      "out": "4\n",
+      "err": ""
+    },
+    "retry": {
+      "ok": true,
+      "code": 0,
+      "out": "0\n",
+      "err": ""
+    },
+    "pages_files": {
+      "ok": true,
+      "code": 0,
+      "out": "",
+      "err": ""
+    },
+    "git_status": {
+      "ok": true,
+      "code": 0,
+      "out": " M __pycache__/parliament_executor_v6.cpython-313.pyc\n M ai_research_backend.sh\n D assets/app.js\n D assets/assets/app.js\n D assets/assets/style.css\n D assets/style.css\n D docs/.nojekyll\n D docs/assets/app.js\n D docs/assets/style.css\n D docs/index.html\n D docs/mainnet_token.json\n D docs/native_token.json\n D docs/pages/dao.html\n D docs/pages/legal.html\n D docs/pages/proofs.html\n D docs/pages/token.html\n D docs/pages/watchdog.html\n D docs/pmz_manifest.json\n D docs/web/assets/app.js\n D docs/web/assets/style.css\n D docs/web/index.html\n D docs/web/pages/dao.html\n D docs/web/pages/legal.html\n D docs/web/pages/proofs.html\n D docs/web/pages/token.html\n D docs/web/pages/watchdog.html\n M dump.rdb\n M legal/timeline/response_timeline.md\n M logs/executor_v6/3160064db2b297dd5d71f4d2da30284cc8adbfce35a060b27fad9e8090a7e6ac.json\n M logs/supervisor/loop.log\n D pages/dao.html\n D pages/legal.html\n D pages/pages/dao.html\n D pages/pages/legal.html\n D pages/pages/proofs.html\n D pages/pages/token.html\n D pages/pages/watchdog.html\n D pages/proofs.html\n D pages/token.html\n D pages/watchdog.html\n",
+      "err": ""
+    }
+  },
+  "actions": [
+    "submit_autofix_task"
+  ],
+  "rules": [
+    "detect failures",
+    "restart workers",
+    "start redis",
+    "submit autofix task",
+    "repair pages root",
+    "write proofs"
+  ]
+}
