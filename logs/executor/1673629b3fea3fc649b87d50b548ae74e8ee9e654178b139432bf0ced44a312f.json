@@ -1,0 +1,14 @@
+{
+  "topic": "Create native token ecosystem",
+  "type": "native_token_ecosystem_task",
+  "status": "execution_failed",
+  "cmd": [
+    "bash",
+    "create_native_token_ecosystem.sh"
+  ],
+  "returncode": 127,
+  "stdout": "",
+  "stderr": "bash: create_native_token_ecosystem.sh: No such file or directory\n",
+  "time": 1779780816.237635,
+  "hash": "1673629b3fea3fc649b87d50b548ae74e8ee9e654178b139432bf0ced44a312f"
+}

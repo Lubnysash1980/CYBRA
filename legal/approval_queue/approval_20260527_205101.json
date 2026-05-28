@@ -1,0 +1,7 @@
+{
+  "id": "approval_20260527_205101",
+  "status": "waiting_owner_confirmation",
+  "channels": ["email", "diia_sign", "manual"],
+  "target": "legal_requests",
+  "message": "Потрібне підтвердження власника для подачі 12 legal requests"
+}

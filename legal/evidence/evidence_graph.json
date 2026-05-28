@@ -1,0 +1,14 @@
+{
+  "case": "auto_registry_check",
+  "nodes": [
+    "person",
+    "company_auto_capital",
+    "vehicle_unknown",
+    "payment_docs",
+    "contracts",
+    "dbr_statement",
+    "mvs_registry",
+    "dealer_response"
+  ],
+  "edges": []
+}

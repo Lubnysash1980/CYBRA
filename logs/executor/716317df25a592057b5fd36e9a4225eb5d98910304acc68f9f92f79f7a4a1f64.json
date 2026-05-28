@@ -1,0 +1,14 @@
+{
+  "topic": "Створення CYBRA Native Token",
+  "type": "native_token_ecosystem_task",
+  "status": "executed",
+  "cmd": [
+    "bash",
+    "create_native_token_ecosystem.sh"
+  ],
+  "returncode": 0,
+  "stdout": "[main ce08df39a] create CYBRA native token ecosystem\n 1 file changed, 1 insertion(+), 1 deletion(-)\n✅ CYBRA native token ecosystem created\n",
+  "stderr": "",
+  "time": 1779785120.1750078,
+  "hash": "716317df25a592057b5fd36e9a4225eb5d98910304acc68f9f92f79f7a4a1f64"
+}

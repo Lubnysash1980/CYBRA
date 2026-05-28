@@ -1,0 +1,13 @@
+{
+  "mode": "evolution_resilience",
+  "rules": [
+    "never_delete_without_backup",
+    "double_sha_every_change",
+    "quarantine_broken_files",
+    "rollback_on_failure",
+    "preserve_working_state",
+    "no_degradation",
+    "audit_required"
+  ],
+  "status": "active"
+}

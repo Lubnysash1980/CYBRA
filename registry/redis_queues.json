@@ -1,0 +1,20 @@
+{
+  "queues": {
+    "critical": "cybra:parliament:queue:critical",
+    "high": "cybra:parliament:queue:high",
+    "normal": "cybra:parliament:queue:normal",
+    "low": "cybra:parliament:queue:low",
+    "processing": "cybra:parliament:processing",
+    "results": "cybra:parliament:results",
+    "failed": "cybra:parliament:failed",
+    "retry": "cybra:parliament:retry",
+    "audit": "cybra:audit",
+    "dedup": "cybra:parliament:dedup"
+  },
+  "logic": {
+    "priority_order": ["critical", "high", "normal", "low"],
+    "max_retries": 3,
+    "deduplication": true,
+    "audit": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "history_layers": [
+    "genesis",
+    "metadata",
+    "proofs",
+    "ai_parliament_decisions",
+    "status_posts"
+  ],
+  "proof_file": "pmz/proof_hashes.txt"
+}

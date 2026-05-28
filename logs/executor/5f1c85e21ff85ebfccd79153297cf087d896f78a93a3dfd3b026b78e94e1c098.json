@@ -1,0 +1,7 @@
+{
+  "topic": "CYBRA Codespaces Keepalive Support",
+  "type": "codespaces_keepalive_task",
+  "status": "no_executor_mapping",
+  "message": "No mapping yet. AutoHeal should create mapping in next executor generation.",
+  "double_sha": "5f1c85e21ff85ebfccd79153297cf087d896f78a93a3dfd3b026b78e94e1c098"
+}

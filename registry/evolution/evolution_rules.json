@@ -1,0 +1,13 @@
+{
+  "version": "evolution_v1",
+  "rules": [
+    "evolution_only",
+    "no_degradation",
+    "proof_required",
+    "retry_failed",
+    "safe_rewrite",
+    "audit_every_change",
+    "preserve_working_modules"
+  ],
+  "status": "active"
+}

@@ -1,0 +1,21 @@
+{
+  "version": "CYBRA V7",
+  "layers": [
+    "research",
+    "knowledge",
+    "parliament",
+    "executor",
+    "security",
+    "infrastructure",
+    "chain"
+  ],
+  "rules": [
+    "no hallucination",
+    "proof required",
+    "audit every task",
+    "retry failed",
+    "safe execution",
+    "evolution only"
+  ],
+  "status": "initialized"
+}

@@ -1,0 +1,14 @@
+{
+  "topic": "CYBRA Autofix",
+  "type": "cybra_autofix_task",
+  "status": "executed",
+  "cmd": [
+    "bash",
+    "cybra_autofix.sh"
+  ],
+  "returncode": 0,
+  "stdout": "=== CYBRA AUTOFIX START ===\nOn branch main\nYour branch is ahead of 'origin/main' by 2 commits.\n  (use \"git push\" to publish your local commits)\n\nUntracked files:\n  (use \"git add <file>...\" to include in what will be committed)\n\tcreate_native_mainnet_package.sh\n\tcybra_autofix.sh\n\tcybra_background_sync.sh\n\tlogs/\n\tparliament_executor_v2.py\n\treal_executor.py\n\n\nIt took 3.77 seconds to enumerate untracked files.\nSee 'git help status' for information on how to improve this.\n\nnothing added to commit but untracked files present (use \"git add\" to track)\n✅ CYBRA AUTOFIX DONE\nReport: posts/autofix_report.md\n",
+  "stderr": "",
+  "time": 1779785119.6241386,
+  "hash": "d944556b86b2a6c1ce152ab40032f226fc6aee43020f5ee17643763ee0702e0f"
+}

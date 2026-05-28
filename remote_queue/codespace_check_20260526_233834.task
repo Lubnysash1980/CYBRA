@@ -1,0 +1,4 @@
+echo "CYBRA Codespaces checker OK"
+date
+pwd
+ls

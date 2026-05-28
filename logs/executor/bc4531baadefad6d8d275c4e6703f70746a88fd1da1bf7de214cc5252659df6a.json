@@ -1,0 +1,7 @@
+{
+  "topic": "CYBRA Universal Command With Dynamic Class Imports",
+  "type": "universal_cybra_binary_import_runner_task",
+  "status": "no_executor_mapping",
+  "message": "No mapping yet. AutoHeal should create mapping in next executor generation.",
+  "double_sha": "bc4531baadefad6d8d275c4e6703f70746a88fd1da1bf7de214cc5252659df6a"
+}
