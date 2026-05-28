@@ -106,7 +106,7 @@ PY
 
 python3 supervisors/self_healing_supervisor.py
 
-git add supervisors posts/self_healing_supervisor_status.md proofs/self_healing_supervisor.sha256 logs/supervisor cybra_self_healing_supervisor.sh
+git add supervisors posts/self_healing_supervisor_status.md proofs/self_healing_supervisor.sha256 cybra_self_healing_supervisor.sh
 git commit -m "add self-healing worker supervisor" || true
 
 echo "✅ Self-healing supervisor installed"
