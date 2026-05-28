@@ -1,16 +1,13 @@
 # CYBRA AI Research Answer
 
 ## Question
-Що таке чорна діра?
+Що таке GitHub Pages?
 
 ## Search Status
-error
-
-## Title
-unknown
+fallback_offline
 
 ## Answer
-HTTP Error 403: Forbidden
+Питання прийнято CYBRA Parliament. Online research backend недоступний або заблокований, тому відповідь сформована у safe fallback mode. Для повного web-search потрібен окремий API/web bridge.
 
 ## Engine
-research_backend_v2
+research_backend_safe_fallback_v4
