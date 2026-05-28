@@ -1,0 +1,9 @@
+{
+  "name": "CYBRA Coin",
+  "symbol": "CYBRA",
+  "description": "CYBRA native / SPL-ready coin metadata. Devnet first. Mainnet only after owner approval.",
+  "image": "token/assets/cybra.png",
+  "chain": "solana_devnet_first",
+  "decimals": 9,
+  "status": "wallet_visible_prepare"
+}

@@ -24,6 +24,7 @@ SCRIPT_MAP = {
     "legal_registry_check_task": "legal_registry_check_handler.sh",
     "native_token_ecosystem_task": "create_native_token_ecosystem.sh",
     "native_token_evolution_task": "native_token_evolution.sh",
+    "cybra_coin_completion_task": "cybra_coin_completion.sh",
     "secure_token_vault_task": "token_vault_autofix.sh",
     "wallet_visible_token_plan_task": "wallet_visible_token_plan.sh",
     "github_pages_task": "cybra_self_healing_supervisor.sh",
