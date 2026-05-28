@@ -1,2 +1,5 @@
 cd /workspaces/CYBRA 2>/dev/null || cd ~/CYBRA
+solana config set --url devnet
+solana --version
+spl-token --version
 bash token/deploy/solana_devnet/deploy_cybra_spl_devnet.sh
