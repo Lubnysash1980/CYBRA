@@ -1,0 +1,19 @@
+{
+  "system": "CYBRA Worker Pool Resilience",
+  "min_workers": 3,
+  "standby_workers": 2,
+  "failure_threshold_percent": 3,
+  "actions": {
+    "if_worker_down": "restart_worker",
+    "if_failure_rate_gte_3_percent": "replace_worker_and_spawn_standby",
+    "if_failed_queue_not_empty": "create_autofix_task",
+    "if_internet_down": "switch_to_offline_mode"
+  },
+  "rules": [
+    "keep_workers_alive",
+    "auto_replace_failed_workers",
+    "no_secret_logs",
+    "audit_every_replacement",
+    "proof_required"
+  ]
+}

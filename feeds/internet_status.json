@@ -1,0 +1,17 @@
+{
+  "time": 1779991113.4373643,
+  "internet": {
+    "https://github.com": {
+      "ok": true,
+      "code": 200
+    },
+    "https://api.github.com": {
+      "ok": true,
+      "code": 200
+    },
+    "https://wikipedia.org": {
+      "ok": false,
+      "error": "HTTP Error 403: Forbidden"
+    }
+  }
+}
