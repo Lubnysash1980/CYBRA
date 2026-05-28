@@ -1,16 +1,16 @@
 # CYBRA AI Research Answer
 
 ## Question
-Скільки у моря води?
+Що таке чорна діра?
 
 ## Search Status
-unknown
+error
 
 ## Title
-None
+unknown
 
 ## Answer
-None
+HTTP Error 403: Forbidden
 
 ## Engine
-research_backend_v3_pure
+research_backend_v2

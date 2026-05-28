@@ -1,0 +1,5 @@
+{"topic":"TEST 1 basic","type":"test_basic_task","payload":{"goal":"basic execution"},"priority":"normal"}
+{"topic":"TEST 2 AI question","type":"ai_question_task","payload":{"question":"Скільки буде 2+2?"},"priority":"normal"}
+{"topic":"TEST 3 GitHub Pages","type":"github_pages_task","payload":{"goal":"check pages root index"},"priority":"critical"}
+{"topic":"TEST 4 worker resilience","type":"workers_task","payload":{"goal":"check worker autoheal"},"priority":"critical"}
+{"topic":"TEST 5 token evolution","type":"native_token_evolution_task","payload":{"goal":"verify token layer"},"priority":"critical"}

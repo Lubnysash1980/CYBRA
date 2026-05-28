@@ -1,5 +1,9 @@
 #!/data/data/com.termux/files/usr/bin/bash
-cd "$HOME/CYBRA" || exit 1
+set -e
+
+cd "$HOME/CYBRA"
+
+mkdir -p logs/workers
 
 redis-cli ping >/dev/null 2>&1 || redis-server --daemonize yes
 sleep 1

@@ -7,7 +7,7 @@ Failed queue:
 0
 
 Results:
-3
+49
 
 Status feed:
 feeds/worker_resilience_status.json

@@ -8,37 +8,47 @@ mkdir -p logs/resilience posts proofs feeds
 redis-cli ping >/dev/null 2>&1 || redis-server --daemonize yes
 sleep 1
 
-RUNNING=$(pgrep -f parliament_executor_v6.py | wc -l)
 MIN=3
-STANDBY=2
+
+RUNNING=$(ps aux | grep "python3 parliament_executor_v6.py" | grep -v grep | wc -l)
 
 if [ "$RUNNING" -lt "$MIN" ]; then
   NEED=$((MIN - RUNNING))
   for i in $(seq 1 "$NEED"); do
     nohup python3 parliament_executor_v6.py >> logs/resilience/worker_pool.log 2>&1 &
     echo "$(date -Iseconds) spawned_worker pid=$!" >> logs/resilience/worker_spawn.log
+    sleep 1
   done
 fi
+
+sleep 2
+
+RUNNING_AFTER=$(ps aux | grep "python3 parliament_executor_v6.py" | grep -v grep | wc -l)
 
 FAILED=$(redis-cli llen cybra:parliament:failed 2>/dev/null || echo 0)
 RESULTS=$(redis-cli llen cybra:parliament:results 2>/dev/null || echo 1)
 
-python3 - "$FAILED" "$RESULTS" <<'PY'
+python3 - "$FAILED" "$RESULTS" "$RUNNING_AFTER" <<'PY'
 import sys, json, time
 from pathlib import Path
 
 failed = int(sys.argv[1])
 results = max(int(sys.argv[2]), 1)
+running = int(sys.argv[3])
 rate = failed / results * 100
 
 status = {
     "time": time.time(),
+    "running_workers": running,
     "failed": failed,
     "results": results,
     "failure_rate_percent": rate,
     "threshold_percent": 3,
     "action": "none"
 }
+
+if running < 3:
+    status["action"] = "worker_spawn_attempted_but_insufficient"
 
 if rate >= 3:
     status["action"] = "replace_workers_and_create_autofix"
@@ -51,31 +61,11 @@ Path("feeds/worker_resilience_status.json").write_text(
 print(json.dumps(status, ensure_ascii=False, indent=2))
 PY
 
-ACTION=$(python3 - <<'PY'
-import json
-from pathlib import Path
-p = Path("feeds/worker_resilience_status.json")
-print(json.loads(p.read_text()).get("action"))
-PY
-)
-
-if [ "$ACTION" = "replace_workers_and_create_autofix" ]; then
-  pkill -f parliament_executor_v6.py 2>/dev/null || true
-  sleep 1
-
-  for i in 1 2 3 4 5; do
-    nohup python3 parliament_executor_v6.py >> logs/resilience/worker_pool.log 2>&1 &
-    echo "$(date -Iseconds) replacement_worker pid=$!" >> logs/resilience/worker_spawn.log
-  done
-
-  cybra parliament '{"topic":"Worker Failure Rate Autofix","type":"cybra_autofix_task","payload":{"goal":"repair worker pool after failure rate >= 3 percent"},"priority":"critical"}'
-fi
-
 cat > posts/worker_resilience_status.md <<MD
 # CYBRA Worker Resilience
 
 Running workers:
-$(pgrep -f parliament_executor_v6.py | wc -l)
+$RUNNING_AFTER
 
 Failed queue:
 $FAILED
