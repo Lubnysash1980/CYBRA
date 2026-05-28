@@ -1,0 +1,2 @@
+cd /workspaces/CYBRA 2>/dev/null || cd ~/CYBRA
+bash token/deploy/solana_devnet/deploy_cybra_spl_devnet.sh
