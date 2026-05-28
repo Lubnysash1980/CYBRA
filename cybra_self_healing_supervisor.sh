@@ -110,3 +110,5 @@ git add supervisors posts/self_healing_supervisor_status.md proofs/self_healing_
 git commit -m "add self-healing worker supervisor" || true
 
 echo "✅ Self-healing supervisor installed"
+
+exit 0
