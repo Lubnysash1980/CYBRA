@@ -1,5 +1,5 @@
 {
-  "time": 1779983187.8988037,
+  "time": 1779998605.0416071,
   "status": "ok",
   "checks": {
     "redis": {
@@ -11,19 +11,19 @@
     "worker": {
       "ok": true,
       "code": 0,
-      "out": "19225\n",
+      "out": "8295\n9160\n12714\n",
       "err": ""
     },
     "queue": {
       "ok": true,
       "code": 0,
-      "out": "QUEUE: 0\nRESULTS: 1181\nAUDIT: 1176\n",
+      "out": "QUEUE: 1\nRESULTS: 26\nAUDIT: 27\n",
       "err": ""
     },
     "failed": {
       "ok": true,
       "code": 0,
-      "out": "0\n",
+      "out": "11\n",
       "err": ""
     },
     "retry": {
@@ -41,11 +41,13 @@
     "git_status": {
       "ok": true,
       "code": 0,
-      "out": " M __pycache__/parliament_executor_v6.cpython-313.pyc\n M ai_research_backend.sh\n D assets/app.js\n D assets/assets/app.js\n D assets/assets/style.css\n D assets/style.css\n D docs/.nojekyll\n D docs/assets/app.js\n D docs/assets/style.css\n D docs/index.html\n D docs/mainnet_token.json\n D docs/native_token.json\n D docs/pages/dao.html\n D docs/pages/legal.html\n D docs/pages/proofs.html\n D docs/pages/token.html\n D docs/pages/watchdog.html\n D docs/pmz_manifest.json\n D docs/web/assets/app.js\n D docs/web/assets/style.css\n D docs/web/index.html\n D docs/web/pages/dao.html\n D docs/web/pages/legal.html\n D docs/web/pages/proofs.html\n D docs/web/pages/token.html\n D docs/web/pages/watchdog.html\n M dump.rdb\n M legal/timeline/response_timeline.md\n M logs/executor_v6/3160064db2b297dd5d71f4d2da30284cc8adbfce35a060b27fad9e8090a7e6ac.json\nM  logs/supervisor/latest_supervisor_report.json\nMM logs/supervisor/loop.log\n D pages/dao.html\n D pages/legal.html\n D pages/pages/dao.html\n D pages/pages/legal.html\n D pages/pages/proofs.html\n D pages/pages/token.html\n D pages/pages/watchdog.html\n D pages/proofs.html\n D pages/token.html\n",
+      "out": "cutor/3f8d9040a3c880ed17438de51a687b1aee67f8d1918bd225959604ae5ce0e716.json\n D logs/executor/453371d3e28b8905e9984b53bc5aab575cad2f1abf535537e33aed27afa5f109.json\n D logs/executor/51cbf626952e9e793cb401fb803a8b0fb3cf0b60bf32260b47deeddb467a0e7b.json\n D logs/executor/5f1c85e21ff85ebfccd79153297cf087d896f78a93a3dfd3b026b78e94e1c098.json\n D logs/executor/716317df25a592057b5fd36e9a4225eb5d98910304acc68f9f92f79f7a4a1f64.json\n D logs/executor/7245cce3d153a427d962254fef90084daaf8749b66cc09a1d95f5b10f4d9f80d.json\n D logs/executor/84df3bb39887e881a4d17c8201f9f15495ac74575ee10f5ca803daf68bd4da34.json\n D logs/executor/8c79dacb812998decb2c902c36bb42402131971fdfb9a9cac7db64c5c0c5d48c.json\n D logs/executor/9e345d7459d73237dad87453e567230dd61d224ed927a5e8c28989e1fe6e96c2.json\n D logs/executor/a3c40eeb4a90b6c9d8ff1b63659cbb680201e5cf4c2452d483c109fc0684823e.json\n D logs/executor/ab815c34aed264d1cb19e99d16cb4ce7f1e03a94424b0174e10b2801b4c2eb9a.json\n D logs/executor/b2051875b93fa12ce3c69f6cab1c5d3ea2df95c8131463ae25210d76dd0064ee.json\n D logs/executor/bc4531baadefad6d8d275c4e6703f70746a88fd1da1bf7de214cc5252659df6a.json\n D logs/executor/c068a06dbe8a39dde41287854e6c133773cc87723dc2949f80b906f5ff74f54a.json\n D logs/executor/cba615398e11949cd3b93ccce3d8bfd6ba22978ba22e571b3ccba0d8bb445cf6.json\n D logs/executor/d05d9564f3e46c1145ea85948962c535bd9d163a48e020ba51cfaabdd2a0ed19.json\n D logs/executor/d944556b86b2a6c1ce152ab40032f226fc6aee43020f5ee17643763ee0702e0f.json\n D logs/executor/e0e47642b0ffa6bcf3666b320b862a2a4778630fcb27382825fd3468bee89304.json\n D logs/executor/fe73c567f9a896c622552a150797f4180cc92781386daff3048d2b3ee8643f86.json\nM  logs/supervisor/latest_supervisor_report.json\n D parliament_executor_v2.py\n M parliament_executor_v6.py\n M posts/ai_question_answer.md\nM  posts/self_healing_supervisor_status.md\n M proofs/ai_question_answer.sha256\nM  proofs/self_healing_supervisor.sha256\n M proofs/worker_resilience.sha256\n D real_executor.py\n M workers/pool/worker_resilience_manager.sh\n",
       "err": ""
     }
   },
-  "actions": [],
+  "actions": [
+    "submit_autofix_task"
+  ],
   "rules": [
     "detect failures",
     "restart workers",
