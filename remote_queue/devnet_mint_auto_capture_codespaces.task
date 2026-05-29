@@ -1,0 +1,3 @@
+cd /workspaces/CYBRA
+git pull
+bash token/deploy/solana_devnet/devnet_mint_auto_capture.sh
