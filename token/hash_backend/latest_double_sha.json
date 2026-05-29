@@ -1,0 +1,22 @@
+{
+  "token/coin/cybra_metadata.json": {
+    "sha256": "ecb82b5ed0cd3fa1756427b43190de8bb5c21c1d8677f6d21133ce1d1c221a6d",
+    "double_sha256": "fe5a019179e17ec188dbc785cbe5457abbbce0b77030423b25f8da00ccaecc59",
+    "size": 283
+  },
+  "token/assets/cybra.png": {
+    "sha256": "87325b80f8490a65a164a94d6208e98316e3dd46d93822e1efbab3d1df62d94a",
+    "double_sha256": "1b6bad8e6eef5f9a71d4611796ac024b1c702dbfcd17268194c46a9c4ba3c10c",
+    "size": 22
+  },
+  "token/deploy/solana_devnet/deploy_cybra_spl_devnet.sh": {
+    "sha256": "3daa85366f51056831e76052d315f65641fcf37c320208c556bb698aa50ba6dd",
+    "double_sha256": "7dbadab2152b5b2fcfaed94d3a71cd09f0ac0f3c185d341947748ba5cfcc4cf3",
+    "size": 229
+  },
+  "token/runtime/chain_env.json": {
+    "sha256": "4ced08bf0e3e8493283e9d08d532ecd89f4746780de4b8d49142ca512adbea1d",
+    "double_sha256": "362b99983c6c6a8d1c5df52f68e3d4fb40fa656cbbd58f72de3763e73504b58f",
+    "size": 201
+  }
+}

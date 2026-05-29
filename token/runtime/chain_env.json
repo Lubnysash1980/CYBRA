@@ -1,0 +1,7 @@
+{
+  "active_mode": "mainnet",
+  "allowed_modes": ["test", "devnet", "mainnet"],
+  "mainnet_requires_owner_approval": true,
+  "mainnet_requires_double_sha": true,
+  "mainnet_requires_health_ok": true
+}
