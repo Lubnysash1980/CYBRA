@@ -1,0 +1,12 @@
+{
+  "mainnet_status": "LOCKED",
+  "wallet_visible": false,
+  "metadata_valid": true,
+  "logo_present": false,
+  "double_sha_valid": true,
+  "watchdog_ok": true,
+  "autoheal_ok": false,
+  "autofix_ok": true,
+  "owner_approval": true,
+  "ready_for_mainnet": false
+}
