@@ -1,0 +1,12 @@
+{
+  "symbol": "CYBRA",
+  "name": "CYBRA Coin",
+  "mode": "mainnet",
+  "chain": "solana",
+  "network": "mainnet",
+  "mint_address": "",
+  "metadata_uri": "",
+  "logo_uri": "token/assets/cybra.png",
+  "decimals": 9,
+  "status": "preflight_ready"
+}
