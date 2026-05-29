@@ -1,7 +1,13 @@
 {
   "mode": "mainnet",
   "wallet": "phantom",
-  "wallet_visible": false,
-  "requires": ["mint_address", "metadata_uri", "logo_uri", "owner_wallet"],
-  "status": "waiting_devnet_mint"
+  "wallet_visible": true,
+  "requires": [
+    "mint_address",
+    "metadata_uri",
+    "logo_uri",
+    "owner_wallet"
+  ],
+  "status": "devnet_wallet_ready",
+  "mint_address": ""
 }
