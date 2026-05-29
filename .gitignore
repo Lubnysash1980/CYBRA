@@ -6,3 +6,12 @@ __pycache__/
 dump.rdb
 logs/
 pages_backup/
+__pycache__/
+*.pyc
+dump.rdb
+logs/
+local_backup_before_pull/
+node_modules/
+venv/
+ai_network/repos/*/node_modules/
+ai_network/repos/*/venv/
