@@ -1,0 +1,6 @@
+cd /workspaces/CYBRA
+git pull
+solana config set --url devnet
+solana address
+solana balance
+bash token/deploy/solana_devnet/deploy_cybra_spl_devnet.sh
