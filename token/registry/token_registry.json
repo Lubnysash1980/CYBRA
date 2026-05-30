@@ -3,10 +3,10 @@
   "name": "CYBRA Coin",
   "mode": "mainnet",
   "chain": "solana",
-  "network": "mainnet",
-  "mint_address": "",
+  "network": "devnet",
+  "mint_address": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
   "metadata_uri": "",
   "logo_uri": "token/assets/cybra.png",
   "decimals": 9,
-  "status": "preflight_ready"
+  "status": "devnet_wallet_ready"
 }
