@@ -1,0 +1,22 @@
+{
+  "system": "CYBRA SHA CORE",
+  "status": "active",
+  "visibility": "closed_local",
+  "layers": [
+    "patches",
+    "double_sha_proofs",
+    "watchdog",
+    "autoheal",
+    "autofix",
+    "audit",
+    "coin_runtime",
+    "neural_runtime"
+  ],
+  "rules": [
+    "no_secrets_in_git",
+    "patch_per_task",
+    "double_sha_required",
+    "audit_required",
+    "owner_approval_for_critical"
+  ]
+}

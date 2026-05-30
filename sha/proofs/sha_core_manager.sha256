@@ -1,0 +1,3 @@
+b93dcce2b63ca71e8ec19c0504c37c02d9db25ded13b603c2e523ea996dcca36  sha/runtime/sha_core_policy.json
+b6c1883613303e0582aa28312c3454ff6627e1c60015ccdf9261d4d699b64c31  sha/runtime/sha_core_manager.py
+85f522be200453d677e7175abdc3f392c72494c14aa5ff0ed934ceaba766d3d8  sha/runtime/init_patch.json
