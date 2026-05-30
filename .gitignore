@@ -15,3 +15,6 @@ node_modules/
 venv/
 ai_network/repos/*/node_modules/
 ai_network/repos/*/venv/
+vault/usa_patch/
+private_patches/usa_patch/secrets/
+private_patches/usa_patch/*.env
