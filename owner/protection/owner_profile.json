@@ -1,0 +1,21 @@
+{
+  "owner": "Грабовський Олександр Миколайович",
+  "role": "CYBRA owner / protected person",
+  "protection_mode": "legal_digital_watchdog",
+  "rules": [
+    "no private data in public logs",
+    "no unauthorized actions",
+    "legal response only",
+    "audit every critical event",
+    "double_sha_proof_required"
+  ],
+  "modules": [
+    "watchdog",
+    "autoheal",
+    "autofix",
+    "sha_core",
+    "legal_watchdog",
+    "emergency_alert",
+    "proof_archive"
+  ]
+}
