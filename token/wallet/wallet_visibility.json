@@ -9,5 +9,6 @@
     "owner_wallet"
   ],
   "status": "devnet_wallet_ready",
-  "mint_address": ""
+  "mint_address": "\u0422\u0423\u0422_\u0412\u0421\u0422\u0410\u0412_MINT_ADDRESS",
+  "network": "devnet"
 }
