@@ -1,0 +1,49 @@
+cd /workspaces/CYBRA
+git pull
+solana config set --url devnet
+
+MINT=$(spl-token create-token | tee /tmp/cybra_create_token.log | grep "Address:" | awk '{print $2}')
+
+if [ -z "$MINT" ]; then
+  echo "Mint not created"
+  exit 1
+fi
+
+spl-token create-account "$MINT"
+spl-token mint "$MINT" 1000000
+
+echo "$MINT" > token/runtime/latest_mint.txt
+
+python3 - "$MINT" <<'PY'
+import json, sys
+from pathlib import Path
+mint=sys.argv[1]
+
+for f in ["token/registry/token_registry.json","token/wallet/phantom_add.json"]:
+    p=Path(f)
+    data=json.loads(p.read_text()) if p.exists() else {}
+    data["mint_address"]=mint
+    data["network"]="devnet"
+    data["status"]="devnet_minted"
+    p.write_text(json.dumps(data, indent=2), encoding="utf-8")
+PY
+
+cat > posts/cybra_devnet_mint_status.md <<MD
+# CYBRA Devnet Mint
+
+Status: deployed
+
+Mint address:
+$MINT
+
+Network:
+Solana Devnet
+MD
+
+sha256sum token/runtime/latest_mint.txt token/registry/token_registry.json token/wallet/phantom_add.json posts/cybra_devnet_mint_status.md > proofs/cybra_devnet_mint.sha256
+
+git add token/runtime/latest_mint.txt token/registry/token_registry.json token/wallet/phantom_add.json posts/cybra_devnet_mint_status.md proofs/cybra_devnet_mint.sha256
+git commit -m "create and capture new CYBRA devnet mint" || true
+git push
+
+echo "✅ CYBRA mint created: $MINT"
