@@ -1,7 +1,7 @@
 {
   "symbol": "CYBRA",
   "name": "CYBRA Coin",
-  "mode": "mainnet",
+  "mode": "devnet",
   "chain": "solana",
   "network": "devnet",
   "mint_address": "BpRne1tiJ1DNztJF1C8RaspmxbfXJrsDPKzp4QPDdPFi",
