@@ -1,0 +1,12 @@
+{
+  "mode": "check",
+  "mainnet_ready": false,
+  "final_approval": false,
+  "double_sha": true,
+  "metadata": true,
+  "logo": true,
+  "sol_balance": "unknown",
+  "target_supply": "49000000000000000000",
+  "mint_authority": "keep_until_target_supply",
+  "revoke_mint_authority_after_target": true
+}
