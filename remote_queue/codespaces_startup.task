@@ -1,0 +1,5 @@
+cd /workspaces/CYBRA 2>/dev/null || cd ~/CYBRA
+bash bridge/codespaces/pull_from_termux.sh
+bash token/devnet/devnet_preflight_check.sh || true
+cat token/registry/token_registry.json 2>/dev/null || true
+cat posts/cybra_devnet_mint_status.md 2>/dev/null || true
