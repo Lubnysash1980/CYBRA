@@ -1,7 +1,7 @@
 {
   "wallet": "Phantom",
-  "network": "Solana Devnet",
+  "network": "devnet",
   "token_symbol": "CYBRA",
-  "mint_address": "ТУТ_ВСТАВ_MINT_ADDRESS",
-  "status": "ready_to_add_manually"
+  "mint_address": "BpRne1tiJ1DNztJF1C8RaspmxbfXJrsDPKzp4QPDdPFi",
+  "status": "devnet_minted"
 }

@@ -3,7 +3,7 @@
 Status: deployed
 
 Mint address:
-ТУТ_ВСТАВ_MINT_ADDRESS
+BpRne1tiJ1DNztJF1C8RaspmxbfXJrsDPKzp4QPDdPFi
 
 Network:
 Solana Devnet

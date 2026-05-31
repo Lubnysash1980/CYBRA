@@ -4,9 +4,9 @@
   "mode": "mainnet",
   "chain": "solana",
   "network": "devnet",
-  "mint_address": "\u0422\u0423\u0422_\u0412\u0421\u0422\u0410\u0412_MINT_ADDRESS",
+  "mint_address": "BpRne1tiJ1DNztJF1C8RaspmxbfXJrsDPKzp4QPDdPFi",
   "metadata_uri": "",
   "logo_uri": "token/assets/cybra.png",
   "decimals": 9,
-  "status": "devnet_wallet_ready"
+  "status": "devnet_minted"
 }
