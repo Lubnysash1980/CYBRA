@@ -1,0 +1,16 @@
+{
+  "status": "active",
+  "root_double_sha": "3d83e31b230ecf8ef391c04d02c0a6ffea7d26a22b5a447f790396a1b3527a3b",
+  "modules": [
+    "device",
+    "git",
+    "audio",
+    "video",
+    "pixels",
+    "bits",
+    "bytes",
+    "ai_os",
+    "parliament",
+    "autofix"
+  ]
+}

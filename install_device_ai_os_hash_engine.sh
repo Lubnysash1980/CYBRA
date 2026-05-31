@@ -1,3 +1,9 @@
+#!/data/data/com.termux/files/usr/bin/bash
+set -e
+
+mkdir -p hash_storage device/os ai_engine media_engine posts proofs feeds parliament/tasks bridge/secure
+
+cat > gitcybrahash_double_backend.mjs <<'MJS'
 import crypto from "crypto";
 import fs from "fs/promises";
 import fss from "fs";
@@ -370,3 +376,16 @@ export {
   pixelOverlayHashAsync,
   bitByteOverlayHashAsync
 };
+MJS
+
+node gitcybrahash_double_backend.mjs
+
+sha256sum \
+gitcybrahash_double_backend.mjs \
+hash_storage/root_hash.json \
+feeds/ai_os_engine.json \
+posts/ai_os_engine_status.md \
+proofs/ai_os_engine.sha256 \
+> proofs/ai_os_engine_install.sha256
+
+echo "✅ CYBRA AI OS Hash Engine installed"
