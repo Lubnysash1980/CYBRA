@@ -2,6 +2,12 @@
 
 Status: installed
 
+Light mode:
+enabled
+
+Reason:
+No git add . — avoids loading ai_network, logs, node_modules, recovery.
+
 Commands:
 - bridge/termux/push_to_codespaces.sh
 - bridge/termux/pull_from_codespaces.sh

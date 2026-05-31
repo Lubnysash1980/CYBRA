@@ -45,6 +45,7 @@ echo "✅ Codespaces pushed results"
 BASH
 
   chmod +x bridge/termux/*.sh bridge/codespaces/*.sh
+
   date -Iseconds > "$PATCH_FLAG"
 fi
 
@@ -61,6 +62,12 @@ cat > posts/codespace_termux_bridge_status.md <<'MD'
 
 Status: installed
 
+Light mode:
+enabled
+
+Reason:
+No git add . — avoids loading ai_network, logs, node_modules, recovery.
+
 Commands:
 - bridge/termux/push_to_codespaces.sh
 - bridge/termux/pull_from_codespaces.sh
@@ -74,9 +81,9 @@ MD
 cat > feeds/codespace_termux_bridge.json <<'JSON'
 {
   "status": "installed",
-  "bridge": "termux_codespaces",
-  "sync": "github",
-  "autopatch": true
+  "mode": "light",
+  "git_add_all": false,
+  "avoid_large_dirs": ["ai_network", "logs", "node_modules", "recovery"]
 }
 JSON
 
@@ -88,4 +95,4 @@ sha256sum \
   feeds/codespace_termux_bridge.json \
   > proofs/codespace_termux_bridge.sha256
 
-echo "✅ CYBRA Codespaces-Termux bridge patch installed"
+echo "✅ CYBRA Codespaces-Termux bridge patch installed/light"
