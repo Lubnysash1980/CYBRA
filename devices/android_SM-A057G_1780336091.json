@@ -1,0 +1,12 @@
+{
+  "device_id": "android_SM-A057G_1780336091",
+  "type": "android_termux",
+  "model": "SM-A057G",
+  "android": "15",
+  "repo": "CYBRA",
+  "git_branch": "main",
+  "ai_os_backend": true,
+  "double_sha_backend": true,
+  "memory_mode": "accelerated_hash_index",
+  "time": "2026-06-01T20:48:11+03:00"
+}
