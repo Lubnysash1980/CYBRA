@@ -1,6 +1,6 @@
 {
   "status": "installed",
-  "mode": "light",
-  "git_add_all": false,
-  "avoid_large_dirs": ["ai_network", "logs", "node_modules", "recovery"]
+  "bridge": "termux_codespaces",
+  "sync": "github",
+  "autopatch": true
 }
