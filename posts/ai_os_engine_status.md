@@ -3,7 +3,7 @@
 Status: active
 
 Root Double SHA:
-3d83e31b230ecf8ef391c04d02c0a6ffea7d26a22b5a447f790396a1b3527a3b
+f45a6d1cdbba4251c702d0a7590da9c9c119c8cf4c5fcc6c90cc8d3d279144a1
 
 Modules:
 - Device integration
