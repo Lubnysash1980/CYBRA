@@ -17,6 +17,7 @@ Q_FAILED = "cybra:parliament:failed"
 Q_AUDIT = "cybra:audit"
 
 SCRIPT_MAP = {
+    "finance_token_profit_audit_task": "finance_token_profit_audit_handler.sh",
     "kibra_market_exchange_task": "kibra_market_exchange_handler.sh",
     "finance_infrastructure_task": "finance_infrastructure_handler.sh",
     "existing_tasks_activation_task": "existing_tasks_activation_handler.sh",

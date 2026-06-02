@@ -1,0 +1,192 @@
+{
+  "status": "finance_token_profit_audit_report_generated",
+  "time": 1780433487.9576337,
+  "time_iso": "2026-06-02T23:51:27+0300",
+  "score": 100,
+  "max_score": 100,
+  "state": {
+    "status": "finance_token_profit_audit_generated",
+    "time": 1780433487.4792411,
+    "time_iso": "2026-06-02T23:51:27+0300",
+    "latest_kibra_hash": "008a14703eb452470cbbed74931d44f6220897823d71c436b3dacb5fab11f896",
+    "modules": {
+      "finance_department": true,
+      "finance_infrastructure": true,
+      "monetization": true,
+      "market_exchange": true,
+      "native_kibra": true,
+      "kibra_chain": true,
+      "external_anchor_package": true
+    },
+    "runtime": {
+      "queue": 0,
+      "results": 77,
+      "failed": 0,
+      "finance_ledger": 17,
+      "finance_audit": 37,
+      "finance_risk_items": 0,
+      "mint_proposals": 1,
+      "payment_proposals": 1,
+      "gold_proposals": 1,
+      "monetization_proposals": 17,
+      "anchor_queue": 1,
+      "anchor_manual_ready": 8
+    },
+    "kibra": {
+      "height": 8,
+      "latest_difficulty": 2,
+      "token": {
+        "token_type": "Image",
+        "name": "Кібра",
+        "symbol": "KIBRA",
+        "total_supply_raw": "49000000000000000",
+        "total_supply_label": "49 thousand trillion tokens",
+        "decimals": 9,
+        "mint_status": "proof_chain_only_until_manual_wallet_approval",
+        "image_status": "token image metadata placeholder"
+      }
+    },
+    "proof_inputs": {
+      "department": "6bcf69d206fdafb38f1749108775346e4820f1c51e61723767ea83007e49aa56",
+      "policy": "2425dc346d39d8f9371249aac2a06dc9ff0b1719d78d6759e6a1884e039b10a0",
+      "finance_report": "d809dc84f5484c1e0d0e5c5fb47adb920b53c67f2e283093946e4259c8c842ce",
+      "finance_infrastructure": "6d2649027f450919a823d99d58d9815cdf255c01115728252f5e36dad7d48c07",
+      "monetization": "5969c40f0b217598df75965ddd3fc935bac0fb085bc3b38f71de5698e88d266a",
+      "market_exchange": "7871cf5ac0bf651d59388d74eb962c333406ab59d6e83e491801762d16530286",
+      "native_kibra": "debcf3af13b6d8911b11c8813793a4ecd0b72a73d3736c7ba8183b21242b55e4",
+      "kibra_chain": "9d7d6f05e3a7a95809ca6521f0637d7e8bc4c5c323d10de2d5c864ca72756d16"
+    },
+    "git": {
+      "branch": "main",
+      "commit": "539e9321e",
+      "dirty_files": 162
+    }
+  },
+  "recommendations": [
+    {
+      "level": "warning",
+      "area": "anchor",
+      "recommendation": "Anchor queue треба пакувати в manual anchor package, не виконуючи on-chain автоматично.",
+      "action": "bash fix_kibra_verify_finance_anchor.sh"
+    },
+    {
+      "level": "growth",
+      "area": "profit_optimization",
+      "recommendation": "Підвищувати прибутковість не через штучну ціну, а через utility: AI credits, proof services, anchor packages, developer support, marketplace.",
+      "action": "Створити utility pricing table і demand plan."
+    },
+    {
+      "level": "growth",
+      "area": "liquidity",
+      "recommendation": "Підготувати liquidity depth model: стартова ліквідність, slippage, sell limits, staged sells, без fake volume.",
+      "action": "AI Parliament task: liquidity_depth_model"
+    },
+    {
+      "level": "growth",
+      "area": "native_emission",
+      "recommendation": "Для native KIBRA потрібна emission policy: block reward, supply tracking, halving або adaptive reward.",
+      "action": "AI Parliament task: native_emission_policy"
+    },
+    {
+      "level": "growth",
+      "area": "gold_treasury",
+      "recommendation": "Gold/XAU має бути treasury accounting proposal, не обіцянка забезпечення без audited reserve.",
+      "action": "AI Parliament task: gold_reserve_proof_model"
+    }
+  ],
+  "ai_tasks": [
+    {
+      "topic": "Finance Profit Audit Recommendation 1: anchor",
+      "type": "owner_orchestrator_task",
+      "priority": "high",
+      "payload": {
+        "source": "finance_token_profit_audit_department",
+        "area": "anchor",
+        "recommendation": "Anchor queue треба пакувати в manual anchor package, не виконуючи on-chain автоматично.",
+        "action": "bash fix_kibra_verify_finance_anchor.sh",
+        "real_payment_execution": false,
+        "automatic_token_mint": false,
+        "automatic_liquidity_pool": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true,
+        "no_guaranteed_profit": true,
+        "no_market_manipulation": true
+      }
+    },
+    {
+      "topic": "Finance Profit Audit Recommendation 2: profit_optimization",
+      "type": "monetization_department_task",
+      "priority": "high",
+      "payload": {
+        "source": "finance_token_profit_audit_department",
+        "area": "profit_optimization",
+        "recommendation": "Підвищувати прибутковість не через штучну ціну, а через utility: AI credits, proof services, anchor packages, developer support, marketplace.",
+        "action": "Створити utility pricing table і demand plan.",
+        "real_payment_execution": false,
+        "automatic_token_mint": false,
+        "automatic_liquidity_pool": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true,
+        "no_guaranteed_profit": true,
+        "no_market_manipulation": true
+      }
+    },
+    {
+      "topic": "Finance Profit Audit Recommendation 3: liquidity",
+      "type": "kibra_market_exchange_task",
+      "priority": "high",
+      "payload": {
+        "source": "finance_token_profit_audit_department",
+        "area": "liquidity",
+        "recommendation": "Підготувати liquidity depth model: стартова ліквідність, slippage, sell limits, staged sells, без fake volume.",
+        "action": "AI Parliament task: liquidity_depth_model",
+        "real_payment_execution": false,
+        "automatic_token_mint": false,
+        "automatic_liquidity_pool": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true,
+        "no_guaranteed_profit": true,
+        "no_market_manipulation": true
+      }
+    },
+    {
+      "topic": "Finance Profit Audit Recommendation 4: native_emission",
+      "type": "native_kibra_evolution_task",
+      "priority": "high",
+      "payload": {
+        "source": "finance_token_profit_audit_department",
+        "area": "native_emission",
+        "recommendation": "Для native KIBRA потрібна emission policy: block reward, supply tracking, halving або adaptive reward.",
+        "action": "AI Parliament task: native_emission_policy",
+        "real_payment_execution": false,
+        "automatic_token_mint": false,
+        "automatic_liquidity_pool": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true,
+        "no_guaranteed_profit": true,
+        "no_market_manipulation": true
+      }
+    },
+    {
+      "topic": "Finance Profit Audit Recommendation 5: gold_treasury",
+      "type": "finance_infrastructure_task",
+      "priority": "high",
+      "payload": {
+        "source": "finance_token_profit_audit_department",
+        "area": "gold_treasury",
+        "recommendation": "Gold/XAU має бути treasury accounting proposal, не обіцянка забезпечення без audited reserve.",
+        "action": "AI Parliament task: gold_reserve_proof_model",
+        "real_payment_execution": false,
+        "automatic_token_mint": false,
+        "automatic_liquidity_pool": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true,
+        "no_guaranteed_profit": true,
+        "no_market_manipulation": true
+      }
+    }
+  ],
+  "submit_ai": false,
+  "profit_notice": "No guaranteed profit. This module creates optimization recommendations only.",
+  "double_sha": "9a23166299232629c56477a9cdf837ae332a2ab6148357ec72d15dbf4bd6ee0a"
+}
