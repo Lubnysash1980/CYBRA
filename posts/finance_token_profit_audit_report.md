@@ -28,15 +28,15 @@ Mode: audit + recommendation + AI tasks
 ## Runtime
 
 - Queue: 0
-- Results: 97
+- Results: 137
 - Failed: 0
 - Finance risk items: 0
 - Mint proposals: 1
 - Payment proposals: 1
 - Gold proposals: 1
-- Monetization proposals: 24
+- Monetization proposals: 25
 - Anchor queue: 3
-- Anchor manual ready: 23
+- Anchor manual ready: 53
 
 ## Recommendations
 
@@ -60,4 +60,4 @@ Mode: audit + recommendation + AI tasks
 
 Double SHA:
 
-`9cdc21b9e1107522a487cfd6a5e90845cec93721d16fb336c16e8fc06356f276`
+`4b5bff9098f7a03c1cdbef32946949fef445fa2d5b9a986ee816f237dde6df99`

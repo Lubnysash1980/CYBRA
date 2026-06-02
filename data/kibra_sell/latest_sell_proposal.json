@@ -1,7 +1,7 @@
 {
   "status": "sell_proposal_created",
-  "time": 1780435997.3691533,
-  "time_iso": "2026-06-03T00:33:17+0300",
+  "time": 1780438884.586738,
+  "time_iso": "2026-06-03T01:21:24+0300",
   "native_coin": "KIBRA",
   "sell_at_market_price": true,
   "market_price_usd_per_kibra": "0.001",
@@ -24,5 +24,5 @@
     "no fake price",
     "no wash trading"
   ],
-  "double_sha": "d6e1459869da1319e486784cd3fab5cf6189c1f822e9a83c7efee6f18b6cfe13"
+  "double_sha": "8dd7ec0b612712b42b532e1d8357bd2bf99e8fd6a214717ac8f297b2517a0447"
 }

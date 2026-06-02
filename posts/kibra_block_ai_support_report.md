@@ -7,7 +7,7 @@ Status: **generated**
 - Total block files: **10**
 - AI tasks total: **10**
 - AI tasks sent now: **0**
-- Skipped duplicates: **0**
+- Skipped duplicates: **10**
 - Pool-tagged blocks: **10**
 - Shares total: **210**
 - Latest KIBRA hash: `00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab`
@@ -38,4 +38,4 @@ Status: **generated**
 
 ## Double SHA
 
-`baafb9e734a79b9aadf5bc43e1ee0f99361d8a86d155894f300a08cba99c077c`
+`484001316389070e162b5d74034391317f12b1460d746aeb034a0c74a85239cb`

@@ -1,7 +1,7 @@
 {
   "status": "kibra_difficulty_classes_created",
-  "time": 1780436547.3588715,
-  "time_iso": "2026-06-03T00:42:27+0300",
+  "time": 1780438933.5608807,
+  "time_iso": "2026-06-03T01:22:13+0300",
   "latest_kibra_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab",
   "total_blocks": 10,
   "difficulties_found": [
@@ -187,6 +187,6 @@
     "real_sell_execution_now": false,
     "manual_OWNER_approval_required": true
   },
-  "submit_ai": false,
-  "double_sha": "be95a463c8edf0334b743009bdfda5e1921e98c82123c9cfe950f241f6c2641b"
+  "submit_ai": true,
+  "double_sha": "16f506b78321b0cf15d226211f13ba5aac5d8a860bb55ea559062448ce020a96"
 }

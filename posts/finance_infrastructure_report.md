@@ -40,14 +40,14 @@ Mode: proposal ledger + manual execution
 - Mint proposals: 1
 - Payment proposals: 1
 - Gold proposals: 1
-- Finance ledger: 18
-- Finance audit: 38
+- Finance ledger: 19
+- Finance audit: 40
 
 ## Proof
 
 Double SHA:
 
-`9f311f4f5822ed267f7ee8aa64bf7dc215cb36dcb830bd7789fd9ca9724305e7`
+`11e7ce14d2fbdd9f2d3c8fc25e0504f5d64c29db89fd620057810515798c6b6b`
 
 ## Files
 

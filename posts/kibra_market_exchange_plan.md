@@ -48,8 +48,8 @@ Status: **generated**
 
 Latest KIBRA hash:
 
-`00f957b0f5cda9f673bf10d8d440279ea89e7834787871183b14c5540b8d3aa5`
+`00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab`
 
 Double SHA:
 
-`dacbb8ef8aee049d7dfa6fe885e208430a99c897b9bbf57dc5e0ebe0510f985a`
+`0dbeb2d8c6b0da81c4e6b7ff5a5db06bb0463fa337f076a07a794f832ed0026a`

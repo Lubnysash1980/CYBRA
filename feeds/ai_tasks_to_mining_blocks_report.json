@@ -1,14 +1,14 @@
 {
   "status": "ai_tasks_to_mining_blocks_report",
-  "time": 1780437188.7056942,
-  "time_iso": "2026-06-03T00:53:08+0300",
+  "time": 1780439172.6987107,
+  "time_iso": "2026-06-03T01:26:12+0300",
   "collected_now": 0,
   "mined_block": null,
   "redis": {
     "mempool": 0,
-    "mined": 0,
-    "pool_queue": 0,
-    "audit": 3,
+    "mined": 9,
+    "pool_queue": 9,
+    "audit": 23,
     "ai_block_support_queue": 0
   },
   "rule": "AI tasks are not sent directly. They are converted to mined KIBRA task-blocks and then provided to pools.",
@@ -18,5 +18,5 @@
     "external_tx": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "0d30de3b40b37dd75aced4d0585d5446f51763debc4d0a45a80035f9f12f9267"
+  "double_sha": "7c5c05cb38d03e84ed71551abb551b41c7274d4adaba9272b1ada113c96f609b"
 }

@@ -13,7 +13,7 @@ Parent: **KIBRA Mint Repair Department**
 ## Block state
 
 - Blocks total: **10**
-- Task blocks total: **4**
+- Task blocks total: **8**
 - Pool-tagged blocks: **10**
 - Shares total: **210**
 - Broken block files detected: **0**
@@ -45,8 +45,8 @@ Parent: **KIBRA Mint Repair Department**
 
 - Parliament queue: **0**
 - Parliament failed: **0**
-- Task blocks mined: **4**
-- Pool mining blocks: **4**
+- Task blocks mined: **8**
+- Pool mining blocks: **8**
 - Mint repair queue: **0**
 - Broken blocks: **0**
 
@@ -62,4 +62,4 @@ Parent: **KIBRA Mint Repair Department**
 
 ## Double SHA
 
-`99f9c70fd501cfbf51ba2dc3264c453b62240f29d0cf59cf2dcdcda2fa0dcc14`
+`45c709861c31f75c825f09c1c0f62700bd93dc206dccb7633a1197238a28eae0`

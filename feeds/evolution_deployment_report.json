@@ -1,27 +1,27 @@
 {
   "status": "evolution_deployment_report_generated",
-  "time": 1780436004.1680586,
-  "time_iso": "2026-06-03T00:33:24+0300",
+  "time": 1780439205.876982,
+  "time_iso": "2026-06-03T01:26:45+0300",
   "state": {
-    "time": 1780436003.6406138,
-    "time_iso": "2026-06-03T00:33:23+0300",
+    "time": 1780439205.3014362,
+    "time_iso": "2026-06-03T01:26:45+0300",
     "git": {
       "branch": "main",
-      "commit": "a1750b0d7",
-      "dirty_files": 141
+      "commit": "866a4844c",
+      "dirty_files": 133
     },
     "redis": {
       "queue": 0,
-      "results": 97,
+      "results": 137,
       "failed": 0,
-      "audit": 97,
+      "audit": 137,
       "kibra_audit": 13,
       "finance_ledger": 19,
       "finance_audit": 40,
       "anchor_queue": 3,
-      "anchor_manual_ready": 23,
-      "monetization_audit": 24,
-      "monetization_proposals": 24,
+      "anchor_manual_ready": 53,
+      "monetization_audit": 25,
+      "monetization_proposals": 25,
       "spend_proposals": 1,
       "evolution_approved": 6,
       "evolution_hold": 0,
@@ -52,11 +52,11 @@
     },
     "monetization": {
       "exists": true,
-      "double_sha": "fc6074fb02818dd65a73876978872be44fe1b4414c47c866dd32529996ad276f"
+      "double_sha": "e93c68fd112ff42925fab740b61c7d4628ce6433d0022724ecf4fdbcccfa5ce8"
     },
     "hash": {
       "exists": true,
-      "root_double_sha": "bfa5933a62f1529111059e7a51847c80224288a3d37df2820fc0a76d4e5afe26"
+      "root_double_sha": "6581782f91d4b7eeccf991fea53ea3b22f592bfeaca9865bfe4dff7d83238752"
     },
     "anchor": {
       "exists": true,
@@ -79,5 +79,5 @@
   },
   "created_tasks": [],
   "policy_sha256": "260aa19a8de66e53477782e52ce78d6f42ba9826bd489a813a079db44f0730f7",
-  "double_sha": "06701a33ff1cc15436b8123f8ff27099e29eefe61720f5580f1046d79329d9e0"
+  "double_sha": "0895b4e23770f9848e776b2a8421bb39b910708654bb2aa92b5675816d2911e1"
 }

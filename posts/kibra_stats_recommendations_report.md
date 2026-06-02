@@ -30,7 +30,7 @@ Status: **generated**
 ## Mint / Finance
 
 - Mint audit: **8**
-- Mint promotion: **21**
+- Mint promotion: **22**
 - Mint management: **6**
 - Mint finance: **6**
 - Sell plans: **6**
@@ -65,4 +65,4 @@ Status: **generated**
 
 ## Double SHA
 
-`a21befae9c9160b1c1da325019e3d9291f89fe37d0ef861086c6db7d80f3de1a`
+`95c68c9a9ee820c6e21391ddf861f9680a084585493cb1d6578ba6e87919c473`

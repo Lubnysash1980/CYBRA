@@ -1,7 +1,7 @@
 {
   "status": "native_kibra_ai_task_package_created",
-  "time": 1780435987.0072622,
-  "time_iso": "2026-06-03T00:33:07+0300",
+  "time": 1780439196.6785085,
+  "time_iso": "2026-06-03T01:26:36+0300",
   "policy": {
     "name": "Native KIBRA Coin Policy",
     "status": "draft_ready",
@@ -97,5 +97,5 @@
     "whitepaper": "3a554be5021c4e3e3beecc2b5f9790107e3549ef47a390d1d72e057b6e1cf6e0",
     "site_index": "cec2e31aeefc6ec87ef05394f39fbebeb7d51caa016a1d3d346b8ab5910afc7d"
   },
-  "double_sha": "56746d0f2d35a78017a62e35e7de4a92ab0ef897f1ca8abfa8bf7dd42b30e076"
+  "double_sha": "b81694d5206d3c85d7b7a7da0461c285435b6bb45ec44812114540f584b519bd"
 }

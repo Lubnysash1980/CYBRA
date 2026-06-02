@@ -1,0 +1,9 @@
+{
+  "sealed_id": "KIBRA-BRIDGE-9403f15d7ef9e2cd",
+  "bridge_sha_seal": "9403f15d7ef9e2cdf97bc599d77308fed9910aa4c69ef306352d619b119675e8",
+  "latest_kibra_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab",
+  "blocks_count": 10,
+  "real_network_broadcast_now": false,
+  "manual_OWNER_approval_required": true,
+  "outbox_file": "data/kibra_bridge/outbox/KIBRA-BRIDGE-9403f15d7ef9e2cd.json"
+}

@@ -3,13 +3,13 @@
 Status: generated
 
 Payload SHA256:
-`a0fedbfecbddd881e5478bc4065d694e88a392cbde6791a2c5b33c36e3f58622`
+`eae07d205651fdc60d787af09a18aa1698df10400907b13eb78556f65dbbc50e`
 
 Payload Double SHA:
-`d5e2604dde75e6309eb79b44f23b4248d9def8b6adc742791b4c09282585fa97`
+`45a1f584754a2f5ad3723fea8f7167e560fb1c46399df75bb12cd91775f95160`
 
 Root Double SHA:
-`bfa5933a62f1529111059e7a51847c80224288a3d37df2820fc0a76d4e5afe26`
+`6581782f91d4b7eeccf991fea53ea3b22f592bfeaca9865bfe4dff7d83238752`
 
 Manifest:
 `hash_storage/test/hash_module_test_manifest.json`

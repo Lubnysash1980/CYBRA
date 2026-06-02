@@ -1,17 +1,17 @@
 {
   "status": "kibra_mint_management_finance_report_generated",
-  "time": 1780438549.7530088,
-  "time_iso": "2026-06-03T01:15:49+0300",
+  "time": 1780438889.2141225,
+  "time_iso": "2026-06-03T01:21:29+0300",
   "submit_ai": false,
   "latest_kibra_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab",
   "accounting": {
     "main_blocks": 10,
-    "task_blocks": 6,
+    "task_blocks": 8,
     "block_reward_kibra": "100",
     "task_block_reward_kibra": "100",
     "main_reward_accounting_kibra": "1000",
-    "task_reward_accounting_kibra": "600",
-    "total_mined_accounting_kibra": "1600",
+    "task_reward_accounting_kibra": "800",
+    "total_mined_accounting_kibra": "1800",
     "pool_shares_total": 210,
     "real_payout_now": false,
     "accounting_only": true
@@ -27,7 +27,7 @@
   "strategy": {
     "strategy": "reference_price_hold_or_utility_sale",
     "reason": "Reference price exists but real market is not confirmed. Do not sell automatically; prepare utility sale and verification.",
-    "estimated_value_usd": "1.600",
+    "estimated_value_usd": "1.800",
     "market_price_usd_per_kibra": "0.001",
     "real_market_confirmed": false,
     "sell_allowed_now": false,
@@ -60,17 +60,17 @@
     "management_audit": 5,
     "finance_audit": 5,
     "sell_plans": 6,
-    "ai_queue": 0,
+    "ai_queue": 3,
     "parliament_queue": 0,
     "parliament_failed": 0,
-    "task_blocks_mined": 6,
-    "pool_mining_blocks": 6,
+    "task_blocks_mined": 8,
+    "pool_mining_blocks": 8,
     "mint_repair_queue": 0
   },
   "git": {
     "branch": "main",
-    "commit": "0367342ef",
-    "dirty_files": 122
+    "commit": "69d3ce2bf",
+    "dirty_files": 131
   },
   "safety": {
     "real_sell_now": false,
@@ -81,5 +81,5 @@
     "guaranteed_profit": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "6b4670799dc727f706110751cc3c2bcc6c458a3a701dc9d82d4b5b01df2df2a1"
+  "double_sha": "fe4c95669d83a67f797d1719239784bb6b927ecb00af004997d5bf0aaeff251c"
 }

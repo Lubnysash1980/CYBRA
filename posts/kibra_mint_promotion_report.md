@@ -52,4 +52,4 @@ Parent: **KIBRA Mint Repair Department**
 
 ## Double SHA
 
-`5f32e4b117d85e782c0fcbcb48b4f3b60b741bd4f52389b8b95c18fe2d4f07e9`
+`5261ae5658e833ebef0aed61cce2896a42eec93391e6f78dced6ce7986e88cc0`

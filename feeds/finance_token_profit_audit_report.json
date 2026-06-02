@@ -1,13 +1,13 @@
 {
   "status": "finance_token_profit_audit_report_generated",
-  "time": 1780436003.1310945,
-  "time_iso": "2026-06-03T00:33:23+0300",
+  "time": 1780439204.7755847,
+  "time_iso": "2026-06-03T01:26:44+0300",
   "score": 100,
   "max_score": 100,
   "state": {
     "status": "finance_token_profit_audit_generated",
-    "time": 1780436002.6600847,
-    "time_iso": "2026-06-03T00:33:22+0300",
+    "time": 1780439204.2262175,
+    "time_iso": "2026-06-03T01:26:44+0300",
     "latest_kibra_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab",
     "modules": {
       "finance_department": true,
@@ -20,7 +20,7 @@
     },
     "runtime": {
       "queue": 0,
-      "results": 97,
+      "results": 137,
       "failed": 0,
       "finance_ledger": 19,
       "finance_audit": 40,
@@ -28,9 +28,9 @@
       "mint_proposals": 1,
       "payment_proposals": 1,
       "gold_proposals": 1,
-      "monetization_proposals": 24,
+      "monetization_proposals": 25,
       "anchor_queue": 3,
-      "anchor_manual_ready": 23
+      "anchor_manual_ready": 53
     },
     "kibra": {
       "height": 10,
@@ -50,16 +50,16 @@
       "department": "6bcf69d206fdafb38f1749108775346e4820f1c51e61723767ea83007e49aa56",
       "policy": "2425dc346d39d8f9371249aac2a06dc9ff0b1719d78d6759e6a1884e039b10a0",
       "finance_report": "fd52042fa49543748b19dcda46edfb6bc1f62bac62ca93555bd38a116914caaf",
-      "finance_infrastructure": "67386eec6cb640d9370b585c0a3f95fd5a0e69962ccb938a93289eaf00640105",
-      "monetization": "81a6de050163a91b81c844fcfc4fb9631496360bcb6a00cafab55457fb7eb91e",
-      "market_exchange": "32f28e395c091f7a707131afd4562f9ebf544117f09b6657cbc8edba8cc6d3b1",
-      "native_kibra": "4049f0328eb9d636ec45569d8d51028791d8c98511b3ede6916c4e39a7fe6a0c",
+      "finance_infrastructure": "e603dfc17cc6e92fc1c843eabe94222205b4f0a75296cfe7e547e70c3fb1a623",
+      "monetization": "1b531bc60881bac751a68f335b2e1803b65be449abaa9b163f89413bf0bc3546",
+      "market_exchange": "cb66fbf546da32a64eca5811a9a5d1fe7ff951eff02b47fc4c4bbd29f22e5e95",
+      "native_kibra": "4e394112176b0adbc9c1d2a59f85ee4d87e76aea2c34628fb1559c95acab7a33",
       "kibra_chain": "92d4c65228a63257f417b5211aebeb8ec4cb306e3d7269a182346ffeeb1da58c"
     },
     "git": {
       "branch": "main",
-      "commit": "a1750b0d7",
-      "dirty_files": 141
+      "commit": "866a4844c",
+      "dirty_files": 133
     }
   },
   "recommendations": [
@@ -188,5 +188,5 @@
   ],
   "submit_ai": false,
   "profit_notice": "No guaranteed profit. This module creates optimization recommendations only.",
-  "double_sha": "9cdc21b9e1107522a487cfd6a5e90845cec93721d16fb336c16e8fc06356f276"
+  "double_sha": "4b5bff9098f7a03c1cdbef32946949fef445fa2d5b9a986ee816f237dde6df99"
 }
