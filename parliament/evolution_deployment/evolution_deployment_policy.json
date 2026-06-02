@@ -1,0 +1,31 @@
+{
+  "name": "CYBRA Evolution Deployment",
+  "status": "active",
+  "mode": "safe_growth_orchestrator",
+  "mission": "Тестувати розвиток Кіберапарламенту, знаходити слабкі місця і створювати наступні безпечні еволюційні задачі.",
+  "allowed_actions": [
+    "scan_system_state",
+    "score_maturity",
+    "create_roadmap",
+    "submit_safe_development_tasks",
+    "refresh_reports",
+    "request_hash_proof",
+    "request_finance_review",
+    "request_revision",
+    "request_analytics",
+    "request_monetization_cycle",
+    "request_kibra_chain_growth",
+    "request_anchor_package"
+  ],
+  "blocked_actions": [
+    "automatic_payment",
+    "automatic_token_mint",
+    "automatic_liquidity_pool_creation",
+    "automatic_external_blockchain_tx",
+    "private_key_use",
+    "seed_phrase_use",
+    "market_manipulation",
+    "guaranteed_price"
+  ],
+  "evolution_rule": "Only develop utility, proof, safety, audit, monetization proposals, difficulty chain and owner-approved workflows."
+}

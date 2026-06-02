@@ -1,0 +1,76 @@
+{
+  "status": "evolution_deployment_report_generated",
+  "time": 1780424850.1615949,
+  "time_iso": "2026-06-02T21:27:30+0300",
+  "state": {
+    "time": 1780424846.0505984,
+    "time_iso": "2026-06-02T21:27:26+0300",
+    "git": {
+      "branch": "main",
+      "commit": "69b745a0c",
+      "dirty_files": 193
+    },
+    "redis": {
+      "queue": 0,
+      "results": 63,
+      "failed": 0,
+      "audit": 63,
+      "kibra_audit": 11,
+      "finance_ledger": 13,
+      "finance_audit": 25,
+      "anchor_queue": 0,
+      "anchor_manual_ready": 6,
+      "monetization_audit": 7,
+      "monetization_proposals": 7,
+      "spend_proposals": 1,
+      "evolution_approved": 6,
+      "evolution_hold": 0,
+      "evolution_rejected": 0
+    },
+    "files": {
+      "kibra_chain": true,
+      "monetization": true,
+      "finance": true,
+      "hash": true,
+      "institution": true,
+      "anchor_package": true,
+      "parliament_review": true
+    },
+    "kibra": {
+      "height": 8,
+      "latest_hash": "008a14703eb452470cbbed74931d44f6220897823d71c436b3dacb5fab11f896",
+      "latest_difficulty": 2
+    },
+    "finance": {
+      "risk_items": 0,
+      "records_checked": 72
+    },
+    "institution": {
+      "missing_organs": 0,
+      "missing_mapping": 0,
+      "missing_committees": 2
+    },
+    "monetization": {
+      "exists": true,
+      "double_sha": "a7ccaa00b64444e3fcf4eb83eb1379ea839ab069cff708561c093870ae954566"
+    },
+    "hash": {
+      "exists": true,
+      "root_double_sha": "8c4c5d6fc6e7a9fa327399198c30849297984dccd3c00ee8db6e914ca9a2e1ec"
+    },
+    "anchor": {
+      "exists": true,
+      "anchor_package_root": "8e6a795d5883000714fd0af9a6274518021f43c56d8c5577ee2652503aa743c1"
+    }
+  },
+  "assessment": {
+    "score": 100,
+    "max_score": 100,
+    "maturity": "self_improving",
+    "gaps": [],
+    "next_tasks": []
+  },
+  "created_tasks": [],
+  "policy_sha256": "260aa19a8de66e53477782e52ce78d6f42ba9826bd489a813a079db44f0730f7",
+  "double_sha": "c345f12738a64f96351bee9dd3bc4eb45db4ee616a478c8064db7973ae05cee2"
+}
