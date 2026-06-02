@@ -32,3 +32,5 @@ runtime/
 data/finance/private/
 *card*
 *bank*
+*seed*
+.env
