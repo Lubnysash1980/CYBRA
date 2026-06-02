@@ -1,0 +1,42 @@
+{
+  "name": "CYBRA Parliament Review Organ",
+  "version": "1.0",
+  "status": "active",
+  "queues": {
+    "incoming": "cybra:review:incoming",
+    "approved": "cybra:review:approved",
+    "hold": "cybra:review:hold",
+    "rejected": "cybra:review:rejected",
+    "audit": "cybra:review:audit",
+    "execution": "cybra:parliament:queue"
+  },
+  "organs": [
+    {
+      "name": "Secretariat",
+      "role": "register incoming tasks"
+    },
+    {
+      "name": "Security Review",
+      "role": "block dangerous, illegal, money-transfer, violence, account-freeze tasks"
+    },
+    {
+      "name": "Technical Validator",
+      "role": "check JSON, task type, executor mapping"
+    },
+    {
+      "name": "Execution Council",
+      "role": "approve safe mapped tasks into execution queue"
+    },
+    {
+      "name": "Audit Chamber",
+      "role": "write Redis audit, posts, feeds, double SHA proofs"
+    }
+  ],
+  "policy": {
+    "no_private_keys": true,
+    "no_unauthorized_access": true,
+    "no_forced_money_transfer": true,
+    "no_illegal_freeze_or_arrest_actions": true,
+    "official_source_required_for_alerts": true
+  }
+}
