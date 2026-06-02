@@ -1,0 +1,16 @@
+[
+  {
+    "level": "growth",
+    "area": "promotion",
+    "recommendation": "Просувати KIBRA через utility: AI credits, proof services, bridge packages, developer marketplace, pool mining.",
+    "task_type": "kibra_mint_promotion_task",
+    "action": "bash cybra_mint_promo.sh report"
+  },
+  {
+    "level": "growth",
+    "area": "next_blocks",
+    "recommendation": "Наступні AI-завдання не відправляти напряму: переводити у task-blocks і давати пулам на майнинг.",
+    "task_type": "ai_tasks_to_blocks_task",
+    "action": "bash cybra_ai_blocks.sh until-done"
+  }
+]

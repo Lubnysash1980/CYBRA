@@ -1,0 +1,30 @@
+{
+  "department_id": "kibra_stats_recommendations_department",
+  "name": "KIBRA Statistics and Parliament Recommendations Department",
+  "status": "active",
+  "mission": "Збирати статистику KIBRA: блоки, пули, shares, AI-task blocks, bridge, mint, finance, audit, promotion, price/sell, repair; формувати рекомендації AI Parliament.",
+  "checks": [
+    "blocks",
+    "difficulty",
+    "pool_tagged_blocks",
+    "shares",
+    "task_blocks",
+    "ai_tasks",
+    "mint_management",
+    "mint_finance",
+    "mint_audit",
+    "mint_promotion",
+    "bridge",
+    "price_sell_repair",
+    "parliament_queue",
+    "failed_tasks",
+    "proofs"
+  ],
+  "safety": [
+    "no_real_sell",
+    "no_real_payment",
+    "no_fake_price",
+    "no_fake_volume",
+    "manual_OWNER_approval_required"
+  ]
+}

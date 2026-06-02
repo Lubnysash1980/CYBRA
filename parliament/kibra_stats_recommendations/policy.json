@@ -1,0 +1,14 @@
+{
+  "name": "KIBRA Stats and Recommendations Policy",
+  "status": "active",
+  "mode": "statistics_recommendations_ai_tasks",
+  "native_coin": true,
+  "external_mint": false,
+  "rule": "Статистика показує стан системи, рекомендації парламенту створюють AI-завдання на доробку. Реальних продажів/платежів немає без OWNER approval.",
+  "outputs": [
+    "stats_report",
+    "recommendations_report",
+    "ai_tasks",
+    "proof"
+  ]
+}

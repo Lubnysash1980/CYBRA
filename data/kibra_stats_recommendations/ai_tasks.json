@@ -1,0 +1,38 @@
+[
+  {
+    "topic": "KIBRA Parliament Recommendation 1: promotion",
+    "type": "kibra_mint_promotion_task",
+    "priority": "high",
+    "payload": {
+      "source": "kibra_stats_recommendations_department",
+      "level": "growth",
+      "area": "promotion",
+      "recommendation": "Просувати KIBRA через utility: AI credits, proof services, bridge packages, developer marketplace, pool mining.",
+      "suggested_action": "bash cybra_mint_promo.sh report",
+      "real_sell": false,
+      "real_payment": false,
+      "fake_price": false,
+      "fake_volume": false,
+      "external_tx": false,
+      "manual_OWNER_approval_required": true
+    }
+  },
+  {
+    "topic": "KIBRA Parliament Recommendation 2: next_blocks",
+    "type": "ai_tasks_to_blocks_task",
+    "priority": "high",
+    "payload": {
+      "source": "kibra_stats_recommendations_department",
+      "level": "growth",
+      "area": "next_blocks",
+      "recommendation": "Наступні AI-завдання не відправляти напряму: переводити у task-blocks і давати пулам на майнинг.",
+      "suggested_action": "bash cybra_ai_blocks.sh until-done",
+      "real_sell": false,
+      "real_payment": false,
+      "fake_price": false,
+      "fake_volume": false,
+      "external_tx": false,
+      "manual_OWNER_approval_required": true
+    }
+  }
+]
