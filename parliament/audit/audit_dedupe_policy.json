@@ -1,0 +1,25 @@
+{
+  "name": "CYBRA Audit Dedupe Tagging Guard",
+  "version": "1.0",
+  "status": "active",
+  "purpose": "Перевіряти задачі Кіберапарламенту перед виконанням, не допускати дублікати, додавати audit, tags, fingerprint і double SHA.",
+  "redis_keys": {
+    "queue": "cybra:parliament:queue",
+    "results": "cybra:parliament:results",
+    "dedupe_set": "cybra:dedupe:fingerprints",
+    "fingerprints": "cybra:audit:fingerprints",
+    "structured_audit": "cybra:audit:structured",
+    "duplicates": "cybra:dedupe:duplicates",
+    "tag_index": "cybra:audit:tags"
+  },
+  "rules": {
+    "duplicate_policy": "block_duplicate_by_fingerprint",
+    "force_allowed": true,
+    "force_requires_cli_flag": "--force",
+    "no_private_keys": true,
+    "no_secret_dump": true,
+    "no_runtime_env_in_git": true,
+    "tag_every_task": true,
+    "double_sha_every_task": true
+  }
+}

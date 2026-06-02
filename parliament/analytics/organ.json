@@ -1,0 +1,16 @@
+{
+  "organ": "analytics",
+  "status": "active",
+  "purpose": "Аналітика роботи Кіберапарламенту",
+  "created_or_checked_at": "2026-06-02T17:33:48+0300",
+  "rules": [
+    "audit_required",
+    "proof_required",
+    "evolution_only",
+    "block_degradation",
+    "no_private_keys",
+    "no_secret_dump",
+    "no_uncontrolled_payments"
+  ],
+  "double_sha": "c43cd3c93f95f3f290f880fe73dfc92b3bc1edca33ce5e03badabf442699d3e2"
+}

@@ -1,0 +1,16 @@
+{
+  "organ": "institution",
+  "status": "active",
+  "purpose": "Головний інституційний контроль Кіберапарламенту",
+  "created_or_checked_at": "2026-06-02T17:33:48+0300",
+  "rules": [
+    "audit_required",
+    "proof_required",
+    "evolution_only",
+    "block_degradation",
+    "no_private_keys",
+    "no_secret_dump",
+    "no_uncontrolled_payments"
+  ],
+  "double_sha": "8bee3ad56062c24dfd404767937cc1be996a6338e4220de8d486ce6e14822dd9"
+}

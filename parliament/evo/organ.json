@@ -1,0 +1,16 @@
+{
+  "organ": "evo",
+  "status": "active",
+  "purpose": "Створення нових комітетів і розвиток",
+  "created_or_checked_at": "2026-06-02T17:33:48+0300",
+  "rules": [
+    "audit_required",
+    "proof_required",
+    "evolution_only",
+    "block_degradation",
+    "no_private_keys",
+    "no_secret_dump",
+    "no_uncontrolled_payments"
+  ],
+  "double_sha": "de478688f7595483a5ad848ebfe1d953e565a0cc1f8c10d5eb6a5a97cc673f92"
+}

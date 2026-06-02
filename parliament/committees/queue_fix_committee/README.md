@@ -9,4 +9,4 @@ Purpose:
 Підтримувати задачі типу queue_fix: mapping, handler, audit, proof, diagnostics.
 
 Double SHA:
-`c804350e68d41f05b0dac420599243b3254108b8963f2818547538ce8fe361cf`
+`dc7ed7ca5f30d1039ae27f7f2e52022119e378524574a5c0af5d5e1c5bf5d75b`

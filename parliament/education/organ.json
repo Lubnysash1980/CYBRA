@@ -1,0 +1,16 @@
+{
+  "organ": "education",
+  "status": "active",
+  "purpose": "Освіта, інструкції, документація",
+  "created_or_checked_at": "2026-06-02T17:33:48+0300",
+  "rules": [
+    "audit_required",
+    "proof_required",
+    "evolution_only",
+    "block_degradation",
+    "no_private_keys",
+    "no_secret_dump",
+    "no_uncontrolled_payments"
+  ],
+  "double_sha": "021fdabc11d329f98c3a05ed8792e85c21f2fd3f26dad54aa6438cbbe8f95c59"
+}

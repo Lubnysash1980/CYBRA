@@ -2,7 +2,7 @@
 
 Status: generated  
 Mode: check  
-Double SHA: `4cc7ac696326fcc98b1e84399b498081f8bccabcb20f831d224321a025d4f9e9`
+Double SHA: `b5a0e7647cc68d74ae8d9cd469172a24bc388a2440f25174276def5b83515b4f`
 
 ## Summary
 
@@ -10,20 +10,20 @@ Double SHA: `4cc7ac696326fcc98b1e84399b498081f8bccabcb20f831d224321a025d4f9e9`
 - Task types: 20
 - Executor mapping count: 40
 - Required organs: 10
-- Missing organs: 1
+- Missing organs: 0
 - Task types without mapping: 0
 - Mapped handlers missing files: 0
 - Task types without committee: 0
-- Departments files: 16
-- Committees files: 62
-- Protection files: 2
+- Departments files: 18
+- Committees files: 64
+- Protection files: 3
 
 ## Organs
 
 - ✅ `review` — parliament/review — Перевірка задач перед виконанням
 - ✅ `revision` — parliament/revision — Ревізія виконаних і невиконаних задач
 - ✅ `analytics` — parliament/analytics — Аналітика результатів роботи
-- ❌ `education` — parliament/education — Освіта, інструкції, документація
+- ✅ `education` — parliament/education — Освіта, інструкції, документація
 - ✅ `evo` — parliament/evo — Створення нових комітетів і розвиток
 - ✅ `evolution` — parliament/evolution — Фільтр розвитку проти деградації
 - ✅ `audit` — parliament/audit — Audit, dedupe, tag logging
@@ -87,5 +87,5 @@ Double SHA: `4cc7ac696326fcc98b1e84399b498081f8bccabcb20f831d224321a025d4f9e9`
 
 ## Recommendations
 
-- **critical**: Не всі базові органи Кіберапарламенту існують. Action: `Запусти repair: bash cybra_institution.sh repair`
+- **ok**: Кіберапарламент має базові департаменти, комітети, mapping і захист для поточних тасків. Action: `Продовжувати тестування.`
 

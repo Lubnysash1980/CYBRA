@@ -2,24 +2,24 @@
   "name": "CYBRA Parliament Institution Audit",
   "status": "generated",
   "mode": "check",
-  "time": 1780410735.6722984,
+  "time": 1780410833.1337368,
   "git": {
     "branch": "main",
-    "commit": "2ea1e1d48",
-    "dirty_files": 143
+    "commit": "df9f61ca4",
+    "dirty_files": 163
   },
   "summary": {
     "tasks_checked": 56,
     "task_types": 20,
     "executor_mapping_count": 40,
     "required_organs": 10,
-    "missing_organs": 1,
+    "missing_organs": 0,
     "task_types_without_mapping": 0,
     "mapped_handlers_missing_files": 0,
     "task_types_without_committee": 0,
-    "departments_files": 16,
-    "committees_files": 62,
-    "protection_files": 2
+    "departments_files": 18,
+    "committees_files": 64,
+    "protection_files": 3
   },
   "statuses": {
     "unknown": 7,
@@ -61,61 +61,61 @@
     "review": {
       "path": "parliament/review",
       "exists": true,
-      "files": 1,
+      "files": 3,
       "purpose": "Перевірка задач перед виконанням"
     },
     "revision": {
       "path": "parliament/revision",
       "exists": true,
-      "files": 1,
+      "files": 3,
       "purpose": "Ревізія виконаних і невиконаних задач"
     },
     "analytics": {
       "path": "parliament/analytics",
       "exists": true,
-      "files": 0,
+      "files": 2,
       "purpose": "Аналітика результатів роботи"
     },
     "education": {
       "path": "parliament/education",
-      "exists": false,
-      "files": 0,
+      "exists": true,
+      "files": 2,
       "purpose": "Освіта, інструкції, документація"
     },
     "evo": {
       "path": "parliament/evo",
       "exists": true,
-      "files": 1,
+      "files": 3,
       "purpose": "Створення нових комітетів і розвиток"
     },
     "evolution": {
       "path": "parliament/evolution",
       "exists": true,
-      "files": 1,
+      "files": 3,
       "purpose": "Фільтр розвитку проти деградації"
     },
     "audit": {
       "path": "parliament/audit",
       "exists": true,
-      "files": 1,
+      "files": 3,
       "purpose": "Audit, dedupe, tag logging"
     },
     "protection": {
       "path": "parliament/protection",
       "exists": true,
-      "files": 2,
+      "files": 3,
       "purpose": "Захист системи, секретів, Git, runtime"
     },
     "departments": {
       "path": "parliament/departments",
       "exists": true,
-      "files": 16,
+      "files": 18,
       "purpose": "Департаменти підтримки платформи"
     },
     "committees": {
       "path": "parliament/committees",
       "exists": true,
-      "files": 62,
+      "files": 64,
       "purpose": "Комітети під типи задач"
     }
   },
@@ -296,12 +296,9 @@
   "missing_handlers": [],
   "recommendations": [
     {
-      "level": "critical",
-      "message": "Не всі базові органи Кіберапарламенту існують.",
-      "missing": [
-        "education"
-      ],
-      "action": "Запусти repair: bash cybra_institution.sh repair"
+      "level": "ok",
+      "message": "Кіберапарламент має базові департаменти, комітети, mapping і захист для поточних тасків.",
+      "action": "Продовжувати тестування."
     }
   ],
   "created_or_checked": {
@@ -310,5 +307,5 @@
     "protection": false,
     "gitignore_added": []
   },
-  "double_sha": "4cc7ac696326fcc98b1e84399b498081f8bccabcb20f831d224321a025d4f9e9"
+  "double_sha": "b5a0e7647cc68d74ae8d9cd469172a24bc388a2440f25174276def5b83515b4f"
 }

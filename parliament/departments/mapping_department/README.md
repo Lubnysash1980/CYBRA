@@ -6,4 +6,4 @@ Purpose:
 Redis executor mapping і відсутні handler-и
 
 Double SHA:
-`4d8dba2b33b627a680e2ab40719c13870c1f606b9328a7f4348eeab7375c4a1d`
+`8b382b9336a69313e230464fd63b73756e20c39408c0c9f7ca43b936ad7f2fcc`

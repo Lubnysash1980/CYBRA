@@ -6,4 +6,4 @@ Purpose:
 Контроль executor, worker, handler execution
 
 Double SHA:
-`d75576d3bed4ca6183c38f546f32276d5542e8af763d14c113a325539443a74f`
+`38032dcbe362e06cddf97e079414c62bc75b853739f3484fa9b99de53344e8e0`

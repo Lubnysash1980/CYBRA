@@ -2,7 +2,7 @@
   "department_id": "proof_department",
   "status": "active",
   "purpose": "Proof, sha256, double SHA, root hash",
-  "created_or_checked_at": "2026-06-02T17:31:42+0300",
+  "created_or_checked_at": "2026-06-02T17:33:48+0300",
   "rules": [
     "audit_required",
     "proof_required",
@@ -10,5 +10,5 @@
     "no_secret_dump",
     "evolution_only"
   ],
-  "double_sha": "92ad935b1bd5f46166a0959fa1704bbd8432e2e8ea4a895984015f84e4272b65"
+  "double_sha": "ba69aa977c109a54924e35871f92727d500990e191c40487ede9635cc6706ccd"
 }

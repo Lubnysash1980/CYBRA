@@ -1,0 +1,16 @@
+{
+  "organ": "audit",
+  "status": "active",
+  "purpose": "Audit, dedupe, tag logging, fingerprints",
+  "created_or_checked_at": "2026-06-02T17:33:48+0300",
+  "rules": [
+    "audit_required",
+    "proof_required",
+    "evolution_only",
+    "block_degradation",
+    "no_private_keys",
+    "no_secret_dump",
+    "no_uncontrolled_payments"
+  ],
+  "double_sha": "daa22890834a93e04fb8d88c5b65a8d4a4957017cabc58c20a15cf67c150d99a"
+}

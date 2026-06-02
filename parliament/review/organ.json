@@ -1,0 +1,16 @@
+{
+  "organ": "review",
+  "status": "active",
+  "purpose": "Перевірка задач перед виконанням",
+  "created_or_checked_at": "2026-06-02T17:33:48+0300",
+  "rules": [
+    "audit_required",
+    "proof_required",
+    "evolution_only",
+    "block_degradation",
+    "no_private_keys",
+    "no_secret_dump",
+    "no_uncontrolled_payments"
+  ],
+  "double_sha": "34d22f115643c33e0ab0e3f135e245a91964fb7e611cc2e94c1a1ccbab1f3ee6"
+}

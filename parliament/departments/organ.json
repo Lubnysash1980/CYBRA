@@ -1,0 +1,16 @@
+{
+  "organ": "departments",
+  "status": "active",
+  "purpose": "Департаменти підтримки платформи",
+  "created_or_checked_at": "2026-06-02T17:33:48+0300",
+  "rules": [
+    "audit_required",
+    "proof_required",
+    "evolution_only",
+    "block_degradation",
+    "no_private_keys",
+    "no_secret_dump",
+    "no_uncontrolled_payments"
+  ],
+  "double_sha": "bc8431c6abf86ef97ce1c159d3568b20a37e6d4e6c2252d6329bf05a5053a15b"
+}

@@ -9,4 +9,4 @@ Purpose:
 Підтримувати задачі типу native_token_ecosystem_task: mapping, handler, audit, proof, diagnostics.
 
 Double SHA:
-`a0df19fa56548ea57c1b6094943edb864a079f12e584ded22c42263d7d833220`
+`168b8e3b85fe972e9674000faf9c9b2f4a6650b93fa2b4dc10a97beb33c4f564`

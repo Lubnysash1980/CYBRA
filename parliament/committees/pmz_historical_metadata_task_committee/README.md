@@ -9,4 +9,4 @@ Purpose:
 Підтримувати задачі типу pmz_historical_metadata_task: mapping, handler, audit, proof, diagnostics.
 
 Double SHA:
-`49f1077f727cb96ad94ca8c987ed903bdaecea6c012d21c04c3b8584d7eae7b5`
+`5bd5026157361eb1c0b127840e593c5e23d75ed63ea1513ea425bb32a3e7114a`

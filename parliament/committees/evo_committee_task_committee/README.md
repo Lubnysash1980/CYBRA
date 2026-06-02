@@ -9,4 +9,4 @@ Purpose:
 Підтримувати задачі типу evo_committee_task: mapping, handler, audit, proof, diagnostics.
 
 Double SHA:
-`4345281e92ec821b3057a3c91aebdc1f08c5fd4551c89fefbaf68e122405b73e`
+`b008be0e08f0187a12a2e8af84a07b3916f7e48244a57912f2146bca06cda95e`

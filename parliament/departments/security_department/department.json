@@ -2,7 +2,7 @@
   "department_id": "security_department",
   "status": "active",
   "purpose": "Захист від секретів у Git, private keys, runtime leaks",
-  "created_or_checked_at": "2026-06-02T17:31:42+0300",
+  "created_or_checked_at": "2026-06-02T17:33:48+0300",
   "rules": [
     "audit_required",
     "proof_required",
@@ -10,5 +10,5 @@
     "no_secret_dump",
     "evolution_only"
   ],
-  "double_sha": "dd85650bcf45947dfab9a58841a15947b8c5006f417c40b362dbe73ad7356714"
+  "double_sha": "c6978452eb1db57e8d4bfda1f1c941fb331c912a1f201670e27d3df94959e69f"
 }

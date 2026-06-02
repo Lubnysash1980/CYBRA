@@ -1,0 +1,16 @@
+{
+  "organ": "protection",
+  "status": "active",
+  "purpose": "Захист Git, runtime, secrets, private vault",
+  "created_or_checked_at": "2026-06-02T17:33:48+0300",
+  "rules": [
+    "audit_required",
+    "proof_required",
+    "evolution_only",
+    "block_degradation",
+    "no_private_keys",
+    "no_secret_dump",
+    "no_uncontrolled_payments"
+  ],
+  "double_sha": "c036d5ddea0afe61f9b286ff917509f5110fb47fd4bdbb9682bc17511dcb5cb2"
+}
