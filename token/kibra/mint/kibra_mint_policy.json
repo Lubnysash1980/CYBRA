@@ -1,0 +1,20 @@
+{
+  "name": "KIBRA Token Mint Policy",
+  "status": "proposal_only",
+  "token": {
+    "name": "Кібра",
+    "symbol": "KIBRA",
+    "total_supply_raw": "49000000000000000",
+    "owner_percent": 60,
+    "pool_percent": 40
+  },
+  "mint_rules": {
+    "automatic_mint": false,
+    "manual_wallet_signature_required": true,
+    "mint_authority_protection_required": true,
+    "freeze_authority_policy_required": true,
+    "metadata_proof_required": true,
+    "pool_allocation_proposal_required": true,
+    "owner_final_approval_required": true
+  }
+}

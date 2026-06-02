@@ -17,6 +17,7 @@ Q_FAILED = "cybra:parliament:failed"
 Q_AUDIT = "cybra:audit"
 
 SCRIPT_MAP = {
+    "finance_infrastructure_task": "finance_infrastructure_handler.sh",
     "existing_tasks_activation_task": "existing_tasks_activation_handler.sh",
     "evolution_deployment_task": "evolution_deployment_handler.sh",
     "monetization_department_task": "monetization_department_handler.sh",

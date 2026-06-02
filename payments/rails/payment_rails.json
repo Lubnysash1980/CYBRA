@@ -1,0 +1,53 @@
+{
+  "name": "CYBRA Multipayment Rails",
+  "status": "proposal_only",
+  "rails": [
+    {
+      "rail": "IBAN",
+      "type": "bank_transfer",
+      "real_execution": false,
+      "storage": "masked_iban_only",
+      "requires": ["licensed_provider", "owner_approval", "invoice", "kyc_aml"]
+    },
+    {
+      "rail": "CARD",
+      "type": "card_payment",
+      "real_execution": false,
+      "storage": "psp_token_only_no_pan_no_cvv",
+      "requires": ["PCI_DSS_scope_review", "payment_service_provider", "owner_approval"]
+    },
+    {
+      "rail": "CRYPTO",
+      "type": "manual_wallet_transaction",
+      "real_execution": false,
+      "storage": "public_address_only",
+      "requires": ["manual_wallet_signature", "owner_approval", "chain_proof"]
+    },
+    {
+      "rail": "GOLD_XAU",
+      "type": "gold_accounting_unit",
+      "real_execution": false,
+      "storage": "reserve_proof_required",
+      "requires": ["audited_reserve", "manual_purchase", "legal_review"]
+    },
+    {
+      "rail": "KIBRA",
+      "type": "internal_token_ledger",
+      "real_execution": false,
+      "storage": "proof_chain_ledger",
+      "requires": ["token_mint_proposal", "hash_proof", "owner_approval_for_real_mint"]
+    }
+  ],
+  "supported_currencies_for_calculation": [
+    "UAH",
+    "USD",
+    "EUR",
+    "PLN",
+    "GBP",
+    "USDT",
+    "BTC",
+    "SOL",
+    "KIBRA",
+    "XAU"
+  ]
+}

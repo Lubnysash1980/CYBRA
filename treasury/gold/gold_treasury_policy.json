@@ -1,0 +1,15 @@
+{
+  "name": "CYBRA Gold Treasury Policy",
+  "status": "proposal_only",
+  "unit": "XAU",
+  "purpose": "Вести облік пропозицій конвертації вартості у золото як treasury accounting unit.",
+  "rules": {
+    "automatic_gold_purchase": false,
+    "automatic_conversion": false,
+    "gold_backing_claim_allowed_without_audit": false,
+    "reserve_proof_required": true,
+    "manual_owner_approval_required": true,
+    "licensed_custodian_or_provider_required": true,
+    "legal_tax_review_required": true
+  }
+}

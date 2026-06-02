@@ -1,0 +1,55 @@
+{
+  "status": "finance_infrastructure_report_generated",
+  "time": 1780431644.9335277,
+  "time_iso": "2026-06-02T23:20:44+0300",
+  "modules": {
+    "token_mint": true,
+    "multipayment_rails": true,
+    "iban": true,
+    "card_tokenized_only": true,
+    "gold_treasury": true,
+    "multi_currency_calculation": true
+  },
+  "execution_policy": {
+    "real_payment_execution": false,
+    "automatic_bank_transfer": false,
+    "automatic_card_charge": false,
+    "automatic_gold_purchase": false,
+    "automatic_token_mint": false,
+    "automatic_fx_conversion": false,
+    "automatic_calculation": true,
+    "automatic_proposal_generation": true,
+    "manual_owner_approval_required": true
+  },
+  "supported_currencies": [
+    "UAH",
+    "USD",
+    "EUR",
+    "PLN",
+    "GBP",
+    "USDT",
+    "BTC",
+    "SOL",
+    "KIBRA",
+    "XAU"
+  ],
+  "redis": {
+    "mint_proposals": 1,
+    "payment_proposals": 1,
+    "gold_proposals": 1,
+    "finance_ledger": 16,
+    "finance_audit": 32
+  },
+  "proof_inputs": {
+    "infrastructure_policy": "7c36dfbc968d80174f470d22f6a65390d5dacc62d46cf0b2168964d5f2454d7b",
+    "payment_rails": "869c8c74494bd82d2d807008b7f87f3d6809244d514cf328f75e2a5c7cad99e2",
+    "mint_policy": "8a86c87a1a57cf400d36f4ec1f62ff298a25a9c33cd64eb5a221b2575c971ab4",
+    "gold_policy": "401c54a07d62187ece819935170ccb664c6dc5cdac1e844c5cb09f09dab2866b"
+  },
+  "git": {
+    "branch": "main",
+    "commit": "386dd6526",
+    "dirty_files": 157
+  },
+  "double_sha": "2310e94a40fb04cacebce3a4234e27f86ca1ad73179328344170513233134b62"
+}

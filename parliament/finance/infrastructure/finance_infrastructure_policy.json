@@ -1,0 +1,37 @@
+{
+  "name": "CYBRA Finance Infrastructure Policy",
+  "status": "active",
+  "mode": "proposal_ledger_manual_execution",
+  "modules": {
+    "token_mint": true,
+    "multipayment_rails": true,
+    "iban_rails": true,
+    "card_rails_tokenized_only": true,
+    "gold_treasury_accounting": true,
+    "multi_currency_calculation": true
+  },
+  "hard_limits": {
+    "real_payment_execution": false,
+    "automatic_bank_transfer": false,
+    "automatic_card_charge": false,
+    "automatic_gold_purchase": false,
+    "automatic_token_mint": false,
+    "automatic_fx_conversion": false,
+    "manual_owner_approval_required": true,
+    "licensed_provider_required_for_real_payments": true,
+    "legal_tax_aml_review_required": true,
+    "no_card_pan_storage": true,
+    "no_cvv_storage": true,
+    "no_pin_storage": true,
+    "no_seed_phrase": true,
+    "no_private_keys": true
+  },
+  "allowed": {
+    "automatic_calculation": true,
+    "automatic_proposal_generation": true,
+    "risk_scoring": true,
+    "ledger_draft": true,
+    "proof_generation": true,
+    "manual_execution_package": true
+  }
+}

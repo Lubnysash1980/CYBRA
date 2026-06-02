@@ -34,3 +34,5 @@ data/finance/private/
 *bank*
 *seed*
 .env
+*iban_private*
+*bank_login*
