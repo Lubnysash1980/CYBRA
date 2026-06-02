@@ -1,0 +1,18 @@
+{
+  "name": "CYBRA Finance Risk Resolution",
+  "status": "active",
+  "mode": "risk_controlled",
+  "risk_decision": "conditional_hold_until_documents",
+  "rules": {
+    "payment_execution_allowed": false,
+    "advance_payment_allowed_only_after_documents": true,
+    "owner_manual_approval_required": true,
+    "contract_required": true,
+    "invoice_required": true,
+    "supplier_verification_required": true,
+    "vin_or_asset_identifier_required_for_car": true,
+    "ownership_transfer_check_required": true,
+    "debt_lien_arrest_check_required": true,
+    "tax_and_registration_costs_required": true
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "CYBRA Main Owner Orchestrator",
+  "status": "active",
+  "owner_role": "MAIN_ORCHESTRATOR",
+  "owner_identity_mode": "local_owner_declared_not_public_git_secret",
+  "powers": [
+    "approve_or_reject_financial_risk",
+    "approve_manual_external_blockchain_anchor",
+    "approve_or_reject_car_purchase_stage",
+    "start_revision",
+    "start_finance_review",
+    "start_analytics_review",
+    "start_hash_proof",
+    "block_automatic_payment"
+  ],
+  "limits": [
+    "no_automatic_payments",
+    "no_private_keys_in_git",
+    "no_seed_phrase",
+    "no_bank_card_data",
+    "no_unverified_supplier_payment",
+    "manual_signature_required_for_real_purchase",
+    "manual_wallet_signature_required_for_external_anchor"
+  ],
+  "final_rule": "Owner is main orchestrator. System may prepare proofs, risks, ledgers and recommendations, but real payment, vehicle purchase or external blockchain transaction requires manual OWNER approval."
+}

@@ -1,0 +1,19 @@
+{
+  "name": "CYBRA External Blockchain Anchor Resolution",
+  "status": "manual_anchor_ready",
+  "mode": "prepare_anchor_package_only",
+  "rules": {
+    "automatic_onchain_tx": false,
+    "manual_wallet_signature_required": true,
+    "anchor_hash_required": true,
+    "proof_package_required": true,
+    "external_tx_hash_empty_until_manual_anchor": true
+  },
+  "anchor_targets": [
+    "KIBRA local proof-chain latest block hash",
+    "KIBRA token policy hash",
+    "difficulty stream hash",
+    "parliament review hash",
+    "finance risk decision hash"
+  ]
+}

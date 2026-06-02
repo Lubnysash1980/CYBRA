@@ -1,0 +1,28 @@
+{
+  "name": "CYBRA Car Purchase Preflight",
+  "status": "active",
+  "mode": "tomorrow_purchase_readiness",
+  "rules": {
+    "no_payment_before_document_check": true,
+    "vin_check_required": true,
+    "seller_authority_check_required": true,
+    "ownership_transfer_check_required": true,
+    "lien_arrest_debt_check_required": true,
+    "invoice_contract_required": true,
+    "registration_costs_required": true,
+    "delivery_act_required": true,
+    "manual_owner_signature_required": true
+  },
+  "checklist": [
+    "VIN / номер кузова",
+    "техпаспорт або документ походження",
+    "договір купівлі-продажу / рахунок",
+    "акт прийому-передачі",
+    "перевірка арештів/застав/обтяжень",
+    "перевірка продавця",
+    "сума авто",
+    "податки і реєстраційні платежі",
+    "умова: без повної передоплати без гарантій",
+    "фінальне ручне підтвердження OWNER"
+  ]
+}
