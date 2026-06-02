@@ -1,12 +1,12 @@
 # CYBRA Task Test Diagnostics
 
 Status: generated  
-Double SHA: `507a6245ff0a35a481df239cdd231be700ac222370888916e06c002db9a4dd2d`
+Double SHA: `8e3f8a004edc8802e688b80d21519e33076e80f89d22652b6468efc9d2e6b2ec`
 
 ## Summary
 
-- Checked records: 38
-- Executed: 26
+- Checked records: 50
+- Executed: 38
 - Not executed: 9
 - Still missing mapping: 0
 - Old no-mapping already fixed now: 9
@@ -19,8 +19,8 @@ Double SHA: `507a6245ff0a35a481df239cdd231be700ac222370888916e06c002db9a4dd2d`
 
 ## Queue state
 
-- parliament_queue: 6
-- parliament_results: 34
+- parliament_queue: 0
+- parliament_results: 46
 - parliament_failed: 1
 - review_incoming: 0
 - review_approved: 1
@@ -32,23 +32,27 @@ Double SHA: `507a6245ff0a35a481df239cdd231be700ac222370888916e06c002db9a4dd2d`
 
 ## Statuses
 
-- `executed`: 26
+- `executed`: 38
 - `no_executor_mapping`: 9
 - `reviewed`: 2
 - `unknown`: 1
 
 ## Task types
 
-- `air_alert_task`: 9
+- `air_alert_task`: 10
 - `cybra_autofix_task`: 7
+- `closed_evolution_selfseal_task`: 3
+- `audit_dedupe_test_task`: 3
+- `analytics_committee_task`: 3
+- `revision_organ_task`: 3
 - `smart_autofix_mining_pool_task`: 3
-- `revision_organ_task`: 2
-- `analytics_committee_task`: 2
+- `biometric_succession_task`: 2
 - `test`: 2
 - `native_token_ecosystem_task`: 2
 - `self_expanding_execution_engine_task`: 2
 - `pmz_historical_metadata_task`: 2
 - `None`: 2
+- `evo_committee_task`: 1
 - `queue_fix`: 1
 - `ai_task`: 1
 - `executor_autoheal_task`: 1
@@ -58,20 +62,24 @@ Double SHA: `507a6245ff0a35a481df239cdd231be700ac222370888916e06c002db9a4dd2d`
 ## Scripts / handlers
 
 - `none`: 12
-- `air_alert_handler.sh`: 7
+- `air_alert_handler.sh`: 8
 - `cybra_autofix.sh`: 4
+- `closed_evolution_selfseal_handler.sh`: 3
+- `audit_dedupe_test_handler.sh`: 3
+- `analytics_committee_handler.sh`: 3
+- `revision_organ_handler.sh`: 3
 - `['bash', 'cybra_autofix.sh']`: 3
 - `['bash', 'cybra_mining_autofix.sh']`: 3
-- `revision_organ_handler.sh`: 2
-- `analytics_committee_handler.sh`: 2
+- `biometric_succession_handler.sh`: 2
 - `['bash', 'create_pmz_registry.sh']`: 2
+- `evo_committee_handler.sh`: 1
 - `ai_chat_test_handler.sh`: 1
 - `create_native_token_ecosystem.sh`: 1
 - `['bash', 'create_native_token_ecosystem.sh']`: 1
 
 ## Sources
 
-- `cybra:parliament:results`: 34
+- `cybra:parliament:results`: 46
 - `cybra:review:rejected`: 2
 - `cybra:parliament:failed`: 1
 - `cybra:review:approved`: 1
@@ -96,26 +104,25 @@ Double SHA: `507a6245ff0a35a481df239cdd231be700ac222370888916e06c002db9a4dd2d`
 
 ## Recommendations
 
-- **important**: У черзі виконання є задачі. Action: `Запусти: cybra worker-start && sleep 5 && cybra status`
 - **ok**: Частина no_executor_mapping — це стара історія. Зараз mapping уже є. Action: `Не страшно. Старі записи лишити як audit або очистити окремо.`
 - **review**: Є задачі, відхилені review-органом. Action: `Подивись: bash cybra_review.sh rejected`
 
 
 ## Latest records
 
+- `executed` / `closed_evolution_selfseal_task` — CYBRA Parliament Internal Closed Self-Seal / script: `closed_evolution_selfseal_handler.sh` / source: `cybra:parliament:results`
+- `executed` / `biometric_succession_task` — CYBRA Biometric Succession Guard / script: `biometric_succession_handler.sh` / source: `cybra:parliament:results`
+- `executed` / `closed_evolution_selfseal_task` — CYBRA Closed Evolution Self-Seal / script: `closed_evolution_selfseal_handler.sh` / source: `cybra:parliament:results`
+- `executed` / `audit_dedupe_test_task` — Audit Dedupe Test / script: `audit_dedupe_test_handler.sh` / source: `cybra:parliament:results`
+- `executed` / `audit_dedupe_test_task` — Audit Dedupe Test / script: `audit_dedupe_test_handler.sh` / source: `cybra:parliament:results`
+- `executed` / `evo_committee_task` — CYBRA EVO Committee Creation / script: `evo_committee_handler.sh` / source: `cybra:parliament:results`
+- `executed` / `biometric_succession_task` — CYBRA Test: Succession Guard / script: `biometric_succession_handler.sh` / source: `cybra:parliament:results`
+- `executed` / `closed_evolution_selfseal_task` — CYBRA Test: Closed Self-Seal / script: `closed_evolution_selfseal_handler.sh` / source: `cybra:parliament:results`
+- `executed` / `audit_dedupe_test_task` — CYBRA Test: Audit Dedupe / script: `audit_dedupe_test_handler.sh` / source: `cybra:parliament:results`
+- `executed` / `analytics_committee_task` — CYBRA Test: Analytics Committee / script: `analytics_committee_handler.sh` / source: `cybra:parliament:results`
+- `executed` / `revision_organ_task` — CYBRA Test: Revision Organ / script: `revision_organ_handler.sh` / source: `cybra:parliament:results`
+- `executed` / `air_alert_task` — CYBRA Test: Air Alert Handler / script: `air_alert_handler.sh` / source: `cybra:parliament:results`
 - `executed` / `revision_organ_task` — CYBRA Parliament Revision Organ / script: `revision_organ_handler.sh` / source: `cybra:parliament:results`
 - `executed` / `revision_organ_task` — CYBRA Parliament Revision Organ / script: `revision_organ_handler.sh` / source: `cybra:parliament:results`
 - `executed` / `analytics_committee_task` — CYBRA Parliament Analytics Committee / script: `analytics_committee_handler.sh` / source: `cybra:parliament:results`
-- `executed` / `analytics_committee_task` — CYBRA Parliament Analytics Committee / script: `analytics_committee_handler.sh` / source: `cybra:parliament:results`
-- `executed` / `air_alert_task` — Ракетна небезпека Redis Mapping Test / script: `air_alert_handler.sh` / source: `cybra:parliament:results`
-- `executed` / `air_alert_task` — Ракетна небезпека / script: `air_alert_handler.sh` / source: `cybra:parliament:results`
-- `executed` / `air_alert_task` — Ракетна небезпека через орган перевірки / script: `air_alert_handler.sh` / source: `cybra:parliament:results`
-- `executed` / `air_alert_task` — Ракетна небезпека / script: `air_alert_handler.sh` / source: `cybra:parliament:results`
-- `executed` / `air_alert_task` — Ракетна небезпека / script: `air_alert_handler.sh` / source: `cybra:parliament:results`
-- `executed` / `air_alert_task` — Ракетна небезпека / script: `air_alert_handler.sh` / source: `cybra:parliament:results`
-- `executed` / `air_alert_task` — Ракетна небезпека / script: `air_alert_handler.sh` / source: `cybra:parliament:results`
-- `no_executor_mapping` / `air_alert_task` — Ракетна небезпека / script: `None` / source: `cybra:parliament:results`
-- `executed` / `cybra_autofix_task` — Ракетна небезпека / script: `cybra_autofix.sh` / source: `cybra:parliament:results`
-- `no_executor_mapping` / `queue_fix` — test / script: `None` / source: `cybra:parliament:results`
-- `executed` / `cybra_autofix_task` — Air Alert Monitoring / script: `cybra_autofix.sh` / source: `cybra:parliament:results`
 

@@ -1,15 +1,15 @@
 {
   "name": "CYBRA Task Test Diagnostics",
   "status": "generated",
-  "time": 1780405294.5645864,
+  "time": 1780405423.5006495,
   "git": {
     "branch": "main",
-    "commit": "e64e89c0f",
-    "dirty_files": 72
+    "commit": "c7f7acad7",
+    "dirty_files": 110
   },
   "summary": {
-    "checked_records": 38,
-    "executed": 26,
+    "checked_records": 50,
+    "executed": 38,
     "not_executed": 9,
     "still_missing_mapping": 0,
     "old_no_mapping_fixed_now": 9,
@@ -21,8 +21,8 @@
     "executor_mapping_count": 37
   },
   "queue_state": {
-    "parliament_queue": 6,
-    "parliament_results": 34,
+    "parliament_queue": 0,
+    "parliament_results": 46,
     "parliament_failed": 1,
     "review_incoming": 0,
     "review_approved": 1,
@@ -31,22 +31,26 @@
     "evolution_approved": 0,
     "evolution_hold": 0,
     "evolution_rejected": 0,
-    "audit_hashes": 34,
+    "audit_hashes": 46,
     "structured_audit": 6,
     "statistics_audit": 7,
-    "revision_audit": 4,
+    "revision_audit": 5,
     "analytics_audit": 3
   },
   "statuses": {
-    "executed": 26,
+    "executed": 38,
     "no_executor_mapping": 9,
     "unknown": 1,
     "reviewed": 2
   },
   "types": {
-    "revision_organ_task": 2,
-    "analytics_committee_task": 2,
-    "air_alert_task": 9,
+    "closed_evolution_selfseal_task": 3,
+    "biometric_succession_task": 2,
+    "audit_dedupe_test_task": 3,
+    "evo_committee_task": 1,
+    "analytics_committee_task": 3,
+    "revision_organ_task": 3,
+    "air_alert_task": 10,
     "cybra_autofix_task": 7,
     "queue_fix": 1,
     "test": 2,
@@ -61,9 +65,13 @@
     "None": 2
   },
   "scripts": {
-    "revision_organ_handler.sh": 2,
-    "analytics_committee_handler.sh": 2,
-    "air_alert_handler.sh": 7,
+    "closed_evolution_selfseal_handler.sh": 3,
+    "biometric_succession_handler.sh": 2,
+    "audit_dedupe_test_handler.sh": 3,
+    "evo_committee_handler.sh": 1,
+    "analytics_committee_handler.sh": 3,
+    "revision_organ_handler.sh": 3,
+    "air_alert_handler.sh": 8,
     "none": 12,
     "cybra_autofix.sh": 4,
     "ai_chat_test_handler.sh": 1,
@@ -74,7 +82,7 @@
     "['bash', 'create_pmz_registry.sh']": 2
   },
   "sources": {
-    "cybra:parliament:results": 34,
+    "cybra:parliament:results": 46,
     "cybra:parliament:failed": 1,
     "cybra:review:approved": 1,
     "cybra:review:rejected": 2
@@ -82,6 +90,7 @@
   "topics_top": {
     "Ракетна небезпека": 7,
     "Air Alert Monitoring": 3,
+    "Audit Dedupe Test": 2,
     "CYBRA Parliament Revision Organ": 2,
     "CYBRA Parliament Analytics Committee": 2,
     "Ракетна небезпека через орган перевірки": 2,
@@ -90,16 +99,15 @@
     "CYBRA Autofix": 2,
     "CYBRA PMZ Historical Metadata Registry": 2,
     "None": 2,
-    "Ракетна небезпека Redis Mapping Test": 1,
-    "test": 1,
-    "CYBRA AI CHAT TEST V2": 1,
-    "AI TEST": 1,
-    "CYBRA AI CHAT TEST": 1,
-    "V6 test native token": 1,
-    "CYBRA 5-Level Double-SHA Guardian Recovery": 1,
-    "CYBRA Codespaces Keepalive Support": 1,
-    "CYBRA GitHub Double Backend Proof": 1,
-    "CYBRA Executor Double-SHA AutoHeal": 1
+    "CYBRA Parliament Internal Closed Self-Seal": 1,
+    "CYBRA Biometric Succession Guard": 1,
+    "CYBRA Closed Evolution Self-Seal": 1,
+    "CYBRA EVO Committee Creation": 1,
+    "CYBRA Test: Succession Guard": 1,
+    "CYBRA Test: Closed Self-Seal": 1,
+    "CYBRA Test: Audit Dedupe": 1,
+    "CYBRA Test: Analytics Committee": 1,
+    "CYBRA Test: Revision Organ": 1
   },
   "still_missing_mapping": [],
   "old_no_mapping_fixed_now": [
@@ -186,6 +194,150 @@
   "latest": [
     {
       "source": "cybra:parliament:results",
+      "topic": "CYBRA Parliament Internal Closed Self-Seal",
+      "type": "closed_evolution_selfseal_task",
+      "status": "executed",
+      "script": "closed_evolution_selfseal_handler.sh",
+      "returncode": 0,
+      "stdout_preview": "✅ CLOSED EVOLUTION SELF-SEAL EXECUTED Report: posts/closed_evolution_selfseal.md ",
+      "stderr_preview": "",
+      "time": 1780405421.3754394,
+      "double_sha": "5eefa60cc32229852ddea0d783a11c0c9a8a3e1245b0b726a80c49d0a3cf1d0f"
+    },
+    {
+      "source": "cybra:parliament:results",
+      "topic": "CYBRA Biometric Succession Guard",
+      "type": "biometric_succession_task",
+      "status": "executed",
+      "script": "biometric_succession_handler.sh",
+      "returncode": 0,
+      "stdout_preview": "✅ CYBRA biometric succession guard generated Report: posts/biometric_succession_guard.md Feed: feeds/biometric_succession_guard.json Proof: proofs/biometric_succession_guard.sha256 ",
+      "stderr_preview": "",
+      "time": 1780405421.0679538,
+      "double_sha": "7c8faf3ccf9229dff88a46f14c6565965044c8e965d56fa4b80bfba807252a67"
+    },
+    {
+      "source": "cybra:parliament:results",
+      "topic": "CYBRA Closed Evolution Self-Seal",
+      "type": "closed_evolution_selfseal_task",
+      "status": "executed",
+      "script": "closed_evolution_selfseal_handler.sh",
+      "returncode": 0,
+      "stdout_preview": "✅ CLOSED EVOLUTION SELF-SEAL EXECUTED Report: posts/closed_evolution_selfseal.md ",
+      "stderr_preview": "",
+      "time": 1780405420.5713902,
+      "double_sha": "1a158a3f1bcd8c513da80df3bf47c3d0f0ac4cccf078ce61b33074c37eea8cd3"
+    },
+    {
+      "source": "cybra:parliament:results",
+      "topic": "Audit Dedupe Test",
+      "type": "audit_dedupe_test_task",
+      "status": "executed",
+      "script": "audit_dedupe_test_handler.sh",
+      "returncode": 0,
+      "stdout_preview": "✅ AUDIT DEDUPE TEST EXECUTED ",
+      "stderr_preview": "",
+      "time": 1780405420.275174,
+      "double_sha": "ee344f2d0fba29ea257686838144de5d9ec8be0588550d27583f998349b27ad2"
+    },
+    {
+      "source": "cybra:parliament:results",
+      "topic": "Audit Dedupe Test",
+      "type": "audit_dedupe_test_task",
+      "status": "executed",
+      "script": "audit_dedupe_test_handler.sh",
+      "returncode": 0,
+      "stdout_preview": "✅ AUDIT DEDUPE TEST EXECUTED ",
+      "stderr_preview": "",
+      "time": 1780405420.1293714,
+      "double_sha": "ee344f2d0fba29ea257686838144de5d9ec8be0588550d27583f998349b27ad2"
+    },
+    {
+      "source": "cybra:parliament:results",
+      "topic": "CYBRA EVO Committee Creation",
+      "type": "evo_committee_task",
+      "status": "executed",
+      "script": "evo_committee_handler.sh",
+      "returncode": 0,
+      "stdout_preview": "✅ CYBRA EVO committees generated Committees: 12 Report: posts/evo_committee_report.md Feed: feeds/evo_committee_report.json Proof: proofs/evo_committee.sha256 Double SHA: efa0a3b1bc488f790040f7723b2aedb87f873b9d105496287",
+      "stderr_preview": "",
+      "time": 1780405419.9619944,
+      "double_sha": "0d35acb673c5f4c8d20670bc87c6b9fd7bff0a8e0f35f4757b25716fc42f7f06"
+    },
+    {
+      "source": "cybra:parliament:results",
+      "topic": "CYBRA Test: Succession Guard",
+      "type": "biometric_succession_task",
+      "status": "executed",
+      "script": "biometric_succession_handler.sh",
+      "returncode": 0,
+      "stdout_preview": "✅ CYBRA biometric succession guard generated Report: posts/biometric_succession_guard.md Feed: feeds/biometric_succession_guard.json Proof: proofs/biometric_succession_guard.sha256 ",
+      "stderr_preview": "",
+      "time": 1780405418.800263,
+      "double_sha": "4ac2cfddf4b39fdae660c5dd97581f3131852e18fabb619be0339c85c4b3836b"
+    },
+    {
+      "source": "cybra:parliament:results",
+      "topic": "CYBRA Test: Closed Self-Seal",
+      "type": "closed_evolution_selfseal_task",
+      "status": "executed",
+      "script": "closed_evolution_selfseal_handler.sh",
+      "returncode": 0,
+      "stdout_preview": "✅ CLOSED EVOLUTION SELF-SEAL EXECUTED Report: posts/closed_evolution_selfseal.md ",
+      "stderr_preview": "",
+      "time": 1780405418.3161192,
+      "double_sha": "2baa760e0124f223212568d3525a1cf74ec9748f7c29178463aaddb9e52ded45"
+    },
+    {
+      "source": "cybra:parliament:results",
+      "topic": "CYBRA Test: Audit Dedupe",
+      "type": "audit_dedupe_test_task",
+      "status": "executed",
+      "script": "audit_dedupe_test_handler.sh",
+      "returncode": 0,
+      "stdout_preview": "✅ AUDIT DEDUPE TEST EXECUTED ",
+      "stderr_preview": "",
+      "time": 1780405418.0426676,
+      "double_sha": "3521878925b4f502c04d5559d3fbbda2c71fd93bd459bc9fb8db011e3ec6de43"
+    },
+    {
+      "source": "cybra:parliament:results",
+      "topic": "CYBRA Test: Analytics Committee",
+      "type": "analytics_committee_task",
+      "status": "executed",
+      "script": "analytics_committee_handler.sh",
+      "returncode": 0,
+      "stdout_preview": "",
+      "stderr_preview": "",
+      "time": 1780405417.9301302,
+      "double_sha": "b4f5fe671ee944ea2de07b5514b4eb56a0f9b5f9a62bd08732a8c2094eb5e155"
+    },
+    {
+      "source": "cybra:parliament:results",
+      "topic": "CYBRA Test: Revision Organ",
+      "type": "revision_organ_task",
+      "status": "executed",
+      "script": "revision_organ_handler.sh",
+      "returncode": 0,
+      "stdout_preview": "✅ CYBRA revision organ report generated Report: posts/revision_organ_report.md Feed: feeds/revision_organ_report.json Proof: proofs/revision_organ.sha256 ",
+      "stderr_preview": "",
+      "time": 1780405417.909154,
+      "double_sha": "eefbd124d8b956fdc28066187109eb21ef50383616b3b6152cfa56ac84741cc3"
+    },
+    {
+      "source": "cybra:parliament:results",
+      "topic": "CYBRA Test: Air Alert Handler",
+      "type": "air_alert_task",
+      "status": "executed",
+      "script": "air_alert_handler.sh",
+      "returncode": 0,
+      "stdout_preview": "✅ AIR ALERT TASK LOGGED ",
+      "stderr_preview": "",
+      "time": 1780405416.1576686,
+      "double_sha": "805a5d3290470f7ae574bf3978fd3303d1965a4f2f1b652495cb65ab9cb9c2f5"
+    },
+    {
+      "source": "cybra:parliament:results",
       "topic": "CYBRA Parliament Revision Organ",
       "type": "revision_organ_task",
       "status": "executed",
@@ -219,158 +371,9 @@
       "stderr_preview": "",
       "time": 1780395211.877833,
       "double_sha": "dacfcb47029cc0a79c93c13b23d2a5e4bf82deb1a87703c21a907f25dfedf26f"
-    },
-    {
-      "source": "cybra:parliament:results",
-      "topic": "CYBRA Parliament Analytics Committee",
-      "type": "analytics_committee_task",
-      "status": "executed",
-      "script": "analytics_committee_handler.sh",
-      "returncode": 0,
-      "stdout_preview": "",
-      "stderr_preview": "",
-      "time": 1780395211.8513877,
-      "double_sha": "dacfcb47029cc0a79c93c13b23d2a5e4bf82deb1a87703c21a907f25dfedf26f"
-    },
-    {
-      "source": "cybra:parliament:results",
-      "topic": "Ракетна небезпека Redis Mapping Test",
-      "type": "air_alert_task",
-      "status": "executed",
-      "script": "air_alert_handler.sh",
-      "returncode": 0,
-      "stdout_preview": "✅ AIR ALERT TASK LOGGED ",
-      "stderr_preview": "",
-      "time": 1780395211.8198838,
-      "double_sha": "338527a72c74cd48bb2fa7ec6f7ddb2904c052d55c86fd5f10729839944f48cf"
-    },
-    {
-      "source": "cybra:parliament:results",
-      "topic": "Ракетна небезпека",
-      "type": "air_alert_task",
-      "status": "executed",
-      "script": "air_alert_handler.sh",
-      "returncode": 0,
-      "stdout_preview": "✅ AIR ALERT TASK LOGGED ",
-      "stderr_preview": "",
-      "time": 1780395211.6667836,
-      "double_sha": "4d0f1c52eff5534502debbb869ea05b1d8faf38352934e8b333a2339a0c541e3"
-    },
-    {
-      "source": "cybra:parliament:results",
-      "topic": "Ракетна небезпека через орган перевірки",
-      "type": "air_alert_task",
-      "status": "executed",
-      "script": "air_alert_handler.sh",
-      "returncode": 0,
-      "stdout_preview": "✅ AIR ALERT TASK LOGGED ",
-      "stderr_preview": "",
-      "time": 1780395211.4977102,
-      "double_sha": "b324bae2c5df21cd9e80fcfabd2b46c112b58887fe362723e3d2c91d5ed12a38"
-    },
-    {
-      "source": "cybra:parliament:results",
-      "topic": "Ракетна небезпека",
-      "type": "air_alert_task",
-      "status": "executed",
-      "script": "air_alert_handler.sh",
-      "returncode": 0,
-      "stdout_preview": "✅ AIR ALERT TASK LOGGED ",
-      "stderr_preview": "",
-      "time": 1780381109.849254,
-      "double_sha": "4d0f1c52eff5534502debbb869ea05b1d8faf38352934e8b333a2339a0c541e3"
-    },
-    {
-      "source": "cybra:parliament:results",
-      "topic": "Ракетна небезпека",
-      "type": "air_alert_task",
-      "status": "executed",
-      "script": "air_alert_handler.sh",
-      "returncode": 0,
-      "stdout_preview": "✅ AIR ALERT TASK LOGGED ",
-      "stderr_preview": "",
-      "time": 1780380969.2398772,
-      "double_sha": "4d0f1c52eff5534502debbb869ea05b1d8faf38352934e8b333a2339a0c541e3"
-    },
-    {
-      "source": "cybra:parliament:results",
-      "topic": "Ракетна небезпека",
-      "type": "air_alert_task",
-      "status": "executed",
-      "script": "air_alert_handler.sh",
-      "returncode": 0,
-      "stdout_preview": "✅ AIR ALERT TASK LOGGED ",
-      "stderr_preview": "",
-      "time": 1780380969.1090944,
-      "double_sha": "8b572acaaf5e59e7289c3b63ce53c161b04ec9b141b527f94fde1269c1de2580"
-    },
-    {
-      "source": "cybra:parliament:results",
-      "topic": "Ракетна небезпека",
-      "type": "air_alert_task",
-      "status": "executed",
-      "script": "air_alert_handler.sh",
-      "returncode": 0,
-      "stdout_preview": "✅ AIR ALERT TASK LOGGED ",
-      "stderr_preview": "",
-      "time": 1780380968.9857602,
-      "double_sha": "4d0f1c52eff5534502debbb869ea05b1d8faf38352934e8b333a2339a0c541e3"
-    },
-    {
-      "source": "cybra:parliament:results",
-      "topic": "Ракетна небезпека",
-      "type": "air_alert_task",
-      "status": "no_executor_mapping",
-      "script": null,
-      "returncode": null,
-      "stdout_preview": "",
-      "stderr_preview": "",
-      "time": null,
-      "double_sha": "8b572acaaf5e59e7289c3b63ce53c161b04ec9b141b527f94fde1269c1de2580"
-    },
-    {
-      "source": "cybra:parliament:results",
-      "topic": "Ракетна небезпека",
-      "type": "cybra_autofix_task",
-      "status": "executed",
-      "script": "cybra_autofix.sh",
-      "returncode": 0,
-      "stdout_preview": "=== CYBRA AUTOFIX START === [main e9e85ff6e] CYBRA autofix executor and PMZ registry  1 file changed, 2 insertions(+), 2 deletions(-) ✅ CYBRA AUTOFIX DONE Report: posts/autofix_report.md ",
-      "stderr_preview": "",
-      "time": 1780380462.8667927,
-      "double_sha": "70997437c6de97bae36ec2acd6cb3bf05accf26669eea6bb5ade1dc551637949"
-    },
-    {
-      "source": "cybra:parliament:results",
-      "topic": "test",
-      "type": "queue_fix",
-      "status": "no_executor_mapping",
-      "script": null,
-      "returncode": null,
-      "stdout_preview": "",
-      "stderr_preview": "",
-      "time": null,
-      "double_sha": "afcdc32f45ab43ef07e690caae63f33228c9d17d3bca098f8968db7f4089afd8"
-    },
-    {
-      "source": "cybra:parliament:results",
-      "topic": "Air Alert Monitoring",
-      "type": "cybra_autofix_task",
-      "status": "executed",
-      "script": "cybra_autofix.sh",
-      "returncode": 0,
-      "stdout_preview": "=== CYBRA AUTOFIX START === U\tdevice/android/device_id.txt U\tfeeds/device_sync_android.json ✅ CYBRA AUTOFIX DONE Report: posts/autofix_report.md ",
-      "stderr_preview": "",
-      "time": 1780359798.9899702,
-      "double_sha": "0998f872bc2f4d4d2e9069e6cd02313177cbaba528f9b7c93b8e71f7e734d728"
     }
   ],
   "recommendations": [
-    {
-      "level": "important",
-      "what": "У черзі виконання є задачі.",
-      "do": "Запусти: cybra worker-start && sleep 5 && cybra status"
-    },
     {
       "level": "ok",
       "what": "Частина no_executor_mapping — це стара історія. Зараз mapping уже є.",
@@ -421,5 +424,5 @@
     "closed_evolution_selfseal_task": "closed_evolution_selfseal_handler.sh",
     "biometric_succession_task": "biometric_succession_handler.sh"
   },
-  "double_sha": "507a6245ff0a35a481df239cdd231be700ac222370888916e06c002db9a4dd2d"
+  "double_sha": "8e3f8a004edc8802e688b80d21519e33076e80f89d22652b6468efc9d2e6b2ec"
 }
