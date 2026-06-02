@@ -1,0 +1,41 @@
+{
+  "name": "CYBRA Biometric Succession Guard",
+  "status": "active",
+  "mode": "notary_and_consent_required",
+  "purpose": "Захистити спадкоємність CYBRA Platform без публікації сирих біометричних даних.",
+  "keys": {
+    "external_visible_token": "730a378b87c31052703ff0e865e90ab0eaa87ea38d219419",
+    "external_visible_sha256": "e591e95a7bf52aba00f5027e0ad23c98084107ae85046f809d3114116254e87f",
+    "internal_parliament_seal_sha256_only": "7717ad6fbec514cf59c4be966acec3ac9f5f609f3e72b00dbd7b05f0ea8933f7",
+    "internal_key_visible": false,
+    "internal_key_git_allowed": false
+  },
+  "rules": {
+    "raw_biometrics_in_git": false,
+    "children_personal_data_in_git": false,
+    "notary_verification_required": true,
+    "legal_documents_required": true,
+    "minor_child_guardian_consent_required": true,
+    "automatic_transfer_without_legal_confirmation": false,
+    "evolution_principle_required": true,
+    "degradation_blocked": true
+  },
+  "allowed": [
+    "encrypted local vault",
+    "hash of notarized attestation",
+    "hash of biometric attestation",
+    "legal heir registry by alias",
+    "notary verification status",
+    "succession hold mode",
+    "evolution-only access policy"
+  ],
+  "blocked": [
+    "raw face images",
+    "raw fingerprints",
+    "raw DNA data",
+    "public child identity data",
+    "automatic biological-child determination",
+    "transfer without legal confirmation",
+    "private keys in GitHub"
+  ]
+}
