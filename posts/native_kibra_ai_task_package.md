@@ -40,4 +40,4 @@ Latest KIBRA hash:
 
 Double SHA:
 
-`e6218d99d1d8acc85c0799aa6bef74b55c5f934e3ede301eebce89465dc58ef9`
+`5a40006f6376f0ccafceb2fb66cbb12c34c9ced52e49004d6652b680f9c795d0`
