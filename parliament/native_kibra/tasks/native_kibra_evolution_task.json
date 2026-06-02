@@ -1,0 +1,29 @@
+{
+  "topic": "Native KIBRA Coin Evolution Package",
+  "type": "native_kibra_evolution_task",
+  "priority": "critical",
+  "payload": {
+    "no_external_mint": true,
+    "native_coin": true,
+    "own_blockchain": true,
+    "create_pool_model": true,
+    "create_blocks": true,
+    "create_difficulty_stream": true,
+    "confirm_local_blockchain_by_external_anchor_package": true,
+    "auto_create_token_png": true,
+    "auto_create_website": true,
+    "auto_create_explorer": true,
+    "manual_owner_approval_required_for_real_launch": true,
+    "real_execution_now": false,
+    "departments_required": [
+      "finance_department",
+      "monetization_department",
+      "evolution_deployment",
+      "hash_module",
+      "revision_organ",
+      "analytics_committee",
+      "exchange_department",
+      "blockchain_confirmation_department"
+    ]
+  }
+}

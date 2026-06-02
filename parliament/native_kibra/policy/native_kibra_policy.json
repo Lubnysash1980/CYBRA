@@ -1,0 +1,48 @@
+{
+  "name": "Native KIBRA Coin Policy",
+  "status": "draft_ready",
+  "mode": "native_coin_own_blockchain",
+  "important": {
+    "external_token_mint": false,
+    "spl_token": false,
+    "erc_token": false,
+    "native_coin": true,
+    "real_execution_now": false
+  },
+  "coin": {
+    "name": "Кібра",
+    "symbol": "KIBRA",
+    "type": "native_coin",
+    "chain": "KIBRA_LOCAL_PROOF_CHAIN",
+    "emission_model": "block_reward_not_external_mint",
+    "total_supply_target_raw": "49000000000000000"
+  },
+  "blockchain": {
+    "blocks_required": true,
+    "difficulty_stream_required": true,
+    "timestamp_difficulty_required": true,
+    "proof_of_work_shares_required": true,
+    "external_anchor": "manual_proof_anchor_only"
+  },
+  "pool": {
+    "pool_model_required": true,
+    "real_pool_launch_now": false,
+    "pool_reward_percent": 40,
+    "owner_percent": 60,
+    "mining_shares_to_ai_tasks": true
+  },
+  "auto_assets": {
+    "token_png": true,
+    "logo_png": true,
+    "website": true,
+    "explorer": true,
+    "whitepaper": true
+  },
+  "safety": {
+    "no_real_payment": true,
+    "no_real_external_tx": true,
+    "no_private_keys": true,
+    "no_seed_phrase": true,
+    "manual_owner_approval_required_for_real_launch": true
+  }
+}
