@@ -1,13 +1,13 @@
 {
   "status": "finance_gap_evolution_report_generated",
   "submit_ai": false,
-  "time": 1780433930.764083,
-  "time_iso": "2026-06-02T23:58:50+0300",
-  "score": 90,
+  "time": 1780436000.9908812,
+  "time_iso": "2026-06-03T00:33:20+0300",
+  "score": 95,
   "modules_total": 12,
   "modules_ok": 12,
   "modules_missing": 0,
-  "runtime_gaps": 2,
+  "runtime_gaps": 1,
   "modules": [
     {
       "module": "finance_department",
@@ -163,13 +163,6 @@
       "message": "External anchor queue is not packaged.",
       "task_type": "owner_orchestrator_task",
       "action": "bash fix_kibra_verify_finance_anchor.sh"
-    },
-    {
-      "area": "kibra_chain_growth",
-      "level": "development",
-      "message": "KIBRA chain height is 8; recommend growing to 10+ proof blocks.",
-      "task_type": "kibra_token_chain_task",
-      "action": "bash cybra_kibra_chain.sh mine 2"
     }
   ],
   "recommendations": [
@@ -178,12 +171,6 @@
       "area": "anchor_queue",
       "message": "External anchor queue is not packaged.",
       "action": "bash fix_kibra_verify_finance_anchor.sh"
-    },
-    {
-      "level": "development",
-      "area": "kibra_chain_growth",
-      "message": "KIBRA chain height is 8; recommend growing to 10+ proof blocks.",
-      "action": "bash cybra_kibra_chain.sh mine 2"
     }
   ],
   "ai_tasks": [
@@ -206,34 +193,14 @@
         "no_guaranteed_profit": true,
         "evolution_required": true
       }
-    },
-    {
-      "topic": "Finance Gap Evolution: kibra_chain_growth",
-      "type": "kibra_token_chain_task",
-      "priority": "high",
-      "payload": {
-        "source": "finance_gap_evolution_committee",
-        "area": "kibra_chain_growth",
-        "recommendation": "KIBRA chain height is 8; recommend growing to 10+ proof blocks.",
-        "suggested_action": "bash cybra_kibra_chain.sh mine 2",
-        "real_payment_execution": false,
-        "automatic_token_mint": false,
-        "automatic_liquidity_pool": false,
-        "automatic_exchange_launch": false,
-        "automatic_gold_purchase": false,
-        "automatic_external_tx": false,
-        "manual_OWNER_approval_required": true,
-        "no_guaranteed_profit": true,
-        "evolution_required": true
-      }
     }
   ],
   "redis": {
     "queue": 0,
-    "results": 78,
+    "results": 97,
     "failed": 0,
-    "ai_tasks_finance_gap": 4,
-    "audit": 3
+    "ai_tasks_finance_gap": 0,
+    "audit": 16
   },
   "proof_inputs": {
     "committee": "78df2222dd023ddf0a13a6a9437402b56254fa3024493007eea0cdc9020755a3",
@@ -241,8 +208,8 @@
   },
   "git": {
     "branch": "main",
-    "commit": "53d6d97a4",
-    "dirty_files": 162
+    "commit": "a1750b0d7",
+    "dirty_files": 141
   },
-  "double_sha": "91f8a1279542ec5f6687affd165354204201f9f6f9c01c715f0859d0e0dd96f8"
+  "double_sha": "421eec386fe044c96b731a101c0af151609ee3d8b14ec519c52f8e9292a6b4dc"
 }

@@ -1,8 +1,8 @@
 {
   "status": "kibra_market_exchange_plan_generated",
-  "time": 1780433477.0410724,
-  "time_iso": "2026-06-02T23:51:17+0300",
-  "latest_kibra_hash": "008a14703eb452470cbbed74931d44f6220897823d71c436b3dacb5fab11f896",
+  "time": 1780434426.9248757,
+  "time_iso": "2026-06-03T00:07:06+0300",
+  "latest_kibra_hash": "00f957b0f5cda9f673bf10d8d440279ea89e7834787871183b14c5540b8d3aa5",
   "ai_tasks": [
     {
       "task_id": "KIBRA-MINT-001",
@@ -172,14 +172,14 @@
   "proof_inputs": {
     "market_policy": "253819cf51c1cfa47f87fe7fb1a2db66b9c6c628c7d3f8f43bcfcb208890d77c",
     "exchange_department": "e84e1c859fc5120a2be6d34d5d79118b8b5fe38a55e6c4c9d5aecf6c49ac8527",
-    "kibra_chain_proof": "9d7d6f05e3a7a95809ca6521f0637d7e8bc4c5c323d10de2d5c864ca72756d16",
-    "monetization_proof": "5969c40f0b217598df75965ddd3fc935bac0fb085bc3b38f71de5698e88d266a",
+    "kibra_chain_proof": "cdaa629887930926dc41963c9f8ffaee6b0858e618bd21c2e7cf0f44a47632e6",
+    "monetization_proof": "f0df4c7b2ffcb75b7da5b6b0a179b035014381f14786eb7c76368f56c766c0fc",
     "finance_infrastructure_proof": "6d2649027f450919a823d99d58d9815cdf255c01115728252f5e36dad7d48c07"
   },
   "git": {
     "branch": "main",
-    "commit": "539e9321e",
-    "dirty_files": 159
+    "commit": "17bb81524",
+    "dirty_files": 49
   },
-  "double_sha": "75013385f9efed13837c4a35eb2e8ed7eb227c29a539cdf554f14aac4e71bf6c"
+  "double_sha": "dacbb8ef8aee049d7dfa6fe885e208430a99c897b9bbf57dc5e0ebe0510f985a"
 }

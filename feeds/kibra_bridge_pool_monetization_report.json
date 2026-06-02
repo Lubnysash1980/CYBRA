@@ -1,24 +1,24 @@
 {
   "status": "kibra_bridge_pool_monetization_report_generated",
-  "time": 1780435108.1239898,
-  "time_iso": "2026-06-03T00:18:28+0300",
-  "submit_ai": false,
-  "ai_tasks_created": 0,
+  "time": 1780435998.3640277,
+  "time_iso": "2026-06-03T00:33:18+0300",
+  "submit_ai": true,
+  "ai_tasks_created": 4,
   "latest_kibra_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab",
   "bridge_package": {
-    "sealed_id": "KIBRA-BRIDGE-30dc3538abf8389b",
-    "bridge_sha_seal": "30dc3538abf8389b839df73f32509bc2189cac38ec5ce084013535e70ba15f03",
+    "sealed_id": "KIBRA-BRIDGE-9c7cc39f7d63ec2b",
+    "bridge_sha_seal": "9c7cc39f7d63ec2b030785122c5a50cebbefc463f6c1040afd8d53a77426f01a",
     "blocks_count": 10,
-    "outbox_file": "data/kibra_bridge/outbox/KIBRA-BRIDGE-30dc3538abf8389b.json",
-    "sealed_file": "data/kibra_bridge/sealed/KIBRA-BRIDGE-30dc3538abf8389b.sealed.json",
+    "outbox_file": "data/kibra_bridge/outbox/KIBRA-BRIDGE-9c7cc39f7d63ec2b.json",
+    "sealed_file": "data/kibra_bridge/sealed/KIBRA-BRIDGE-9c7cc39f7d63ec2b.sealed.json",
     "real_network_broadcast_now": false,
     "manual_OWNER_approval_required": true
   },
   "redis": {
-    "ai_queue": 0,
-    "bridge_outbox": 6,
-    "sealed_packages": 6,
-    "manual_anchor_ready": 16,
+    "ai_queue": 4,
+    "bridge_outbox": 13,
+    "sealed_packages": 13,
+    "manual_anchor_ready": 23,
     "parliament_queue": 0,
     "parliament_failed": 0
   },
@@ -29,5 +29,5 @@
     "automatic_bridge_broadcast": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "39eaa7cceba1e195427cce193bc4bb4a7cf3a89e08d4627aa8b492294f7d19ee"
+  "double_sha": "c1ab6a0efc8583ec7e38adaf6e8ef2d19386d727be3b1a434a91e2904a1df47f"
 }

@@ -2,42 +2,45 @@
   "name": "CYBRA Parliament Institution Audit",
   "status": "generated",
   "mode": "check",
-  "time": 1780432294.357723,
+  "time": 1780435025.4191396,
   "git": {
     "branch": "main",
-    "commit": "96f2438fb",
-    "dirty_files": 160
+    "commit": "4d5f246b5",
+    "dirty_files": 66
   },
   "summary": {
-    "tasks_checked": 82,
-    "task_types": 31,
-    "executor_mapping_count": 49,
+    "tasks_checked": 96,
+    "task_types": 34,
+    "executor_mapping_count": 53,
     "required_organs": 10,
     "missing_organs": 0,
     "task_types_without_mapping": 0,
     "mapped_handlers_missing_files": 0,
-    "task_types_without_committee": 2,
-    "departments_files": 22,
+    "task_types_without_committee": 5,
+    "departments_files": 25,
     "committees_files": 82,
     "protection_files": 3
   },
   "statuses": {
     "unknown": 11,
-    "executed": 59,
+    "executed": 73,
     "failed": 2,
     "no_executor_mapping": 8,
     "reviewed": 2
   },
   "types": {
+    "kibra_bridge_pool_task": 3,
+    "ai_until_done_task": 1,
+    "finance_infrastructure_task": 3,
+    "native_kibra_evolution_task": 1,
+    "kibra_market_exchange_task": 3,
+    "monetization_department_task": 7,
+    "owner_orchestrator_task": 7,
+    "kibra_token_chain_task": 4,
     "evolution_deployment_task": 2,
-    "kibra_market_exchange_task": 1,
-    "owner_orchestrator_task": 4,
     "finance_department_task": 2,
-    "monetization_department_task": 5,
     "token_pool_ai_task": 3,
-    "finance_infrastructure_task": 2,
     "existing_tasks_activation_task": 2,
-    "kibra_token_chain_task": 3,
     "institution_audit_task": 2,
     "hash_module_test_task": 1,
     "evolution_guard_task": 6,
@@ -63,7 +66,7 @@
   },
   "sources": {
     "cybra:parliament:queue": 4,
-    "cybra:parliament:results": 69,
+    "cybra:parliament:results": 83,
     "cybra:review:approved": 1,
     "cybra:review:rejected": 2,
     "cybra:evolution:approved": 6
@@ -120,7 +123,7 @@
     "departments": {
       "path": "parliament/departments",
       "exists": true,
-      "files": 22,
+      "files": 25,
       "purpose": "Департаменти підтримки платформи"
     },
     "committees": {
@@ -139,6 +142,15 @@
       "handler_exists": true,
       "committee_path": "parliament/committees/ai_task_committee",
       "committee_exists": true
+    },
+    {
+      "task_type": "ai_until_done_task",
+      "count": 1,
+      "mapping": "ai_until_done_handler.sh",
+      "mapping_exists": true,
+      "handler_exists": true,
+      "committee_path": "parliament/committees/ai_until_done_task_committee",
+      "committee_exists": false
     },
     {
       "task_type": "air_alert_task",
@@ -259,7 +271,7 @@
     },
     {
       "task_type": "finance_infrastructure_task",
-      "count": 2,
+      "count": 3,
       "mapping": "finance_infrastructure_handler.sh",
       "mapping_exists": true,
       "handler_exists": true,
@@ -294,8 +306,17 @@
       "committee_exists": true
     },
     {
+      "task_type": "kibra_bridge_pool_task",
+      "count": 3,
+      "mapping": "kibra_bridge_pool_handler.sh",
+      "mapping_exists": true,
+      "handler_exists": true,
+      "committee_path": "parliament/committees/kibra_bridge_pool_task_committee",
+      "committee_exists": false
+    },
+    {
       "task_type": "kibra_market_exchange_task",
-      "count": 1,
+      "count": 3,
       "mapping": "kibra_market_exchange_handler.sh",
       "mapping_exists": true,
       "handler_exists": true,
@@ -304,7 +325,7 @@
     },
     {
       "task_type": "kibra_token_chain_task",
-      "count": 3,
+      "count": 4,
       "mapping": "kibra_token_chain_handler.sh",
       "mapping_exists": true,
       "handler_exists": true,
@@ -313,12 +334,21 @@
     },
     {
       "task_type": "monetization_department_task",
-      "count": 5,
+      "count": 7,
       "mapping": "monetization_department_handler.sh",
       "mapping_exists": true,
       "handler_exists": true,
       "committee_path": "parliament/committees/monetization_department_task_committee",
       "committee_exists": true
+    },
+    {
+      "task_type": "native_kibra_evolution_task",
+      "count": 1,
+      "mapping": "native_kibra_evolution_handler.sh",
+      "mapping_exists": true,
+      "handler_exists": true,
+      "committee_path": "parliament/committees/native_kibra_evolution_task_committee",
+      "committee_exists": false
     },
     {
       "task_type": "native_token_ecosystem_task",
@@ -331,7 +361,7 @@
     },
     {
       "task_type": "owner_orchestrator_task",
-      "count": 4,
+      "count": 7,
       "mapping": "owner_orchestrator_handler.sh",
       "mapping_exists": true,
       "handler_exists": true,
@@ -409,8 +439,11 @@
       "level": "development",
       "message": "Для частини task types немає окремих комітетів.",
       "types": [
+        "ai_until_done_task",
         "finance_infrastructure_task",
-        "kibra_market_exchange_task"
+        "kibra_bridge_pool_task",
+        "kibra_market_exchange_task",
+        "native_kibra_evolution_task"
       ],
       "action": "Запусти repair, щоб створити committee skeleton."
     }
@@ -421,5 +454,5 @@
     "protection": false,
     "gitignore_added": []
   },
-  "double_sha": "163d885da2b016ede4af47a2108c8bcf575448794afdacd74b3e49185fd7ed55"
+  "double_sha": "827c40ff7fd126af58c0321c39b91c34e5f289be4df412048747883041c9c13a"
 }

@@ -4,7 +4,8 @@
   "task_type": "token_pool_ai_task",
   "purpose": "Support existing tasks under Evolution Deployment: mapping, handler validation, audit, proof, safe fallback.",
   "topics_seen": [
-    "CYBRA Token Pool AI Finance Orchestrator"
+    "CYBRA Token Pool AI Finance Orchestrator",
+    "Prepare real KIBRA liquidity pool readiness"
   ],
   "rules": [
     "no_automatic_payment",
@@ -14,6 +15,6 @@
     "proof_required",
     "evolution_deployment_compatible"
   ],
-  "time_iso": "2026-06-02T23:02:15+0300",
-  "double_sha": "8677ed6840d592bc2660d67c64b3745c27b970e4c42aae853daf51575d3c80be"
+  "time_iso": "2026-06-03T00:17:28+0300",
+  "double_sha": "1cb959fadcce6e6a0688c28877fb0d0dfcd7931c6146a7c397044c584b8978d4"
 }

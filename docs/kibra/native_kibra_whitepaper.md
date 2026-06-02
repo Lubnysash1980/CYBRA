@@ -10,8 +10,8 @@ KIBRA is planned as native coin of own blockchain.
 ## Chain
 
 - Local chain: KIBRA_LOCAL_PROOF_CHAIN
-- Latest hash: `008a14703eb452470cbbed74931d44f6220897823d71c436b3dacb5fab11f896`
-- Existing height: `8`
+- Latest hash: `00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab`
+- Existing height: `10`
 - Difficulty stream: required
 - Mining shares: required
 - External anchor: manual proof anchor only

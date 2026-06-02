@@ -4,4 +4,4 @@ Task type: `analytics_committee_task`
 
 Status: active
 
-Double SHA: `8d6c42e6056b8c25f85a474f81fb1c50b896b32ecaecb26f62463af53d24d3d6`
+Double SHA: `9618944d335cb9d325814f60fd0bda260da46036275e91f320dd9a4edd94b814`

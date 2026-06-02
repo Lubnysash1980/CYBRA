@@ -4,4 +4,4 @@ Task type: `audit_dedupe_test_task`
 
 Status: active
 
-Double SHA: `f5a6db251ffc184e32a187569a908488960150d0b4c9cf3e4fc851fb855e172c`
+Double SHA: `109a8ea0049e68fc25cc59191c2f277d9f9b3b8a8f5d80070aa9d7b85e30f1f6`

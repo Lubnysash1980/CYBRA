@@ -1,7 +1,7 @@
 {
   "status": "finance_infrastructure_report_generated",
-  "time": 1780433474.990327,
-  "time_iso": "2026-06-02T23:51:14+0300",
+  "time": 1780434432.6326942,
+  "time_iso": "2026-06-03T00:07:12+0300",
   "modules": {
     "token_mint": true,
     "multipayment_rails": true,
@@ -37,8 +37,8 @@
     "mint_proposals": 1,
     "payment_proposals": 1,
     "gold_proposals": 1,
-    "finance_ledger": 17,
-    "finance_audit": 37
+    "finance_ledger": 18,
+    "finance_audit": 38
   },
   "proof_inputs": {
     "infrastructure_policy": "7c36dfbc968d80174f470d22f6a65390d5dacc62d46cf0b2168964d5f2454d7b",
@@ -48,8 +48,8 @@
   },
   "git": {
     "branch": "main",
-    "commit": "539e9321e",
-    "dirty_files": 159
+    "commit": "17bb81524",
+    "dirty_files": 58
   },
-  "double_sha": "7ed1726bdadc0aaf095d79d1c1bfaa3460345568dae61d474e9f788b26073e9e"
+  "double_sha": "9f311f4f5822ed267f7ee8aa64bf7dc215cb36dcb830bd7789fd9ca9724305e7"
 }

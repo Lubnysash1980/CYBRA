@@ -1,0 +1,21 @@
+{
+  "committee_id": "kibra_market_exchange_task_committee",
+  "status": "active",
+  "task_type": "kibra_market_exchange_task",
+  "purpose": "Support existing tasks under Evolution Deployment: mapping, handler validation, audit, proof, safe fallback.",
+  "topics_seen": [
+    "Design CYBRA own exchange architecture",
+    "Finance Profit Audit Recommendation 3: liquidity",
+    "KIBRA Market Exchange Master Plan"
+  ],
+  "rules": [
+    "no_automatic_payment",
+    "no_automatic_token_mint",
+    "no_external_blockchain_tx_without_owner",
+    "audit_required",
+    "proof_required",
+    "evolution_deployment_compatible"
+  ],
+  "time_iso": "2026-06-03T00:17:28+0300",
+  "double_sha": "da61eb1722cfd37d443c5e3f3fac7bba59a3c1e0fb543785886d895fd2a9f2fc"
+}

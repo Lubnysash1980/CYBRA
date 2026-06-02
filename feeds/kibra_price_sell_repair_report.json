@@ -1,12 +1,12 @@
 {
   "status": "kibra_price_sell_repair_report_generated",
-  "time": 1780435675.6635566,
-  "time_iso": "2026-06-03T00:27:55+0300",
+  "time": 1780435997.3926067,
+  "time_iso": "2026-06-03T00:33:17+0300",
   "latest_kibra_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab",
   "chain_verify": {
     "ok": true,
     "returncode": 0,
-    "output_tail": "{\n  \"status\": \"verified\",\n  \"blocks\": 10,\n  \"errors\": [],\n  \"time\": 1780435675.5552416\n}\n"
+    "output_tail": "{\n  \"status\": \"verified\",\n  \"blocks\": 10,\n  \"errors\": [],\n  \"time\": 1780435997.2757726\n}\n"
   },
   "blocks": {
     "good_count": 10,
@@ -23,8 +23,8 @@
   },
   "sell_proposal": {
     "status": "sell_proposal_created",
-    "time": 1780435675.6471238,
-    "time_iso": "2026-06-03T00:27:55+0300",
+    "time": 1780435997.3691533,
+    "time_iso": "2026-06-03T00:33:17+0300",
     "native_coin": "KIBRA",
     "sell_at_market_price": true,
     "market_price_usd_per_kibra": "0.001",
@@ -47,15 +47,15 @@
       "no fake price",
       "no wash trading"
     ],
-    "double_sha": "b64e5cfee12646e55ef0a3918404ea6371ae4e4d90a5e56b56c9495ccea10f13"
+    "double_sha": "d6e1459869da1319e486784cd3fab5cf6189c1f822e9a83c7efee6f18b6cfe13"
   },
-  "ai_tasks_created": 0,
-  "submit_ai": false,
+  "ai_tasks_created": 5,
+  "submit_ai": true,
   "redis": {
-    "sell_proposals": 7,
+    "sell_proposals": 9,
     "broken_blocks": 0,
     "repair_queue": 0,
-    "ai_queue": 0,
+    "ai_queue": 5,
     "parliament_queue": 0,
     "parliament_failed": 0
   },
@@ -66,5 +66,5 @@
     "automatic_external_tx": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "6e0f6569a04b98c7a524a6e613dd76ccc5114b218b05aa58f5d3502cdbbef314"
+  "double_sha": "401bca9469048325f8f36cd769b09fb5540b10bd1539a61aa6262f2689f5c4ab"
 }

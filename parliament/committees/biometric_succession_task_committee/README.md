@@ -4,4 +4,4 @@ Task type: `biometric_succession_task`
 
 Status: active
 
-Double SHA: `eb0c7bf670584b1f64264391b79e377b522e4c28577582afaa4f3b37caf36c1a`
+Double SHA: `a7dcee904a335536fddcadcde3f4f3b7374e3884e7aa731bcc007336b90c7937`

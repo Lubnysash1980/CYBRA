@@ -1,39 +1,40 @@
 {
   "department": "CYBRA Finance Department",
   "status": "generated",
-  "time": 1780433473.9483287,
-  "time_iso": "2026-06-02T23:51:13+0300",
+  "time": 1780435023.002555,
+  "time_iso": "2026-06-03T00:17:03+0300",
   "git": {
     "branch": "main",
-    "commit": "539e9321e",
-    "dirty_files": 159
+    "commit": "4d5f246b5",
+    "dirty_files": 66
   },
   "summary": {
-    "records_checked": 85,
-    "finance_related_records": 13,
+    "records_checked": 92,
+    "finance_related_records": 20,
     "risk_items": 0,
-    "finance_audit_records": 36,
-    "finance_ledger_records": 17,
+    "finance_audit_records": 39,
+    "finance_ledger_records": 19,
     "payment_execution_allowed": false,
     "owner_manual_approval_required": true
   },
   "statuses": {
-    "executed": 66,
+    "executed": 73,
     "failed": 2,
     "no_executor_mapping": 8,
     "unknown": 7,
     "reviewed": 2
   },
   "types": {
-    "kibra_market_exchange_task": 2,
+    "finance_infrastructure_task": 3,
+    "native_kibra_evolution_task": 1,
+    "kibra_market_exchange_task": 3,
+    "monetization_department_task": 7,
+    "owner_orchestrator_task": 7,
+    "kibra_token_chain_task": 4,
     "evolution_deployment_task": 2,
-    "owner_orchestrator_task": 5,
     "finance_department_task": 2,
-    "monetization_department_task": 6,
     "token_pool_ai_task": 3,
-    "finance_infrastructure_task": 2,
     "existing_tasks_activation_task": 2,
-    "kibra_token_chain_task": 3,
     "institution_audit_task": 2,
     "hash_module_test_task": 1,
     "evolution_guard_task": 6,
@@ -58,12 +59,96 @@
     "None": 2
   },
   "sources": {
-    "cybra:parliament:results": 76,
+    "cybra:parliament:results": 83,
     "cybra:review:approved": 1,
     "cybra:review:rejected": 2,
     "cybra:evolution:approved": 6
   },
   "finance_related": [
+    {
+      "topic": "Finance Profit Audit Recommendation 5: gold_treasury",
+      "type": "finance_infrastructure_task",
+      "status": "executed",
+      "source": "cybra:parliament:results",
+      "score": 1,
+      "finance_hits": [
+        "finance"
+      ],
+      "risk_hits": [],
+      "recommendation": "OK_FOR_REVIEW: можна аналізувати бюджет, але без автоматичної оплати."
+    },
+    {
+      "topic": "Finance Profit Audit Recommendation 4: native_emission",
+      "type": "native_kibra_evolution_task",
+      "status": "executed",
+      "source": "cybra:parliament:results",
+      "score": 1,
+      "finance_hits": [
+        "finance"
+      ],
+      "risk_hits": [],
+      "recommendation": "OK_FOR_REVIEW: можна аналізувати бюджет, але без автоматичної оплати."
+    },
+    {
+      "topic": "Finance Profit Audit Recommendation 3: liquidity",
+      "type": "kibra_market_exchange_task",
+      "status": "executed",
+      "source": "cybra:parliament:results",
+      "score": 1,
+      "finance_hits": [
+        "finance"
+      ],
+      "risk_hits": [],
+      "recommendation": "OK_FOR_REVIEW: можна аналізувати бюджет, але без автоматичної оплати."
+    },
+    {
+      "topic": "Finance Profit Audit Recommendation 2: profit_optimization",
+      "type": "monetization_department_task",
+      "status": "executed",
+      "source": "cybra:parliament:results",
+      "score": 1,
+      "finance_hits": [
+        "finance"
+      ],
+      "risk_hits": [],
+      "recommendation": "OK_FOR_REVIEW: можна аналізувати бюджет, але без автоматичної оплати."
+    },
+    {
+      "topic": "Finance Profit Audit Recommendation 1: anchor",
+      "type": "owner_orchestrator_task",
+      "status": "executed",
+      "source": "cybra:parliament:results",
+      "score": 1,
+      "finance_hits": [
+        "finance"
+      ],
+      "risk_hits": [],
+      "recommendation": "OK_FOR_REVIEW: можна аналізувати бюджет, але без автоматичної оплати."
+    },
+    {
+      "topic": "Finance Gap Evolution: kibra_chain_growth",
+      "type": "kibra_token_chain_task",
+      "status": "executed",
+      "source": "cybra:parliament:results",
+      "score": 1,
+      "finance_hits": [
+        "finance"
+      ],
+      "risk_hits": [],
+      "recommendation": "OK_FOR_REVIEW: можна аналізувати бюджет, але без автоматичної оплати."
+    },
+    {
+      "topic": "Finance Gap Evolution: anchor_queue",
+      "type": "owner_orchestrator_task",
+      "status": "executed",
+      "source": "cybra:parliament:results",
+      "score": 1,
+      "finance_hits": [
+        "finance"
+      ],
+      "risk_hits": [],
+      "recommendation": "OK_FOR_REVIEW: можна аналізувати бюджет, але без автоматичної оплати."
+    },
     {
       "topic": "Evolution Deployment: owner orchestrator cleanup",
       "type": "owner_orchestrator_task",
@@ -225,5 +310,5 @@
   "risk_items": [],
   "budget_template": "data/finance/budget_ledger_template.json",
   "policy": "parliament/finance/finance_policy.json",
-  "double_sha": "6b00209dd5fe2753ceee87cf0369f962906ad5daec802475f1a76f7b3b54ba82"
+  "double_sha": "9512fc935428f39d2a695e0c5ef8c221ba173ee08acaf3667f1847de5d7180e1"
 }

@@ -4,4 +4,4 @@ Task type: `smart_autofix_mining_pool_task`
 
 Status: active
 
-Double SHA: `b76a3a08ec1cb49d2d7193b2d0a05c35adb33be7ae7b0fda7c72c685bf77c0e5`
+Double SHA: `7cedf5c34cfa2b7461072d2ae4e5c0425b2305e1b5c0e8650034da60b9ecab0e`

@@ -4,7 +4,8 @@
   "task_type": "evolution_deployment_task",
   "purpose": "Support existing tasks under Evolution Deployment: mapping, handler validation, audit, proof, safe fallback.",
   "topics_seen": [
-    "CYBRA Evolution Deployment Cycle"
+    "CYBRA Evolution Deployment Cycle",
+    "Run KIBRA market evolution deployment"
   ],
   "rules": [
     "no_automatic_payment",
@@ -14,6 +15,6 @@
     "proof_required",
     "evolution_deployment_compatible"
   ],
-  "time_iso": "2026-06-02T23:02:15+0300",
-  "double_sha": "e321812d8ef7599bb828cb25e0ef9d06fd8a296f3443e4d700b03d41b16fff20"
+  "time_iso": "2026-06-03T00:17:28+0300",
+  "double_sha": "ed0c957f6979c8fc9931399b291149758ca9996dd8b7f1dc2c7bb986a280f019"
 }

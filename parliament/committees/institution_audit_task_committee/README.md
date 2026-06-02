@@ -4,4 +4,4 @@ Task type: `institution_audit_task`
 
 Status: active
 
-Double SHA: `98504b5ce6bcd293a0dd8b5aeaa2b10fecbda0e3a27504216cb30f5097bed84c`
+Double SHA: `186389937fc897ac432a192b5fce2c0b50a568d7ffbc9b192f5c8e35656227f1`

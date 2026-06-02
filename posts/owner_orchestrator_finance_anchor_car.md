@@ -24,9 +24,9 @@ Reason:
 - Status: **manual_anchor_package_ready**
 - Automatic on-chain tx: **false**
 - Manual wallet signature required: **true**
-- Anchor queue count: **1**
-- Latest KIBRA hash: `008a14703eb452470cbbed74931d44f6220897823d71c436b3dacb5fab11f896`
-- Anchor root hash: `3973be230516fb8898c720c253cebb7eb5eb048118636ba028597cfe919bfcbd`
+- Anchor queue count: **2**
+- Latest KIBRA hash: `00f957b0f5cda9f673bf10d8d440279ea89e7834787871183b14c5540b8d3aa5`
+- Anchor root hash: `6433cf661562b7df2d4fdc162ad8a85a3561e1a42bc4da695a98ee712fa8dfa5`
 
 ## Car purchase tomorrow: preflight
 
@@ -53,19 +53,19 @@ Before any payment, collect and verify:
 
 ## Redis state
 
-- Parliament queue: 0
-- Parliament results: 73
-- Finance ledger: 17
-- Finance audit: 36
-- Anchor queue: 1
-- KIBRA audit: 11
+- Parliament queue: 4
+- Parliament results: 78
+- Finance ledger: 18
+- Finance audit: 37
+- Anchor queue: 2
+- KIBRA audit: 12
 
 ## Proof
 
 Double SHA:
 
-`720b0b855edeb78551a4b7001bea8e5f42a6e46faed1738db84dacb0b5f93e5e`
+`06a3e5da16ef18d56df7a6a593cdd4828e20574dd780442cc98be73646804a72`
 
 Anchor root hash:
 
-`3973be230516fb8898c720c253cebb7eb5eb048118636ba028597cfe919bfcbd`
+`6433cf661562b7df2d4fdc162ad8a85a3561e1a42bc4da695a98ee712fa8dfa5`

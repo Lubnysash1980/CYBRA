@@ -1,0 +1,21 @@
+{
+  "committee_id": "finance_infrastructure_task_committee",
+  "status": "active",
+  "task_type": "finance_infrastructure_task",
+  "purpose": "Support existing tasks under Evolution Deployment: mapping, handler validation, audit, proof, safe fallback.",
+  "topics_seen": [
+    "CYBRA Finance Infrastructure: token mint multipayment gold treasury",
+    "Finance Profit Audit Recommendation 5: gold_treasury",
+    "Prepare real KIBRA token mint readiness"
+  ],
+  "rules": [
+    "no_automatic_payment",
+    "no_automatic_token_mint",
+    "no_external_blockchain_tx_without_owner",
+    "audit_required",
+    "proof_required",
+    "evolution_deployment_compatible"
+  ],
+  "time_iso": "2026-06-03T00:17:28+0300",
+  "double_sha": "4b28bda9ed44420c343ae67cf29832bd25134a6e68ce9a119a053fb8edf4463c"
+}

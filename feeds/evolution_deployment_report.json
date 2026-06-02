@@ -1,27 +1,27 @@
 {
   "status": "evolution_deployment_report_generated",
-  "time": 1780433196.4462552,
-  "time_iso": "2026-06-02T23:46:36+0300",
+  "time": 1780436004.1680586,
+  "time_iso": "2026-06-03T00:33:24+0300",
   "state": {
-    "time": 1780433189.6916084,
-    "time_iso": "2026-06-02T23:46:29+0300",
+    "time": 1780436003.6406138,
+    "time_iso": "2026-06-03T00:33:23+0300",
     "git": {
       "branch": "main",
-      "commit": "89cf02129",
-      "dirty_files": 151
+      "commit": "a1750b0d7",
+      "dirty_files": 141
     },
     "redis": {
       "queue": 0,
-      "results": 76,
+      "results": 97,
       "failed": 0,
-      "audit": 76,
-      "kibra_audit": 11,
-      "finance_ledger": 17,
-      "finance_audit": 36,
-      "anchor_queue": 1,
-      "anchor_manual_ready": 8,
-      "monetization_audit": 16,
-      "monetization_proposals": 16,
+      "audit": 97,
+      "kibra_audit": 13,
+      "finance_ledger": 19,
+      "finance_audit": 40,
+      "anchor_queue": 3,
+      "anchor_manual_ready": 23,
+      "monetization_audit": 24,
+      "monetization_proposals": 24,
       "spend_proposals": 1,
       "evolution_approved": 6,
       "evolution_hold": 0,
@@ -37,26 +37,26 @@
       "parliament_review": true
     },
     "kibra": {
-      "height": 8,
-      "latest_hash": "008a14703eb452470cbbed74931d44f6220897823d71c436b3dacb5fab11f896",
+      "height": 10,
+      "latest_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab",
       "latest_difficulty": 2
     },
     "finance": {
       "risk_items": 0,
-      "records_checked": 79
+      "records_checked": 92
     },
     "institution": {
       "missing_organs": 0,
       "missing_mapping": 0,
-      "missing_committees": 2
+      "missing_committees": 5
     },
     "monetization": {
       "exists": true,
-      "double_sha": "77737948c6739f485395d97b63010fcc5452dd74dd1fb9e9d83b1569eab7cb61"
+      "double_sha": "fc6074fb02818dd65a73876978872be44fe1b4414c47c866dd32529996ad276f"
     },
     "hash": {
       "exists": true,
-      "root_double_sha": "eb50e7ec9aa23d42348e68e80e87780fe74341fd62bd8a05bc07ced0bc814703"
+      "root_double_sha": "bfa5933a62f1529111059e7a51847c80224288a3d37df2820fc0a76d4e5afe26"
     },
     "anchor": {
       "exists": true,
@@ -79,5 +79,5 @@
   },
   "created_tasks": [],
   "policy_sha256": "260aa19a8de66e53477782e52ce78d6f42ba9826bd489a813a079db44f0730f7",
-  "double_sha": "e86893b451c9ccf0a0dabf4843831c6f236f855c00d0e997affb7f4d3e7f8dd9"
+  "double_sha": "06701a33ff1cc15436b8123f8ff27099e29eefe61720f5580f1046d79329d9e0"
 }

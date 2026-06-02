@@ -4,6 +4,7 @@
   "task_type": "finance_department_task",
   "purpose": "Support existing tasks under Evolution Deployment: mapping, handler validation, audit, proof, safe fallback.",
   "topics_seen": [
+    "Build sell-without-crash model",
     "CYBRA Finance Department"
   ],
   "rules": [
@@ -14,6 +15,6 @@
     "proof_required",
     "evolution_deployment_compatible"
   ],
-  "time_iso": "2026-06-02T23:02:15+0300",
-  "double_sha": "f47b9c8ca5ded80d793b76daa1123daddf44c32d7bd2aaa502977e6df4c9d976"
+  "time_iso": "2026-06-03T00:17:28+0300",
+  "double_sha": "90a30b580dac4a31f12f9cb1ada9e93006c2166b6dafb9b8e1ee99151b517900"
 }

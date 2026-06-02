@@ -4,4 +4,4 @@ Task type: `evo_committee_task`
 
 Status: active
 
-Double SHA: `b79b1baec9e7e7282e779cf83f8efc5223eb43a1117a382f983afb671ddf01ce`
+Double SHA: `d26cf69fa5fc5b80324f31364c1f64d21f4cdf5039f3d35a7a7935c6148ffcdd`

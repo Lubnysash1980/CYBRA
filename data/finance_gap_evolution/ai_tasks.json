@@ -18,25 +18,5 @@
       "no_guaranteed_profit": true,
       "evolution_required": true
     }
-  },
-  {
-    "topic": "Finance Gap Evolution: kibra_chain_growth",
-    "type": "kibra_token_chain_task",
-    "priority": "high",
-    "payload": {
-      "source": "finance_gap_evolution_committee",
-      "area": "kibra_chain_growth",
-      "recommendation": "KIBRA chain height is 8; recommend growing to 10+ proof blocks.",
-      "suggested_action": "bash cybra_kibra_chain.sh mine 2",
-      "real_payment_execution": false,
-      "automatic_token_mint": false,
-      "automatic_liquidity_pool": false,
-      "automatic_exchange_launch": false,
-      "automatic_gold_purchase": false,
-      "automatic_external_tx": false,
-      "manual_OWNER_approval_required": true,
-      "no_guaranteed_profit": true,
-      "evolution_required": true
-    }
   }
 ]

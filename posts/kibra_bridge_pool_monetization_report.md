@@ -15,18 +15,18 @@ Status: **generated**
 
 ## Bridge
 
-- Sealed ID: `KIBRA-BRIDGE-30dc3538abf8389b`
-- Bridge SHA seal: `30dc3538abf8389b839df73f32509bc2189cac38ec5ce084013535e70ba15f03`
+- Sealed ID: `KIBRA-BRIDGE-9c7cc39f7d63ec2b`
+- Bridge SHA seal: `9c7cc39f7d63ec2b030785122c5a50cebbefc463f6c1040afd8d53a77426f01a`
 - Blocks packed: **10**
-- Outbox file: `data/kibra_bridge/outbox/KIBRA-BRIDGE-30dc3538abf8389b.json`
-- Sealed file: `data/kibra_bridge/sealed/KIBRA-BRIDGE-30dc3538abf8389b.sealed.json`
+- Outbox file: `data/kibra_bridge/outbox/KIBRA-BRIDGE-9c7cc39f7d63ec2b.json`
+- Sealed file: `data/kibra_bridge/sealed/KIBRA-BRIDGE-9c7cc39f7d63ec2b.sealed.json`
 
 ## Redis
 
-- AI queue: 0
-- Bridge outbox: 6
-- Sealed packages: 6
-- Manual anchor ready: 16
+- AI queue: 4
+- Bridge outbox: 13
+- Sealed packages: 13
+- Manual anchor ready: 23
 
 ## Safety
 
@@ -35,4 +35,4 @@ It creates a sealed bridge package and network outbox only.
 
 ## Double SHA
 
-`39eaa7cceba1e195427cce193bc4bb4a7cf3a89e08d4627aa8b492294f7d19ee`
+`c1ab6a0efc8583ec7e38adaf6e8ef2d19386d727be3b1a434a91e2904a1df47f`

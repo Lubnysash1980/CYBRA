@@ -14,4 +14,4 @@ Automatic exchange launch: **false**
 
 Manual OWNER approval required for real launch: **true**
 
-Double SHA: `f1d01c478d8e2cfb1a3a1438a8597f5efbf4e4d7338408b4779dddc47d277119`
+Double SHA: `65702458e54c06697dc978774b2a89b5c1be92d2c6af8dd9731ee0ca2a885d89`

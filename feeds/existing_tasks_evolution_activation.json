@@ -1,50 +1,55 @@
 {
   "status": "existing_tasks_evolution_activation_report",
   "mode": "report",
-  "time": 1780430554.9116511,
-  "time_iso": "2026-06-02T23:02:34+0300",
+  "time": 1780435050.6732063,
+  "time_iso": "2026-06-03T00:17:30+0300",
   "score": 100,
   "git": {
     "branch": "main",
-    "commit": "503422eaf",
-    "dirty_files": 201
+    "commit": "4d5f246b5",
+    "dirty_files": 129
   },
   "redis": {
     "queue": 0,
-    "results": 65,
+    "results": 87,
     "failed": 0,
     "failed_archive": 3,
-    "mapping_count": 47
+    "mapping_count": 53
   },
   "summary": {
-    "records_checked": 74,
-    "task_types": 29,
+    "records_checked": 97,
+    "task_types": 33,
     "missing_mapping": 0,
     "missing_handler": 0,
     "failed_validation": 0,
     "missing_committee": 0
   },
   "statuses": {
-    "executed": 55,
+    "executed": 77,
     "failed": 2,
     "no_executor_mapping": 8,
-    "unknown": 7,
+    "unknown": 8,
     "reviewed": 2
   },
   "sources": {
-    "cybra:parliament:results": 65,
+    "cybra:parliament:results": 87,
     "cybra:review:approved": 1,
     "cybra:review:rejected": 2,
-    "cybra:evolution:approved": 6
+    "cybra:evolution:approved": 6,
+    "cybra:evolution_deployment:tasks": 1
   },
   "task_types": {
+    "kibra_bridge_pool_task": 3,
+    "kibra_token_chain_task": 5,
+    "finance_infrastructure_task": 3,
+    "native_kibra_evolution_task": 1,
+    "kibra_market_exchange_task": 3,
+    "monetization_department_task": 7,
+    "owner_orchestrator_task": 8,
+    "evolution_deployment_task": 2,
+    "finance_department_task": 2,
+    "token_pool_ai_task": 3,
     "existing_tasks_activation_task": 2,
-    "evolution_deployment_task": 1,
-    "monetization_department_task": 4,
-    "owner_orchestrator_task": 3,
-    "kibra_token_chain_task": 3,
-    "token_pool_ai_task": 2,
-    "finance_department_task": 1,
     "institution_audit_task": 2,
     "hash_module_test_task": 1,
     "evolution_guard_task": 6,
@@ -181,7 +186,7 @@
     },
     {
       "task_type": "evolution_deployment_task",
-      "count": 1,
+      "count": 2,
       "mapping": "evolution_deployment_handler.sh",
       "handler_exists": true,
       "handler_validation": {
@@ -225,8 +230,19 @@
     },
     {
       "task_type": "finance_department_task",
-      "count": 1,
+      "count": 2,
       "mapping": "finance_department_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "finance_infrastructure_task",
+      "count": 3,
+      "mapping": "finance_infrastructure_handler.sh",
       "handler_exists": true,
       "handler_validation": {
         "ok": true,
@@ -268,8 +284,30 @@
       "committee_exists": true
     },
     {
-      "task_type": "kibra_token_chain_task",
+      "task_type": "kibra_bridge_pool_task",
       "count": 3,
+      "mapping": "kibra_bridge_pool_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "kibra_market_exchange_task",
+      "count": 3,
+      "mapping": "kibra_market_exchange_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "kibra_token_chain_task",
+      "count": 5,
       "mapping": "kibra_token_chain_handler.sh",
       "handler_exists": true,
       "handler_validation": {
@@ -280,8 +318,19 @@
     },
     {
       "task_type": "monetization_department_task",
-      "count": 4,
+      "count": 7,
       "mapping": "monetization_department_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "native_kibra_evolution_task",
+      "count": 1,
+      "mapping": "native_kibra_evolution_handler.sh",
       "handler_exists": true,
       "handler_validation": {
         "ok": true,
@@ -302,7 +351,7 @@
     },
     {
       "task_type": "owner_orchestrator_task",
-      "count": 3,
+      "count": 8,
       "mapping": "owner_orchestrator_handler.sh",
       "handler_exists": true,
       "handler_validation": {
@@ -379,7 +428,7 @@
     },
     {
       "task_type": "token_pool_ai_task",
-      "count": 2,
+      "count": 3,
       "mapping": "token_pool_ai_handler.sh",
       "handler_exists": true,
       "handler_validation": {
@@ -400,5 +449,5 @@
       "action": "Continue evolution cycles."
     }
   ],
-  "double_sha": "958a5e8e8f14263096256f46a607edd9ff4fe3e14a8923dee837a6cb2a83d85f"
+  "double_sha": "4b6ba3cb39c0b5413595a0135c2a77d5b7f05a9d2983157e3c2dc987e48888f1"
 }

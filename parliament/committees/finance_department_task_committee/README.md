@@ -4,4 +4,4 @@ Task type: `finance_department_task`
 
 Status: active
 
-Double SHA: `f47b9c8ca5ded80d793b76daa1123daddf44c32d7bd2aaa502977e6df4c9d976`
+Double SHA: `90a30b580dac4a31f12f9cb1ada9e93006c2166b6dafb9b8e1ee99151b517900`

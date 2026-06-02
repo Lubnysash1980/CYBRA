@@ -5,11 +5,11 @@ Parent: **Finance Department**
 
 ## Score
 
-- Score: **90/100**
+- Score: **95/100**
 - Modules OK: **12/12**
-- Runtime gaps: **2**
+- Runtime gaps: **1**
 - AI tasks created this report: **0**
-- Double SHA: `91f8a1279542ec5f6687affd165354204201f9f6f9c01c715f0859d0e0dd96f8`
+- Double SHA: `421eec386fe044c96b731a101c0af151609ee3d8b14ec519c52f8e9292a6b4dc`
 
 ## What this committee does
 
@@ -34,13 +34,11 @@ Parent: **Finance Department**
 ## Recommendations
 
 - **warning** / `anchor_queue`: External anchor queue is not packaged. Action: `bash fix_kibra_verify_finance_anchor.sh`
-- **development** / `kibra_chain_growth`: KIBRA chain height is 8; recommend growing to 10+ proof blocks. Action: `bash cybra_kibra_chain.sh mine 2`
 
 
 ## AI tasks prepared
 
 - `owner_orchestrator_task` — Finance Gap Evolution: anchor_queue
-- `kibra_token_chain_task` — Finance Gap Evolution: kibra_chain_growth
 
 
 ## Safety

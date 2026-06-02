@@ -4,4 +4,4 @@ Task type: `closed_evolution_selfseal_task`
 
 Status: active
 
-Double SHA: `e689004656e157c96b4a05231cb497be0cda3275b0323cea78de891e6a9d2944`
+Double SHA: `6e32bd7cd3985e5697df4eb51a51023ccd55f644a830c028ef6fbcff1bedf2a3`

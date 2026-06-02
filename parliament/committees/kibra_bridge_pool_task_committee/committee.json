@@ -1,0 +1,21 @@
+{
+  "committee_id": "kibra_bridge_pool_task_committee",
+  "status": "active",
+  "task_type": "kibra_bridge_pool_task",
+  "purpose": "Support existing tasks under Evolution Deployment: mapping, handler validation, audit, proof, safe fallback.",
+  "topics_seen": [
+    "KIBRA block network outbox bridge",
+    "KIBRA bridge SHA seal verification",
+    "KIBRA pool monetization for AI block creation"
+  ],
+  "rules": [
+    "no_automatic_payment",
+    "no_automatic_token_mint",
+    "no_external_blockchain_tx_without_owner",
+    "audit_required",
+    "proof_required",
+    "evolution_deployment_compatible"
+  ],
+  "time_iso": "2026-06-03T00:17:28+0300",
+  "double_sha": "ce57bc6ea354776040dba0c357d3284de3664708bb4e8fb69747c9b38ae55502"
+}

@@ -1,0 +1,332 @@
+{
+  "chain": "KIBRA_LOCAL_PROOF_CHAIN",
+  "block_kind": "regular",
+  "index": 8,
+  "timestamp": 1780434413.781045,
+  "time_iso": "2026-06-03T00:06:53+0300",
+  "previous_block_hash": "008a14703eb452470cbbed74931d44f6220897823d71c436b3dacb5fab11f896",
+  "actual_interval_sec": 17647.22122526169,
+  "target_interval_sec": 30,
+  "difficulty": 2,
+  "difficulty_prefix": "00",
+  "difficulty_model": "timestamp_adjusted_bitcoin_like_local_pow",
+  "token": {
+    "token_type": "Image",
+    "name": "Кібра",
+    "symbol": "KIBRA",
+    "total_supply_raw": "49000000000000000",
+    "total_supply_label": "49 thousand trillion tokens",
+    "decimals": 9,
+    "mint_status": "proof_chain_only_until_manual_wallet_approval",
+    "image_status": "token image metadata placeholder"
+  },
+  "allocation": {
+    "owner_percent": 60,
+    "pool_percent": 40,
+    "owner_amount_raw": "29400000000000000",
+    "pool_amount_raw": "19600000000000000"
+  },
+  "image": {
+    "token_type": "Image",
+    "name": "Кібра",
+    "symbol": "KIBRA",
+    "image_file": "token/kibra/image/logo.png",
+    "status": "placeholder_until_logo_file_added",
+    "note": "Поклади logo.png у token/kibra/image/logo.png, потім перезапусти bash cybra_kibra_chain.sh report",
+    "logo_exists": false,
+    "logo_sha256": null
+  },
+  "ai_tasks": [
+    {
+      "task_id": "KIBRA-FIN-001",
+      "department": "finance_department",
+      "goal": "Підтвердити 60/40 allocation: 60% owner, 40% pool, без автоматичних оплат.",
+      "block_kind": "regular"
+    },
+    {
+      "task_id": "KIBRA-REV-001",
+      "department": "revision_organ",
+      "goal": "Перевірити supply, difficulty stream, timestamp, proof, anchor queue.",
+      "block_kind": "regular"
+    },
+    {
+      "task_id": "KIBRA-ANA-001",
+      "department": "analytics_committee",
+      "goal": "Оцінити графік складності, кількість shares і якість proof-chain.",
+      "block_kind": "regular"
+    },
+    {
+      "task_id": "KIBRA-HASH-001",
+      "department": "hash_module",
+      "goal": "Зібрати token policy + AI tasks + shares + timestamp у root double SHA.",
+      "block_kind": "regular"
+    },
+    {
+      "task_id": "KIBRA-ANCHOR-001",
+      "department": "blockchain_anchor_queue",
+      "goal": "Поставити proof у чергу для ручного зовнішнього blockchain anchor.",
+      "block_kind": "regular"
+    }
+  ],
+  "ai_tasks_merkle_root": "1e79f8b56912bb10bd822037e05ade7143ad64e2f26a23a738b256e98fe57ba7",
+  "policy_sha256": "ebc4fc2beaa84c6c0d9128140ec9df358c39aa2ff40cf8ef55c9358886997e22",
+  "git": {
+    "branch": "main",
+    "commit": "17bb81524",
+    "dirty_files": 27
+  },
+  "external_blockchain_anchor": {
+    "status": "queued_only",
+    "external_tx": null,
+    "manual_owner_approval_required": true
+  },
+  "nonce": 801,
+  "block_hash": "00f957b0f5cda9f673bf10d8d440279ea89e7834787871183b14c5540b8d3aa5",
+  "pow_ok": true,
+  "best_hash": "00f957b0f5cda9f673bf10d8d440279ea89e7834787871183b14c5540b8d3aa5",
+  "best_nonce": 801,
+  "shares": [
+    {
+      "nonce": 5,
+      "share_hash": "0e6bfe91a2cfe2488b4f22ffe8c473c53dc06619c4411912b5652c754e5834e1",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.8929636
+    },
+    {
+      "nonce": 32,
+      "share_hash": "01c10e0b4a5e22153d668db3286684396b93a0eceb6a630b39d8089eaa30fb50",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.894888
+    },
+    {
+      "nonce": 34,
+      "share_hash": "0cca0ce154c2731dc20caacc916c67f124308ea275f01a41eb2206e593c7acd7",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.8950322
+    },
+    {
+      "nonce": 35,
+      "share_hash": "0c3eb48647e628de7f8a541e4f6b9197b3d58efdbe10833a77a7b20fbb6307b7",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.895104
+    },
+    {
+      "nonce": 99,
+      "share_hash": "0c2e53aa496317e0899f60df233018f862dca4bf3997066f37dfbb63c629edfb",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.8999221
+    },
+    {
+      "nonce": 126,
+      "share_hash": "0c959475d57fcf668c8199595a3f625db75fbaab1464eec35fc595b1161a0839",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9021065
+    },
+    {
+      "nonce": 127,
+      "share_hash": "03006d319dc43cd2d02450258d71d8aa0873a7fad2c73989da767b06b5f728a0",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9021869
+    },
+    {
+      "nonce": 137,
+      "share_hash": "0abddaca836a10643752fa3b288b5c7255d4deea7355646c28bed93251271fdb",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9029653
+    },
+    {
+      "nonce": 154,
+      "share_hash": "039eb40676383d0d16a76008edbf19c4aa12eca8b1aeb859e422784f4df8fb16",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9043434
+    },
+    {
+      "nonce": 170,
+      "share_hash": "0fc8367c89d264eae0fb3f7f97a6826ce3b2f400d7b3a43385f6265e97fd2c34",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9056172
+    },
+    {
+      "nonce": 180,
+      "share_hash": "05b1e0d2f2fc6af5f469a0a8dca3fbeb49d77e19c18e35c67eb916821ae2ec1d",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9064302
+    },
+    {
+      "nonce": 217,
+      "share_hash": "0239547a6a166fafa65f0aa0c573cf489557b6f848e5a48782af117c77e51e28",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9093926
+    },
+    {
+      "nonce": 273,
+      "share_hash": "0d0a39c3dfefcad9e4a20183446e4547e1aa4b4c98ac78af707dde273b5cadfa",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9137294
+    },
+    {
+      "nonce": 277,
+      "share_hash": "0f2bd4c69a4dee397ca0f9a09b41723ccf8bd228dbf0786bd1184aa2799f82cf",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9140222
+    },
+    {
+      "nonce": 282,
+      "share_hash": "0e8538a5afafc58911203812f4c0e6be61ba1135d4dd7c5e77a405d03a794d3e",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9143822
+    },
+    {
+      "nonce": 298,
+      "share_hash": "04e2020d244a9b4496f9f559aade7b092103aef144897b6543816f6d11d92d78",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9155738
+    },
+    {
+      "nonce": 310,
+      "share_hash": "02c74b65663d5dd7a0f1d4e72acdbc030820b9717d0dd779ec0ba5821d6fafca",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9164903
+    },
+    {
+      "nonce": 356,
+      "share_hash": "0a6d4310b80cd11b96b365c083c2bd8e6f91d6fe1c022d9737fc8903a50f2471",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9199317
+    },
+    {
+      "nonce": 364,
+      "share_hash": "0529c7a6353d166755f9bb689e957b638febdd83acec65d3ec96f43e4d278526",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9206285
+    },
+    {
+      "nonce": 413,
+      "share_hash": "0aa403fdd6ed4bf605abe04cd0b71422cc9800536e0a67d4e1ba06beea8c225f",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.924484
+    },
+    {
+      "nonce": 441,
+      "share_hash": "08f2c667acd324ddccd1e076b4db531301d3e6e7cb546f3527b78b7fe09f35db",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9266155
+    },
+    {
+      "nonce": 449,
+      "share_hash": "042b397262bf656954a447c9799429098c693d14b90980b240230318365ae20e",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.927224
+    },
+    {
+      "nonce": 454,
+      "share_hash": "023c927824d5de750a13bd365ec41b91cf0a95c152d31af1ff5118c1f5bc1419",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9275868
+    },
+    {
+      "nonce": 455,
+      "share_hash": "0bdc884809e7db7d3b9ea6d935a25e0362014f7a4399fca50e95ccb2b4140b52",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9276621
+    },
+    {
+      "nonce": 477,
+      "share_hash": "03a5745ba53ea9049a0ed340bc9c665501e72e43516e2b91ba5aa661c51d4c31",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9293036
+    },
+    {
+      "nonce": 508,
+      "share_hash": "01d2842b822e263c7a5e5450a79d55661bbf659bdd0861d9b8aaf6e62b4b9436",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9315722
+    },
+    {
+      "nonce": 510,
+      "share_hash": "029dc4ce746fdf3064af30816aab9bebd4ecc6cbdb350ec187fb4c8c78f2e5e8",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9317186
+    },
+    {
+      "nonce": 514,
+      "share_hash": "04fac9945644bfa80d0ac2cccf2f748a4b36a243690861b8d830d5cd11b19713",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9320123
+    },
+    {
+      "nonce": 527,
+      "share_hash": "0bf5c31bc6936a67ffb39d79c63bc9c988d287b62b6b72079c5a70c430293c57",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9329925
+    },
+    {
+      "nonce": 532,
+      "share_hash": "02b3ae79f8c2a8ed336680df45684a6532ef27bf03fd0f8d748053b053b1adf1",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.933356
+    },
+    {
+      "nonce": 573,
+      "share_hash": "0f58700b2d3be1a7789d13949b9c3b68677dca8bffcde83bac2e9bf4608f70a7",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.936345
+    },
+    {
+      "nonce": 583,
+      "share_hash": "0bfe87b3e7309f536daf3420adbea2506aa6240ec0e96185f66519878777ce13",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9370975
+    },
+    {
+      "nonce": 589,
+      "share_hash": "01239f8620ae202f574a48e1e67dcf2e209bb54b4a81fdb026d709f936adabd3",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9375312
+    },
+    {
+      "nonce": 619,
+      "share_hash": "07ab0c48c38856549580ca4de0e9ba89d56f4b6ba164d406994ec154a723532d",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9397066
+    },
+    {
+      "nonce": 634,
+      "share_hash": "014105cd89232791191398e2a6a30d5507864e49c0c1f897067592777749f47b",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.940871
+    },
+    {
+      "nonce": 636,
+      "share_hash": "0d87d7d9430592730bff491151ed4aa041671837c9f17111b75d7f2b9d5a035f",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9410264
+    },
+    {
+      "nonce": 655,
+      "share_hash": "0f0ac3924d07370f126ed1cd4e3409f915aadfeda88341fc08450261d96b158f",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9423952
+    },
+    {
+      "nonce": 674,
+      "share_hash": "0b70590b25d733410301239b01620bc24add3ec2a73ca3818c99447e6dad578c",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9437757
+    },
+    {
+      "nonce": 677,
+      "share_hash": "08dd4d7d8a70dde89021d62c44d65414c7d54267bcc352346413a9bbb5045328",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9439893
+    },
+    {
+      "nonce": 678,
+      "share_hash": "022e0037043fa07e900a2065fc85602ff853c4c76ad1c0f3bfada6c734483a3a",
+      "share_difficulty_prefix": "0",
+      "timestamp": 1780434415.9440618
+    }
+  ],
+  "shares_merkle_root": "1357684c5c7b42907e2ccefadddd49bb6df7428d4c212020a8f634355b2d6864",
+  "block_double_sha": "375abaea2c047b3e44235d5c8051407ce90fd17c611926b5c4435183c1a9736b"
+}

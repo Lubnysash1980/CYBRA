@@ -1,0 +1,19 @@
+{
+  "committee_id": "native_kibra_evolution_task_committee",
+  "status": "active",
+  "task_type": "native_kibra_evolution_task",
+  "purpose": "Support existing tasks under Evolution Deployment: mapping, handler validation, audit, proof, safe fallback.",
+  "topics_seen": [
+    "Finance Profit Audit Recommendation 4: native_emission"
+  ],
+  "rules": [
+    "no_automatic_payment",
+    "no_automatic_token_mint",
+    "no_external_blockchain_tx_without_owner",
+    "audit_required",
+    "proof_required",
+    "evolution_deployment_compatible"
+  ],
+  "time_iso": "2026-06-03T00:17:28+0300",
+  "double_sha": "2d0dac5761066258ccae838a724d750aa00712b1e38006f3340ba2536815c65c"
+}

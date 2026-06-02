@@ -65,11 +65,11 @@ Real pool/liquidity requires manual OWNER approval.
 
 Latest KIBRA hash:
 
-`008a14703eb452470cbbed74931d44f6220897823d71c436b3dacb5fab11f896`
+`00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab`
 
 Monetization Double SHA:
 
-`e542aaada6813638cc7cf7b6bab6a8da79d415c589121007f6307e3b888b1c1b`
+`fc6074fb02818dd65a73876978872be44fe1b4414c47c866dd32529996ad276f`
 
 ## Files
 
