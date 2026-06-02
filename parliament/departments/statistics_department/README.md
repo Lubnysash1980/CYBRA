@@ -6,4 +6,4 @@ Purpose:
 Статистика задач, статусів, результатів
 
 Double SHA:
-`f6fd922afa1ceb36d75077dd39456b64ca6c23942cf22577e04a9d2cc6bfc741`
+`25bf308adf34d0af6a6ad9c9bd62132b9ebc1cc8214aa24dddfcc2985b58713d`

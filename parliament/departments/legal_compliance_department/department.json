@@ -2,7 +2,7 @@
   "department_id": "legal_compliance_department",
   "status": "active",
   "purpose": "Правовий і безпечний compliance-filter",
-  "created_or_checked_at": "2026-06-02T17:29:13+0300",
+  "created_or_checked_at": "2026-06-02T17:31:42+0300",
   "rules": [
     "audit_required",
     "proof_required",
@@ -10,5 +10,5 @@
     "no_secret_dump",
     "evolution_only"
   ],
-  "double_sha": "0f1d88ae831b8cd1ec7860fb9cd5b3b5576eadd9bb313b1c6fa13b26263ccaf8"
+  "double_sha": "489c4a8c54606d1bc5def7c0760709ac2d7ad5e19f34af094725cc046b100aac"
 }

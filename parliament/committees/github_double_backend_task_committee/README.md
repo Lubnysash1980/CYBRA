@@ -9,4 +9,4 @@ Purpose:
 Підтримувати задачі типу github_double_backend_task: mapping, handler, audit, proof, diagnostics.
 
 Double SHA:
-`f99852aaa6d56dc6a9fcfc2b579b523952987f4859cfcf6dd1b0c9f4a896e6c8`
+`ad07e550cd73dd26f80f518042aaff6f0d6e001bfb742dfcf585d1c7b2b411e1`

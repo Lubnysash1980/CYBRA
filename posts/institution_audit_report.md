@@ -1,8 +1,8 @@
 # CYBRA Parliament Institution Audit
 
 Status: generated  
-Mode: repair  
-Double SHA: `c04c1ba56ac10e9b95bd185bd3d56665804e7bdce0f02542a8f64df2b441b521`
+Mode: check  
+Double SHA: `4cc7ac696326fcc98b1e84399b498081f8bccabcb20f831d224321a025d4f9e9`
 
 ## Summary
 
@@ -13,7 +13,7 @@ Double SHA: `c04c1ba56ac10e9b95bd185bd3d56665804e7bdce0f02542a8f64df2b441b521`
 - Missing organs: 1
 - Task types without mapping: 0
 - Mapped handlers missing files: 0
-- Task types without committee: 19
+- Task types without committee: 0
 - Departments files: 16
 - Committees files: 62
 - Protection files: 2
@@ -64,29 +64,28 @@ Double SHA: `c04c1ba56ac10e9b95bd185bd3d56665804e7bdce0f02542a8f64df2b441b521`
 
 ## Task support matrix
 
-- `ai_task` count=1 mapping=`evo_committee_handler.sh` handler_exists=True committee_exists=False
-- `air_alert_task` count=10 mapping=`air_alert_handler.sh` handler_exists=True committee_exists=False
-- `analytics_committee_task` count=3 mapping=`analytics_committee_handler.sh` handler_exists=True committee_exists=False
-- `audit_dedupe_test_task` count=3 mapping=`audit_dedupe_test_handler.sh` handler_exists=True committee_exists=False
-- `biometric_succession_task` count=2 mapping=`biometric_succession_handler.sh` handler_exists=True committee_exists=False
-- `closed_evolution_selfseal_task` count=3 mapping=`closed_evolution_selfseal_handler.sh` handler_exists=True committee_exists=False
-- `codespaces_keepalive_task` count=1 mapping=`evo_committee_handler.sh` handler_exists=True committee_exists=False
-- `cybra_autofix_task` count=7 mapping=`cybra_autofix.sh` handler_exists=True committee_exists=False
-- `evo_committee_task` count=1 mapping=`evo_committee_handler.sh` handler_exists=True committee_exists=False
-- `evolution_guard_task` count=6 mapping=`evolution_guard_handler.sh` handler_exists=True committee_exists=False
-- `executor_autoheal_task` count=1 mapping=`evo_committee_handler.sh` handler_exists=True committee_exists=False
-- `github_double_backend_task` count=1 mapping=`evo_committee_handler.sh` handler_exists=True committee_exists=False
-- `native_token_ecosystem_task` count=2 mapping=`create_native_token_ecosystem.sh` handler_exists=True committee_exists=False
-- `pmz_historical_metadata_task` count=2 mapping=`create_pmz_registry.sh` handler_exists=True committee_exists=False
-- `queue_fix` count=1 mapping=`evo_committee_handler.sh` handler_exists=True committee_exists=False
-- `revision_organ_task` count=3 mapping=`revision_organ_handler.sh` handler_exists=True committee_exists=False
-- `self_expanding_execution_engine_task` count=2 mapping=`evo_committee_handler.sh` handler_exists=True committee_exists=False
-- `smart_autofix_mining_pool_task` count=3 mapping=`cybra_mining_autofix.sh` handler_exists=True committee_exists=False
-- `test` count=2 mapping=`evo_committee_handler.sh` handler_exists=True committee_exists=False
+- `ai_task` count=1 mapping=`evo_committee_handler.sh` handler_exists=True committee_exists=True
+- `air_alert_task` count=10 mapping=`air_alert_handler.sh` handler_exists=True committee_exists=True
+- `analytics_committee_task` count=3 mapping=`analytics_committee_handler.sh` handler_exists=True committee_exists=True
+- `audit_dedupe_test_task` count=3 mapping=`audit_dedupe_test_handler.sh` handler_exists=True committee_exists=True
+- `biometric_succession_task` count=2 mapping=`biometric_succession_handler.sh` handler_exists=True committee_exists=True
+- `closed_evolution_selfseal_task` count=3 mapping=`closed_evolution_selfseal_handler.sh` handler_exists=True committee_exists=True
+- `codespaces_keepalive_task` count=1 mapping=`evo_committee_handler.sh` handler_exists=True committee_exists=True
+- `cybra_autofix_task` count=7 mapping=`cybra_autofix.sh` handler_exists=True committee_exists=True
+- `evo_committee_task` count=1 mapping=`evo_committee_handler.sh` handler_exists=True committee_exists=True
+- `evolution_guard_task` count=6 mapping=`evolution_guard_handler.sh` handler_exists=True committee_exists=True
+- `executor_autoheal_task` count=1 mapping=`evo_committee_handler.sh` handler_exists=True committee_exists=True
+- `github_double_backend_task` count=1 mapping=`evo_committee_handler.sh` handler_exists=True committee_exists=True
+- `native_token_ecosystem_task` count=2 mapping=`create_native_token_ecosystem.sh` handler_exists=True committee_exists=True
+- `pmz_historical_metadata_task` count=2 mapping=`create_pmz_registry.sh` handler_exists=True committee_exists=True
+- `queue_fix` count=1 mapping=`evo_committee_handler.sh` handler_exists=True committee_exists=True
+- `revision_organ_task` count=3 mapping=`revision_organ_handler.sh` handler_exists=True committee_exists=True
+- `self_expanding_execution_engine_task` count=2 mapping=`evo_committee_handler.sh` handler_exists=True committee_exists=True
+- `smart_autofix_mining_pool_task` count=3 mapping=`cybra_mining_autofix.sh` handler_exists=True committee_exists=True
+- `test` count=2 mapping=`evo_committee_handler.sh` handler_exists=True committee_exists=True
 
 
 ## Recommendations
 
 - **critical**: Не всі базові органи Кіберапарламенту існують. Action: `Запусти repair: bash cybra_institution.sh repair`
-- **development**: Для частини task types немає окремих комітетів. Action: `Запусти repair, щоб створити committee skeleton.`
 

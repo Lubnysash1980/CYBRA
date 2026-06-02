@@ -2,7 +2,7 @@
   "department_id": "mapping_department",
   "status": "active",
   "purpose": "Redis executor mapping і відсутні handler-и",
-  "created_or_checked_at": "2026-06-02T17:29:13+0300",
+  "created_or_checked_at": "2026-06-02T17:31:42+0300",
   "rules": [
     "audit_required",
     "proof_required",
@@ -10,5 +10,5 @@
     "no_secret_dump",
     "evolution_only"
   ],
-  "double_sha": "7bd06569a70f5054026532fc4acb99d85e28061a127a99e87bc87934146dcf2c"
+  "double_sha": "4d8dba2b33b627a680e2ab40719c13870c1f606b9328a7f4348eeab7375c4a1d"
 }

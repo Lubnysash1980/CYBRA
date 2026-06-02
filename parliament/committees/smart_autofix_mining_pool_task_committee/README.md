@@ -9,4 +9,4 @@ Purpose:
 Підтримувати задачі типу smart_autofix_mining_pool_task: mapping, handler, audit, proof, diagnostics.
 
 Double SHA:
-`06632955fdcb59f5c2a6ebee0b101bf7f57f08e61b65880a8b8314ce1667bb09`
+`3f0589aec3818a91ee6a5bd9f99557811268c099bf24ac950034022842c25483`

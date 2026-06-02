@@ -9,4 +9,4 @@ Purpose:
 Підтримувати задачі типу evolution_guard_task: mapping, handler, audit, proof, diagnostics.
 
 Double SHA:
-`04a7f7f687d0e079c86389362f1bcec5c865ca77e9234e274ce87d415f396442`
+`c1d86ba78a96e78ad47e0ddb7f52a2a969384079e42f8df035c3a985e3bb807b`

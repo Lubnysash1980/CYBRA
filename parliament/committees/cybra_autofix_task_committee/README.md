@@ -9,4 +9,4 @@ Purpose:
 Підтримувати задачі типу cybra_autofix_task: mapping, handler, audit, proof, diagnostics.
 
 Double SHA:
-`02cf7e964f31907fa748f9f52f1c3abe98e726b80eddc5b74dbe465206a489bc`
+`22c9e61de0b46c9fe6e04b250a124b340a696d1cdeed0e38b6694a489b7999fe`

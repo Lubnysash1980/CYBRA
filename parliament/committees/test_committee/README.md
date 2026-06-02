@@ -9,4 +9,4 @@ Purpose:
 Підтримувати задачі типу test: mapping, handler, audit, proof, diagnostics.
 
 Double SHA:
-`c6d0e65810eb5366d4d0d8740adc1df75c8c04effdad0137467c91aaec184c8b`
+`a5bbe1064181eae57160d6c43ba44e2f32f07cf3a8e686b88c3a7813aa32a36b`

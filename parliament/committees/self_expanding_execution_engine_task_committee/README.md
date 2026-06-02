@@ -9,4 +9,4 @@ Purpose:
 Підтримувати задачі типу self_expanding_execution_engine_task: mapping, handler, audit, proof, diagnostics.
 
 Double SHA:
-`cbf53058e8580fb32a11f27ac7e9dcffdd0eb0e67a28b30e85ee63babfea96ad`
+`8096e0b9d84f9021b90ff919816d1eaaf312084dbc013efd1748c28d0dc2d362`

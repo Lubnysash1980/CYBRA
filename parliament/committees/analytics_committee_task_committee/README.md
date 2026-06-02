@@ -9,4 +9,4 @@ Purpose:
 Підтримувати задачі типу analytics_committee_task: mapping, handler, audit, proof, diagnostics.
 
 Double SHA:
-`f2a2862a8df9d7c87e8b85b191fdef81323188ed65eb3618ca6e24940db62ec3`
+`08d24916d879acc42cd9b252d5fe51b1750a9afa306432fdcb5c17662d3c2b67`

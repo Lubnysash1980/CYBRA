@@ -2,7 +2,7 @@
   "department_id": "statistics_department",
   "status": "active",
   "purpose": "Статистика задач, статусів, результатів",
-  "created_or_checked_at": "2026-06-02T17:29:13+0300",
+  "created_or_checked_at": "2026-06-02T17:31:42+0300",
   "rules": [
     "audit_required",
     "proof_required",
@@ -10,5 +10,5 @@
     "no_secret_dump",
     "evolution_only"
   ],
-  "double_sha": "f6fd922afa1ceb36d75077dd39456b64ca6c23942cf22577e04a9d2cc6bfc741"
+  "double_sha": "25bf308adf34d0af6a6ad9c9bd62132b9ebc1cc8214aa24dddfcc2985b58713d"
 }

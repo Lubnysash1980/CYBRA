@@ -9,4 +9,4 @@ Purpose:
 Підтримувати задачі типу biometric_succession_task: mapping, handler, audit, proof, diagnostics.
 
 Double SHA:
-`fa895184045790ce6c692e9cf2e32659650f02d961e0e0ca52c97808d8226c74`
+`006be2b0d9c58299b41e8bc7b689e6c2cf2c638b4f5aa03597b2ed0737b857ac`
