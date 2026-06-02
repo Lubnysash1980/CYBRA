@@ -1,0 +1,28 @@
+{
+  "status": "sandbox_architecture",
+  "exchange_name": "CYBRA Exchange",
+  "markets": [
+    "KIBRA/USDT",
+    "KIBRA/UAH",
+    "KIBRA/USD",
+    "KIBRA/XAU",
+    "KIBRA/SOL"
+  ],
+  "modules": {
+    "matching_engine": "sandbox_orderbook_first",
+    "amm_pool": "proposal_only",
+    "wallets": "non_custodial_or_provider_custody_review_required",
+    "payments": "licensed_provider_required",
+    "kyc_aml": "required_for_real_exchange",
+    "market_price_engine": "oracle_liquidity_volume_based",
+    "risk_engine": "slippage_depth_volume_limits",
+    "proof_engine": "KIBRA_chain_double_sha_anchor"
+  },
+  "hard_limits": {
+    "real_trading": false,
+    "real_custody": false,
+    "real_fiat_payments": false,
+    "real_crypto_transfers": false,
+    "manual_OWNER_approval_required": true
+  }
+}

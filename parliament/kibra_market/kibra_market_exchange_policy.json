@@ -1,0 +1,39 @@
+{
+  "name": "KIBRA Real Market / Mint / Pool / Exchange Policy",
+  "status": "active",
+  "mode": "real_readiness_manual_execution",
+  "token": {
+    "name": "Кібра",
+    "symbol": "KIBRA",
+    "total_supply_raw": "49000000000000000",
+    "owner_percent": 60,
+    "pool_percent": 40
+  },
+  "goals": [
+    "real_token_mint_readiness",
+    "real_liquidity_pool_readiness",
+    "market_price_engine",
+    "buyers_and_volume_strategy",
+    "sell_without_crash_model",
+    "manual_OWNER_approval",
+    "own_exchange_architecture"
+  ],
+  "execution_rules": {
+    "automatic_real_mint": false,
+    "automatic_real_pool": false,
+    "automatic_real_trading": false,
+    "automatic_real_payment": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true,
+    "wallet_signature_required": true,
+    "legal_tax_aml_review_required": true
+  },
+  "market_rules": {
+    "price_must_come_from_real_liquidity": true,
+    "no_fake_price": true,
+    "no_wash_trading": true,
+    "no_pump_and_dump": true,
+    "volume_must_be_real": true,
+    "sell_plan_requires_depth_and_slippage_simulation": true
+  }
+}

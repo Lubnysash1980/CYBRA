@@ -1,0 +1,185 @@
+{
+  "status": "kibra_market_exchange_plan_generated",
+  "time": 1780432326.6208694,
+  "time_iso": "2026-06-02T23:32:06+0300",
+  "latest_kibra_hash": "008a14703eb452470cbbed74931d44f6220897823d71c436b3dacb5fab11f896",
+  "ai_tasks": [
+    {
+      "task_id": "KIBRA-MINT-001",
+      "topic": "Prepare real KIBRA token mint readiness",
+      "type": "finance_infrastructure_task",
+      "department": "finance_department",
+      "goal": "Підготувати реальний mint-пакет: supply, owner/pool allocation 60/40, metadata, authority policy, manual wallet signature.",
+      "real_execution": false,
+      "requires_manual_owner_approval": true
+    },
+    {
+      "task_id": "KIBRA-POOL-001",
+      "topic": "Prepare real KIBRA liquidity pool readiness",
+      "type": "token_pool_ai_task",
+      "department": "token_pool_ai",
+      "goal": "Підготувати liquidity pool proposal: 60% owner / 40% pool, стартова ліквідність, ризики, slippage, manual approval.",
+      "real_execution": false,
+      "requires_manual_owner_approval": true
+    },
+    {
+      "task_id": "KIBRA-PRICE-001",
+      "topic": "Build KIBRA market price engine",
+      "type": "monetization_department_task",
+      "department": "monetization_department",
+      "goal": "Створити модель ціни: не фейкова ціна, а oracle/DEX/CEX/liquidity based price після появи реального ринку.",
+      "real_execution": false,
+      "requires_manual_owner_approval": false
+    },
+    {
+      "task_id": "KIBRA-BUYERS-001",
+      "topic": "Build compliant buyers and volume strategy",
+      "type": "monetization_department_task",
+      "department": "monetization_department",
+      "goal": "Створити план попиту: utility, сервіс-каталог, proof certificates, AI task credits, без wash trading і без pump.",
+      "real_execution": false,
+      "requires_manual_owner_approval": false
+    },
+    {
+      "task_id": "KIBRA-SELL-001",
+      "topic": "Build sell-without-crash model",
+      "type": "finance_department_task",
+      "department": "finance_department",
+      "goal": "Створити модель продажу без обвалу: depth, slippage, daily volume limit, TWAP/manual staged sells.",
+      "real_execution": false,
+      "requires_manual_owner_approval": true
+    },
+    {
+      "task_id": "KIBRA-APPROVAL-001",
+      "topic": "Create manual OWNER approval package",
+      "type": "owner_orchestrator_task",
+      "department": "owner_orchestrator",
+      "goal": "Підготувати manual OWNER approval для mint/pool/exchange/anchor, без автоматичного виконання.",
+      "real_execution": false,
+      "requires_manual_owner_approval": true
+    },
+    {
+      "task_id": "KIBRA-EXCHANGE-001",
+      "topic": "Design CYBRA own exchange architecture",
+      "type": "kibra_market_exchange_task",
+      "department": "exchange_department",
+      "goal": "Створити архітектуру власної біржі: orderbook, AMM, wallet/custody policy, KYC/AML/legal, risk, matching engine sandbox.",
+      "real_execution": false,
+      "requires_manual_owner_approval": true
+    },
+    {
+      "task_id": "KIBRA-EVO-001",
+      "topic": "Run KIBRA market evolution deployment",
+      "type": "evolution_deployment_task",
+      "department": "evolution_deployment",
+      "goal": "Підштовхнути систему до розвитку: mint readiness, pool readiness, exchange readiness, monetization, proof, audit.",
+      "real_execution": false,
+      "requires_manual_owner_approval": true
+    }
+  ],
+  "exchange_architecture": {
+    "status": "sandbox_architecture",
+    "exchange_name": "CYBRA Exchange",
+    "markets": [
+      "KIBRA/USDT",
+      "KIBRA/UAH",
+      "KIBRA/USD",
+      "KIBRA/XAU",
+      "KIBRA/SOL"
+    ],
+    "modules": {
+      "matching_engine": "sandbox_orderbook_first",
+      "amm_pool": "proposal_only",
+      "wallets": "non_custodial_or_provider_custody_review_required",
+      "payments": "licensed_provider_required",
+      "kyc_aml": "required_for_real_exchange",
+      "market_price_engine": "oracle_liquidity_volume_based",
+      "risk_engine": "slippage_depth_volume_limits",
+      "proof_engine": "KIBRA_chain_double_sha_anchor"
+    },
+    "hard_limits": {
+      "real_trading": false,
+      "real_custody": false,
+      "real_fiat_payments": false,
+      "real_crypto_transfers": false,
+      "manual_OWNER_approval_required": true
+    }
+  },
+  "market_readiness": {
+    "real_mint": {
+      "status": "proposal_ready",
+      "automatic": false,
+      "requires": [
+        "chain selection",
+        "wallet authority",
+        "metadata",
+        "supply confirmation",
+        "manual signature",
+        "OWNER approval"
+      ]
+    },
+    "real_liquidity_pool": {
+      "status": "proposal_ready",
+      "automatic": false,
+      "requires": [
+        "DEX selection",
+        "pair selection",
+        "initial liquidity",
+        "pool allocation",
+        "slippage risk",
+        "manual transaction"
+      ]
+    },
+    "market_price": {
+      "status": "not_set_until_real_liquidity",
+      "rule": "Price is discovered by real pool/orderbook/liquidity, not assigned manually."
+    },
+    "buyers_volume": {
+      "status": "utility_strategy_required",
+      "methods": [
+        "AI task credits",
+        "proof-chain verification service",
+        "anchor package service",
+        "developer support credits",
+        "marketplace services",
+        "community demand"
+      ],
+      "blocked": [
+        "fake buyers",
+        "wash trading",
+        "pump promise"
+      ]
+    },
+    "sell_without_crash": {
+      "status": "model_required",
+      "rules": [
+        "sell only small percent of daily real volume",
+        "simulate slippage",
+        "depth check",
+        "staged sells",
+        "manual OWNER approval",
+        "no market manipulation"
+      ]
+    }
+  },
+  "real_execution": {
+    "real_mint": false,
+    "real_pool": false,
+    "real_exchange_trading": false,
+    "real_payment": false,
+    "manual_OWNER_approval_required": true
+  },
+  "proof_inputs": {
+    "market_policy": "253819cf51c1cfa47f87fe7fb1a2db66b9c6c628c7d3f8f43bcfcb208890d77c",
+    "exchange_department": "e84e1c859fc5120a2be6d34d5d79118b8b5fe38a55e6c4c9d5aecf6c49ac8527",
+    "kibra_chain_proof": "9d7d6f05e3a7a95809ca6521f0637d7e8bc4c5c323d10de2d5c864ca72756d16",
+    "monetization_proof": "6a6e18563144849269e3315c6daf443f1e4b91e427f67e4c41cf24d5cf385ca9",
+    "finance_infrastructure_proof": "59c5f1b9c7faffb8db759a6b0f3b55690c580e3050408562b636512f1f3fe867"
+  },
+  "git": {
+    "branch": "main",
+    "commit": "96f2438fb",
+    "dirty_files": 160
+  },
+  "double_sha": "4a1144cdc1d6b471270aa8ef22f1a71c31417774ff681afec1b982bb963250e7"
+}

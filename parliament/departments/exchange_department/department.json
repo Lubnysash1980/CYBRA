@@ -1,0 +1,28 @@
+{
+  "department_id": "exchange_department",
+  "name": "CYBRA Exchange Department",
+  "status": "active",
+  "mission": "Проєктувати власну біржу KIBRA, orderbook/AMM, liquidity, market price engine, buyers/volume strategy і sell-without-crash model.",
+  "limits": [
+    "no_fake_price",
+    "no_market_manipulation",
+    "no_guaranteed_profit",
+    "no_automatic_trading",
+    "no_automatic_payments",
+    "no_automatic_token_mint",
+    "no_automatic_liquidity_pool_creation",
+    "manual_OWNER_approval_required",
+    "legal_tax_aml_review_required",
+    "licensed_provider_review_required_for_real_exchange"
+  ],
+  "allowed": [
+    "architecture",
+    "simulation",
+    "risk_report",
+    "liquidity_plan",
+    "manual_approval_package",
+    "proof_generation",
+    "buyer_acquisition_plan",
+    "market_readiness_score"
+  ]
+}
