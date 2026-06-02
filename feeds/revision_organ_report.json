@@ -1,32 +1,32 @@
 {
   "organ": "CYBRA Parliament Revision Organ",
   "status": "generated",
-  "time": 1780394012.1427016,
+  "time": 1780395216.4573672,
   "git": {
     "branch": "main",
-    "commit": "b27d1054d",
-    "dirty_files": 42
+    "commit": "7d6b7865e",
+    "dirty_files": 44
   },
   "redis": {
     "results": 0,
-    "audit": 27,
-    "parliament_queue": 1,
+    "audit": 34,
+    "parliament_queue": 0,
     "review_incoming": 0,
     "review_approved": 1,
     "review_hold": 0,
     "review_rejected": 2,
     "review_audit": 3,
     "analytics_audit": 3,
-    "revision_audit": 0
+    "revision_audit": 3
   },
   "summary": {
     "checked_results": 0,
     "executed": 0,
     "failed": 0,
     "no_executor_mapping": 0,
-    "proof_files": 108,
-    "posts_files": 93,
-    "feeds_files": 13,
+    "proof_files": 110,
+    "posts_files": 94,
+    "feeds_files": 14,
     "executor_mapping_count": 24,
     "statuses": {},
     "types": {},
@@ -62,10 +62,10 @@
   },
   "recommendations": [
     {
-      "level": "warning",
-      "message": "У черзі виконання залишились задачі.",
-      "action": "cybra worker-start && cybra status"
+      "level": "ok",
+      "message": "Ревізія не знайшла критичних проблем.",
+      "action": "Продовжувати моніторинг."
     }
   ],
-  "double_sha": "0dce87d65a449dd0459036a9ba2db3f6197248a00b25089f9a85ca24ddb4a54a"
+  "double_sha": "1861b8171d8a8debb1fe95e56528294f9d6d4771a37e007731636c03e54bdbfc"
 }
