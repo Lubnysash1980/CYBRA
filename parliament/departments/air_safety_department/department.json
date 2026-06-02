@@ -1,0 +1,22 @@
+{
+  "department_id": "air_safety_department",
+  "name": "CYBRA Air Safety Department",
+  "status": "active",
+  "mission": "Цивільне реагування на повітряну / ракетну небезпеку: попередження, укриття, чекліст, зв'язок, журнал подій.",
+  "allowed": [
+    "civilian_alert_record",
+    "shelter_checklist",
+    "family_contact_check",
+    "powerbank_water_documents_check",
+    "official_sources_reminder",
+    "audit_log"
+  ],
+  "blocked": [
+    "weapon_guidance",
+    "targeting",
+    "interception",
+    "military_command",
+    "hacking",
+    "tracking_enemy_assets"
+  ]
+}

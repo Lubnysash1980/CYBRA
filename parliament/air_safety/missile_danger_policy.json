@@ -1,0 +1,22 @@
+{
+  "name": "Missile Danger Civil Safety Policy",
+  "status": "active",
+  "mode": "civil_defense_only",
+  "task": "Ракетна небезпека",
+  "rules": {
+    "use_official_alert_sources": true,
+    "go_to_shelter": true,
+    "do_not_ignore_alert": true,
+    "no_military_actions": true,
+    "no_weapon_guidance": true,
+    "no_targeting": true
+  },
+  "checklist": [
+    "Перейти в укриття або правило двох стін",
+    "Взяти телефон, зарядку, powerbank",
+    "Взяти документи, воду, ліки",
+    "Перевірити близьких",
+    "Не підходити до вікон",
+    "Чекати офіційного відбою"
+  ]
+}
