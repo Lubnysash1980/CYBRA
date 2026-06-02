@@ -1,0 +1,31 @@
+{
+  "committee_id": "task_lifecycle_committee",
+  "name": "Task Lifecycle Committee",
+  "status": "active",
+  "source": "core",
+  "created_at": "2026-06-02T13:29:57+0300",
+  "mission": "Стежити за життєвим циклом задачі: review → execution → result → audit → revision.",
+  "task_types": [
+    "task_lifecycle_task"
+  ],
+  "powers": [
+    "analyze_tasks",
+    "recommend_handlers",
+    "write_reports",
+    "write_feeds",
+    "write_proofs",
+    "request_executor_mapping"
+  ],
+  "limits": [
+    "no_private_keys",
+    "no_secret_dump",
+    "no_illegal_actions",
+    "no_real_world_force",
+    "internal_digital_committee_only"
+  ],
+  "outputs": {
+    "committee_json": "parliament/committees/task_lifecycle_committee/committee.json",
+    "readme": "parliament/committees/task_lifecycle_committee/README.md"
+  },
+  "double_sha": "ae4229202755eb1dfbd80520f3fcbecfe10978bfc07107b68c24c9dea446f397"
+}

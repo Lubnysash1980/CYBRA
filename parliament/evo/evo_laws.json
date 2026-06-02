@@ -1,0 +1,51 @@
+{
+  "name": "CYBRA EVO Laws",
+  "version": "1.0",
+  "status": "active",
+  "mission": "Дозволити Кіберапарламенту еволюційно створювати нові внутрішні комітети для підтримки своєї роботи.",
+  "laws": [
+    {
+      "id": "EVO-001",
+      "name": "Law of Need",
+      "rule": "Новий комітет створюється тільки тоді, коли є задача, прогалина, no_executor_mapping або потреба підтримки парламенту."
+    },
+    {
+      "id": "EVO-002",
+      "name": "Law of Safety",
+      "rule": "Комітет не може виконувати незаконні дії, втручання в чужі акаунти, блокування рахунків, переказ коштів або роботу з private keys."
+    },
+    {
+      "id": "EVO-003",
+      "name": "Law of Audit",
+      "rule": "Кожне створення комітету пишеться в Redis audit, feeds, posts і proofs."
+    },
+    {
+      "id": "EVO-004",
+      "name": "Law of Mapping",
+      "rule": "Комітет може отримати executor mapping тільки для безпечного handler-а."
+    },
+    {
+      "id": "EVO-005",
+      "name": "Law of Revision",
+      "rule": "Нові комітети мають бути видимі ревізійному органу та аналітичному комітету."
+    },
+    {
+      "id": "EVO-006",
+      "name": "Law of Reversibility",
+      "rule": "Будь-який комітет можна відключити через статус disabled без видалення audit."
+    },
+    {
+      "id": "EVO-007",
+      "name": "Law of Proof",
+      "rule": "Кожна EVO-дія має double SHA або sha256 proof."
+    }
+  ],
+  "policy": {
+    "internal_digital_committees_only": true,
+    "no_private_keys": true,
+    "no_seed_phrases": true,
+    "no_secret_dump": true,
+    "no_illegal_actions": true,
+    "human_owner_control_required": true
+  }
+}

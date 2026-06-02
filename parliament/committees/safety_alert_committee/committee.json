@@ -1,0 +1,31 @@
+{
+  "committee_id": "safety_alert_committee",
+  "name": "Safety Alert Committee",
+  "status": "active",
+  "source": "no_executor_mapping_scan",
+  "created_at": "2026-06-02T13:29:57+0300",
+  "mission": "Підтримувати задачі безпеки, повітряної тривоги та official_source_required режим.",
+  "task_types": [
+    "air_alert_task"
+  ],
+  "powers": [
+    "analyze_tasks",
+    "recommend_handlers",
+    "write_reports",
+    "write_feeds",
+    "write_proofs",
+    "request_executor_mapping"
+  ],
+  "limits": [
+    "no_private_keys",
+    "no_secret_dump",
+    "no_illegal_actions",
+    "no_real_world_force",
+    "internal_digital_committee_only"
+  ],
+  "outputs": {
+    "committee_json": "parliament/committees/safety_alert_committee/committee.json",
+    "readme": "parliament/committees/safety_alert_committee/README.md"
+  },
+  "double_sha": "fd95dbb199ee805afc05bdec394948d1a4680e641e80da3d7e1df8681f3938e8"
+}

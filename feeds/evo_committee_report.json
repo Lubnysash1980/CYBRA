@@ -1,0 +1,477 @@
+{
+  "module": "CYBRA EVO Committee Module",
+  "status": "generated",
+  "time": 1780396197.702791,
+  "time_iso": "2026-06-02T13:29:57+0300",
+  "git": {
+    "branch": "main",
+    "commit": "e758afecb",
+    "dirty_files": 47
+  },
+  "summary": {
+    "committees": 12,
+    "no_mapping_items_seen": 9,
+    "no_mapping_types": {
+      "air_alert_task": 1,
+      "queue_fix": 1,
+      "ai_task": 1,
+      "test": 1,
+      "self_expanding_execution_engine_task": 2,
+      "executor_autoheal_task": 1,
+      "codespaces_keepalive_task": 1,
+      "github_double_backend_task": 1
+    },
+    "executor_mapping_count": 33
+  },
+  "committees": [
+    {
+      "committee_id": "ai_tasks_committee",
+      "name": "AI Tasks Committee",
+      "status": "active",
+      "source": "no_executor_mapping_scan",
+      "created_at": "2026-06-02T13:29:57+0300",
+      "mission": "Перевіряти AI-задачі, формувати безпечні технічні плани та handler-и.",
+      "task_types": [
+        "ai_task"
+      ],
+      "powers": [
+        "analyze_tasks",
+        "recommend_handlers",
+        "write_reports",
+        "write_feeds",
+        "write_proofs",
+        "request_executor_mapping"
+      ],
+      "limits": [
+        "no_private_keys",
+        "no_secret_dump",
+        "no_illegal_actions",
+        "no_real_world_force",
+        "internal_digital_committee_only"
+      ],
+      "outputs": {
+        "committee_json": "parliament/committees/ai_tasks_committee/committee.json",
+        "readme": "parliament/committees/ai_tasks_committee/README.md"
+      },
+      "double_sha": "bba437551b8adb868757ae11913eaee90f422d34e5f8ecde83295575e014df7d"
+    },
+    {
+      "committee_id": "codespaces_support_committee",
+      "name": "Codespaces Support Committee",
+      "status": "active",
+      "source": "no_executor_mapping_scan",
+      "created_at": "2026-06-02T13:29:57+0300",
+      "mission": "Підтримувати GitHub Codespaces, keepalive, синхронізацію з Termux та bridge.",
+      "task_types": [
+        "codespaces_keepalive_task"
+      ],
+      "powers": [
+        "analyze_tasks",
+        "recommend_handlers",
+        "write_reports",
+        "write_feeds",
+        "write_proofs",
+        "request_executor_mapping"
+      ],
+      "limits": [
+        "no_private_keys",
+        "no_secret_dump",
+        "no_illegal_actions",
+        "no_real_world_force",
+        "internal_digital_committee_only"
+      ],
+      "outputs": {
+        "committee_json": "parliament/committees/codespaces_support_committee/committee.json",
+        "readme": "parliament/committees/codespaces_support_committee/README.md"
+      },
+      "double_sha": "c522976f4b1259039d55b0c27bf428329cad6e332e358a8988d892329ea132ce"
+    },
+    {
+      "committee_id": "evo_council",
+      "name": "EVO Council",
+      "status": "active",
+      "source": "core",
+      "created_at": "2026-06-02T13:29:57+0300",
+      "mission": "Керувати правилами еволюції Кіберапарламенту і дозволом на створення нових комітетів.",
+      "task_types": [
+        "evo_committee_task",
+        "committee_creation_task"
+      ],
+      "powers": [
+        "analyze_tasks",
+        "recommend_handlers",
+        "write_reports",
+        "write_feeds",
+        "write_proofs",
+        "request_executor_mapping"
+      ],
+      "limits": [
+        "no_private_keys",
+        "no_secret_dump",
+        "no_illegal_actions",
+        "no_real_world_force",
+        "internal_digital_committee_only"
+      ],
+      "outputs": {
+        "committee_json": "parliament/committees/evo_council/committee.json",
+        "readme": "parliament/committees/evo_council/README.md"
+      },
+      "double_sha": "253912f36c3e5607fef26325cd71b8f1a046aab11dd616e38ef38b89f556b327"
+    },
+    {
+      "committee_id": "executor_mapping_committee",
+      "name": "Executor Mapping Committee",
+      "status": "active",
+      "source": "core",
+      "created_at": "2026-06-02T13:29:57+0300",
+      "mission": "Керувати Redis executor mapping і прибирати no_executor_mapping.",
+      "task_types": [
+        "mapping_task"
+      ],
+      "powers": [
+        "analyze_tasks",
+        "recommend_handlers",
+        "write_reports",
+        "write_feeds",
+        "write_proofs",
+        "request_executor_mapping"
+      ],
+      "limits": [
+        "no_private_keys",
+        "no_secret_dump",
+        "no_illegal_actions",
+        "no_real_world_force",
+        "internal_digital_committee_only"
+      ],
+      "outputs": {
+        "committee_json": "parliament/committees/executor_mapping_committee/committee.json",
+        "readme": "parliament/committees/executor_mapping_committee/README.md"
+      },
+      "double_sha": "6fa5979eaf15ecbc657552c4fb5197b4158b5d81ad1a612c8f93c2a2f3f25601"
+    },
+    {
+      "committee_id": "github_backend_committee",
+      "name": "GitHub Double Backend Committee",
+      "status": "active",
+      "source": "no_executor_mapping_scan",
+      "created_at": "2026-06-02T13:29:57+0300",
+      "mission": "Підтримувати GitHub backend, double SHA, bridge, push/pull, proof-публікації.",
+      "task_types": [
+        "github_double_backend_task"
+      ],
+      "powers": [
+        "analyze_tasks",
+        "recommend_handlers",
+        "write_reports",
+        "write_feeds",
+        "write_proofs",
+        "request_executor_mapping"
+      ],
+      "limits": [
+        "no_private_keys",
+        "no_secret_dump",
+        "no_illegal_actions",
+        "no_real_world_force",
+        "internal_digital_committee_only"
+      ],
+      "outputs": {
+        "committee_json": "parliament/committees/github_backend_committee/committee.json",
+        "readme": "parliament/committees/github_backend_committee/README.md"
+      },
+      "double_sha": "54adce89713d87cb580076f93f43b78f104ba0e763d56b7e8c7db7b7d71ef14e"
+    },
+    {
+      "committee_id": "guardian_recovery_committee",
+      "name": "Guardian Recovery Committee",
+      "status": "active",
+      "source": "no_executor_mapping_scan",
+      "created_at": "2026-06-02T13:29:57+0300",
+      "mission": "Підтримувати executor, autoheal, recovery, double SHA та контроль помилок.",
+      "task_types": [
+        "executor_autoheal_task"
+      ],
+      "powers": [
+        "analyze_tasks",
+        "recommend_handlers",
+        "write_reports",
+        "write_feeds",
+        "write_proofs",
+        "request_executor_mapping"
+      ],
+      "limits": [
+        "no_private_keys",
+        "no_secret_dump",
+        "no_illegal_actions",
+        "no_real_world_force",
+        "internal_digital_committee_only"
+      ],
+      "outputs": {
+        "committee_json": "parliament/committees/guardian_recovery_committee/committee.json",
+        "readme": "parliament/committees/guardian_recovery_committee/README.md"
+      },
+      "double_sha": "95ed234958228b7153f74c26f65428359b658958ab04454515efe0bd6b6e04cb"
+    },
+    {
+      "committee_id": "parliament_support_committee",
+      "name": "Parliament Support Committee",
+      "status": "active",
+      "source": "core",
+      "created_at": "2026-06-02T13:29:57+0300",
+      "mission": "Підтримувати роботу Кіберапарламенту, органів, комітетів, звітів і proof-файлів.",
+      "task_types": [
+        "parliament_support_task"
+      ],
+      "powers": [
+        "analyze_tasks",
+        "recommend_handlers",
+        "write_reports",
+        "write_feeds",
+        "write_proofs",
+        "request_executor_mapping"
+      ],
+      "limits": [
+        "no_private_keys",
+        "no_secret_dump",
+        "no_illegal_actions",
+        "no_real_world_force",
+        "internal_digital_committee_only"
+      ],
+      "outputs": {
+        "committee_json": "parliament/committees/parliament_support_committee/committee.json",
+        "readme": "parliament/committees/parliament_support_committee/README.md"
+      },
+      "double_sha": "7c3b2820669841a66e6ee99051d85cb5771ca32e70785ea0c509d8f36b536de4"
+    },
+    {
+      "committee_id": "queue_integrity_committee",
+      "name": "Queue Integrity Committee",
+      "status": "active",
+      "source": "no_executor_mapping_scan",
+      "created_at": "2026-06-02T13:29:57+0300",
+      "mission": "Контролювати Redis-черги, queue routing, review queue, execution queue та results.",
+      "task_types": [
+        "queue_fix"
+      ],
+      "powers": [
+        "analyze_tasks",
+        "recommend_handlers",
+        "write_reports",
+        "write_feeds",
+        "write_proofs",
+        "request_executor_mapping"
+      ],
+      "limits": [
+        "no_private_keys",
+        "no_secret_dump",
+        "no_illegal_actions",
+        "no_real_world_force",
+        "internal_digital_committee_only"
+      ],
+      "outputs": {
+        "committee_json": "parliament/committees/queue_integrity_committee/committee.json",
+        "readme": "parliament/committees/queue_integrity_committee/README.md"
+      },
+      "double_sha": "df0fd3d7083895a96b66d2e38c24bbbf6ebc80efeb99f2b1ec90082dfcc59bde"
+    },
+    {
+      "committee_id": "safety_alert_committee",
+      "name": "Safety Alert Committee",
+      "status": "active",
+      "source": "no_executor_mapping_scan",
+      "created_at": "2026-06-02T13:29:57+0300",
+      "mission": "Підтримувати задачі безпеки, повітряної тривоги та official_source_required режим.",
+      "task_types": [
+        "air_alert_task"
+      ],
+      "powers": [
+        "analyze_tasks",
+        "recommend_handlers",
+        "write_reports",
+        "write_feeds",
+        "write_proofs",
+        "request_executor_mapping"
+      ],
+      "limits": [
+        "no_private_keys",
+        "no_secret_dump",
+        "no_illegal_actions",
+        "no_real_world_force",
+        "internal_digital_committee_only"
+      ],
+      "outputs": {
+        "committee_json": "parliament/committees/safety_alert_committee/committee.json",
+        "readme": "parliament/committees/safety_alert_committee/README.md"
+      },
+      "double_sha": "fd95dbb199ee805afc05bdec394948d1a4680e641e80da3d7e1df8681f3938e8"
+    },
+    {
+      "committee_id": "self_expansion_committee",
+      "name": "Self Expansion Committee",
+      "status": "active",
+      "source": "no_executor_mapping_scan",
+      "created_at": "2026-06-02T13:29:57+0300",
+      "mission": "Аналізувати задачі саморозширення Кіберапарламенту та пропонувати безпечні нові handler-и і комітети.",
+      "task_types": [
+        "self_expanding_execution_engine_task"
+      ],
+      "powers": [
+        "analyze_tasks",
+        "recommend_handlers",
+        "write_reports",
+        "write_feeds",
+        "write_proofs",
+        "request_executor_mapping"
+      ],
+      "limits": [
+        "no_private_keys",
+        "no_secret_dump",
+        "no_illegal_actions",
+        "no_real_world_force",
+        "internal_digital_committee_only"
+      ],
+      "outputs": {
+        "committee_json": "parliament/committees/self_expansion_committee/committee.json",
+        "readme": "parliament/committees/self_expansion_committee/README.md"
+      },
+      "double_sha": "624d2ef349e64c2c0000f3bcc8a9a60192073e3ea3f60270a01a05545f109577"
+    },
+    {
+      "committee_id": "task_lifecycle_committee",
+      "name": "Task Lifecycle Committee",
+      "status": "active",
+      "source": "core",
+      "created_at": "2026-06-02T13:29:57+0300",
+      "mission": "Стежити за життєвим циклом задачі: review → execution → result → audit → revision.",
+      "task_types": [
+        "task_lifecycle_task"
+      ],
+      "powers": [
+        "analyze_tasks",
+        "recommend_handlers",
+        "write_reports",
+        "write_feeds",
+        "write_proofs",
+        "request_executor_mapping"
+      ],
+      "limits": [
+        "no_private_keys",
+        "no_secret_dump",
+        "no_illegal_actions",
+        "no_real_world_force",
+        "internal_digital_committee_only"
+      ],
+      "outputs": {
+        "committee_json": "parliament/committees/task_lifecycle_committee/committee.json",
+        "readme": "parliament/committees/task_lifecycle_committee/README.md"
+      },
+      "double_sha": "ae4229202755eb1dfbd80520f3fcbecfe10978bfc07107b68c24c9dea446f397"
+    },
+    {
+      "committee_id": "testing_committee",
+      "name": "Testing Committee",
+      "status": "active",
+      "source": "no_executor_mapping_scan",
+      "created_at": "2026-06-02T13:29:57+0300",
+      "mission": "Перевіряти тестові задачі, handler-и, mapping та результати.",
+      "task_types": [
+        "test"
+      ],
+      "powers": [
+        "analyze_tasks",
+        "recommend_handlers",
+        "write_reports",
+        "write_feeds",
+        "write_proofs",
+        "request_executor_mapping"
+      ],
+      "limits": [
+        "no_private_keys",
+        "no_secret_dump",
+        "no_illegal_actions",
+        "no_real_world_force",
+        "internal_digital_committee_only"
+      ],
+      "outputs": {
+        "committee_json": "parliament/committees/testing_committee/committee.json",
+        "readme": "parliament/committees/testing_committee/README.md"
+      },
+      "double_sha": "3d60b435fcbd222c8a42271f1ce9c1d8fb93714380458ee8f48432584d549ef0"
+    }
+  ],
+  "no_mapping_items": [
+    {
+      "topic": "Ракетна небезпека",
+      "type": "air_alert_task",
+      "status": "no_executor_mapping",
+      "double_sha": "8b572acaaf5e59e7289c3b63ce53c161b04ec9b141b527f94fde1269c1de2580",
+      "message": "No script mapping yet",
+      "_source_key": "cybra:parliament:results"
+    },
+    {
+      "topic": "test",
+      "type": "queue_fix",
+      "status": "no_executor_mapping",
+      "double_sha": "afcdc32f45ab43ef07e690caae63f33228c9d17d3bca098f8968db7f4089afd8",
+      "message": "No script mapping yet",
+      "_source_key": "cybra:parliament:results"
+    },
+    {
+      "topic": "AI TEST",
+      "type": "ai_task",
+      "status": "no_executor_mapping",
+      "double_sha": "de80810b5ed004e16874f3449545cdaef98434f79259a38cb90dda1fb5337dc6",
+      "message": "No script mapping yet",
+      "_source_key": "cybra:parliament:results"
+    },
+    {
+      "topic": "CYBRA AI CHAT TEST",
+      "type": "test",
+      "status": "no_executor_mapping",
+      "double_sha": "f642865ab0b3a5afa07c59f8741abbfe0aac9196b607d3e9b2c97e6c6db3fc5c",
+      "message": "No script mapping yet",
+      "_source_key": "cybra:parliament:results"
+    },
+    {
+      "topic": "CYBRA Self-Expanding Execution Engine",
+      "type": "self_expanding_execution_engine_task",
+      "status": "no_executor_mapping",
+      "message": "No mapping yet. AutoHeal should create mapping in next executor generation.",
+      "double_sha": "9e345d7459d73237dad87453e567230dd61d224ed927a5e8c28989e1fe6e96c2",
+      "_source_key": "cybra:parliament:results"
+    },
+    {
+      "topic": "CYBRA 5-Level Double-SHA Guardian Recovery",
+      "type": "executor_autoheal_task",
+      "status": "no_executor_mapping",
+      "message": "No mapping yet. AutoHeal should create mapping in next executor generation.",
+      "double_sha": "8c79dacb812998decb2c902c36bb42402131971fdfb9a9cac7db64c5c0c5d48c",
+      "_source_key": "cybra:parliament:results"
+    },
+    {
+      "topic": "CYBRA Codespaces Keepalive Support",
+      "type": "codespaces_keepalive_task",
+      "status": "no_executor_mapping",
+      "message": "No mapping yet. AutoHeal should create mapping in next executor generation.",
+      "double_sha": "5f1c85e21ff85ebfccd79153297cf087d896f78a93a3dfd3b026b78e94e1c098",
+      "_source_key": "cybra:parliament:results"
+    },
+    {
+      "topic": "CYBRA GitHub Double Backend Proof",
+      "type": "github_double_backend_task",
+      "status": "no_executor_mapping",
+      "message": "No mapping yet. AutoHeal should create mapping in next executor generation.",
+      "double_sha": "51cbf626952e9e793cb401fb803a8b0fb3cf0b60bf32260b47deeddb467a0e7b",
+      "_source_key": "cybra:parliament:results"
+    },
+    {
+      "topic": "CYBRA Self-Expanding Execution Engine",
+      "type": "self_expanding_execution_engine_task",
+      "status": "no_executor_mapping",
+      "double_sha": "1acd9e2986856526abe474c9315dcce4c821b8c8521b0db38e09fa33c958e476",
+      "retries": 3,
+      "_source_key": "cybra:parliament:failed"
+    }
+  ],
+  "evo_laws_file": "parliament/evo/evo_laws.json",
+  "double_sha": "ca87c37dbddac9adf40872d7845ae0f07876ad001f220c486c6420112ebec354"
+}

@@ -1,0 +1,31 @@
+{
+  "committee_id": "parliament_support_committee",
+  "name": "Parliament Support Committee",
+  "status": "active",
+  "source": "core",
+  "created_at": "2026-06-02T13:29:57+0300",
+  "mission": "Підтримувати роботу Кіберапарламенту, органів, комітетів, звітів і proof-файлів.",
+  "task_types": [
+    "parliament_support_task"
+  ],
+  "powers": [
+    "analyze_tasks",
+    "recommend_handlers",
+    "write_reports",
+    "write_feeds",
+    "write_proofs",
+    "request_executor_mapping"
+  ],
+  "limits": [
+    "no_private_keys",
+    "no_secret_dump",
+    "no_illegal_actions",
+    "no_real_world_force",
+    "internal_digital_committee_only"
+  ],
+  "outputs": {
+    "committee_json": "parliament/committees/parliament_support_committee/committee.json",
+    "readme": "parliament/committees/parliament_support_committee/README.md"
+  },
+  "double_sha": "7c3b2820669841a66e6ee99051d85cb5771ca32e70785ea0c509d8f36b536de4"
+}
