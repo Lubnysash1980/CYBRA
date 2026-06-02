@@ -18,3 +18,7 @@ ai_network/repos/*/venv/
 vault/usa_patch/
 private_patches/usa_patch/secrets/
 private_patches/usa_patch/*.env
+private_vault/
+token/runtime/rpc.env
+ai_network/
+recovery/

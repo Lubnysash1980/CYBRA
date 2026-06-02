@@ -1,0 +1,25 @@
+{
+  "name": "CYBRA Closed Evolution Self-Seal",
+  "status": "active",
+  "mode": "closed_internal_parliament_decision",
+  "purpose": "Кіберапарламент сам приймає закрите еволюційне рішення, ставить внутрішню печатку і не розкриває внутрішній ключ.",
+  "keys": {
+    "external_visible_token": "b45856895b89d46cf387f01087975e0396b30ee2462b99b0",
+    "external_visible_sha256": "94979b8365c7d6f4083aec200f4e81bb23e3013cf1ce66bea64f7f718f26da7b",
+    "internal_seal_sha256_only": "42a2f6267e08941055ea45d38d03724fbc707bd08d0cb21202e6ccbf507f5a38",
+    "internal_key_visible": false,
+    "internal_key_git_allowed": false,
+    "internal_key_location": "private_vault/evolution_closed/internal_parliament_seal.token"
+  },
+  "rules": {
+    "accept_only_evolutionary_tasks": true,
+    "block_degradation": true,
+    "internal_seal_required": true,
+    "external_key_visible": true,
+    "internal_key_hidden": true,
+    "no_private_data_in_git": true,
+    "no_secret_dump": true,
+    "no_payment_execution": true,
+    "no_illegal_actions": true
+  }
+}

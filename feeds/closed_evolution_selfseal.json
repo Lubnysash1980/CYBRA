@@ -1,0 +1,21 @@
+{
+  "topic": "CYBRA Closed Evolution Self-Seal",
+  "status": "sealed_by_cybra_parliament",
+  "decision": "accept_only_evolutionary_development",
+  "closed_mode": true,
+  "internal_key_revealed": false,
+  "external_visible_token": "b45856895b89d46cf387f01087975e0396b30ee2462b99b0",
+  "external_visible_sha256": "94979b8365c7d6f4083aec200f4e81bb23e3013cf1ce66bea64f7f718f26da7b",
+  "internal_seal_sha256_only": "42a2f6267e08941055ea45d38d03724fbc707bd08d0cb21202e6ccbf507f5a38",
+  "rules": {
+    "development_only": true,
+    "block_degradation": true,
+    "audit_required": true,
+    "proof_required": true,
+    "no_secret_dump": true,
+    "no_private_data_in_git": true
+  },
+  "time": 1780398050.5175898,
+  "closed_parliament_seal": "76c25577a4a22f4283c8c284e59b38703754b9b59d21bd13adbb299b136c312e",
+  "double_sha": "d9410d69c2f2197e29bafc059c5d78c11654cef309fec981fcecc2485ac2c41c"
+}

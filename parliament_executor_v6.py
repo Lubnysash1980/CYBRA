@@ -17,6 +17,9 @@ Q_FAILED = "cybra:parliament:failed"
 Q_AUDIT = "cybra:audit"
 
 SCRIPT_MAP = {
+    "closed_evolution_selfseal_task": "closed_evolution_selfseal_handler.sh",
+    "audit_dedupe_test_task": "audit_dedupe_test_handler.sh",
+    "dialogue_key_task": "dialogue_key_handler.sh",
     "committee_creation_task": "evo_committee_handler.sh",
     "evo_committee_task": "evo_committee_handler.sh",
     "revision_organ_task": "revision_organ_handler.sh",
