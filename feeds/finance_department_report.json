@@ -1,29 +1,37 @@
 {
   "department": "CYBRA Finance Department",
   "status": "generated",
-  "time": 1780411937.9986637,
-  "time_iso": "2026-06-02T17:52:17+0300",
+  "time": 1780414977.2587397,
+  "time_iso": "2026-06-02T18:42:57+0300",
   "git": {
     "branch": "main",
-    "commit": "7562650c7",
-    "dirty_files": 94
+    "commit": "859682378",
+    "dirty_files": 178
   },
   "summary": {
-    "records_checked": 54,
-    "finance_related_records": 1,
-    "risk_items": 1,
-    "finance_audit_records": 1,
-    "finance_ledger_records": 1,
+    "records_checked": 68,
+    "finance_related_records": 8,
+    "risk_items": 3,
+    "finance_audit_records": 8,
+    "finance_ledger_records": 12,
     "payment_execution_allowed": false,
     "owner_manual_approval_required": true
   },
   "statuses": {
-    "executed": 38,
+    "failed": 4,
+    "executed": 48,
     "no_executor_mapping": 9,
     "unknown": 5,
     "reviewed": 2
   },
   "types": {
+    "kibra_token_chain_task": 4,
+    "owner_orchestrator_task": 2,
+    "token_pool_ai_task": 2,
+    "finance_department_task": 1,
+    "institution_audit_task": 2,
+    "hash_module_test_task": 1,
+    "evolution_guard_task": 6,
     "closed_evolution_selfseal_task": 3,
     "biometric_succession_task": 2,
     "audit_dedupe_test_task": 3,
@@ -42,17 +50,100 @@
     "github_double_backend_task": 1,
     "smart_autofix_mining_pool_task": 3,
     "pmz_historical_metadata_task": 2,
-    "None": 2,
-    "evolution_guard_task": 4
+    "None": 2
   },
   "sources": {
-    "cybra:parliament:results": 46,
-    "cybra:parliament:failed": 1,
+    "cybra:parliament:results": 58,
+    "cybra:parliament:failed": 3,
     "cybra:review:approved": 1,
     "cybra:review:rejected": 2,
     "cybra:evolution:approved": 4
   },
   "finance_related": [
+    {
+      "topic": "Set OWNER as MAIN_ORCHESTRATOR and resolve finance risk / external anchor / car preflight",
+      "type": "owner_orchestrator_task",
+      "status": "executed",
+      "source": "cybra:parliament:results",
+      "score": 1,
+      "finance_hits": [
+        "finance"
+      ],
+      "risk_hits": [],
+      "recommendation": "OK_FOR_REVIEW: можна аналізувати бюджет, але без автоматичної оплати."
+    },
+    {
+      "topic": "Set OWNER as MAIN_ORCHESTRATOR and resolve finance risk / external anchor / car preflight",
+      "type": "owner_orchestrator_task",
+      "status": "executed",
+      "source": "cybra:parliament:results",
+      "score": 1,
+      "finance_hits": [
+        "finance"
+      ],
+      "risk_hits": [],
+      "recommendation": "OK_FOR_REVIEW: можна аналізувати бюджет, але без автоматичної оплати."
+    },
+    {
+      "topic": "CYBRA Token Pool AI Finance Orchestrator",
+      "type": "token_pool_ai_task",
+      "status": "executed",
+      "source": "cybra:parliament:results",
+      "score": 1,
+      "finance_hits": [
+        "finance"
+      ],
+      "risk_hits": [],
+      "recommendation": "OK_FOR_REVIEW: можна аналізувати бюджет, але без автоматичної оплати."
+    },
+    {
+      "topic": "CYBRA Token Pool AI Finance Orchestrator",
+      "type": "token_pool_ai_task",
+      "status": "executed",
+      "source": "cybra:parliament:results",
+      "score": 1,
+      "finance_hits": [
+        "finance"
+      ],
+      "risk_hits": [],
+      "recommendation": "OK_FOR_REVIEW: можна аналізувати бюджет, але без автоматичної оплати."
+    },
+    {
+      "topic": "CYBRA Finance Department",
+      "type": "finance_department_task",
+      "status": "executed",
+      "source": "cybra:parliament:results",
+      "score": 1,
+      "finance_hits": [
+        "finance"
+      ],
+      "risk_hits": [],
+      "recommendation": "OK_FOR_REVIEW: можна аналізувати бюджет, але без автоматичної оплати."
+    },
+    {
+      "topic": "CYBRA Parliament Institution Audit",
+      "type": "institution_audit_task",
+      "status": "executed",
+      "source": "cybra:parliament:results",
+      "score": -5,
+      "finance_hits": [],
+      "risk_hits": [
+        "секрет"
+      ],
+      "recommendation": "HOLD: фінансовий ризик. Потрібна ручна перевірка OWNER + документи."
+    },
+    {
+      "topic": "CYBRA Parliament Institution Audit",
+      "type": "institution_audit_task",
+      "status": "executed",
+      "source": "cybra:parliament:results",
+      "score": -5,
+      "finance_hits": [],
+      "risk_hits": [
+        "секрет"
+      ],
+      "recommendation": "HOLD: фінансовий ризик. Потрібна ручна перевірка OWNER + документи."
+    },
     {
       "topic": "CYBRA Executor Double-SHA AutoHeal",
       "type": "cybra_autofix_task",
@@ -68,6 +159,30 @@
   ],
   "risk_items": [
     {
+      "topic": "CYBRA Parliament Institution Audit",
+      "type": "institution_audit_task",
+      "status": "executed",
+      "source": "cybra:parliament:results",
+      "score": -5,
+      "finance_hits": [],
+      "risk_hits": [
+        "секрет"
+      ],
+      "recommendation": "HOLD: фінансовий ризик. Потрібна ручна перевірка OWNER + документи."
+    },
+    {
+      "topic": "CYBRA Parliament Institution Audit",
+      "type": "institution_audit_task",
+      "status": "executed",
+      "source": "cybra:parliament:results",
+      "score": -5,
+      "finance_hits": [],
+      "risk_hits": [
+        "секрет"
+      ],
+      "recommendation": "HOLD: фінансовий ризик. Потрібна ручна перевірка OWNER + документи."
+    },
+    {
       "topic": "CYBRA Executor Double-SHA AutoHeal",
       "type": "cybra_autofix_task",
       "status": "executed",
@@ -82,5 +197,5 @@
   ],
   "budget_template": "data/finance/budget_ledger_template.json",
   "policy": "parliament/finance/finance_policy.json",
-  "double_sha": "33f550e0b3529bcd1021efe29c14b3aa1f623830e38fa014f5c293f1b83e270f"
+  "double_sha": "c79889afffb0bfb6398e095960e2f8a06360530a2f13f24bf3e3b1ac8866e33e"
 }

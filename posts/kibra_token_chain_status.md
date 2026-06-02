@@ -13,21 +13,21 @@ Status: active proof-chain
 
 ## Chain
 
-- Height: 5
+- Height: 7
 - Target interval: 30 sec
 - Difficulty min: 2
-- Difficulty max safe/mobile: 5
+- Difficulty max safe/mobile: 4
 - External blockchain anchor: queued manually, not automatic
 
 ## Latest block
 
 
-- Latest index: `4`
-- Latest hash: `0000f65c9116a62d651b768c7d4a35bd74d8652649557263a6fa0c49a756358f`
-- Latest double SHA: `6a1abb78e5c986964ea894d1cd0bd3ece6965af02dd9ed359cbe452ce8e4cdbf`
-- Latest difficulty: `3`
+- Latest index: `6`
+- Latest hash: `008d79a470194224659a2b6c6a109594eb5818446a444732fb7fd57991dc6d17`
+- Latest double SHA: `276c074e3c6e0cb4a3d716e2c256755a6843d425bf0062ab0b7a3a317cf480a2`
+- Latest difficulty: `2`
 - POW OK: `True`
-- Shares: `21`
+- Shares: `40`
 
 
 ## Difficulty stream
@@ -37,6 +37,8 @@ Status: active proof-chain
 - block `2` difficulty `4` hash `000054cc3d0b18f2b6c5eff6...` shares `6` pow_ok `True`
 - block `3` difficulty `4` hash `000080003f082db86ad705ec...` shares `22` pow_ok `True`
 - block `4` difficulty `3` hash `0000f65c9116a62d651b768c...` shares `21` pow_ok `True`
+- block `5` difficulty `2` hash `003a676ebdf5bf79ef0e082e...` shares `21` pow_ok `True`
+- block `6` difficulty `2` hash `008d79a470194224659a2b6c...` shares `40` pow_ok `True`
 
 
 ## Proof meaning

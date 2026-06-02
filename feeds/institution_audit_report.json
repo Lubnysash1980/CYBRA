@@ -2,32 +2,39 @@
   "name": "CYBRA Parliament Institution Audit",
   "status": "generated",
   "mode": "check",
-  "time": 1780410833.1337368,
+  "time": 1780414976.2891157,
   "git": {
     "branch": "main",
-    "commit": "df9f61ca4",
-    "dirty_files": 163
+    "commit": "859682378",
+    "dirty_files": 178
   },
   "summary": {
-    "tasks_checked": 56,
-    "task_types": 20,
-    "executor_mapping_count": 40,
+    "tasks_checked": 68,
+    "task_types": 26,
+    "executor_mapping_count": 44,
     "required_organs": 10,
     "missing_organs": 0,
     "task_types_without_mapping": 0,
     "mapped_handlers_missing_files": 0,
     "task_types_without_committee": 0,
-    "departments_files": 18,
-    "committees_files": 64,
+    "departments_files": 19,
+    "committees_files": 76,
     "protection_files": 3
   },
   "statuses": {
-    "unknown": 7,
-    "executed": 38,
+    "failed": 4,
+    "executed": 48,
     "no_executor_mapping": 9,
+    "unknown": 5,
     "reviewed": 2
   },
   "types": {
+    "kibra_token_chain_task": 4,
+    "owner_orchestrator_task": 2,
+    "token_pool_ai_task": 2,
+    "finance_department_task": 1,
+    "institution_audit_task": 2,
+    "hash_module_test_task": 1,
     "evolution_guard_task": 6,
     "closed_evolution_selfseal_task": 3,
     "biometric_succession_task": 2,
@@ -50,9 +57,8 @@
     "None": 2
   },
   "sources": {
-    "cybra:parliament:queue": 2,
-    "cybra:parliament:results": 46,
-    "cybra:parliament:failed": 1,
+    "cybra:parliament:results": 58,
+    "cybra:parliament:failed": 3,
     "cybra:review:approved": 1,
     "cybra:review:rejected": 2,
     "cybra:evolution:approved": 4
@@ -109,13 +115,13 @@
     "departments": {
       "path": "parliament/departments",
       "exists": true,
-      "files": 18,
+      "files": 19,
       "purpose": "Департаменти підтримки платформи"
     },
     "committees": {
       "path": "parliament/committees",
       "exists": true,
-      "files": 64,
+      "files": 76,
       "purpose": "Комітети під типи задач"
     }
   },
@@ -220,6 +226,15 @@
       "committee_exists": true
     },
     {
+      "task_type": "finance_department_task",
+      "count": 1,
+      "mapping": "finance_department_handler.sh",
+      "mapping_exists": true,
+      "handler_exists": true,
+      "committee_path": "parliament/committees/finance_department_task_committee",
+      "committee_exists": true
+    },
+    {
       "task_type": "github_double_backend_task",
       "count": 1,
       "mapping": "evo_committee_handler.sh",
@@ -229,12 +244,48 @@
       "committee_exists": true
     },
     {
+      "task_type": "hash_module_test_task",
+      "count": 1,
+      "mapping": "hash_module_test_handler.sh",
+      "mapping_exists": true,
+      "handler_exists": true,
+      "committee_path": "parliament/committees/hash_module_test_task_committee",
+      "committee_exists": true
+    },
+    {
+      "task_type": "institution_audit_task",
+      "count": 2,
+      "mapping": "institution_audit_handler.sh",
+      "mapping_exists": true,
+      "handler_exists": true,
+      "committee_path": "parliament/committees/institution_audit_task_committee",
+      "committee_exists": true
+    },
+    {
+      "task_type": "kibra_token_chain_task",
+      "count": 4,
+      "mapping": "kibra_token_chain_handler.sh",
+      "mapping_exists": true,
+      "handler_exists": true,
+      "committee_path": "parliament/committees/kibra_token_chain_task_committee",
+      "committee_exists": true
+    },
+    {
       "task_type": "native_token_ecosystem_task",
       "count": 2,
       "mapping": "create_native_token_ecosystem.sh",
       "mapping_exists": true,
       "handler_exists": true,
       "committee_path": "parliament/committees/native_token_ecosystem_task_committee",
+      "committee_exists": true
+    },
+    {
+      "task_type": "owner_orchestrator_task",
+      "count": 2,
+      "mapping": "owner_orchestrator_handler.sh",
+      "mapping_exists": true,
+      "handler_exists": true,
+      "committee_path": "parliament/committees/owner_orchestrator_task_committee",
       "committee_exists": true
     },
     {
@@ -290,6 +341,15 @@
       "handler_exists": true,
       "committee_path": "parliament/committees/test_committee",
       "committee_exists": true
+    },
+    {
+      "task_type": "token_pool_ai_task",
+      "count": 2,
+      "mapping": "token_pool_ai_handler.sh",
+      "mapping_exists": true,
+      "handler_exists": true,
+      "committee_path": "parliament/committees/token_pool_ai_task_committee",
+      "committee_exists": true
     }
   ],
   "missing_support": [],
@@ -307,5 +367,5 @@
     "protection": false,
     "gitignore_added": []
   },
-  "double_sha": "b5a0e7647cc68d74ae8d9cd469172a24bc388a2440f25174276def5b83515b4f"
+  "double_sha": "abba38ea229bd1a9ed33d74e60a588dceeaeeaff926ed60ac59ddc45d17e697d"
 }
