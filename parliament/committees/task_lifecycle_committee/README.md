@@ -2,7 +2,7 @@
 
 Status: active  
 Committee ID: `task_lifecycle_committee`  
-Double SHA: `ae4229202755eb1dfbd80520f3fcbecfe10978bfc07107b68c24c9dea446f397`
+Double SHA: `eb3ab6a4b35d86dcedde04a82a6990e7f3a28851a9ea36137d41021d564e54de`
 
 ## Mission
 

@@ -1,0 +1,944 @@
+{
+  "name": "CYBRA Parliament Institution Audit",
+  "status": "generated",
+  "mode": "repair",
+  "time": 1780410553.8104825,
+  "git": {
+    "branch": "main",
+    "commit": "fc86d2651",
+    "dirty_files": 137
+  },
+  "summary": {
+    "tasks_checked": 56,
+    "task_types": 20,
+    "executor_mapping_count": 40,
+    "required_organs": 10,
+    "missing_organs": 1,
+    "task_types_without_mapping": 0,
+    "mapped_handlers_missing_files": 0,
+    "task_types_without_committee": 19,
+    "departments_files": 16,
+    "committees_files": 62,
+    "protection_files": 2
+  },
+  "statuses": {
+    "unknown": 7,
+    "executed": 38,
+    "no_executor_mapping": 9,
+    "reviewed": 2
+  },
+  "types": {
+    "evolution_guard_task": 6,
+    "closed_evolution_selfseal_task": 3,
+    "biometric_succession_task": 2,
+    "audit_dedupe_test_task": 3,
+    "evo_committee_task": 1,
+    "analytics_committee_task": 3,
+    "revision_organ_task": 3,
+    "air_alert_task": 10,
+    "cybra_autofix_task": 7,
+    "queue_fix": 1,
+    "test": 2,
+    "ai_task": 1,
+    "native_token_ecosystem_task": 2,
+    "self_expanding_execution_engine_task": 2,
+    "executor_autoheal_task": 1,
+    "codespaces_keepalive_task": 1,
+    "github_double_backend_task": 1,
+    "smart_autofix_mining_pool_task": 3,
+    "pmz_historical_metadata_task": 2,
+    "None": 2
+  },
+  "sources": {
+    "cybra:parliament:queue": 2,
+    "cybra:parliament:results": 46,
+    "cybra:parliament:failed": 1,
+    "cybra:review:approved": 1,
+    "cybra:review:rejected": 2,
+    "cybra:evolution:approved": 4
+  },
+  "organ_state": {
+    "review": {
+      "path": "parliament/review",
+      "exists": true,
+      "files": 1,
+      "purpose": "Перевірка задач перед виконанням"
+    },
+    "revision": {
+      "path": "parliament/revision",
+      "exists": true,
+      "files": 1,
+      "purpose": "Ревізія виконаних і невиконаних задач"
+    },
+    "analytics": {
+      "path": "parliament/analytics",
+      "exists": true,
+      "files": 0,
+      "purpose": "Аналітика результатів роботи"
+    },
+    "education": {
+      "path": "parliament/education",
+      "exists": false,
+      "files": 0,
+      "purpose": "Освіта, інструкції, документація"
+    },
+    "evo": {
+      "path": "parliament/evo",
+      "exists": true,
+      "files": 1,
+      "purpose": "Створення нових комітетів і розвиток"
+    },
+    "evolution": {
+      "path": "parliament/evolution",
+      "exists": true,
+      "files": 1,
+      "purpose": "Фільтр розвитку проти деградації"
+    },
+    "audit": {
+      "path": "parliament/audit",
+      "exists": true,
+      "files": 1,
+      "purpose": "Audit, dedupe, tag logging"
+    },
+    "protection": {
+      "path": "parliament/protection",
+      "exists": true,
+      "files": 0,
+      "purpose": "Захист системи, секретів, Git, runtime"
+    },
+    "departments": {
+      "path": "parliament/departments",
+      "exists": true,
+      "files": 0,
+      "purpose": "Департаменти підтримки платформи"
+    },
+    "committees": {
+      "path": "parliament/committees",
+      "exists": true,
+      "files": 24,
+      "purpose": "Комітети під типи задач"
+    }
+  },
+  "task_support": [
+    {
+      "task_type": "ai_task",
+      "count": 1,
+      "mapping": "evo_committee_handler.sh",
+      "mapping_exists": true,
+      "handler_exists": true,
+      "committee_path": "parliament/committees/ai_task_committee",
+      "committee_exists": false
+    },
+    {
+      "task_type": "air_alert_task",
+      "count": 10,
+      "mapping": "air_alert_handler.sh",
+      "mapping_exists": true,
+      "handler_exists": true,
+      "committee_path": "parliament/committees/air_alert_task_committee",
+      "committee_exists": false
+    },
+    {
+      "task_type": "analytics_committee_task",
+      "count": 3,
+      "mapping": "analytics_committee_handler.sh",
+      "mapping_exists": true,
+      "handler_exists": true,
+      "committee_path": "parliament/committees/analytics_committee_task_committee",
+      "committee_exists": false
+    },
+    {
+      "task_type": "audit_dedupe_test_task",
+      "count": 3,
+      "mapping": "audit_dedupe_test_handler.sh",
+      "mapping_exists": true,
+      "handler_exists": true,
+      "committee_path": "parliament/committees/audit_dedupe_test_task_committee",
+      "committee_exists": false
+    },
+    {
+      "task_type": "biometric_succession_task",
+      "count": 2,
+      "mapping": "biometric_succession_handler.sh",
+      "mapping_exists": true,
+      "handler_exists": true,
+      "committee_path": "parliament/committees/biometric_succession_task_committee",
+      "committee_exists": false
+    },
+    {
+      "task_type": "closed_evolution_selfseal_task",
+      "count": 3,
+      "mapping": "closed_evolution_selfseal_handler.sh",
+      "mapping_exists": true,
+      "handler_exists": true,
+      "committee_path": "parliament/committees/closed_evolution_selfseal_task_committee",
+      "committee_exists": false
+    },
+    {
+      "task_type": "codespaces_keepalive_task",
+      "count": 1,
+      "mapping": "evo_committee_handler.sh",
+      "mapping_exists": true,
+      "handler_exists": true,
+      "committee_path": "parliament/committees/codespaces_keepalive_task_committee",
+      "committee_exists": false
+    },
+    {
+      "task_type": "cybra_autofix_task",
+      "count": 7,
+      "mapping": "cybra_autofix.sh",
+      "mapping_exists": true,
+      "handler_exists": true,
+      "committee_path": "parliament/committees/cybra_autofix_task_committee",
+      "committee_exists": false
+    },
+    {
+      "task_type": "evo_committee_task",
+      "count": 1,
+      "mapping": "evo_committee_handler.sh",
+      "mapping_exists": true,
+      "handler_exists": true,
+      "committee_path": "parliament/committees/evo_committee_task_committee",
+      "committee_exists": false
+    },
+    {
+      "task_type": "evolution_guard_task",
+      "count": 6,
+      "mapping": "evolution_guard_handler.sh",
+      "mapping_exists": true,
+      "handler_exists": true,
+      "committee_path": "parliament/committees/evolution_guard_task_committee",
+      "committee_exists": false
+    },
+    {
+      "task_type": "executor_autoheal_task",
+      "count": 1,
+      "mapping": "evo_committee_handler.sh",
+      "mapping_exists": true,
+      "handler_exists": true,
+      "committee_path": "parliament/committees/executor_autoheal_task_committee",
+      "committee_exists": false
+    },
+    {
+      "task_type": "github_double_backend_task",
+      "count": 1,
+      "mapping": "evo_committee_handler.sh",
+      "mapping_exists": true,
+      "handler_exists": true,
+      "committee_path": "parliament/committees/github_double_backend_task_committee",
+      "committee_exists": false
+    },
+    {
+      "task_type": "native_token_ecosystem_task",
+      "count": 2,
+      "mapping": "create_native_token_ecosystem.sh",
+      "mapping_exists": true,
+      "handler_exists": true,
+      "committee_path": "parliament/committees/native_token_ecosystem_task_committee",
+      "committee_exists": false
+    },
+    {
+      "task_type": "pmz_historical_metadata_task",
+      "count": 2,
+      "mapping": "create_pmz_registry.sh",
+      "mapping_exists": true,
+      "handler_exists": true,
+      "committee_path": "parliament/committees/pmz_historical_metadata_task_committee",
+      "committee_exists": false
+    },
+    {
+      "task_type": "queue_fix",
+      "count": 1,
+      "mapping": "evo_committee_handler.sh",
+      "mapping_exists": true,
+      "handler_exists": true,
+      "committee_path": "parliament/committees/queue_fix_committee",
+      "committee_exists": false
+    },
+    {
+      "task_type": "revision_organ_task",
+      "count": 3,
+      "mapping": "revision_organ_handler.sh",
+      "mapping_exists": true,
+      "handler_exists": true,
+      "committee_path": "parliament/committees/revision_organ_task_committee",
+      "committee_exists": false
+    },
+    {
+      "task_type": "self_expanding_execution_engine_task",
+      "count": 2,
+      "mapping": "evo_committee_handler.sh",
+      "mapping_exists": true,
+      "handler_exists": true,
+      "committee_path": "parliament/committees/self_expanding_execution_engine_task_committee",
+      "committee_exists": false
+    },
+    {
+      "task_type": "smart_autofix_mining_pool_task",
+      "count": 3,
+      "mapping": "cybra_mining_autofix.sh",
+      "mapping_exists": true,
+      "handler_exists": true,
+      "committee_path": "parliament/committees/smart_autofix_mining_pool_task_committee",
+      "committee_exists": false
+    },
+    {
+      "task_type": "test",
+      "count": 2,
+      "mapping": "evo_committee_handler.sh",
+      "mapping_exists": true,
+      "handler_exists": true,
+      "committee_path": "parliament/committees/test_committee",
+      "committee_exists": false
+    }
+  ],
+  "missing_support": [],
+  "missing_handlers": [],
+  "recommendations": [
+    {
+      "level": "critical",
+      "message": "Не всі базові органи Кіберапарламенту існують.",
+      "missing": [
+        "education"
+      ],
+      "action": "Запусти repair: bash cybra_institution.sh repair"
+    },
+    {
+      "level": "development",
+      "message": "Для частини task types немає окремих комітетів.",
+      "types": [
+        "ai_task",
+        "air_alert_task",
+        "analytics_committee_task",
+        "audit_dedupe_test_task",
+        "biometric_succession_task",
+        "closed_evolution_selfseal_task",
+        "codespaces_keepalive_task",
+        "cybra_autofix_task",
+        "evo_committee_task",
+        "evolution_guard_task",
+        "executor_autoheal_task",
+        "github_double_backend_task",
+        "native_token_ecosystem_task",
+        "pmz_historical_metadata_task",
+        "queue_fix",
+        "revision_organ_task",
+        "self_expanding_execution_engine_task",
+        "smart_autofix_mining_pool_task",
+        "test"
+      ],
+      "action": "Запусти repair, щоб створити committee skeleton."
+    }
+  ],
+  "created_or_checked": {
+    "departments": [
+      {
+        "department_id": "executor_department",
+        "status": "active",
+        "purpose": "Контроль executor, worker, handler execution",
+        "created_or_checked_at": "2026-06-02T17:29:13+0300",
+        "rules": [
+          "audit_required",
+          "proof_required",
+          "no_private_keys",
+          "no_secret_dump",
+          "evolution_only"
+        ],
+        "double_sha": "2145f16a6e5acedb0f4611881717a7fac424200f3f7f43a69900abf0e0f5dcb2"
+      },
+      {
+        "department_id": "mapping_department",
+        "status": "active",
+        "purpose": "Redis executor mapping і відсутні handler-и",
+        "created_or_checked_at": "2026-06-02T17:29:13+0300",
+        "rules": [
+          "audit_required",
+          "proof_required",
+          "no_private_keys",
+          "no_secret_dump",
+          "evolution_only"
+        ],
+        "double_sha": "7bd06569a70f5054026532fc4acb99d85e28061a127a99e87bc87934146dcf2c"
+      },
+      {
+        "department_id": "security_department",
+        "status": "active",
+        "purpose": "Захист від секретів у Git, private keys, runtime leaks",
+        "created_or_checked_at": "2026-06-02T17:29:13+0300",
+        "rules": [
+          "audit_required",
+          "proof_required",
+          "no_private_keys",
+          "no_secret_dump",
+          "evolution_only"
+        ],
+        "double_sha": "c2b21e9bdcdc15af3c0106eafc5bb724f390c02e13d828be6256757a5233f3a3"
+      },
+      {
+        "department_id": "proof_department",
+        "status": "active",
+        "purpose": "Proof, sha256, double SHA, root hash",
+        "created_or_checked_at": "2026-06-02T17:29:13+0300",
+        "rules": [
+          "audit_required",
+          "proof_required",
+          "no_private_keys",
+          "no_secret_dump",
+          "evolution_only"
+        ],
+        "double_sha": "95dd3002b3bba520e2b3e426cca6a78fc140d01e75015769fc003af4db843250"
+      },
+      {
+        "department_id": "recovery_department",
+        "status": "active",
+        "purpose": "AutoHeal, recovery capsule, backup/restore",
+        "created_or_checked_at": "2026-06-02T17:29:13+0300",
+        "rules": [
+          "audit_required",
+          "proof_required",
+          "no_private_keys",
+          "no_secret_dump",
+          "evolution_only"
+        ],
+        "double_sha": "e4bc8c95aa5dd4585d2fa56142bbcd85d8e89272020d7ee1f41b272aed0a2533"
+      },
+      {
+        "department_id": "statistics_department",
+        "status": "active",
+        "purpose": "Статистика задач, статусів, результатів",
+        "created_or_checked_at": "2026-06-02T17:29:13+0300",
+        "rules": [
+          "audit_required",
+          "proof_required",
+          "no_private_keys",
+          "no_secret_dump",
+          "evolution_only"
+        ],
+        "double_sha": "f6fd922afa1ceb36d75077dd39456b64ca6c23942cf22577e04a9d2cc6bfc741"
+      },
+      {
+        "department_id": "legal_compliance_department",
+        "status": "active",
+        "purpose": "Правовий і безпечний compliance-filter",
+        "created_or_checked_at": "2026-06-02T17:29:13+0300",
+        "rules": [
+          "audit_required",
+          "proof_required",
+          "no_private_keys",
+          "no_secret_dump",
+          "evolution_only"
+        ],
+        "double_sha": "0f1d88ae831b8cd1ec7860fb9cd5b3b5576eadd9bb313b1c6fa13b26263ccaf8"
+      },
+      {
+        "department_id": "evolution_department",
+        "status": "active",
+        "purpose": "Принцип розвитку, hold/reject деградаційних задач",
+        "created_or_checked_at": "2026-06-02T17:29:13+0300",
+        "rules": [
+          "audit_required",
+          "proof_required",
+          "no_private_keys",
+          "no_secret_dump",
+          "evolution_only"
+        ],
+        "double_sha": "2b7b27b69b772cfc6446b97a1637621e239a42859cfde747ebb1a56c74858ae1"
+      }
+    ],
+    "committees": [
+      {
+        "committee_id": "ai_task_committee",
+        "status": "active",
+        "task_type": "ai_task",
+        "topics_seen": [
+          "AI TEST"
+        ],
+        "purpose": "Підтримувати задачі типу ai_task: mapping, handler, audit, proof, diagnostics.",
+        "powers": [
+          "analyze_tasks",
+          "recommend_handler",
+          "check_mapping",
+          "write_reports",
+          "request_revision",
+          "request_evolution_review"
+        ],
+        "limits": [
+          "no_private_keys",
+          "no_secret_dump",
+          "no_illegal_actions",
+          "no_uncontrolled_payments"
+        ],
+        "created_or_checked_at": "2026-06-02T17:29:13+0300",
+        "double_sha": "38f75bd90feb887a16a38c031235d215b42f06e003ca8986d133b55774332d9e"
+      },
+      {
+        "committee_id": "air_alert_task_committee",
+        "status": "active",
+        "task_type": "air_alert_task",
+        "topics_seen": [
+          "CYBRA Test: Air Alert Handler",
+          "Ракетна небезпека",
+          "Ракетна небезпека Redis Mapping Test",
+          "Ракетна небезпека через орган перевірки"
+        ],
+        "purpose": "Підтримувати задачі типу air_alert_task: mapping, handler, audit, proof, diagnostics.",
+        "powers": [
+          "analyze_tasks",
+          "recommend_handler",
+          "check_mapping",
+          "write_reports",
+          "request_revision",
+          "request_evolution_review"
+        ],
+        "limits": [
+          "no_private_keys",
+          "no_secret_dump",
+          "no_illegal_actions",
+          "no_uncontrolled_payments"
+        ],
+        "created_or_checked_at": "2026-06-02T17:29:13+0300",
+        "double_sha": "6444d66d1428b392350591a3fececbc85044faabe1785cc6df777c52c67a8068"
+      },
+      {
+        "committee_id": "analytics_committee_task_committee",
+        "status": "active",
+        "task_type": "analytics_committee_task",
+        "topics_seen": [
+          "CYBRA Parliament Analytics Committee",
+          "CYBRA Test: Analytics Committee"
+        ],
+        "purpose": "Підтримувати задачі типу analytics_committee_task: mapping, handler, audit, proof, diagnostics.",
+        "powers": [
+          "analyze_tasks",
+          "recommend_handler",
+          "check_mapping",
+          "write_reports",
+          "request_revision",
+          "request_evolution_review"
+        ],
+        "limits": [
+          "no_private_keys",
+          "no_secret_dump",
+          "no_illegal_actions",
+          "no_uncontrolled_payments"
+        ],
+        "created_or_checked_at": "2026-06-02T17:29:13+0300",
+        "double_sha": "f2a2862a8df9d7c87e8b85b191fdef81323188ed65eb3618ca6e24940db62ec3"
+      },
+      {
+        "committee_id": "audit_dedupe_test_task_committee",
+        "status": "active",
+        "task_type": "audit_dedupe_test_task",
+        "topics_seen": [
+          "Audit Dedupe Test",
+          "CYBRA Test: Audit Dedupe"
+        ],
+        "purpose": "Підтримувати задачі типу audit_dedupe_test_task: mapping, handler, audit, proof, diagnostics.",
+        "powers": [
+          "analyze_tasks",
+          "recommend_handler",
+          "check_mapping",
+          "write_reports",
+          "request_revision",
+          "request_evolution_review"
+        ],
+        "limits": [
+          "no_private_keys",
+          "no_secret_dump",
+          "no_illegal_actions",
+          "no_uncontrolled_payments"
+        ],
+        "created_or_checked_at": "2026-06-02T17:29:13+0300",
+        "double_sha": "0c81641fe9347c136036d9f588b983d87751fd2e9e5ac612500c8dc0ab97e537"
+      },
+      {
+        "committee_id": "biometric_succession_task_committee",
+        "status": "active",
+        "task_type": "biometric_succession_task",
+        "topics_seen": [
+          "CYBRA Biometric Succession Guard",
+          "CYBRA Test: Succession Guard"
+        ],
+        "purpose": "Підтримувати задачі типу biometric_succession_task: mapping, handler, audit, proof, diagnostics.",
+        "powers": [
+          "analyze_tasks",
+          "recommend_handler",
+          "check_mapping",
+          "write_reports",
+          "request_revision",
+          "request_evolution_review"
+        ],
+        "limits": [
+          "no_private_keys",
+          "no_secret_dump",
+          "no_illegal_actions",
+          "no_uncontrolled_payments"
+        ],
+        "created_or_checked_at": "2026-06-02T17:29:13+0300",
+        "double_sha": "fa895184045790ce6c692e9cf2e32659650f02d961e0e0ca52c97808d8226c74"
+      },
+      {
+        "committee_id": "closed_evolution_selfseal_task_committee",
+        "status": "active",
+        "task_type": "closed_evolution_selfseal_task",
+        "topics_seen": [
+          "CYBRA Closed Evolution Self-Seal",
+          "CYBRA Parliament Internal Closed Self-Seal",
+          "CYBRA Test: Closed Self-Seal"
+        ],
+        "purpose": "Підтримувати задачі типу closed_evolution_selfseal_task: mapping, handler, audit, proof, diagnostics.",
+        "powers": [
+          "analyze_tasks",
+          "recommend_handler",
+          "check_mapping",
+          "write_reports",
+          "request_revision",
+          "request_evolution_review"
+        ],
+        "limits": [
+          "no_private_keys",
+          "no_secret_dump",
+          "no_illegal_actions",
+          "no_uncontrolled_payments"
+        ],
+        "created_or_checked_at": "2026-06-02T17:29:13+0300",
+        "double_sha": "1c4da8c2447970a2f5db59f06fc2d0d48eade8c5127abca0e858708777bb67c6"
+      },
+      {
+        "committee_id": "codespaces_keepalive_task_committee",
+        "status": "active",
+        "task_type": "codespaces_keepalive_task",
+        "topics_seen": [
+          "CYBRA Codespaces Keepalive Support"
+        ],
+        "purpose": "Підтримувати задачі типу codespaces_keepalive_task: mapping, handler, audit, proof, diagnostics.",
+        "powers": [
+          "analyze_tasks",
+          "recommend_handler",
+          "check_mapping",
+          "write_reports",
+          "request_revision",
+          "request_evolution_review"
+        ],
+        "limits": [
+          "no_private_keys",
+          "no_secret_dump",
+          "no_illegal_actions",
+          "no_uncontrolled_payments"
+        ],
+        "created_or_checked_at": "2026-06-02T17:29:13+0300",
+        "double_sha": "1806cc593ff5c4962d9eba2f64915fe6239c88f158e473a986cc9f84bbf89887"
+      },
+      {
+        "committee_id": "cybra_autofix_task_committee",
+        "status": "active",
+        "task_type": "cybra_autofix_task",
+        "topics_seen": [
+          "Air Alert Monitoring",
+          "CYBRA Autofix",
+          "CYBRA Executor Double-SHA AutoHeal",
+          "Ракетна небезпека"
+        ],
+        "purpose": "Підтримувати задачі типу cybra_autofix_task: mapping, handler, audit, proof, diagnostics.",
+        "powers": [
+          "analyze_tasks",
+          "recommend_handler",
+          "check_mapping",
+          "write_reports",
+          "request_revision",
+          "request_evolution_review"
+        ],
+        "limits": [
+          "no_private_keys",
+          "no_secret_dump",
+          "no_illegal_actions",
+          "no_uncontrolled_payments"
+        ],
+        "created_or_checked_at": "2026-06-02T17:29:13+0300",
+        "double_sha": "02cf7e964f31907fa748f9f52f1c3abe98e726b80eddc5b74dbe465206a489bc"
+      },
+      {
+        "committee_id": "evo_committee_task_committee",
+        "status": "active",
+        "task_type": "evo_committee_task",
+        "topics_seen": [
+          "CYBRA EVO Committee Creation"
+        ],
+        "purpose": "Підтримувати задачі типу evo_committee_task: mapping, handler, audit, proof, diagnostics.",
+        "powers": [
+          "analyze_tasks",
+          "recommend_handler",
+          "check_mapping",
+          "write_reports",
+          "request_revision",
+          "request_evolution_review"
+        ],
+        "limits": [
+          "no_private_keys",
+          "no_secret_dump",
+          "no_illegal_actions",
+          "no_uncontrolled_payments"
+        ],
+        "created_or_checked_at": "2026-06-02T17:29:13+0300",
+        "double_sha": "4c0e44c3d7fcf6f3a76425e3bf8676797074e22dac5643351e90f03b6201e054"
+      },
+      {
+        "committee_id": "evolution_guard_task_committee",
+        "status": "active",
+        "task_type": "evolution_guard_task",
+        "topics_seen": [
+          "CYBRA Evolution Pass Test"
+        ],
+        "purpose": "Підтримувати задачі типу evolution_guard_task: mapping, handler, audit, proof, diagnostics.",
+        "powers": [
+          "analyze_tasks",
+          "recommend_handler",
+          "check_mapping",
+          "write_reports",
+          "request_revision",
+          "request_evolution_review"
+        ],
+        "limits": [
+          "no_private_keys",
+          "no_secret_dump",
+          "no_illegal_actions",
+          "no_uncontrolled_payments"
+        ],
+        "created_or_checked_at": "2026-06-02T17:29:13+0300",
+        "double_sha": "04a7f7f687d0e079c86389362f1bcec5c865ca77e9234e274ce87d415f396442"
+      },
+      {
+        "committee_id": "executor_autoheal_task_committee",
+        "status": "active",
+        "task_type": "executor_autoheal_task",
+        "topics_seen": [
+          "CYBRA 5-Level Double-SHA Guardian Recovery"
+        ],
+        "purpose": "Підтримувати задачі типу executor_autoheal_task: mapping, handler, audit, proof, diagnostics.",
+        "powers": [
+          "analyze_tasks",
+          "recommend_handler",
+          "check_mapping",
+          "write_reports",
+          "request_revision",
+          "request_evolution_review"
+        ],
+        "limits": [
+          "no_private_keys",
+          "no_secret_dump",
+          "no_illegal_actions",
+          "no_uncontrolled_payments"
+        ],
+        "created_or_checked_at": "2026-06-02T17:29:13+0300",
+        "double_sha": "695007bf73d1b582dfdeb72059e2f063839142b8897ad7f6384dedb22fd1ba80"
+      },
+      {
+        "committee_id": "github_double_backend_task_committee",
+        "status": "active",
+        "task_type": "github_double_backend_task",
+        "topics_seen": [
+          "CYBRA GitHub Double Backend Proof"
+        ],
+        "purpose": "Підтримувати задачі типу github_double_backend_task: mapping, handler, audit, proof, diagnostics.",
+        "powers": [
+          "analyze_tasks",
+          "recommend_handler",
+          "check_mapping",
+          "write_reports",
+          "request_revision",
+          "request_evolution_review"
+        ],
+        "limits": [
+          "no_private_keys",
+          "no_secret_dump",
+          "no_illegal_actions",
+          "no_uncontrolled_payments"
+        ],
+        "created_or_checked_at": "2026-06-02T17:29:13+0300",
+        "double_sha": "f99852aaa6d56dc6a9fcfc2b579b523952987f4859cfcf6dd1b0c9f4a896e6c8"
+      },
+      {
+        "committee_id": "native_token_ecosystem_task_committee",
+        "status": "active",
+        "task_type": "native_token_ecosystem_task",
+        "topics_seen": [
+          "V6 test native token",
+          "Створення CYBRA Native Token"
+        ],
+        "purpose": "Підтримувати задачі типу native_token_ecosystem_task: mapping, handler, audit, proof, diagnostics.",
+        "powers": [
+          "analyze_tasks",
+          "recommend_handler",
+          "check_mapping",
+          "write_reports",
+          "request_revision",
+          "request_evolution_review"
+        ],
+        "limits": [
+          "no_private_keys",
+          "no_secret_dump",
+          "no_illegal_actions",
+          "no_uncontrolled_payments"
+        ],
+        "created_or_checked_at": "2026-06-02T17:29:13+0300",
+        "double_sha": "0ef8eb24b32d162d24bfffe685c7e0f5b15b48439b0c3ff2672d111f9e02a84c"
+      },
+      {
+        "committee_id": "pmz_historical_metadata_task_committee",
+        "status": "active",
+        "task_type": "pmz_historical_metadata_task",
+        "topics_seen": [
+          "CYBRA PMZ Historical Metadata Registry"
+        ],
+        "purpose": "Підтримувати задачі типу pmz_historical_metadata_task: mapping, handler, audit, proof, diagnostics.",
+        "powers": [
+          "analyze_tasks",
+          "recommend_handler",
+          "check_mapping",
+          "write_reports",
+          "request_revision",
+          "request_evolution_review"
+        ],
+        "limits": [
+          "no_private_keys",
+          "no_secret_dump",
+          "no_illegal_actions",
+          "no_uncontrolled_payments"
+        ],
+        "created_or_checked_at": "2026-06-02T17:29:13+0300",
+        "double_sha": "485f9cb848c17fb2c9fd50922ad4343c9acff0b5f949e9ebb2e52282bb3b29ad"
+      },
+      {
+        "committee_id": "queue_fix_committee",
+        "status": "active",
+        "task_type": "queue_fix",
+        "topics_seen": [
+          "test"
+        ],
+        "purpose": "Підтримувати задачі типу queue_fix: mapping, handler, audit, proof, diagnostics.",
+        "powers": [
+          "analyze_tasks",
+          "recommend_handler",
+          "check_mapping",
+          "write_reports",
+          "request_revision",
+          "request_evolution_review"
+        ],
+        "limits": [
+          "no_private_keys",
+          "no_secret_dump",
+          "no_illegal_actions",
+          "no_uncontrolled_payments"
+        ],
+        "created_or_checked_at": "2026-06-02T17:29:13+0300",
+        "double_sha": "2cbc7eb851f0529795b75217e64ef34e55359db27377ede334172fc58dc7da25"
+      },
+      {
+        "committee_id": "revision_organ_task_committee",
+        "status": "active",
+        "task_type": "revision_organ_task",
+        "topics_seen": [
+          "CYBRA Parliament Revision Organ",
+          "CYBRA Test: Revision Organ"
+        ],
+        "purpose": "Підтримувати задачі типу revision_organ_task: mapping, handler, audit, proof, diagnostics.",
+        "powers": [
+          "analyze_tasks",
+          "recommend_handler",
+          "check_mapping",
+          "write_reports",
+          "request_revision",
+          "request_evolution_review"
+        ],
+        "limits": [
+          "no_private_keys",
+          "no_secret_dump",
+          "no_illegal_actions",
+          "no_uncontrolled_payments"
+        ],
+        "created_or_checked_at": "2026-06-02T17:29:13+0300",
+        "double_sha": "7a7fbf5ea6c275243c71c51c65728adc438fa02a26a904b6f08f0a739db94de8"
+      },
+      {
+        "committee_id": "self_expanding_execution_engine_task_committee",
+        "status": "active",
+        "task_type": "self_expanding_execution_engine_task",
+        "topics_seen": [
+          "CYBRA Self-Expanding Execution Engine"
+        ],
+        "purpose": "Підтримувати задачі типу self_expanding_execution_engine_task: mapping, handler, audit, proof, diagnostics.",
+        "powers": [
+          "analyze_tasks",
+          "recommend_handler",
+          "check_mapping",
+          "write_reports",
+          "request_revision",
+          "request_evolution_review"
+        ],
+        "limits": [
+          "no_private_keys",
+          "no_secret_dump",
+          "no_illegal_actions",
+          "no_uncontrolled_payments"
+        ],
+        "created_or_checked_at": "2026-06-02T17:29:13+0300",
+        "double_sha": "cbf53058e8580fb32a11f27ac7e9dcffdd0eb0e67a28b30e85ee63babfea96ad"
+      },
+      {
+        "committee_id": "smart_autofix_mining_pool_task_committee",
+        "status": "active",
+        "task_type": "smart_autofix_mining_pool_task",
+        "topics_seen": [
+          "CYBRA Native Chain Mining Pool Evolution",
+          "CYBRA Smart Autofix Mining and Pool Engine"
+        ],
+        "purpose": "Підтримувати задачі типу smart_autofix_mining_pool_task: mapping, handler, audit, proof, diagnostics.",
+        "powers": [
+          "analyze_tasks",
+          "recommend_handler",
+          "check_mapping",
+          "write_reports",
+          "request_revision",
+          "request_evolution_review"
+        ],
+        "limits": [
+          "no_private_keys",
+          "no_secret_dump",
+          "no_illegal_actions",
+          "no_uncontrolled_payments"
+        ],
+        "created_or_checked_at": "2026-06-02T17:29:13+0300",
+        "double_sha": "06632955fdcb59f5c2a6ebee0b101bf7f57f08e61b65880a8b8314ce1667bb09"
+      },
+      {
+        "committee_id": "test_committee",
+        "status": "active",
+        "task_type": "test",
+        "topics_seen": [
+          "CYBRA AI CHAT TEST",
+          "CYBRA AI CHAT TEST V2"
+        ],
+        "purpose": "Підтримувати задачі типу test: mapping, handler, audit, proof, diagnostics.",
+        "powers": [
+          "analyze_tasks",
+          "recommend_handler",
+          "check_mapping",
+          "write_reports",
+          "request_revision",
+          "request_evolution_review"
+        ],
+        "limits": [
+          "no_private_keys",
+          "no_secret_dump",
+          "no_illegal_actions",
+          "no_uncontrolled_payments"
+        ],
+        "created_or_checked_at": "2026-06-02T17:29:13+0300",
+        "double_sha": "c6d0e65810eb5366d4d0d8740adc1df75c8c04effdad0137467c91aaec184c8b"
+      }
+    ],
+    "protection": true,
+    "gitignore_added": []
+  },
+  "double_sha": "c04c1ba56ac10e9b95bd185bd3d56665804e7bdce0f02542a8f64df2b441b521"
+}

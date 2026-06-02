@@ -1,0 +1,25 @@
+{
+  "committee_id": "queue_fix_committee",
+  "status": "active",
+  "task_type": "queue_fix",
+  "topics_seen": [
+    "test"
+  ],
+  "purpose": "Підтримувати задачі типу queue_fix: mapping, handler, audit, proof, diagnostics.",
+  "powers": [
+    "analyze_tasks",
+    "recommend_handler",
+    "check_mapping",
+    "write_reports",
+    "request_revision",
+    "request_evolution_review"
+  ],
+  "limits": [
+    "no_private_keys",
+    "no_secret_dump",
+    "no_illegal_actions",
+    "no_uncontrolled_payments"
+  ],
+  "created_or_checked_at": "2026-06-02T17:29:13+0300",
+  "double_sha": "2cbc7eb851f0529795b75217e64ef34e55359db27377ede334172fc58dc7da25"
+}

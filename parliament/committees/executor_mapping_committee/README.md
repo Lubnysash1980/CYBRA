@@ -2,7 +2,7 @@
 
 Status: active  
 Committee ID: `executor_mapping_committee`  
-Double SHA: `6fa5979eaf15ecbc657552c4fb5197b4158b5d81ad1a612c8f93c2a2f3f25601`
+Double SHA: `83873290e608c0b886df2a5cd87ec5d382f9c5e42aecbfb699eea24cdb99b02c`
 
 ## Mission
 

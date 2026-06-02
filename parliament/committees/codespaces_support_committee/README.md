@@ -2,7 +2,7 @@
 
 Status: active  
 Committee ID: `codespaces_support_committee`  
-Double SHA: `c522976f4b1259039d55b0c27bf428329cad6e332e358a8988d892329ea132ce`
+Double SHA: `14a554f87428dc95f89ac4aa8c1de0528144dec21a4fcc2f97b81e675215419d`
 
 ## Mission
 

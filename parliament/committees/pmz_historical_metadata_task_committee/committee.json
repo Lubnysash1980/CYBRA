@@ -1,0 +1,25 @@
+{
+  "committee_id": "pmz_historical_metadata_task_committee",
+  "status": "active",
+  "task_type": "pmz_historical_metadata_task",
+  "topics_seen": [
+    "CYBRA PMZ Historical Metadata Registry"
+  ],
+  "purpose": "Підтримувати задачі типу pmz_historical_metadata_task: mapping, handler, audit, proof, diagnostics.",
+  "powers": [
+    "analyze_tasks",
+    "recommend_handler",
+    "check_mapping",
+    "write_reports",
+    "request_revision",
+    "request_evolution_review"
+  ],
+  "limits": [
+    "no_private_keys",
+    "no_secret_dump",
+    "no_illegal_actions",
+    "no_uncontrolled_payments"
+  ],
+  "created_or_checked_at": "2026-06-02T17:29:13+0300",
+  "double_sha": "485f9cb848c17fb2c9fd50922ad4343c9acff0b5f949e9ebb2e52282bb3b29ad"
+}

@@ -1,0 +1,28 @@
+{
+  "committee_id": "air_alert_task_committee",
+  "status": "active",
+  "task_type": "air_alert_task",
+  "topics_seen": [
+    "CYBRA Test: Air Alert Handler",
+    "Ракетна небезпека",
+    "Ракетна небезпека Redis Mapping Test",
+    "Ракетна небезпека через орган перевірки"
+  ],
+  "purpose": "Підтримувати задачі типу air_alert_task: mapping, handler, audit, proof, diagnostics.",
+  "powers": [
+    "analyze_tasks",
+    "recommend_handler",
+    "check_mapping",
+    "write_reports",
+    "request_revision",
+    "request_evolution_review"
+  ],
+  "limits": [
+    "no_private_keys",
+    "no_secret_dump",
+    "no_illegal_actions",
+    "no_uncontrolled_payments"
+  ],
+  "created_or_checked_at": "2026-06-02T17:29:13+0300",
+  "double_sha": "6444d66d1428b392350591a3fececbc85044faabe1785cc6df777c52c67a8068"
+}

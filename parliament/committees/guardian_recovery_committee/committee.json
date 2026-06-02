@@ -3,7 +3,7 @@
   "name": "Guardian Recovery Committee",
   "status": "active",
   "source": "no_executor_mapping_scan",
-  "created_at": "2026-06-02T13:29:57+0300",
+  "created_at": "2026-06-02T16:03:39+0300",
   "mission": "Підтримувати executor, autoheal, recovery, double SHA та контроль помилок.",
   "task_types": [
     "executor_autoheal_task"
@@ -27,5 +27,5 @@
     "committee_json": "parliament/committees/guardian_recovery_committee/committee.json",
     "readme": "parliament/committees/guardian_recovery_committee/README.md"
   },
-  "double_sha": "95ed234958228b7153f74c26f65428359b658958ab04454515efe0bd6b6e04cb"
+  "double_sha": "7ddd3afaf03a0bf5bb472ab102e17de4bfd26bca7c73b4e65437f812a69bf2a0"
 }

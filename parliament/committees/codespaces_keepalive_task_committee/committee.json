@@ -1,0 +1,25 @@
+{
+  "committee_id": "codespaces_keepalive_task_committee",
+  "status": "active",
+  "task_type": "codespaces_keepalive_task",
+  "topics_seen": [
+    "CYBRA Codespaces Keepalive Support"
+  ],
+  "purpose": "Підтримувати задачі типу codespaces_keepalive_task: mapping, handler, audit, proof, diagnostics.",
+  "powers": [
+    "analyze_tasks",
+    "recommend_handler",
+    "check_mapping",
+    "write_reports",
+    "request_revision",
+    "request_evolution_review"
+  ],
+  "limits": [
+    "no_private_keys",
+    "no_secret_dump",
+    "no_illegal_actions",
+    "no_uncontrolled_payments"
+  ],
+  "created_or_checked_at": "2026-06-02T17:29:13+0300",
+  "double_sha": "1806cc593ff5c4962d9eba2f64915fe6239c88f158e473a986cc9f84bbf89887"
+}

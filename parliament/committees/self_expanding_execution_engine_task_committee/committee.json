@@ -1,0 +1,25 @@
+{
+  "committee_id": "self_expanding_execution_engine_task_committee",
+  "status": "active",
+  "task_type": "self_expanding_execution_engine_task",
+  "topics_seen": [
+    "CYBRA Self-Expanding Execution Engine"
+  ],
+  "purpose": "Підтримувати задачі типу self_expanding_execution_engine_task: mapping, handler, audit, proof, diagnostics.",
+  "powers": [
+    "analyze_tasks",
+    "recommend_handler",
+    "check_mapping",
+    "write_reports",
+    "request_revision",
+    "request_evolution_review"
+  ],
+  "limits": [
+    "no_private_keys",
+    "no_secret_dump",
+    "no_illegal_actions",
+    "no_uncontrolled_payments"
+  ],
+  "created_or_checked_at": "2026-06-02T17:29:13+0300",
+  "double_sha": "cbf53058e8580fb32a11f27ac7e9dcffdd0eb0e67a28b30e85ee63babfea96ad"
+}

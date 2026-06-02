@@ -2,7 +2,7 @@
 
 Status: active  
 Committee ID: `testing_committee`  
-Double SHA: `3d60b435fcbd222c8a42271f1ce9c1d8fb93714380458ee8f48432584d549ef0`
+Double SHA: `3e724c8420c23e9926de042de01c8f4224d39e303f92e2e4ae1fa072a56dcff7`
 
 ## Mission
 

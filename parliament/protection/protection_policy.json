@@ -1,0 +1,33 @@
+{
+  "name": "CYBRA Parliament Protection Layer",
+  "status": "active",
+  "rules": {
+    "git_secret_guard": [
+      "private_vault/",
+      "dump.rdb",
+      "token/runtime/rpc.env",
+      "__pycache__/",
+      "ai_network/",
+      "recovery_packs/",
+      "recovery_unpack/"
+    ],
+    "execution_guard": [
+      "no private keys in Git",
+      "no secret dump",
+      "no uncontrolled payments",
+      "no illegal actions",
+      "review before sensitive tasks",
+      "evolution-only development"
+    ],
+    "task_integrity": [
+      "double_sha",
+      "fingerprint",
+      "audit",
+      "dedupe",
+      "proof",
+      "result record"
+    ]
+  },
+  "created_or_checked_at": "2026-06-02T17:29:13+0300",
+  "double_sha": "fe1798e4ee649890b6d95c50261f485ee8a4fc8f5cff49a1548872000c5933e4"
+}

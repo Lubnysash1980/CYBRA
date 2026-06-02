@@ -1,0 +1,28 @@
+{
+  "committee_id": "cybra_autofix_task_committee",
+  "status": "active",
+  "task_type": "cybra_autofix_task",
+  "topics_seen": [
+    "Air Alert Monitoring",
+    "CYBRA Autofix",
+    "CYBRA Executor Double-SHA AutoHeal",
+    "Ракетна небезпека"
+  ],
+  "purpose": "Підтримувати задачі типу cybra_autofix_task: mapping, handler, audit, proof, diagnostics.",
+  "powers": [
+    "analyze_tasks",
+    "recommend_handler",
+    "check_mapping",
+    "write_reports",
+    "request_revision",
+    "request_evolution_review"
+  ],
+  "limits": [
+    "no_private_keys",
+    "no_secret_dump",
+    "no_illegal_actions",
+    "no_uncontrolled_payments"
+  ],
+  "created_or_checked_at": "2026-06-02T17:29:13+0300",
+  "double_sha": "02cf7e964f31907fa748f9f52f1c3abe98e726b80eddc5b74dbe465206a489bc"
+}

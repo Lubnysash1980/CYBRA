@@ -1,0 +1,26 @@
+{
+  "committee_id": "audit_dedupe_test_task_committee",
+  "status": "active",
+  "task_type": "audit_dedupe_test_task",
+  "topics_seen": [
+    "Audit Dedupe Test",
+    "CYBRA Test: Audit Dedupe"
+  ],
+  "purpose": "Підтримувати задачі типу audit_dedupe_test_task: mapping, handler, audit, proof, diagnostics.",
+  "powers": [
+    "analyze_tasks",
+    "recommend_handler",
+    "check_mapping",
+    "write_reports",
+    "request_revision",
+    "request_evolution_review"
+  ],
+  "limits": [
+    "no_private_keys",
+    "no_secret_dump",
+    "no_illegal_actions",
+    "no_uncontrolled_payments"
+  ],
+  "created_or_checked_at": "2026-06-02T17:29:13+0300",
+  "double_sha": "0c81641fe9347c136036d9f588b983d87751fd2e9e5ac612500c8dc0ab97e537"
+}

@@ -1,0 +1,26 @@
+{
+  "committee_id": "test_committee",
+  "status": "active",
+  "task_type": "test",
+  "topics_seen": [
+    "CYBRA AI CHAT TEST",
+    "CYBRA AI CHAT TEST V2"
+  ],
+  "purpose": "Підтримувати задачі типу test: mapping, handler, audit, proof, diagnostics.",
+  "powers": [
+    "analyze_tasks",
+    "recommend_handler",
+    "check_mapping",
+    "write_reports",
+    "request_revision",
+    "request_evolution_review"
+  ],
+  "limits": [
+    "no_private_keys",
+    "no_secret_dump",
+    "no_illegal_actions",
+    "no_uncontrolled_payments"
+  ],
+  "created_or_checked_at": "2026-06-02T17:29:13+0300",
+  "double_sha": "c6d0e65810eb5366d4d0d8740adc1df75c8c04effdad0137467c91aaec184c8b"
+}

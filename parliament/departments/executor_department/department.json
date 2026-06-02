@@ -1,0 +1,14 @@
+{
+  "department_id": "executor_department",
+  "status": "active",
+  "purpose": "Контроль executor, worker, handler execution",
+  "created_or_checked_at": "2026-06-02T17:29:13+0300",
+  "rules": [
+    "audit_required",
+    "proof_required",
+    "no_private_keys",
+    "no_secret_dump",
+    "evolution_only"
+  ],
+  "double_sha": "2145f16a6e5acedb0f4611881717a7fac424200f3f7f43a69900abf0e0f5dcb2"
+}

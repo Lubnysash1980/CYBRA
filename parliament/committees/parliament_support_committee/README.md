@@ -2,7 +2,7 @@
 
 Status: active  
 Committee ID: `parliament_support_committee`  
-Double SHA: `7c3b2820669841a66e6ee99051d85cb5771ca32e70785ea0c509d8f36b536de4`
+Double SHA: `bf2e8e9bb39792dae377c16982e9d9d732477f24531b77998d84f3f1f63d28d5`
 
 ## Mission
 

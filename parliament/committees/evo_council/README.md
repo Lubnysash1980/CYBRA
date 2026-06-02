@@ -2,7 +2,7 @@
 
 Status: active  
 Committee ID: `evo_council`  
-Double SHA: `253912f36c3e5607fef26325cd71b8f1a046aab11dd616e38ef38b89f556b327`
+Double SHA: `828ddd380ae44bff7326973696331250f24e9236d1ed782f9ddc6b7254e111bb`
 
 ## Mission
 

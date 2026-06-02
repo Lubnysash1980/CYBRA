@@ -2,7 +2,7 @@
 
 Status: active  
 Committee ID: `ai_tasks_committee`  
-Double SHA: `bba437551b8adb868757ae11913eaee90f422d34e5f8ecde83295575e014df7d`
+Double SHA: `2efdfe67637adfc2f5e47992d227ff2880bdfa60bae2e198a515341a17aaa294`
 
 ## Mission
 

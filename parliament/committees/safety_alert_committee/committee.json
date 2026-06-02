@@ -3,7 +3,7 @@
   "name": "Safety Alert Committee",
   "status": "active",
   "source": "no_executor_mapping_scan",
-  "created_at": "2026-06-02T13:29:57+0300",
+  "created_at": "2026-06-02T16:03:39+0300",
   "mission": "Підтримувати задачі безпеки, повітряної тривоги та official_source_required режим.",
   "task_types": [
     "air_alert_task"
@@ -27,5 +27,5 @@
     "committee_json": "parliament/committees/safety_alert_committee/committee.json",
     "readme": "parliament/committees/safety_alert_committee/README.md"
   },
-  "double_sha": "fd95dbb199ee805afc05bdec394948d1a4680e641e80da3d7e1df8681f3938e8"
+  "double_sha": "cc09ddd3ca1849a7b8120eed51ae8e0dd3f83db1da7b85dce276b3304fce061a"
 }

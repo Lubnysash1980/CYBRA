@@ -1,0 +1,14 @@
+{
+  "department_id": "statistics_department",
+  "status": "active",
+  "purpose": "Статистика задач, статусів, результатів",
+  "created_or_checked_at": "2026-06-02T17:29:13+0300",
+  "rules": [
+    "audit_required",
+    "proof_required",
+    "no_private_keys",
+    "no_secret_dump",
+    "evolution_only"
+  ],
+  "double_sha": "f6fd922afa1ceb36d75077dd39456b64ca6c23942cf22577e04a9d2cc6bfc741"
+}

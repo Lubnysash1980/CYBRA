@@ -3,7 +3,7 @@
   "name": "Self Expansion Committee",
   "status": "active",
   "source": "no_executor_mapping_scan",
-  "created_at": "2026-06-02T13:29:57+0300",
+  "created_at": "2026-06-02T16:03:39+0300",
   "mission": "Аналізувати задачі саморозширення Кіберапарламенту та пропонувати безпечні нові handler-и і комітети.",
   "task_types": [
     "self_expanding_execution_engine_task"
@@ -27,5 +27,5 @@
     "committee_json": "parliament/committees/self_expansion_committee/committee.json",
     "readme": "parliament/committees/self_expansion_committee/README.md"
   },
-  "double_sha": "624d2ef349e64c2c0000f3bcc8a9a60192073e3ea3f60270a01a05545f109577"
+  "double_sha": "a3c51145dc3100b216c3b9c3fc1b126a365e780bdd70418421e04c5b3dbdfc7e"
 }

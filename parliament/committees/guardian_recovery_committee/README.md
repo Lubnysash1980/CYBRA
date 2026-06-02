@@ -2,7 +2,7 @@
 
 Status: active  
 Committee ID: `guardian_recovery_committee`  
-Double SHA: `95ed234958228b7153f74c26f65428359b658958ab04454515efe0bd6b6e04cb`
+Double SHA: `7ddd3afaf03a0bf5bb472ab102e17de4bfd26bca7c73b4e65437f812a69bf2a0`
 
 ## Mission
 

@@ -2,7 +2,7 @@
 
 Status: active  
 Committee ID: `queue_integrity_committee`  
-Double SHA: `df0fd3d7083895a96b66d2e38c24bbbf6ebc80efeb99f2b1ec90082dfcc59bde`
+Double SHA: `0d78e6bfec60817414b8fe2a680451e86fd142afc61a28dbbf46dd5008daf7d9`
 
 ## Mission
 

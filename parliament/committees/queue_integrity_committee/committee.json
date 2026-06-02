@@ -3,7 +3,7 @@
   "name": "Queue Integrity Committee",
   "status": "active",
   "source": "no_executor_mapping_scan",
-  "created_at": "2026-06-02T13:29:57+0300",
+  "created_at": "2026-06-02T16:03:39+0300",
   "mission": "Контролювати Redis-черги, queue routing, review queue, execution queue та results.",
   "task_types": [
     "queue_fix"
@@ -27,5 +27,5 @@
     "committee_json": "parliament/committees/queue_integrity_committee/committee.json",
     "readme": "parliament/committees/queue_integrity_committee/README.md"
   },
-  "double_sha": "df0fd3d7083895a96b66d2e38c24bbbf6ebc80efeb99f2b1ec90082dfcc59bde"
+  "double_sha": "0d78e6bfec60817414b8fe2a680451e86fd142afc61a28dbbf46dd5008daf7d9"
 }

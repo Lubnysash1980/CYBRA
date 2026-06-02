@@ -2,7 +2,7 @@
 
 Status: active  
 Committee ID: `self_expansion_committee`  
-Double SHA: `624d2ef349e64c2c0000f3bcc8a9a60192073e3ea3f60270a01a05545f109577`
+Double SHA: `a3c51145dc3100b216c3b9c3fc1b126a365e780bdd70418421e04c5b3dbdfc7e`
 
 ## Mission
 

@@ -2,7 +2,7 @@
 
 Status: active  
 Committee ID: `safety_alert_committee`  
-Double SHA: `fd95dbb199ee805afc05bdec394948d1a4680e641e80da3d7e1df8681f3938e8`
+Double SHA: `cc09ddd3ca1849a7b8120eed51ae8e0dd3f83db1da7b85dce276b3304fce061a`
 
 ## Mission
 

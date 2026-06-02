@@ -3,7 +3,7 @@
   "name": "Testing Committee",
   "status": "active",
   "source": "no_executor_mapping_scan",
-  "created_at": "2026-06-02T13:29:57+0300",
+  "created_at": "2026-06-02T16:03:39+0300",
   "mission": "Перевіряти тестові задачі, handler-и, mapping та результати.",
   "task_types": [
     "test"
@@ -27,5 +27,5 @@
     "committee_json": "parliament/committees/testing_committee/committee.json",
     "readme": "parliament/committees/testing_committee/README.md"
   },
-  "double_sha": "3d60b435fcbd222c8a42271f1ce9c1d8fb93714380458ee8f48432584d549ef0"
+  "double_sha": "3e724c8420c23e9926de042de01c8f4224d39e303f92e2e4ae1fa072a56dcff7"
 }

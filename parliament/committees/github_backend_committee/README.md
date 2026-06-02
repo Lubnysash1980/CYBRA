@@ -2,7 +2,7 @@
 
 Status: active  
 Committee ID: `github_backend_committee`  
-Double SHA: `54adce89713d87cb580076f93f43b78f104ba0e763d56b7e8c7db7b7d71ef14e`
+Double SHA: `87cd6e2367c327c40aa3d4b09080621bc2a2784b39efd1cbd7d4bd73f858d491`
 
 ## Mission
 
