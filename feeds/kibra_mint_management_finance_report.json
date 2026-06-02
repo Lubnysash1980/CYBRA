@@ -1,0 +1,85 @@
+{
+  "status": "kibra_mint_management_finance_report_generated",
+  "time": 1780438549.7530088,
+  "time_iso": "2026-06-03T01:15:49+0300",
+  "submit_ai": false,
+  "latest_kibra_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab",
+  "accounting": {
+    "main_blocks": 10,
+    "task_blocks": 6,
+    "block_reward_kibra": "100",
+    "task_block_reward_kibra": "100",
+    "main_reward_accounting_kibra": "1000",
+    "task_reward_accounting_kibra": "600",
+    "total_mined_accounting_kibra": "1600",
+    "pool_shares_total": 210,
+    "real_payout_now": false,
+    "accounting_only": true
+  },
+  "market_price": {
+    "status": "reference_price_available",
+    "price_usd_per_kibra": "0.001",
+    "source": "verified_pool_reserves",
+    "real_market_confirmed": false,
+    "quote_reserve_usd": "1000",
+    "kibra_reserve": "1000000"
+  },
+  "strategy": {
+    "strategy": "reference_price_hold_or_utility_sale",
+    "reason": "Reference price exists but real market is not confirmed. Do not sell automatically; prepare utility sale and verification.",
+    "estimated_value_usd": "1.600",
+    "market_price_usd_per_kibra": "0.001",
+    "real_market_confirmed": false,
+    "sell_allowed_now": false,
+    "owner_approval_required": true
+  },
+  "sell_plan_file": "data/kibra_mint_finance/sell_plan.json",
+  "recommendations": [
+    {
+      "level": "important",
+      "area": "liquidity",
+      "recommendation": "Підготувати реальний liquidity proof або marketplace demand proof перед продажем.",
+      "action": "bash cybra_kibra_market.sh report"
+    },
+    {
+      "level": "growth",
+      "area": "utility_realization",
+      "recommendation": "Вигідна реалізація без ринку: продавати не монету напряму, а utility-пакети: AI credits, proof, bridge, developer marketplace.",
+      "action": "bash cybra_mint_promo.sh report"
+    },
+    {
+      "level": "finance",
+      "area": "staged_sell",
+      "recommendation": "Коли зʼявиться реальний ринок — реалізовувати staged sell: 1%, 3%, максимум 5% партіями, з перевіркою slippage.",
+      "action": "manual OWNER approval only"
+    }
+  ],
+  "ai_tasks_prepared": 3,
+  "ai_tasks_submitted": 0,
+  "redis": {
+    "management_audit": 5,
+    "finance_audit": 5,
+    "sell_plans": 6,
+    "ai_queue": 0,
+    "parliament_queue": 0,
+    "parliament_failed": 0,
+    "task_blocks_mined": 6,
+    "pool_mining_blocks": 6,
+    "mint_repair_queue": 0
+  },
+  "git": {
+    "branch": "main",
+    "commit": "0367342ef",
+    "dirty_files": 122
+  },
+  "safety": {
+    "real_sell_now": false,
+    "automatic_exchange_trade": false,
+    "real_payment_now": false,
+    "fake_price": false,
+    "fake_volume": false,
+    "guaranteed_profit": false,
+    "manual_OWNER_approval_required": true
+  },
+  "double_sha": "6b4670799dc727f706110751cc3c2bcc6c458a3a701dc9d82d4b5b01df2df2a1"
+}

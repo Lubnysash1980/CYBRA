@@ -1,0 +1,34 @@
+{
+  "name": "KIBRA Mint Management and Finance Policy",
+  "status": "active",
+  "native_coin": true,
+  "external_mint": false,
+  "goal": "Вигідно реалізувати намайнені KIBRA без фейкової ціни, без фейкового обʼєму і без автоматичного продажу.",
+  "realization_methods": [
+    "utility_sale",
+    "AI_task_credits",
+    "proof_services",
+    "bridge_package_services",
+    "developer_marketplace",
+    "miner_pool_participation",
+    "liquidity_plan",
+    "staged_sell_proposal",
+    "OTC_proposal_after_OWNER_approval"
+  ],
+  "rules": {
+    "market_price_requires_liquidity": true,
+    "blocks_confirm_emission_not_price": true,
+    "sell_requires_market_price": true,
+    "sell_requires_slippage_check": true,
+    "sell_requires_OWNER_approval": true,
+    "no_fake_price": true,
+    "no_fake_volume": true,
+    "no_guaranteed_profit": true
+  },
+  "execution": {
+    "real_sell_now": false,
+    "real_payment_now": false,
+    "real_exchange_trade_now": false,
+    "manual_OWNER_approval_required": true
+  }
+}

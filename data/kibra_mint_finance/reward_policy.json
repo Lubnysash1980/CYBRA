@@ -1,0 +1,7 @@
+{
+  "status": "default_reward_policy_created",
+  "block_reward_kibra": "100",
+  "task_block_reward_kibra": "100",
+  "real_payout_now": false,
+  "note": "Accounting only. Edit this file if KIBRA reward policy changes."
+}

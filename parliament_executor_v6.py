@@ -17,6 +17,7 @@ Q_FAILED = "cybra:parliament:failed"
 Q_AUDIT = "cybra:audit"
 
 SCRIPT_MAP = {
+    "kibra_mint_management_task": "kibra_mint_management_handler.sh",
     "kibra_mint_audit_task": "kibra_mint_audit_handler.sh",
     "kibra_mint_promotion_task": "kibra_mint_promotion_handler.sh",
     "ai_tasks_to_blocks_task": "ai_tasks_to_blocks_handler.sh",

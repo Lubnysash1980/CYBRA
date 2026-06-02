@@ -1,0 +1,28 @@
+{
+  "department_id": "kibra_mint_management_department",
+  "name": "KIBRA Mint Management Department",
+  "parent_department": "kibra_mint_repair_department",
+  "status": "active",
+  "mission": "Менеджмент намайнених KIBRA: визначати найвигідніший спосіб реалізації через utility, пули, marketplace, OTC proposal, liquidity plan, staged sell plan та AI Parliament tasks.",
+  "responsibilities": [
+    "manage_mined_kibra_accounting",
+    "choose_best_realization_strategy",
+    "prepare_sell_without_crash_plan",
+    "prepare_utility_monetization_plan",
+    "prepare_liquidity_strategy",
+    "coordinate_with_mint_finance_department",
+    "coordinate_with_mint_audit_department",
+    "coordinate_with_promotion_department",
+    "send_ai_tasks_to_parliament"
+  ],
+  "blocked": [
+    "automatic_real_sell",
+    "automatic_exchange_trade",
+    "fake_price",
+    "fake_volume",
+    "wash_trading",
+    "guaranteed_profit",
+    "external_tx_without_OWNER_approval"
+  ],
+  "manual_OWNER_approval_required": true
+}

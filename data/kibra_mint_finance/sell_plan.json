@@ -1,0 +1,63 @@
+{
+  "status": "sell_plan_created",
+  "time": 1780438549.743009,
+  "time_iso": "2026-06-03T01:15:49+0300",
+  "native_coin": "KIBRA",
+  "accounting": {
+    "main_blocks": 10,
+    "task_blocks": 6,
+    "block_reward_kibra": "100",
+    "task_block_reward_kibra": "100",
+    "main_reward_accounting_kibra": "1000",
+    "task_reward_accounting_kibra": "600",
+    "total_mined_accounting_kibra": "1600",
+    "pool_shares_total": 210,
+    "real_payout_now": false,
+    "accounting_only": true
+  },
+  "market_price": {
+    "status": "reference_price_available",
+    "price_usd_per_kibra": "0.001",
+    "source": "verified_pool_reserves",
+    "real_market_confirmed": false,
+    "quote_reserve_usd": "1000",
+    "kibra_reserve": "1000000"
+  },
+  "strategy": {
+    "strategy": "reference_price_hold_or_utility_sale",
+    "reason": "Reference price exists but real market is not confirmed. Do not sell automatically; prepare utility sale and verification.",
+    "estimated_value_usd": "1.600",
+    "market_price_usd_per_kibra": "0.001",
+    "real_market_confirmed": false,
+    "sell_allowed_now": false,
+    "owner_approval_required": true
+  },
+  "sell_tiers": {
+    "conservative_1_percent": {
+      "kibra": "16.00",
+      "estimated_usd": "0.01600"
+    },
+    "moderate_3_percent": {
+      "kibra": "48.00",
+      "estimated_usd": "0.04800"
+    },
+    "maximum_planned_5_percent": {
+      "kibra": "80.00",
+      "estimated_usd": "0.08000"
+    }
+  },
+  "risk_controls": [
+    "do not sell without real liquidity",
+    "check orderbook depth",
+    "check slippage",
+    "sell in stages",
+    "avoid dumping",
+    "no fake volume",
+    "no wash trading",
+    "manual OWNER approval required"
+  ],
+  "real_sell_now": false,
+  "automatic_exchange_trade": false,
+  "manual_OWNER_approval_required": true,
+  "double_sha": "627a09dca4061435abb5a351649b5baf450877f5acec3a6118623141515e5cac"
+}

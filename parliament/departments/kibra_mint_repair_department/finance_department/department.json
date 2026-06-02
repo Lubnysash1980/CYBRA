@@ -1,0 +1,27 @@
+{
+  "department_id": "kibra_mint_finance_department",
+  "name": "KIBRA Mint Finance Department",
+  "parent_department": "kibra_mint_repair_department",
+  "status": "active",
+  "mission": "Фінансовий облік і план реалізації намайнених KIBRA: reward accounting, treasury, liquidity, market-price check, slippage, staged sale proposal, reserve policy.",
+  "responsibilities": [
+    "mined_kibra_accounting",
+    "pool_reward_accounting",
+    "treasury_policy",
+    "market_price_check",
+    "sell_proposal",
+    "slippage_risk_check",
+    "daily_volume_limit",
+    "OWNER_approval_gate",
+    "profit_optimization_recommendations"
+  ],
+  "blocked": [
+    "automatic_payment",
+    "automatic_sell",
+    "automatic_liquidity_pool",
+    "fake_price",
+    "fake_volume",
+    "guaranteed_profit"
+  ],
+  "manual_OWNER_approval_required": true
+}
