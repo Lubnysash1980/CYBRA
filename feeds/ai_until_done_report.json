@@ -3,16 +3,16 @@
   "complete": true,
   "ai_total": 0,
   "parliament_queue": 0,
-  "parliament_results": 83,
+  "parliament_results": 90,
   "parliament_failed": 0,
-  "audit": 2,
-  "moved_hashes": 7,
+  "audit": 8,
+  "moved_hashes": 13,
   "real_payment_execution": false,
   "automatic_token_mint": false,
   "automatic_liquidity_pool": false,
   "automatic_exchange_launch": false,
   "automatic_external_tx": false,
-  "time": 1780434442.862924,
-  "time_iso": "2026-06-03T00:07:22+0300",
-  "double_sha": "f9d27815413c1c761aa33f9319e2b35e7808ca506fc4a5198177342ed1a38f19"
+  "time": 1780435067.8440392,
+  "time_iso": "2026-06-03T00:17:47+0300",
+  "double_sha": "0fb00dbf2cb1d88b52fffac710c8b3ef16090d85e76fbfe5c45697daef898d19"
 }

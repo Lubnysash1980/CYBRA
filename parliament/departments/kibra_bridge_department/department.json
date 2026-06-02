@@ -1,0 +1,24 @@
+{
+  "department_id": "kibra_bridge_department",
+  "name": "KIBRA Closed SHA Bridge Department",
+  "status": "active",
+  "mission": "Створити закритий SHA-міст для пакування блоків KIBRA у мережевий outbox, proof-anchor та майбутнє зовнішнє відправлення після OWNER approval.",
+  "mode": "sealed_bridge_proof_outbox",
+  "limits": [
+    "no_real_external_tx_without_OWNER_approval",
+    "no_private_keys",
+    "no_seed_phrase",
+    "no_automatic_payment",
+    "no_automatic_exchange_launch",
+    "no_fake_volume",
+    "no_market_manipulation"
+  ],
+  "allowed": [
+    "block_package",
+    "double_sha_seal",
+    "network_outbox",
+    "manual_anchor_ready",
+    "bridge_readiness_report",
+    "ai_task_completion"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "KIBRA Bridge Pool Monetization Until Done Policy",
+  "status": "active",
+  "mode": "finish_ai_tasks_pool_blocks_bridge",
+  "native_coin": true,
+  "external_mint": false,
+  "pool": {
+    "enabled": true,
+    "purpose": "AI tasks create blocks and receive pool reward accounting",
+    "real_money_payment": false,
+    "pool_reward_model": "native_kibra_block_reward_accounting"
+  },
+  "monetization": {
+    "enabled": true,
+    "method": "utility_first",
+    "tokens_monetized_by": [
+      "AI task credits",
+      "proof services",
+      "bridge packages",
+      "block verification",
+      "developer services",
+      "marketplace utility"
+    ],
+    "profit_guaranteed": false
+  },
+  "bridge": {
+    "enabled": true,
+    "type": "closed_sha_bridge",
+    "outbox": "data/kibra_bridge/outbox",
+    "sealed": "data/kibra_bridge/sealed",
+    "real_network_broadcast_now": false,
+    "manual_OWNER_approval_required": true
+  },
+  "until_done": {
+    "enabled": true,
+    "directive": "AI Parliament works until AI tasks are completed"
+  }
+}

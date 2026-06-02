@@ -17,6 +17,7 @@ Q_FAILED = "cybra:parliament:failed"
 Q_AUDIT = "cybra:audit"
 
 SCRIPT_MAP = {
+    "kibra_bridge_pool_task": "kibra_bridge_pool_handler.sh",
     "generic_ai_safe_task": "generic_ai_safe_task_handler.sh",
     "native_kibra_evolution_task": "native_kibra_evolution_handler.sh",
     "ai_until_done_task": "ai_until_done_handler.sh",

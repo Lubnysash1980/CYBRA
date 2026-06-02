@@ -1,0 +1,26 @@
+{
+  "status": "pool_monetization_plan_created",
+  "native_coin": "KIBRA",
+  "external_mint": false,
+  "real_payment": false,
+  "pool_reward_source": "native_block_reward_accounting",
+  "pool_reward_usage": [
+    "AI task credits",
+    "block creation rewards",
+    "proof validation rewards",
+    "bridge package rewards",
+    "developer marketplace credits"
+  ],
+  "allocation_model": {
+    "owner_reserve_percent": 60,
+    "ai_pool_percent": 40,
+    "real_distribution_now": false,
+    "accounting_only": true
+  },
+  "monetization_rule": "KIBRA value must come from utility, usage, demand and liquidity readiness; no fake price or guaranteed profit.",
+  "safety": {
+    "no_fake_volume": true,
+    "no_market_manipulation": true,
+    "manual_OWNER_approval_required_for_real_launch": true
+  }
+}
