@@ -1,0 +1,9 @@
+{
+  "source": "verified_pool_reserves",
+  "quote_reserve_usd": "1000",
+  "kibra_reserve": "1000000",
+  "real_market_confirmed": false,
+  "note": "Manual reserve input. Mark real_market_confirmed only after verified exchange/pool/orderbook proof.",
+  "time": 1780435674.7628505,
+  "time_iso": "2026-06-03T00:27:54+0300"
+}

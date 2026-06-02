@@ -1,0 +1,20 @@
+{
+  "name": "KIBRA Price Sell Mint Repair Policy",
+  "status": "active",
+  "native_coin": true,
+  "external_mint": false,
+  "logic": {
+    "confirmed_blocks_create_native_emission_proof": true,
+    "pool_rewards_create_accounting": true,
+    "market_price_requires_liquidity": true,
+    "sell_at_market_price_creates_proposal": true,
+    "broken_blocks_return_to_mint_repair_department": true
+  },
+  "safety": {
+    "real_sell_execution_now": false,
+    "automatic_payment": false,
+    "automatic_exchange_trade": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  }
+}

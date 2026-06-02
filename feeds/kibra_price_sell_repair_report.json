@@ -1,0 +1,70 @@
+{
+  "status": "kibra_price_sell_repair_report_generated",
+  "time": 1780435675.6635566,
+  "time_iso": "2026-06-03T00:27:55+0300",
+  "latest_kibra_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab",
+  "chain_verify": {
+    "ok": true,
+    "returncode": 0,
+    "output_tail": "{\n  \"status\": \"verified\",\n  \"blocks\": 10,\n  \"errors\": [],\n  \"time\": 1780435675.5552416\n}\n"
+  },
+  "blocks": {
+    "good_count": 10,
+    "broken_count": 0,
+    "broken": []
+  },
+  "market_price": {
+    "status": "market_reference_price_available",
+    "price_usd_per_kibra": "0.001",
+    "source": "verified_pool_reserves",
+    "quote_reserve_usd": "1000",
+    "kibra_reserve": "1000000",
+    "real_market_confirmed": false
+  },
+  "sell_proposal": {
+    "status": "sell_proposal_created",
+    "time": 1780435675.6471238,
+    "time_iso": "2026-06-03T00:27:55+0300",
+    "native_coin": "KIBRA",
+    "sell_at_market_price": true,
+    "market_price_usd_per_kibra": "0.001",
+    "price_source": {
+      "status": "market_reference_price_available",
+      "price_usd_per_kibra": "0.001",
+      "source": "verified_pool_reserves",
+      "quote_reserve_usd": "1000",
+      "kibra_reserve": "1000000",
+      "real_market_confirmed": false
+    },
+    "real_sell_execution_now": false,
+    "automatic_exchange_trade": false,
+    "manual_OWNER_approval_required": true,
+    "rules": [
+      "sell only after real market price exists",
+      "sell only by staged proposal",
+      "check liquidity depth",
+      "check slippage",
+      "no fake price",
+      "no wash trading"
+    ],
+    "double_sha": "b64e5cfee12646e55ef0a3918404ea6371ae4e4d90a5e56b56c9495ccea10f13"
+  },
+  "ai_tasks_created": 0,
+  "submit_ai": false,
+  "redis": {
+    "sell_proposals": 7,
+    "broken_blocks": 0,
+    "repair_queue": 0,
+    "ai_queue": 0,
+    "parliament_queue": 0,
+    "parliament_failed": 0
+  },
+  "safety": {
+    "real_sell_execution_now": false,
+    "automatic_trade": false,
+    "automatic_payment": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  },
+  "double_sha": "6e0f6569a04b98c7a524a6e613dd76ccc5114b218b05aa58f5d3502cdbbef314"
+}

@@ -1,0 +1,14 @@
+{
+  "committee_id": "kibra_market_price_committee",
+  "name": "KIBRA Market Price Committee",
+  "status": "active",
+  "mission": "Визначати ринкову або референтну ціну KIBRA тільки з реальної ліквідності, orderbook, pool reserves або підтверджених угод.",
+  "rules": [
+    "blocks_confirm_coin_emission_not_market_price",
+    "price_requires_real_liquidity",
+    "no_fake_price",
+    "no_wash_trading",
+    "no_guaranteed_profit",
+    "sell_only_by_proposal_and_OWNER_approval"
+  ]
+}

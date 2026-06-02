@@ -1,0 +1,14 @@
+{
+  "department_id": "kibra_mint_repair_department",
+  "name": "KIBRA Native Mint Repair Department",
+  "status": "active",
+  "mission": "Приймати ламані блоки, відправляти їх у repair queue, перевіряти hash/proof/difficulty і пропонувати repair або replacement block.",
+  "mode": "native_coin_block_emission_repair",
+  "rules": [
+    "no_external_spl_erc_mint",
+    "native_coin_only",
+    "broken_blocks_go_to_repair_queue",
+    "replacement_block_requires_proof",
+    "manual_OWNER_approval_required_for_real_network_release"
+  ]
+}
