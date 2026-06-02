@@ -17,6 +17,8 @@ Q_FAILED = "cybra:parliament:failed"
 Q_AUDIT = "cybra:audit"
 
 SCRIPT_MAP = {
+    "revision_organ_task": "revision_organ_handler.sh",
+    "analytics_committee_task": "analytics_committee_handler.sh",
     "air_alert_task": "air_alert_handler.sh",
     "watchdog_task": "air_alert_handler.sh",
     "ai_network_task": "neural_runtime_handler.sh",

@@ -1,0 +1,30 @@
+{
+  "name": "CYBRA Parliament Revision Organ",
+  "version": "1.0",
+  "status": "active",
+  "mission": "Перевіряти задачі Кіберапарламенту, роботу над ними, результати, audit, mapping, помилки та proof-файли.",
+  "redis_keys": {
+    "results": "cybra:results",
+    "audit": "cybra:audit",
+    "review_audit": "cybra:review:audit",
+    "analytics_audit": "cybra:analytics:audit",
+    "executor_mapping": "cybra:executor:mapping",
+    "revision_audit": "cybra:revision:audit"
+  },
+  "checks": [
+    "executed tasks",
+    "failed tasks",
+    "no executor mapping",
+    "missing script",
+    "missing double_sha/hash",
+    "review hold/rejected",
+    "queue backlog",
+    "proof files"
+  ],
+  "policy": {
+    "revision_only": true,
+    "no_private_keys": true,
+    "no_secret_dump": true,
+    "no_illegal_actions": true
+  }
+}
