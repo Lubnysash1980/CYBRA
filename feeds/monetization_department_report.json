@@ -1,8 +1,8 @@
 {
   "module": "CYBRA Monetization Department",
   "status": "generated",
-  "time": 1780421783.3450735,
-  "time_iso": "2026-06-02T20:36:23+0300",
+  "time": 1780422813.4657922,
+  "time_iso": "2026-06-02T20:53:33+0300",
   "token": {
     "name": "Кібра",
     "symbol": "KIBRA",
@@ -147,21 +147,21 @@
   "proof_inputs": {
     "monetization_policy": "d9c1ca0b6bf9dc74baef3ed705eea7091edb17c038fc3bbcd35179e6b3df2fec",
     "department": "822964c3d0b82b60c11a8f781c9df2acabdc1861425ef172218a478ec1754a5c",
-    "kibra_chain_proof": "fbbddfcc91751e3a82fca0c131e2b9891301b57c7f0efb877dfe38b71fcf02a9",
+    "kibra_chain_proof": "48731845b6d0584261768c9a4ef9d7961a560632193fa3379f40c2308d510b86",
     "external_anchor_package": "02b059ac280e4433c8855ceaff8d6a8cd36a5e57ca459b2e8827de735c821e1e",
-    "finance_department": "698ba3c0948b48df4ac6704c5bb728a73c2a0f4579632b25f63a574f0eb6e9a4"
+    "finance_department": "c032fa2342e75d3ebf017e462d6d60c6838cba6594eef86cccfe83e8e6d73d2f"
   },
   "redis": {
-    "monetization_audit": 2,
-    "monetization_proposals": 2,
+    "monetization_audit": 5,
+    "monetization_proposals": 5,
     "finance_ledger": 13,
     "anchor_manual_ready": 6,
-    "parliament_results": 61
+    "parliament_results": 63
   },
   "git": {
     "branch": "main",
-    "commit": "5af0a4b0d",
-    "dirty_files": 189
+    "commit": "dadca6321",
+    "dirty_files": 181
   },
-  "double_sha": "584c3821a6fa5bbe807a37312251bc42fef1219073232a953a7473782dda6ddd"
+  "double_sha": "eb36ea67d4ee86c997aabebc834ea3b10fe47d392826efdd579a9a8abf0905f2"
 }
