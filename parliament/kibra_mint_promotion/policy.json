@@ -1,0 +1,29 @@
+{
+  "name": "KIBRA Mint Promotion Policy",
+  "status": "active",
+  "mode": "promotion_and_adoption_only",
+  "native_coin": true,
+  "external_mint": false,
+  "main_rule": "Promotion must be based on utility, proof, miners, blocks, AI tasks, bridge packages and real adoption. No fake market activity.",
+  "goals": [
+    "explain_native_kibra_coin",
+    "show_confirmed_blocks",
+    "show_pool_mined_ai_task_blocks",
+    "show_difficulty_classes",
+    "show_closed_sha_bridge",
+    "show_explorer",
+    "prepare_miner_onboarding",
+    "prepare_utility_marketplace",
+    "prepare_listing_readiness",
+    "prepare_community_growth"
+  ],
+  "safety": {
+    "no_fake_price": true,
+    "no_fake_volume": true,
+    "no_wash_trading": true,
+    "no_guaranteed_profit": true,
+    "real_ads_payment_now": false,
+    "real_sell_now": false,
+    "manual_OWNER_approval_required": true
+  }
+}

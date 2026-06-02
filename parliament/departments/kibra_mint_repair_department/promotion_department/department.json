@@ -1,0 +1,41 @@
+{
+  "department_id": "kibra_mint_promotion_department",
+  "name": "KIBRA Mint Promotion Department",
+  "parent_department": "kibra_mint_repair_department",
+  "status": "active",
+  "mission": "Просувати KIBRA native coin, AI-task mining blocks, pool mining, bridge proof, difficulty classes, website/explorer, utility and marketplace adoption.",
+  "promotion_targets": [
+    "native_kibra_coin",
+    "ai_tasks_to_mining_blocks",
+    "pool_mining_blocks",
+    "difficulty_classes",
+    "closed_sha_bridge",
+    "block_ai_support",
+    "website_explorer",
+    "utility_marketplace",
+    "developer_services",
+    "proof_services"
+  ],
+  "allowed": [
+    "promotion_plan",
+    "utility_plan",
+    "documentation",
+    "website_page",
+    "community_outreach_plan",
+    "miner_onboarding_plan",
+    "listing_readiness_plan",
+    "ai_parliament_tasks",
+    "proof_report"
+  ],
+  "blocked": [
+    "fake_price",
+    "fake_volume",
+    "wash_trading",
+    "pump_and_dump",
+    "guaranteed_profit",
+    "automatic_real_ads_payment",
+    "automatic_token_sell",
+    "automatic_exchange_trade"
+  ],
+  "manual_OWNER_approval_required": true
+}

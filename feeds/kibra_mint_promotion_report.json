@@ -1,0 +1,73 @@
+{
+  "status": "kibra_mint_promotion_report_generated",
+  "time": 1780437573.0150483,
+  "time_iso": "2026-06-03T00:59:33+0300",
+  "submit_ai": false,
+  "state": {
+    "native_kibra": true,
+    "kibra_chain": true,
+    "pool_confirm": true,
+    "difficulty_classes": true,
+    "bridge": true,
+    "block_ai_support": true,
+    "ai_tasks_to_blocks": true,
+    "price_sell_repair": true,
+    "website": true,
+    "explorer": true,
+    "logo": true
+  },
+  "recommendations": [
+    {
+      "area": "promotion",
+      "level": "growth",
+      "recommendation": "Створити сторінку просування KIBRA: що це native coin, блоки, пули, AI tasks, bridge proof, utility.",
+      "action": "generate website/kibra/promotion.html"
+    },
+    {
+      "area": "miners",
+      "level": "growth",
+      "recommendation": "Підготувати onboarding для майнерів: як блоки з AI-завданнями попадають у пул і підтверджуються.",
+      "action": "create miner onboarding plan"
+    },
+    {
+      "area": "utility",
+      "level": "growth",
+      "recommendation": "Просувати KIBRA через корисність: AI task credits, proof services, bridge packages, developer marketplace.",
+      "action": "create utility marketplace promotion plan"
+    },
+    {
+      "area": "listing_readiness",
+      "level": "growth",
+      "recommendation": "Готувати listing-readiness пакет: docs, explorer, proof, supply/emission, pool accounting, community.",
+      "action": "create listing readiness checklist"
+    }
+  ],
+  "ai_tasks_created": 0,
+  "ai_tasks_prepared": 4,
+  "promotion_plan": "data/kibra_mint_promotion/promotion_plan.json",
+  "promotion_page": "website/kibra/promotion.html",
+  "latest_kibra_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab",
+  "redis": {
+    "audit": 8,
+    "recommendations": 8,
+    "ai_queue": 0,
+    "parliament_queue": 0,
+    "parliament_failed": 0
+  },
+  "proof_inputs": {
+    "department": "306f5e57eac63450af444fa89469e4e54429f29216955130bfe88d71c6c647b0",
+    "policy": "a780618e0234307c198c7f4f5d222d1376a4bd88a6ce96d61e8ceaa5dffb2b5f",
+    "promotion_plan": "88af88ab8ea13c52c39d4fda28c43cb84911f866b284ae5ba0154557e2b1588f",
+    "promotion_page": "b33534554dff52b8bb1838c5e35250b1f4ae3d0ec56987a15344793bf03f1555"
+  },
+  "safety": {
+    "fake_price": false,
+    "fake_volume": false,
+    "wash_trading": false,
+    "guaranteed_profit": false,
+    "real_ads_payment_now": false,
+    "real_sell_now": false,
+    "manual_OWNER_approval_required": true
+  },
+  "double_sha": "d75a40eb244309e0bc7d14a79c1848a167ef96fe5099770f38fb60e0baad1026"
+}

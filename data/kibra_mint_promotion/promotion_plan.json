@@ -1,0 +1,81 @@
+{
+  "status": "kibra_mint_promotion_plan_created",
+  "time": 1780437573.0143166,
+  "time_iso": "2026-06-03T00:59:33+0300",
+  "native_coin": "KIBRA",
+  "latest_kibra_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab",
+  "promotion_message": {
+    "headline": "KIBRA — native AI-task blockchain coin",
+    "points": [
+      "KIBRA is native coin of own proof chain",
+      "AI tasks are converted into mining task-blocks",
+      "Pools mine blocks with AI tasks",
+      "Difficulty classes identify proof grade",
+      "Closed SHA bridge prepares proof packages",
+      "Utility-first monetization, no fake price"
+    ]
+  },
+  "channels": [
+    "website",
+    "explorer",
+    "whitepaper",
+    "GitHub",
+    "miner onboarding",
+    "developer marketplace",
+    "AI Parliament reports",
+    "proof certificates"
+  ],
+  "utility": [
+    "AI task credits",
+    "block proof verification",
+    "bridge package proof",
+    "developer support credits",
+    "marketplace services",
+    "pool mining participation"
+  ],
+  "state": {
+    "native_kibra": true,
+    "kibra_chain": true,
+    "pool_confirm": true,
+    "difficulty_classes": true,
+    "bridge": true,
+    "block_ai_support": true,
+    "ai_tasks_to_blocks": true,
+    "price_sell_repair": true,
+    "website": true,
+    "explorer": true,
+    "logo": true
+  },
+  "recommendations": [
+    {
+      "area": "promotion",
+      "level": "growth",
+      "recommendation": "Створити сторінку просування KIBRA: що це native coin, блоки, пули, AI tasks, bridge proof, utility.",
+      "action": "generate website/kibra/promotion.html"
+    },
+    {
+      "area": "miners",
+      "level": "growth",
+      "recommendation": "Підготувати onboarding для майнерів: як блоки з AI-завданнями попадають у пул і підтверджуються.",
+      "action": "create miner onboarding plan"
+    },
+    {
+      "area": "utility",
+      "level": "growth",
+      "recommendation": "Просувати KIBRA через корисність: AI task credits, proof services, bridge packages, developer marketplace.",
+      "action": "create utility marketplace promotion plan"
+    },
+    {
+      "area": "listing_readiness",
+      "level": "growth",
+      "recommendation": "Готувати listing-readiness пакет: docs, explorer, proof, supply/emission, pool accounting, community.",
+      "action": "create listing readiness checklist"
+    }
+  ],
+  "safety": {
+    "no_fake_price": true,
+    "no_fake_volume": true,
+    "no_guaranteed_profit": true,
+    "manual_OWNER_approval_required": true
+  }
+}
