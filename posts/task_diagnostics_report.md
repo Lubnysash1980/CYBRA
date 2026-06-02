@@ -1,11 +1,11 @@
 # CYBRA Task Test Diagnostics
 
 Status: generated  
-Double SHA: `8e3f8a004edc8802e688b80d21519e33076e80f89d22652b6468efc9d2e6b2ec`
+Double SHA: `feb662ae2de2f19913eea3de7305c0672a52421bce6569391adba8fa62931b5b`
 
 ## Summary
 
-- Checked records: 50
+- Checked records: 54
 - Executed: 38
 - Not executed: 9
 - Still missing mapping: 0
@@ -15,18 +15,18 @@ Double SHA: `8e3f8a004edc8802e688b80d21519e33076e80f89d22652b6468efc9d2e6b2ec`
 - Review hold: 0
 - Evolution hold: 0
 - Evolution rejected: 0
-- Executor mapping count: 37
+- Executor mapping count: 38
 
 ## Queue state
 
-- parliament_queue: 0
+- parliament_queue: 2
 - parliament_results: 46
 - parliament_failed: 1
 - review_incoming: 0
 - review_approved: 1
 - review_hold: 0
 - review_rejected: 2
-- evolution_approved: 0
+- evolution_approved: 4
 - evolution_hold: 0
 - evolution_rejected: 0
 
@@ -34,13 +34,14 @@ Double SHA: `8e3f8a004edc8802e688b80d21519e33076e80f89d22652b6468efc9d2e6b2ec`
 
 - `executed`: 38
 - `no_executor_mapping`: 9
+- `unknown`: 5
 - `reviewed`: 2
-- `unknown`: 1
 
 ## Task types
 
 - `air_alert_task`: 10
 - `cybra_autofix_task`: 7
+- `evolution_guard_task`: 4
 - `closed_evolution_selfseal_task`: 3
 - `audit_dedupe_test_task`: 3
 - `analytics_committee_task`: 3
@@ -61,7 +62,7 @@ Double SHA: `8e3f8a004edc8802e688b80d21519e33076e80f89d22652b6468efc9d2e6b2ec`
 
 ## Scripts / handlers
 
-- `none`: 12
+- `none`: 16
 - `air_alert_handler.sh`: 8
 - `cybra_autofix.sh`: 4
 - `closed_evolution_selfseal_handler.sh`: 3
@@ -80,6 +81,7 @@ Double SHA: `8e3f8a004edc8802e688b80d21519e33076e80f89d22652b6468efc9d2e6b2ec`
 ## Sources
 
 - `cybra:parliament:results`: 46
+- `cybra:evolution:approved`: 4
 - `cybra:review:rejected`: 2
 - `cybra:parliament:failed`: 1
 - `cybra:review:approved`: 1
@@ -104,6 +106,7 @@ Double SHA: `8e3f8a004edc8802e688b80d21519e33076e80f89d22652b6468efc9d2e6b2ec`
 
 ## Recommendations
 
+- **important**: У черзі виконання є задачі. Action: `Запусти: cybra worker-start && sleep 5 && cybra status`
 - **ok**: Частина no_executor_mapping — це стара історія. Зараз mapping уже є. Action: `Не страшно. Старі записи лишити як audit або очистити окремо.`
 - **review**: Є задачі, відхилені review-органом. Action: `Подивись: bash cybra_review.sh rejected`
 

@@ -1,14 +1,14 @@
 {
   "name": "CYBRA Task Test Diagnostics",
   "status": "generated",
-  "time": 1780405423.5006495,
+  "time": 1780408236.2097518,
   "git": {
     "branch": "main",
-    "commit": "c7f7acad7",
-    "dirty_files": 110
+    "commit": "3dc230041",
+    "dirty_files": 107
   },
   "summary": {
-    "checked_records": 50,
+    "checked_records": 54,
     "executed": 38,
     "not_executed": 9,
     "still_missing_mapping": 0,
@@ -18,17 +18,17 @@
     "review_hold": 0,
     "evolution_hold": 0,
     "evolution_rejected": 0,
-    "executor_mapping_count": 37
+    "executor_mapping_count": 38
   },
   "queue_state": {
-    "parliament_queue": 0,
+    "parliament_queue": 2,
     "parliament_results": 46,
     "parliament_failed": 1,
     "review_incoming": 0,
     "review_approved": 1,
     "review_hold": 0,
     "review_rejected": 2,
-    "evolution_approved": 0,
+    "evolution_approved": 4,
     "evolution_hold": 0,
     "evolution_rejected": 0,
     "audit_hashes": 46,
@@ -40,7 +40,7 @@
   "statuses": {
     "executed": 38,
     "no_executor_mapping": 9,
-    "unknown": 1,
+    "unknown": 5,
     "reviewed": 2
   },
   "types": {
@@ -62,7 +62,8 @@
     "github_double_backend_task": 1,
     "smart_autofix_mining_pool_task": 3,
     "pmz_historical_metadata_task": 2,
-    "None": 2
+    "None": 2,
+    "evolution_guard_task": 4
   },
   "scripts": {
     "closed_evolution_selfseal_handler.sh": 3,
@@ -72,7 +73,7 @@
     "analytics_committee_handler.sh": 3,
     "revision_organ_handler.sh": 3,
     "air_alert_handler.sh": 8,
-    "none": 12,
+    "none": 16,
     "cybra_autofix.sh": 4,
     "ai_chat_test_handler.sh": 1,
     "create_native_token_ecosystem.sh": 1,
@@ -85,10 +86,12 @@
     "cybra:parliament:results": 46,
     "cybra:parliament:failed": 1,
     "cybra:review:approved": 1,
-    "cybra:review:rejected": 2
+    "cybra:review:rejected": 2,
+    "cybra:evolution:approved": 4
   },
   "topics_top": {
     "Ракетна небезпека": 7,
+    "CYBRA Evolution Pass Test": 4,
     "Air Alert Monitoring": 3,
     "Audit Dedupe Test": 2,
     "CYBRA Parliament Revision Organ": 2,
@@ -106,8 +109,7 @@
     "CYBRA Test: Succession Guard": 1,
     "CYBRA Test: Closed Self-Seal": 1,
     "CYBRA Test: Audit Dedupe": 1,
-    "CYBRA Test: Analytics Committee": 1,
-    "CYBRA Test: Revision Organ": 1
+    "CYBRA Test: Analytics Committee": 1
   },
   "still_missing_mapping": [],
   "old_no_mapping_fixed_now": [
@@ -375,6 +377,11 @@
   ],
   "recommendations": [
     {
+      "level": "important",
+      "what": "У черзі виконання є задачі.",
+      "do": "Запусти: cybra worker-start && sleep 5 && cybra status"
+    },
+    {
       "level": "ok",
       "what": "Частина no_executor_mapping — це стара історія. Зараз mapping уже є.",
       "do": "Не страшно. Старі записи лишити як audit або очистити окремо."
@@ -422,7 +429,8 @@
     "dialogue_key_task": "dialogue_key_handler.sh",
     "audit_dedupe_test_task": "audit_dedupe_test_handler.sh",
     "closed_evolution_selfseal_task": "closed_evolution_selfseal_handler.sh",
-    "biometric_succession_task": "biometric_succession_handler.sh"
+    "biometric_succession_task": "biometric_succession_handler.sh",
+    "evolution_guard_task": "evolution_guard_handler.sh"
   },
-  "double_sha": "8e3f8a004edc8802e688b80d21519e33076e80f89d22652b6468efc9d2e6b2ec"
+  "double_sha": "feb662ae2de2f19913eea3de7305c0672a52421bce6569391adba8fa62931b5b"
 }
