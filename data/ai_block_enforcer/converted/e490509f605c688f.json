@@ -1,0 +1,18 @@
+{
+  "topic": "Нове AI-завдання",
+  "type": "generic_ai_safe_task",
+  "priority": "high",
+  "payload": {
+    "goal": "спочатку в mining block, потім у парламент",
+    "converted_by_ai_block_enforcer": true,
+    "not_sent_directly": true,
+    "must_be_mined_by_pool": true,
+    "real_payment": false,
+    "real_sell": false,
+    "external_tx": false,
+    "manual_OWNER_approval_required": true,
+    "source_queue": "cybra:ai:tasks:block_inbox",
+    "owner_rule": "all_new_ai_tasks_must_be_mined_into_blocks",
+    "ai_block_enforcer_hash": "e490509f605c688fb25808556dfc5e2840c88b001d1e2f8ca22fc6d763af6ac9"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "AI Block Enforcer Policy",
+  "status": "active",
+  "native_coin": true,
+  "external_mint": false,
+  "main_rule": "Всі нові AI-завдання переводяться у mining blocks. Пряме виконання AI-завдань заборонено.",
+  "allowed_after_mining": [
+    "kibra_block_ai_support_task",
+    "mined_task_block_support"
+  ],
+  "execution": {
+    "direct_ai_task_execution": false,
+    "task_block_required": true,
+    "pool_mining_required": true,
+    "real_payment": false,
+    "real_sell": false,
+    "manual_OWNER_approval_required": true
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "department_id": "ai_block_enforcer_department",
+  "name": "AI Block Enforcer Department",
+  "status": "active",
+  "mission": "Примусово переводити всі нові AI-завдання у KIBRA mining task-blocks перед тим, як вони потраплять у AI Parliament.",
+  "core_rule": "No direct AI task execution. Every new AI task must be mined into a KIBRA task-block first.",
+  "flow": [
+    "detect_new_ai_task",
+    "remove_direct_task_from_queue",
+    "convert_to_kibra_task_block_mempool",
+    "send_to_pool_mining",
+    "mine_task_block",
+    "only_after_mining_send_support_task_to_parliament"
+  ],
+  "safety": [
+    "no_real_payment",
+    "no_real_sell",
+    "no_external_tx",
+    "no_private_keys",
+    "manual_OWNER_approval_required"
+  ]
+}
