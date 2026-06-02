@@ -1,0 +1,248 @@
+{
+  "status": "finance_gap_evolution_report_generated",
+  "submit_ai": false,
+  "time": 1780433930.764083,
+  "time_iso": "2026-06-02T23:58:50+0300",
+  "score": 90,
+  "modules_total": 12,
+  "modules_ok": 12,
+  "modules_missing": 0,
+  "runtime_gaps": 2,
+  "modules": [
+    {
+      "module": "finance_department",
+      "importance": "critical",
+      "task_type": "finance_department_task",
+      "action": "bash cybra_finance.sh report",
+      "files": [
+        "parliament/departments/finance_department/department.json",
+        "feeds/finance_department_report.json"
+      ],
+      "missing": [],
+      "ok": true
+    },
+    {
+      "module": "finance_infrastructure",
+      "importance": "critical",
+      "task_type": "finance_infrastructure_task",
+      "action": "bash cybra_finance_infra.sh report",
+      "files": [
+        "parliament/finance/infrastructure/finance_infrastructure_policy.json",
+        "feeds/finance_infrastructure_report.json"
+      ],
+      "missing": [],
+      "ok": true
+    },
+    {
+      "module": "finance_token_profit_audit",
+      "importance": "critical",
+      "task_type": "finance_token_profit_audit_task",
+      "action": "bash cybra_finance_profit_audit.sh report",
+      "files": [
+        "parliament/departments/finance_token_profit_audit_department/department.json",
+        "feeds/finance_token_profit_audit_report.json"
+      ],
+      "missing": [],
+      "ok": true
+    },
+    {
+      "module": "native_kibra",
+      "importance": "critical",
+      "task_type": "native_kibra_evolution_task",
+      "action": "bash cybra_native_kibra.sh build",
+      "files": [
+        "parliament/native_kibra/policy/native_kibra_policy.json",
+        "feeds/native_kibra_ai_task_package.json",
+        "website/kibra/index.html",
+        "token/kibra/native/assets/kibra_token.png"
+      ],
+      "missing": [],
+      "ok": true
+    },
+    {
+      "module": "kibra_chain",
+      "importance": "critical",
+      "task_type": "kibra_token_chain_task",
+      "action": "bash cybra_kibra_chain.sh verify && bash cybra_kibra_chain.sh report",
+      "files": [
+        "feeds/kibra_token_chain_status.json",
+        "blockchain/kibra_chain/latest.block.hash",
+        "proofs/kibra_token_chain.sha256"
+      ],
+      "missing": [],
+      "ok": true
+    },
+    {
+      "module": "monetization",
+      "importance": "important",
+      "task_type": "monetization_department_task",
+      "action": "bash cybra_monetization.sh report",
+      "files": [
+        "parliament/departments/monetization_department/department.json",
+        "feeds/monetization_department_report.json"
+      ],
+      "missing": [],
+      "ok": true
+    },
+    {
+      "module": "market_exchange",
+      "importance": "important",
+      "task_type": "kibra_market_exchange_task",
+      "action": "bash cybra_kibra_market.sh report",
+      "files": [
+        "parliament/departments/exchange_department/department.json",
+        "feeds/kibra_market_exchange_plan.json"
+      ],
+      "missing": [],
+      "ok": true
+    },
+    {
+      "module": "external_anchor",
+      "importance": "important",
+      "task_type": "owner_orchestrator_task",
+      "action": "bash cybra_owner_orchestrator.sh run",
+      "files": [
+        "feeds/external_anchor_package.json",
+        "posts/external_anchor_package.md"
+      ],
+      "missing": [],
+      "ok": true
+    },
+    {
+      "module": "owner_approval",
+      "importance": "important",
+      "task_type": "owner_orchestrator_task",
+      "action": "bash cybra_owner_approval.sh status",
+      "files": [
+        "cybra_owner_approval.sh"
+      ],
+      "missing": [],
+      "ok": true
+    },
+    {
+      "module": "hash_module",
+      "importance": "important",
+      "task_type": "hash_module_test_task",
+      "action": "bash cybra_hash_test.sh run",
+      "files": [
+        "feeds/hash_module_test.json",
+        "proofs/hash_module_test.sha256"
+      ],
+      "missing": [],
+      "ok": true
+    },
+    {
+      "module": "evolution_deployment",
+      "importance": "important",
+      "task_type": "evolution_deployment_task",
+      "action": "bash cybra_evolution_deploy.sh report",
+      "files": [
+        "parliament/evolution_deployment/evolution_deployment_policy.json",
+        "feeds/evolution_deployment_report.json"
+      ],
+      "missing": [],
+      "ok": true
+    },
+    {
+      "module": "existing_tasks_activation",
+      "importance": "important",
+      "task_type": "existing_tasks_activation_task",
+      "action": "bash cybra_existing_tasks.sh repair",
+      "files": [
+        "parliament/existing_tasks_activation/policy.json",
+        "feeds/existing_tasks_evolution_activation.json"
+      ],
+      "missing": [],
+      "ok": true
+    }
+  ],
+  "gaps": [
+    {
+      "area": "anchor_queue",
+      "level": "warning",
+      "message": "External anchor queue is not packaged.",
+      "task_type": "owner_orchestrator_task",
+      "action": "bash fix_kibra_verify_finance_anchor.sh"
+    },
+    {
+      "area": "kibra_chain_growth",
+      "level": "development",
+      "message": "KIBRA chain height is 8; recommend growing to 10+ proof blocks.",
+      "task_type": "kibra_token_chain_task",
+      "action": "bash cybra_kibra_chain.sh mine 2"
+    }
+  ],
+  "recommendations": [
+    {
+      "level": "warning",
+      "area": "anchor_queue",
+      "message": "External anchor queue is not packaged.",
+      "action": "bash fix_kibra_verify_finance_anchor.sh"
+    },
+    {
+      "level": "development",
+      "area": "kibra_chain_growth",
+      "message": "KIBRA chain height is 8; recommend growing to 10+ proof blocks.",
+      "action": "bash cybra_kibra_chain.sh mine 2"
+    }
+  ],
+  "ai_tasks": [
+    {
+      "topic": "Finance Gap Evolution: anchor_queue",
+      "type": "owner_orchestrator_task",
+      "priority": "high",
+      "payload": {
+        "source": "finance_gap_evolution_committee",
+        "area": "anchor_queue",
+        "recommendation": "External anchor queue is not packaged.",
+        "suggested_action": "bash fix_kibra_verify_finance_anchor.sh",
+        "real_payment_execution": false,
+        "automatic_token_mint": false,
+        "automatic_liquidity_pool": false,
+        "automatic_exchange_launch": false,
+        "automatic_gold_purchase": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true,
+        "no_guaranteed_profit": true,
+        "evolution_required": true
+      }
+    },
+    {
+      "topic": "Finance Gap Evolution: kibra_chain_growth",
+      "type": "kibra_token_chain_task",
+      "priority": "high",
+      "payload": {
+        "source": "finance_gap_evolution_committee",
+        "area": "kibra_chain_growth",
+        "recommendation": "KIBRA chain height is 8; recommend growing to 10+ proof blocks.",
+        "suggested_action": "bash cybra_kibra_chain.sh mine 2",
+        "real_payment_execution": false,
+        "automatic_token_mint": false,
+        "automatic_liquidity_pool": false,
+        "automatic_exchange_launch": false,
+        "automatic_gold_purchase": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true,
+        "no_guaranteed_profit": true,
+        "evolution_required": true
+      }
+    }
+  ],
+  "redis": {
+    "queue": 0,
+    "results": 78,
+    "failed": 0,
+    "ai_tasks_finance_gap": 4,
+    "audit": 3
+  },
+  "proof_inputs": {
+    "committee": "78df2222dd023ddf0a13a6a9437402b56254fa3024493007eea0cdc9020755a3",
+    "policy": "3d76efdb8bad6c05684c20a5194207f36753098ae3b10d5a8108c1defebde9b7"
+  },
+  "git": {
+    "branch": "main",
+    "commit": "53d6d97a4",
+    "dirty_files": 162
+  },
+  "double_sha": "91f8a1279542ec5f6687affd165354204201f9f6f9c01c715f0859d0e0dd96f8"
+}

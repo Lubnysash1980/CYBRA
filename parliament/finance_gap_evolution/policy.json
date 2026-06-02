@@ -1,0 +1,31 @@
+{
+  "name": "CYBRA Finance Gap Evolution Policy",
+  "status": "active",
+  "mode": "detect_missing_create_ai_recommendations",
+  "rule": "Якщо чогось нема або не вистачає — комітет створює рекомендацію, proof і AI-завдання для безпечної еволюції.",
+  "targets": [
+    "finance_department",
+    "finance_infrastructure",
+    "finance_token_profit_audit",
+    "native_kibra",
+    "kibra_chain",
+    "monetization",
+    "market_exchange",
+    "multipayment",
+    "gold_treasury",
+    "external_anchor",
+    "owner_approval",
+    "hash_module",
+    "evolution_deployment",
+    "existing_tasks_activation"
+  ],
+  "execution": {
+    "real_payment": false,
+    "real_mint": false,
+    "real_pool": false,
+    "real_exchange": false,
+    "real_gold_purchase": false,
+    "real_external_tx": false,
+    "ai_tasks_only": true
+  }
+}
