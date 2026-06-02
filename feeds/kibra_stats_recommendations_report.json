@@ -1,11 +1,11 @@
 {
   "status": "kibra_stats_recommendations_report_generated",
-  "time": 1780439208.4729054,
-  "time_iso": "2026-06-03T01:26:48+0300",
+  "time": 1780439742.3649094,
+  "time_iso": "2026-06-03T01:35:42+0300",
   "submit_ai": false,
   "stats": {
-    "time": 1780439207.9838383,
-    "time_iso": "2026-06-03T01:26:47+0300",
+    "time": 1780439740.5540304,
+    "time_iso": "2026-06-03T01:35:40+0300",
     "kibra": {
       "total_blocks": 10,
       "pool_tagged_blocks": 10,
@@ -20,10 +20,10 @@
       "latest_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab"
     },
     "task_blocks": {
-      "files": 9,
+      "files": 11,
       "mempool": 0,
-      "mined": 9,
-      "pool_queue": 9
+      "mined": 11,
+      "pool_queue": 11
     },
     "ai": {
       "native_kibra_ai": 0,
@@ -31,7 +31,7 @@
       "finance_profit_ai": 0,
       "bridge_pool_ai": 0,
       "price_sell_repair_ai": 0,
-      "block_ai_support": 0,
+      "block_ai_support": 2,
       "mint_promotion_ai": 0,
       "mint_audit_ai": 0,
       "mint_management_ai": 0
@@ -45,9 +45,9 @@
     "mint": {
       "audit": 8,
       "promotion": 22,
-      "management": 6,
-      "finance": 6,
-      "sell_plans": 6,
+      "management": 8,
+      "finance": 8,
+      "sell_plans": 8,
       "repair_queue": 0,
       "broken_blocks": 0
     },
@@ -76,8 +76,8 @@
     },
     "git": {
       "branch": "main",
-      "commit": "866a4844c",
-      "dirty_files": 133
+      "commit": "5464f926e",
+      "dirty_files": 22
     }
   },
   "recommendations": [
@@ -106,5 +106,5 @@
     "external_tx": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "95c68c9a9ee820c6e21391ddf861f9680a084585493cb1d6578ba6e87919c473"
+  "double_sha": "5d7118e33e6fd76528def00beb0b4a4c911dc1b06e95334058e04660c19ad7ca"
 }

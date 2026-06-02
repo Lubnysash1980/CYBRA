@@ -10,10 +10,10 @@ Parent: **KIBRA Mint Repair Department**
 ## Accounting
 
 - Main blocks: **10**
-- Task blocks: **8**
+- Task blocks: **11**
 - Block reward KIBRA: **100**
 - Task block reward KIBRA: **100**
-- Total mined accounting KIBRA: **1800**
+- Total mined accounting KIBRA: **2100**
 - Pool shares total: **210**
 
 ## Market price
@@ -26,7 +26,7 @@ Parent: **KIBRA Mint Repair Department**
 
 - Selected strategy: **reference_price_hold_or_utility_sale**
 - Reason: Reference price exists but real market is not confirmed. Do not sell automatically; prepare utility sale and verification.
-- Estimated value USD: `1.800`
+- Estimated value USD: `2.100`
 - Sell allowed now: **false**
 - Manual OWNER approval required: **true**
 
@@ -56,4 +56,4 @@ Parent: **KIBRA Mint Repair Department**
 
 ## Double SHA
 
-`fe4c95669d83a67f797d1719239784bb6b927ecb00af004997d5bf0aaeff251c`
+`f7f93ad993ded148205c588245aa623c6b934fae529258863b4701dc1f1a68f9`

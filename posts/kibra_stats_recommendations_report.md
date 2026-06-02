@@ -16,10 +16,10 @@ Status: **generated**
 
 ## Task blocks
 
-- Task block files: **9**
+- Task block files: **11**
 - Mempool: **0**
-- Mined: **9**
-- Pool queue: **9**
+- Mined: **11**
+- Pool queue: **11**
 
 ## Parliament
 
@@ -31,9 +31,9 @@ Status: **generated**
 
 - Mint audit: **8**
 - Mint promotion: **22**
-- Mint management: **6**
-- Mint finance: **6**
-- Sell plans: **6**
+- Mint management: **8**
+- Mint finance: **8**
+- Sell plans: **8**
 - Repair queue: **0**
 - Broken blocks: **0**
 
@@ -65,4 +65,4 @@ Status: **generated**
 
 ## Double SHA
 
-`95c68c9a9ee820c6e21391ddf861f9680a084585493cb1d6578ba6e87919c473`
+`5d7118e33e6fd76528def00beb0b4a4c911dc1b06e95334058e04660c19ad7ca`
