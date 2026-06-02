@@ -1,0 +1,42 @@
+[
+  {
+    "service_id": "KIBRA-AI-TASK",
+    "name": "AI task execution credit",
+    "spend_model": "KIBRA can be spent as internal credit for AI tasks",
+    "real_payment": false,
+    "requires_owner_approval": false,
+    "price_mode": "internal_reference_unit"
+  },
+  {
+    "service_id": "KIBRA-PROOF-CERT",
+    "name": "Proof-chain certificate",
+    "spend_model": "KIBRA can be spent to generate/verify proof report",
+    "real_payment": false,
+    "requires_owner_approval": false,
+    "price_mode": "proof_service_unit"
+  },
+  {
+    "service_id": "KIBRA-ANCHOR-PACKAGE",
+    "name": "External blockchain anchor package",
+    "spend_model": "KIBRA can reserve a manual anchor package",
+    "real_payment": false,
+    "requires_owner_approval": true,
+    "price_mode": "manual_anchor_unit"
+  },
+  {
+    "service_id": "KIBRA-REVISION",
+    "name": "Revision / analytics report",
+    "spend_model": "KIBRA can be used to request revision and analytics reports",
+    "real_payment": false,
+    "requires_owner_approval": false,
+    "price_mode": "report_unit"
+  },
+  {
+    "service_id": "KIBRA-DEV-SUPPORT",
+    "name": "Developer support credit",
+    "spend_model": "KIBRA can represent internal developer support priority",
+    "real_payment": false,
+    "requires_owner_approval": true,
+    "price_mode": "proposal_only"
+  }
+]

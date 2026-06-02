@@ -1,0 +1,21 @@
+{
+  "status": "manual_proposal_only",
+  "owner_allocation_percent": 60,
+  "pool_allocation_percent": 40,
+  "pool_creation": {
+    "automatic": false,
+    "manual_owner_approval_required": true,
+    "legal_tax_review_required": true,
+    "wallet_signature_required": true
+  },
+  "stages": [
+    "internal utility proof",
+    "service catalog activation",
+    "treasury ledger proposal",
+    "manual liquidity pool design",
+    "risk review",
+    "owner approval",
+    "manual transaction only",
+    "external anchor proof"
+  ]
+}

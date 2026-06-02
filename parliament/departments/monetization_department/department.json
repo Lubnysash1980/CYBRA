@@ -1,0 +1,31 @@
+{
+  "department_id": "monetization_department",
+  "name": "CYBRA Monetization Department",
+  "status": "active",
+  "mission": "Створювати еволюційну модель монетизації токена KIBRA через utility, proof-chain, AI-завдання, liquidity proposals, spendability і blockchain anchor без автоматичних оплат і без гарантії прибутку.",
+  "powers": [
+    "token_utility_design",
+    "spendability_model",
+    "liquidity_pool_proposal",
+    "treasury_proposal",
+    "service_pricing_proposal",
+    "proof_to_value_mapping",
+    "evolution_experiments",
+    "analytics_feedback_loop",
+    "finance_risk_check",
+    "revision_check",
+    "hash_proof_required"
+  ],
+  "limits": [
+    "no_guaranteed_price",
+    "no_pump_and_dump",
+    "no_market_manipulation",
+    "no_automatic_payments",
+    "no_automatic_trading",
+    "no_unverified_liquidity_pool",
+    "no_private_keys",
+    "no_seed_phrase",
+    "owner_manual_approval_required",
+    "legal_tax_review_required"
+  ]
+}

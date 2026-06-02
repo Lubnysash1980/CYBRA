@@ -17,6 +17,7 @@ Q_FAILED = "cybra:parliament:failed"
 Q_AUDIT = "cybra:audit"
 
 SCRIPT_MAP = {
+    "monetization_department_task": "monetization_department_handler.sh",
     "owner_orchestrator_task": "owner_orchestrator_handler.sh",
     "kibra_token_chain_task": "kibra_token_chain_handler.sh",
     "token_pool_ai_task": "token_pool_ai_handler.sh",

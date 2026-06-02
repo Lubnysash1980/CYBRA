@@ -1,0 +1,48 @@
+{
+  "name": "KIBRA Monetization Evolution Policy",
+  "status": "active",
+  "mode": "proposal_proof_evolution_only",
+  "token": {
+    "name": "Кібра",
+    "symbol": "KIBRA",
+    "total_supply_raw": "49000000000000000",
+    "owner_allocation_percent": 60,
+    "pool_allocation_percent": 40
+  },
+  "monetization_principles": {
+    "utility_first": true,
+    "price_is_not_guaranteed": true,
+    "value_requires_demand": true,
+    "liquidity_requires_manual_owner_approval": true,
+    "spendability_requires_service_catalog": true,
+    "proof_chain_supports_trust": true,
+    "external_anchor_supports_verifiability": true
+  },
+  "spendability_targets": [
+    "AI task execution credits",
+    "proof-chain verification services",
+    "external anchor package fees",
+    "committee/revision/analytics report access",
+    "developer support credits",
+    "pool reward accounting",
+    "future marketplace credits"
+  ],
+  "evolution_cycle": [
+    "design utility",
+    "generate proof",
+    "run finance review",
+    "run revision review",
+    "run analytics review",
+    "measure demand",
+    "adjust difficulty and service price",
+    "prepare manual liquidity proposal",
+    "repeat"
+  ],
+  "safety": {
+    "automatic_real_pool_creation": false,
+    "automatic_real_payment": false,
+    "automatic_market_making": false,
+    "manual_owner_approval_required": true,
+    "legal_tax_review_required": true
+  }
+}

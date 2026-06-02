@@ -1,0 +1,167 @@
+{
+  "module": "CYBRA Monetization Department",
+  "status": "generated",
+  "time": 1780421783.3450735,
+  "time_iso": "2026-06-02T20:36:23+0300",
+  "token": {
+    "name": "Кібра",
+    "symbol": "KIBRA",
+    "total_supply_raw": "49000000000000000",
+    "owner_allocation_percent": 60,
+    "pool_allocation_percent": 40
+  },
+  "latest_kibra_hash": "008a14703eb452470cbbed74931d44f6220897823d71c436b3dacb5fab11f896",
+  "utility_catalog": [
+    {
+      "service_id": "KIBRA-AI-TASK",
+      "name": "AI task execution credit",
+      "spend_model": "KIBRA can be spent as internal credit for AI tasks",
+      "real_payment": false,
+      "requires_owner_approval": false,
+      "price_mode": "internal_reference_unit"
+    },
+    {
+      "service_id": "KIBRA-PROOF-CERT",
+      "name": "Proof-chain certificate",
+      "spend_model": "KIBRA can be spent to generate/verify proof report",
+      "real_payment": false,
+      "requires_owner_approval": false,
+      "price_mode": "proof_service_unit"
+    },
+    {
+      "service_id": "KIBRA-ANCHOR-PACKAGE",
+      "name": "External blockchain anchor package",
+      "spend_model": "KIBRA can reserve a manual anchor package",
+      "real_payment": false,
+      "requires_owner_approval": true,
+      "price_mode": "manual_anchor_unit"
+    },
+    {
+      "service_id": "KIBRA-REVISION",
+      "name": "Revision / analytics report",
+      "spend_model": "KIBRA can be used to request revision and analytics reports",
+      "real_payment": false,
+      "requires_owner_approval": false,
+      "price_mode": "report_unit"
+    },
+    {
+      "service_id": "KIBRA-DEV-SUPPORT",
+      "name": "Developer support credit",
+      "spend_model": "KIBRA can represent internal developer support priority",
+      "real_payment": false,
+      "requires_owner_approval": true,
+      "price_mode": "proposal_only"
+    }
+  ],
+  "price_model": {
+    "status": "proposal_only",
+    "price_is_guaranteed": false,
+    "external_market_price": null,
+    "internal_reference": {
+      "unit_name": "KIBRA Utility Unit",
+      "symbol": "KUU",
+      "meaning": "Internal accounting unit for CYBRA services; not a guaranteed market price.",
+      "recommended_use": [
+        "AI task fee accounting",
+        "proof certificate fee accounting",
+        "manual anchor package accounting",
+        "pool reward accounting"
+      ]
+    },
+    "value_drivers": [
+      "real utility",
+      "service catalog",
+      "verified proof-chain",
+      "external anchor trust",
+      "liquidity proposal after owner approval",
+      "community demand",
+      "transparent treasury ledger"
+    ],
+    "blocked": [
+      "guaranteed profit",
+      "fake price",
+      "pump promise",
+      "automatic market manipulation",
+      "unapproved external trading"
+    ]
+  },
+  "liquidity_plan": {
+    "status": "manual_proposal_only",
+    "owner_allocation_percent": 60,
+    "pool_allocation_percent": 40,
+    "pool_creation": {
+      "automatic": false,
+      "manual_owner_approval_required": true,
+      "legal_tax_review_required": true,
+      "wallet_signature_required": true
+    },
+    "stages": [
+      "internal utility proof",
+      "service catalog activation",
+      "treasury ledger proposal",
+      "manual liquidity pool design",
+      "risk review",
+      "owner approval",
+      "manual transaction only",
+      "external anchor proof"
+    ]
+  },
+  "evolution_tasks": [
+    {
+      "task_id": "MON-EVO-001",
+      "department": "evolution_guard",
+      "goal": "Перевірити, що монетизація розвиває utility і не створює деградацію/маніпуляцію.",
+      "output": "evolution decision"
+    },
+    {
+      "task_id": "MON-FIN-001",
+      "department": "finance_department",
+      "goal": "Перевірити liquidity proposal, 60/40 allocation, treasury і відсутність automatic payments.",
+      "output": "finance risk report"
+    },
+    {
+      "task_id": "MON-REV-001",
+      "department": "revision_organ",
+      "goal": "Перевірити, чи є proof, policy, no private keys, no automatic trading.",
+      "output": "revision report"
+    },
+    {
+      "task_id": "MON-ANA-001",
+      "department": "analytics_committee",
+      "goal": "Оцінити, які utility-сервіси можуть створити попит на KIBRA.",
+      "output": "analytics report"
+    },
+    {
+      "task_id": "MON-HASH-001",
+      "department": "hash_module",
+      "goal": "Записати monetization model у double-SHA proof і anchor package.",
+      "output": "hash proof"
+    }
+  ],
+  "dependencies": {
+    "kibra_chain_status": true,
+    "finance_report": true,
+    "parliament_review": true,
+    "external_anchor_package": true
+  },
+  "proof_inputs": {
+    "monetization_policy": "d9c1ca0b6bf9dc74baef3ed705eea7091edb17c038fc3bbcd35179e6b3df2fec",
+    "department": "822964c3d0b82b60c11a8f781c9df2acabdc1861425ef172218a478ec1754a5c",
+    "kibra_chain_proof": "fbbddfcc91751e3a82fca0c131e2b9891301b57c7f0efb877dfe38b71fcf02a9",
+    "external_anchor_package": "02b059ac280e4433c8855ceaff8d6a8cd36a5e57ca459b2e8827de735c821e1e",
+    "finance_department": "698ba3c0948b48df4ac6704c5bb728a73c2a0f4579632b25f63a574f0eb6e9a4"
+  },
+  "redis": {
+    "monetization_audit": 2,
+    "monetization_proposals": 2,
+    "finance_ledger": 13,
+    "anchor_manual_ready": 6,
+    "parliament_results": 61
+  },
+  "git": {
+    "branch": "main",
+    "commit": "5af0a4b0d",
+    "dirty_files": 189
+  },
+  "double_sha": "584c3821a6fa5bbe807a37312251bc42fef1219073232a953a7473782dda6ddd"
+}

@@ -1,0 +1,32 @@
+{
+  "status": "proposal_only",
+  "price_is_guaranteed": false,
+  "external_market_price": null,
+  "internal_reference": {
+    "unit_name": "KIBRA Utility Unit",
+    "symbol": "KUU",
+    "meaning": "Internal accounting unit for CYBRA services; not a guaranteed market price.",
+    "recommended_use": [
+      "AI task fee accounting",
+      "proof certificate fee accounting",
+      "manual anchor package accounting",
+      "pool reward accounting"
+    ]
+  },
+  "value_drivers": [
+    "real utility",
+    "service catalog",
+    "verified proof-chain",
+    "external anchor trust",
+    "liquidity proposal after owner approval",
+    "community demand",
+    "transparent treasury ledger"
+  ],
+  "blocked": [
+    "guaranteed profit",
+    "fake price",
+    "pump promise",
+    "automatic market manipulation",
+    "unapproved external trading"
+  ]
+}
