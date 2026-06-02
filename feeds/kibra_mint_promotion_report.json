@@ -1,7 +1,7 @@
 {
   "status": "kibra_mint_promotion_report_generated",
-  "time": 1780437626.6988306,
-  "time_iso": "2026-06-03T01:00:26+0300",
+  "time": 1780437648.169558,
+  "time_iso": "2026-06-03T01:00:48+0300",
   "submit_ai": false,
   "state": {
     "native_kibra": true,
@@ -48,8 +48,8 @@
   "promotion_page": "website/kibra/promotion.html",
   "latest_kibra_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab",
   "redis": {
-    "audit": 11,
-    "recommendations": 11,
+    "audit": 12,
+    "recommendations": 12,
     "ai_queue": 0,
     "parliament_queue": 0,
     "parliament_failed": 0
@@ -57,7 +57,7 @@
   "proof_inputs": {
     "department": "306f5e57eac63450af444fa89469e4e54429f29216955130bfe88d71c6c647b0",
     "policy": "a780618e0234307c198c7f4f5d222d1376a4bd88a6ce96d61e8ceaa5dffb2b5f",
-    "promotion_plan": "c45ed75a6e8a0b3ead04f57097033869c92bc0d30bc7d30bd631a4c806605522",
+    "promotion_plan": "e7c23981f56f785fcbc008cb7dd55071456af9e19444d5faf0f755bd703841b5",
     "promotion_page": "b33534554dff52b8bb1838c5e35250b1f4ae3d0ec56987a15344793bf03f1555"
   },
   "safety": {
@@ -69,5 +69,5 @@
     "real_sell_now": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "03ab715796ec8938eea9256d88d7a212e36c9cf22e0fbab5ab9e8d953ff155d8"
+  "double_sha": "5f32e4b117d85e782c0fcbcb48b4f3b60b741bd4f52389b8b95c18fe2d4f07e9"
 }
