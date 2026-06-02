@@ -17,6 +17,7 @@ Q_FAILED = "cybra:parliament:failed"
 Q_AUDIT = "cybra:audit"
 
 SCRIPT_MAP = {
+    "hash_module_test_task": "hash_module_test_handler.sh",
     "evolution_guard_task": "evolution_guard_handler.sh",
     "biometric_succession_task": "biometric_succession_handler.sh",
     "closed_evolution_selfseal_task": "closed_evolution_selfseal_handler.sh",
