@@ -1,11 +1,11 @@
 {
   "name": "CYBRA Task Test Diagnostics",
   "status": "generated",
-  "time": 1780408236.2097518,
+  "time": 1780408958.5573423,
   "git": {
     "branch": "main",
-    "commit": "3dc230041",
-    "dirty_files": 107
+    "commit": "ea28f8082",
+    "dirty_files": 105
   },
   "summary": {
     "checked_records": 54,
@@ -432,5 +432,5 @@
     "biometric_succession_task": "biometric_succession_handler.sh",
     "evolution_guard_task": "evolution_guard_handler.sh"
   },
-  "double_sha": "feb662ae2de2f19913eea3de7305c0672a52421bce6569391adba8fa62931b5b"
+  "double_sha": "da863845d4ea6fefac1dbd56088174d1874a35c3f477971f2bda08bbb21c033c"
 }
