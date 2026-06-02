@@ -1,7 +1,7 @@
 {
   "status": "generated",
-  "time": 1780414982.3546634,
-  "time_iso": "2026-06-02T18:43:02+0300",
+  "time": 1780416794.5543365,
+  "time_iso": "2026-06-02T19:13:14+0300",
   "question": "Як Кіберапарламент справляється з KIBRA token chain / pool / finance / hash task?",
   "verdict": {
     "parliament_created_required_structures": true,
@@ -26,22 +26,22 @@
   "created_file_counts": {
     "parliament_token_kibra": 1,
     "token_kibra_image": 2,
-    "blockchain_kibra_chain": 10,
-    "kibra_blocks": 7,
-    "posts": 116,
-    "feeds": 36,
-    "proofs": 134
+    "blockchain_kibra_chain": 11,
+    "kibra_blocks": 8,
+    "posts": 117,
+    "feeds": 37,
+    "proofs": 135
   },
   "redis_state": {
     "parliament_queue": 0,
-    "parliament_results": 58,
-    "parliament_failed": 3,
-    "kibra_audit": 9,
-    "finance_ledger": 12,
-    "finance_audit": 9,
-    "anchor_queue": 11,
-    "hash_audit": 7,
-    "institution_audit": 21,
+    "parliament_results": 59,
+    "parliament_failed": 0,
+    "kibra_audit": 11,
+    "finance_ledger": 13,
+    "finance_audit": 13,
+    "anchor_queue": 0,
+    "hash_audit": 9,
+    "institution_audit": 23,
     "evolution_approved": 4,
     "evolution_hold": 0,
     "evolution_rejected": 0,
@@ -66,9 +66,9 @@
       "pool_amount_raw": "19600000000000000"
     },
     "chain": {
-      "height": 7,
-      "latest_hash": "008d79a470194224659a2b6c6a109594eb5818446a444732fb7fd57991dc6d17",
-      "latest_double_sha": "276c074e3c6e0cb4a3d716e2c256755a6843d425bf0062ab0b7a3a317cf480a2",
+      "height": 8,
+      "latest_hash": "008a14703eb452470cbbed74931d44f6220897823d71c436b3dacb5fab11f896",
+      "latest_double_sha": "d1e1c94f99d4366c7f6bc33c9cdc8580d54fa12e60ffa6c842a0ad1ec3f92b44",
       "latest_difficulty": 2,
       "target_interval_sec": 30,
       "min_difficulty": 2,
@@ -158,11 +158,23 @@
         "block_hash": "008d79a470194224659a2b6c6a109594eb5818446a444732fb7fd57991dc6d17",
         "pow_ok": true,
         "shares_count": 40
+      },
+      {
+        "index": 7,
+        "time": 1780416766.5598032,
+        "time_iso": "2026-06-02T19:12:46+0300",
+        "difficulty": 2,
+        "difficulty_prefix": "00",
+        "target_interval_sec": 30,
+        "actual_interval_sec": 1801.6640269756317,
+        "block_hash": "008a14703eb452470cbbed74931d44f6220897823d71c436b3dacb5fab11f896",
+        "pow_ok": true,
+        "shares_count": 40
       }
     ]
   },
   "institution_summary": {
-    "tasks_checked": 68,
+    "tasks_checked": 66,
     "task_types": 26,
     "executor_mapping_count": 44,
     "required_organs": 10,
@@ -175,18 +187,18 @@
     "protection_files": 3
   },
   "finance_summary": {
-    "records_checked": 68,
-    "finance_related_records": 8,
-    "risk_items": 3,
-    "finance_audit_records": 8,
-    "finance_ledger_records": 12,
+    "records_checked": 66,
+    "finance_related_records": 5,
+    "risk_items": 0,
+    "finance_audit_records": 12,
+    "finance_ledger_records": 13,
     "payment_execution_allowed": false,
     "owner_manual_approval_required": true
   },
   "hash_module": {
     "status": "hash_module_test_generated",
-    "payload_double_sha": "5ea63b5d6ae1357f0d658d8ef37e64aaee4c72ba9885559f4b118b63b8e62746",
-    "root_double_sha": "468e41a2f980d793676f205cfab290591d2b1d9da62d3b5d6127880c7f75124b",
+    "payload_double_sha": "cc532ab5be33f561b058fe15192126899b329835ed43e1a39fde417f2892ccde",
+    "root_double_sha": "e7f05a8ab6b05529875adb70135c5bd2a7afa1c420a08cbdf415e41d1ee7bd15",
     "manifest_file": "hash_storage/test/hash_module_test_manifest.json",
     "detected_modules": {
       "gitcybrahash_double_backend.mjs": true,
@@ -195,7 +207,7 @@
       "cybra_sha_core_manager.sh": true,
       "hash_storage/root_hash.json": true
     },
-    "time": 1780414979.2251725
+    "time": 1780416791.3906937
   },
   "evolution_summary": {
     "approved": 4,
@@ -210,6 +222,21 @@
     "institution_audit": "ok"
   },
   "kibra_related_results": [
+    {
+      "topic": "Build KIBRA Image Token Chain",
+      "type": "kibra_token_chain_task",
+      "status": "executed",
+      "script": "kibra_token_chain_handler.sh",
+      "double_sha": "1c0ef6d8159a3a13a07b3a2cad68533778c1dd82f494f74e6be06e1d1cae974e",
+      "retries": 0,
+      "execution": {
+        "ok": true,
+        "returncode": 0,
+        "stdout": "KIBRA chain already initialized\n✅ KIBRA block generated\nIndex: 7\nHash: 008a14703eb452470cbbed74931d44f6220897823d71c436b3dacb5fab11f896\nDouble SHA: d1e1c94f99d4366c7f6bc33c9cdc8580d54fa12e60ffa6c842a0ad1ec3f92b44\nDifficulty: 2\nPOW OK: True\nShares: 40\nFile: blockchain/kibra_chain/blocks/block_000000007_008a14703eb45247.json\n{\n  \"status\": \"verified\",\n  \"blocks\": 8,\n  \"errors\": [],\n  \"time\": 1780416770.1342394\n}\n✅ report generated\n",
+        "stderr": ""
+      },
+      "time": 1780416775.4727757
+    },
     {
       "topic": "Build KIBRA Image Token Chain",
       "type": "kibra_token_chain_task",
@@ -307,15 +334,9 @@
     },
     {
       "source": "finance",
-      "level": "warning",
-      "message": "Finance department found 3 risk items.",
-      "action": "Перевірити bash cybra_finance.sh report"
-    },
-    {
-      "source": "blockchain_anchor",
-      "level": "manual_action",
-      "message": "Proof-и поставлені в чергу зовнішнього blockchain anchor.",
-      "action": "Переглянути: bash cybra_kibra_chain.sh anchor-queue"
+      "level": "ok",
+      "message": "Finance module works in proposal-only mode: no automatic payments.",
+      "action": "Для реального пулу потрібен manual OWNER approval."
     },
     {
       "source": "kibra_chain",
@@ -324,5 +345,5 @@
       "action": "Перевірити: bash cybra_kibra_chain.sh verify && bash cybra_kibra_chain.sh difficulty"
     }
   ],
-  "double_sha": "f76e56ad161379293cf853519eda7aa323b6250e4787603a24d4c08fa3aefbfb"
+  "double_sha": "c725b1dbe14573252e1b96442326600b48d9bba77c021f946165e82b5ab127ac"
 }

@@ -1,31 +1,31 @@
 {
   "department": "CYBRA Finance Department",
   "status": "generated",
-  "time": 1780414977.2587397,
-  "time_iso": "2026-06-02T18:42:57+0300",
+  "time": 1780416795.7317393,
+  "time_iso": "2026-06-02T19:13:15+0300",
   "git": {
     "branch": "main",
-    "commit": "859682378",
-    "dirty_files": 178
+    "commit": "5ded6e02c",
+    "dirty_files": 186
   },
   "summary": {
-    "records_checked": 68,
-    "finance_related_records": 8,
-    "risk_items": 3,
-    "finance_audit_records": 8,
-    "finance_ledger_records": 12,
+    "records_checked": 66,
+    "finance_related_records": 5,
+    "risk_items": 0,
+    "finance_audit_records": 13,
+    "finance_ledger_records": 13,
     "payment_execution_allowed": false,
     "owner_manual_approval_required": true
   },
   "statuses": {
-    "failed": 4,
-    "executed": 48,
-    "no_executor_mapping": 9,
+    "executed": 49,
+    "failed": 2,
+    "no_executor_mapping": 8,
     "unknown": 5,
     "reviewed": 2
   },
   "types": {
-    "kibra_token_chain_task": 4,
+    "kibra_token_chain_task": 3,
     "owner_orchestrator_task": 2,
     "token_pool_ai_task": 2,
     "finance_department_task": 1,
@@ -44,7 +44,7 @@
     "test": 2,
     "ai_task": 1,
     "native_token_ecosystem_task": 2,
-    "self_expanding_execution_engine_task": 2,
+    "self_expanding_execution_engine_task": 1,
     "executor_autoheal_task": 1,
     "codespaces_keepalive_task": 1,
     "github_double_backend_task": 1,
@@ -53,8 +53,7 @@
     "None": 2
   },
   "sources": {
-    "cybra:parliament:results": 58,
-    "cybra:parliament:failed": 3,
+    "cybra:parliament:results": 59,
     "cybra:review:approved": 1,
     "cybra:review:rejected": 2,
     "cybra:evolution:approved": 4
@@ -119,83 +118,10 @@
       ],
       "risk_hits": [],
       "recommendation": "OK_FOR_REVIEW: можна аналізувати бюджет, але без автоматичної оплати."
-    },
-    {
-      "topic": "CYBRA Parliament Institution Audit",
-      "type": "institution_audit_task",
-      "status": "executed",
-      "source": "cybra:parliament:results",
-      "score": -5,
-      "finance_hits": [],
-      "risk_hits": [
-        "секрет"
-      ],
-      "recommendation": "HOLD: фінансовий ризик. Потрібна ручна перевірка OWNER + документи."
-    },
-    {
-      "topic": "CYBRA Parliament Institution Audit",
-      "type": "institution_audit_task",
-      "status": "executed",
-      "source": "cybra:parliament:results",
-      "score": -5,
-      "finance_hits": [],
-      "risk_hits": [
-        "секрет"
-      ],
-      "recommendation": "HOLD: фінансовий ризик. Потрібна ручна перевірка OWNER + документи."
-    },
-    {
-      "topic": "CYBRA Executor Double-SHA AutoHeal",
-      "type": "cybra_autofix_task",
-      "status": "executed",
-      "source": "cybra:parliament:results",
-      "score": -5,
-      "finance_hits": [],
-      "risk_hits": [
-        "card"
-      ],
-      "recommendation": "HOLD: фінансовий ризик. Потрібна ручна перевірка OWNER + документи."
     }
   ],
-  "risk_items": [
-    {
-      "topic": "CYBRA Parliament Institution Audit",
-      "type": "institution_audit_task",
-      "status": "executed",
-      "source": "cybra:parliament:results",
-      "score": -5,
-      "finance_hits": [],
-      "risk_hits": [
-        "секрет"
-      ],
-      "recommendation": "HOLD: фінансовий ризик. Потрібна ручна перевірка OWNER + документи."
-    },
-    {
-      "topic": "CYBRA Parliament Institution Audit",
-      "type": "institution_audit_task",
-      "status": "executed",
-      "source": "cybra:parliament:results",
-      "score": -5,
-      "finance_hits": [],
-      "risk_hits": [
-        "секрет"
-      ],
-      "recommendation": "HOLD: фінансовий ризик. Потрібна ручна перевірка OWNER + документи."
-    },
-    {
-      "topic": "CYBRA Executor Double-SHA AutoHeal",
-      "type": "cybra_autofix_task",
-      "status": "executed",
-      "source": "cybra:parliament:results",
-      "score": -5,
-      "finance_hits": [],
-      "risk_hits": [
-        "card"
-      ],
-      "recommendation": "HOLD: фінансовий ризик. Потрібна ручна перевірка OWNER + документи."
-    }
-  ],
+  "risk_items": [],
   "budget_template": "data/finance/budget_ledger_template.json",
   "policy": "parliament/finance/finance_policy.json",
-  "double_sha": "c79889afffb0bfb6398e095960e2f8a06360530a2f13f24bf3e3b1ac8866e33e"
+  "double_sha": "aa667f2fd6dcb2ae407066f3263bd9c57847c8a9a8383e68a2d6c03c01bfcafa"
 }

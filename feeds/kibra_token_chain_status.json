@@ -27,9 +27,9 @@
     "logo_sha256": null
   },
   "chain": {
-    "height": 7,
-    "latest_hash": "008d79a470194224659a2b6c6a109594eb5818446a444732fb7fd57991dc6d17",
-    "latest_double_sha": "276c074e3c6e0cb4a3d716e2c256755a6843d425bf0062ab0b7a3a317cf480a2",
+    "height": 8,
+    "latest_hash": "008a14703eb452470cbbed74931d44f6220897823d71c436b3dacb5fab11f896",
+    "latest_double_sha": "d1e1c94f99d4366c7f6bc33c9cdc8580d54fa12e60ffa6c842a0ad1ec3f92b44",
     "latest_difficulty": 2,
     "target_interval_sec": 30,
     "min_difficulty": 2,
@@ -119,13 +119,25 @@
       "block_hash": "008d79a470194224659a2b6c6a109594eb5818446a444732fb7fd57991dc6d17",
       "pow_ok": true,
       "shares_count": 40
+    },
+    {
+      "index": 7,
+      "time": 1780416766.5598032,
+      "time_iso": "2026-06-02T19:12:46+0300",
+      "difficulty": 2,
+      "difficulty_prefix": "00",
+      "target_interval_sec": 30,
+      "actual_interval_sec": 1801.6640269756317,
+      "block_hash": "008a14703eb452470cbbed74931d44f6220897823d71c436b3dacb5fab11f896",
+      "pow_ok": true,
+      "shares_count": 40
     }
   ],
   "redis": {
-    "kibra_audit": 9,
-    "finance_ledger": 12,
-    "anchor_queue": 11
+    "kibra_audit": 11,
+    "finance_ledger": 13,
+    "anchor_queue": 0
   },
-  "time": 1780414975.7452273,
-  "double_sha": "7bca19ef896c135c1873f1025f99c7a2c0f591df591b8a12b528b8b5b644c3d9"
+  "time": 1780416787.9744358,
+  "double_sha": "fa41ccba1621da3d33ad4ffe3fe727639d8e46544c1b26a967a0260d922f16b1"
 }

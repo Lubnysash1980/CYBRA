@@ -2,7 +2,7 @@
 
 Status: active  
 Report status: generated  
-Double SHA: `c79889afffb0bfb6398e095960e2f8a06360530a2f13f24bf3e3b1ac8866e33e`
+Double SHA: `aa667f2fd6dcb2ae407066f3263bd9c57847c8a9a8383e68a2d6c03c01bfcafa`
 
 ## Rules
 
@@ -14,18 +14,18 @@ Double SHA: `c79889afffb0bfb6398e095960e2f8a06360530a2f13f24bf3e3b1ac8866e33e`
 
 ## Summary
 
-- Records checked: 68
-- Finance-related records: 8
-- Risk items: 3
-- Finance audit records: 8
-- Finance ledger records: 12
+- Records checked: 66
+- Finance-related records: 5
+- Risk items: 0
+- Finance audit records: 13
+- Finance ledger records: 13
 
 ## Statuses
 
-- `executed`: 48
-- `no_executor_mapping`: 9
+- `executed`: 49
+- `no_executor_mapping`: 8
 - `unknown`: 5
-- `failed`: 4
+- `failed`: 2
 - `reviewed`: 2
 
 ## Task types
@@ -33,7 +33,7 @@ Double SHA: `c79889afffb0bfb6398e095960e2f8a06360530a2f13f24bf3e3b1ac8866e33e`
 - `air_alert_task`: 10
 - `cybra_autofix_task`: 7
 - `evolution_guard_task`: 6
-- `kibra_token_chain_task`: 4
+- `kibra_token_chain_task`: 3
 - `closed_evolution_selfseal_task`: 3
 - `audit_dedupe_test_task`: 3
 - `analytics_committee_task`: 3
@@ -45,7 +45,6 @@ Double SHA: `c79889afffb0bfb6398e095960e2f8a06360530a2f13f24bf3e3b1ac8866e33e`
 - `biometric_succession_task`: 2
 - `test`: 2
 - `native_token_ecosystem_task`: 2
-- `self_expanding_execution_engine_task`: 2
 - `pmz_historical_metadata_task`: 2
 - `None`: 2
 - `finance_department_task`: 1
@@ -53,6 +52,7 @@ Double SHA: `c79889afffb0bfb6398e095960e2f8a06360530a2f13f24bf3e3b1ac8866e33e`
 - `evo_committee_task`: 1
 - `queue_fix`: 1
 - `ai_task`: 1
+- `self_expanding_execution_engine_task`: 1
 - `executor_autoheal_task`: 1
 - `codespaces_keepalive_task`: 1
 - `github_double_backend_task`: 1
@@ -64,16 +64,11 @@ Double SHA: `c79889afffb0bfb6398e095960e2f8a06360530a2f13f24bf3e3b1ac8866e33e`
 - `executed` / `token_pool_ai_task` — CYBRA Token Pool AI Finance Orchestrator score=1 recommendation: OK_FOR_REVIEW: можна аналізувати бюджет, але без автоматичної оплати.
 - `executed` / `token_pool_ai_task` — CYBRA Token Pool AI Finance Orchestrator score=1 recommendation: OK_FOR_REVIEW: можна аналізувати бюджет, але без автоматичної оплати.
 - `executed` / `finance_department_task` — CYBRA Finance Department score=1 recommendation: OK_FOR_REVIEW: можна аналізувати бюджет, але без автоматичної оплати.
-- `executed` / `institution_audit_task` — CYBRA Parliament Institution Audit score=-5 recommendation: HOLD: фінансовий ризик. Потрібна ручна перевірка OWNER + документи.
-- `executed` / `institution_audit_task` — CYBRA Parliament Institution Audit score=-5 recommendation: HOLD: фінансовий ризик. Потрібна ручна перевірка OWNER + документи.
-- `executed` / `cybra_autofix_task` — CYBRA Executor Double-SHA AutoHeal score=-5 recommendation: HOLD: фінансовий ризик. Потрібна ручна перевірка OWNER + документи.
 
 
 ## Risk items
 
-- `institution_audit_task` — CYBRA Parliament Institution Audit risk_hits=['секрет'] recommendation: HOLD: фінансовий ризик. Потрібна ручна перевірка OWNER + документи.
-- `institution_audit_task` — CYBRA Parliament Institution Audit risk_hits=['секрет'] recommendation: HOLD: фінансовий ризик. Потрібна ручна перевірка OWNER + документи.
-- `cybra_autofix_task` — CYBRA Executor Double-SHA AutoHeal risk_hits=['card'] recommendation: HOLD: фінансовий ризик. Потрібна ручна перевірка OWNER + документи.
+- none
 
 
 ## Files

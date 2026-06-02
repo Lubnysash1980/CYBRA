@@ -1,0 +1,128 @@
+{
+  "chain": "KIBRA_LOCAL_PROOF_CHAIN",
+  "block_kind": "regular",
+  "index": 2,
+  "timestamp": 1780412654.4980044,
+  "time_iso": "2026-06-02T18:04:14+0300",
+  "previous_block_hash": "0007773a785ed4037da542d061a9826ebc1b741cfd8f91fc61fe369d343497fd",
+  "actual_interval_sec": 1.5612001419067383,
+  "target_interval_sec": 30,
+  "difficulty": 4,
+  "difficulty_prefix": "0000",
+  "difficulty_model": "timestamp_adjusted_bitcoin_like_local_pow",
+  "token": {
+    "token_type": "Image",
+    "name": "Кібра",
+    "symbol": "KIBRA",
+    "total_supply_raw": "49000000000000000",
+    "total_supply_label": "49 thousand trillion tokens",
+    "decimals": 9,
+    "mint_status": "proof_chain_only_until_manual_wallet_approval",
+    "image_status": "token image metadata placeholder"
+  },
+  "allocation": {
+    "owner_percent": 60,
+    "pool_percent": 40,
+    "owner_amount_raw": "29400000000000000",
+    "pool_amount_raw": "19600000000000000"
+  },
+  "image": {
+    "token_type": "Image",
+    "name": "Кібра",
+    "symbol": "KIBRA",
+    "image_file": "token/kibra/image/logo.png",
+    "status": "placeholder_until_logo_file_added",
+    "note": "Поклади logo.png у token/kibra/image/logo.png, потім перезапусти bash cybra_kibra_chain.sh report",
+    "logo_exists": false,
+    "logo_sha256": null
+  },
+  "ai_tasks": [
+    {
+      "task_id": "KIBRA-FIN-001",
+      "department": "finance_department",
+      "goal": "Підтвердити 60/40 allocation: 60% owner, 40% pool, без автоматичних оплат.",
+      "block_kind": "regular"
+    },
+    {
+      "task_id": "KIBRA-REV-001",
+      "department": "revision_organ",
+      "goal": "Перевірити supply, difficulty stream, timestamp, proof, anchor queue.",
+      "block_kind": "regular"
+    },
+    {
+      "task_id": "KIBRA-ANA-001",
+      "department": "analytics_committee",
+      "goal": "Оцінити графік складності, кількість shares і якість proof-chain.",
+      "block_kind": "regular"
+    },
+    {
+      "task_id": "KIBRA-HASH-001",
+      "department": "hash_module",
+      "goal": "Зібрати token policy + AI tasks + shares + timestamp у root double SHA.",
+      "block_kind": "regular"
+    },
+    {
+      "task_id": "KIBRA-ANCHOR-001",
+      "department": "blockchain_anchor_queue",
+      "goal": "Поставити proof у чергу для ручного зовнішнього blockchain anchor.",
+      "block_kind": "regular"
+    }
+  ],
+  "ai_tasks_merkle_root": "1e79f8b56912bb10bd822037e05ade7143ad64e2f26a23a738b256e98fe57ba7",
+  "policy_sha256": "ebc4fc2beaa84c6c0d9128140ec9df358c39aa2ff40cf8ef55c9358886997e22",
+  "git": {
+    "branch": "main",
+    "commit": "70c416c30",
+    "dirty_files": 96
+  },
+  "external_blockchain_anchor": {
+    "status": "queued_only",
+    "external_tx": null,
+    "manual_owner_approval_required": true
+  },
+  "nonce": 29726,
+  "block_hash": "000054cc3d0b18f2b6c5eff6c163b023662dfc29ec2b635ec3a79d529b2f09a8",
+  "pow_ok": true,
+  "best_hash": "000054cc3d0b18f2b6c5eff6c163b023662dfc29ec2b635ec3a79d529b2f09a8",
+  "best_nonce": 29726,
+  "shares": [
+    {
+      "nonce": 3223,
+      "share_hash": "0007d9375e1eb936c0d835da0178b89154f2e3a0dbea40796ba69fdc03ae122e",
+      "share_difficulty_prefix": "000",
+      "timestamp": 1780412655.240085
+    },
+    {
+      "nonce": 3535,
+      "share_hash": "0005f67f2db7a1401227319a47ec43605e71cdbca446a3bd98bf14f9cce68c9e",
+      "share_difficulty_prefix": "000",
+      "timestamp": 1780412655.2625368
+    },
+    {
+      "nonce": 7715,
+      "share_hash": "000dd8af5aa7b7a6f89c5de0b45c9d0c5bd149bddbb9619d93f5e6a09c35d5e3",
+      "share_difficulty_prefix": "000",
+      "timestamp": 1780412655.5652282
+    },
+    {
+      "nonce": 14457,
+      "share_hash": "000d667eafee06b40e42dbdb3a645888b7bb9b2a72fbd2528d660208b297e669",
+      "share_difficulty_prefix": "000",
+      "timestamp": 1780412656.0520992
+    },
+    {
+      "nonce": 18751,
+      "share_hash": "00023895abd75846d578249163bc85acc535784ef73565eb957b26cb344ee8c6",
+      "share_difficulty_prefix": "000",
+      "timestamp": 1780412656.3627787
+    },
+    {
+      "nonce": 29726,
+      "share_hash": "000054cc3d0b18f2b6c5eff6c163b023662dfc29ec2b635ec3a79d529b2f09a8",
+      "share_difficulty_prefix": "000",
+      "timestamp": 1780412657.152148
+    }
+  ],
+  "shares_merkle_root": "efed5b667437cc0e531d88ac50a4e1db78ee120dcf55738927249c3ce3635a99",
+  "block_double_sha": "3087342ca6b7d5dd1dc465bc3cd5ec1bbf07d24893427185bea67a96e009b3b8"
+}

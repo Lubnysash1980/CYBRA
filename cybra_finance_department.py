@@ -68,8 +68,8 @@ def finance_keywords_score(item):
 
     risk_words = [
         "автоматично оплатити", "full prepayment", "повна передоплата",
-        "без підтвердження", "card", "bank login", "seed phrase",
-        "private key", "секрет", "пароль", "інн в git"
+        "без підтвердження",  "bank login", "seed phrase",
+        "private key value",  "пароль до банку", "інн в git"
     ]
 
     score = 0

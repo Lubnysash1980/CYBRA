@@ -364,7 +364,7 @@ def verify():
 
         # Rebuild object exactly as mining base + nonce.
         base = dict(b)
-        remove_keys = ["block_hash", "block_double_sha", "best_hash", "best_nonce", "shares", "shares_merkle_root"]
+        remove_keys = ["block_hash", "block_double_sha", "best_hash", "best_nonce", "shares", "shares_merkle_root", "pow_ok"]
         for k in remove_keys:
             base.pop(k, None)
 

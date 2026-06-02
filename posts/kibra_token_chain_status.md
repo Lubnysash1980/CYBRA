@@ -13,7 +13,7 @@ Status: active proof-chain
 
 ## Chain
 
-- Height: 7
+- Height: 8
 - Target interval: 30 sec
 - Difficulty min: 2
 - Difficulty max safe/mobile: 4
@@ -22,9 +22,9 @@ Status: active proof-chain
 ## Latest block
 
 
-- Latest index: `6`
-- Latest hash: `008d79a470194224659a2b6c6a109594eb5818446a444732fb7fd57991dc6d17`
-- Latest double SHA: `276c074e3c6e0cb4a3d716e2c256755a6843d425bf0062ab0b7a3a317cf480a2`
+- Latest index: `7`
+- Latest hash: `008a14703eb452470cbbed74931d44f6220897823d71c436b3dacb5fab11f896`
+- Latest double SHA: `d1e1c94f99d4366c7f6bc33c9cdc8580d54fa12e60ffa6c842a0ad1ec3f92b44`
 - Latest difficulty: `2`
 - POW OK: `True`
 - Shares: `40`
@@ -39,6 +39,7 @@ Status: active proof-chain
 - block `4` difficulty `3` hash `0000f65c9116a62d651b768c...` shares `21` pow_ok `True`
 - block `5` difficulty `2` hash `003a676ebdf5bf79ef0e082e...` shares `21` pow_ok `True`
 - block `6` difficulty `2` hash `008d79a470194224659a2b6c...` shares `40` pow_ok `True`
+- block `7` difficulty `2` hash `008a14703eb452470cbbed74...` shares `40` pow_ok `True`
 
 
 ## Proof meaning

@@ -1,7 +1,7 @@
 # CYBRA Parliament Review: KIBRA Token Chain Response
 
 Status: generated  
-Double SHA: `f76e56ad161379293cf853519eda7aa323b6250e4787603a24d4c08fa3aefbfb`
+Double SHA: `c725b1dbe14573252e1b96442326600b48d9bba77c021f946165e82b5ab127ac`
 
 ## Verdict
 
@@ -29,12 +29,12 @@ Double SHA: `f76e56ad161379293cf853519eda7aa323b6250e4787603a24d4c08fa3aefbfb`
 ## Redis / Runtime State
 
 - Parliament queue: 0
-- Parliament results: 58
-- Parliament failed: 3
-- KIBRA audit: 9
-- Finance ledger: 12
-- Anchor queue: 11
-- Hash audit: 7
+- Parliament results: 59
+- Parliament failed: 0
+- KIBRA audit: 11
+- Finance ledger: 13
+- Anchor queue: 0
+- Hash audit: 9
 - Evolution approved/hold/rejected: 4/0/0
 
 ## KIBRA Chain
@@ -44,8 +44,8 @@ Double SHA: `f76e56ad161379293cf853519eda7aa323b6250e4787603a24d4c08fa3aefbfb`
 - Total supply: **49000000000000000**
 - Owner allocation: **29400000000000000**
 - Pool allocation: **19600000000000000**
-- Chain height: **7**
-- Latest hash: `008d79a470194224659a2b6c6a109594eb5818446a444732fb7fd57991dc6d17`
+- Chain height: **8**
+- Latest hash: `008a14703eb452470cbbed74931d44f6220897823d71c436b3dacb5fab11f896`
 - Latest difficulty: **2**
 
 ## Difficulty Stream
@@ -57,6 +57,7 @@ Double SHA: `f76e56ad161379293cf853519eda7aa323b6250e4787603a24d4c08fa3aefbfb`
 - block `4` difficulty `3` shares `21` pow_ok `True` hash `0000f65c9116a62d651b768c...`
 - block `5` difficulty `2` shares `21` pow_ok `True` hash `003a676ebdf5bf79ef0e082e...`
 - block `6` difficulty `2` shares `40` pow_ok `True` hash `008d79a470194224659a2b6c...`
+- block `7` difficulty `2` shares `40` pow_ok `True` hash `008a14703eb452470cbbed74...`
 
 
 ## Proof Checks
@@ -69,6 +70,7 @@ Double SHA: `f76e56ad161379293cf853519eda7aa323b6250e4787603a24d4c08fa3aefbfb`
 
 ## KIBRA-related Parliament Results
 
+- `executed` / `kibra_token_chain_task` — Build KIBRA Image Token Chain script=`kibra_token_chain_handler.sh`
 - `failed` / `kibra_token_chain_task` — Build KIBRA Image Token Chain script=`kibra_token_chain_handler.sh`
 - `failed` / `kibra_token_chain_task` — Build KIBRA Image Token Chain script=`kibra_token_chain_handler.sh`
 - `executed` / `token_pool_ai_task` — CYBRA Token Pool AI Finance Orchestrator script=`token_pool_ai_handler.sh`
@@ -81,8 +83,7 @@ Double SHA: `f76e56ad161379293cf853519eda7aa323b6250e4787603a24d4c08fa3aefbfb`
 - **ok** / `institution`: Кіберапарламент має базові департаменти, комітети, mapping і захист для поточних тасків. Action: `Продовжувати тестування.`
 - **ok** / `task_diagnostics`: None Action: `None`
 - **review** / `task_diagnostics`: None Action: `None`
-- **warning** / `finance`: Finance department found 3 risk items. Action: `Перевірити bash cybra_finance.sh report`
-- **manual_action** / `blockchain_anchor`: Proof-и поставлені в чергу зовнішнього blockchain anchor. Action: `Переглянути: bash cybra_kibra_chain.sh anchor-queue`
+- **ok** / `finance`: Finance module works in proposal-only mode: no automatic payments. Action: `Для реального пулу потрібен manual OWNER approval.`
 - **ok** / `kibra_chain`: KIBRA local proof blockchain created blocks and difficulty stream. Action: `Перевірити: bash cybra_kibra_chain.sh verify && bash cybra_kibra_chain.sh difficulty`
 
 
