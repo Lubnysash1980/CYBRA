@@ -22,3 +22,9 @@ private_vault/
 token/runtime/rpc.env
 ai_network/
 recovery/
+recovery_packs/
+recovery_unpack/
+*.pem
+*.key
+*secret*
+mint_secret_base58.txt

@@ -1,0 +1,20 @@
+{
+  "name": "CYBRA Evolution Guard",
+  "status": "active",
+  "mode": "evolution_only",
+  "keys": {
+    "external_gate_sha256": "7a8f5f353ef338df1b43c734dee2ecd4e6ead32ecf80e0069779c510dbc4b76f",
+    "internal_seal_sha256_only": "f18690ae4fca662db26e9c90794a827f6422d0b9aaf03d3075de7090748c1605",
+    "internal_key_visible": false,
+    "private_tokens_location": "private_vault/evolution/"
+  },
+  "rules": {
+    "accept_development": true,
+    "block_degradation": true,
+    "audit_required": true,
+    "proof_required": true,
+    "lineage_required": true,
+    "no_private_keys_in_git": true,
+    "no_secret_dump": true
+  }
+}
