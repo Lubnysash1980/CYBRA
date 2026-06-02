@@ -1,0 +1,19 @@
+{
+  "name": "CYBRA Main Orchestrator Policy",
+  "status": "active",
+  "main_orchestrator": "OWNER",
+  "owner_role": "головний оркестратор",
+  "cybra_parliament_mode": "closed_internal_self_seal",
+  "rules": {
+    "internal_key_hidden": true,
+    "external_key_visible": true,
+    "cybra_parliament_can_self_seal": true,
+    "owner_is_main_orchestrator": true,
+    "evolution_only": true,
+    "block_degradation": true,
+    "audit_required": true,
+    "proof_required": true,
+    "no_private_keys_in_git": true,
+    "no_secret_dump": true
+  }
+}
