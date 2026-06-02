@@ -1,12 +1,7 @@
 # test_committee
 
+Task type: `test`
+
 Status: active
 
-Task type:
-`test`
-
-Purpose:
-Підтримувати задачі типу test: mapping, handler, audit, proof, diagnostics.
-
-Double SHA:
-`954c83a330701bd1b2258c5e11ab3c454da90f9cd22659472fe8329474e58912`
+Double SHA: `037898bc96511c109aa218ba73d3a19e81a008fb12ef03baa56b3dc823874a8d`

@@ -1,0 +1,20 @@
+{
+  "committee_id": "owner_orchestrator_task_committee",
+  "status": "active",
+  "task_type": "owner_orchestrator_task",
+  "purpose": "Support existing tasks under Evolution Deployment: mapping, handler validation, audit, proof, safe fallback.",
+  "topics_seen": [
+    "Block 7 Car Purchase Intent",
+    "Set OWNER as MAIN_ORCHESTRATOR and resolve finance risk / external anchor / car preflight"
+  ],
+  "rules": [
+    "no_automatic_payment",
+    "no_automatic_token_mint",
+    "no_external_blockchain_tx_without_owner",
+    "audit_required",
+    "proof_required",
+    "evolution_deployment_compatible"
+  ],
+  "time_iso": "2026-06-02T21:37:31+0300",
+  "double_sha": "cfe30ad23ab5b24359a31eda42961a95fa9be44f604f01698a0ad1bc2bb8fd24"
+}

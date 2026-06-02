@@ -1,0 +1,16 @@
+{
+  "name": "CYBRA Existing Tasks Evolution Activation",
+  "status": "active",
+  "mode": "safe_mapping_repair_validation",
+  "purpose": "Перевірити всі існуючі задачі, створити mapping/committee/handler fallback і підключити їх до Evolution Deployment.",
+  "rules": {
+    "do_not_execute_real_payments": true,
+    "do_not_execute_real_token_mint": true,
+    "do_not_execute_external_blockchain_tx": true,
+    "owner_manual_approval_required": true,
+    "archive_old_fixed_failures": true,
+    "create_missing_committees": true,
+    "create_missing_mapping": true,
+    "validate_handlers": true
+  }
+}

@@ -2,24 +2,18 @@
   "committee_id": "evolution_guard_task_committee",
   "status": "active",
   "task_type": "evolution_guard_task",
+  "purpose": "Support existing tasks under Evolution Deployment: mapping, handler validation, audit, proof, safe fallback.",
   "topics_seen": [
     "CYBRA Evolution Pass Test"
   ],
-  "purpose": "Підтримувати задачі типу evolution_guard_task: mapping, handler, audit, proof, diagnostics.",
-  "powers": [
-    "analyze_tasks",
-    "recommend_handler",
-    "check_mapping",
-    "write_reports",
-    "request_revision",
-    "request_evolution_review"
+  "rules": [
+    "no_automatic_payment",
+    "no_automatic_token_mint",
+    "no_external_blockchain_tx_without_owner",
+    "audit_required",
+    "proof_required",
+    "evolution_deployment_compatible"
   ],
-  "limits": [
-    "no_private_keys",
-    "no_secret_dump",
-    "no_illegal_actions",
-    "no_uncontrolled_payments"
-  ],
-  "created_or_checked_at": "2026-06-02T17:33:48+0300",
-  "double_sha": "92c190c71595be33af640bf04f822cb3056d6d9de91e465bfff7e7f7a8c93bec"
+  "time_iso": "2026-06-02T21:37:31+0300",
+  "double_sha": "fdc04f4fa67b11985f0305274b7d0d0e4bf43dea740083259672e802d080fc16"
 }

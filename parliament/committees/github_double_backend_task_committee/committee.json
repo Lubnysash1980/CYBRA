@@ -2,24 +2,18 @@
   "committee_id": "github_double_backend_task_committee",
   "status": "active",
   "task_type": "github_double_backend_task",
+  "purpose": "Support existing tasks under Evolution Deployment: mapping, handler validation, audit, proof, safe fallback.",
   "topics_seen": [
     "CYBRA GitHub Double Backend Proof"
   ],
-  "purpose": "Підтримувати задачі типу github_double_backend_task: mapping, handler, audit, proof, diagnostics.",
-  "powers": [
-    "analyze_tasks",
-    "recommend_handler",
-    "check_mapping",
-    "write_reports",
-    "request_revision",
-    "request_evolution_review"
+  "rules": [
+    "no_automatic_payment",
+    "no_automatic_token_mint",
+    "no_external_blockchain_tx_without_owner",
+    "audit_required",
+    "proof_required",
+    "evolution_deployment_compatible"
   ],
-  "limits": [
-    "no_private_keys",
-    "no_secret_dump",
-    "no_illegal_actions",
-    "no_uncontrolled_payments"
-  ],
-  "created_or_checked_at": "2026-06-02T17:33:48+0300",
-  "double_sha": "c7a8ff7aeb1e60b1952cc5f068df4d801913ea1b7e453285793163901a7e0dae"
+  "time_iso": "2026-06-02T21:37:31+0300",
+  "double_sha": "e25d1c8d5322df081a513216c7ed1e043601757512e43aa162936e4b7b63cdc0"
 }

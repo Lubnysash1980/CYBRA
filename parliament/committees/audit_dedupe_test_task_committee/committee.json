@@ -2,25 +2,19 @@
   "committee_id": "audit_dedupe_test_task_committee",
   "status": "active",
   "task_type": "audit_dedupe_test_task",
+  "purpose": "Support existing tasks under Evolution Deployment: mapping, handler validation, audit, proof, safe fallback.",
   "topics_seen": [
     "Audit Dedupe Test",
     "CYBRA Test: Audit Dedupe"
   ],
-  "purpose": "Підтримувати задачі типу audit_dedupe_test_task: mapping, handler, audit, proof, diagnostics.",
-  "powers": [
-    "analyze_tasks",
-    "recommend_handler",
-    "check_mapping",
-    "write_reports",
-    "request_revision",
-    "request_evolution_review"
+  "rules": [
+    "no_automatic_payment",
+    "no_automatic_token_mint",
+    "no_external_blockchain_tx_without_owner",
+    "audit_required",
+    "proof_required",
+    "evolution_deployment_compatible"
   ],
-  "limits": [
-    "no_private_keys",
-    "no_secret_dump",
-    "no_illegal_actions",
-    "no_uncontrolled_payments"
-  ],
-  "created_or_checked_at": "2026-06-02T17:33:48+0300",
-  "double_sha": "d0239a497a02bbea8aca353091fe11855ec178e6f3eca86163691d76aac13a44"
+  "time_iso": "2026-06-02T21:37:31+0300",
+  "double_sha": "65437366bfb6aeab0691f77d39e9416d0de26168214e705bee2634b237cfadbf"
 }

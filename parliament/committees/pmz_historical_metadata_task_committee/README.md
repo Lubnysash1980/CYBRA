@@ -1,12 +1,7 @@
 # pmz_historical_metadata_task_committee
 
+Task type: `pmz_historical_metadata_task`
+
 Status: active
 
-Task type:
-`pmz_historical_metadata_task`
-
-Purpose:
-Підтримувати задачі типу pmz_historical_metadata_task: mapping, handler, audit, proof, diagnostics.
-
-Double SHA:
-`5bd5026157361eb1c0b127840e593c5e23d75ed63ea1513ea425bb32a3e7114a`
+Double SHA: `e36ec21b2ea72c22fc7164d3ed723f0934e724082f5c162ff89c91b2e0647949`

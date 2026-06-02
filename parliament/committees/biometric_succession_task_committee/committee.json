@@ -2,25 +2,19 @@
   "committee_id": "biometric_succession_task_committee",
   "status": "active",
   "task_type": "biometric_succession_task",
+  "purpose": "Support existing tasks under Evolution Deployment: mapping, handler validation, audit, proof, safe fallback.",
   "topics_seen": [
     "CYBRA Biometric Succession Guard",
     "CYBRA Test: Succession Guard"
   ],
-  "purpose": "Підтримувати задачі типу biometric_succession_task: mapping, handler, audit, proof, diagnostics.",
-  "powers": [
-    "analyze_tasks",
-    "recommend_handler",
-    "check_mapping",
-    "write_reports",
-    "request_revision",
-    "request_evolution_review"
+  "rules": [
+    "no_automatic_payment",
+    "no_automatic_token_mint",
+    "no_external_blockchain_tx_without_owner",
+    "audit_required",
+    "proof_required",
+    "evolution_deployment_compatible"
   ],
-  "limits": [
-    "no_private_keys",
-    "no_secret_dump",
-    "no_illegal_actions",
-    "no_uncontrolled_payments"
-  ],
-  "created_or_checked_at": "2026-06-02T17:33:48+0300",
-  "double_sha": "4047180fc1aec209b96e7b0e1d783179d424a360b7c30dc244b5deaac5eaab04"
+  "time_iso": "2026-06-02T21:37:31+0300",
+  "double_sha": "7dd57b2d361d363641f16a01e9f8e5293d6d240dfc821b778579df1528c95c8b"
 }

@@ -2,26 +2,20 @@
   "committee_id": "closed_evolution_selfseal_task_committee",
   "status": "active",
   "task_type": "closed_evolution_selfseal_task",
+  "purpose": "Support existing tasks under Evolution Deployment: mapping, handler validation, audit, proof, safe fallback.",
   "topics_seen": [
     "CYBRA Closed Evolution Self-Seal",
     "CYBRA Parliament Internal Closed Self-Seal",
     "CYBRA Test: Closed Self-Seal"
   ],
-  "purpose": "Підтримувати задачі типу closed_evolution_selfseal_task: mapping, handler, audit, proof, diagnostics.",
-  "powers": [
-    "analyze_tasks",
-    "recommend_handler",
-    "check_mapping",
-    "write_reports",
-    "request_revision",
-    "request_evolution_review"
+  "rules": [
+    "no_automatic_payment",
+    "no_automatic_token_mint",
+    "no_external_blockchain_tx_without_owner",
+    "audit_required",
+    "proof_required",
+    "evolution_deployment_compatible"
   ],
-  "limits": [
-    "no_private_keys",
-    "no_secret_dump",
-    "no_illegal_actions",
-    "no_uncontrolled_payments"
-  ],
-  "created_or_checked_at": "2026-06-02T17:33:48+0300",
-  "double_sha": "40e6f28b1f7b26e9543b98a04b34cebad9eb542bac563aeee607248523b94349"
+  "time_iso": "2026-06-02T21:37:31+0300",
+  "double_sha": "04f9a8ecaa5b92f3fd6813c62632007d86eb902286069cbae9e360d399796e5c"
 }

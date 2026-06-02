@@ -1,12 +1,7 @@
 # evolution_guard_task_committee
 
+Task type: `evolution_guard_task`
+
 Status: active
 
-Task type:
-`evolution_guard_task`
-
-Purpose:
-Підтримувати задачі типу evolution_guard_task: mapping, handler, audit, proof, diagnostics.
-
-Double SHA:
-`92c190c71595be33af640bf04f822cb3056d6d9de91e465bfff7e7f7a8c93bec`
+Double SHA: `fdc04f4fa67b11985f0305274b7d0d0e4bf43dea740083259672e802d080fc16`

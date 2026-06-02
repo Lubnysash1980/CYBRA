@@ -2,24 +2,18 @@
   "committee_id": "queue_fix_committee",
   "status": "active",
   "task_type": "queue_fix",
+  "purpose": "Support existing tasks under Evolution Deployment: mapping, handler validation, audit, proof, safe fallback.",
   "topics_seen": [
     "test"
   ],
-  "purpose": "Підтримувати задачі типу queue_fix: mapping, handler, audit, proof, diagnostics.",
-  "powers": [
-    "analyze_tasks",
-    "recommend_handler",
-    "check_mapping",
-    "write_reports",
-    "request_revision",
-    "request_evolution_review"
+  "rules": [
+    "no_automatic_payment",
+    "no_automatic_token_mint",
+    "no_external_blockchain_tx_without_owner",
+    "audit_required",
+    "proof_required",
+    "evolution_deployment_compatible"
   ],
-  "limits": [
-    "no_private_keys",
-    "no_secret_dump",
-    "no_illegal_actions",
-    "no_uncontrolled_payments"
-  ],
-  "created_or_checked_at": "2026-06-02T17:33:48+0300",
-  "double_sha": "dc7ed7ca5f30d1039ae27f7f2e52022119e378524574a5c0af5d5e1c5bf5d75b"
+  "time_iso": "2026-06-02T21:37:31+0300",
+  "double_sha": "408bbf02fb6234fe12a4744300c4aed16dfc3e2b4a4b93a11aa3d1bfd123c851"
 }

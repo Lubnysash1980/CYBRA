@@ -1,12 +1,7 @@
 # audit_dedupe_test_task_committee
 
+Task type: `audit_dedupe_test_task`
+
 Status: active
 
-Task type:
-`audit_dedupe_test_task`
-
-Purpose:
-Підтримувати задачі типу audit_dedupe_test_task: mapping, handler, audit, proof, diagnostics.
-
-Double SHA:
-`d0239a497a02bbea8aca353091fe11855ec178e6f3eca86163691d76aac13a44`
+Double SHA: `65437366bfb6aeab0691f77d39e9416d0de26168214e705bee2634b237cfadbf`

@@ -1,0 +1,19 @@
+{
+  "committee_id": "token_pool_ai_task_committee",
+  "status": "active",
+  "task_type": "token_pool_ai_task",
+  "purpose": "Support existing tasks under Evolution Deployment: mapping, handler validation, audit, proof, safe fallback.",
+  "topics_seen": [
+    "CYBRA Token Pool AI Finance Orchestrator"
+  ],
+  "rules": [
+    "no_automatic_payment",
+    "no_automatic_token_mint",
+    "no_external_blockchain_tx_without_owner",
+    "audit_required",
+    "proof_required",
+    "evolution_deployment_compatible"
+  ],
+  "time_iso": "2026-06-02T21:37:31+0300",
+  "double_sha": "ce5e602c99f40b207f1e796507242ec581de1cd68da24a795a816b7dc00b9510"
+}

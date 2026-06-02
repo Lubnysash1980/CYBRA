@@ -2,24 +2,18 @@
   "committee_id": "pmz_historical_metadata_task_committee",
   "status": "active",
   "task_type": "pmz_historical_metadata_task",
+  "purpose": "Support existing tasks under Evolution Deployment: mapping, handler validation, audit, proof, safe fallback.",
   "topics_seen": [
     "CYBRA PMZ Historical Metadata Registry"
   ],
-  "purpose": "Підтримувати задачі типу pmz_historical_metadata_task: mapping, handler, audit, proof, diagnostics.",
-  "powers": [
-    "analyze_tasks",
-    "recommend_handler",
-    "check_mapping",
-    "write_reports",
-    "request_revision",
-    "request_evolution_review"
+  "rules": [
+    "no_automatic_payment",
+    "no_automatic_token_mint",
+    "no_external_blockchain_tx_without_owner",
+    "audit_required",
+    "proof_required",
+    "evolution_deployment_compatible"
   ],
-  "limits": [
-    "no_private_keys",
-    "no_secret_dump",
-    "no_illegal_actions",
-    "no_uncontrolled_payments"
-  ],
-  "created_or_checked_at": "2026-06-02T17:33:48+0300",
-  "double_sha": "5bd5026157361eb1c0b127840e593c5e23d75ed63ea1513ea425bb32a3e7114a"
+  "time_iso": "2026-06-02T21:37:31+0300",
+  "double_sha": "e36ec21b2ea72c22fc7164d3ed723f0934e724082f5c162ff89c91b2e0647949"
 }

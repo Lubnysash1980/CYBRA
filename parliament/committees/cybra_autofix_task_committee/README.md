@@ -1,12 +1,7 @@
 # cybra_autofix_task_committee
 
+Task type: `cybra_autofix_task`
+
 Status: active
 
-Task type:
-`cybra_autofix_task`
-
-Purpose:
-Підтримувати задачі типу cybra_autofix_task: mapping, handler, audit, proof, diagnostics.
-
-Double SHA:
-`edb8b20eb60a99046f8027fd0f15479c1842465f44310801415e67de386abae3`
+Double SHA: `0a971684449f7dc6d1b723cb90cb257e7482cc91505d459c9994fb389c1e8ea9`

@@ -1,12 +1,7 @@
 # closed_evolution_selfseal_task_committee
 
+Task type: `closed_evolution_selfseal_task`
+
 Status: active
 
-Task type:
-`closed_evolution_selfseal_task`
-
-Purpose:
-Підтримувати задачі типу closed_evolution_selfseal_task: mapping, handler, audit, proof, diagnostics.
-
-Double SHA:
-`40e6f28b1f7b26e9543b98a04b34cebad9eb542bac563aeee607248523b94349`
+Double SHA: `04f9a8ecaa5b92f3fd6813c62632007d86eb902286069cbae9e360d399796e5c`

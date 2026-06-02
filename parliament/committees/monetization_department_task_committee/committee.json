@@ -1,0 +1,20 @@
+{
+  "committee_id": "monetization_department_task_committee",
+  "status": "active",
+  "task_type": "monetization_department_task",
+  "purpose": "Support existing tasks under Evolution Deployment: mapping, handler validation, audit, proof, safe fallback.",
+  "topics_seen": [
+    "CYBRA KIBRA Monetization Department",
+    "CYBRA KIBRA Monetization Evolution"
+  ],
+  "rules": [
+    "no_automatic_payment",
+    "no_automatic_token_mint",
+    "no_external_blockchain_tx_without_owner",
+    "audit_required",
+    "proof_required",
+    "evolution_deployment_compatible"
+  ],
+  "time_iso": "2026-06-02T21:37:31+0300",
+  "double_sha": "26ad49a3f82adf2048d9f5a25c4fbc920b546a50313f36b4d78e88dfe27b233e"
+}

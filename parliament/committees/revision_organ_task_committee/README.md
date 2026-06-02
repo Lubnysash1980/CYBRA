@@ -1,12 +1,7 @@
 # revision_organ_task_committee
 
+Task type: `revision_organ_task`
+
 Status: active
 
-Task type:
-`revision_organ_task`
-
-Purpose:
-Підтримувати задачі типу revision_organ_task: mapping, handler, audit, proof, diagnostics.
-
-Double SHA:
-`556923cc33cab7b993c77a252dc1aefee0aa7668221885ee2cb558da93a1c637`
+Double SHA: `f82f5908e69f310186343fa03feaaafbaa41f45fad48f5b8b7d2838a2fdf07d6`
