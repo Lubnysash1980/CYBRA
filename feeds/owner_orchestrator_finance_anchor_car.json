@@ -1,7 +1,7 @@
 {
   "status": "owner_orchestrator_finance_anchor_car_ready",
-  "time": 1780414185.761929,
-  "time_iso": "2026-06-02T18:29:45+0300",
+  "time": 1780414456.802141,
+  "time_iso": "2026-06-02T18:34:16+0300",
   "owner_role": "MAIN_ORCHESTRATOR",
   "finance_decision": {
     "status": "conditional_hold_until_documents",
@@ -49,10 +49,10 @@
     "kibra_token_chain_proof": "68b13e946cc941e59771171227db37f934d27dccab1a6f79eb21dce92377c5ae",
     "parliament_kibra_review_proof": "c5d24adf47c1805d2b2f6eac9ff65b6101c891e57cd8ed216b11a8a48d7e6cd3"
   },
-  "anchor_root_hash": "ef54f3f36e1b30fd262962bcdb8e578f27daf70f6d46193068f2f66f566b934c",
+  "anchor_root_hash": "ada77daecca5212a5523a95c45a50154dbfb04beec302414da2a38b5c3ef78d2",
   "redis": {
     "parliament_queue": 0,
-    "parliament_results": 55,
+    "parliament_results": 56,
     "finance_ledger": 11,
     "finance_audit": 7,
     "anchor_queue": 10,
@@ -164,5 +164,5 @@
       "time": 1780412043.2246516
     }
   ],
-  "double_sha": "142ad5e6cb8f9530cc97afeb81a2deb22e45bd12b904b34c7ac77644b02265bd"
+  "double_sha": "6031bdd1749f4ba09fadede66126b100be692fe964c6c40f487fd1cf4984e9fe"
 }
