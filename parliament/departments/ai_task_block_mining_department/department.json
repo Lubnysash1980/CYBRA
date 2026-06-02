@@ -1,0 +1,22 @@
+{
+  "department_id": "ai_task_block_mining_department",
+  "name": "AI Task Block Mining Department",
+  "status": "active",
+  "mission": "Перетворювати всі незавершені AI-завдання у KIBRA task-blocks, передавати ці блоки у pool mining queue і підтверджувати їх через proof-of-work.",
+  "rules": [
+    "unfinished_ai_tasks_must_become_blocks",
+    "do_not_send_empty_blocks",
+    "each_block_must_contain_ai_tasks",
+    "blocks_go_to_pool_for_mining",
+    "mined_blocks_get_pow_hash",
+    "confirmed_blocks_go_to_bridge_outbox",
+    "broken_blocks_go_to_mint_repair_department"
+  ],
+  "safety": [
+    "no_real_payment",
+    "no_real_sell",
+    "no_external_tx",
+    "no_private_keys",
+    "manual_OWNER_approval_required"
+  ]
+}

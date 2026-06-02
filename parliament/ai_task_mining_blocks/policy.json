@@ -1,0 +1,22 @@
+{
+  "name": "AI Tasks To KIBRA Mining Blocks Policy",
+  "status": "active",
+  "native_coin": true,
+  "external_mint": false,
+  "core_rule": "AI-завдання не відправляються просто так. Спочатку вони упаковуються у блоки, а блоки передаються у пули для майнингу.",
+  "flow": [
+    "scan_unfinished_ai_tasks",
+    "create_task_block_mempool",
+    "mine_task_block_with_pool",
+    "confirm_pow",
+    "send_confirmed_block_to_pool_accounting",
+    "send_confirmed_block_to_bridge_outbox",
+    "send_ai_support_task_after_mining"
+  ],
+  "execution": {
+    "real_network_broadcast_now": false,
+    "real_payment": false,
+    "real_sell": false,
+    "manual_OWNER_approval_required": true
+  }
+}
