@@ -3,7 +3,7 @@
   "status": "source_required",
   "level": "critical_monitoring",
   "verified_by_official_source": false,
-  "time": "2026-06-02T09:16:09+03:00",
+  "time": "2026-06-02T09:18:29+03:00",
   "message": "CYBRA local air-alert handler executed. Official real-time API is not connected.",
   "safe_action": "Якщо є сирена або офіційне повідомлення — укриття / правило двох стін."
 }

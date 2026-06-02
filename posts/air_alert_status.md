@@ -3,7 +3,7 @@
 Status: source_required  
 Level: critical_monitoring  
 Verified by official source: false  
-Time: 2026-06-02T09:16:09+03:00  
+Time: 2026-06-02T09:18:29+03:00  
 
 CYBRA handler виконаний.
 
