@@ -1,0 +1,36 @@
+{
+  "department_id": "kibra_mint_audit_department",
+  "name": "KIBRA Mint Audit Department",
+  "parent_department": "kibra_mint_repair_department",
+  "status": "active",
+  "mission": "Аудит монетного двору KIBRA: перевірка native coin, task-blocks, pool mining, repair queue, bridge, promotion, difficulty classes, price/sell proposals, proof та AI-завдань.",
+  "checks": [
+    "native_kibra_package",
+    "kibra_chain_blocks",
+    "pool_confirmed_blocks",
+    "ai_tasks_to_mining_blocks",
+    "task_blocks_mined",
+    "pool_mining_queue",
+    "mint_repair_queue",
+    "broken_blocks",
+    "difficulty_classes",
+    "closed_sha_bridge",
+    "block_ai_support",
+    "mint_promotion_department",
+    "price_sell_repair",
+    "proof_files",
+    "fake_price_risk",
+    "fake_volume_risk",
+    "manual_OWNER_approval_gate"
+  ],
+  "limits": [
+    "no_real_payment",
+    "no_real_sell",
+    "no_fake_price",
+    "no_fake_volume",
+    "no_wash_trading",
+    "no_guaranteed_profit",
+    "no_external_tx_without_OWNER_approval",
+    "manual_OWNER_approval_required"
+  ]
+}

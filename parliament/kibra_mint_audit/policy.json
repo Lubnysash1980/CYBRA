@@ -1,0 +1,27 @@
+{
+  "name": "KIBRA Mint Audit Policy",
+  "status": "active",
+  "mode": "audit_detect_repair_recommend_ai_tasks",
+  "native_coin": true,
+  "external_mint": false,
+  "rule": "Монетний двір не просто створює блоки. Аудит-відділ перевіряє, що блоки мають proof, pool attribution, AI task payload, difficulty class, bridge package і repair route.",
+  "audit_targets": [
+    "KIBRA native coin",
+    "KIBRA blocks",
+    "AI task mining blocks",
+    "pool mining",
+    "mint repair",
+    "promotion",
+    "difficulty classes",
+    "bridge",
+    "price sell repair",
+    "proofs"
+  ],
+  "safety": {
+    "real_payment_now": false,
+    "real_sell_now": false,
+    "fake_price": false,
+    "fake_volume": false,
+    "manual_OWNER_approval_required": true
+  }
+}

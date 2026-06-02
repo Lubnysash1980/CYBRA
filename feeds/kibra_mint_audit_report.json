@@ -1,0 +1,132 @@
+{
+  "status": "kibra_mint_audit_report_generated",
+  "time": 1780438053.4458532,
+  "time_iso": "2026-06-03T01:07:33+0300",
+  "submit_ai": false,
+  "score": 100,
+  "latest_kibra_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab",
+  "required_files": [
+    {
+      "name": "native_kibra_policy",
+      "path": "parliament/native_kibra/policy/native_kibra_policy.json",
+      "exists": true,
+      "sha256": "31d643ddd3f61550be6a630f13a48b401f15c0ac163494fa5d501acbf8c1f597"
+    },
+    {
+      "name": "native_kibra_report",
+      "path": "feeds/native_kibra_ai_task_package.json",
+      "exists": true,
+      "sha256": "8cbd512ef29ecdced13afd048852b557e2bf736475ab08e81a895ea978348829"
+    },
+    {
+      "name": "kibra_chain_status",
+      "path": "feeds/kibra_token_chain_status.json",
+      "exists": true,
+      "sha256": "b95b995e425f29cd15d6f94e7a35b2e2d4b98bce730ff8ad045ca33a0d585438"
+    },
+    {
+      "name": "kibra_latest_hash",
+      "path": "blockchain/kibra_chain/latest.block.hash",
+      "exists": true,
+      "sha256": "bb5c6a80f74c464d68c8c5d7f35d377e8fa50f9152de4b64207a66f84f826d12"
+    },
+    {
+      "name": "pool_confirm_report",
+      "path": "feeds/kibra_pool_confirm_report.json",
+      "exists": true,
+      "sha256": "85a499cc676a75a6668d7c351b2d6f0995f2763185e17ac17d1fb57526be52ab"
+    },
+    {
+      "name": "difficulty_classes",
+      "path": "feeds/kibra_difficulty_classes_report.json",
+      "exists": true,
+      "sha256": "a16243b69c595955033e69ec6773d59b45f9735cb7705cf2df60afe1d36eae92"
+    },
+    {
+      "name": "bridge_report",
+      "path": "feeds/kibra_bridge_pool_monetization_report.json",
+      "exists": true,
+      "sha256": "70a81c07bc96f6e7751550e9e33106aee719bf5bb3603097c4402fee1edf2046"
+    },
+    {
+      "name": "block_ai_support",
+      "path": "feeds/kibra_block_ai_support_report.json",
+      "exists": true,
+      "sha256": "36683e8c0723949bcddbc3cad2655d0fc5bd8ae79ff8e23125da21d7fa94b40e"
+    },
+    {
+      "name": "ai_tasks_to_blocks",
+      "path": "feeds/ai_tasks_to_mining_blocks_report.json",
+      "exists": true,
+      "sha256": "043f134e0b0aeb66f73cba1e646f65bb1685aaa9d108e9e77bf4d5d48ffe2758"
+    },
+    {
+      "name": "price_sell_repair",
+      "path": "feeds/kibra_price_sell_repair_report.json",
+      "exists": true,
+      "sha256": "b12a4c61d9d6c8a4d5c5b8e266ecba86a5131cc374ba6672972812b57d2b2c5b"
+    },
+    {
+      "name": "mint_promotion",
+      "path": "feeds/kibra_mint_promotion_report.json",
+      "exists": true,
+      "sha256": "a0e1d3451053d29529bd877a91715ebb1166a2afa2babf959dd726d539f70e4b"
+    },
+    {
+      "name": "promotion_page",
+      "path": "website/kibra/promotion.html",
+      "exists": true,
+      "sha256": "b33534554dff52b8bb1838c5e35250b1f4ae3d0ec56987a15344793bf03f1555"
+    },
+    {
+      "name": "mint_repair_department",
+      "path": "parliament/departments/kibra_mint_repair_department/department.json",
+      "exists": true,
+      "sha256": "7330e58505c569b777c5696bcdf534b4f5d0581e6ac033a432ffe427aecf9fa9"
+    },
+    {
+      "name": "mint_promotion_department",
+      "path": "parliament/departments/kibra_mint_repair_department/promotion_department/department.json",
+      "exists": true,
+      "sha256": "306f5e57eac63450af444fa89469e4e54429f29216955130bfe88d71c6c647b0"
+    }
+  ],
+  "block_state": {
+    "blocks_total": 10,
+    "task_blocks_total": 4,
+    "pool_tagged_blocks": 10,
+    "shares_total": 210,
+    "broken_blocks_detected": []
+  },
+  "gaps": [],
+  "ai_tasks_prepared": 1,
+  "ai_tasks_submitted": 0,
+  "redis": {
+    "mint_audit_audit": 4,
+    "mint_audit_recommendations": 4,
+    "mint_audit_ai_queue": 0,
+    "parliament_queue": 0,
+    "parliament_failed": 0,
+    "task_block_mempool": 0,
+    "task_blocks_mined": 4,
+    "pool_mining_blocks": 4,
+    "mint_repair_queue": 0,
+    "broken_blocks": 0
+  },
+  "git": {
+    "branch": "main",
+    "commit": "7fc15a364",
+    "dirty_files": 99
+  },
+  "safety": {
+    "real_payment": false,
+    "real_sell": false,
+    "fake_price": false,
+    "fake_volume": false,
+    "wash_trading": false,
+    "guaranteed_profit": false,
+    "external_tx": false,
+    "manual_OWNER_approval_required": true
+  },
+  "double_sha": "99f9c70fd501cfbf51ba2dc3264c453b62240f29d0cf59cf2dcdcda2fa0dcc14"
+}
