@@ -1,0 +1,60 @@
+{
+  "status": "liquidity_plan_created",
+  "time": 1780440015.7023711,
+  "time_iso": "2026-06-03T01:40:15+0300",
+  "native_coin": "KIBRA",
+  "latest_kibra_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab",
+  "accounting": {
+    "main_blocks": 10,
+    "task_blocks": 13,
+    "block_reward_kibra": "100",
+    "task_block_reward_kibra": "100",
+    "total_mined_kibra": "2300",
+    "accounting_only": true,
+    "real_payout_now": false
+  },
+  "pool_reserves": {
+    "status": "pool_reserves_found",
+    "source": "manual_liquidity_reference",
+    "quote_reserve_usd": "1000",
+    "kibra_reserve": "100000",
+    "price_usd_per_kibra": "0.01",
+    "real_market_confirmed": false,
+    "time": 1780440008.7519662
+  },
+  "reserve_targets": {
+    "pilot_pool_1_percent_kibra": "23.00",
+    "starter_pool_5_percent_kibra": "115.00",
+    "growth_pool_10_percent_kibra": "230.00",
+    "treasury_hold_90_percent_or_more": "2070.00"
+  },
+  "sell_limits": {
+    "max_single_sell_percent_of_pool": "1",
+    "max_daily_sell_percent_of_real_volume": "5",
+    "slippage_warning_percent": "2",
+    "slippage_block_percent": "5"
+  },
+  "estimated_value_usd": "23.00",
+  "liquidity_method": [
+    "utility demand first",
+    "AI credits",
+    "proof services",
+    "bridge packages",
+    "developer marketplace",
+    "pool mining participation",
+    "real pool only after OWNER approval"
+  ],
+  "execution": {
+    "real_pool_now": false,
+    "real_sell_now": false,
+    "real_payment_now": false,
+    "manual_OWNER_approval_required": true
+  },
+  "blocked": {
+    "fake_price": true,
+    "fake_volume": true,
+    "wash_trading": true,
+    "guaranteed_profit": true
+  },
+  "double_sha": "c5fc4857ac7d4bfedef6b0a00a0c71e2cf1c96127054626646d37245d239cb6c"
+}

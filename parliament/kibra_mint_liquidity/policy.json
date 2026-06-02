@@ -1,0 +1,33 @@
+{
+  "name": "KIBRA Mint Liquidity Policy",
+  "status": "active",
+  "native_coin": true,
+  "external_mint": false,
+  "main_rule": "Ліквідність створює ринкову ціну. Блоки підтверджують emission/proof, але не створюють ринкову ціну без liquidity/orderbook/buyers.",
+  "liquidity_sources": [
+    "utility_demand",
+    "AI_task_credits",
+    "proof_services",
+    "bridge_package_services",
+    "developer_marketplace",
+    "pool_mining_participation",
+    "real_pool_reserves_after_OWNER_approval",
+    "orderbook_depth_after_PROVIDER_review"
+  ],
+  "risk_controls": [
+    "slippage_limit",
+    "daily_volume_limit",
+    "staged_sell",
+    "reserve_ratio",
+    "no_fake_volume",
+    "no_wash_trading",
+    "market_price_from_real_liquidity_only"
+  ],
+  "execution": {
+    "real_pool_now": false,
+    "real_sell_now": false,
+    "real_payment_now": false,
+    "real_external_tx_now": false,
+    "manual_OWNER_approval_required": true
+  }
+}

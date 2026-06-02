@@ -1,0 +1,31 @@
+{
+  "department_id": "kibra_mint_liquidity_department",
+  "name": "KIBRA Mint Liquidity Department",
+  "parent_department": "kibra_mint_repair_department",
+  "status": "active",
+  "mission": "Створювати і перевіряти ліквідність KIBRA: pool reserves, orderbook readiness, depth, slippage, staged sell limits, market price proof, utility liquidity і AI-завдання через mining blocks.",
+  "responsibilities": [
+    "liquidity_readiness",
+    "pool_reserve_model",
+    "orderbook_depth_model",
+    "market_price_proof",
+    "slippage_check",
+    "sell_without_crash",
+    "liquidity_gap_detection",
+    "utility_liquidity_plan",
+    "bridge_liquidity_proof",
+    "AI_task_block_liquidity_flow"
+  ],
+  "blocked": [
+    "fake_price",
+    "fake_volume",
+    "wash_trading",
+    "pump_and_dump",
+    "guaranteed_profit",
+    "automatic_real_pool",
+    "automatic_real_sell",
+    "automatic_payment",
+    "external_tx_without_OWNER_approval"
+  ],
+  "manual_OWNER_approval_required": true
+}
