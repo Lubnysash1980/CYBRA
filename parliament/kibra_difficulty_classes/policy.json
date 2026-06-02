@@ -1,0 +1,32 @@
+{
+  "name": "KIBRA Difficulty Naming Policy",
+  "status": "active",
+  "native_coin": true,
+  "external_mint": false,
+  "naming_rule": {
+    "open_interval_name": "KIBRA(difficulty,+inf)",
+    "exact_tier_name": "KIBRA-D<difficulty>",
+    "examples": [
+      "KIBRA(2,+inf)",
+      "KIBRA(3,+inf)",
+      "KIBRA(4,+inf)",
+      "KIBRA-D2",
+      "KIBRA-D3",
+      "KIBRA-D4"
+    ]
+  },
+  "meaning": {
+    "KIBRA(2,+inf)": "all blocks with difficulty >= 2",
+    "KIBRA(3,+inf)": "all blocks with difficulty >= 3",
+    "KIBRA(4,+inf)": "all blocks with difficulty >= 4",
+    "KIBRA-D2": "exact difficulty 2 block",
+    "KIBRA-D3": "exact difficulty 3 block",
+    "KIBRA-D4": "exact difficulty 4 block"
+  },
+  "safety": {
+    "price_not_assigned_by_difficulty_alone": true,
+    "market_price_requires_liquidity": true,
+    "real_sell_execution_now": false,
+    "manual_OWNER_approval_required": true
+  }
+}
