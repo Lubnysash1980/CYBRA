@@ -1,0 +1,30 @@
+{
+  "name": "CYBRA Token Pool AI Finance Policy",
+  "status": "active",
+  "mode": "proposal_and_proof_only",
+  "purpose": "Координувати фінансовий, ревізійний, аналітичний і hash-модуль для токен-пулу, AI-завдань, share-блоків і proof-chain.",
+  "distribution": {
+    "owner_share_percent": 60,
+    "pool_reward_percent": 40,
+    "rule": "60% owner allocation / 40% pool reward allocation",
+    "real_execution": "manual approval required"
+  },
+  "pool_rules": {
+    "all_tokens_require_pool_plan": true,
+    "real_liquidity_pool_creation": "manual_wallet_approval_required",
+    "no_automatic_payments": true,
+    "no_private_keys": true,
+    "no_seed_phrase": true,
+    "no_unverified_contracts": true,
+    "finance_department_review_required": true,
+    "revision_review_required": true,
+    "analytics_review_required": true,
+    "hash_proof_required": true
+  },
+  "ai_block_rules": {
+    "ai_tasks_are_grouped_into_blocks": true,
+    "shares_are_local_hash_proofs": true,
+    "shares_do_not_guarantee_real_income": true,
+    "blockchain_anchor_status": "proof_queue_only_until_manual_onchain_anchor"
+  }
+}
