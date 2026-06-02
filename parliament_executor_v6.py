@@ -17,6 +17,9 @@ Q_FAILED = "cybra:parliament:failed"
 Q_AUDIT = "cybra:audit"
 
 SCRIPT_MAP = {
+    "generic_ai_safe_task": "generic_ai_safe_task_handler.sh",
+    "native_kibra_evolution_task": "native_kibra_evolution_handler.sh",
+    "ai_until_done_task": "ai_until_done_handler.sh",
     "finance_gap_evolution_task": "finance_gap_evolution_handler.sh",
     "finance_token_profit_audit_task": "finance_token_profit_audit_handler.sh",
     "kibra_market_exchange_task": "kibra_market_exchange_handler.sh",
