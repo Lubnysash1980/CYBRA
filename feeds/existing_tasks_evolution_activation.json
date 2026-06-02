@@ -1,44 +1,44 @@
 {
   "status": "existing_tasks_evolution_activation_report",
   "mode": "report",
-  "time": 1780425490.6117935,
-  "time_iso": "2026-06-02T21:38:10+0300",
-  "score": 98,
+  "time": 1780430554.9116511,
+  "time_iso": "2026-06-02T23:02:34+0300",
+  "score": 100,
   "git": {
     "branch": "main",
-    "commit": "68f7f0df6",
-    "dirty_files": 199
+    "commit": "503422eaf",
+    "dirty_files": 201
   },
   "redis": {
     "queue": 0,
-    "results": 64,
+    "results": 65,
     "failed": 0,
     "failed_archive": 3,
     "mapping_count": 47
   },
   "summary": {
-    "records_checked": 73,
+    "records_checked": 74,
     "task_types": 29,
     "missing_mapping": 0,
     "missing_handler": 0,
     "failed_validation": 0,
-    "missing_committee": 1
+    "missing_committee": 0
   },
   "statuses": {
-    "executed": 54,
+    "executed": 55,
     "failed": 2,
     "no_executor_mapping": 8,
     "unknown": 7,
     "reviewed": 2
   },
   "sources": {
-    "cybra:parliament:results": 64,
+    "cybra:parliament:results": 65,
     "cybra:review:approved": 1,
     "cybra:review:rejected": 2,
     "cybra:evolution:approved": 6
   },
   "task_types": {
-    "existing_tasks_activation_task": 1,
+    "existing_tasks_activation_task": 2,
     "evolution_deployment_task": 1,
     "monetization_department_task": 4,
     "owner_orchestrator_task": 3,
@@ -214,14 +214,14 @@
     },
     {
       "task_type": "existing_tasks_activation_task",
-      "count": 1,
+      "count": 2,
       "mapping": "existing_tasks_activation_handler.sh",
       "handler_exists": true,
       "handler_validation": {
         "ok": true,
         "reason": "bash_syntax_ok"
       },
-      "committee_exists": false
+      "committee_exists": true
     },
     {
       "task_type": "finance_department_task",
@@ -392,25 +392,13 @@
   "missing_mapping": [],
   "missing_handler": [],
   "failed_validation": [],
-  "missing_committee": [
-    {
-      "task_type": "existing_tasks_activation_task",
-      "count": 1,
-      "mapping": "existing_tasks_activation_handler.sh",
-      "handler_exists": true,
-      "handler_validation": {
-        "ok": true,
-        "reason": "bash_syntax_ok"
-      },
-      "committee_exists": false
-    }
-  ],
+  "missing_committee": [],
   "recommendations": [
     {
-      "level": "repair",
-      "message": "Some existing tasks still need mapping/handler/committee repair.",
-      "action": "Run: bash cybra_existing_tasks.sh repair"
+      "level": "ok",
+      "message": "All existing task types have mapping, handlers and committees under Evolution Deployment.",
+      "action": "Continue evolution cycles."
     }
   ],
-  "double_sha": "adce4070070ec04b9b28cdec2ce17ae81b549cbfa4d2dfe1185ef1fb0d45e083"
+  "double_sha": "958a5e8e8f14263096256f46a607edd9ff4fe3e14a8923dee837a6cb2a83d85f"
 }

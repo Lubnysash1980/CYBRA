@@ -4,4 +4,4 @@ Task type: `pmz_historical_metadata_task`
 
 Status: active
 
-Double SHA: `e36ec21b2ea72c22fc7164d3ed723f0934e724082f5c162ff89c91b2e0647949`
+Double SHA: `853268c346030eeb7d5682f8ed30605151ef248f69000d283cd90e351fd32f85`

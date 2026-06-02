@@ -4,4 +4,4 @@ Task type: `kibra_token_chain_task`
 
 Status: active
 
-Double SHA: `980953b78b026526c1da205578f9c41c80a60deac20f60bce0887223f76d27b8`
+Double SHA: `ab6f1672551078fb0bf31ba605201915fdfa3e40ea8a06a693e1c2668f54ba26`

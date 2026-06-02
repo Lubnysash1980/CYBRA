@@ -4,4 +4,4 @@ Task type: `monetization_department_task`
 
 Status: active
 
-Double SHA: `26ad49a3f82adf2048d9f5a25c4fbc920b546a50313f36b4d78e88dfe27b233e`
+Double SHA: `0ee90d46de065e542096df9cab9aa6d6a62f51ad41024e16465ec7d5a6a0c3b4`

@@ -4,4 +4,4 @@ Task type: `self_expanding_execution_engine_task`
 
 Status: active
 
-Double SHA: `04e2c6610df003207982b457c7c346f7fe2f172c7fb0e9a9a21b710cbbb331c7`
+Double SHA: `a96a8b23ffb9e228b1740cd23b24f5c80ac138d23156bd985ea4cad0c35bca35`

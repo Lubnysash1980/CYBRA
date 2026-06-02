@@ -4,4 +4,4 @@ Task type: `native_token_ecosystem_task`
 
 Status: active
 
-Double SHA: `6dd4a0f95ddea4847a85d3e3a1184c31e3b4741ec5c5b42090b51296000e717d`
+Double SHA: `0b1603644600edfea57c8ed28a01670f2fb1d97011ce02151c179150bb28ee11`

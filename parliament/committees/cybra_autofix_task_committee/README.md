@@ -4,4 +4,4 @@ Task type: `cybra_autofix_task`
 
 Status: active
 
-Double SHA: `0a971684449f7dc6d1b723cb90cb257e7482cc91505d459c9994fb389c1e8ea9`
+Double SHA: `24d2b93e4459441509b96aced26eb39fe6f38ed9579dd7b96e4d7782e44275d4`

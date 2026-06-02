@@ -2,25 +2,25 @@
 
 Status: generated  
 Mode: report  
-Score: **98/100**  
-Double SHA: `adce4070070ec04b9b28cdec2ce17ae81b549cbfa4d2dfe1185ef1fb0d45e083`
+Score: **100/100**  
+Double SHA: `958a5e8e8f14263096256f46a607edd9ff4fe3e14a8923dee837a6cb2a83d85f`
 
 ## Redis
 
 - Queue: 0
-- Results: 64
+- Results: 65
 - Failed: 0
 - Failed archive: 3
 - Mapping count: 47
 
 ## Summary
 
-- Records checked: 73
+- Records checked: 74
 - Task types: 29
 - Missing mapping: 0
 - Missing handler: 0
 - Failed validation: 0
-- Missing committee: 1
+- Missing committee: 0
 
 ## Support matrix
 
@@ -37,7 +37,7 @@ Double SHA: `adce4070070ec04b9b28cdec2ce17ae81b549cbfa4d2dfe1185ef1fb0d45e083`
 - `evolution_deployment_task` count=1 mapping=`evolution_deployment_handler.sh` handler_exists=True validation=True committee=True
 - `evolution_guard_task` count=6 mapping=`evolution_guard_handler.sh` handler_exists=True validation=True committee=True
 - `executor_autoheal_task` count=1 mapping=`evo_committee_handler.sh` handler_exists=True validation=True committee=True
-- `existing_tasks_activation_task` count=1 mapping=`existing_tasks_activation_handler.sh` handler_exists=True validation=True committee=False
+- `existing_tasks_activation_task` count=2 mapping=`existing_tasks_activation_handler.sh` handler_exists=True validation=True committee=True
 - `finance_department_task` count=1 mapping=`finance_department_handler.sh` handler_exists=True validation=True committee=True
 - `github_double_backend_task` count=1 mapping=`evo_committee_handler.sh` handler_exists=True validation=True committee=True
 - `hash_module_test_task` count=1 mapping=`hash_module_test_handler.sh` handler_exists=True validation=True committee=True
@@ -57,5 +57,5 @@ Double SHA: `adce4070070ec04b9b28cdec2ce17ae81b549cbfa4d2dfe1185ef1fb0d45e083`
 
 ## Recommendations
 
-- **repair**: Some existing tasks still need mapping/handler/committee repair. Action: `Run: bash cybra_existing_tasks.sh repair`
+- **ok**: All existing task types have mapping, handlers and committees under Evolution Deployment. Action: `Continue evolution cycles.`
 
