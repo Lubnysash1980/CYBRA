@@ -1,0 +1,23 @@
+{
+  "department_id": "kibra_block_ai_support_department",
+  "name": "KIBRA Block AI Support Department",
+  "status": "active",
+  "mission": "Відправляти підтверджені KIBRA-блоки разом з AI-завданнями для підтримки AI Parliament: verify, pool accounting, bridge package, difficulty class, repair routing, evolution.",
+  "mode": "block_to_ai_task_support",
+  "rules": [
+    "each_confirmed_block_creates_ai_support_task",
+    "block_hash_required",
+    "difficulty_class_required",
+    "pool_accounting_required",
+    "broken_blocks_to_mint_repair_department",
+    "good_blocks_to_bridge_outbox",
+    "no_real_external_broadcast_without_OWNER_approval"
+  ],
+  "safety": [
+    "no_real_payment",
+    "no_external_tx",
+    "no_private_keys",
+    "no_seed_phrase",
+    "manual_OWNER_approval_required"
+  ]
+}

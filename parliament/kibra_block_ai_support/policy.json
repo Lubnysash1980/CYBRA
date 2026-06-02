@@ -1,0 +1,31 @@
+{
+  "name": "KIBRA Block AI Support Policy",
+  "status": "active",
+  "native_coin": true,
+  "external_mint": false,
+  "purpose": "Кожен блок KIBRA стає AI-завданням для підтримки AI Parliament.",
+  "block_task_payload": [
+    "block_index",
+    "block_hash",
+    "difficulty",
+    "difficulty_class",
+    "shares_count",
+    "pool_tagged",
+    "pow_ok",
+    "ai_support_goal"
+  ],
+  "support_goals": [
+    "verify_block",
+    "confirm_pool_accounting",
+    "classify_by_difficulty",
+    "send_to_closed_sha_bridge_outbox",
+    "route_broken_blocks_to_mint_repair",
+    "support_ai_parliament_until_done"
+  ],
+  "execution": {
+    "real_network_broadcast_now": false,
+    "real_payment": false,
+    "real_sell": false,
+    "manual_OWNER_approval_required": true
+  }
+}
