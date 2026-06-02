@@ -1,0 +1,62 @@
+[
+  {
+    "file": "blockchain/kibra_chain/blocks/block_000000000_0009ef400c073dd2.json",
+    "sha256": "5cb6ca24a697f3911282a0e5b201ab7d04ec77ff9eae8b1192aa9434af8c00a4",
+    "shares": 14,
+    "pool_tagged": true
+  },
+  {
+    "file": "blockchain/kibra_chain/blocks/block_000000001_0007773a785ed403.json",
+    "sha256": "eb94ea9674b0be76b4cad6595eaba9131e7710bcc01ca9d9a6548a944be76c0b",
+    "shares": 2,
+    "pool_tagged": true
+  },
+  {
+    "file": "blockchain/kibra_chain/blocks/block_000000002_000054cc3d0b18f2.json",
+    "sha256": "36d1647d422dccef228078aedd78087385d369754f44817ce6c786ca4124b23c",
+    "shares": 6,
+    "pool_tagged": true
+  },
+  {
+    "file": "blockchain/kibra_chain/blocks/block_000000003_000080003f082db8.json",
+    "sha256": "5c07456f86fc76b0b94458a08d963248bbd017c458dbfef1428ec3e10fd7d50a",
+    "shares": 22,
+    "pool_tagged": true
+  },
+  {
+    "file": "blockchain/kibra_chain/blocks/block_000000004_0000f65c9116a62d.json",
+    "sha256": "9290f97dab6e2b01984f3e84d011b38fa324edbef7738674867bd5c5dd4fc6e0",
+    "shares": 21,
+    "pool_tagged": true
+  },
+  {
+    "file": "blockchain/kibra_chain/blocks/block_000000005_003a676ebdf5bf79.json",
+    "sha256": "007ec4a530429552314b8d0bf6f40eb3c01d683237c500301e13337baeb5009b",
+    "shares": 21,
+    "pool_tagged": true
+  },
+  {
+    "file": "blockchain/kibra_chain/blocks/block_000000006_008d79a470194224.json",
+    "sha256": "8a03c9f5383cddc62376e81471c6fa62d3017b6fa9f8bbb8289f64dcff9138eb",
+    "shares": 40,
+    "pool_tagged": true
+  },
+  {
+    "file": "blockchain/kibra_chain/blocks/block_000000007_008a14703eb45247.json",
+    "sha256": "af3e0baedc4b07da6e80ddc3e58084f45b398ecab0a02a06eee17c05dc170970",
+    "shares": 40,
+    "pool_tagged": true
+  },
+  {
+    "file": "blockchain/kibra_chain/blocks/block_000000008_00f957b0f5cda9f6.json",
+    "sha256": "a052338edb6e988b325eba9115c77209949008be905f5980b065c7a57d12a799",
+    "shares": 40,
+    "pool_tagged": true
+  },
+  {
+    "file": "blockchain/kibra_chain/blocks/block_000000009_00510d744e45cfee.json",
+    "sha256": "9b031e7344369885dd2c3dd23a1d6baa016f887b416b2fffb21ae233e22422e0",
+    "shares": 4,
+    "pool_tagged": true
+  }
+]
