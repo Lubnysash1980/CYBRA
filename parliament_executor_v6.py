@@ -17,6 +17,7 @@ Q_FAILED = "cybra:parliament:failed"
 Q_AUDIT = "cybra:audit"
 
 SCRIPT_MAP = {
+    "finance_department_task": "finance_department_handler.sh",
     "institution_audit_task": "institution_audit_handler.sh",
     "hash_module_test_task": "hash_module_test_handler.sh",
     "evolution_guard_task": "evolution_guard_handler.sh",

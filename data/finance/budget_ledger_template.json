@@ -1,0 +1,11 @@
+{
+  "ledger": "CYBRA Finance Ledger Template",
+  "status": "template",
+  "entries": [],
+  "rules": {
+    "manual_payment_only": true,
+    "owner_approval_required": true,
+    "proof_required": true,
+    "no_secrets": true
+  }
+}

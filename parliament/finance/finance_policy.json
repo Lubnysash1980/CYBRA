@@ -1,0 +1,34 @@
+{
+  "name": "CYBRA Finance Policy",
+  "status": "active",
+  "rules": {
+    "payment_execution_allowed": false,
+    "owner_manual_approval_required": true,
+    "staged_payments_only": true,
+    "advance_payment_risk_check_required": true,
+    "contract_or_invoice_required": true,
+    "proof_required": true,
+    "audit_required": true,
+    "no_private_payment_data_in_git": true,
+    "no_bank_or_card_secrets": true
+  },
+  "payment_stages": [
+    "proposal",
+    "legal_review",
+    "budget_review",
+    "risk_review",
+    "owner_approval",
+    "manual_external_payment_only",
+    "confirmation",
+    "audit_close"
+  ],
+  "blocked": [
+    "automatic transfer",
+    "card storage",
+    "bank login storage",
+    "seed phrase storage",
+    "private key storage",
+    "unverified supplier payment",
+    "full prepayment without protection"
+  ]
+}

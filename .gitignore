@@ -28,3 +28,7 @@ recovery_unpack/
 *.key
 *secret*
 mint_secret_base58.txt
+runtime/
+data/finance/private/
+*card*
+*bank*
