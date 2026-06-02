@@ -2,7 +2,7 @@
   "department_id": "recovery_department",
   "status": "active",
   "purpose": "AutoHeal, recovery capsule, backup/restore",
-  "created_or_checked_at": "2026-06-02T17:33:48+0300",
+  "created_or_checked_at": "2026-06-02T18:42:33+0300",
   "rules": [
     "audit_required",
     "proof_required",
@@ -10,5 +10,5 @@
     "no_secret_dump",
     "evolution_only"
   ],
-  "double_sha": "0dc55e19b962cbed5b6935cb442d8509edbe6c02352f8f95bbe10fa4c6981235"
+  "double_sha": "0d0ba852aedb75afd7af0bb641587578b43b6a8d4a338a1359fe744c85d6d1b3"
 }

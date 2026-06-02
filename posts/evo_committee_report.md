@@ -1,13 +1,13 @@
 # CYBRA EVO Committee Module
 
 Status: generated  
-Double SHA: `ca87c37dbddac9adf40872d7845ae0f07876ad001f220c486c6420112ebec354`
+Double SHA: `efa0a3b1bc488f790040f7723b2aedb87f873b9d1054962871c12b9a3151ff50`
 
 ## Summary
 
 - Committees: 12
 - No mapping items seen: 9
-- Executor mapping count: 33
+- Executor mapping count: 37
 
 ## No mapping types
 

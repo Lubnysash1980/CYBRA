@@ -2,7 +2,7 @@
   "department_id": "evolution_department",
   "status": "active",
   "purpose": "Принцип розвитку, hold/reject деградаційних задач",
-  "created_or_checked_at": "2026-06-02T17:33:48+0300",
+  "created_or_checked_at": "2026-06-02T18:42:33+0300",
   "rules": [
     "audit_required",
     "proof_required",
@@ -10,5 +10,5 @@
     "no_secret_dump",
     "evolution_only"
   ],
-  "double_sha": "224fcd10b6b7d7ff07078113a247307980651d71f7e572fb8f15d4ed0d2055b5"
+  "double_sha": "c00e1faa0af578d8541f9de6648ad9c65e635de0bdd5be0c4119da8186aa15ce"
 }

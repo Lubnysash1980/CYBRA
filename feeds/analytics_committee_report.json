@@ -1,0 +1,24 @@
+{
+  "committee": "CYBRA Parliament Analytics Committee",
+  "status": "generated",
+  "time": 1780393686.6402068,
+  "git_branch": "main",
+  "git_commit": "b27d1054d",
+  "redis": {
+    "results": 0,
+    "audit": 27,
+    "parliament_queue": 1,
+    "review_incoming": 0,
+    "review_hold": 0,
+    "review_rejected": 2,
+    "analytics_audit": 2
+  },
+  "summary": {
+    "checked_results": 0,
+    "statuses": {},
+    "types": {},
+    "executor_mapping_count": 23
+  },
+  "latest_results": [],
+  "double_sha": "ddf1dfd07eb81aba24f2d4c57449475977890b68b077846354921fcb9fd88a63"
+}

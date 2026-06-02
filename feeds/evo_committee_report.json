@@ -1,12 +1,12 @@
 {
   "module": "CYBRA EVO Committee Module",
   "status": "generated",
-  "time": 1780396197.702791,
-  "time_iso": "2026-06-02T13:29:57+0300",
+  "time": 1780405419.2282465,
+  "time_iso": "2026-06-02T16:03:39+0300",
   "git": {
     "branch": "main",
-    "commit": "e758afecb",
-    "dirty_files": 47
+    "commit": "c7f7acad7",
+    "dirty_files": 107
   },
   "summary": {
     "committees": 12,
@@ -21,7 +21,7 @@
       "codespaces_keepalive_task": 1,
       "github_double_backend_task": 1
     },
-    "executor_mapping_count": 33
+    "executor_mapping_count": 37
   },
   "committees": [
     {
@@ -29,7 +29,7 @@
       "name": "AI Tasks Committee",
       "status": "active",
       "source": "no_executor_mapping_scan",
-      "created_at": "2026-06-02T13:29:57+0300",
+      "created_at": "2026-06-02T16:03:39+0300",
       "mission": "Перевіряти AI-задачі, формувати безпечні технічні плани та handler-и.",
       "task_types": [
         "ai_task"
@@ -53,14 +53,14 @@
         "committee_json": "parliament/committees/ai_tasks_committee/committee.json",
         "readme": "parliament/committees/ai_tasks_committee/README.md"
       },
-      "double_sha": "bba437551b8adb868757ae11913eaee90f422d34e5f8ecde83295575e014df7d"
+      "double_sha": "2efdfe67637adfc2f5e47992d227ff2880bdfa60bae2e198a515341a17aaa294"
     },
     {
       "committee_id": "codespaces_support_committee",
       "name": "Codespaces Support Committee",
       "status": "active",
       "source": "no_executor_mapping_scan",
-      "created_at": "2026-06-02T13:29:57+0300",
+      "created_at": "2026-06-02T16:03:39+0300",
       "mission": "Підтримувати GitHub Codespaces, keepalive, синхронізацію з Termux та bridge.",
       "task_types": [
         "codespaces_keepalive_task"
@@ -84,14 +84,14 @@
         "committee_json": "parliament/committees/codespaces_support_committee/committee.json",
         "readme": "parliament/committees/codespaces_support_committee/README.md"
       },
-      "double_sha": "c522976f4b1259039d55b0c27bf428329cad6e332e358a8988d892329ea132ce"
+      "double_sha": "14a554f87428dc95f89ac4aa8c1de0528144dec21a4fcc2f97b81e675215419d"
     },
     {
       "committee_id": "evo_council",
       "name": "EVO Council",
       "status": "active",
       "source": "core",
-      "created_at": "2026-06-02T13:29:57+0300",
+      "created_at": "2026-06-02T16:03:39+0300",
       "mission": "Керувати правилами еволюції Кіберапарламенту і дозволом на створення нових комітетів.",
       "task_types": [
         "evo_committee_task",
@@ -116,14 +116,14 @@
         "committee_json": "parliament/committees/evo_council/committee.json",
         "readme": "parliament/committees/evo_council/README.md"
       },
-      "double_sha": "253912f36c3e5607fef26325cd71b8f1a046aab11dd616e38ef38b89f556b327"
+      "double_sha": "828ddd380ae44bff7326973696331250f24e9236d1ed782f9ddc6b7254e111bb"
     },
     {
       "committee_id": "executor_mapping_committee",
       "name": "Executor Mapping Committee",
       "status": "active",
       "source": "core",
-      "created_at": "2026-06-02T13:29:57+0300",
+      "created_at": "2026-06-02T16:03:39+0300",
       "mission": "Керувати Redis executor mapping і прибирати no_executor_mapping.",
       "task_types": [
         "mapping_task"
@@ -147,14 +147,14 @@
         "committee_json": "parliament/committees/executor_mapping_committee/committee.json",
         "readme": "parliament/committees/executor_mapping_committee/README.md"
       },
-      "double_sha": "6fa5979eaf15ecbc657552c4fb5197b4158b5d81ad1a612c8f93c2a2f3f25601"
+      "double_sha": "83873290e608c0b886df2a5cd87ec5d382f9c5e42aecbfb699eea24cdb99b02c"
     },
     {
       "committee_id": "github_backend_committee",
       "name": "GitHub Double Backend Committee",
       "status": "active",
       "source": "no_executor_mapping_scan",
-      "created_at": "2026-06-02T13:29:57+0300",
+      "created_at": "2026-06-02T16:03:39+0300",
       "mission": "Підтримувати GitHub backend, double SHA, bridge, push/pull, proof-публікації.",
       "task_types": [
         "github_double_backend_task"
@@ -178,14 +178,14 @@
         "committee_json": "parliament/committees/github_backend_committee/committee.json",
         "readme": "parliament/committees/github_backend_committee/README.md"
       },
-      "double_sha": "54adce89713d87cb580076f93f43b78f104ba0e763d56b7e8c7db7b7d71ef14e"
+      "double_sha": "87cd6e2367c327c40aa3d4b09080621bc2a2784b39efd1cbd7d4bd73f858d491"
     },
     {
       "committee_id": "guardian_recovery_committee",
       "name": "Guardian Recovery Committee",
       "status": "active",
       "source": "no_executor_mapping_scan",
-      "created_at": "2026-06-02T13:29:57+0300",
+      "created_at": "2026-06-02T16:03:39+0300",
       "mission": "Підтримувати executor, autoheal, recovery, double SHA та контроль помилок.",
       "task_types": [
         "executor_autoheal_task"
@@ -209,14 +209,14 @@
         "committee_json": "parliament/committees/guardian_recovery_committee/committee.json",
         "readme": "parliament/committees/guardian_recovery_committee/README.md"
       },
-      "double_sha": "95ed234958228b7153f74c26f65428359b658958ab04454515efe0bd6b6e04cb"
+      "double_sha": "7ddd3afaf03a0bf5bb472ab102e17de4bfd26bca7c73b4e65437f812a69bf2a0"
     },
     {
       "committee_id": "parliament_support_committee",
       "name": "Parliament Support Committee",
       "status": "active",
       "source": "core",
-      "created_at": "2026-06-02T13:29:57+0300",
+      "created_at": "2026-06-02T16:03:39+0300",
       "mission": "Підтримувати роботу Кіберапарламенту, органів, комітетів, звітів і proof-файлів.",
       "task_types": [
         "parliament_support_task"
@@ -240,14 +240,14 @@
         "committee_json": "parliament/committees/parliament_support_committee/committee.json",
         "readme": "parliament/committees/parliament_support_committee/README.md"
       },
-      "double_sha": "7c3b2820669841a66e6ee99051d85cb5771ca32e70785ea0c509d8f36b536de4"
+      "double_sha": "bf2e8e9bb39792dae377c16982e9d9d732477f24531b77998d84f3f1f63d28d5"
     },
     {
       "committee_id": "queue_integrity_committee",
       "name": "Queue Integrity Committee",
       "status": "active",
       "source": "no_executor_mapping_scan",
-      "created_at": "2026-06-02T13:29:57+0300",
+      "created_at": "2026-06-02T16:03:39+0300",
       "mission": "Контролювати Redis-черги, queue routing, review queue, execution queue та results.",
       "task_types": [
         "queue_fix"
@@ -271,14 +271,14 @@
         "committee_json": "parliament/committees/queue_integrity_committee/committee.json",
         "readme": "parliament/committees/queue_integrity_committee/README.md"
       },
-      "double_sha": "df0fd3d7083895a96b66d2e38c24bbbf6ebc80efeb99f2b1ec90082dfcc59bde"
+      "double_sha": "0d78e6bfec60817414b8fe2a680451e86fd142afc61a28dbbf46dd5008daf7d9"
     },
     {
       "committee_id": "safety_alert_committee",
       "name": "Safety Alert Committee",
       "status": "active",
       "source": "no_executor_mapping_scan",
-      "created_at": "2026-06-02T13:29:57+0300",
+      "created_at": "2026-06-02T16:03:39+0300",
       "mission": "Підтримувати задачі безпеки, повітряної тривоги та official_source_required режим.",
       "task_types": [
         "air_alert_task"
@@ -302,14 +302,14 @@
         "committee_json": "parliament/committees/safety_alert_committee/committee.json",
         "readme": "parliament/committees/safety_alert_committee/README.md"
       },
-      "double_sha": "fd95dbb199ee805afc05bdec394948d1a4680e641e80da3d7e1df8681f3938e8"
+      "double_sha": "cc09ddd3ca1849a7b8120eed51ae8e0dd3f83db1da7b85dce276b3304fce061a"
     },
     {
       "committee_id": "self_expansion_committee",
       "name": "Self Expansion Committee",
       "status": "active",
       "source": "no_executor_mapping_scan",
-      "created_at": "2026-06-02T13:29:57+0300",
+      "created_at": "2026-06-02T16:03:39+0300",
       "mission": "Аналізувати задачі саморозширення Кіберапарламенту та пропонувати безпечні нові handler-и і комітети.",
       "task_types": [
         "self_expanding_execution_engine_task"
@@ -333,14 +333,14 @@
         "committee_json": "parliament/committees/self_expansion_committee/committee.json",
         "readme": "parliament/committees/self_expansion_committee/README.md"
       },
-      "double_sha": "624d2ef349e64c2c0000f3bcc8a9a60192073e3ea3f60270a01a05545f109577"
+      "double_sha": "a3c51145dc3100b216c3b9c3fc1b126a365e780bdd70418421e04c5b3dbdfc7e"
     },
     {
       "committee_id": "task_lifecycle_committee",
       "name": "Task Lifecycle Committee",
       "status": "active",
       "source": "core",
-      "created_at": "2026-06-02T13:29:57+0300",
+      "created_at": "2026-06-02T16:03:39+0300",
       "mission": "Стежити за життєвим циклом задачі: review → execution → result → audit → revision.",
       "task_types": [
         "task_lifecycle_task"
@@ -364,14 +364,14 @@
         "committee_json": "parliament/committees/task_lifecycle_committee/committee.json",
         "readme": "parliament/committees/task_lifecycle_committee/README.md"
       },
-      "double_sha": "ae4229202755eb1dfbd80520f3fcbecfe10978bfc07107b68c24c9dea446f397"
+      "double_sha": "eb3ab6a4b35d86dcedde04a82a6990e7f3a28851a9ea36137d41021d564e54de"
     },
     {
       "committee_id": "testing_committee",
       "name": "Testing Committee",
       "status": "active",
       "source": "no_executor_mapping_scan",
-      "created_at": "2026-06-02T13:29:57+0300",
+      "created_at": "2026-06-02T16:03:39+0300",
       "mission": "Перевіряти тестові задачі, handler-и, mapping та результати.",
       "task_types": [
         "test"
@@ -395,7 +395,7 @@
         "committee_json": "parliament/committees/testing_committee/committee.json",
         "readme": "parliament/committees/testing_committee/README.md"
       },
-      "double_sha": "3d60b435fcbd222c8a42271f1ce9c1d8fb93714380458ee8f48432584d549ef0"
+      "double_sha": "3e724c8420c23e9926de042de01c8f4224d39e303f92e2e4ae1fa072a56dcff7"
     }
   ],
   "no_mapping_items": [
@@ -473,5 +473,5 @@
     }
   ],
   "evo_laws_file": "parliament/evo/evo_laws.json",
-  "double_sha": "ca87c37dbddac9adf40872d7845ae0f07876ad001f220c486c6420112ebec354"
+  "double_sha": "efa0a3b1bc488f790040f7723b2aedb87f873b9d1054962871c12b9a3151ff50"
 }

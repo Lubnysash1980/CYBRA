@@ -16,10 +16,10 @@ Internal key revealed:
 `false`
 
 Parliament internal seal:
-`70225845c5c04729db902d8d0da6aa4268f70a446f516f2a45f1728695d82a10`
+`1377b2aa8f9a4506ac71d04ca26149ba74c5085c05500df05759f16a119b401b`
 
 Double SHA:
-`5e3b81a50fa560d8625c5b3dd88d7db4ac0daa3277c7cc93b7643c9f2e62bf49`
+`f02d926e0b71bfa6b1fe9ff345e9aa6ec4060ab8871215cb28f75cc4d6da0c46`
 
 ## Головне правило
 

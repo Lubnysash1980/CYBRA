@@ -1,7 +1,7 @@
 # CYBRA Parliament Revision Organ
 
 Status: generated  
-Double SHA: `1861b8171d8a8debb1fe95e56528294f9d6d4771a37e007731636c03e54bdbfc`
+Double SHA: `227a2fc93aae94ce56868ddf0ef90c86bcfbbed8e28eb03273bf9980b138a287`
 
 ## Summary
 
@@ -9,24 +9,24 @@ Double SHA: `1861b8171d8a8debb1fe95e56528294f9d6d4771a37e007731636c03e54bdbfc`
 - Executed: 0
 - Failed: 0
 - No executor mapping: 0
-- Executor mappings: 24
-- Proof files: 110
-- Posts files: 94
-- Feeds files: 14
+- Executor mappings: 37
+- Proof files: 123
+- Posts files: 105
+- Feeds files: 24
 
 ## Redis state
 
 {
   "results": 0,
-  "audit": 34,
-  "parliament_queue": 0,
+  "audit": 36,
+  "parliament_queue": 4,
   "review_incoming": 0,
   "review_approved": 1,
   "review_hold": 0,
   "review_rejected": 2,
   "review_audit": 3,
   "analytics_audit": 3,
-  "revision_audit": 3
+  "revision_audit": 4
 }
 
 ## Statuses
@@ -43,4 +43,4 @@ Double SHA: `1861b8171d8a8debb1fe95e56528294f9d6d4771a37e007731636c03e54bdbfc`
 
 ## Recommendations
 
-- **ok**: Ревізія не знайшла критичних проблем. Action: `Продовжувати моніторинг.`
+- **warning**: У черзі виконання залишились задачі. Action: `cybra worker-start && cybra status`

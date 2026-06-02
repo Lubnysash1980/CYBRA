@@ -1,10 +1,59 @@
 {
   "status": "generated",
-  "audit_records": 4,
-  "approved": 4,
+  "audit_records": 6,
+  "approved": 6,
   "hold": 0,
   "rejected": 0,
   "latest": [
+    {
+      "status": "evolution_checked",
+      "decision": "approved",
+      "topic": "CYBRA KIBRA Monetization Evolution",
+      "type": "monetization_department_task",
+      "score": 11,
+      "fingerprint": "8bc4955dbf1363698c0af8c82c38bad737c441bb3fdb7ba165dd8c096295c67e",
+      "gate_signature": "e03683091d0e9ef89b08a45cc870c2af5993b76fd8a8e1af6842fcd7234ad836",
+      "internal_seal": "e90796193de068260685b093ad93432a230505fb25ab87ada2640004e1e65cd3",
+      "internal_key_revealed": false,
+      "positive_hits": [
+        "розвиток",
+        "proof",
+        "revision",
+        "analytics",
+        "recovery",
+        "mapping",
+        "documentation",
+        "safe"
+      ],
+      "negative_hits": [],
+      "time": 1780421774.0420542,
+      "time_iso": "2026-06-02T20:36:14+0300",
+      "submitted_to": "cybra:parliament:queue"
+    },
+    {
+      "status": "evolution_checked",
+      "decision": "approved",
+      "topic": "CYBRA KIBRA Monetization Evolution",
+      "type": "monetization_department_task",
+      "score": 11,
+      "fingerprint": "8bc4955dbf1363698c0af8c82c38bad737c441bb3fdb7ba165dd8c096295c67e",
+      "gate_signature": "e03683091d0e9ef89b08a45cc870c2af5993b76fd8a8e1af6842fcd7234ad836",
+      "internal_seal": "e90796193de068260685b093ad93432a230505fb25ab87ada2640004e1e65cd3",
+      "internal_key_revealed": false,
+      "positive_hits": [
+        "розвиток",
+        "proof",
+        "revision",
+        "analytics",
+        "recovery",
+        "mapping",
+        "documentation",
+        "safe"
+      ],
+      "negative_hits": [],
+      "time": 1780421773.5762928,
+      "time_iso": "2026-06-02T20:36:13+0300"
+    },
     {
       "status": "evolution_checked",
       "decision": "approved",
@@ -120,6 +169,6 @@
       "time_iso": "2026-06-02T16:47:43+0300"
     }
   ],
-  "time": 1780408091.910049,
-  "double_sha": "cf15419c876318f6aa7789859ec85f9cb81b361ca1f157424f24d44497e6dc2b"
+  "time": 1780432295.3809118,
+  "double_sha": "b1110c0168a042b5c6cb2b905adc79994661d25c70d96fc5ab3618f5b3f9d50e"
 }

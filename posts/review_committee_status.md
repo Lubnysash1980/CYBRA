@@ -2,12 +2,12 @@
 
 Status: reviewed
 
-Topic: Ракетна небезпека через орган перевірки
+Topic: None
 
-Type: air_alert_task
+Type: None
 
-Decision: approved
+Decision: rejected
 
-Reason: safe_and_mapped
+Reason: invalid_json: Expecting value: line 1 column 1 (char 0)
 
-Time: 1780382878.5566523
+Time: 1780388893.4926472

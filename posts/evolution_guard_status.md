@@ -2,28 +2,24 @@
 
 Status: evolution_checked  
 Decision: **approved**  
-Topic: CYBRA Evolution Pass Test  
-Type: evolution_guard_task  
-Score: 15  
-Fingerprint: `08dbe0332dc78158966c2fde9dbccfa915b98e4917f16d548f8d829dad0c07a8`  
-Gate signature: `6abc3f22556d1dc232e3cae79a8c0b5ef28ed6a9782070e742ad850b232e7058`  
-Internal seal: `19327d001a934c403acf228241f51de90573e1f61b9267d60f45f1a93ca0bc60`  
-Time: 2026-06-02T16:48:03+0300
+Topic: CYBRA KIBRA Monetization Evolution  
+Type: monetization_department_task  
+Score: 11  
+Fingerprint: `8bc4955dbf1363698c0af8c82c38bad737c441bb3fdb7ba165dd8c096295c67e`  
+Gate signature: `e03683091d0e9ef89b08a45cc870c2af5993b76fd8a8e1af6842fcd7234ad836`  
+Internal seal: `e90796193de068260685b093ad93432a230505fb25ab87ada2640004e1e65cd3`  
+Time: 2026-06-02T20:53:22+0300
 
 ## Positive hits
 
 - `розвиток`
-- `audit`
 - `proof`
 - `revision`
 - `analytics`
-- `education`
-- `security`
-- `stability`
 - `recovery`
 - `mapping`
 - `documentation`
-- `test`
+- `safe`
 
 ## Negative hits
 

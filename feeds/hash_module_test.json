@@ -1,7 +1,7 @@
 {
   "status": "hash_module_test_generated",
-  "payload_double_sha": "763b1e7f6c141b968b0427f0c9821e2bd71e0ed284609670101fa64bd2b6944a",
-  "root_double_sha": "ab6e7d7a482dc51e9b8e2f2c25e73879f313a648804f878b1f341d999a5ed62c",
+  "payload_double_sha": "fdd99c78f6224eb2efb398e8114fae6bbcdc5104443c6e1275ac2594ba3c7b41",
+  "root_double_sha": "9cb141c1ad85784da150cccb937ef17a8ef6d800a66f44e9dfec61b48384b768",
   "manifest_file": "hash_storage/test/hash_module_test_manifest.json",
   "detected_modules": {
     "gitcybrahash_double_backend.mjs": true,
@@ -10,5 +10,5 @@
     "cybra_sha_core_manager.sh": true,
     "hash_storage/root_hash.json": true
   },
-  "time": 1780408967.1276882
+  "time": 1780433478.7556686
 }

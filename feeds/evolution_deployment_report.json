@@ -1,27 +1,27 @@
 {
   "status": "evolution_deployment_report_generated",
-  "time": 1780424850.1615949,
-  "time_iso": "2026-06-02T21:27:30+0300",
+  "time": 1780433196.4462552,
+  "time_iso": "2026-06-02T23:46:36+0300",
   "state": {
-    "time": 1780424846.0505984,
-    "time_iso": "2026-06-02T21:27:26+0300",
+    "time": 1780433189.6916084,
+    "time_iso": "2026-06-02T23:46:29+0300",
     "git": {
       "branch": "main",
-      "commit": "69b745a0c",
-      "dirty_files": 193
+      "commit": "89cf02129",
+      "dirty_files": 151
     },
     "redis": {
       "queue": 0,
-      "results": 63,
+      "results": 76,
       "failed": 0,
-      "audit": 63,
+      "audit": 76,
       "kibra_audit": 11,
-      "finance_ledger": 13,
-      "finance_audit": 25,
-      "anchor_queue": 0,
-      "anchor_manual_ready": 6,
-      "monetization_audit": 7,
-      "monetization_proposals": 7,
+      "finance_ledger": 17,
+      "finance_audit": 36,
+      "anchor_queue": 1,
+      "anchor_manual_ready": 8,
+      "monetization_audit": 16,
+      "monetization_proposals": 16,
       "spend_proposals": 1,
       "evolution_approved": 6,
       "evolution_hold": 0,
@@ -43,7 +43,7 @@
     },
     "finance": {
       "risk_items": 0,
-      "records_checked": 72
+      "records_checked": 79
     },
     "institution": {
       "missing_organs": 0,
@@ -52,11 +52,11 @@
     },
     "monetization": {
       "exists": true,
-      "double_sha": "a7ccaa00b64444e3fcf4eb83eb1379ea839ab069cff708561c093870ae954566"
+      "double_sha": "77737948c6739f485395d97b63010fcc5452dd74dd1fb9e9d83b1569eab7cb61"
     },
     "hash": {
       "exists": true,
-      "root_double_sha": "8c4c5d6fc6e7a9fa327399198c30849297984dccd3c00ee8db6e914ca9a2e1ec"
+      "root_double_sha": "eb50e7ec9aa23d42348e68e80e87780fe74341fd62bd8a05bc07ced0bc814703"
     },
     "anchor": {
       "exists": true,
@@ -64,13 +64,20 @@
     }
   },
   "assessment": {
-    "score": 100,
+    "score": 90,
     "max_score": 100,
-    "maturity": "self_improving",
-    "gaps": [],
-    "next_tasks": []
+    "maturity": "advanced",
+    "gaps": [
+      "anchor_package_needs_packaging"
+    ],
+    "next_tasks": [
+      [
+        "anchor_package",
+        "owner_orchestrator_task"
+      ]
+    ]
   },
   "created_tasks": [],
   "policy_sha256": "260aa19a8de66e53477782e52ce78d6f42ba9826bd489a813a079db44f0730f7",
-  "double_sha": "c345f12738a64f96351bee9dd3bc4eb45db4ee616a478c8064db7973ae05cee2"
+  "double_sha": "e86893b451c9ccf0a0dabf4843831c6f236f855c00d0e997affb7f4d3e7f8dd9"
 }

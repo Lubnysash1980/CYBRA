@@ -1,7 +1,7 @@
 # CYBRA Parliament Review: KIBRA Token Chain Response
 
 Status: generated  
-Double SHA: `c725b1dbe14573252e1b96442326600b48d9bba77c021f946165e82b5ab127ac`
+Double SHA: `7716ba30950b56d5fd1ac3e17cdf2b03f629486b2441a9eb930e8ca0bb221f0a`
 
 ## Verdict
 
@@ -29,13 +29,13 @@ Double SHA: `c725b1dbe14573252e1b96442326600b48d9bba77c021f946165e82b5ab127ac`
 ## Redis / Runtime State
 
 - Parliament queue: 0
-- Parliament results: 59
+- Parliament results: 65
 - Parliament failed: 0
 - KIBRA audit: 11
 - Finance ledger: 13
 - Anchor queue: 0
-- Hash audit: 9
-- Evolution approved/hold/rejected: 4/0/0
+- Hash audit: 25
+- Evolution approved/hold/rejected: 6/0/0
 
 ## KIBRA Chain
 
@@ -70,6 +70,8 @@ Double SHA: `c725b1dbe14573252e1b96442326600b48d9bba77c021f946165e82b5ab127ac`
 
 ## KIBRA-related Parliament Results
 
+- `executed` / `monetization_department_task` — CYBRA KIBRA Monetization Department script=`monetization_department_handler.sh`
+- `executed` / `monetization_department_task` — CYBRA KIBRA Monetization Evolution script=`monetization_department_handler.sh`
 - `executed` / `kibra_token_chain_task` — Build KIBRA Image Token Chain script=`kibra_token_chain_handler.sh`
 - `failed` / `kibra_token_chain_task` — Build KIBRA Image Token Chain script=`kibra_token_chain_handler.sh`
 - `failed` / `kibra_token_chain_task` — Build KIBRA Image Token Chain script=`kibra_token_chain_handler.sh`

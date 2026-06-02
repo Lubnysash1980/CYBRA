@@ -6,4 +6,4 @@ Purpose:
 Принцип розвитку, hold/reject деградаційних задач
 
 Double SHA:
-`224fcd10b6b7d7ff07078113a247307980651d71f7e572fb8f15d4ed0d2055b5`
+`c00e1faa0af578d8541f9de6648ad9c65e635de0bdd5be0c4119da8186aa15ce`

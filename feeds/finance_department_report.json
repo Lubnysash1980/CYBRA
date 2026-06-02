@@ -1,34 +1,39 @@
 {
   "department": "CYBRA Finance Department",
   "status": "generated",
-  "time": 1780416795.7317393,
-  "time_iso": "2026-06-02T19:13:15+0300",
+  "time": 1780433473.9483287,
+  "time_iso": "2026-06-02T23:51:13+0300",
   "git": {
     "branch": "main",
-    "commit": "5ded6e02c",
-    "dirty_files": 186
+    "commit": "539e9321e",
+    "dirty_files": 159
   },
   "summary": {
-    "records_checked": 66,
-    "finance_related_records": 5,
+    "records_checked": 85,
+    "finance_related_records": 13,
     "risk_items": 0,
-    "finance_audit_records": 13,
-    "finance_ledger_records": 13,
+    "finance_audit_records": 36,
+    "finance_ledger_records": 17,
     "payment_execution_allowed": false,
     "owner_manual_approval_required": true
   },
   "statuses": {
-    "executed": 49,
+    "executed": 66,
     "failed": 2,
     "no_executor_mapping": 8,
-    "unknown": 5,
+    "unknown": 7,
     "reviewed": 2
   },
   "types": {
+    "kibra_market_exchange_task": 2,
+    "evolution_deployment_task": 2,
+    "owner_orchestrator_task": 5,
+    "finance_department_task": 2,
+    "monetization_department_task": 6,
+    "token_pool_ai_task": 3,
+    "finance_infrastructure_task": 2,
+    "existing_tasks_activation_task": 2,
     "kibra_token_chain_task": 3,
-    "owner_orchestrator_task": 2,
-    "token_pool_ai_task": 2,
-    "finance_department_task": 1,
     "institution_audit_task": 2,
     "hash_module_test_task": 1,
     "evolution_guard_task": 6,
@@ -53,12 +58,85 @@
     "None": 2
   },
   "sources": {
-    "cybra:parliament:results": 59,
+    "cybra:parliament:results": 76,
     "cybra:review:approved": 1,
     "cybra:review:rejected": 2,
-    "cybra:evolution:approved": 4
+    "cybra:evolution:approved": 6
   },
   "finance_related": [
+    {
+      "topic": "Evolution Deployment: owner orchestrator cleanup",
+      "type": "owner_orchestrator_task",
+      "status": "executed",
+      "source": "cybra:parliament:results",
+      "score": 1,
+      "finance_hits": [
+        "finance"
+      ],
+      "risk_hits": [],
+      "recommendation": "OK_FOR_REVIEW: можна аналізувати бюджет, але без автоматичної оплати."
+    },
+    {
+      "topic": "Create manual OWNER approval package",
+      "type": "owner_orchestrator_task",
+      "status": "executed",
+      "source": "cybra:parliament:results",
+      "score": 1,
+      "finance_hits": [
+        "finance"
+      ],
+      "risk_hits": [],
+      "recommendation": "OK_FOR_REVIEW: можна аналізувати бюджет, але без автоматичної оплати."
+    },
+    {
+      "topic": "Build sell-without-crash model",
+      "type": "finance_department_task",
+      "status": "executed",
+      "source": "cybra:parliament:results",
+      "score": 1,
+      "finance_hits": [
+        "finance"
+      ],
+      "risk_hits": [],
+      "recommendation": "OK_FOR_REVIEW: можна аналізувати бюджет, але без автоматичної оплати."
+    },
+    {
+      "topic": "Prepare real KIBRA token mint readiness",
+      "type": "finance_infrastructure_task",
+      "status": "executed",
+      "source": "cybra:parliament:results",
+      "score": 1,
+      "finance_hits": [
+        "finance"
+      ],
+      "risk_hits": [],
+      "recommendation": "OK_FOR_REVIEW: можна аналізувати бюджет, але без автоматичної оплати."
+    },
+    {
+      "topic": "CYBRA Finance Infrastructure: token mint multipayment gold treasury",
+      "type": "finance_infrastructure_task",
+      "status": "executed",
+      "source": "cybra:parliament:results",
+      "score": 2,
+      "finance_hits": [
+        "payment",
+        "finance"
+      ],
+      "risk_hits": [],
+      "recommendation": "OK_FOR_REVIEW: можна аналізувати бюджет, але без автоматичної оплати."
+    },
+    {
+      "topic": "Block 7 Car Purchase Intent",
+      "type": "owner_orchestrator_task",
+      "status": "executed",
+      "source": "cybra:parliament:results",
+      "score": 1,
+      "finance_hits": [
+        "finance"
+      ],
+      "risk_hits": [],
+      "recommendation": "OK_FOR_REVIEW: можна аналізувати бюджет, але без автоматичної оплати."
+    },
     {
       "topic": "Set OWNER as MAIN_ORCHESTRATOR and resolve finance risk / external anchor / car preflight",
       "type": "owner_orchestrator_task",
@@ -118,10 +196,34 @@
       ],
       "risk_hits": [],
       "recommendation": "OK_FOR_REVIEW: можна аналізувати бюджет, але без автоматичної оплати."
+    },
+    {
+      "topic": "CYBRA KIBRA Monetization Evolution",
+      "type": "monetization_department_task",
+      "status": null,
+      "source": "cybra:evolution:approved",
+      "score": 1,
+      "finance_hits": [
+        "finance"
+      ],
+      "risk_hits": [],
+      "recommendation": "OK_FOR_REVIEW: можна аналізувати бюджет, але без автоматичної оплати."
+    },
+    {
+      "topic": "CYBRA KIBRA Monetization Evolution",
+      "type": "monetization_department_task",
+      "status": null,
+      "source": "cybra:evolution:approved",
+      "score": 1,
+      "finance_hits": [
+        "finance"
+      ],
+      "risk_hits": [],
+      "recommendation": "OK_FOR_REVIEW: можна аналізувати бюджет, але без автоматичної оплати."
     }
   ],
   "risk_items": [],
   "budget_template": "data/finance/budget_ledger_template.json",
   "policy": "parliament/finance/finance_policy.json",
-  "double_sha": "aa667f2fd6dcb2ae407066f3263bd9c57847c8a9a8383e68a2d6c03c01bfcafa"
+  "double_sha": "6b00209dd5fe2753ceee87cf0369f962906ad5daec802475f1a76f7b3b54ba82"
 }

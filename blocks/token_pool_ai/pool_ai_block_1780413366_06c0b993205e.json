@@ -1,0 +1,134 @@
+{
+  "module": "CYBRA Token Pool AI Finance Orchestrator",
+  "status": "block_building",
+  "time": 1780413366.4670503,
+  "time_iso": "2026-06-02T18:16:06+0300",
+  "previous_block_hash": "758e2d47e271a9584605d3d340536004be1a5e63cd835e288863a84e1dd2d9e1",
+  "distribution": {
+    "owner_share_percent": 60,
+    "pool_reward_percent": 40,
+    "rule": "60% owner allocation / 40% pool reward allocation",
+    "real_execution": "manual approval required"
+  },
+  "real_execution": {
+    "real_pool_creation": false,
+    "real_payment_execution": false,
+    "manual_owner_approval_required": true,
+    "legal_and_tax_review_required": true,
+    "blockchain_anchor": "queued_as_proof_only"
+  },
+  "ai_tasks": [
+    {
+      "task_id": "AI-FIN-001",
+      "department": "finance_department",
+      "goal": "Перевірити 60/40 token pool allocation без виконання реальних платежів.",
+      "output": "finance ledger proposal + risk report"
+    },
+    {
+      "task_id": "AI-REV-001",
+      "department": "revision_organ",
+      "goal": "Перевірити, чи token pool plan має audit, proof, no private keys, no auto payments.",
+      "output": "revision status"
+    },
+    {
+      "task_id": "AI-ANA-001",
+      "department": "analytics_committee",
+      "goal": "Оцінити статистику задач, pool-share proof і вплив на розвиток Кіберапарламенту.",
+      "output": "analytics summary"
+    },
+    {
+      "task_id": "AI-HASH-001",
+      "department": "hash_module",
+      "goal": "Зібрати AI tasks + pool policy + shares у double-SHA block.",
+      "output": "root hash + block proof"
+    },
+    {
+      "task_id": "AI-EVO-001",
+      "department": "evolution_guard",
+      "goal": "Перевірити, що модель token pool веде до розвитку, а не до деградації.",
+      "output": "evolution pass/hold decision"
+    }
+  ],
+  "git": {
+    "branch": "main",
+    "commit": "59ff257bb",
+    "dirty_files": 168
+  },
+  "local_mined_shares": [
+    {
+      "nonce": 277,
+      "share_hash": "0003b457e09361f10390359207d4426141df6fe453277926e92c00a0d3bc510b",
+      "seed_sha": "3da8e8ffc10155075694593156a5a64a0a4c83591ecadedce1a320268d5859ae",
+      "difficulty_prefix": "000"
+    },
+    {
+      "nonce": 3663,
+      "share_hash": "0005756a26f86dda38c6112fb623707cb0e2a278de93e7338178649ebbd3c0e1",
+      "seed_sha": "3da8e8ffc10155075694593156a5a64a0a4c83591ecadedce1a320268d5859ae",
+      "difficulty_prefix": "000"
+    },
+    {
+      "nonce": 11501,
+      "share_hash": "000ec17182af560009ce4257ec9ee8ba6b6d04222d6713d7a681445545682b96",
+      "seed_sha": "3da8e8ffc10155075694593156a5a64a0a4c83591ecadedce1a320268d5859ae",
+      "difficulty_prefix": "000"
+    },
+    {
+      "nonce": 13172,
+      "share_hash": "000bcea789ba33c14fe933b9031c3047e205a3edbc45e4de02446f071300e3d0",
+      "seed_sha": "3da8e8ffc10155075694593156a5a64a0a4c83591ecadedce1a320268d5859ae",
+      "difficulty_prefix": "000"
+    },
+    {
+      "nonce": 22348,
+      "share_hash": "000749a281ffa77f714e3e5e34c0eaefb8c590282317b69ff79dbb976a4f4ec3",
+      "seed_sha": "3da8e8ffc10155075694593156a5a64a0a4c83591ecadedce1a320268d5859ae",
+      "difficulty_prefix": "000"
+    },
+    {
+      "nonce": 35625,
+      "share_hash": "000af2dd952597ed833fa3cb1cec313de3ede669c14490f1817f006414d496dc",
+      "seed_sha": "3da8e8ffc10155075694593156a5a64a0a4c83591ecadedce1a320268d5859ae",
+      "difficulty_prefix": "000"
+    },
+    {
+      "nonce": 38727,
+      "share_hash": "0005558b9564264c2ef86b731b9afa99df9a395d74beb3f19ab8c4b102371c48",
+      "seed_sha": "3da8e8ffc10155075694593156a5a64a0a4c83591ecadedce1a320268d5859ae",
+      "difficulty_prefix": "000"
+    },
+    {
+      "nonce": 39443,
+      "share_hash": "0005eabf1c803f9e4e38f2eda6665f48c92861ec9667dfa3bd52457162da62da",
+      "seed_sha": "3da8e8ffc10155075694593156a5a64a0a4c83591ecadedce1a320268d5859ae",
+      "difficulty_prefix": "000"
+    },
+    {
+      "nonce": 47148,
+      "share_hash": "00007e9b3b20532729cc9d5fccac593ce061eb4245a4c391b4c14bd9a447bf0d",
+      "seed_sha": "3da8e8ffc10155075694593156a5a64a0a4c83591ecadedce1a320268d5859ae",
+      "difficulty_prefix": "000"
+    },
+    {
+      "nonce": 68414,
+      "share_hash": "0006e8aa6cf395e91b95dae0657e75c96e7c24a45bfe6d7ab535fb7c023b8cab",
+      "seed_sha": "3da8e8ffc10155075694593156a5a64a0a4c83591ecadedce1a320268d5859ae",
+      "difficulty_prefix": "000"
+    },
+    {
+      "nonce": 79232,
+      "share_hash": "00022292dd6232435dbce24e43381135867f7b099c19e53a154b0e8d267ef45a",
+      "seed_sha": "3da8e8ffc10155075694593156a5a64a0a4c83591ecadedce1a320268d5859ae",
+      "difficulty_prefix": "000"
+    },
+    {
+      "nonce": 84444,
+      "share_hash": "000c56772a03a7e6b9b1a22b740f5aacdba084970a457ded988e7ab87be92bf0",
+      "seed_sha": "3da8e8ffc10155075694593156a5a64a0a4c83591ecadedce1a320268d5859ae",
+      "difficulty_prefix": "000"
+    }
+  ],
+  "shares_count": 12,
+  "block_double_sha": "06c0b993205e52f149cc76105143b392a56da4fb81b78718c687ae7163fc0d3f",
+  "block_id": "pool_ai_block_1780413366_06c0b993205e"
+}

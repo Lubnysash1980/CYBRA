@@ -1,18 +1,18 @@
 # CYBRA Task Statistics
 
 Status: generated  
-Double SHA: `b6eb4b8b2bf5d47333b2072cbe32b4895634199d7b225581565bc9e767492a92`
+Double SHA: `8667a812c0e9bce2c9966cd407f4ea1ae90146a50a73cbc010ca9dc606af0468`
 
 ## Summary
 
 - Checked task results: 38
-- Checked event/audit records: 15
+- Checked event/audit records: 16
 - Audit hashes: 34
 - Executed: 26
 - No executor mapping: 9
 - Failed/Error: 0
 - Reviewed: 2
-- Executor mapping count: 24
+- Executor mapping count: 33
 
 ## Queue state
 
@@ -29,7 +29,7 @@ Double SHA: `b6eb4b8b2bf5d47333b2072cbe32b4895634199d7b225581565bc9e767492a92`
 - revision_audit: 4
 - analytics_audit: 3
 - education_audit: 0
-- statistics_audit: 5
+- statistics_audit: 6
 
 ## Task statuses
 
@@ -65,7 +65,7 @@ Double SHA: `b6eb4b8b2bf5d47333b2072cbe32b4895634199d7b225581565bc9e767492a92`
 
 ## Event statuses
 
-- `statistics_generated`: 5
+- `statistics_generated`: 6
 - `revision_generated`: 4
 - `analytics_generated`: 3
 - `reviewed`: 3

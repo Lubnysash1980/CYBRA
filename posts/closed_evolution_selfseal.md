@@ -21,10 +21,10 @@ Internal key revealed:
 `false`
 
 Closed parliament seal:
-`76c25577a4a22f4283c8c284e59b38703754b9b59d21bd13adbb299b136c312e`
+`7aef017ca29b4682f6bfb37ac4b6966494b0a95774aa3a8d4ede8dc6616c919c`
 
 Double SHA:
-`d9410d69c2f2197e29bafc059c5d78c11654cef309fec981fcecc2485ac2c41c`
+`35e08bb2035890f21cc6900bd5e84d368e8f8c82a4d541b8d87d268c7118c4d5`
 
 ## Rule
 

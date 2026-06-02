@@ -69,7 +69,7 @@ Latest KIBRA hash:
 
 Monetization Double SHA:
 
-`eb36ea67d4ee86c997aabebc834ea3b10fe47d392826efdd579a9a8abf0905f2`
+`e542aaada6813638cc7cf7b6bab6a8da79d415c589121007f6307e3b888b1c1b`
 
 ## Files
 

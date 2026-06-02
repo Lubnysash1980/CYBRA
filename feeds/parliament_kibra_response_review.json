@@ -1,7 +1,7 @@
 {
   "status": "generated",
-  "time": 1780416794.5543365,
-  "time_iso": "2026-06-02T19:13:14+0300",
+  "time": 1780430584.0506094,
+  "time_iso": "2026-06-02T23:03:04+0300",
   "question": "Як Кіберапарламент справляється з KIBRA token chain / pool / finance / hash task?",
   "verdict": {
     "parliament_created_required_structures": true,
@@ -28,21 +28,21 @@
     "token_kibra_image": 2,
     "blockchain_kibra_chain": 11,
     "kibra_blocks": 8,
-    "posts": 117,
-    "feeds": 37,
-    "proofs": 135
+    "posts": 120,
+    "feeds": 40,
+    "proofs": 138
   },
   "redis_state": {
     "parliament_queue": 0,
-    "parliament_results": 59,
+    "parliament_results": 65,
     "parliament_failed": 0,
     "kibra_audit": 11,
     "finance_ledger": 13,
-    "finance_audit": 13,
+    "finance_audit": 31,
     "anchor_queue": 0,
-    "hash_audit": 9,
-    "institution_audit": 23,
-    "evolution_approved": 4,
+    "hash_audit": 25,
+    "institution_audit": 39,
+    "evolution_approved": 6,
     "evolution_hold": 0,
     "evolution_rejected": 0,
     "review_approved": 1,
@@ -174,31 +174,31 @@
     ]
   },
   "institution_summary": {
-    "tasks_checked": 66,
-    "task_types": 26,
-    "executor_mapping_count": 44,
+    "tasks_checked": 74,
+    "task_types": 29,
+    "executor_mapping_count": 47,
     "required_organs": 10,
     "missing_organs": 0,
     "task_types_without_mapping": 0,
     "mapped_handlers_missing_files": 0,
     "task_types_without_committee": 0,
-    "departments_files": 19,
-    "committees_files": 76,
+    "departments_files": 20,
+    "committees_files": 82,
     "protection_files": 3
   },
   "finance_summary": {
-    "records_checked": 66,
-    "finance_related_records": 5,
+    "records_checked": 74,
+    "finance_related_records": 8,
     "risk_items": 0,
-    "finance_audit_records": 12,
+    "finance_audit_records": 30,
     "finance_ledger_records": 13,
     "payment_execution_allowed": false,
     "owner_manual_approval_required": true
   },
   "hash_module": {
     "status": "hash_module_test_generated",
-    "payload_double_sha": "cc532ab5be33f561b058fe15192126899b329835ed43e1a39fde417f2892ccde",
-    "root_double_sha": "e7f05a8ab6b05529875adb70135c5bd2a7afa1c420a08cbdf415e41d1ee7bd15",
+    "payload_double_sha": "dfccd90d7c58b24894d48b3e4dc15a841ed1006b806e5b5c3abffb790e52437f",
+    "root_double_sha": "2bf08d94bb54c6aa5fa3aed0c7f7c5bc460bd4d10714ddfb53ca85ab22f1273a",
     "manifest_file": "hash_storage/test/hash_module_test_manifest.json",
     "detected_modules": {
       "gitcybrahash_double_backend.mjs": true,
@@ -207,13 +207,13 @@
       "cybra_sha_core_manager.sh": true,
       "hash_storage/root_hash.json": true
     },
-    "time": 1780416791.3906937
+    "time": 1780430580.9232848
   },
   "evolution_summary": {
-    "approved": 4,
+    "approved": 6,
     "hold": 0,
     "rejected": 0,
-    "audit_records": 4
+    "audit_records": 6
   },
   "proof_checks": {
     "kibra_token_chain": "ok",
@@ -222,6 +222,36 @@
     "institution_audit": "ok"
   },
   "kibra_related_results": [
+    {
+      "topic": "CYBRA KIBRA Monetization Department",
+      "type": "monetization_department_task",
+      "status": "executed",
+      "script": "monetization_department_handler.sh",
+      "double_sha": "19f5bedb5dd727baf3471d1aaeaeaac4f6f309f412a14d3eccccb6cf949aa5d1",
+      "retries": 0,
+      "execution": {
+        "ok": true,
+        "returncode": 0,
+        "stdout": "✅ CYBRA Monetization Department report generated\nDouble SHA: 584c3821a6fa5bbe807a37312251bc42fef1219073232a953a7473782dda6ddd\nReport: posts/monetization_department_report.md\nFeed: feeds/monetization_department_report.json\nProof: proofs/monetization_department.sha256\n",
+        "stderr": ""
+      },
+      "time": 1780421788.510648
+    },
+    {
+      "topic": "CYBRA KIBRA Monetization Evolution",
+      "type": "monetization_department_task",
+      "status": "executed",
+      "script": "monetization_department_handler.sh",
+      "double_sha": "363d65057ed836d3304a4f0a1002dc3c94fd10b93dbc0837546599042a845819",
+      "retries": 0,
+      "execution": {
+        "ok": true,
+        "returncode": 0,
+        "stdout": "✅ CYBRA Monetization Department report generated\nDouble SHA: d3043c4cac0c1b7cd923e696ab35dca923fdc38138d525fbe71d2e5659129da8\nReport: posts/monetization_department_report.md\nFeed: feeds/monetization_department_report.json\nProof: proofs/monetization_department.sha256\n",
+        "stderr": ""
+      },
+      "time": 1780421782.4005792
+    },
     {
       "topic": "Build KIBRA Image Token Chain",
       "type": "kibra_token_chain_task",
@@ -345,5 +375,5 @@
       "action": "Перевірити: bash cybra_kibra_chain.sh verify && bash cybra_kibra_chain.sh difficulty"
     }
   ],
-  "double_sha": "c725b1dbe14573252e1b96442326600b48d9bba77c021f946165e82b5ab127ac"
+  "double_sha": "7716ba30950b56d5fd1ac3e17cdf2b03f629486b2441a9eb930e8ca0bb221f0a"
 }

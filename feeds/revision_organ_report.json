@@ -1,33 +1,33 @@
 {
   "organ": "CYBRA Parliament Revision Organ",
   "status": "generated",
-  "time": 1780395216.4573672,
+  "time": 1780405416.5342426,
   "git": {
     "branch": "main",
-    "commit": "7d6b7865e",
-    "dirty_files": 44
+    "commit": "c7f7acad7",
+    "dirty_files": 71
   },
   "redis": {
     "results": 0,
-    "audit": 34,
-    "parliament_queue": 0,
+    "audit": 36,
+    "parliament_queue": 4,
     "review_incoming": 0,
     "review_approved": 1,
     "review_hold": 0,
     "review_rejected": 2,
     "review_audit": 3,
     "analytics_audit": 3,
-    "revision_audit": 3
+    "revision_audit": 4
   },
   "summary": {
     "checked_results": 0,
     "executed": 0,
     "failed": 0,
     "no_executor_mapping": 0,
-    "proof_files": 110,
-    "posts_files": 94,
-    "feeds_files": 14,
-    "executor_mapping_count": 24,
+    "proof_files": 123,
+    "posts_files": 105,
+    "feeds_files": 24,
+    "executor_mapping_count": 37,
     "statuses": {},
     "types": {},
     "scripts": {}
@@ -58,14 +58,27 @@
     "pmz_historical_metadata_task": "create_pmz_registry.sh",
     "new_task_type": "new_handler.sh",
     "analytics_committee_task": "analytics_committee_handler.sh",
-    "revision_organ_task": "revision_organ_handler.sh"
+    "revision_organ_task": "revision_organ_handler.sh",
+    "evo_committee_task": "evo_committee_handler.sh",
+    "committee_creation_task": "evo_committee_handler.sh",
+    "queue_fix": "evo_committee_handler.sh",
+    "ai_task": "evo_committee_handler.sh",
+    "test": "evo_committee_handler.sh",
+    "self_expanding_execution_engine_task": "evo_committee_handler.sh",
+    "executor_autoheal_task": "evo_committee_handler.sh",
+    "codespaces_keepalive_task": "evo_committee_handler.sh",
+    "github_double_backend_task": "evo_committee_handler.sh",
+    "dialogue_key_task": "dialogue_key_handler.sh",
+    "audit_dedupe_test_task": "audit_dedupe_test_handler.sh",
+    "closed_evolution_selfseal_task": "closed_evolution_selfseal_handler.sh",
+    "biometric_succession_task": "biometric_succession_handler.sh"
   },
   "recommendations": [
     {
-      "level": "ok",
-      "message": "Ревізія не знайшла критичних проблем.",
-      "action": "Продовжувати моніторинг."
+      "level": "warning",
+      "message": "У черзі виконання залишились задачі.",
+      "action": "cybra worker-start && cybra status"
     }
   ],
-  "double_sha": "1861b8171d8a8debb1fe95e56528294f9d6d4771a37e007731636c03e54bdbfc"
+  "double_sha": "227a2fc93aae94ce56868ddf0ef90c86bcfbbed8e28eb03273bf9980b138a287"
 }

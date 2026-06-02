@@ -1,10 +1,9 @@
 {
   "status": "reviewed",
-  "time": 1780382878.5566523,
-  "raw_double_sha": "f2cd60065bf80cd0228aaf21e5104377e8a7e14d1e8106d2d63ac8e391abfd14",
-  "topic": "Ракетна небезпека через орган перевірки",
-  "type": "air_alert_task",
-  "decision": "approved",
-  "reason": "safe_and_mapped",
-  "script": "air_alert_handler.sh"
+  "time": 1780388893.4926472,
+  "raw_double_sha": "e34c15f16b940351365b5ac77224a7a853897bdfefe4fa79635c86419ed1606d",
+  "decision": "rejected",
+  "reason": "invalid_json: Expecting value: line 1 column 1 (char 0)",
+  "topic": null,
+  "type": null
 }

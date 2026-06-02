@@ -2,20 +2,20 @@
 
 Status: generated  
 Mode: check  
-Double SHA: `abba38ea229bd1a9ed33d74e60a588dceeaeeaff926ed60ac59ddc45d17e697d`
+Double SHA: `163d885da2b016ede4af47a2108c8bcf575448794afdacd74b3e49185fd7ed55`
 
 ## Summary
 
-- Tasks checked: 68
-- Task types: 26
-- Executor mapping count: 44
+- Tasks checked: 82
+- Task types: 31
+- Executor mapping count: 49
 - Required organs: 10
 - Missing organs: 0
 - Task types without mapping: 0
 - Mapped handlers missing files: 0
-- Task types without committee: 0
-- Departments files: 19
-- Committees files: 76
+- Task types without committee: 2
+- Departments files: 22
+- Committees files: 82
 - Protection files: 3
 
 ## Organs
@@ -34,10 +34,10 @@ Double SHA: `abba38ea229bd1a9ed33d74e60a588dceeaeeaff926ed60ac59ddc45d17e697d`
 
 ## Statuses
 
-- `executed`: 48
-- `no_executor_mapping`: 9
-- `unknown`: 5
-- `failed`: 4
+- `executed`: 59
+- `unknown`: 11
+- `no_executor_mapping`: 8
+- `failed`: 2
 - `reviewed`: 2
 
 ## Task types
@@ -45,26 +45,31 @@ Double SHA: `abba38ea229bd1a9ed33d74e60a588dceeaeeaff926ed60ac59ddc45d17e697d`
 - `air_alert_task`: 10
 - `cybra_autofix_task`: 7
 - `evolution_guard_task`: 6
-- `kibra_token_chain_task`: 4
+- `monetization_department_task`: 5
+- `owner_orchestrator_task`: 4
+- `token_pool_ai_task`: 3
+- `kibra_token_chain_task`: 3
 - `closed_evolution_selfseal_task`: 3
 - `audit_dedupe_test_task`: 3
 - `analytics_committee_task`: 3
 - `revision_organ_task`: 3
 - `smart_autofix_mining_pool_task`: 3
-- `owner_orchestrator_task`: 2
-- `token_pool_ai_task`: 2
+- `evolution_deployment_task`: 2
+- `finance_department_task`: 2
+- `finance_infrastructure_task`: 2
+- `existing_tasks_activation_task`: 2
 - `institution_audit_task`: 2
 - `biometric_succession_task`: 2
 - `test`: 2
 - `native_token_ecosystem_task`: 2
-- `self_expanding_execution_engine_task`: 2
 - `pmz_historical_metadata_task`: 2
 - `None`: 2
-- `finance_department_task`: 1
+- `kibra_market_exchange_task`: 1
 - `hash_module_test_task`: 1
 - `evo_committee_task`: 1
 - `queue_fix`: 1
 - `ai_task`: 1
+- `self_expanding_execution_engine_task`: 1
 - `executor_autoheal_task`: 1
 - `codespaces_keepalive_task`: 1
 - `github_double_backend_task`: 1
@@ -80,25 +85,30 @@ Double SHA: `abba38ea229bd1a9ed33d74e60a588dceeaeeaff926ed60ac59ddc45d17e697d`
 - `codespaces_keepalive_task` count=1 mapping=`evo_committee_handler.sh` handler_exists=True committee_exists=True
 - `cybra_autofix_task` count=7 mapping=`cybra_autofix.sh` handler_exists=True committee_exists=True
 - `evo_committee_task` count=1 mapping=`evo_committee_handler.sh` handler_exists=True committee_exists=True
+- `evolution_deployment_task` count=2 mapping=`evolution_deployment_handler.sh` handler_exists=True committee_exists=True
 - `evolution_guard_task` count=6 mapping=`evolution_guard_handler.sh` handler_exists=True committee_exists=True
 - `executor_autoheal_task` count=1 mapping=`evo_committee_handler.sh` handler_exists=True committee_exists=True
-- `finance_department_task` count=1 mapping=`finance_department_handler.sh` handler_exists=True committee_exists=True
+- `existing_tasks_activation_task` count=2 mapping=`existing_tasks_activation_handler.sh` handler_exists=True committee_exists=True
+- `finance_department_task` count=2 mapping=`finance_department_handler.sh` handler_exists=True committee_exists=True
+- `finance_infrastructure_task` count=2 mapping=`finance_infrastructure_handler.sh` handler_exists=True committee_exists=False
 - `github_double_backend_task` count=1 mapping=`evo_committee_handler.sh` handler_exists=True committee_exists=True
 - `hash_module_test_task` count=1 mapping=`hash_module_test_handler.sh` handler_exists=True committee_exists=True
 - `institution_audit_task` count=2 mapping=`institution_audit_handler.sh` handler_exists=True committee_exists=True
-- `kibra_token_chain_task` count=4 mapping=`kibra_token_chain_handler.sh` handler_exists=True committee_exists=True
+- `kibra_market_exchange_task` count=1 mapping=`kibra_market_exchange_handler.sh` handler_exists=True committee_exists=False
+- `kibra_token_chain_task` count=3 mapping=`kibra_token_chain_handler.sh` handler_exists=True committee_exists=True
+- `monetization_department_task` count=5 mapping=`monetization_department_handler.sh` handler_exists=True committee_exists=True
 - `native_token_ecosystem_task` count=2 mapping=`create_native_token_ecosystem.sh` handler_exists=True committee_exists=True
-- `owner_orchestrator_task` count=2 mapping=`owner_orchestrator_handler.sh` handler_exists=True committee_exists=True
+- `owner_orchestrator_task` count=4 mapping=`owner_orchestrator_handler.sh` handler_exists=True committee_exists=True
 - `pmz_historical_metadata_task` count=2 mapping=`create_pmz_registry.sh` handler_exists=True committee_exists=True
 - `queue_fix` count=1 mapping=`evo_committee_handler.sh` handler_exists=True committee_exists=True
 - `revision_organ_task` count=3 mapping=`revision_organ_handler.sh` handler_exists=True committee_exists=True
-- `self_expanding_execution_engine_task` count=2 mapping=`evo_committee_handler.sh` handler_exists=True committee_exists=True
+- `self_expanding_execution_engine_task` count=1 mapping=`evo_committee_handler.sh` handler_exists=True committee_exists=True
 - `smart_autofix_mining_pool_task` count=3 mapping=`cybra_mining_autofix.sh` handler_exists=True committee_exists=True
 - `test` count=2 mapping=`evo_committee_handler.sh` handler_exists=True committee_exists=True
-- `token_pool_ai_task` count=2 mapping=`token_pool_ai_handler.sh` handler_exists=True committee_exists=True
+- `token_pool_ai_task` count=3 mapping=`token_pool_ai_handler.sh` handler_exists=True committee_exists=True
 
 
 ## Recommendations
 
-- **ok**: Кіберапарламент має базові департаменти, комітети, mapping і захист для поточних тасків. Action: `Продовжувати тестування.`
+- **development**: Для частини task types немає окремих комітетів. Action: `Запусти repair, щоб створити committee skeleton.`
 

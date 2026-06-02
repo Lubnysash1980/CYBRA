@@ -6,4 +6,4 @@ Purpose:
 Proof, sha256, double SHA, root hash
 
 Double SHA:
-`ba69aa977c109a54924e35871f92727d500990e191c40487ede9635cc6706ccd`
+`56aa63c9c074bde6fc16f4c16a489303467d8c452b0f623e82d2777ec0d39b58`

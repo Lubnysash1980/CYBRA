@@ -1,0 +1,15 @@
+{
+  "name": "CYBRA Dialogue Key Policy",
+  "status": "active",
+  "dialogue_id": "CYBRA_DIALOGUE_20260602_135155_0ac74f25",
+  "purpose": "Зберегти зашифрований ключ діалогу, умови 40/40, локальні приватні дані та правовий маршрут без технічної зброярської реалізації.",
+  "private_payload": "private_vault/dialogue/CYBRA_DIALOGUE_20260602_135155_0ac74f25.private.json.enc",
+  "private_payload_sha256": "623a2bf305a4f867ed43b960b7bbcb5c3b778cd715d929bd6891b4bb68995602",
+  "rules": {
+    "no_private_data_in_git": true,
+    "no_payment_execution": true,
+    "no_weapon_development": true,
+    "legal_dialogue_only": true,
+    "official_channels_required": true
+  }
+}

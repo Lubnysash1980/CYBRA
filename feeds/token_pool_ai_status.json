@@ -1,8 +1,8 @@
 {
   "status": "token_pool_ai_block_generated",
-  "block_id": "pool_ai_block_1780412307_758e2d47e271",
-  "block_double_sha": "758e2d47e271a9584605d3d340536004be1a5e63cd835e288863a84e1dd2d9e1",
-  "previous_block_hash": "e6fcc8768731a4729ff692354cc8b820e19464e59352687526e73f0b3519a079",
+  "block_id": "pool_ai_block_1780432283_81b44d46b5d6",
+  "block_double_sha": "81b44d46b5d6ab311fdea378b51cff5c387e290156727e59794e6b2cd8631909",
+  "previous_block_hash": "a5665894d91170a302d76ae7dff1597a988412f8cce5936af15d98a509677299",
   "owner_share_percent": 60,
   "pool_reward_percent": 40,
   "shares_count": 12,
@@ -10,6 +10,6 @@
   "real_payments_executed": false,
   "manual_approval_required": true,
   "blockchain_anchor_queue": "cybra:blockchain:anchor:queue",
-  "block_file": "blocks/token_pool_ai/pool_ai_block_1780412307_758e2d47e271.json",
-  "time": 1780412307.305156
+  "block_file": "blocks/token_pool_ai/pool_ai_block_1780432283_81b44d46b5d6.json",
+  "time": 1780432283.1668313
 }

@@ -135,9 +135,9 @@
   ],
   "redis": {
     "kibra_audit": 11,
-    "finance_ledger": 13,
-    "anchor_queue": 0
+    "finance_ledger": 17,
+    "anchor_queue": 1
   },
-  "time": 1780416787.9744358,
-  "double_sha": "fa41ccba1621da3d33ad4ffe3fe727639d8e46544c1b26a967a0260d922f16b1"
+  "time": 1780432292.774518,
+  "double_sha": "0282dfc11f25f85876923bedc480b4fc4a66373e9def6a29fee73d1b62d81f74"
 }
