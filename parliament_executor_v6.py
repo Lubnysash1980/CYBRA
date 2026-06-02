@@ -95,7 +95,7 @@ def main():
 
             r.lpush(Q_AUDIT, h)
 
-            script_name = SCRIPT_MAP.get(task_type)
+            script_name = r.hget("cybra:executor:mapping", task_type) or SCRIPT_MAP.get(task_type)
 
             if not script_name:
                 result = {
