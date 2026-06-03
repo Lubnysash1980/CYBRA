@@ -1,0 +1,51 @@
+{
+  "status": "full_resealed",
+  "patch_id": "CYBRA-AUTORECOVERY-PATCH-V2-FULL-RESEAL",
+  "patch_version": "v2_full",
+  "sealed_at": 1780494698.8245718,
+  "sealed_at_iso": "2026-06-03T16:51:38+0300",
+  "files_count": 7,
+  "files": [
+    {
+      "sha256": "c90fcd202c4ab7101c2de49c9044f47a0efc6541275e7518c93a48ada87801e2",
+      "file": "cybra_autorecovery_patch_v2.sh"
+    },
+    {
+      "sha256": "617de7a483d1e38a2513323c74bca35ba08fff058de9331dfe980513dd1c6ff8",
+      "file": "cybra_autorecovery_seal_patch_v2.sh"
+    },
+    {
+      "sha256": "c3f9e6971855ce466e1ac0f22595be10d533ac3b42e2248e0ae5490d6dcdf22f",
+      "file": "cybra_autorecovery_full_reseal_v2.sh"
+    },
+    {
+      "sha256": "ea61764d1e41d2e826d5bc0cd69cdf91169f42fa5040e7c44ff0822817ff0230",
+      "file": "bin/cybra-recover"
+    },
+    {
+      "sha256": "ea55f297dc417c4639e023053f9f125c192bb6e3f5c8f7ce0e1caff337221fd9",
+      "file": "cybra_recovery.sh"
+    },
+    {
+      "sha256": "94d4b247835bce407feacaa9767c880d50cfa821a8a46811e36a833b0ac6b577",
+      "file": "parliament/departments/finance_department/cybra_autorecovery_committee/committee.json"
+    },
+    {
+      "sha256": "94d4b247835bce407feacaa9767c880d50cfa821a8a46811e36a833b0ac6b577",
+      "file": "parliament/departments/cybra_finance_department/cybra_autorecovery_committee/committee.json"
+    }
+  ],
+  "purpose": "Full SHA reseal for CYBRA AutoRecovery v2 including restore script, restore pack, reports, handler, binary and committee.",
+  "safety": {
+    "private_identity_included": false,
+    "private_keys_included": false,
+    "seed_phrase_included": false,
+    "github_token_included": false,
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  },
+  "proof_sha256": "46df16567e4998f02f3f3142c7c4a4237a15c08cfe55efbf10fee579e113850d",
+  "double_sha": "b3ae6c9ce977677b09a2ffbe26254097224595426fe170ef2534342c2a69cf45"
+}
