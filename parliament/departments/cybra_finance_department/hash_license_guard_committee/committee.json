@@ -1,0 +1,24 @@
+{
+  "committee_id": "hash_license_guard_committee",
+  "name": "Hash License Guard Committee",
+  "parent_department": "finance_department",
+  "status": "active",
+  "mission": "Контролювати ліцензію Hash Module. Якщо аудит знаходить і підтверджує несанкціоноване комерційне використання — ставити внутрішній статус FROZEN.",
+  "license_rule": "Unauthorized commercial use of the Hash Module is prohibited. If violation is detected and confirmed by audit, the subject is marked STATUS: FROZEN.",
+  "frozen_scope": "Internal CYBRA/KYBRA status only: access flag, license flag, audit flag, commercial permission state.",
+  "blocked_actions": [
+    "no account seizure",
+    "no external system interference",
+    "no unlawful blocking",
+    "no automatic financial action",
+    "no automatic external transaction",
+    "no real payment"
+  ],
+  "requirements": [
+    "audit_required",
+    "evidence_required",
+    "violation_confirmation_required",
+    "manual_OWNER_review_required_for_unfreeze"
+  ],
+  "manual_OWNER_approval_required": true
+}

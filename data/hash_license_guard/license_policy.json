@@ -1,0 +1,29 @@
+{
+  "policy_id": "CYBRA-HASH-LICENSE-POLICY",
+  "owner_license": "OWNER_CONTROLLED_HASH_MODULE_LICENSE",
+  "rule": "If unauthorized commercial use of my Hash Module is found and confirmed by audit, the violating entity is marked STATUS: FROZEN.",
+  "violation_types": [
+    "unauthorized_commercial_use",
+    "copying_without_permission",
+    "integration_without_license",
+    "paid_product_use_without_owner_approval",
+    "commercial_api_backend_use_without_license",
+    "redistribution_without_permission",
+    "monetization_without_owner_approval"
+  ],
+  "frozen_meaning": [
+    "commercial permission suspended",
+    "monetization rights blocked",
+    "integration rights revoked",
+    "manual OWNER review required",
+    "unfreeze only after OWNER approval"
+  ],
+  "safety": {
+    "real_payment_now": false,
+    "automatic_external_tx": false,
+    "automatic_SWIFT": false,
+    "external_blocking": false,
+    "internal_status_only": true,
+    "manual_OWNER_approval_required": true
+  }
+}

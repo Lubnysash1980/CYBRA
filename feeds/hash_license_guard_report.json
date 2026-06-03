@@ -1,0 +1,30 @@
+{
+  "status": "hash_license_guard_report_generated",
+  "time": 1780507074.7079737,
+  "time_iso": "2026-06-03T20:17:54+0300",
+  "subjects_total": 1,
+  "frozen_total": 0,
+  "subjects": [
+    {
+      "subject_id": "b8e42b9db836bccf",
+      "subject": "Example Company API",
+      "status": "NO_CONFIRMED_VIOLATION"
+    }
+  ],
+  "frozen": [],
+  "queues": {
+    "audit": 3,
+    "frozen_hash": 0,
+    "ai_block_inbox": 0,
+    "parliament_queue": 0,
+    "parliament_failed": 0
+  },
+  "safety": {
+    "internal_status_only": true,
+    "real_payment_now": false,
+    "automatic_external_tx": false,
+    "external_blocking": false,
+    "manual_OWNER_approval_required": true
+  },
+  "double_sha": "8e15bcede1bc8f5ec23a36cff990331f7fdcc8a9cb54fb11310678624204fd16"
+}
