@@ -1,0 +1,254 @@
+{
+  "status": "test_autofix_recommendations_generated",
+  "time": 1780502501.4005177,
+  "time_iso": "2026-06-03T19:01:41+0300",
+  "state": {
+    "main_blocks": 10,
+    "task_blocks": 179,
+    "estimated_kibra_default_reward_100": 18900,
+    "parliament_queue": 0,
+    "parliament_results": 35,
+    "parliament_failed": 0,
+    "ai_block_inbox": 0,
+    "task_block_mempool": 0,
+    "pool_mining_blocks": 29,
+    "payment_ready": false,
+    "bank_ready": false,
+    "psp_ready": false,
+    "real_market_confirmed": false,
+    "price_usd_per_kibra": "0",
+    "autorecovery_report_exists": true
+  },
+  "parliament_recommendations": [
+    "- **growth** / `promotion`: Просувати KIBRA через utility: AI credits, proof services, bridge packages, developer marketplace, pool mining. Action: `bash cybra_mint_promo.sh report`",
+    "- **growth** / `next_blocks`: Наступні AI-завдання не відправляти напряму: переводити у task-blocks і давати пулам на майнинг. Action: `bash cybra_ai_blocks.sh until-done`"
+  ],
+  "audit_recommendations": [
+    "Заповнити реальний канал оплати: bank IBAN або PSP provider.",
+    "Не підтверджувати ціну KIBRA без real pool/orderbook/provider/reserve proof.",
+    "Переглянути logs/test_autofix і виправити error/fail рядки."
+  ],
+  "security_missing": [
+    "- payment requisites: real bank IBAN or PSP provider",
+    "- market proof: real pool/orderbook/provider proof",
+    "- market proof: provider_name",
+    "- market proof: proof_source/proof_reference",
+    "- market proof: provider_review_passed=true",
+    "- market proof: owner_approval=true"
+  ],
+  "security_warnings": [
+    "- Sensitive-looking files exist: ai_network/repos/cybro/cigkkuj/.env, ai_network/repos/cybr/cigkkuj/.env, ai_network/repos/c/cigkkuj/.env, .ssh/id_ed25519, recovery_unpack/restore_20260602_154741/CYBRA/.ssh/id_ed25519"
+  ],
+  "security_critical": [
+    "None"
+  ],
+  "conformation_issues": [
+    "- MEDIUM / payment_requisites_not_ready: Payment requisites are not ready: legal name / tax ID / IBAN / PSP missing.",
+    "- MEDIUM / market_price_not_confirmed: Real KIBRA market price is not confirmed."
+  ],
+  "log_system": {
+    "errors": 26,
+    "warnings": 11,
+    "hits": [
+      {
+        "file": "logs/ai_until_done/worker.log",
+        "level": "error",
+        "line": "PARLIAMENT_FAILED=0"
+      },
+      {
+        "file": "logs/ai_until_done/worker.log",
+        "level": "error",
+        "line": "✅ DONE: AI tasks completed, queue empty, failed zero"
+      },
+      {
+        "file": "logs/ai_until_done/worker.log",
+        "level": "error",
+        "line": "  \"parliament_failed\": 0,"
+      },
+      {
+        "file": "logs/autotest/cybra_finance_full_autotest_20260603_151333.log",
+        "level": "warning",
+        "line": "⚠ WARN: No staged changes to commit"
+      },
+      {
+        "file": "logs/autotest/cybra_finance_full_autotest_20260603_151333.log",
+        "level": "warning",
+        "line": "WARN=3"
+      },
+      {
+        "file": "logs/autotest/cybra_finance_full_autotest_20260603_151333.log",
+        "level": "error",
+        "line": "FAIL=0"
+      },
+      {
+        "file": "logs/cybra_autoheal_7lvl/watch.log",
+        "level": "error",
+        "line": "PARLIAMENT_FAILED: 0"
+      },
+      {
+        "file": "logs/cybra_autoheal_7lvl/watch.log",
+        "level": "warning",
+        "line": "WARNINGS: 0"
+      },
+      {
+        "file": "logs/cybra_autoheal_7lvl/watch.log",
+        "level": "error",
+        "line": "PARLIAMENT_FAILED: 0"
+      },
+      {
+        "file": "logs/cybra_autoheal_7lvl/watch.log",
+        "level": "warning",
+        "line": "WARNINGS: 0"
+      },
+      {
+        "file": "logs/cybra_autoheal_7lvl/watch.log",
+        "level": "error",
+        "line": "PARLIAMENT_FAILED: 0"
+      },
+      {
+        "file": "logs/cybra_conformation8/watch.log",
+        "level": "error",
+        "line": "PARLIAMENT_FAILED: 0"
+      },
+      {
+        "file": "logs/cybra_conformation8/watch.log",
+        "level": "warning",
+        "line": "WARNINGS: 0"
+      },
+      {
+        "file": "logs/cybra_conformation8/watch.log",
+        "level": "error",
+        "line": "PARLIAMENT_FAILED: 0"
+      },
+      {
+        "file": "logs/cybra_conformation8/watch.log",
+        "level": "warning",
+        "line": "WARNINGS: 0"
+      },
+      {
+        "file": "logs/cybra_conformation8/watch.log",
+        "level": "error",
+        "line": "PARLIAMENT_FAILED: 0"
+      },
+      {
+        "file": "logs/cybra_security_analytics/watch.log",
+        "level": "error",
+        "line": "PARLIAMENT_FAILED: 0"
+      },
+      {
+        "file": "logs/cybra_security_analytics/watch.log",
+        "level": "warning",
+        "line": "MISSING: 8"
+      },
+      {
+        "file": "logs/cybra_security_analytics/watch.log",
+        "level": "error",
+        "line": "PARLIAMENT_FAILED: 0"
+      },
+      {
+        "file": "logs/cybra_security_analytics/watch.log",
+        "level": "warning",
+        "line": "MISSING: 8"
+      },
+      {
+        "file": "logs/cybra_security_analytics/watch.log",
+        "level": "error",
+        "line": "PARLIAMENT_FAILED: 0"
+      },
+      {
+        "file": "logs/cybra_security_analytics/watch.log",
+        "level": "warning",
+        "line": "MISSING: 8"
+      },
+      {
+        "file": "logs/cybra_security_analytics/watch.log",
+        "level": "error",
+        "line": "PARLIAMENT_FAILED: 0"
+      },
+      {
+        "file": "logs/cybra_security_analytics/watch.log",
+        "level": "warning",
+        "line": "MISSING: 8"
+      },
+      {
+        "file": "logs/kibra_closed_sha_pool_bridge/watch.log",
+        "level": "error",
+        "line": "PARLIAMENT_FAILED: 0"
+      },
+      {
+        "file": "logs/kibra_closed_sha_pool_bridge/watch.log",
+        "level": "error",
+        "line": "PARLIAMENT_FAILED: 0"
+      },
+      {
+        "file": "logs/kibra_closed_sha_pool_bridge/watch.log",
+        "level": "error",
+        "line": "PARLIAMENT_FAILED: 0"
+      },
+      {
+        "file": "logs/kibra_closed_sha_pool_bridge/watch.log",
+        "level": "error",
+        "line": "PARLIAMENT_FAILED: 0"
+      },
+      {
+        "file": "logs/supervisor/loop.log",
+        "level": "error",
+        "line": "    \"failed\": {"
+      },
+      {
+        "file": "logs/supervisor/loop.log",
+        "level": "error",
+        "line": "    \"detect failures\","
+      },
+      {
+        "file": "logs/supervisor/loop.log",
+        "level": "error",
+        "line": "    \"failed\": {"
+      },
+      {
+        "file": "logs/supervisor/loop.log",
+        "level": "error",
+        "line": "    \"detect failures\","
+      },
+      {
+        "file": "logs/system_test/cybra_system_test_20260603_154033.log",
+        "level": "error",
+        "line": "    \"parliament_failed\": 0,"
+      },
+      {
+        "file": "logs/system_test/cybra_system_test_20260603_154033.log",
+        "level": "warning",
+        "line": "WARN=0"
+      },
+      {
+        "file": "logs/system_test/cybra_system_test_20260603_154033.log",
+        "level": "error",
+        "line": "FAIL=0"
+      },
+      {
+        "file": "logs/test_autofix/cybra_test_autofix_20260603_185807.log",
+        "level": "error",
+        "line": "- Failed: **0**"
+      },
+      {
+        "file": "logs/test_autofix/cybra_test_autofix_20260603_185807.log",
+        "level": "error",
+        "line": "PARLIAMENT_FAILED: 0"
+      }
+    ]
+  },
+  "log_recommendations": [
+    "Є error/fail у логах: перевірити останні hits у звіті.",
+    "Є warnings/missing у логах: перевірити, чи це не відсутні опційні модулі."
+  ],
+  "safety": {
+    "private_keys_collected": false,
+    "seed_phrase_collected": false,
+    "automatic_real_payment": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "real_sell_now": false,
+    "manual_OWNER_approval_required": true
+  },
+  "double_sha": "f782f0403fd5cf03995ed7d65d50e14daf5b8eee4c5847843ad92397fd8f1452"
+}
