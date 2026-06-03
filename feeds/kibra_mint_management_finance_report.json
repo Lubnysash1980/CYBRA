@@ -1,34 +1,34 @@
 {
   "status": "kibra_mint_management_finance_report_generated",
-  "time": 1780439737.0697994,
-  "time_iso": "2026-06-03T01:35:37+0300",
+  "time": 1780483485.5342863,
+  "time_iso": "2026-06-03T13:44:45+0300",
   "submit_ai": false,
   "latest_kibra_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab",
   "accounting": {
     "main_blocks": 10,
-    "task_blocks": 11,
+    "task_blocks": 24,
     "block_reward_kibra": "100",
     "task_block_reward_kibra": "100",
     "main_reward_accounting_kibra": "1000",
-    "task_reward_accounting_kibra": "1100",
-    "total_mined_accounting_kibra": "2100",
+    "task_reward_accounting_kibra": "2400",
+    "total_mined_accounting_kibra": "3400",
     "pool_shares_total": 210,
     "real_payout_now": false,
     "accounting_only": true
   },
   "market_price": {
     "status": "reference_price_available",
-    "price_usd_per_kibra": "0.001",
-    "source": "verified_pool_reserves",
+    "price_usd_per_kibra": "0.01",
+    "source": "manual_liquidity_reference",
     "real_market_confirmed": false,
     "quote_reserve_usd": "1000",
-    "kibra_reserve": "1000000"
+    "kibra_reserve": "100000"
   },
   "strategy": {
     "strategy": "reference_price_hold_or_utility_sale",
     "reason": "Reference price exists but real market is not confirmed. Do not sell automatically; prepare utility sale and verification.",
-    "estimated_value_usd": "2.100",
-    "market_price_usd_per_kibra": "0.001",
+    "estimated_value_usd": "34.00",
+    "market_price_usd_per_kibra": "0.01",
     "real_market_confirmed": false,
     "sell_allowed_now": false,
     "owner_approval_required": true
@@ -57,20 +57,20 @@
   "ai_tasks_prepared": 3,
   "ai_tasks_submitted": 0,
   "redis": {
-    "management_audit": 7,
-    "finance_audit": 7,
-    "sell_plans": 8,
+    "management_audit": 14,
+    "finance_audit": 14,
+    "sell_plans": 15,
     "ai_queue": 0,
-    "parliament_queue": 0,
+    "parliament_queue": 1,
     "parliament_failed": 0,
-    "task_blocks_mined": 11,
-    "pool_mining_blocks": 11,
+    "task_blocks_mined": 22,
+    "pool_mining_blocks": 22,
     "mint_repair_queue": 0
   },
   "git": {
     "branch": "main",
-    "commit": "5464f926e",
-    "dirty_files": 22
+    "commit": "2d8bf06a8",
+    "dirty_files": 169
   },
   "safety": {
     "real_sell_now": false,
@@ -81,5 +81,5 @@
     "guaranteed_profit": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "f7f93ad993ded148205c588245aa623c6b934fae529258863b4701dc1f1a68f9"
+  "double_sha": "e23750cb1247deff4ddc0cbe7261bfa11bb4d045e2cf15024a80a35b256c43a7"
 }

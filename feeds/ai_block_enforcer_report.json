@@ -1,18 +1,18 @@
 {
   "status": "ai_block_enforcer_report_generated",
-  "time": 1780439508.0194635,
-  "time_iso": "2026-06-03T01:31:48+0300",
-  "converted_now": 0,
-  "skipped_now": 3,
+  "time": 1780489272.0890155,
+  "time_iso": "2026-06-03T15:21:12+0300",
+  "converted_now": 2,
+  "skipped_now": 2,
   "rule": "All new AI tasks must be converted to KIBRA mining task-blocks before AI Parliament execution.",
   "redis": {
     "parliament_queue": 0,
     "parliament_failed": 0,
     "mempool": 0,
-    "mined_task_blocks": 10,
-    "pool_mining_blocks": 10,
+    "mined_task_blocks": 11,
+    "pool_mining_blocks": 11,
     "block_support_ai": 1,
-    "converted_hashes": 1
+    "converted_hashes": 33
   },
   "safety": {
     "direct_ai_task_execution": false,
@@ -21,5 +21,5 @@
     "external_tx": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "fa0684d93faec9c57c1529b3bdd460fd7b8dd2b67c41e03661795386518a19fd"
+  "double_sha": "e48c482d9f11ce1504d99533a86e0a63a48942df0c350bf75a613598ecc9bbb5"
 }

@@ -1,0 +1,26 @@
+{
+  "committee_id": "kibra_market_price_confirmation_committee",
+  "name": "KIBRA Market Price Confirmation Committee",
+  "status": "active",
+  "parent": "KIBRA Mint / Liquidity / Market",
+  "mission": "Знайти, класифікувати і затвердити методи підтвердження ринкової ціни KIBRA через AI Parliament.",
+  "core_rule": "Ціна KIBRA підтверджується як ринкова тільки після real pool/orderbook/provider/reserve-backed peg proof.",
+  "proof_classes": [
+    "C0_INTERNAL_BLOCKCHAIN_PROOF",
+    "C1_EXTERNAL_BLOCKCHAIN_ANCHOR",
+    "C2_EXTERNAL_SHARES_ANCHOR",
+    "C3_DEX_POOL_RESERVES_PROOF",
+    "C4_ORDERBOOK_PROVIDER_PROOF",
+    "C5_RESERVE_BACKED_PEG_PROOF"
+  ],
+  "important_note": "Внутрішній блокчейн і зовнішній anchor підтверджують факт блоків/shares/часу, але не ринкову ціну без ліквідності або orderbook.",
+  "blocked": [
+    "fake_price",
+    "fake_volume",
+    "wash_trading",
+    "guaranteed_profit",
+    "automatic_real_sell",
+    "automatic_real_tx_without_OWNER_approval"
+  ],
+  "manual_OWNER_approval_required": true
+}

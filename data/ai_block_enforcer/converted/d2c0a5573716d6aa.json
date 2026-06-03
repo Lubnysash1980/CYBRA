@@ -1,0 +1,66 @@
+{
+  "topic": "CYBRA Finance Committee: Комітет-Шукач",
+  "type": "cybra_finance_5_committees_task",
+  "priority": "critical",
+  "payload": {
+    "source": "cybra_finance_5_committees",
+    "committee_id": "finance_finder_committee",
+    "committee_name": "Комітет-Шукач",
+    "role": "finder",
+    "mission": "Шукати, яких модулів, реквізитів, proof, SWIFT/Bank/PSP адаптерів, cold-wallet записів і процедур не вистачає.",
+    "assigned_tasks": [
+      "scan_missing_finance_modules",
+      "scan_missing_payment_requisites",
+      "scan_missing_swift_bank_psp_templates",
+      "scan_missing_cold_wallets",
+      "scan_missing_price_liquidity_proofs"
+    ],
+    "target_binary": "bin/cybra-finance-bin",
+    "state_snapshot": {
+      "time": 1780488433.478154,
+      "time_iso": "2026-06-03T15:07:13+0300",
+      "binary_exists": true,
+      "binary_global_exists": true,
+      "cold_finance_report_exists": true,
+      "cold_payment_requisites_exists": true,
+      "kybra_valid_exists": true,
+      "payment_requisites_exists": true,
+      "redis_ping": true,
+      "queues": {
+        "block_inbox": 0,
+        "parliament_queue": 0,
+        "parliament_failed": 0,
+        "task_block_mempool": 0,
+        "pool_mining_blocks": 2,
+        "task_blocks_mined": 2
+      },
+      "proofs": {
+        "cold_finance": "0560d0ef990bbde4ac11ccb71077bd4fc5688265cc9a408045d1095aea583dbe",
+        "payment_requisites": "a906e40ac0e06898eb75a4910150f61100cc8ea6208a6304416b80581ea0eb19",
+        "kybra_valid": "ea9b0c2cc3f95142f85d0a286ae45026eb220df8c408bc65f2c9288ee1863869",
+        "redis_committee": "d15cd6a10fc3d6b8045081d226b7e02117a35d8632fa581ab95f69a63c98d3d5"
+      },
+      "git": {
+        "branch": "main",
+        "commit": "3cc3b78e5",
+        "dirty_files": 252
+      }
+    },
+    "convert_to_mining_block_first": true,
+    "send_to_pool_mining": true,
+    "real_payment_now": false,
+    "automatic_external_tx": false,
+    "automatic_swift": false,
+    "manual_OWNER_approval_required": true,
+    "converted_by_ai_block_enforcer": true,
+    "not_sent_directly": true,
+    "must_be_mined_by_pool": true,
+    "real_payment": false,
+    "real_sell": false,
+    "external_tx": false,
+    "source_queue": "cybra:ai:tasks:block_inbox",
+    "owner_rule": "all_new_ai_tasks_must_be_mined_into_blocks",
+    "ai_block_enforcer_hash": "d2c0a5573716d6aae97955c49719d4dce954bf05b55f82652c7ee2f792a3a2db"
+  },
+  "double_sha": "f2700d45949bfb87f299ef882aff7c6a4a87fbda541c897789fb44101f8b9352"
+}

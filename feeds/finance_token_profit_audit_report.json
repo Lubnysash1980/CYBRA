@@ -1,13 +1,13 @@
 {
   "status": "finance_token_profit_audit_report_generated",
-  "time": 1780439204.7755847,
-  "time_iso": "2026-06-03T01:26:44+0300",
+  "time": 1780489287.456561,
+  "time_iso": "2026-06-03T15:21:27+0300",
   "score": 100,
   "max_score": 100,
   "state": {
     "status": "finance_token_profit_audit_generated",
-    "time": 1780439204.2262175,
-    "time_iso": "2026-06-03T01:26:44+0300",
+    "time": 1780489286.9734197,
+    "time_iso": "2026-06-03T15:21:26+0300",
     "latest_kibra_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab",
     "modules": {
       "finance_department": true,
@@ -20,17 +20,17 @@
     },
     "runtime": {
       "queue": 0,
-      "results": 137,
+      "results": 19,
       "failed": 0,
-      "finance_ledger": 19,
-      "finance_audit": 40,
+      "finance_ledger": 0,
+      "finance_audit": 0,
       "finance_risk_items": 0,
-      "mint_proposals": 1,
-      "payment_proposals": 1,
-      "gold_proposals": 1,
-      "monetization_proposals": 25,
-      "anchor_queue": 3,
-      "anchor_manual_ready": 53
+      "mint_proposals": 0,
+      "payment_proposals": 0,
+      "gold_proposals": 0,
+      "monetization_proposals": 0,
+      "anchor_queue": 0,
+      "anchor_manual_ready": 0
     },
     "kibra": {
       "height": 10,
@@ -53,22 +53,16 @@
       "finance_infrastructure": "e603dfc17cc6e92fc1c843eabe94222205b4f0a75296cfe7e547e70c3fb1a623",
       "monetization": "1b531bc60881bac751a68f335b2e1803b65be449abaa9b163f89413bf0bc3546",
       "market_exchange": "cb66fbf546da32a64eca5811a9a5d1fe7ff951eff02b47fc4c4bbd29f22e5e95",
-      "native_kibra": "4e394112176b0adbc9c1d2a59f85ee4d87e76aea2c34628fb1559c95acab7a33",
+      "native_kibra": "063f7093b13353b3e7578f4ec1a51005fdce800340772aa3ed817fe77e712a96",
       "kibra_chain": "92d4c65228a63257f417b5211aebeb8ec4cb306e3d7269a182346ffeeb1da58c"
     },
     "git": {
       "branch": "main",
-      "commit": "866a4844c",
-      "dirty_files": 133
+      "commit": "d7b49bf3a",
+      "dirty_files": 333
     }
   },
   "recommendations": [
-    {
-      "level": "warning",
-      "area": "anchor",
-      "recommendation": "Anchor queue треба пакувати в manual anchor package, не виконуючи on-chain автоматично.",
-      "action": "bash fix_kibra_verify_finance_anchor.sh"
-    },
     {
       "level": "growth",
       "area": "profit_optimization",
@@ -96,25 +90,7 @@
   ],
   "ai_tasks": [
     {
-      "topic": "Finance Profit Audit Recommendation 1: anchor",
-      "type": "owner_orchestrator_task",
-      "priority": "high",
-      "payload": {
-        "source": "finance_token_profit_audit_department",
-        "area": "anchor",
-        "recommendation": "Anchor queue треба пакувати в manual anchor package, не виконуючи on-chain автоматично.",
-        "action": "bash fix_kibra_verify_finance_anchor.sh",
-        "real_payment_execution": false,
-        "automatic_token_mint": false,
-        "automatic_liquidity_pool": false,
-        "automatic_external_tx": false,
-        "manual_OWNER_approval_required": true,
-        "no_guaranteed_profit": true,
-        "no_market_manipulation": true
-      }
-    },
-    {
-      "topic": "Finance Profit Audit Recommendation 2: profit_optimization",
+      "topic": "Finance Profit Audit Recommendation 1: profit_optimization",
       "type": "monetization_department_task",
       "priority": "high",
       "payload": {
@@ -132,7 +108,7 @@
       }
     },
     {
-      "topic": "Finance Profit Audit Recommendation 3: liquidity",
+      "topic": "Finance Profit Audit Recommendation 2: liquidity",
       "type": "kibra_market_exchange_task",
       "priority": "high",
       "payload": {
@@ -150,7 +126,7 @@
       }
     },
     {
-      "topic": "Finance Profit Audit Recommendation 4: native_emission",
+      "topic": "Finance Profit Audit Recommendation 3: native_emission",
       "type": "native_kibra_evolution_task",
       "priority": "high",
       "payload": {
@@ -168,7 +144,7 @@
       }
     },
     {
-      "topic": "Finance Profit Audit Recommendation 5: gold_treasury",
+      "topic": "Finance Profit Audit Recommendation 4: gold_treasury",
       "type": "finance_infrastructure_task",
       "priority": "high",
       "payload": {
@@ -188,5 +164,5 @@
   ],
   "submit_ai": false,
   "profit_notice": "No guaranteed profit. This module creates optimization recommendations only.",
-  "double_sha": "4b5bff9098f7a03c1cdbef32946949fef445fa2d5b9a986ee816f237dde6df99"
+  "double_sha": "bc9005116ef8b219115e9e7201738e10b567043d52db07bfc3c6a350ce68db3b"
 }

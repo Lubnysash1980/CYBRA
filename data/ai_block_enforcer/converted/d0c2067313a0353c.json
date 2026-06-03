@@ -1,0 +1,23 @@
+{
+  "topic": "KIBRA real market price proof gate",
+  "type": "kibra_mint_liquidity_task",
+  "priority": "critical",
+  "payload": {
+    "source": "real_market_price_gate",
+    "verified": false,
+    "real_market_confirmed": false,
+    "price_usd_per_kibra": "0",
+    "convert_to_mining_block_first": true,
+    "real_sell_now": false,
+    "manual_OWNER_approval_required": true,
+    "converted_by_ai_block_enforcer": true,
+    "not_sent_directly": true,
+    "must_be_mined_by_pool": true,
+    "real_payment": false,
+    "real_sell": false,
+    "external_tx": false,
+    "source_queue": "cybra:ai:tasks:block_inbox",
+    "owner_rule": "all_new_ai_tasks_must_be_mined_into_blocks",
+    "ai_block_enforcer_hash": "d0c2067313a0353c4623142297397ce0a74eac39f78ba826b39f16208f1e37be"
+  }
+}

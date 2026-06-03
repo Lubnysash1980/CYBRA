@@ -1,7 +1,7 @@
 {
   "status": "cybra_finance_5_committees_report_generated",
-  "time": 1780488457.3499353,
-  "time_iso": "2026-06-03T15:07:37+0300",
+  "time": 1780489268.2209744,
+  "time_iso": "2026-06-03T15:21:08+0300",
   "committees": [
     {
       "id": "finance_finder_committee",
@@ -71,8 +71,8 @@
     }
   ],
   "state": {
-    "time": 1780488456.6766055,
-    "time_iso": "2026-06-03T15:07:36+0300",
+    "time": 1780489264.9449964,
+    "time_iso": "2026-06-03T15:21:04+0300",
     "binary_exists": true,
     "binary_global_exists": true,
     "cold_finance_report_exists": true,
@@ -81,23 +81,23 @@
     "payment_requisites_exists": true,
     "redis_ping": true,
     "queues": {
-      "block_inbox": 0,
+      "block_inbox": 2,
       "parliament_queue": 0,
       "parliament_failed": 0,
       "task_block_mempool": 0,
-      "pool_mining_blocks": 4,
-      "task_blocks_mined": 4
+      "pool_mining_blocks": 10,
+      "task_blocks_mined": 10
     },
     "proofs": {
-      "cold_finance": "248ce61df9dce6850edee01ee401fa2e36d56361e3cec1eb1ce402a8e3e2a209",
-      "payment_requisites": "a906e40ac0e06898eb75a4910150f61100cc8ea6208a6304416b80581ea0eb19",
-      "kybra_valid": "ea9b0c2cc3f95142f85d0a286ae45026eb220df8c408bc65f2c9288ee1863869",
-      "redis_committee": "d15cd6a10fc3d6b8045081d226b7e02117a35d8632fa581ab95f69a63c98d3d5"
+      "cold_finance": "cf6da31cfbf5204c6f2347acc7cc9a5e51d228a350e6add50264db6bbb30d12d",
+      "payment_requisites": "5ed53bbc51e521809b961656964bdeccb441c550cbfd0caeee5020c8795f1654",
+      "kybra_valid": "34b941e417cd562bae7a867be070a8d9b4608d796c26aa19d78ce1d58b16c3d6",
+      "redis_committee": "278e074247869e12982098587fa55e1ec2a9e0fb8c76159800b0e19de21ecc25"
     },
     "git": {
       "branch": "main",
-      "commit": "3cc3b78e5",
-      "dirty_files": 268
+      "commit": "d7b49bf3a",
+      "dirty_files": 325
     }
   },
   "ai_tasks_prepared": 6,
@@ -121,5 +121,5 @@
     "automatic_real_payment": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "229830f31850f571927b50cb7fc0902003a6da0f58b6abc637528be49fad3dbe"
+  "double_sha": "57d69eaad1e20cee5cf5ba4b489850c710e054f5965d7b4a43d05e437e96ee00"
 }

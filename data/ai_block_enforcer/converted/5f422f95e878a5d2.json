@@ -1,0 +1,27 @@
+{
+  "topic": "KIBRA mined money accounting and realization plan",
+  "type": "kibra_mint_management_task",
+  "priority": "critical",
+  "payload": {
+    "source": "kibra_mined_money_report",
+    "total_mined_kibra": "3100",
+    "confirmed_market_usd": "31.00",
+    "price_usd_per_kibra": "0.01",
+    "goal": "Підготувати вигідну реалізацію намайнених KIBRA через utility, liquidity plan, sell-plan і OWNER approval.",
+    "convert_to_mining_block_first": true,
+    "real_sell_now": false,
+    "real_payment_now": false,
+    "fake_price": false,
+    "fake_volume": false,
+    "manual_OWNER_approval_required": true,
+    "converted_by_ai_block_enforcer": true,
+    "not_sent_directly": true,
+    "must_be_mined_by_pool": true,
+    "real_payment": false,
+    "real_sell": false,
+    "external_tx": false,
+    "source_queue": "cybra:ai:tasks:block_inbox",
+    "owner_rule": "all_new_ai_tasks_must_be_mined_into_blocks",
+    "ai_block_enforcer_hash": "5f422f95e878a5d23504366e8309afdc001cc0d9567dcdb171d8e8d856d63ecb"
+  }
+}

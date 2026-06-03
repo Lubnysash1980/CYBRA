@@ -28,19 +28,18 @@ Mode: audit + recommendation + AI tasks
 ## Runtime
 
 - Queue: 0
-- Results: 137
+- Results: 19
 - Failed: 0
 - Finance risk items: 0
-- Mint proposals: 1
-- Payment proposals: 1
-- Gold proposals: 1
-- Monetization proposals: 25
-- Anchor queue: 3
-- Anchor manual ready: 53
+- Mint proposals: 0
+- Payment proposals: 0
+- Gold proposals: 0
+- Monetization proposals: 0
+- Anchor queue: 0
+- Anchor manual ready: 0
 
 ## Recommendations
 
-- **warning** / `anchor`: Anchor queue треба пакувати в manual anchor package, не виконуючи on-chain автоматично. Action: `bash fix_kibra_verify_finance_anchor.sh`
 - **growth** / `profit_optimization`: Підвищувати прибутковість не через штучну ціну, а через utility: AI credits, proof services, anchor packages, developer support, marketplace. Action: `Створити utility pricing table і demand plan.`
 - **growth** / `liquidity`: Підготувати liquidity depth model: стартова ліквідність, slippage, sell limits, staged sells, без fake volume. Action: `AI Parliament task: liquidity_depth_model`
 - **growth** / `native_emission`: Для native KIBRA потрібна emission policy: block reward, supply tracking, halving або adaptive reward. Action: `AI Parliament task: native_emission_policy`
@@ -49,15 +48,14 @@ Mode: audit + recommendation + AI tasks
 
 ## AI tasks prepared
 
-- `owner_orchestrator_task` — Finance Profit Audit Recommendation 1: anchor
-- `monetization_department_task` — Finance Profit Audit Recommendation 2: profit_optimization
-- `kibra_market_exchange_task` — Finance Profit Audit Recommendation 3: liquidity
-- `native_kibra_evolution_task` — Finance Profit Audit Recommendation 4: native_emission
-- `finance_infrastructure_task` — Finance Profit Audit Recommendation 5: gold_treasury
+- `monetization_department_task` — Finance Profit Audit Recommendation 1: profit_optimization
+- `kibra_market_exchange_task` — Finance Profit Audit Recommendation 2: liquidity
+- `native_kibra_evolution_task` — Finance Profit Audit Recommendation 3: native_emission
+- `finance_infrastructure_task` — Finance Profit Audit Recommendation 4: gold_treasury
 
 
 ## Proof
 
 Double SHA:
 
-`4b5bff9098f7a03c1cdbef32946949fef445fa2d5b9a986ee816f237dde6df99`
+`bc9005116ef8b219115e9e7201738e10b567043d52db07bfc3c6a350ce68db3b`

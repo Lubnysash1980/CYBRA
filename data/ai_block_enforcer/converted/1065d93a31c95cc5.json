@@ -1,0 +1,29 @@
+{
+  "topic": "KIBRA Mint Liquidity Recommendation 2: utility_liquidity",
+  "type": "kibra_mint_promotion_task",
+  "priority": "high",
+  "payload": {
+    "source": "kibra_mint_liquidity_department",
+    "area": "utility_liquidity",
+    "recommendation": "Піднімати ліквідність через utility: AI credits, proof services, bridge packages, developer marketplace.",
+    "suggested_action": "bash cybra_mint_promo.sh report",
+    "liquidity_plan_sha": "d6eb7229ca7bd8522f9c99473d9136dbe5f2a6113e63274980e03dae18e5b043",
+    "convert_to_mining_block_first": true,
+    "real_pool_now": false,
+    "real_sell_now": false,
+    "real_payment_now": false,
+    "fake_price": false,
+    "fake_volume": false,
+    "wash_trading": false,
+    "manual_OWNER_approval_required": true,
+    "converted_by_ai_block_enforcer": true,
+    "not_sent_directly": true,
+    "must_be_mined_by_pool": true,
+    "real_payment": false,
+    "real_sell": false,
+    "external_tx": false,
+    "source_queue": "cybra:ai:tasks:block_inbox",
+    "owner_rule": "all_new_ai_tasks_must_be_mined_into_blocks",
+    "ai_block_enforcer_hash": "1065d93a31c95cc58b853c526f76f8f37fe551d1bb8a39e4607088d9cccbcf20"
+  }
+}

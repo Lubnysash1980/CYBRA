@@ -1,0 +1,26 @@
+{
+  "topic": "KIBRA block network outbox bridge",
+  "type": "kibra_bridge_pool_task",
+  "priority": "critical",
+  "payload": {
+    "goal": "Package KIBRA blocks into closed SHA bridge outbox for future network broadcast",
+    "closed_sha_bridge": true,
+    "real_network_broadcast_now": false,
+    "manual_OWNER_approval_required": true,
+    "no_private_keys": true,
+    "no_seed_phrase": true,
+    "no_automatic_payment": true,
+    "no_automatic_exchange_launch": true,
+    "no_market_manipulation": true,
+    "no_guaranteed_profit": true,
+    "converted_by_ai_block_enforcer": true,
+    "not_sent_directly": true,
+    "must_be_mined_by_pool": true,
+    "real_payment": false,
+    "real_sell": false,
+    "external_tx": false,
+    "source_queue": "cybra:ai:tasks:kibra_bridge_pool_until_done",
+    "owner_rule": "all_new_ai_tasks_must_be_mined_into_blocks",
+    "ai_block_enforcer_hash": "0bac04baee38b00e39624da17e8da45d78dc03c11619358f65974a2b298f00d4"
+  }
+}

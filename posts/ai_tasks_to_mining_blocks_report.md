@@ -11,15 +11,15 @@ AI-завдання не відправляються просто так.
 
 ## Current
 
-- Collected now: **0**
+- Collected now: **1**
 - Mempool: **0**
-- Mined blocks: **9**
-- Pool mining queue: **9**
-- AI block support queue: **0**
+- Mined blocks: **12**
+- Pool mining queue: **12**
+- AI block support queue: **2**
 
 ## Last mined block
 
-`None`
+`0084d5051b9aa0e260cc6eea54ae30a97a356245093e6ee9d25802877360741b`
 
 ## Safety
 
@@ -30,4 +30,4 @@ AI-завдання не відправляються просто так.
 
 ## Double SHA
 
-`7c5c05cb38d03e84ed71551abb551b41c7274d4adaba9272b1ada113c96f609b`
+`c37e5eb66d59a4a62b4fe619e8300ee94e014be27c7ed15a33c3be0b98dc63de`

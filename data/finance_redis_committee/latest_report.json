@@ -1,0 +1,32 @@
+{
+  "status": "finance_redis_committee_report_generated",
+  "time": 1780488897.341424,
+  "time_iso": "2026-06-03T15:14:57+0300",
+  "redis_ok": true,
+  "audit_len": 12,
+  "event_len": 12,
+  "queues": {
+    "cybra:parliament:queue": 0,
+    "cybra:parliament:results": 15,
+    "cybra:parliament:failed": 0,
+    "cybra:ai:tasks:block_inbox": 0,
+    "cybra:kibra:task_blocks:mempool": 0,
+    "cybra:kibra:pool:mining_blocks": 8,
+    "cybra:kibra:task_blocks:mined": 8,
+    "cybra:kibra:mint_finance:audit": 0,
+    "cybra:kibra:market_proof_collector:audit": 0,
+    "cybra:kibra:real_market_price_gate:audit": 0,
+    "cybra:kibra:closed_sha_pool_bridge:audit": 15
+  },
+  "rule": "Redis Committee watches Redis and restarts it if down.",
+  "protected_systems": [
+    "Finance Department",
+    "AI Parliament",
+    "KIBRA task-block mining",
+    "Closed SHA Pool Bridge",
+    "Liquidity Department",
+    "Market Proof Collector",
+    "Real Market Price Gate"
+  ],
+  "double_sha": "6dfebce29d763905d3d53cb54a83818761de6c8185331ae88d95f68b8881451c"
+}

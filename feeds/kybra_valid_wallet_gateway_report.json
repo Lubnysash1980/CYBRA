@@ -1,7 +1,7 @@
 {
   "status": "kybra_valid_wallet_gateway_report_generated",
-  "time": 1780487752.525695,
-  "time_iso": "2026-06-03T14:55:52+0300",
+  "time": 1780489262.0675728,
+  "time_iso": "2026-06-03T15:21:02+0300",
   "wallet": {
     "status": "active_internal_valid_wallet",
     "valid_id": "KYBRA-VALID-686B7F6432361516",
@@ -65,14 +65,14 @@
     ],
     "balance": {
       "main_blocks": 10,
-      "task_blocks": 28,
+      "task_blocks": 40,
       "block_reward_kibra": "100",
       "task_block_reward_kibra": "100",
       "main_kibra": "1000",
-      "task_kibra": "2800",
-      "total_mined_kibra": "3800",
+      "task_kibra": "4000",
+      "total_mined_kibra": "5000",
       "sent_internal_kibra": "0",
-      "available_kibra": "3800",
+      "available_kibra": "5000",
       "price_usd_per_kibra": "0",
       "estimated_usd_if_price_confirmed": "0",
       "real_market_confirmed": false,
@@ -92,22 +92,22 @@
   },
   "balance": {
     "main_blocks": 10,
-    "task_blocks": 28,
+    "task_blocks": 40,
     "block_reward_kibra": "100",
     "task_block_reward_kibra": "100",
     "main_kibra": "1000",
-    "task_kibra": "2800",
-    "total_mined_kibra": "3800",
+    "task_kibra": "4000",
+    "total_mined_kibra": "5000",
     "sent_internal_kibra": "0",
-    "available_kibra": "3800",
+    "available_kibra": "5000",
     "price_usd_per_kibra": "0",
     "estimated_usd_if_price_confirmed": "0",
     "real_market_confirmed": false,
     "real_sell_now": false
   },
   "queues": {
-    "proposals": 1,
-    "block_inbox": 3,
+    "proposals": 0,
+    "block_inbox": 0,
     "parliament_queue": 0,
     "parliament_failed": 0,
     "task_block_mempool": 0
@@ -122,7 +122,7 @@
   },
   "git": {
     "branch": "main",
-    "commit": "2d8bf06a8"
+    "commit": "d7b49bf3a"
   },
-  "double_sha": "1249f5b1d38f265f9bbb6c8e17104ac28771affff33571388f6bcb30953e7dd7"
+  "double_sha": "028710155e6a3fcb5576dc50b39ccff082bc2315bebcafab00c7e1f4069366b9"
 }

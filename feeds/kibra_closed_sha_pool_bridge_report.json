@@ -1,19 +1,21 @@
 {
   "status": "kibra_closed_sha_pool_bridge_report_generated",
-  "time": 1780483359.599684,
-  "time_iso": "2026-06-03T13:42:39+0300",
+  "time": 1780489290.7552817,
+  "time_iso": "2026-06-03T15:21:30+0300",
   "dispatched_now": 0,
   "skipped_now": 0,
-  "mining_system_ran": [],
+  "mining_system_ran": [
+    "bash cybra_ai_blocks.sh until-done"
+  ],
   "latest_kibra_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab",
   "redis": {
     "ai_block_inbox": 0,
     "task_block_mempool": 0,
-    "pool_mining_blocks": 19,
+    "pool_mining_blocks": 12,
     "bridge_outbox": 0,
     "bridge_sealed": 0,
     "bridge_seen": 0,
-    "task_blocks_mined": 19,
+    "task_blocks_mined": 12,
     "parliament_queue": 0,
     "parliament_failed": 0
   },
@@ -31,8 +33,8 @@
   },
   "git": {
     "branch": "main",
-    "commit": "0d9bc5a73",
-    "dirty_files": 150
+    "commit": "d7b49bf3a",
+    "dirty_files": 333
   },
   "safety": {
     "full_payload_public": false,
@@ -41,5 +43,5 @@
     "real_sell_now": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "60c5a7fcff96da389f49c62413426c7ac107b04ae58b13b42722a4e341cf1494"
+  "double_sha": "ea25238b632eafd3851b68c10a680218ba536d96a7c68aacf18c8e5bf3062f91"
 }

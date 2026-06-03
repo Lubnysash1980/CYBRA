@@ -1,0 +1,27 @@
+{
+  "topic": "Finance Profit Audit Recommendation 3: liquidity",
+  "type": "kibra_market_exchange_task",
+  "priority": "high",
+  "payload": {
+    "source": "finance_token_profit_audit_department",
+    "area": "liquidity",
+    "recommendation": "Підготувати liquidity depth model: стартова ліквідність, slippage, sell limits, staged sells, без fake volume.",
+    "action": "AI Parliament task: liquidity_depth_model",
+    "real_payment_execution": false,
+    "automatic_token_mint": false,
+    "automatic_liquidity_pool": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true,
+    "no_guaranteed_profit": true,
+    "no_market_manipulation": true,
+    "converted_by_ai_block_enforcer": true,
+    "not_sent_directly": true,
+    "must_be_mined_by_pool": true,
+    "real_payment": false,
+    "real_sell": false,
+    "external_tx": false,
+    "source_queue": "cybra:ai:tasks:finance_profit_audit",
+    "owner_rule": "all_new_ai_tasks_must_be_mined_into_blocks",
+    "ai_block_enforcer_hash": "14bdd1cc6c5967f1ddbf82dc28c09a79f611b5e6d43d6232d0e3e389ad9881c1"
+  }
+}

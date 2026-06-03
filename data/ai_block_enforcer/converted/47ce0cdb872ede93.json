@@ -1,0 +1,25 @@
+{
+  "topic": "CYBRA Cold Finance Binary rebuild and payment rails",
+  "type": "cybra_cold_finance_binary_task",
+  "priority": "critical",
+  "payload": {
+    "source": "cybra_cold_finance_binary",
+    "goal": "Rebuild finance system with cold wallets, KYBRA balance, SWIFT/Bank/PSP adapters, payment proposals and mining-block task flow.",
+    "total_mined_kibra": "4800",
+    "available_kibra": "4800",
+    "convert_to_mining_block_first": true,
+    "send_to_pool_mining": true,
+    "real_payment_now": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true,
+    "converted_by_ai_block_enforcer": true,
+    "not_sent_directly": true,
+    "must_be_mined_by_pool": true,
+    "real_payment": false,
+    "real_sell": false,
+    "external_tx": false,
+    "source_queue": "cybra:ai:tasks:block_inbox",
+    "owner_rule": "all_new_ai_tasks_must_be_mined_into_blocks",
+    "ai_block_enforcer_hash": "47ce0cdb872ede930cddd3580b5718c7e02ead44c8b7aa0fb3393de08c353cd3"
+  }
+}

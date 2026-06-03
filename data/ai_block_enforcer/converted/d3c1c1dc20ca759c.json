@@ -1,0 +1,29 @@
+{
+  "topic": "CYBRA payment requisites and car invoice package",
+  "type": "cybra_payment_requisites_task",
+  "priority": "critical",
+  "payload": {
+    "source": "cybra_payment_requisites_department",
+    "goal": "Підготувати реальні реквізити платника для автосалону, отримати рахунок/фактуру, створити план оплати через bank/PSP після OWNER approval.",
+    "package_status": "not_ready_missing_real_requisites",
+    "ready": false,
+    "errors": [
+      "Не заповнено legal/display name платника",
+      "Нема реального платіжного каналу: bank IBAN / PSP / офіційне crypto acceptance автосалону"
+    ],
+    "payment_package_sha": "b6689cbce059bfed162610039095486260a41421720f5cbd2743b578d9464cfb",
+    "convert_to_mining_block_first": true,
+    "real_payment_now": false,
+    "real_token_sell_now": false,
+    "manual_OWNER_approval_required": true,
+    "converted_by_ai_block_enforcer": true,
+    "not_sent_directly": true,
+    "must_be_mined_by_pool": true,
+    "real_payment": false,
+    "real_sell": false,
+    "external_tx": false,
+    "source_queue": "cybra:ai:tasks:block_inbox",
+    "owner_rule": "all_new_ai_tasks_must_be_mined_into_blocks",
+    "ai_block_enforcer_hash": "d3c1c1dc20ca759c85d16d3e8c752b8502b932848528f4b6041e6cf630ddc83f"
+  }
+}

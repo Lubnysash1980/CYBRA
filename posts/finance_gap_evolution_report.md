@@ -5,11 +5,11 @@ Parent: **Finance Department**
 
 ## Score
 
-- Score: **95/100**
+- Score: **90/100**
 - Modules OK: **12/12**
-- Runtime gaps: **1**
+- Runtime gaps: **2**
 - AI tasks created this report: **0**
-- Double SHA: `c84b6d4d349c53c88b58dbb6bd11748f13b87b1c39bf1a5c5f804ee8bd769fa4`
+- Double SHA: `b20bfc41dfc97e6a854d669b7768f87821b25bbe3755805814b5087eee633c76`
 
 ## What this committee does
 
@@ -33,12 +33,14 @@ Parent: **Finance Department**
 
 ## Recommendations
 
-- **warning** / `anchor_queue`: External anchor queue is not packaged. Action: `bash fix_kibra_verify_finance_anchor.sh`
+- **development** / `mint_proposal`: No token/native mint proposal records found. Action: `bash cybra_finance_infra.sh mint-proposal`
+- **development** / `spendability`: No KIBRA spendability proposal found. Action: `bash cybra_monetization.sh spend KIBRA-AI-TASK 0`
 
 
 ## AI tasks prepared
 
-- `owner_orchestrator_task` — Finance Gap Evolution: anchor_queue
+- `finance_infrastructure_task` — Finance Gap Evolution: mint_proposal
+- `monetization_department_task` — Finance Gap Evolution: spendability
 
 
 ## Safety

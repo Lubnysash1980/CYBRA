@@ -5,30 +5,30 @@ Mode: safe growth orchestrator
 
 ## Evolution score
 
-- Score: **90/100**
+- Score: **95/100**
 - Maturity: **advanced**
-- Double SHA: `0895b4e23770f9848e776b2a8421bb39b910708654bb2aa92b5675816d2911e1`
+- Double SHA: `26d31e75f2e40b8e760bfd3942d72097cef01b87b418d112f5ef70b3003a018a`
 
 ## Runtime
 
 - Queue: 0
-- Results: 137
+- Results: 19
 - Failed: 0
 - KIBRA height: 10
 - KIBRA latest hash: `00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab`
 - Finance risks: 0
-- Anchor queue: 3
-- Anchor manual ready: 53
-- Monetization audit: 25
-- Spend proposals: 1
+- Anchor queue: 0
+- Anchor manual ready: 0
+- Monetization audit: 0
+- Spend proposals: 0
 
 ## Gaps
 
-- `anchor_package_needs_packaging`
+- `spendability_proposal_needed`
 
 ## Recommended next tasks
 
-- `anchor_package` → `owner_orchestrator_task`
+- `spendability_proposal` → `monetization_department_task`
 
 ## Created tasks this cycle
 

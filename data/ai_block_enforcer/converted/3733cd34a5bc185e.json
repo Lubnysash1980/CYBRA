@@ -1,0 +1,24 @@
+{
+  "topic": "KIBRA reserve-backed peg proof",
+  "type": "kibra_mint_management_task",
+  "priority": "critical",
+  "payload": {
+    "source": "kibra_market_price_paths_department",
+    "path": "RESERVE_BACKED_PEG",
+    "goal": "Підготувати reserve-backed peg: reserve amount, custody proof, redemption policy, provider review, OWNER approval.",
+    "peg_package_sha": "8fb8b80a159f187eb16380b3889b4e2fec94088561eb438bcb0759098495d6bd",
+    "convert_to_mining_block_first": true,
+    "real_peg_now": false,
+    "real_payment_now": false,
+    "manual_OWNER_approval_required": true,
+    "converted_by_ai_block_enforcer": true,
+    "not_sent_directly": true,
+    "must_be_mined_by_pool": true,
+    "real_payment": false,
+    "real_sell": false,
+    "external_tx": false,
+    "source_queue": "cybra:ai:tasks:block_inbox",
+    "owner_rule": "all_new_ai_tasks_must_be_mined_into_blocks",
+    "ai_block_enforcer_hash": "3733cd34a5bc185eb245870407422e84e3ddd6d03028725b6ac848f48765892a"
+  }
+}

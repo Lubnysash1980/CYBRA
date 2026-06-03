@@ -1,0 +1,394 @@
+{
+  "type": "KIBRA_AI_TASK_BLOCK",
+  "index": 1780488394,
+  "time": 1780488394.8398573,
+  "time_iso": "2026-06-03T15:06:34+0300",
+  "previous_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab",
+  "pool_id": "KIBRA-AI-POOL",
+  "difficulty": 2,
+  "difficulty_prefix": "00",
+  "task_count": 6,
+  "tasks": [
+    {
+      "topic": "CYBRA Finance System rebuild by 5 committees",
+      "type": "cybra_cold_finance_binary_task",
+      "priority": "critical",
+      "payload": {
+        "source": "cybra_finance_5_committees",
+        "goal": "Five committees rebuild, teach, work, task and test the cold finance binary system for owner ecosystem.",
+        "committees": [
+          "finance_finder_committee",
+          "finance_teacher_committee",
+          "finance_worker_committee",
+          "finance_parliament_task_committee",
+          "finance_tester_committee"
+        ],
+        "target_binary": "bin/cybra-finance-bin",
+        "convert_to_mining_block_first": true,
+        "send_to_pool_mining": true,
+        "real_payment_now": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true,
+        "converted_by_ai_block_enforcer": true,
+        "not_sent_directly": true,
+        "must_be_mined_by_pool": true,
+        "real_payment": false,
+        "real_sell": false,
+        "external_tx": false,
+        "source_queue": "cybra:ai:tasks:block_inbox",
+        "owner_rule": "all_new_ai_tasks_must_be_mined_into_blocks",
+        "ai_block_enforcer_hash": "b211165e76bec0df9cea1744800d9a6ed775164e82df7d7fff2d98cc7d3220a9"
+      },
+      "double_sha": "defdf0391ff55b3006097bd505f2add5210ec53af6ca83308e3e44f63c0366e0"
+    },
+    {
+      "topic": "CYBRA Finance Committee: Комітет-Тестер",
+      "type": "cybra_finance_5_committees_task",
+      "priority": "critical",
+      "payload": {
+        "source": "cybra_finance_5_committees",
+        "committee_id": "finance_tester_committee",
+        "committee_name": "Комітет-Тестер",
+        "role": "tester",
+        "mission": "Тестувати фінансовий модуль під екосистему власника: status, proof, queues, reports, бінарник, безпечність.",
+        "assigned_tasks": [
+          "test_binary_compile",
+          "test_redis_queues",
+          "test_payment_proposal_flow",
+          "test_no_private_keys",
+          "test_no_automatic_real_payment",
+          "test_sha_proofs"
+        ],
+        "target_binary": "bin/cybra-finance-bin",
+        "state_snapshot": {
+          "time": 1780488391.6267703,
+          "time_iso": "2026-06-03T15:06:31+0300",
+          "binary_exists": true,
+          "binary_global_exists": true,
+          "cold_finance_report_exists": true,
+          "cold_payment_requisites_exists": true,
+          "kybra_valid_exists": true,
+          "payment_requisites_exists": true,
+          "redis_ping": true,
+          "queues": {
+            "block_inbox": 0,
+            "parliament_queue": 0,
+            "parliament_failed": 0,
+            "task_block_mempool": 0,
+            "pool_mining_blocks": 0,
+            "task_blocks_mined": 0
+          },
+          "proofs": {
+            "cold_finance": "3aaa8d506fccd07c394911134ca910da8005a99fbec99c1180ddb7933a00133d",
+            "payment_requisites": "a906e40ac0e06898eb75a4910150f61100cc8ea6208a6304416b80581ea0eb19",
+            "kybra_valid": "ea9b0c2cc3f95142f85d0a286ae45026eb220df8c408bc65f2c9288ee1863869",
+            "redis_committee": "d15cd6a10fc3d6b8045081d226b7e02117a35d8632fa581ab95f69a63c98d3d5"
+          },
+          "git": {
+            "branch": "main",
+            "commit": "3cc3b78e5",
+            "dirty_files": 236
+          }
+        },
+        "convert_to_mining_block_first": true,
+        "send_to_pool_mining": true,
+        "real_payment_now": false,
+        "automatic_external_tx": false,
+        "automatic_swift": false,
+        "manual_OWNER_approval_required": true,
+        "converted_by_ai_block_enforcer": true,
+        "not_sent_directly": true,
+        "must_be_mined_by_pool": true,
+        "real_payment": false,
+        "real_sell": false,
+        "external_tx": false,
+        "source_queue": "cybra:ai:tasks:block_inbox",
+        "owner_rule": "all_new_ai_tasks_must_be_mined_into_blocks",
+        "ai_block_enforcer_hash": "2283fe8115d2e40091621fe693db156e42227cf7c2643f43e90a576cb84b93fa"
+      },
+      "double_sha": "007755aa7a605514392d46ad3a91803bedbacc9a84019e2b50ad1bb5e4e74e7e"
+    },
+    {
+      "topic": "CYBRA Finance Committee: Комітет Завдань Кіберпарламенту",
+      "type": "cybra_finance_5_committees_task",
+      "priority": "critical",
+      "payload": {
+        "source": "cybra_finance_5_committees",
+        "committee_id": "finance_parliament_task_committee",
+        "committee_name": "Комітет Завдань Кіберпарламенту",
+        "role": "parliament_tasker",
+        "mission": "Формувати AI-завдання для Кіберпарламенту і передавати їх через mining blocks.",
+        "assigned_tasks": [
+          "create_ai_tasks",
+          "send_to_block_inbox",
+          "send_to_closed_sha_bridge",
+          "send_to_pool_mining",
+          "track_parliament_results"
+        ],
+        "target_binary": "bin/cybra-finance-bin",
+        "state_snapshot": {
+          "time": 1780488391.6267703,
+          "time_iso": "2026-06-03T15:06:31+0300",
+          "binary_exists": true,
+          "binary_global_exists": true,
+          "cold_finance_report_exists": true,
+          "cold_payment_requisites_exists": true,
+          "kybra_valid_exists": true,
+          "payment_requisites_exists": true,
+          "redis_ping": true,
+          "queues": {
+            "block_inbox": 0,
+            "parliament_queue": 0,
+            "parliament_failed": 0,
+            "task_block_mempool": 0,
+            "pool_mining_blocks": 0,
+            "task_blocks_mined": 0
+          },
+          "proofs": {
+            "cold_finance": "3aaa8d506fccd07c394911134ca910da8005a99fbec99c1180ddb7933a00133d",
+            "payment_requisites": "a906e40ac0e06898eb75a4910150f61100cc8ea6208a6304416b80581ea0eb19",
+            "kybra_valid": "ea9b0c2cc3f95142f85d0a286ae45026eb220df8c408bc65f2c9288ee1863869",
+            "redis_committee": "d15cd6a10fc3d6b8045081d226b7e02117a35d8632fa581ab95f69a63c98d3d5"
+          },
+          "git": {
+            "branch": "main",
+            "commit": "3cc3b78e5",
+            "dirty_files": 236
+          }
+        },
+        "convert_to_mining_block_first": true,
+        "send_to_pool_mining": true,
+        "real_payment_now": false,
+        "automatic_external_tx": false,
+        "automatic_swift": false,
+        "manual_OWNER_approval_required": true,
+        "converted_by_ai_block_enforcer": true,
+        "not_sent_directly": true,
+        "must_be_mined_by_pool": true,
+        "real_payment": false,
+        "real_sell": false,
+        "external_tx": false,
+        "source_queue": "cybra:ai:tasks:block_inbox",
+        "owner_rule": "all_new_ai_tasks_must_be_mined_into_blocks",
+        "ai_block_enforcer_hash": "57631222e01a74874dc8831589d3dc392f8c2e3e777738170e3ed663304bbca5"
+      },
+      "double_sha": "30634cd0df66703c342912b7f8400d036cc476de6a893da905999005f49c601b"
+    },
+    {
+      "topic": "CYBRA Finance Committee: Комітет-Воркер",
+      "type": "cybra_finance_5_committees_task",
+      "priority": "critical",
+      "payload": {
+        "source": "cybra_finance_5_committees",
+        "committee_id": "finance_worker_committee",
+        "committee_name": "Комітет-Воркер",
+        "role": "worker",
+        "mission": "Виконувати роботу через бінарник cybra-finance-bin і допоміжні модулі.",
+        "assigned_tasks": [
+          "run_cybra_finance_bin_report",
+          "create_payment_proposals",
+          "create_swift_bank_drafts",
+          "update_cold_wallet_registry",
+          "update_finance_reports"
+        ],
+        "target_binary": "bin/cybra-finance-bin",
+        "state_snapshot": {
+          "time": 1780488391.6267703,
+          "time_iso": "2026-06-03T15:06:31+0300",
+          "binary_exists": true,
+          "binary_global_exists": true,
+          "cold_finance_report_exists": true,
+          "cold_payment_requisites_exists": true,
+          "kybra_valid_exists": true,
+          "payment_requisites_exists": true,
+          "redis_ping": true,
+          "queues": {
+            "block_inbox": 0,
+            "parliament_queue": 0,
+            "parliament_failed": 0,
+            "task_block_mempool": 0,
+            "pool_mining_blocks": 0,
+            "task_blocks_mined": 0
+          },
+          "proofs": {
+            "cold_finance": "3aaa8d506fccd07c394911134ca910da8005a99fbec99c1180ddb7933a00133d",
+            "payment_requisites": "a906e40ac0e06898eb75a4910150f61100cc8ea6208a6304416b80581ea0eb19",
+            "kybra_valid": "ea9b0c2cc3f95142f85d0a286ae45026eb220df8c408bc65f2c9288ee1863869",
+            "redis_committee": "d15cd6a10fc3d6b8045081d226b7e02117a35d8632fa581ab95f69a63c98d3d5"
+          },
+          "git": {
+            "branch": "main",
+            "commit": "3cc3b78e5",
+            "dirty_files": 236
+          }
+        },
+        "convert_to_mining_block_first": true,
+        "send_to_pool_mining": true,
+        "real_payment_now": false,
+        "automatic_external_tx": false,
+        "automatic_swift": false,
+        "manual_OWNER_approval_required": true,
+        "converted_by_ai_block_enforcer": true,
+        "not_sent_directly": true,
+        "must_be_mined_by_pool": true,
+        "real_payment": false,
+        "real_sell": false,
+        "external_tx": false,
+        "source_queue": "cybra:ai:tasks:block_inbox",
+        "owner_rule": "all_new_ai_tasks_must_be_mined_into_blocks",
+        "ai_block_enforcer_hash": "8e415b93d8cf0a45670f46e8d69ce1da019e18768a7d46aa671786ab8d15a6b1"
+      },
+      "double_sha": "dcc1957a4c2522734ae6d1d9a5cdc621fcf3798c46d67b0ea008c51df801cacd"
+    },
+    {
+      "topic": "CYBRA Finance Committee: Комітет-Навчач",
+      "type": "cybra_finance_5_committees_task",
+      "priority": "critical",
+      "payload": {
+        "source": "cybra_finance_5_committees",
+        "committee_id": "finance_teacher_committee",
+        "committee_name": "Комітет-Навчач",
+        "role": "teacher",
+        "mission": "Створювати правила, інструкції, політики безпечної роботи фінансової системи.",
+        "assigned_tasks": [
+          "create_user_instructions",
+          "create_safe_payment_policy",
+          "create_no_private_key_policy",
+          "create_swift_bank_psp_training",
+          "create_owner_approval_policy"
+        ],
+        "target_binary": "bin/cybra-finance-bin",
+        "state_snapshot": {
+          "time": 1780488391.6267703,
+          "time_iso": "2026-06-03T15:06:31+0300",
+          "binary_exists": true,
+          "binary_global_exists": true,
+          "cold_finance_report_exists": true,
+          "cold_payment_requisites_exists": true,
+          "kybra_valid_exists": true,
+          "payment_requisites_exists": true,
+          "redis_ping": true,
+          "queues": {
+            "block_inbox": 0,
+            "parliament_queue": 0,
+            "parliament_failed": 0,
+            "task_block_mempool": 0,
+            "pool_mining_blocks": 0,
+            "task_blocks_mined": 0
+          },
+          "proofs": {
+            "cold_finance": "3aaa8d506fccd07c394911134ca910da8005a99fbec99c1180ddb7933a00133d",
+            "payment_requisites": "a906e40ac0e06898eb75a4910150f61100cc8ea6208a6304416b80581ea0eb19",
+            "kybra_valid": "ea9b0c2cc3f95142f85d0a286ae45026eb220df8c408bc65f2c9288ee1863869",
+            "redis_committee": "d15cd6a10fc3d6b8045081d226b7e02117a35d8632fa581ab95f69a63c98d3d5"
+          },
+          "git": {
+            "branch": "main",
+            "commit": "3cc3b78e5",
+            "dirty_files": 236
+          }
+        },
+        "convert_to_mining_block_first": true,
+        "send_to_pool_mining": true,
+        "real_payment_now": false,
+        "automatic_external_tx": false,
+        "automatic_swift": false,
+        "manual_OWNER_approval_required": true,
+        "converted_by_ai_block_enforcer": true,
+        "not_sent_directly": true,
+        "must_be_mined_by_pool": true,
+        "real_payment": false,
+        "real_sell": false,
+        "external_tx": false,
+        "source_queue": "cybra:ai:tasks:block_inbox",
+        "owner_rule": "all_new_ai_tasks_must_be_mined_into_blocks",
+        "ai_block_enforcer_hash": "f093e3b75f4753f89c674b1442225c45ce138f7ad43b1332ec0d4a9222d61d96"
+      },
+      "double_sha": "ca269adce594b0234366ea025e4b47d065ee1a8c9bd8d18275f31f9f72658c81"
+    },
+    {
+      "topic": "CYBRA Finance Committee: Комітет-Шукач",
+      "type": "cybra_finance_5_committees_task",
+      "priority": "critical",
+      "payload": {
+        "source": "cybra_finance_5_committees",
+        "committee_id": "finance_finder_committee",
+        "committee_name": "Комітет-Шукач",
+        "role": "finder",
+        "mission": "Шукати, яких модулів, реквізитів, proof, SWIFT/Bank/PSP адаптерів, cold-wallet записів і процедур не вистачає.",
+        "assigned_tasks": [
+          "scan_missing_finance_modules",
+          "scan_missing_payment_requisites",
+          "scan_missing_swift_bank_psp_templates",
+          "scan_missing_cold_wallets",
+          "scan_missing_price_liquidity_proofs"
+        ],
+        "target_binary": "bin/cybra-finance-bin",
+        "state_snapshot": {
+          "time": 1780488391.6267703,
+          "time_iso": "2026-06-03T15:06:31+0300",
+          "binary_exists": true,
+          "binary_global_exists": true,
+          "cold_finance_report_exists": true,
+          "cold_payment_requisites_exists": true,
+          "kybra_valid_exists": true,
+          "payment_requisites_exists": true,
+          "redis_ping": true,
+          "queues": {
+            "block_inbox": 0,
+            "parliament_queue": 0,
+            "parliament_failed": 0,
+            "task_block_mempool": 0,
+            "pool_mining_blocks": 0,
+            "task_blocks_mined": 0
+          },
+          "proofs": {
+            "cold_finance": "3aaa8d506fccd07c394911134ca910da8005a99fbec99c1180ddb7933a00133d",
+            "payment_requisites": "a906e40ac0e06898eb75a4910150f61100cc8ea6208a6304416b80581ea0eb19",
+            "kybra_valid": "ea9b0c2cc3f95142f85d0a286ae45026eb220df8c408bc65f2c9288ee1863869",
+            "redis_committee": "d15cd6a10fc3d6b8045081d226b7e02117a35d8632fa581ab95f69a63c98d3d5"
+          },
+          "git": {
+            "branch": "main",
+            "commit": "3cc3b78e5",
+            "dirty_files": 236
+          }
+        },
+        "convert_to_mining_block_first": true,
+        "send_to_pool_mining": true,
+        "real_payment_now": false,
+        "automatic_external_tx": false,
+        "automatic_swift": false,
+        "manual_OWNER_approval_required": true,
+        "converted_by_ai_block_enforcer": true,
+        "not_sent_directly": true,
+        "must_be_mined_by_pool": true,
+        "real_payment": false,
+        "real_sell": false,
+        "external_tx": false,
+        "source_queue": "cybra:ai:tasks:block_inbox",
+        "owner_rule": "all_new_ai_tasks_must_be_mined_into_blocks",
+        "ai_block_enforcer_hash": "c14ee4afbd25987b8dd06427514bfc994e3b7ec58b6d5c3407cd1d6bac74a530"
+      },
+      "double_sha": "73fe893f24d6b1c25365845fbc23fccc33ea015dd1f5281551f95f7e37627118"
+    }
+  ],
+  "native_coin": "KIBRA",
+  "external_mint": false,
+  "pool_mining": true,
+  "not_sent_directly": true,
+  "real_payment": false,
+  "real_sell": false,
+  "external_tx": false,
+  "manual_OWNER_approval_required": true,
+  "nonce": 409,
+  "block_hash": "0087e5b0a6886f0f2bb818c8e57d77ebbb627b58c28c04393b6343540be26881",
+  "pow_ok": true,
+  "shares_count": 21,
+  "pool_tagged": true,
+  "pool_reward_accounting": {
+    "ready": true,
+    "real_payout_now": false,
+    "reward_type": "native_kibra_task_block_accounting"
+  }
+}

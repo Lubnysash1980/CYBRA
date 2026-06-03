@@ -1,12 +1,12 @@
 {
   "status": "kibra_block_ai_support_report_generated",
-  "time": 1780438933.0721498,
-  "time_iso": "2026-06-03T01:22:13+0300",
+  "time": 1780484886.5704548,
+  "time_iso": "2026-06-03T14:08:06+0300",
   "latest_kibra_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab",
   "total_block_files": 10,
   "ai_tasks_total": 10,
   "ai_tasks_sent_now": 0,
-  "ai_tasks_skipped_duplicates": 10,
+  "ai_tasks_skipped_duplicates": 0,
   "pool_tagged_blocks": 10,
   "shares_total": 210,
   "difficulty_distribution": {
@@ -19,7 +19,7 @@
     "ai_queue": 0,
     "outbox": 10,
     "sent_hashes": 10,
-    "parliament_queue": 1,
+    "parliament_queue": 0,
     "parliament_failed": 0
   },
   "safety": {
@@ -29,5 +29,5 @@
     "external_mint": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "484001316389070e162b5d74034391317f12b1460d746aeb034a0c74a85239cb"
+  "double_sha": "7cde234b8658babbe0988bd8731c8aff985c3da0d2eb6e14c0d6c54f06443a19"
 }

@@ -5,37 +5,37 @@ Status: **generated**
 ## Намайнено
 
 - Main blocks: **10**
-- AI task-blocks: **10**
-- Total mined blocks: **20**
+- AI task-blocks: **23**
+- Total mined blocks: **33**
 - Reward per main block: **100 KIBRA**
 - Reward per task-block: **100 KIBRA**
 - Main KIBRA: **1000**
-- Task-block KIBRA: **1000**
-- Total mined KIBRA: **2000**
+- Task-block KIBRA: **2300**
+- Total mined KIBRA: **3300**
 - Shares total: **210**
 
 ## Кошти
 
-- Confirmed market price: **0.001 USD / KIBRA**
-- Confirmed market value: **2.000 USD**
+- Confirmed market price: **0.01 USD / KIBRA**
+- Confirmed market value: **33.00 USD**
 - Price status: **reference_price_from_pool_reserves**
 
 ## Теоретичні сценарії
 
-- 1 KIBRA = $0.0001 → **$0.2000**
-- 1 KIBRA = $0.001 → **$2.000**
-- 1 KIBRA = $0.01 → **$20.00**
-- 1 KIBRA = $0.10 → **$200.00**
-- 1 KIBRA = $1 → **$2000**
-- 1 KIBRA = $10 → **$20000**
+- 1 KIBRA = $0.0001 → **$0.3300**
+- 1 KIBRA = $0.001 → **$3.300**
+- 1 KIBRA = $0.01 → **$33.00**
+- 1 KIBRA = $0.10 → **$330.00**
+- 1 KIBRA = $1 → **$3300**
+- 1 KIBRA = $10 → **$33000**
 
 ## Черги
 
 - Parliament queue: **0**
 - Parliament failed: **0**
 - Task-block mempool: **0**
-- Task-blocks mined: **10**
-- Pool mining blocks: **10**
+- Task-blocks mined: **21**
+- Pool mining blocks: **21**
 
 ## Правило
 
@@ -45,4 +45,4 @@ Status: **generated**
 
 ## Double SHA
 
-`9ea55e7b2ccbfd104381896bce4989e608be82db3173401e1291e02edea76de6`
+`45ba956dda6198527d799bec43a1cd359630e38e13e779b5e3362424a1ed8407`

@@ -16,32 +16,32 @@ Status: **generated**
 
 ## Task blocks
 
-- Task block files: **11**
+- Task block files: **40**
 - Mempool: **0**
-- Mined: **11**
-- Pool queue: **11**
+- Mined: **10**
+- Pool queue: **10**
 
 ## Parliament
 
 - Queue: **0**
-- Results: **137**
+- Results: **17**
 - Failed: **0**
 
 ## Mint / Finance
 
-- Mint audit: **8**
-- Mint promotion: **22**
-- Mint management: **8**
-- Mint finance: **8**
-- Sell plans: **8**
+- Mint audit: **0**
+- Mint promotion: **0**
+- Mint management: **0**
+- Mint finance: **0**
+- Sell plans: **0**
 - Repair queue: **0**
 - Broken blocks: **0**
 
 ## Bridge
 
-- Bridge outbox: **43**
-- Sealed packages: **43**
-- Manual anchor ready: **53**
+- Bridge outbox: **0**
+- Sealed packages: **0**
+- Manual anchor ready: **0**
 
 ## Parliament recommendations
 
@@ -65,4 +65,4 @@ Status: **generated**
 
 ## Double SHA
 
-`5d7118e33e6fd76528def00beb0b4a4c911dc1b06e95334058e04660c19ad7ca`
+`14d7ce457a9930d34f49cb2d386f33f337e4893de95a4acae0bc65311eb9a15c`

@@ -8,8 +8,8 @@ Status: **completed**
 - AI total left: **0**
 - Parliament queue: **0**
 - Parliament failed: **0**
-- Parliament results: **137**
-- Moved AI tasks: **52**
+- Parliament results: **19**
+- Moved AI tasks: **18**
 
 ## Safety
 
@@ -23,4 +23,4 @@ Status: **completed**
 
 Double SHA:
 
-`a6bcdee9aae525101deaf3b3cfb92ac37fbb3109ad86131fefab93cdb0049411`
+`364845100a13099574ad14cbfbcc688cc98504cd6e56a5ba7504d93f6f8c3f4e`

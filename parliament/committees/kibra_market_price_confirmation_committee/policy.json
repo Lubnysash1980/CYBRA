@@ -1,0 +1,28 @@
+{
+  "name": "KIBRA Market Price Confirmation Policy",
+  "status": "active",
+  "confirmation_logic": {
+    "internal_chain": "confirms KIBRA blocks, emissions, difficulty, shares accounting",
+    "external_chain_anchor": "confirms timestamp, hash, public existence of shares/blocks",
+    "dex_pool": "confirms reference market price if real reserves and verifiable pool proof exist",
+    "orderbook_provider": "confirms market price if real bids/asks or provider quote is verified",
+    "reserve_backed_peg": "confirms peg only if reserve, redemption policy, custody/provider proof and OWNER approval exist"
+  },
+  "market_price_confirmed_if": [
+    "C3_DEX_POOL_RESERVES_PROOF verified",
+    "or C4_ORDERBOOK_PROVIDER_PROOF verified",
+    "or C5_RESERVE_BACKED_PEG_PROOF verified"
+  ],
+  "supporting_proofs": [
+    "C0 internal blockchain proof",
+    "C1 external blockchain anchor",
+    "C2 external shares anchor"
+  ],
+  "execution": {
+    "all_tasks_to_mining_blocks_first": true,
+    "real_sell_now": false,
+    "real_payment_now": false,
+    "external_tx_now": false,
+    "manual_OWNER_approval_required": true
+  }
+}

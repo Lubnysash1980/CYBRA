@@ -11,8 +11,8 @@ Parent: **KIBRA Mint Repair Department**
 ## Mined accounting
 
 - Main blocks: **10**
-- Task blocks: **13**
-- Total mined KIBRA: **2300**
+- Task blocks: **23**
+- Total mined KIBRA: **3300**
 
 ## Pool reserves
 
@@ -52,4 +52,4 @@ Parent: **KIBRA Mint Repair Department**
 
 ## Double SHA
 
-`d3068e4f51e8dd6204c1907ce141ebc3ce3b66801c68cdea0275af2b019f336d`
+`6d770e7aeaf76d2ac2d7b7b01f2a1e64db05fb779308a16c3b2da88f43460150`

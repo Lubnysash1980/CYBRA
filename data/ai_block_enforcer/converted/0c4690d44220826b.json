@@ -1,0 +1,66 @@
+{
+  "topic": "CYBRA Finance Committee: Комітет-Навчач",
+  "type": "cybra_finance_5_committees_task",
+  "priority": "critical",
+  "payload": {
+    "source": "cybra_finance_5_committees",
+    "committee_id": "finance_teacher_committee",
+    "committee_name": "Комітет-Навчач",
+    "role": "teacher",
+    "mission": "Створювати правила, інструкції, політики безпечної роботи фінансової системи.",
+    "assigned_tasks": [
+      "create_user_instructions",
+      "create_safe_payment_policy",
+      "create_no_private_key_policy",
+      "create_swift_bank_psp_training",
+      "create_owner_approval_policy"
+    ],
+    "target_binary": "bin/cybra-finance-bin",
+    "state_snapshot": {
+      "time": 1780488905.1814737,
+      "time_iso": "2026-06-03T15:15:05+0300",
+      "binary_exists": true,
+      "binary_global_exists": true,
+      "cold_finance_report_exists": true,
+      "cold_payment_requisites_exists": true,
+      "kybra_valid_exists": true,
+      "payment_requisites_exists": true,
+      "redis_ping": true,
+      "queues": {
+        "block_inbox": 3,
+        "parliament_queue": 0,
+        "parliament_failed": 0,
+        "task_block_mempool": 0,
+        "pool_mining_blocks": 8,
+        "task_blocks_mined": 8
+      },
+      "proofs": {
+        "cold_finance": "3e77f3e8208cf1d564d0804ab1e646c0056c55544f17b9a27777fd856e1f204b",
+        "payment_requisites": "14ab601713005c02cac68836f85329aef7acd6fc4566f620782d3dc73dace069",
+        "kybra_valid": "e4af7fda4ae691616240ab4b27f25637ffce784d4be31f43532a14d55b1910e5",
+        "redis_committee": "278e074247869e12982098587fa55e1ec2a9e0fb8c76159800b0e19de21ecc25"
+      },
+      "git": {
+        "branch": "main",
+        "commit": "d7b49bf3a",
+        "dirty_files": 301
+      }
+    },
+    "convert_to_mining_block_first": true,
+    "send_to_pool_mining": true,
+    "real_payment_now": false,
+    "automatic_external_tx": false,
+    "automatic_swift": false,
+    "manual_OWNER_approval_required": true,
+    "converted_by_ai_block_enforcer": true,
+    "not_sent_directly": true,
+    "must_be_mined_by_pool": true,
+    "real_payment": false,
+    "real_sell": false,
+    "external_tx": false,
+    "source_queue": "cybra:ai:tasks:block_inbox",
+    "owner_rule": "all_new_ai_tasks_must_be_mined_into_blocks",
+    "ai_block_enforcer_hash": "0c4690d44220826bcd3e09964bc143137d3c0cec9069878eb964841c50d4c04f"
+  },
+  "double_sha": "6724232d61533dd3d8e1ec3b3608bf8109757c27f6e9a2a9f1c09cf0db860d68"
+}

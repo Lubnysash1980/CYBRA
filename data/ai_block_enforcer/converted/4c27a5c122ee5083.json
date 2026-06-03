@@ -1,0 +1,23 @@
+{
+  "topic": "Test AI task through closed SHA pool bridge",
+  "type": "generic_ai_safe_task",
+  "priority": "high",
+  "payload": {
+    "goal": "спочатку task-block, потім sealed SHA, потім pool mining",
+    "route": "AI task -> task-block -> closed SHA pool bridge -> pool mining",
+    "convert_to_mining_block_first": true,
+    "closed_sha_bridge_required": true,
+    "pool_mining_required": true,
+    "real_external_tx_now": false,
+    "manual_OWNER_approval_required": true,
+    "converted_by_ai_block_enforcer": true,
+    "not_sent_directly": true,
+    "must_be_mined_by_pool": true,
+    "real_payment": false,
+    "real_sell": false,
+    "external_tx": false,
+    "source_queue": "cybra:ai:tasks:block_inbox",
+    "owner_rule": "all_new_ai_tasks_must_be_mined_into_blocks",
+    "ai_block_enforcer_hash": "4c27a5c122ee5083e38ce34d7f710157c813018f35e88928ac21c1da0a070ec3"
+  }
+}

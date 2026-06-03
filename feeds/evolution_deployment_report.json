@@ -1,29 +1,29 @@
 {
   "status": "evolution_deployment_report_generated",
-  "time": 1780439205.876982,
-  "time_iso": "2026-06-03T01:26:45+0300",
+  "time": 1780489288.431619,
+  "time_iso": "2026-06-03T15:21:28+0300",
   "state": {
-    "time": 1780439205.3014362,
-    "time_iso": "2026-06-03T01:26:45+0300",
+    "time": 1780489287.9585848,
+    "time_iso": "2026-06-03T15:21:27+0300",
     "git": {
       "branch": "main",
-      "commit": "866a4844c",
-      "dirty_files": 133
+      "commit": "d7b49bf3a",
+      "dirty_files": 333
     },
     "redis": {
       "queue": 0,
-      "results": 137,
+      "results": 19,
       "failed": 0,
-      "audit": 137,
-      "kibra_audit": 13,
-      "finance_ledger": 19,
-      "finance_audit": 40,
-      "anchor_queue": 3,
-      "anchor_manual_ready": 53,
-      "monetization_audit": 25,
-      "monetization_proposals": 25,
-      "spend_proposals": 1,
-      "evolution_approved": 6,
+      "audit": 19,
+      "kibra_audit": 0,
+      "finance_ledger": 0,
+      "finance_audit": 0,
+      "anchor_queue": 0,
+      "anchor_manual_ready": 0,
+      "monetization_audit": 0,
+      "monetization_proposals": 0,
+      "spend_proposals": 0,
+      "evolution_approved": 0,
       "evolution_hold": 0,
       "evolution_rejected": 0
     },
@@ -64,20 +64,20 @@
     }
   },
   "assessment": {
-    "score": 90,
+    "score": 95,
     "max_score": 100,
     "maturity": "advanced",
     "gaps": [
-      "anchor_package_needs_packaging"
+      "spendability_proposal_needed"
     ],
     "next_tasks": [
       [
-        "anchor_package",
-        "owner_orchestrator_task"
+        "spendability_proposal",
+        "monetization_department_task"
       ]
     ]
   },
   "created_tasks": [],
   "policy_sha256": "260aa19a8de66e53477782e52ce78d6f42ba9826bd489a813a079db44f0730f7",
-  "double_sha": "0895b4e23770f9848e776b2a8421bb39b910708654bb2aa92b5675816d2911e1"
+  "double_sha": "26d31e75f2e40b8e760bfd3942d72097cef01b87b418d112f5ef70b3003a018a"
 }

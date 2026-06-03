@@ -1,16 +1,16 @@
 {
   "status": "kibra_mint_liquidity_report_generated",
-  "time": 1780440015.711589,
-  "time_iso": "2026-06-03T01:40:15+0300",
+  "time": 1780483481.033884,
+  "time_iso": "2026-06-03T13:44:41+0300",
   "submit_ai": false,
   "liquidity_score": 90,
   "latest_kibra_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab",
   "accounting": {
     "main_blocks": 10,
-    "task_blocks": 13,
+    "task_blocks": 23,
     "block_reward_kibra": "100",
     "task_block_reward_kibra": "100",
-    "total_mined_kibra": "2300",
+    "total_mined_kibra": "3300",
     "accounting_only": true,
     "real_payout_now": false
   },
@@ -50,19 +50,19 @@
   "ai_tasks_prepared": 3,
   "ai_tasks_submitted_to_block_inbox": 0,
   "redis": {
-    "liquidity_audit": 3,
-    "liquidity_plans": 4,
+    "liquidity_audit": 4,
+    "liquidity_plans": 6,
     "block_inbox": 0,
     "task_block_mempool": 0,
-    "task_blocks_mined": 13,
-    "pool_mining_blocks": 13,
+    "task_blocks_mined": 21,
+    "pool_mining_blocks": 21,
     "parliament_queue": 0,
     "parliament_failed": 0
   },
   "git": {
     "branch": "main",
-    "commit": "d2a6e7956",
-    "dirty_files": 45
+    "commit": "2d8bf06a8",
+    "dirty_files": 165
   },
   "safety": {
     "real_pool_now": false,
@@ -73,5 +73,5 @@
     "wash_trading": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "d3068e4f51e8dd6204c1907ce141ebc3ce3b66801c68cdea0275af2b019f336d"
+  "double_sha": "6d770e7aeaf76d2ac2d7b7b01f2a1e64db05fb779308a16c3b2da88f43460150"
 }
