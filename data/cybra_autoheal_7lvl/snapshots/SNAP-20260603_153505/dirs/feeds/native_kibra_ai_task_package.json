@@ -1,0 +1,101 @@
+{
+  "status": "native_kibra_ai_task_package_created",
+  "time": 1780489278.9882526,
+  "time_iso": "2026-06-03T15:21:18+0300",
+  "policy": {
+    "name": "Native KIBRA Coin Policy",
+    "status": "draft_ready",
+    "mode": "native_coin_own_blockchain",
+    "important": {
+      "external_token_mint": false,
+      "spl_token": false,
+      "erc_token": false,
+      "native_coin": true,
+      "real_execution_now": false
+    },
+    "coin": {
+      "name": "Кібра",
+      "symbol": "KIBRA",
+      "type": "native_coin",
+      "chain": "KIBRA_LOCAL_PROOF_CHAIN",
+      "emission_model": "block_reward_not_external_mint",
+      "total_supply_target_raw": "49000000000000000"
+    },
+    "blockchain": {
+      "blocks_required": true,
+      "difficulty_stream_required": true,
+      "timestamp_difficulty_required": true,
+      "proof_of_work_shares_required": true,
+      "external_anchor": "manual_proof_anchor_only"
+    },
+    "pool": {
+      "pool_model_required": true,
+      "real_pool_launch_now": false,
+      "pool_reward_percent": 40,
+      "owner_percent": 60,
+      "mining_shares_to_ai_tasks": true
+    },
+    "auto_assets": {
+      "token_png": true,
+      "logo_png": true,
+      "website": true,
+      "explorer": true,
+      "whitepaper": true
+    },
+    "safety": {
+      "no_real_payment": true,
+      "no_real_external_tx": true,
+      "no_private_keys": true,
+      "no_seed_phrase": true,
+      "manual_owner_approval_required_for_real_launch": true
+    }
+  },
+  "ai_task": {
+    "topic": "Native KIBRA Coin Evolution Package",
+    "type": "native_kibra_evolution_task",
+    "priority": "critical",
+    "payload": {
+      "no_external_mint": true,
+      "native_coin": true,
+      "own_blockchain": true,
+      "create_pool_model": true,
+      "create_blocks": true,
+      "create_difficulty_stream": true,
+      "confirm_local_blockchain_by_external_anchor_package": true,
+      "auto_create_token_png": true,
+      "auto_create_website": true,
+      "auto_create_explorer": true,
+      "manual_owner_approval_required_for_real_launch": true,
+      "real_execution_now": false,
+      "departments_required": [
+        "finance_department",
+        "monetization_department",
+        "evolution_deployment",
+        "hash_module",
+        "revision_organ",
+        "analytics_committee",
+        "exchange_department",
+        "blockchain_confirmation_department"
+      ]
+    }
+  },
+  "latest_kibra_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab",
+  "assets": {
+    "kibra_token_png": "token/kibra/native/assets/kibra_token.png",
+    "logo_png": "token/kibra/native/assets/logo.png"
+  },
+  "website": {
+    "index": "website/kibra/index.html",
+    "explorer": "website/kibra/explorer.html",
+    "stats": "website/kibra/stats.html"
+  },
+  "proof_inputs": {
+    "policy": "31d643ddd3f61550be6a630f13a48b401f15c0ac163494fa5d501acbf8c1f597",
+    "ai_task": "88bf1a1bc61a756e18b125a199ac42102b337ef9223cd4590e2953438ea56dec",
+    "png": "e6165a932b5c184dfb6ce97616d5eb0ec2ecee807377fcfa01dd7fe5506a66d8",
+    "logo": "e6165a932b5c184dfb6ce97616d5eb0ec2ecee807377fcfa01dd7fe5506a66d8",
+    "whitepaper": "3a554be5021c4e3e3beecc2b5f9790107e3549ef47a390d1d72e057b6e1cf6e0",
+    "site_index": "cec2e31aeefc6ec87ef05394f39fbebeb7d51caa016a1d3d346b8ab5910afc7d"
+  },
+  "double_sha": "24b9afff4a8d03bf2257f7c430c7e5ca5505605b81bd4996cebb3568bf607a34"
+}

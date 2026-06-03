@@ -1,0 +1,15 @@
+{
+  "developer": "Голод Андрій Борисович",
+  "status": "initialized",
+  "modules": [
+    "watchdog",
+    "autoheal",
+    "autofix",
+    "double_sha_backend",
+    "github_assistant",
+    "codespaces_assistant",
+    "code_review_agent",
+    "documentation_agent",
+    "security_audit_agent"
+  ]
+}

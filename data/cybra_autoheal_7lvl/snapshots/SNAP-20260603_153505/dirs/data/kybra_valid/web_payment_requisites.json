@@ -1,0 +1,50 @@
+{
+  "status": "active_internal_web_payment_requisites",
+  "payment_system": "KYBRA Valid Wallet Gateway",
+  "valid_id": "KYBRA-VALID-686B7F6432361516",
+  "merchant_id": "KYBRA-MERCHANT-55C26A020E73",
+  "internal_wallet_address": "kybra:2b8748e8a37adc94afc4efbc15f7d5b6876bcf95",
+  "network": "KYBRA_INTERNAL",
+  "token": "KIBRA",
+  "accepted_for": [
+    "internal KYBRA transfer proposals",
+    "invoice reference",
+    "AI Parliament accounting",
+    "future bridge/liquidity/payment route"
+  ],
+  "not_a_bank_iban": true,
+  "not_a_licensed_psp_by_itself": true,
+  "requires_for_real_payment": [
+    "real bank/PSP details",
+    "invoice/facture",
+    "liquidity or buyer",
+    "confirmed market price",
+    "OWNER approval"
+  ],
+  "balance": {
+    "main_blocks": 10,
+    "task_blocks": 40,
+    "block_reward_kibra": "100",
+    "task_block_reward_kibra": "100",
+    "main_kibra": "1000",
+    "task_kibra": "4000",
+    "total_mined_kibra": "5000",
+    "sent_internal_kibra": "0",
+    "available_kibra": "5000",
+    "price_usd_per_kibra": "0",
+    "estimated_usd_if_price_confirmed": "0",
+    "real_market_confirmed": false,
+    "real_sell_now": false
+  },
+  "public_safe_to_share": {
+    "valid_id": "KYBRA-VALID-686B7F6432361516",
+    "merchant_id": "KYBRA-MERCHANT-55C26A020E73",
+    "internal_wallet_address": "kybra:2b8748e8a37adc94afc4efbc15f7d5b6876bcf95",
+    "network": "KYBRA_INTERNAL",
+    "token": "KIBRA"
+  },
+  "private_do_not_share": {
+    "private_key": "NOT_STORED",
+    "seed_phrase": "NOT_REQUIRED"
+  }
+}

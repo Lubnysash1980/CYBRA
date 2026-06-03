@@ -1,0 +1,106 @@
+{
+  "status": "repair_completed",
+  "time": 1780490209.9291928,
+  "time_iso": "2026-06-03T15:36:49+0300",
+  "repaired": [
+    "ran:bash cybra_redis_committee.sh ensure",
+    "ran:bin/cybra-finance-bin report",
+    "ran:bash kybra_valid.sh report",
+    "ran:bash cybra_payment_requisites.sh report",
+    "ran:bash cybra_finance_committees.sh report",
+    "ran:bash cybra_market_proof_collector.sh collect",
+    "ran:bash cybra_real_market_price_gate.sh status",
+    "ran:bash cybra_kibra_stats.sh report"
+  ],
+  "warnings": [],
+  "health_before": {
+    "status": "health_checked",
+    "time": 1780490202.6407,
+    "time_iso": "2026-06-03T15:36:42+0300",
+    "checks": {
+      "redis_ping": true,
+      "redis_committee": true,
+      "cybra_finance_bin": true,
+      "cybra_autoheal_bin": true,
+      "payment_requisites": true,
+      "kybra_valid": true,
+      "finance_committees": true,
+      "market_collector": true,
+      "price_gate": true,
+      "closed_sha_bridge": true,
+      "kibra_stats": true,
+      "cold_finance_report": true,
+      "kybra_valid_report": true,
+      "payment_requisites_report": true,
+      "five_committees_report": true,
+      "autoheal_report": true,
+      "parliament_failed_zero": true
+    },
+    "levels": [
+      {
+        "level": "L1_REDIS_HEALTH",
+        "name": "Redis Health Level",
+        "ok": true,
+        "bad": []
+      },
+      {
+        "level": "L2_BINARY_HEALTH",
+        "name": "Binary Health Level",
+        "ok": true,
+        "bad": []
+      },
+      {
+        "level": "L3_FINANCE_DATA_HEALTH",
+        "name": "Finance Data Health Level",
+        "ok": true,
+        "bad": []
+      },
+      {
+        "level": "L4_WALLET_REQUISITES_HEALTH",
+        "name": "Wallet Requisites Health Level",
+        "ok": true,
+        "bad": []
+      },
+      {
+        "level": "L5_PARLIAMENT_TASK_HEALTH",
+        "name": "Parliament Task Health Level",
+        "ok": true,
+        "bad": []
+      },
+      {
+        "level": "L6_MARKET_SAFETY_HEALTH",
+        "name": "Market Safety Health Level",
+        "ok": true,
+        "bad": []
+      },
+      {
+        "level": "L7_SEAL_DISPATCHER_HEALTH",
+        "name": "Seal Dispatcher Health Level",
+        "ok": true,
+        "bad": []
+      }
+    ],
+    "queues": {
+      "repair_queue": 0,
+      "seal_queue": 1,
+      "block_inbox": 0,
+      "task_block_mempool": 0,
+      "pool_mining_blocks": 0,
+      "parliament_queue": 0,
+      "parliament_failed": 0
+    },
+    "safety": {
+      "private_keys": false,
+      "seed_phrase": false,
+      "automatic_real_payment": false,
+      "automatic_external_tx": false,
+      "manual_OWNER_approval_required": true
+    },
+    "ok": true,
+    "double_sha": "59b48a2861e93138730857bd92c165a05ce99880dface04459ae0c17905fc48e"
+  },
+  "real_payment_now": false,
+  "automatic_external_tx": false,
+  "manual_OWNER_approval_required": true,
+  "double_sha": "2b3be9dbfa6f4c0848bc2620428fadf0914bf490ffd74494f368242addbb928e"
+}

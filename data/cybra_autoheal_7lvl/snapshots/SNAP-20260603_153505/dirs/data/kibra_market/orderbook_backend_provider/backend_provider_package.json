@@ -1,0 +1,20 @@
+{
+  "status": "orderbook_backend_provider_package_prepared",
+  "path": "ORDERBOOK_BACKEND_PROVIDER",
+  "purpose": "Створити backend-provider proof: bid/ask, depth, spread, provider proof reference.",
+  "local_backend_status": "prepared_as_internal_backend_package",
+  "becomes_real_market_proof_only_if": [
+    "real external buyers/sellers exist",
+    "provider identity is verified",
+    "bid and ask are real",
+    "proof_reference exists",
+    "provider_review_passed=true",
+    "owner_approval=true"
+  ],
+  "orderbook_snapshot_file": "data/kibra_market/orderbook_backend_provider/orderbook_snapshot.json",
+  "real_market_confirmed": false,
+  "manual_OWNER_approval_required": true,
+  "time": 1780468096.624815,
+  "time_iso": "2026-06-03T09:28:16+0300",
+  "double_sha": "1e9e9e7f3228f331ccc6634f78035f8137dd30b72c0bb041bf65ecbb3678e9c0"
+}

@@ -1,0 +1,39 @@
+{
+  "status": "pending_owner_approval",
+  "proposal_id": "KYBRA-TRANSFER-DFEB3726D7532883",
+  "amount_kibra": "100",
+  "to_address": "АДРЕСА_ОТРИМУВАЧА",
+  "network": "KYBRA_INTERNAL",
+  "memo": "переказ KIBRA",
+  "internal_transfer_possible": false,
+  "external_transfer_possible_now": false,
+  "external_transfer_requires": [
+    "bridge/wrapped representation",
+    "liquidity if fiat payment",
+    "confirmed market price if sell/conversion",
+    "manual OWNER approval",
+    "manual external wallet transaction"
+  ],
+  "balance_snapshot": {
+    "main_blocks": 10,
+    "task_blocks": 28,
+    "block_reward_kibra": "100",
+    "task_block_reward_kibra": "100",
+    "main_kibra": "1000",
+    "task_kibra": "2800",
+    "total_mined_kibra": "3800",
+    "sent_internal_kibra": "0",
+    "available_kibra": "3800",
+    "price_usd_per_kibra": "0",
+    "estimated_usd_if_price_confirmed": "0",
+    "real_market_confirmed": false,
+    "real_sell_now": false
+  },
+  "errors": [],
+  "real_external_tx_now": false,
+  "real_payment_now": false,
+  "manual_OWNER_approval_required": true,
+  "created_at": 1780487752.5050924,
+  "created_at_iso": "2026-06-03T14:55:52+0300",
+  "double_sha": "222f08a75018a9063ff9679baec311323f193519f83a09600da193af183a9ab1"
+}

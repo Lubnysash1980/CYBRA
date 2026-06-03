@@ -1,0 +1,15 @@
+CYBRA COLD PAYMENT SYSTEM REQUISITES
+
+System name: CYBRA Cold Payment System
+Valid ID: CYBRA-COLD-FIN-6D484C54BB3C5575
+Merchant ID: CYBRA-MERCHANT-1EB196021A0A
+Internal wallet: kybra:c702a1b6d36314a0ad58995701d1b0e92c8a3eaa
+Network: KYBRA_INTERNAL
+Asset: KIBRA
+
+Use:
+Internal KYBRA invoice reference / cold payment reference / future bank or PSP payment route.
+
+Important:
+This is not a bank IBAN.
+SWIFT/BANK/PSP payments require licensed provider, official invoice, recipient verification and OWNER approval.

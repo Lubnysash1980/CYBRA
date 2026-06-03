@@ -1,0 +1,117 @@
+{
+  "status": "kibra_stats_recommendations_report_generated",
+  "time": 1780490117.1589239,
+  "time_iso": "2026-06-03T15:35:17+0300",
+  "submit_ai": false,
+  "stats": {
+    "time": 1780490115.9229832,
+    "time_iso": "2026-06-03T15:35:15+0300",
+    "kibra": {
+      "total_blocks": 10,
+      "pool_tagged_blocks": 10,
+      "shares_total": 210,
+      "average_shares_per_block": 21.0,
+      "broken_block_files": 0,
+      "difficulty_distribution": {
+        "2": 6,
+        "3": 2,
+        "4": 2
+      },
+      "latest_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab"
+    },
+    "task_blocks": {
+      "files": 42,
+      "mempool": 0,
+      "mined": 0,
+      "pool_queue": 0
+    },
+    "ai": {
+      "native_kibra_ai": 0,
+      "finance_gap_ai": 0,
+      "finance_profit_ai": 0,
+      "bridge_pool_ai": 0,
+      "price_sell_repair_ai": 0,
+      "block_ai_support": 0,
+      "mint_promotion_ai": 0,
+      "mint_audit_ai": 0,
+      "mint_management_ai": 0
+    },
+    "parliament": {
+      "queue": 0,
+      "results": 0,
+      "failed": 0,
+      "audit": 0
+    },
+    "mint": {
+      "audit": 0,
+      "promotion": 0,
+      "management": 0,
+      "finance": 0,
+      "sell_plans": 0,
+      "repair_queue": 0,
+      "broken_blocks": 0
+    },
+    "bridge": {
+      "audit": 0,
+      "outbox": 0,
+      "sealed": 0,
+      "manual_anchor_ready": 0
+    },
+    "reports": {
+      "native_kibra": true,
+      "pool_confirm": true,
+      "difficulty_classes": true,
+      "bridge": true,
+      "price_sell_repair": true,
+      "ai_tasks_to_blocks": true,
+      "block_ai_support": true,
+      "mint_promotion": true,
+      "mint_audit": true,
+      "mint_management_finance": true
+    },
+    "market": {
+      "price_report_exists": true,
+      "pool_reserves_exists": true,
+      "sell_plan_exists": true
+    },
+    "git": {
+      "branch": "main",
+      "commit": "efef465c2",
+      "dirty_files": 65
+    }
+  },
+  "recommendations": [
+    {
+      "level": "important",
+      "area": "ai_task_blocks",
+      "recommendation": "Незавершені AI-завдання треба переводити у mining task-blocks.",
+      "task_type": "ai_tasks_to_blocks_task",
+      "action": "bash cybra_ai_blocks.sh cycle"
+    },
+    {
+      "level": "growth",
+      "area": "promotion",
+      "recommendation": "Просувати KIBRA через utility: AI credits, proof services, bridge packages, developer marketplace, pool mining.",
+      "task_type": "kibra_mint_promotion_task",
+      "action": "bash cybra_mint_promo.sh report"
+    },
+    {
+      "level": "growth",
+      "area": "next_blocks",
+      "recommendation": "Наступні AI-завдання не відправляти напряму: переводити у task-blocks і давати пулам на майнинг.",
+      "task_type": "ai_tasks_to_blocks_task",
+      "action": "bash cybra_ai_blocks.sh until-done"
+    }
+  ],
+  "ai_tasks_prepared": 3,
+  "ai_tasks_submitted": 0,
+  "safety": {
+    "real_sell": false,
+    "real_payment": false,
+    "fake_price": false,
+    "fake_volume": false,
+    "external_tx": false,
+    "manual_OWNER_approval_required": true
+  },
+  "double_sha": "5fb02692bbb300dda4fdc071d5196596a09999b89199aae98620eef03c15ef40"
+}

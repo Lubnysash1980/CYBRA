@@ -1,0 +1,95 @@
+{
+  "levels": [
+    {
+      "id": "L1_REDIS_HEALTH",
+      "name": "Redis Health Level",
+      "checks": [
+        "redis_ping",
+        "redis_committee"
+      ],
+      "repair": [
+        "start_redis",
+        "run_redis_committee"
+      ]
+    },
+    {
+      "id": "L2_BINARY_HEALTH",
+      "name": "Binary Health Level",
+      "checks": [
+        "cybra_finance_bin",
+        "cybra_autoheal_bin",
+        "cli_scripts"
+      ],
+      "repair": [
+        "chmod_bins",
+        "restore_missing_cli"
+      ]
+    },
+    {
+      "id": "L3_FINANCE_DATA_HEALTH",
+      "name": "Finance Data Health Level",
+      "checks": [
+        "cold_finance_data",
+        "payment_requisites_data",
+        "reports"
+      ],
+      "repair": [
+        "regenerate_finance_reports",
+        "restore_from_snapshot"
+      ]
+    },
+    {
+      "id": "L4_WALLET_REQUISITES_HEALTH",
+      "name": "Wallet Requisites Health Level",
+      "checks": [
+        "kybra_valid",
+        "cold_payment_requisites",
+        "wallet_reports"
+      ],
+      "repair": [
+        "regenerate_wallet_reports",
+        "restore_wallet_snapshots"
+      ]
+    },
+    {
+      "id": "L5_PARLIAMENT_TASK_HEALTH",
+      "name": "Parliament Task Health Level",
+      "checks": [
+        "block_inbox",
+        "task_blocks",
+        "pool_queue",
+        "parliament_failed"
+      ],
+      "repair": [
+        "submit_ai_repair_tasks",
+        "run_closed_sha_bridge"
+      ]
+    },
+    {
+      "id": "L6_MARKET_SAFETY_HEALTH",
+      "name": "Market Safety Health Level",
+      "checks": [
+        "price_gate",
+        "market_collector",
+        "safety_flags"
+      ],
+      "repair": [
+        "regenerate_market_reports",
+        "keep_real_payment_false"
+      ]
+    },
+    {
+      "id": "L7_SEAL_DISPATCHER_HEALTH",
+      "name": "Seal Dispatcher Health Level",
+      "checks": [
+        "seal_manifest",
+        "double_sha",
+        "dispatcher_report"
+      ],
+      "repair": [
+        "rebuild_seal",
+        "redispatch_tasks"
+      ]
+    }
+  ]
+}

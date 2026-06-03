@@ -1,0 +1,34 @@
+{
+  "snapshot_id": "SNAP-20260603_153505",
+  "time": 1780490105.2949896,
+  "time_iso": "2026-06-03T15:35:05+0300",
+  "files": {
+    "bin/cybra-finance-bin": "c7c32d55d5ac366cc67efa24cdb5a71440ed5771859f759cbf342b3f300d0015",
+    "bin/cybra-autoheal": "931f60b341994aac4701444a72c05fdd23828b7397fc2694d0db43a8a7c002eb",
+    "cybra_redis_committee.sh": "2a0c9720a8a42c55dcf6971cc78eadfa3c9e39c742a1ebb4aaca5a701e200309",
+    "cybra_payment_requisites.sh": "110d97459bcdcaeae538f5d882589429af84a9577e7ec6ff4e936c26aaf3571d",
+    "kybra_valid.sh": "f20cbdecbfd13ec9954d216fb8a335001b965538ec5a229b33672f5dec7ac9cd",
+    "cybra_finance_committees.sh": "447c4fa68c70a18b98ab8af129fb9bb67699cac50dafefb8e61bfa33315c496f",
+    "cybra_market_proof_collector.sh": "6e0fe6de906479aaf09591122cddbb34c190bd7268088c619c0575a768b6ac9c",
+    "cybra_real_market_price_gate.sh": "4909de3313e9ceb191612d4af6028bf14df0ac2e6c67ce154727c2de82dafa51",
+    "cybra_closed_sha_bridge.sh": "8d2069ab006a7a3811c5b2045d04ccec513de14656ed06f6186dd509b20a9ea8",
+    "cybra_kibra_stats.sh": "4cc70720f41c7d352fcfa150d47456e18aa6966e20d379ae9b37635bb61fa0e5",
+    "parliament_executor_v6.py": "a451e3afad27fa2db221860f99cc3ba5490af04cec8671ce5208684829e6a1b6"
+  },
+  "dirs": {
+    "parliament/departments/finance_department": "copied",
+    "parliament/departments/cybra_finance_department": "copied",
+    "data/cybra_cold_finance": "copied",
+    "data/kybra_valid": "copied",
+    "data/cybra_payment_requisites": "copied",
+    "data/kibra_market": "copied",
+    "posts": "copied",
+    "feeds": "copied",
+    "proofs": "copied"
+  },
+  "safety": {
+    "private_keys": false,
+    "seed_phrase": false
+  },
+  "double_sha": "a0eba6bc99d5cc54a58d55272c335d47b565edc082be29104e63955d7c4ba79e"
+}

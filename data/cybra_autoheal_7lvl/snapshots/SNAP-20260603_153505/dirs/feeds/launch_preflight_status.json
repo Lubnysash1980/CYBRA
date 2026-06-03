@@ -1,0 +1,11 @@
+{
+  "mode": "mainnet",
+  "token_registry": true,
+  "wallet_visibility": true,
+  "rpc_template": true,
+  "devnet_preflight": true,
+  "site_docs": true,
+  "phantom_ready_placeholder": true,
+  "api_key_required": true,
+  "status": "preflight_ready"
+}

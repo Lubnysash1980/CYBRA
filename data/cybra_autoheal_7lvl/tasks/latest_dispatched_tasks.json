@@ -1,0 +1,165 @@
+{
+  "tasks": [
+    {
+      "topic": "CYBRA AutoHeal 7LVL task distribution",
+      "type": "cybra_autoheal_7lvl_task",
+      "priority": "normal",
+      "payload": {
+        "source": "cybra_autoheal_7lvl",
+        "level": "L1_REDIS_HEALTH",
+        "level_name": "Redis Health Level",
+        "ok": true,
+        "bad": [],
+        "seal_sha": "23dee345736df9dfefbe38c4a341cdc8b3e97f8638e5a09b3dbccd13a6891c17",
+        "repair_alpha_beta": true,
+        "convert_to_mining_block_first": true,
+        "send_to_pool_mining": true,
+        "real_payment_now": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true
+      },
+      "double_sha": "beef4569d84f69b0f91f31fecb702563017d436c1d47673f710c682ec2147058"
+    },
+    {
+      "topic": "CYBRA AutoHeal 7LVL task distribution",
+      "type": "cybra_autoheal_7lvl_task",
+      "priority": "normal",
+      "payload": {
+        "source": "cybra_autoheal_7lvl",
+        "level": "L2_BINARY_HEALTH",
+        "level_name": "Binary Health Level",
+        "ok": true,
+        "bad": [],
+        "seal_sha": "23dee345736df9dfefbe38c4a341cdc8b3e97f8638e5a09b3dbccd13a6891c17",
+        "repair_alpha_beta": true,
+        "convert_to_mining_block_first": true,
+        "send_to_pool_mining": true,
+        "real_payment_now": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true
+      },
+      "double_sha": "800f4a2299313ac69f813b61c4e1dcedb8950bfb1090a332b497f6d9e56d152b"
+    },
+    {
+      "topic": "CYBRA AutoHeal 7LVL task distribution",
+      "type": "cybra_autoheal_7lvl_task",
+      "priority": "normal",
+      "payload": {
+        "source": "cybra_autoheal_7lvl",
+        "level": "L3_FINANCE_DATA_HEALTH",
+        "level_name": "Finance Data Health Level",
+        "ok": true,
+        "bad": [],
+        "seal_sha": "23dee345736df9dfefbe38c4a341cdc8b3e97f8638e5a09b3dbccd13a6891c17",
+        "repair_alpha_beta": true,
+        "convert_to_mining_block_first": true,
+        "send_to_pool_mining": true,
+        "real_payment_now": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true
+      },
+      "double_sha": "421f0c3d881caeb68fb899f70c939f4e24d351cf17bb8793c1da27c88c9c7c0d"
+    },
+    {
+      "topic": "CYBRA AutoHeal 7LVL task distribution",
+      "type": "cybra_autoheal_7lvl_task",
+      "priority": "normal",
+      "payload": {
+        "source": "cybra_autoheal_7lvl",
+        "level": "L4_WALLET_REQUISITES_HEALTH",
+        "level_name": "Wallet Requisites Health Level",
+        "ok": true,
+        "bad": [],
+        "seal_sha": "23dee345736df9dfefbe38c4a341cdc8b3e97f8638e5a09b3dbccd13a6891c17",
+        "repair_alpha_beta": true,
+        "convert_to_mining_block_first": true,
+        "send_to_pool_mining": true,
+        "real_payment_now": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true
+      },
+      "double_sha": "dcb14a5937b2a79fbdcbe46f0560c49319fe7da35215e4deba8b232e3ed95660"
+    },
+    {
+      "topic": "CYBRA AutoHeal 7LVL task distribution",
+      "type": "cybra_autoheal_7lvl_task",
+      "priority": "normal",
+      "payload": {
+        "source": "cybra_autoheal_7lvl",
+        "level": "L5_PARLIAMENT_TASK_HEALTH",
+        "level_name": "Parliament Task Health Level",
+        "ok": true,
+        "bad": [],
+        "seal_sha": "23dee345736df9dfefbe38c4a341cdc8b3e97f8638e5a09b3dbccd13a6891c17",
+        "repair_alpha_beta": true,
+        "convert_to_mining_block_first": true,
+        "send_to_pool_mining": true,
+        "real_payment_now": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true
+      },
+      "double_sha": "4b272fe3d39b057017e9eae2255a4c3b0dd3b7a2795404a34045714e7af43cf8"
+    },
+    {
+      "topic": "CYBRA AutoHeal 7LVL task distribution",
+      "type": "cybra_autoheal_7lvl_task",
+      "priority": "normal",
+      "payload": {
+        "source": "cybra_autoheal_7lvl",
+        "level": "L6_MARKET_SAFETY_HEALTH",
+        "level_name": "Market Safety Health Level",
+        "ok": true,
+        "bad": [],
+        "seal_sha": "23dee345736df9dfefbe38c4a341cdc8b3e97f8638e5a09b3dbccd13a6891c17",
+        "repair_alpha_beta": true,
+        "convert_to_mining_block_first": true,
+        "send_to_pool_mining": true,
+        "real_payment_now": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true
+      },
+      "double_sha": "9168004a26191fbd521a2d7de30c563cfecf621e44ba20bd8b7ddeba5b16397a"
+    },
+    {
+      "topic": "CYBRA AutoHeal 7LVL task distribution",
+      "type": "cybra_autoheal_7lvl_task",
+      "priority": "normal",
+      "payload": {
+        "source": "cybra_autoheal_7lvl",
+        "level": "L7_SEAL_DISPATCHER_HEALTH",
+        "level_name": "Seal Dispatcher Health Level",
+        "ok": true,
+        "bad": [],
+        "seal_sha": "23dee345736df9dfefbe38c4a341cdc8b3e97f8638e5a09b3dbccd13a6891c17",
+        "repair_alpha_beta": true,
+        "convert_to_mining_block_first": true,
+        "send_to_pool_mining": true,
+        "real_payment_now": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true
+      },
+      "double_sha": "4f910b739cb9fc5180a0aeacf9fe0f0722ab6e90cc03745ce5b45f614fcf1558"
+    },
+    {
+      "topic": "CYBRA AutoHeal Alpha/Beta sealed repair cycle",
+      "type": "cybra_autoheal_7lvl_task",
+      "priority": "critical",
+      "payload": {
+        "source": "cybra_autoheal_7lvl",
+        "goal": "Alpha repairs Beta, Beta repairs Alpha, Seal Dispatcher distributes repair tasks through mining blocks.",
+        "levels": 7,
+        "seal_sha": "23dee345736df9dfefbe38c4a341cdc8b3e97f8638e5a09b3dbccd13a6891c17",
+        "health_ok": true,
+        "convert_to_mining_block_first": true,
+        "send_to_pool_mining": true,
+        "real_payment_now": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true
+      },
+      "double_sha": "5606903ad0ffd277d7f2e7b2b5935122bb2af0df7023ad5a69b0f6ca594ebf54"
+    }
+  ],
+  "count": 8,
+  "time": 1780490210.9328156,
+  "time_iso": "2026-06-03T15:36:50+0300"
+}

@@ -1,0 +1,32 @@
+{
+  "committee_id": "finance_redis_committee",
+  "name": "Redis",
+  "full_name": "Finance Department Redis Committee",
+  "parent_department": "finance_department",
+  "status": "active",
+  "mission": "Слідкувати, щоб Redis був увімкнений для фінансового відділу, AI Parliament, KIBRA mining blocks, closed SHA bridge, liquidity, price gate і audit queues.",
+  "responsibilities": [
+    "redis_health_check",
+    "auto_start_redis_if_down",
+    "audit_redis_status",
+    "protect_finance_queues",
+    "protect_ai_task_block_queues",
+    "protect_closed_sha_bridge_queues",
+    "notify_parliament_via_AI_task"
+  ],
+  "critical_queues": [
+    "cybra:parliament:queue",
+    "cybra:parliament:results",
+    "cybra:parliament:failed",
+    "cybra:ai:tasks:block_inbox",
+    "cybra:kibra:task_blocks:mempool",
+    "cybra:kibra:pool:mining_blocks",
+    "cybra:kibra:task_blocks:mined",
+    "cybra:kibra:mint_finance:audit",
+    "cybra:kibra:market_proof_collector:audit",
+    "cybra:kibra:real_market_price_gate:audit",
+    "cybra:kibra:closed_sha_pool_bridge:audit"
+  ],
+  "rule": "Якщо Redis вимкнений — Redis Committee запускає його автоматично і пише audit.",
+  "manual_OWNER_approval_required": false
+}

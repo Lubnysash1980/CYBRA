@@ -1,0 +1,33 @@
+{
+  "department_id": "kybra_valid_wallet_department",
+  "name": "KYBRA Valid Wallet Gateway",
+  "parent_department": "finance_department",
+  "status": "active",
+  "mission": "Створити внутрішній valid/wallet для KYBRA, реквізити веб-платіжної системи, облік намайнених KIBRA і proposal-механізм для переказів.",
+  "rules": [
+    "Не просити private key, seed phrase, CVV або банківські паролі.",
+    "Публічна адреса отримувача може бути записана як destination wallet.",
+    "Внутрішній переказ KIBRA можливий тільки як ledger/proposal у системі KYBRA.",
+    "Зовнішній переказ або оплата авто можливі тільки після bridge/liquidity/price proof/OWNER approval.",
+    "Усі AI-завдання йдуть через mining blocks."
+  ],
+  "outputs": [
+    "valid_wallet",
+    "web_payment_requisites",
+    "balance_report",
+    "transfer_proposal",
+    "internal_ledger",
+    "AI tasks to block inbox",
+    "sha256 proof"
+  ],
+  "blocked": [
+    "private_keys",
+    "seed_phrase",
+    "automatic_external_tx",
+    "automatic_real_payment",
+    "automatic_token_sell",
+    "fake_balance",
+    "fake_price"
+  ],
+  "manual_OWNER_approval_required": true
+}

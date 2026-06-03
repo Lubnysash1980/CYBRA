@@ -1,0 +1,14 @@
+{
+  "status": "OWNER_DIRECTIVE_ACCEPTED",
+  "directive": "AI Parliament must work until AI tasks are completed.",
+  "scope": "AI task completion only",
+  "real_payment_execution": false,
+  "automatic_token_mint": false,
+  "automatic_liquidity_pool": false,
+  "automatic_exchange_launch": false,
+  "automatic_external_tx": false,
+  "manual_OWNER_approval_required_for_real_launch": true,
+  "time": 1780489277.9343882,
+  "time_iso": "2026-06-03T15:21:17+0300",
+  "double_sha": "3ccac9e72d33c7d2929f734fcd9d0a2012b49f958068d6d02bda990498f2da28"
+}

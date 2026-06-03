@@ -1,0 +1,33 @@
+{
+  "status": "kibra_bridge_pool_monetization_report_generated",
+  "time": 1780484887.6180067,
+  "time_iso": "2026-06-03T14:08:07+0300",
+  "submit_ai": true,
+  "ai_tasks_created": 4,
+  "latest_kibra_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab",
+  "bridge_package": {
+    "sealed_id": "KIBRA-BRIDGE-d6858e1f80d68332",
+    "bridge_sha_seal": "d6858e1f80d683329a4dffc7e8a5b5e44bdf472373b6a1abaa2f6ae61ea8c92f",
+    "blocks_count": 10,
+    "outbox_file": "data/kibra_bridge/outbox/KIBRA-BRIDGE-d6858e1f80d68332.json",
+    "sealed_file": "data/kibra_bridge/sealed/KIBRA-BRIDGE-d6858e1f80d68332.sealed.json",
+    "real_network_broadcast_now": false,
+    "manual_OWNER_approval_required": true
+  },
+  "redis": {
+    "ai_queue": 8,
+    "bridge_outbox": 60,
+    "sealed_packages": 60,
+    "manual_anchor_ready": 70,
+    "parliament_queue": 0,
+    "parliament_failed": 0
+  },
+  "safety": {
+    "real_payment_execution": false,
+    "external_mint": false,
+    "real_network_broadcast_now": false,
+    "automatic_bridge_broadcast": false,
+    "manual_OWNER_approval_required": true
+  },
+  "double_sha": "5072d79754cc843a9900efe695be4db8f0a66a6adb5a60b0e536ffbc2831accb"
+}

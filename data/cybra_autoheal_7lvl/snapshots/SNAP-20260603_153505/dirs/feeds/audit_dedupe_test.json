@@ -1,0 +1,5 @@
+{
+  "status": "executed",
+  "handler": "audit_dedupe_test_handler.sh",
+  "time": "2026-06-02T16:03:40+03:00"
+}

@@ -1,0 +1,18 @@
+{
+  "status": "completed",
+  "complete": true,
+  "ai_total": 0,
+  "parliament_queue": 0,
+  "parliament_results": 8,
+  "parliament_failed": 0,
+  "audit": 2,
+  "moved_hashes": 8,
+  "real_payment_execution": false,
+  "automatic_token_mint": false,
+  "automatic_liquidity_pool": false,
+  "automatic_exchange_launch": false,
+  "automatic_external_tx": false,
+  "time": 1780490137.1938877,
+  "time_iso": "2026-06-03T15:35:37+0300",
+  "double_sha": "0a11dcbfb767c327eee0d0f97eb4e18b78dbabb17f664a97c2045368819fcd6c"
+}

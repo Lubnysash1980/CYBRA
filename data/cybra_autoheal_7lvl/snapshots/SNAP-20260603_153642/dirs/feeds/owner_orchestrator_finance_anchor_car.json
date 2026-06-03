@@ -1,0 +1,84 @@
+{
+  "status": "owner_orchestrator_finance_anchor_car_ready",
+  "time": 1780434420.8433447,
+  "time_iso": "2026-06-03T00:07:00+0300",
+  "owner_role": "MAIN_ORCHESTRATOR",
+  "finance_decision": {
+    "status": "conditional_hold_until_documents",
+    "payment_execution_allowed": false,
+    "reason": "Завтрашня купівля авто можлива тільки після перевірки документів, продавця, VIN, обтяжень, договору і ручного підтвердження OWNER.",
+    "allowed_next_stage": "document_collection_and_manual_review",
+    "blocked": [
+      "automatic payment",
+      "full prepayment without guarantees",
+      "payment without VIN/documents",
+      "payment without seller authority check",
+      "payment without ownership transfer terms"
+    ]
+  },
+  "external_anchor_decision": {
+    "status": "manual_anchor_package_ready",
+    "automatic_onchain_tx": false,
+    "manual_wallet_signature_required": true,
+    "anchor_queue_count": 2,
+    "latest_kibra_hash": "00f957b0f5cda9f673bf10d8d440279ea89e7834787871183b14c5540b8d3aa5",
+    "next_action": "Після ручного підтвердження OWNER взяти anchor_root_hash і записати у зовнішній блокчейн окремою транзакцією."
+  },
+  "car_preflight": {
+    "status": "ready_for_manual_document_check",
+    "tomorrow_purchase_mode": true,
+    "required_before_payment": [
+      "VIN або номер кузова",
+      "ціна і валюта",
+      "продавець / дилер / компанія",
+      "договір або рахунок",
+      "акт прийому-передачі",
+      "умови оплати",
+      "перевірка обтяжень/арештів/застав",
+      "перевірка права продавця продавати авто",
+      "реєстраційні платежі",
+      "фінальне ручне підтвердження OWNER"
+    ]
+  },
+  "proof_inputs": {
+    "owner_orchestrator_policy": "9d056cb423aded27ed6226f2ac2a47b475173a39fbfa46bf965ab2e71aa0d82b",
+    "finance_risk_policy": "ae527ce430dd50c51ca59ea0a696b705578d17d63c0f9cd956159f95eda00158",
+    "external_anchor_policy": "a3919e4a3f685e9477af545f4c9c5c9fc915a0624de6b58c4ca0845cf5eb0dd6",
+    "car_purchase_policy": "f14f5b23f652d112264bc608b613d79c030bda68a273ef78f2cdc9f21b26842f",
+    "kibra_latest_block_hash": "00f957b0f5cda9f673bf10d8d440279ea89e7834787871183b14c5540b8d3aa5",
+    "kibra_token_chain_proof": "d954e9842c242deb0ff6ce13b312d3868b6da5118bbd0cbe22e43a389510cce6",
+    "parliament_kibra_review_proof": "156f25171426401b4b79509664934c3b42e0ae5a577c4b248236f1e0c46fb76a"
+  },
+  "anchor_root_hash": "6433cf661562b7df2d4fdc162ad8a85a3561e1a42bc4da695a98ee712fa8dfa5",
+  "redis": {
+    "parliament_queue": 4,
+    "parliament_results": 78,
+    "finance_ledger": 18,
+    "finance_audit": 37,
+    "anchor_queue": 2,
+    "kibra_audit": 12
+  },
+  "anchor_queue_preview": [
+    {
+      "status": "queued_for_manual_external_blockchain_anchor",
+      "chain": "KIBRA_LOCAL_PROOF_CHAIN",
+      "token": "Кібра",
+      "symbol": "KIBRA",
+      "block_index": 8,
+      "block_hash": "00f957b0f5cda9f673bf10d8d440279ea89e7834787871183b14c5540b8d3aa5",
+      "block_double_sha": "375abaea2c047b3e44235d5c8051407ce90fd17c611926b5c4435183c1a9736b",
+      "external_tx": null,
+      "manual_anchor_required": true,
+      "time": 1780434413.781045
+    },
+    {
+      "status": "queued_for_manual_onchain_anchor",
+      "block_id": "pool_ai_block_1780432283_81b44d46b5d6",
+      "block_double_sha": "81b44d46b5d6ab311fdea378b51cff5c387e290156727e59794e6b2cd8631909",
+      "real_onchain_tx": null,
+      "manual_anchor_required": true,
+      "time": 1780432283.1668313
+    }
+  ],
+  "double_sha": "06a3e5da16ef18d56df7a6a593cdd4828e20574dd780442cc98be73646804a72"
+}

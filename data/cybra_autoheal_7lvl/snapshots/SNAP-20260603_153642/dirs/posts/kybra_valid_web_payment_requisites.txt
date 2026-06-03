@@ -1,0 +1,15 @@
+KYBRA WEB PAYMENT REQUISITES
+
+Payment system: KYBRA Valid Wallet Gateway
+Valid ID: KYBRA-VALID-686B7F6432361516
+Merchant ID: KYBRA-MERCHANT-55C26A020E73
+Internal wallet address: kybra:2b8748e8a37adc94afc4efbc15f7d5b6876bcf95
+Network: KYBRA_INTERNAL
+Token: KIBRA
+
+Purpose:
+Internal KYBRA payment reference / invoice reference / future bank or PSP route after liquidity and OWNER approval.
+
+Important:
+This is not a bank IBAN.
+For real car payment, dealer invoice and real bank/PSP payment rail are required.

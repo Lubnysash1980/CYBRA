@@ -1,0 +1,57 @@
+{
+  "real_mint": {
+    "status": "proposal_ready",
+    "automatic": false,
+    "requires": [
+      "chain selection",
+      "wallet authority",
+      "metadata",
+      "supply confirmation",
+      "manual signature",
+      "OWNER approval"
+    ]
+  },
+  "real_liquidity_pool": {
+    "status": "proposal_ready",
+    "automatic": false,
+    "requires": [
+      "DEX selection",
+      "pair selection",
+      "initial liquidity",
+      "pool allocation",
+      "slippage risk",
+      "manual transaction"
+    ]
+  },
+  "market_price": {
+    "status": "not_set_until_real_liquidity",
+    "rule": "Price is discovered by real pool/orderbook/liquidity, not assigned manually."
+  },
+  "buyers_volume": {
+    "status": "utility_strategy_required",
+    "methods": [
+      "AI task credits",
+      "proof-chain verification service",
+      "anchor package service",
+      "developer support credits",
+      "marketplace services",
+      "community demand"
+    ],
+    "blocked": [
+      "fake buyers",
+      "wash trading",
+      "pump promise"
+    ]
+  },
+  "sell_without_crash": {
+    "status": "model_required",
+    "rules": [
+      "sell only small percent of daily real volume",
+      "simulate slippage",
+      "depth check",
+      "staged sells",
+      "manual OWNER approval",
+      "no market manipulation"
+    ]
+  }
+}

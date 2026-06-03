@@ -1,0 +1,27 @@
+{
+  "status": "active_internal_cold_finance_system",
+  "system_name": "CYBRA Cold Payment System",
+  "valid_id": "CYBRA-COLD-FIN-6D484C54BB3C5575",
+  "native_asset": "KIBRA",
+  "internal_wallet_address": "kybra:c702a1b6d36314a0ad58995701d1b0e92c8a3eaa",
+  "payment_system_requisites": {
+    "system_name": "CYBRA Cold Payment System",
+    "valid_id": "CYBRA-COLD-FIN-6D484C54BB3C5575",
+    "merchant_id": "CYBRA-MERCHANT-1EB196021A0A",
+    "internal_wallet_address": "kybra:c702a1b6d36314a0ad58995701d1b0e92c8a3eaa",
+    "network": "KYBRA_INTERNAL",
+    "asset": "KIBRA",
+    "note": "Internal web payment requisites. Not a bank IBAN and not a licensed PSP by itself."
+  },
+  "security": {
+    "cold_mode": true,
+    "private_keys_stored": false,
+    "seed_phrase_stored": false,
+    "public_addresses_only": true
+  },
+  "real_payment_now": false,
+  "automatic_external_tx": false,
+  "manual_OWNER_approval_required": true,
+  "created_at": 1780488042.0412123,
+  "created_at_iso": "2026-06-03T15:00:42+0300"
+}

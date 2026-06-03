@@ -1,0 +1,40 @@
+{
+  "status": "draft_not_ready_for_real_payment",
+  "payment_system_id": "CYBRA-PAY-541883964C95E7EC",
+  "payer_type": "personal_or_company",
+  "payer_display_name": "",
+  "payer_full_legal_name": "",
+  "payer_tax_id_or_edrpou": "",
+  "payer_address": "",
+  "payer_phone": "",
+  "payer_email": "",
+  "bank": {
+    "bank_name": "",
+    "iban": "",
+    "currency": "UAH",
+    "swift_bic": "",
+    "mfo_or_bank_code": ""
+  },
+  "psp": {
+    "provider_name": "",
+    "merchant_id": "",
+    "account_id": "",
+    "contract_number": ""
+  },
+  "crypto_acceptance": {
+    "dealer_accepts_crypto": false,
+    "network": "",
+    "wallet_address": "",
+    "token": "KIBRA",
+    "note": "Only if dealer officially accepts crypto and issues invoice."
+  },
+  "token_funding_source": {
+    "source": "KIBRA mined/accounting balance",
+    "real_market_confirmed_required": true,
+    "liquidity_required": true,
+    "sell_or_conversion_now": false,
+    "owner_approval_required": true
+  },
+  "real_payment_ready": false,
+  "note": "Заповнити тільки реальні реквізити банку або PSP."
+}

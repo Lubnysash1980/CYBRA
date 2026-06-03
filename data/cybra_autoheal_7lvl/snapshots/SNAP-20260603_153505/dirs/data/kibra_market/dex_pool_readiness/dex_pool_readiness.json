@@ -1,0 +1,33 @@
+{
+  "status": "dex_pool_readiness_prepared",
+  "path": "DEX_POOL_READINESS",
+  "purpose": "Підготувати DEX pool proof для підтвердження ринкової ціни KIBRA.",
+  "chain_options": [
+    "EVM-compatible chain after wrapped/bridge representation",
+    "Solana DEX after wrapped/bridge representation",
+    "other DEX after provider review"
+  ],
+  "required_for_real_price": [
+    "real pool address",
+    "real quote reserve",
+    "real KIBRA/wrapped-KIBRA reserve",
+    "pool proof / tx proof",
+    "explorer URL",
+    "provider review",
+    "OWNER approval"
+  ],
+  "suggested_pilot_reserve": {
+    "kibra_1_percent": "28.00",
+    "kibra_5_percent": "140.00",
+    "kibra_10_percent": "280.00",
+    "quote_usd_example_for_0_01": "0.2800",
+    "quote_usd_example_for_0_10": "2.8000",
+    "quote_usd_example_for_1_00": "28.0000"
+  },
+  "real_pool_now": false,
+  "real_market_confirmed": false,
+  "manual_OWNER_approval_required": true,
+  "time": 1780468096.6235054,
+  "time_iso": "2026-06-03T09:28:16+0300",
+  "double_sha": "3ea7f2cfdbb98e4226b262744fbfeb7112304ad79c7935e781a0cb7b9e5e3f3b"
+}

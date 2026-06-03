@@ -1,0 +1,54 @@
+{
+  "status": "cybra_finance_full_autotest_completed",
+  "time": 1780488926.5311427,
+  "time_iso": "2026-06-03T15:15:26+0300",
+  "modules": {
+    "redis_committee": true,
+    "payment_requisites": true,
+    "kybra_valid_wallet": true,
+    "cold_finance_binary": true,
+    "five_committees": true,
+    "closed_sha_bridge": true,
+    "real_market_price_gate": true,
+    "market_proof_collector": false,
+    "kibra_stats": true
+  },
+  "blocks": {
+    "main_blocks": 10,
+    "task_blocks": 40,
+    "estimated_kibra_by_default_reward_100": 5000
+  },
+  "queues": {
+    "block_inbox": 0,
+    "task_block_mempool": 0,
+    "pool_mining_blocks": 10,
+    "task_blocks_mined": 10,
+    "closed_sha_outbox": 0,
+    "closed_sha_sealed": 0,
+    "parliament_queue": 0,
+    "parliament_results": 17,
+    "parliament_failed": 0
+  },
+  "reports": {
+    "cold_finance": true,
+    "cold_payment_requisites": true,
+    "kybra_valid": true,
+    "kybra_valid_requisites": true,
+    "payment_requisites": true,
+    "payment_dealer_text": true,
+    "five_committees": true,
+    "redis_committee": true
+  },
+  "safety": {
+    "private_keys_stored": false,
+    "seed_phrase_required": false,
+    "automatic_external_tx": false,
+    "automatic_SWIFT": false,
+    "automatic_real_payment": false,
+    "automatic_token_sell": false,
+    "manual_OWNER_approval_required": true,
+    "real_sell_now": false,
+    "real_payment_now": false
+  },
+  "double_sha": "2482d637ed6b9365931c1a78fbbe2fee0e8d918ae088890a37d0497fdca2e137"
+}

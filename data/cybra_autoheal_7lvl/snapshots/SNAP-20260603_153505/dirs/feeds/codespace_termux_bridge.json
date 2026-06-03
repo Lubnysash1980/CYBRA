@@ -1,0 +1,6 @@
+{
+  "status": "installed",
+  "bridge": "termux_codespaces",
+  "sync": "github",
+  "autopatch": true
+}

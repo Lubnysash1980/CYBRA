@@ -1,0 +1,10 @@
+{
+  "status": "manual_pool_reserves_recorded",
+  "source": "manual_liquidity_reference",
+  "quote_reserve_usd": "1000",
+  "kibra_reserve": "100000",
+  "real_market_confirmed": false,
+  "note": "Reference reserves only. Real market confirmation requires verified provider/orderbook/pool proof and OWNER approval.",
+  "time": 1780440008.7519662,
+  "time_iso": "2026-06-03T01:40:08+0300"
+}

@@ -1,0 +1,36 @@
+{
+  "committee_id": "finance_worker_committee",
+  "name": "Комітет-Воркер",
+  "role": "worker",
+  "parent_department": "cybra_cold_finance_binary_department",
+  "status": "active",
+  "mission": "Виконувати роботу через бінарник cybra-finance-bin і допоміжні модулі.",
+  "assigned_tasks": [
+    "run_cybra_finance_bin_report",
+    "create_payment_proposals",
+    "create_swift_bank_drafts",
+    "update_cold_wallet_registry",
+    "update_finance_reports"
+  ],
+  "target_system": "CYBRA Cold Finance Binary System",
+  "target_binary": "bin/cybra-finance-bin",
+  "ai_task_flow": [
+    "committee_task",
+    "cybra:ai:tasks:block_inbox",
+    "task_block",
+    "closed_sha_bridge",
+    "pool_mining",
+    "AI Parliament result"
+  ],
+  "safety": {
+    "private_keys": false,
+    "seed_phrase": false,
+    "automatic_swift_payment": false,
+    "automatic_external_crypto_tx": false,
+    "automatic_real_payment": false,
+    "manual_OWNER_approval_required": true
+  },
+  "created_at": 1780489268.2086332,
+  "created_at_iso": "2026-06-03T15:21:08+0300",
+  "double_sha": "cc08752b205e6b46e20940c33fd8cd9ff4efe221e9f928b6bba77146aeb9ac55"
+}

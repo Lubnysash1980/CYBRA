@@ -1,0 +1,86 @@
+{
+  "status": "health_checked",
+  "time": 1780490210.285325,
+  "time_iso": "2026-06-03T15:36:50+0300",
+  "checks": {
+    "redis_ping": true,
+    "redis_committee": true,
+    "cybra_finance_bin": true,
+    "cybra_autoheal_bin": true,
+    "payment_requisites": true,
+    "kybra_valid": true,
+    "finance_committees": true,
+    "market_collector": true,
+    "price_gate": true,
+    "closed_sha_bridge": true,
+    "kibra_stats": true,
+    "cold_finance_report": true,
+    "kybra_valid_report": true,
+    "payment_requisites_report": true,
+    "five_committees_report": true,
+    "autoheal_report": true,
+    "parliament_failed_zero": true
+  },
+  "levels": [
+    {
+      "level": "L1_REDIS_HEALTH",
+      "name": "Redis Health Level",
+      "ok": true,
+      "bad": []
+    },
+    {
+      "level": "L2_BINARY_HEALTH",
+      "name": "Binary Health Level",
+      "ok": true,
+      "bad": []
+    },
+    {
+      "level": "L3_FINANCE_DATA_HEALTH",
+      "name": "Finance Data Health Level",
+      "ok": true,
+      "bad": []
+    },
+    {
+      "level": "L4_WALLET_REQUISITES_HEALTH",
+      "name": "Wallet Requisites Health Level",
+      "ok": true,
+      "bad": []
+    },
+    {
+      "level": "L5_PARLIAMENT_TASK_HEALTH",
+      "name": "Parliament Task Health Level",
+      "ok": true,
+      "bad": []
+    },
+    {
+      "level": "L6_MARKET_SAFETY_HEALTH",
+      "name": "Market Safety Health Level",
+      "ok": true,
+      "bad": []
+    },
+    {
+      "level": "L7_SEAL_DISPATCHER_HEALTH",
+      "name": "Seal Dispatcher Health Level",
+      "ok": true,
+      "bad": []
+    }
+  ],
+  "queues": {
+    "repair_queue": 0,
+    "seal_queue": 1,
+    "block_inbox": 2,
+    "task_block_mempool": 0,
+    "pool_mining_blocks": 0,
+    "parliament_queue": 0,
+    "parliament_failed": 0
+  },
+  "safety": {
+    "private_keys": false,
+    "seed_phrase": false,
+    "automatic_real_payment": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  },
+  "ok": true,
+  "double_sha": "4dbaecb03167a67e4ea2ab9ea72b75720b948584514f781dc558f5f2e4a29cf0"
+}

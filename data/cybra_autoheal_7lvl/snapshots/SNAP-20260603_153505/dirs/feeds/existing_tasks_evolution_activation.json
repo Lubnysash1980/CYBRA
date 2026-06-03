@@ -1,0 +1,453 @@
+{
+  "status": "existing_tasks_evolution_activation_report",
+  "mode": "report",
+  "time": 1780435050.6732063,
+  "time_iso": "2026-06-03T00:17:30+0300",
+  "score": 100,
+  "git": {
+    "branch": "main",
+    "commit": "4d5f246b5",
+    "dirty_files": 129
+  },
+  "redis": {
+    "queue": 0,
+    "results": 87,
+    "failed": 0,
+    "failed_archive": 3,
+    "mapping_count": 53
+  },
+  "summary": {
+    "records_checked": 97,
+    "task_types": 33,
+    "missing_mapping": 0,
+    "missing_handler": 0,
+    "failed_validation": 0,
+    "missing_committee": 0
+  },
+  "statuses": {
+    "executed": 77,
+    "failed": 2,
+    "no_executor_mapping": 8,
+    "unknown": 8,
+    "reviewed": 2
+  },
+  "sources": {
+    "cybra:parliament:results": 87,
+    "cybra:review:approved": 1,
+    "cybra:review:rejected": 2,
+    "cybra:evolution:approved": 6,
+    "cybra:evolution_deployment:tasks": 1
+  },
+  "task_types": {
+    "kibra_bridge_pool_task": 3,
+    "kibra_token_chain_task": 5,
+    "finance_infrastructure_task": 3,
+    "native_kibra_evolution_task": 1,
+    "kibra_market_exchange_task": 3,
+    "monetization_department_task": 7,
+    "owner_orchestrator_task": 8,
+    "evolution_deployment_task": 2,
+    "finance_department_task": 2,
+    "token_pool_ai_task": 3,
+    "existing_tasks_activation_task": 2,
+    "institution_audit_task": 2,
+    "hash_module_test_task": 1,
+    "evolution_guard_task": 6,
+    "closed_evolution_selfseal_task": 3,
+    "biometric_succession_task": 2,
+    "audit_dedupe_test_task": 3,
+    "evo_committee_task": 1,
+    "analytics_committee_task": 3,
+    "revision_organ_task": 3,
+    "air_alert_task": 10,
+    "cybra_autofix_task": 7,
+    "queue_fix": 1,
+    "test": 2,
+    "ai_task": 1,
+    "native_token_ecosystem_task": 2,
+    "self_expanding_execution_engine_task": 1,
+    "executor_autoheal_task": 1,
+    "codespaces_keepalive_task": 1,
+    "github_double_backend_task": 1,
+    "smart_autofix_mining_pool_task": 3,
+    "pmz_historical_metadata_task": 2,
+    "None": 2
+  },
+  "support_matrix": [
+    {
+      "task_type": "None",
+      "count": 2,
+      "mapping": null,
+      "handler_exists": false,
+      "handler_validation": {
+        "ok": false,
+        "reason": "missing_mapping"
+      },
+      "committee_exists": false
+    },
+    {
+      "task_type": "ai_task",
+      "count": 1,
+      "mapping": "evo_committee_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "air_alert_task",
+      "count": 10,
+      "mapping": "air_alert_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "analytics_committee_task",
+      "count": 3,
+      "mapping": "analytics_committee_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "audit_dedupe_test_task",
+      "count": 3,
+      "mapping": "audit_dedupe_test_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "biometric_succession_task",
+      "count": 2,
+      "mapping": "biometric_succession_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "closed_evolution_selfseal_task",
+      "count": 3,
+      "mapping": "closed_evolution_selfseal_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "codespaces_keepalive_task",
+      "count": 1,
+      "mapping": "evo_committee_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "cybra_autofix_task",
+      "count": 7,
+      "mapping": "cybra_autofix.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "evo_committee_task",
+      "count": 1,
+      "mapping": "evo_committee_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "evolution_deployment_task",
+      "count": 2,
+      "mapping": "evolution_deployment_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "evolution_guard_task",
+      "count": 6,
+      "mapping": "evolution_guard_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "executor_autoheal_task",
+      "count": 1,
+      "mapping": "evo_committee_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "existing_tasks_activation_task",
+      "count": 2,
+      "mapping": "existing_tasks_activation_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "finance_department_task",
+      "count": 2,
+      "mapping": "finance_department_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "finance_infrastructure_task",
+      "count": 3,
+      "mapping": "finance_infrastructure_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "github_double_backend_task",
+      "count": 1,
+      "mapping": "evo_committee_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "hash_module_test_task",
+      "count": 1,
+      "mapping": "hash_module_test_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "institution_audit_task",
+      "count": 2,
+      "mapping": "institution_audit_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "kibra_bridge_pool_task",
+      "count": 3,
+      "mapping": "kibra_bridge_pool_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "kibra_market_exchange_task",
+      "count": 3,
+      "mapping": "kibra_market_exchange_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "kibra_token_chain_task",
+      "count": 5,
+      "mapping": "kibra_token_chain_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "monetization_department_task",
+      "count": 7,
+      "mapping": "monetization_department_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "native_kibra_evolution_task",
+      "count": 1,
+      "mapping": "native_kibra_evolution_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "native_token_ecosystem_task",
+      "count": 2,
+      "mapping": "create_native_token_ecosystem.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "owner_orchestrator_task",
+      "count": 8,
+      "mapping": "owner_orchestrator_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "pmz_historical_metadata_task",
+      "count": 2,
+      "mapping": "create_pmz_registry.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "queue_fix",
+      "count": 1,
+      "mapping": "evo_committee_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "revision_organ_task",
+      "count": 3,
+      "mapping": "revision_organ_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "self_expanding_execution_engine_task",
+      "count": 1,
+      "mapping": "evo_committee_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "smart_autofix_mining_pool_task",
+      "count": 3,
+      "mapping": "cybra_mining_autofix.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "test",
+      "count": 2,
+      "mapping": "evo_committee_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    },
+    {
+      "task_type": "token_pool_ai_task",
+      "count": 3,
+      "mapping": "token_pool_ai_handler.sh",
+      "handler_exists": true,
+      "handler_validation": {
+        "ok": true,
+        "reason": "bash_syntax_ok"
+      },
+      "committee_exists": true
+    }
+  ],
+  "missing_mapping": [],
+  "missing_handler": [],
+  "failed_validation": [],
+  "missing_committee": [],
+  "recommendations": [
+    {
+      "level": "ok",
+      "message": "All existing task types have mapping, handlers and committees under Evolution Deployment.",
+      "action": "Continue evolution cycles."
+    }
+  ],
+  "double_sha": "4b6ba3cb39c0b5413595a0135c2a77d5b7f05a9d2983157e3c2dc987e48888f1"
+}

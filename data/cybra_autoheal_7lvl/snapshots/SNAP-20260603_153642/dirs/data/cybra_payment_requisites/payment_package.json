@@ -1,0 +1,88 @@
+{
+  "status": "not_ready_missing_real_requisites",
+  "time": 1780490109.4563034,
+  "time_iso": "2026-06-03T15:35:09+0300",
+  "payer_profile": {
+    "status": "draft_not_ready_for_real_payment",
+    "payment_system_id": "CYBRA-PAY-541883964C95E7EC",
+    "payer_type": "personal_or_company",
+    "payer_display_name": "",
+    "payer_full_legal_name": "",
+    "payer_tax_id_or_edrpou": "",
+    "payer_address": "",
+    "payer_phone": "",
+    "payer_email": "",
+    "bank": {
+      "bank_name": "",
+      "iban": "",
+      "currency": "UAH",
+      "swift_bic": "",
+      "mfo_or_bank_code": ""
+    },
+    "psp": {
+      "provider_name": "",
+      "merchant_id": "",
+      "account_id": "",
+      "contract_number": ""
+    },
+    "crypto_acceptance": {
+      "dealer_accepts_crypto": false,
+      "network": "",
+      "wallet_address": "",
+      "token": "KIBRA",
+      "note": "Only if dealer officially accepts crypto and issues invoice."
+    },
+    "token_funding_source": {
+      "source": "KIBRA mined/accounting balance",
+      "real_market_confirmed_required": true,
+      "liquidity_required": true,
+      "sell_or_conversion_now": false,
+      "owner_approval_required": true
+    },
+    "real_payment_ready": false,
+    "note": "Заповнити тільки реальні реквізити банку або PSP."
+  },
+  "validation": {
+    "ready": false,
+    "bank_ready": false,
+    "psp_ready": false,
+    "crypto_ready": false,
+    "errors": [
+      "Не заповнено legal/display name платника",
+      "Нема реального платіжного каналу: bank IBAN / PSP / офіційне crypto acceptance автосалону"
+    ],
+    "warnings": [
+      "Не заповнено tax_id_or_edrpou"
+    ]
+  },
+  "car_invoice_request": {},
+  "funding_plan": {
+    "source": "KIBRA tokens / mined accounting / liquidity plan",
+    "token_to_fiat_required_if_dealer_requires_bank_payment": true,
+    "real_market_price_required": true,
+    "liquidity_or_buyer_required": true,
+    "real_sell_now": false,
+    "real_payment_now": false,
+    "owner_approval_required": true
+  },
+  "mined_money": {
+    "total_mined_kibra": "3300",
+    "confirmed_market_usd": "33.00",
+    "price_usd_per_kibra": "0.01",
+    "real_sell_now": false
+  },
+  "queues": {
+    "block_inbox": 1,
+    "parliament_queue": 0,
+    "parliament_failed": 0,
+    "task_block_mempool": 0
+  },
+  "safety": {
+    "fake_bank_details": false,
+    "fake_iban": false,
+    "automatic_real_payment": false,
+    "automatic_token_sell": false,
+    "manual_OWNER_approval_required": true
+  },
+  "double_sha": "b024e563ee67ea5757a6fba680f68668a8eae2949a2b33d41814a1b3467a0c98"
+}

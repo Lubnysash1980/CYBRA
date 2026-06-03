@@ -1,0 +1,36 @@
+{
+  "status": "no_valid_market_proof",
+  "time": 1780489261.0318258,
+  "proof": {
+    "status": "draft",
+    "proof_type": "pool_or_orderbook_or_provider",
+    "provider_name": "",
+    "market_pair": "KIBRA/USD",
+    "quote_reserve_usd": "0",
+    "kibra_reserve": "0",
+    "orderbook_bid_usd": "0",
+    "orderbook_ask_usd": "0",
+    "proof_source": "",
+    "proof_reference": "",
+    "proof_file_sha256": "",
+    "provider_review_passed": false,
+    "owner_approval": false,
+    "aml_legal_review_required": true,
+    "note": "Заповнити тільки після реального pool/orderbook/provider proof."
+  },
+  "validation": {
+    "valid": false,
+    "errors": [
+      "provider_name порожній",
+      "нема proof_source або proof_reference",
+      "provider_review_passed має бути true",
+      "owner_approval має бути true",
+      "unknown proof_type"
+    ],
+    "price_usd_per_kibra": 0
+  },
+  "real_market_confirmed": false,
+  "real_sell_now": false,
+  "manual_OWNER_approval_required": true,
+  "double_sha": "120be4ba8af8a1d5111042f49c818106e72901a1e65c6ddfc492462f1859b7e2"
+}

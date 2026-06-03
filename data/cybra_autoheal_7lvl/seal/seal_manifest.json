@@ -1,0 +1,125 @@
+{
+  "status": "sealed",
+  "time": 1780490210.4682028,
+  "time_iso": "2026-06-03T15:36:50+0300",
+  "alpha_sha": "398e10a3b1f82f91877e73bcd8562c74a56e9bd6808bf94c78247cbeedeef6e3",
+  "beta_sha": "e447da9c759c89b99ad9bf246cee42f4d9e5aff499abf20f81a71c318a10c9ae",
+  "dispatcher_sha": "5184b48f3d47e874dedd8711a8b0d035d156936a6e283bd04d25fa7f6ad4aa29",
+  "health_sha": "4dbaecb03167a67e4ea2ab9ea72b75720b948584514f781dc558f5f2e4a29cf0",
+  "watch_files": {
+    "bin/cybra-finance-bin": "c7c32d55d5ac366cc67efa24cdb5a71440ed5771859f759cbf342b3f300d0015",
+    "bin/cybra-autoheal": "931f60b341994aac4701444a72c05fdd23828b7397fc2694d0db43a8a7c002eb",
+    "cybra_redis_committee.sh": "2a0c9720a8a42c55dcf6971cc78eadfa3c9e39c742a1ebb4aaca5a701e200309",
+    "cybra_payment_requisites.sh": "110d97459bcdcaeae538f5d882589429af84a9577e7ec6ff4e936c26aaf3571d",
+    "kybra_valid.sh": "f20cbdecbfd13ec9954d216fb8a335001b965538ec5a229b33672f5dec7ac9cd",
+    "cybra_finance_committees.sh": "447c4fa68c70a18b98ab8af129fb9bb67699cac50dafefb8e61bfa33315c496f",
+    "cybra_market_proof_collector.sh": "6e0fe6de906479aaf09591122cddbb34c190bd7268088c619c0575a768b6ac9c",
+    "cybra_real_market_price_gate.sh": "4909de3313e9ceb191612d4af6028bf14df0ac2e6c67ce154727c2de82dafa51",
+    "cybra_closed_sha_bridge.sh": "8d2069ab006a7a3811c5b2045d04ccec513de14656ed06f6186dd509b20a9ea8",
+    "cybra_kibra_stats.sh": "4cc70720f41c7d352fcfa150d47456e18aa6966e20d379ae9b37635bb61fa0e5",
+    "parliament_executor_v6.py": "a451e3afad27fa2db221860f99cc3ba5490af04cec8671ce5208684829e6a1b6"
+  },
+  "levels": [
+    {
+      "id": "L1_REDIS_HEALTH",
+      "name": "Redis Health Level",
+      "checks": [
+        "redis_ping",
+        "redis_committee"
+      ],
+      "repair": [
+        "start_redis",
+        "run_redis_committee"
+      ]
+    },
+    {
+      "id": "L2_BINARY_HEALTH",
+      "name": "Binary Health Level",
+      "checks": [
+        "cybra_finance_bin",
+        "cybra_autoheal_bin",
+        "cli_scripts"
+      ],
+      "repair": [
+        "chmod_bins",
+        "restore_missing_cli"
+      ]
+    },
+    {
+      "id": "L3_FINANCE_DATA_HEALTH",
+      "name": "Finance Data Health Level",
+      "checks": [
+        "cold_finance_data",
+        "payment_requisites_data",
+        "reports"
+      ],
+      "repair": [
+        "regenerate_finance_reports",
+        "restore_from_snapshot"
+      ]
+    },
+    {
+      "id": "L4_WALLET_REQUISITES_HEALTH",
+      "name": "Wallet Requisites Health Level",
+      "checks": [
+        "kybra_valid",
+        "cold_payment_requisites",
+        "wallet_reports"
+      ],
+      "repair": [
+        "regenerate_wallet_reports",
+        "restore_wallet_snapshots"
+      ]
+    },
+    {
+      "id": "L5_PARLIAMENT_TASK_HEALTH",
+      "name": "Parliament Task Health Level",
+      "checks": [
+        "block_inbox",
+        "task_blocks",
+        "pool_queue",
+        "parliament_failed"
+      ],
+      "repair": [
+        "submit_ai_repair_tasks",
+        "run_closed_sha_bridge"
+      ]
+    },
+    {
+      "id": "L6_MARKET_SAFETY_HEALTH",
+      "name": "Market Safety Health Level",
+      "checks": [
+        "price_gate",
+        "market_collector",
+        "safety_flags"
+      ],
+      "repair": [
+        "regenerate_market_reports",
+        "keep_real_payment_false"
+      ]
+    },
+    {
+      "id": "L7_SEAL_DISPATCHER_HEALTH",
+      "name": "Seal Dispatcher Health Level",
+      "checks": [
+        "seal_manifest",
+        "double_sha",
+        "dispatcher_report"
+      ],
+      "repair": [
+        "rebuild_seal",
+        "redispatch_tasks"
+      ]
+    }
+  ],
+  "rules": {
+    "repair_alpha_beta": true,
+    "sealed_levels": 7,
+    "task_distribution": true,
+    "no_private_keys": true,
+    "no_seed_phrase": true,
+    "no_automatic_real_payment": true,
+    "owner_approval_required": true
+  },
+  "double_sha": "23dee345736df9dfefbe38c4a341cdc8b3e97f8638e5a09b3dbccd13a6891c17"
+}

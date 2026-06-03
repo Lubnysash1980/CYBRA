@@ -1,0 +1,83 @@
+{
+  "status": "evolution_deployment_report_generated",
+  "time": 1780490136.698209,
+  "time_iso": "2026-06-03T15:35:36+0300",
+  "state": {
+    "time": 1780490136.2140784,
+    "time_iso": "2026-06-03T15:35:36+0300",
+    "git": {
+      "branch": "main",
+      "commit": "efef465c2",
+      "dirty_files": 115
+    },
+    "redis": {
+      "queue": 0,
+      "results": 8,
+      "failed": 0,
+      "audit": 8,
+      "kibra_audit": 0,
+      "finance_ledger": 0,
+      "finance_audit": 0,
+      "anchor_queue": 0,
+      "anchor_manual_ready": 0,
+      "monetization_audit": 0,
+      "monetization_proposals": 0,
+      "spend_proposals": 0,
+      "evolution_approved": 0,
+      "evolution_hold": 0,
+      "evolution_rejected": 0
+    },
+    "files": {
+      "kibra_chain": true,
+      "monetization": true,
+      "finance": true,
+      "hash": true,
+      "institution": true,
+      "anchor_package": true,
+      "parliament_review": true
+    },
+    "kibra": {
+      "height": 10,
+      "latest_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab",
+      "latest_difficulty": 2
+    },
+    "finance": {
+      "risk_items": 0,
+      "records_checked": 92
+    },
+    "institution": {
+      "missing_organs": 0,
+      "missing_mapping": 0,
+      "missing_committees": 5
+    },
+    "monetization": {
+      "exists": true,
+      "double_sha": "e93c68fd112ff42925fab740b61c7d4628ce6433d0022724ecf4fdbcccfa5ce8"
+    },
+    "hash": {
+      "exists": true,
+      "root_double_sha": "6581782f91d4b7eeccf991fea53ea3b22f592bfeaca9865bfe4dff7d83238752"
+    },
+    "anchor": {
+      "exists": true,
+      "anchor_package_root": "8e6a795d5883000714fd0af9a6274518021f43c56d8c5577ee2652503aa743c1"
+    }
+  },
+  "assessment": {
+    "score": 95,
+    "max_score": 100,
+    "maturity": "advanced",
+    "gaps": [
+      "spendability_proposal_needed"
+    ],
+    "next_tasks": [
+      [
+        "spendability_proposal",
+        "monetization_department_task"
+      ]
+    ]
+  },
+  "created_tasks": [],
+  "policy_sha256": "260aa19a8de66e53477782e52ce78d6f42ba9826bd489a813a079db44f0730f7",
+  "double_sha": "1c91a09bc7d68322982ec021128ac6b5fb97c00d87a29273a6bd4ae31f0c826e"
+}

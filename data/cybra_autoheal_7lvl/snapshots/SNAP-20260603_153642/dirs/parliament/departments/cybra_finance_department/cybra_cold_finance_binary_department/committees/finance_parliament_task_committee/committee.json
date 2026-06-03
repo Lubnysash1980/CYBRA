@@ -1,0 +1,36 @@
+{
+  "committee_id": "finance_parliament_task_committee",
+  "name": "Комітет Завдань Кіберпарламенту",
+  "role": "parliament_tasker",
+  "parent_department": "cybra_cold_finance_binary_department",
+  "status": "active",
+  "mission": "Формувати AI-завдання для Кіберпарламенту і передавати їх через mining blocks.",
+  "assigned_tasks": [
+    "create_ai_tasks",
+    "send_to_block_inbox",
+    "send_to_closed_sha_bridge",
+    "send_to_pool_mining",
+    "track_parliament_results"
+  ],
+  "target_system": "CYBRA Cold Finance Binary System",
+  "target_binary": "bin/cybra-finance-bin",
+  "ai_task_flow": [
+    "committee_task",
+    "cybra:ai:tasks:block_inbox",
+    "task_block",
+    "closed_sha_bridge",
+    "pool_mining",
+    "AI Parliament result"
+  ],
+  "safety": {
+    "private_keys": false,
+    "seed_phrase": false,
+    "automatic_swift_payment": false,
+    "automatic_external_crypto_tx": false,
+    "automatic_real_payment": false,
+    "manual_OWNER_approval_required": true
+  },
+  "created_at": 1780490115.1694434,
+  "created_at_iso": "2026-06-03T15:35:15+0300",
+  "double_sha": "982323f2583d87e3107ea7514673a89fcf4261d651a1f5a0a5780fb169132e76"
+}
