@@ -1,11 +1,11 @@
 {
   "status": "kibra_stats_recommendations_report_generated",
-  "time": 1780489270.657878,
-  "time_iso": "2026-06-03T15:21:10+0300",
+  "time": 1780490478.5043259,
+  "time_iso": "2026-06-03T15:41:18+0300",
   "submit_ai": false,
   "stats": {
-    "time": 1780489268.7527578,
-    "time_iso": "2026-06-03T15:21:08+0300",
+    "time": 1780490477.8780806,
+    "time_iso": "2026-06-03T15:41:17+0300",
     "kibra": {
       "total_blocks": 10,
       "pool_tagged_blocks": 10,
@@ -20,10 +20,10 @@
       "latest_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab"
     },
     "task_blocks": {
-      "files": 40,
+      "files": 48,
       "mempool": 0,
-      "mined": 10,
-      "pool_queue": 10
+      "mined": 4,
+      "pool_queue": 4
     },
     "ai": {
       "native_kibra_ai": 0,
@@ -38,9 +38,9 @@
     },
     "parliament": {
       "queue": 0,
-      "results": 17,
+      "results": 10,
       "failed": 0,
-      "audit": 17
+      "audit": 10
     },
     "mint": {
       "audit": 0,
@@ -76,8 +76,8 @@
     },
     "git": {
       "branch": "main",
-      "commit": "d7b49bf3a",
-      "dirty_files": 325
+      "commit": "c61de609d",
+      "dirty_files": 149
     }
   },
   "recommendations": [
@@ -106,5 +106,5 @@
     "external_tx": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "14d7ce457a9930d34f49cb2d386f33f337e4893de95a4acae0bc65311eb9a15c"
+  "double_sha": "0da8b5ca2412686e4afe398b27e6999da8641e8bc56de3521be5372dc4963a71"
 }

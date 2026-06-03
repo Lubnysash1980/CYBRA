@@ -25,12 +25,12 @@ Redis ping: True
 
 ## Queues
 
-block_inbox: 2
+block_inbox: 0
 parliament_queue: 0
 parliament_failed: 0
 task_block_mempool: 0
-pool_mining_blocks: 10
-task_blocks_mined: 10
+pool_mining_blocks: 4
+task_blocks_mined: 4
 
 ## Rules
 
@@ -44,4 +44,4 @@ OWNER approval required.
 
 ## Double SHA
 
-57d69eaad1e20cee5cf5ba4b489850c710e054f5965d7b4a43d05e437e96ee00
+c7df42f4a1f6a973f57032d9edca8381c32fc96c10409c172f3872cb7c58d400

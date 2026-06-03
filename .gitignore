@@ -1,16 +1,11 @@
-# runtime
 runtime/
 logs/
 *.log
 *.pid
-__pycache__/
-*/__pycache__/
-
-# local redis/db
 dump.rdb
 *.rdb
-
-# secrets
+__pycache__/
+*/__pycache__/
 .env
 *.key
 *.pem

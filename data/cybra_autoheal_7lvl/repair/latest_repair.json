@@ -1,7 +1,7 @@
 {
   "status": "repair_completed",
-  "time": 1780490209.9291928,
-  "time_iso": "2026-06-03T15:36:49+0300",
+  "time": 1780490448.0758355,
+  "time_iso": "2026-06-03T15:40:48+0300",
   "repaired": [
     "ran:bash cybra_redis_committee.sh ensure",
     "ran:bin/cybra-finance-bin report",
@@ -15,8 +15,8 @@
   "warnings": [],
   "health_before": {
     "status": "health_checked",
-    "time": 1780490202.6407,
-    "time_iso": "2026-06-03T15:36:42+0300",
+    "time": 1780490436.7077043,
+    "time_iso": "2026-06-03T15:40:36+0300",
     "checks": {
       "redis_ping": true,
       "redis_committee": true,
@@ -81,11 +81,11 @@
       }
     ],
     "queues": {
-      "repair_queue": 0,
-      "seal_queue": 1,
+      "repair_queue": 8,
+      "seal_queue": 3,
       "block_inbox": 0,
       "task_block_mempool": 0,
-      "pool_mining_blocks": 0,
+      "pool_mining_blocks": 2,
       "parliament_queue": 0,
       "parliament_failed": 0
     },
@@ -97,10 +97,10 @@
       "manual_OWNER_approval_required": true
     },
     "ok": true,
-    "double_sha": "59b48a2861e93138730857bd92c165a05ce99880dface04459ae0c17905fc48e"
+    "double_sha": "35ef6244cb45b4dea5d68c94cc480ef1d790d08d0b37f41b12971c960c3ede6d"
   },
   "real_payment_now": false,
   "automatic_external_tx": false,
   "manual_OWNER_approval_required": true,
-  "double_sha": "2b3be9dbfa6f4c0848bc2620428fadf0914bf490ffd74494f368242addbb928e"
+  "double_sha": "58e39269531df7377c044ef94210222b46dd239225b8ed62d744c2b01f0eabdb"
 }

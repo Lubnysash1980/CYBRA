@@ -1,0 +1,56 @@
+{
+  "status": "system_test_completed",
+  "time": 1780490498.5281744,
+  "time_iso": "2026-06-03T15:41:38+0300",
+  "modules": {
+    "redis_committee": true,
+    "autoheal_7lvl": true,
+    "autoheal_binary": true,
+    "cold_finance_binary": true,
+    "finance_committees": true,
+    "kybra_valid": true,
+    "payment_requisites": true,
+    "market_proof_collector": true,
+    "real_market_price_gate": true,
+    "kibra_stats": true,
+    "closed_sha_bridge": true
+  },
+  "blocks": {
+    "main_blocks": 10,
+    "task_blocks": 50,
+    "estimated_kibra_default_reward_100": 6000
+  },
+  "queues": {
+    "block_inbox": 0,
+    "task_block_mempool": 0,
+    "pool_mining_blocks": 6,
+    "task_blocks_mined": 6,
+    "parliament_queue": 0,
+    "parliament_results": 12,
+    "parliament_failed": 0,
+    "autoheal_repair_queue": 16,
+    "autoheal_seal_queue": 5
+  },
+  "reports": {
+    "autoheal": true,
+    "cold_finance": true,
+    "finance_committees": true,
+    "kybra_valid": true,
+    "payment_requisites": true,
+    "market_collector": true,
+    "price_gate": true,
+    "kibra_stats": true
+  },
+  "safety": {
+    "private_keys_stored": false,
+    "seed_phrase_required": false,
+    "automatic_external_tx": false,
+    "automatic_SWIFT": false,
+    "automatic_real_payment": false,
+    "automatic_token_sell": false,
+    "real_payment_now": false,
+    "real_sell_now": false,
+    "manual_OWNER_approval_required": true
+  },
+  "double_sha": "c109712529a92c42680a42ce9fd138528843b181b4c4d913f15f77b595ec259a"
+}

@@ -1,7 +1,7 @@
 {
   "status": "cybra_finance_5_committees_report_generated",
-  "time": 1780489268.2209744,
-  "time_iso": "2026-06-03T15:21:08+0300",
+  "time": 1780490473.0479162,
+  "time_iso": "2026-06-03T15:41:13+0300",
   "committees": [
     {
       "id": "finance_finder_committee",
@@ -71,8 +71,8 @@
     }
   ],
   "state": {
-    "time": 1780489264.9449964,
-    "time_iso": "2026-06-03T15:21:04+0300",
+    "time": 1780490472.3400307,
+    "time_iso": "2026-06-03T15:41:12+0300",
     "binary_exists": true,
     "binary_global_exists": true,
     "cold_finance_report_exists": true,
@@ -81,23 +81,23 @@
     "payment_requisites_exists": true,
     "redis_ping": true,
     "queues": {
-      "block_inbox": 2,
+      "block_inbox": 0,
       "parliament_queue": 0,
       "parliament_failed": 0,
       "task_block_mempool": 0,
-      "pool_mining_blocks": 10,
-      "task_blocks_mined": 10
+      "pool_mining_blocks": 4,
+      "task_blocks_mined": 4
     },
     "proofs": {
-      "cold_finance": "cf6da31cfbf5204c6f2347acc7cc9a5e51d228a350e6add50264db6bbb30d12d",
-      "payment_requisites": "5ed53bbc51e521809b961656964bdeccb441c550cbfd0caeee5020c8795f1654",
-      "kybra_valid": "34b941e417cd562bae7a867be070a8d9b4608d796c26aa19d78ce1d58b16c3d6",
+      "cold_finance": "701b2d4142f7ae070e5217b35cde092a50f1f9ca999eed86b211be6f0be86ca3",
+      "payment_requisites": "0271a9988338bc602e7dbe83aa5f55b9d3765d20e5e0b765f1127b875406d30f",
+      "kybra_valid": "25688466d2a915e592f797827114008fe337d340651255c12881850d2d966cd2",
       "redis_committee": "278e074247869e12982098587fa55e1ec2a9e0fb8c76159800b0e19de21ecc25"
     },
     "git": {
       "branch": "main",
-      "commit": "d7b49bf3a",
-      "dirty_files": 325
+      "commit": "c61de609d",
+      "dirty_files": 149
     }
   },
   "ai_tasks_prepared": 6,
@@ -121,5 +121,5 @@
     "automatic_real_payment": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "57d69eaad1e20cee5cf5ba4b489850c710e054f5965d7b4a43d05e437e96ee00"
+  "double_sha": "c7df42f4a1f6a973f57032d9edca8381c32fc96c10409c172f3872cb7c58d400"
 }

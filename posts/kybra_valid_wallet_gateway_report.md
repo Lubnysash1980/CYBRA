@@ -14,12 +14,12 @@ Token: KIBRA
 ## Balance
 
 Main blocks: 10
-Task blocks: 40
+Task blocks: 48
 Main KIBRA: 1000
-Task KIBRA: 4000
-Total mined KIBRA: 5000
+Task KIBRA: 4800
+Total mined KIBRA: 5800
 Sent internal KIBRA: 0
-Available KIBRA: 5000
+Available KIBRA: 5800
 
 Price USD/KIBRA: 0
 Estimated USD if price confirmed: 0
@@ -52,4 +52,4 @@ Real car payment requires invoice, bank or PSP rail, liquidity, confirmed price,
 
 ## Double SHA
 
-028710155e6a3fcb5576dc50b39ccff082bc2315bebcafab00c7e1f4069366b9
+dc8388ed75707a60870e1e9cbf63cdda5fdc1292030c1c626ed673bad9fa5566

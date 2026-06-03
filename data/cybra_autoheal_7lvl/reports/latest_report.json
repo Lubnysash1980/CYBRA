@@ -1,7 +1,7 @@
 {
   "status": "cybra_autoheal_7lvl_report_generated",
-  "time": 1780490187.8461144,
-  "time_iso": "2026-06-03T15:36:27+0300",
+  "time": 1780490470.382464,
+  "time_iso": "2026-06-03T15:41:10+0300",
   "systems": {
     "alpha": {
       "system_id": "AUTOHEAL_ALPHA",
@@ -101,9 +101,9 @@
         }
       ],
       "repairs": "AUTOHEAL_BETA",
-      "created_at": 1780490187.6325095,
-      "created_at_iso": "2026-06-03T15:36:27+0300",
-      "double_sha": "edd0506d238c9cb984f8849173555fa51771cee9781e2ec71c92fa04c67dd50a"
+      "created_at": 1780490470.1514497,
+      "created_at_iso": "2026-06-03T15:41:10+0300",
+      "double_sha": "72dbec78b0a67bce792c742bae9547295c7814a97675770ce3eebf906827cd73"
     },
     "beta": {
       "system_id": "AUTOHEAL_BETA",
@@ -203,9 +203,9 @@
         }
       ],
       "repairs": "AUTOHEAL_ALPHA",
-      "created_at": 1780490187.6328278,
-      "created_at_iso": "2026-06-03T15:36:27+0300",
-      "double_sha": "05dc2efc695bd5bb669a31b08e63b99ca15b29773ccf3afd238556759e364535"
+      "created_at": 1780490470.1517062,
+      "created_at_iso": "2026-06-03T15:41:10+0300",
+      "double_sha": "adb8a78176c63c3ed6c6dcd5b7c5734b0f14aa3bab63602ae5b6d69dd4300b6b"
     },
     "dispatcher": {
       "system_id": "SEAL_DISPATCHER",
@@ -228,9 +228,9 @@
         "automatic_external_tx": false,
         "manual_OWNER_approval_required": true
       },
-      "created_at": 1780490187.633041,
-      "created_at_iso": "2026-06-03T15:36:27+0300",
-      "double_sha": "be401608d4b0da01e9978815757a292d6c6568725e08702be49c414a3c0be2f2"
+      "created_at": 1780490470.1518843,
+      "created_at_iso": "2026-06-03T15:41:10+0300",
+      "double_sha": "1b4a0de4e01fcd78078d9049833af8a97517b9072052fbc74abf7832e3c62579"
     }
   },
   "levels": [
@@ -328,8 +328,8 @@
   ],
   "health": {
     "status": "health_checked",
-    "time": 1780490187.507075,
-    "time_iso": "2026-06-03T15:36:27+0300",
+    "time": 1780490470.0083966,
+    "time_iso": "2026-06-03T15:41:10+0300",
     "checks": {
       "redis_ping": true,
       "redis_committee": true,
@@ -394,11 +394,11 @@
       }
     ],
     "queues": {
-      "repair_queue": 0,
-      "seal_queue": 0,
+      "repair_queue": 16,
+      "seal_queue": 4,
       "block_inbox": 0,
       "task_block_mempool": 0,
-      "pool_mining_blocks": 0,
+      "pool_mining_blocks": 4,
       "parliament_queue": 0,
       "parliament_failed": 0
     },
@@ -410,16 +410,16 @@
       "manual_OWNER_approval_required": true
     },
     "ok": true,
-    "double_sha": "0970938ac11f77db6ede38a86884347c6b54b8af56d5234d531bc6d0bd3338d3"
+    "double_sha": "bf7bcc89132afcf19432efb85729dd90d94a4a18b731bded97c079e4a9f3bfe2"
   },
   "seal": {
     "status": "sealed",
-    "time": 1780490187.803189,
-    "time_iso": "2026-06-03T15:36:27+0300",
-    "alpha_sha": "a618572d2f62d2ac376a21d6b071542b0bd85ba7dc64726bad3061fb2da6af1a",
-    "beta_sha": "b7ae289b48743a9badabb7dac0cde73017dab3e2254ba6f15a63ef0beebca2b8",
-    "dispatcher_sha": "4d6581dc67c1ae6462909499d85c86625c2661a861d163e05c8a18a2b4d22c9a",
-    "health_sha": "58355a78c78c480520c44b3c886c55072934d05e84e91bb6e6ccb57be91f05fd",
+    "time": 1780490470.3368835,
+    "time_iso": "2026-06-03T15:41:10+0300",
+    "alpha_sha": "5c0c48d3ff6a1594a5a919cd40a1d833e356a053d138b9701eceeb1f91ffcb62",
+    "beta_sha": "ff024b2857ab6110a23aa66c7f16d2149e0e206200a0a620aec3a8f8c62957c6",
+    "dispatcher_sha": "491387efdc9c98e3d632674eecd792825f92015b4b35fd846af1c28a8225cbf3",
+    "health_sha": "08cce53dccfade6230426d35a407dd44c0e0451e00724b96354d2d3f88c05401",
     "watch_files": {
       "bin/cybra-finance-bin": "c7c32d55d5ac366cc67efa24cdb5a71440ed5771859f759cbf342b3f300d0015",
       "bin/cybra-autoheal": "931f60b341994aac4701444a72c05fdd23828b7397fc2694d0db43a8a7c002eb",
@@ -535,15 +535,15 @@
       "no_automatic_real_payment": true,
       "owner_approval_required": true
     },
-    "double_sha": "549a314a590c189c3830d4668ac33bcb5a7e12c2333dfe92836d0549648c5689"
+    "double_sha": "262fba11030f97c3bff5c7998071ccb3e5dd94fdc5fb686b402976bed828a4a4"
   },
   "queues": {
-    "audit": 1,
-    "repair_queue": 0,
-    "seal_queue": 1,
+    "audit": 10,
+    "repair_queue": 16,
+    "seal_queue": 5,
     "block_inbox": 0,
     "task_block_mempool": 0,
-    "pool_mining_blocks": 0,
+    "pool_mining_blocks": 4,
     "parliament_queue": 0,
     "parliament_failed": 0
   },
@@ -554,5 +554,5 @@
     "automatic_external_tx": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "dddf7add0e8eeadfe6f942b2cf5ff7704da80d91bbdbc1ba14e2ebdab1bf60af"
+  "double_sha": "013e8be6f132e68d951b9b237504ffa0334a92e622eec61833c1854dab1cf774"
 }

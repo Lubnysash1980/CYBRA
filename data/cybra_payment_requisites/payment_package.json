@@ -1,7 +1,7 @@
 {
   "status": "not_ready_missing_real_requisites",
-  "time": 1780489264.1450775,
-  "time_iso": "2026-06-03T15:21:04+0300",
+  "time": 1780490476.154507,
+  "time_iso": "2026-06-03T15:41:16+0300",
   "payer_profile": {
     "status": "draft_not_ready_for_real_payment",
     "payment_system_id": "CYBRA-PAY-541883964C95E7EC",
@@ -84,5 +84,5 @@
     "automatic_token_sell": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "b6689cbce059bfed162610039095486260a41421720f5cbd2743b578d9464cfb"
+  "double_sha": "19da52b28642447ca29c7d2e8f1f3b706cc8901fd03fd4ba2eff4b0eb0313ba3"
 }
