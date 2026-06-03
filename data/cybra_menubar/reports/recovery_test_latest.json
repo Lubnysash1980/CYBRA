@@ -1,0 +1,32 @@
+{
+  "status": "ok",
+  "time": 1780520084.8851397,
+  "time_iso": "2026-06-03T23:54:44+0300",
+  "checks": {
+    "cybra_menubar_sh": true,
+    "cybra_menubar_py": true,
+    "cybra_menu_recovery_bridge": true,
+    "cybra_recovery_sh": true,
+    "bin_cybra_recover": true,
+    "cybra_termux_restore_sh": true,
+    "autorecovery_report": true,
+    "autorecovery_feed": true,
+    "autorecovery_proof": true,
+    "restore_pack": true
+  },
+  "menu_commands": [
+    "cybra-menu recovery status",
+    "cybra-menu recovery report",
+    "cybra-menu recovery test",
+    "cybra-menu recovery pack",
+    "cybra-menu recovery cycle"
+  ],
+  "safety": {
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "private_key_required": false,
+    "seed_phrase_required": false
+  },
+  "double_sha": "7c6cfd0043ee90d3ae1cdd00caacd0a99539aa8c073a6b3d03680de545268a73"
+}

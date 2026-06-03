@@ -151,7 +151,7 @@ class AutoMemoryCollector {
     await this.ready();
     const data = this.root.export();
     await fs.writeFile(path.join(HASH_FOLDER, "root_hash.json"), JSON.stringify(data, null, 2));
-    try { await execAsync("git add hash_storage/root_hash.json && git commit -m 'Update root_hash' && git push"); }
+    try { await execAsync("bash cybra_git_safe_commit.sh hash_storage/root_hash.json 'Update root_hash'"); }
     catch (err) { console.error("GitHub integration error:", err); }
     console.debug("[DEBUG] Root hash exported");
     return data;

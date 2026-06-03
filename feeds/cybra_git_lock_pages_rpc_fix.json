@@ -1,0 +1,27 @@
+{
+  "status": "git_lock_pages_rpc_fix_generated",
+  "time": 1780520340.086441,
+  "time_iso": "2026-06-03T23:59:00+0300",
+  "checks": {
+    "git_index_lock_exists": false,
+    "safe_git_commit_wrapper": true,
+    "cybragithash_mjs": true,
+    "recovery_missing_count_zero": true,
+    "autorecovery_pack": true
+  },
+  "notes": [
+    "URLs must be opened with browser/curl, not executed as bash commands.",
+    "mint_tokens_2022.js fetch failed means Solana RPC/network endpoint problem.",
+    "Git index.lock was stale if no git process was active.",
+    "HTTPS GitHub push may require token/PAT or SSH, not normal password."
+  ],
+  "safety": {
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "private_key_required": false,
+    "seed_phrase_required": false,
+    "manual_OWNER_approval_required": true
+  },
+  "double_sha": "c9cad89b18e8969aa82fa1b8fd7701e68700a5ac0618eadd122389f7363491e9"
+}

@@ -1,0 +1,24 @@
+{
+  "status": "autorecovery_runtime_restored",
+  "time": 1780520084.7473419,
+  "time_iso": "2026-06-03T23:54:44+0300",
+  "restore_script": "cybra_termux_restore.sh",
+  "restore_pack": "data/cybra_autorecovery/packs/cybra_restore_pack.tar.gz",
+  "checks": {
+    "cybra_termux_restore_sh": true,
+    "restore_pack": true,
+    "cybra_recovery_sh": true,
+    "bin_cybra_recover": true,
+    "menubar": true,
+    "menu_recovery_bridge": true
+  },
+  "safety": {
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "private_key_required": false,
+    "seed_phrase_required": false,
+    "manual_OWNER_approval_required": true
+  },
+  "double_sha": "819a7104c8c627a7585ed3aa3e637d9a45cb715ed2c723a79c3fce902add6d5a"
+}
