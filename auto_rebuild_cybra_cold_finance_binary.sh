@@ -1,0 +1,774 @@
+#!/data/data/com.termux/files/usr/bin/bash
+set -e
+cd "$HOME/CYBRA"
+
+echo "=== REBUILD CYBRA COLD FINANCE BINARY SYSTEM ==="
+
+mkdir -p \
+  bin \
+  parliament/departments/finance_department/cybra_cold_finance_binary_department \
+  parliament/departments/cybra_finance_department/cybra_cold_finance_binary_department \
+  data/cybra_cold_finance/{wallets,recipients,proposals,swift,psp,bank,ledger,reports} \
+  posts feeds proofs logs/cybra_cold_finance runtime/redis runtime
+
+if ! command -v redis-server >/dev/null 2>&1; then
+  pkg update -y || true
+  pkg install -y redis || true
+fi
+
+if [ -f cybra_redis_committee.sh ]; then
+  bash cybra_redis_committee.sh ensure >/dev/null 2>&1 || true
+fi
+
+if ! redis-cli ping >/dev/null 2>&1; then
+  redis-server --daemonize yes --bind 127.0.0.1 --port 6379 --dir "$HOME/CYBRA/runtime/redis" --save "" --appendonly no >/dev/null 2>&1 || true
+fi
+
+sleep 1
+
+cat > parliament/departments/finance_department/cybra_cold_finance_binary_department/department.json <<'JSON'
+{
+  "department_id": "cybra_cold_finance_binary_department",
+  "name": "CYBRA Cold Finance Binary Department",
+  "parent_department": "finance_department",
+  "status": "active",
+  "mission": "Перебудувати фінансову систему CYBRA/KYBRA як cold finance binary: реквізити, cold wallets, KYBRA balance, payment proposals, SWIFT/Bank/PSP adapters, AI tasks through mining blocks.",
+  "payment_system_name": "CYBRA Cold Payment System",
+  "native_asset": "KIBRA",
+  "allowed_modes": [
+    "internal_KYBRA_ledger",
+    "cold_wallet_registry",
+    "bank_SWIFT_instruction_draft",
+    "licensed_PSP_instruction_draft",
+    "token_to_fiat_after_liquidity_and_OWNER_approval",
+    "manual_external_transaction_after_OWNER_approval"
+  ],
+  "blocked": [
+    "private_key_collection",
+    "seed_phrase_collection",
+    "automatic_SWIFT_payment",
+    "automatic_external_crypto_tx",
+    "automatic_token_sell",
+    "fake_IBAN",
+    "fake_balance",
+    "fake_provider",
+    "payment_without_invoice",
+    "payment_without_OWNER_approval"
+  ],
+  "rules": [
+    "Зберігати тільки public wallet addresses, labels, proof hashes and proposals.",
+    "SWIFT/Bank/PSP integration is a draft/instruction package until connected to a real licensed provider.",
+    "Real payment requires invoice, verified recipient requisites, liquidity/fiat source, compliance review and OWNER approval.",
+    "All finance AI tasks go to block inbox, then task-blocks, then pool mining."
+  ],
+  "manual_OWNER_approval_required": true
+}
+JSON
+
+cp parliament/departments/finance_department/cybra_cold_finance_binary_department/department.json \
+   parliament/departments/cybra_finance_department/cybra_cold_finance_binary_department/department.json 2>/dev/null || true
+
+cat > bin/cybra-finance-bin <<'PY'
+#!/usr/bin/env python3
+import json
+import time
+import hashlib
+import subprocess
+import sys
+from decimal import Decimal, getcontext
+from pathlib import Path
+
+getcontext().prec = 50
+
+ROOT = Path.home() / "CYBRA"
+DATA = ROOT / "data/cybra_cold_finance"
+
+AUDIT = "cybra:finance:cold_binary:audit"
+AI_BLOCK_INBOX = "cybra:ai:tasks:block_inbox"
+PROPOSALS_Q = "cybra:finance:cold_binary:payment_proposals"
+
+def sha(text):
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+def dsha(text):
+    return sha(sha(text))
+
+def now_iso():
+    return time.strftime("%Y-%m-%dT%H:%M:%S%z")
+
+def run(cmd):
+    try:
+        p = subprocess.run(cmd, cwd=ROOT, text=True, capture_output=True)
+        return p.returncode, p.stdout.strip(), p.stderr.strip()
+    except Exception as e:
+        return 1, "", str(e)
+
+def redis_lpush(key, obj):
+    run(["redis-cli", "LPUSH", key, json.dumps(obj, ensure_ascii=False)])
+
+def redis_hset(key, field, value):
+    run(["redis-cli", "HSET", key, field, value])
+
+def redis_len(key):
+    code, out, err = run(["redis-cli", "LLEN", key])
+    if code == 0 and out.strip().isdigit():
+        return int(out.strip())
+    return 0
+
+def save_json(path, obj):
+    p = ROOT / path
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding="utf-8")
+
+def load_json(path, default=None):
+    p = ROOT / path
+    if not p.exists():
+        return default if default is not None else {}
+    try:
+        return json.loads(p.read_text(encoding="utf-8"))
+    except Exception:
+        return default if default is not None else {}
+
+def dec(x):
+    try:
+        return Decimal(str(x))
+    except Exception:
+        return Decimal("0")
+
+def count_files(pattern):
+    return len(list(ROOT.glob(pattern)))
+
+def file_sha(path):
+    p = ROOT / path
+    if not p.exists():
+        return None
+    h = hashlib.sha256()
+    with p.open("rb") as f:
+        for c in iter(lambda: f.read(1024 * 1024), b""):
+            h.update(c)
+    return h.hexdigest()
+
+def init_system():
+    for p in [
+        DATA / "wallets",
+        DATA / "recipients",
+        DATA / "proposals",
+        DATA / "swift",
+        DATA / "psp",
+        DATA / "bank",
+        DATA / "ledger",
+        DATA / "reports"
+    ]:
+        p.mkdir(parents=True, exist_ok=True)
+
+    system_path = "data/cybra_cold_finance/system.json"
+    if not (ROOT / system_path).exists():
+        seed = dsha(str(time.time()) + str(ROOT))
+        valid_id = "CYBRA-COLD-FIN-" + seed[:16].upper()
+        internal_wallet = "kybra:" + dsha(valid_id)[:40]
+        system = {
+            "status": "active_internal_cold_finance_system",
+            "system_name": "CYBRA Cold Payment System",
+            "valid_id": valid_id,
+            "native_asset": "KIBRA",
+            "internal_wallet_address": internal_wallet,
+            "payment_system_requisites": {
+                "system_name": "CYBRA Cold Payment System",
+                "valid_id": valid_id,
+                "merchant_id": "CYBRA-MERCHANT-" + seed[16:28].upper(),
+                "internal_wallet_address": internal_wallet,
+                "network": "KYBRA_INTERNAL",
+                "asset": "KIBRA",
+                "note": "Internal web payment requisites. Not a bank IBAN and not a licensed PSP by itself."
+            },
+            "security": {
+                "cold_mode": True,
+                "private_keys_stored": False,
+                "seed_phrase_stored": False,
+                "public_addresses_only": True
+            },
+            "real_payment_now": False,
+            "automatic_external_tx": False,
+            "manual_OWNER_approval_required": True,
+            "created_at": time.time(),
+            "created_at_iso": now_iso()
+        }
+        save_json(system_path, system)
+
+    if not (ROOT / "data/cybra_cold_finance/wallets/wallets.json").exists():
+        save_json("data/cybra_cold_finance/wallets/wallets.json", {"wallets": []})
+
+    if not (ROOT / "data/cybra_cold_finance/recipients/recipients.json").exists():
+        save_json("data/cybra_cold_finance/recipients/recipients.json", {"recipients": []})
+
+    if not (ROOT / "data/cybra_cold_finance/ledger/ledger.json").exists():
+        save_json("data/cybra_cold_finance/ledger/ledger.json", {"entries": []})
+
+def reward_policy():
+    p = load_json("data/kibra_mint_finance/reward_policy.json", {})
+    return {
+        "block_reward_kibra": dec(p.get("block_reward_kibra", "100")),
+        "task_block_reward_kibra": dec(p.get("task_block_reward_kibra", "100"))
+    }
+
+def balance():
+    init_system()
+    rp = reward_policy()
+
+    main_blocks = Decimal(count_files("blockchain/kibra_chain/blocks/block_*.json"))
+    task_blocks = Decimal(count_files("blockchain/kibra_chain/task_blocks/*.json"))
+
+    main_kibra = main_blocks * rp["block_reward_kibra"]
+    task_kibra = task_blocks * rp["task_block_reward_kibra"]
+    total = main_kibra + task_kibra
+
+    ledger = load_json("data/cybra_cold_finance/ledger/ledger.json", {"entries": []})
+    reserved = Decimal("0")
+    internal_sent = Decimal("0")
+
+    for e in ledger.get("entries", []):
+        amount = dec(e.get("amount_kibra", "0"))
+        if e.get("status") == "reserved_for_payment_proposal":
+            reserved += amount
+        if e.get("status") == "internal_ledger_transfer_recorded":
+            internal_sent += amount
+
+    available = total - reserved - internal_sent
+    if available < 0:
+        available = Decimal("0")
+
+    gate = load_json("feeds/kibra_real_market_price_gate.json", {})
+    mined_money = load_json("feeds/kibra_mined_money_report.json", {})
+
+    price = dec(gate.get("price_usd_per_kibra") or mined_money.get("market", {}).get("price_usd_per_kibra") or "0")
+    real_market = bool(gate.get("real_market_confirmed", False))
+
+    return {
+        "main_blocks": int(main_blocks),
+        "task_blocks": int(task_blocks),
+        "block_reward_kibra": str(rp["block_reward_kibra"]),
+        "task_block_reward_kibra": str(rp["task_block_reward_kibra"]),
+        "main_kibra": str(main_kibra),
+        "task_kibra": str(task_kibra),
+        "total_mined_kibra": str(total),
+        "reserved_kibra": str(reserved),
+        "internal_sent_kibra": str(internal_sent),
+        "available_kibra": str(available),
+        "price_usd_per_kibra": str(price),
+        "estimated_usd_if_confirmed": str(available * price),
+        "real_market_confirmed": real_market,
+        "real_sell_now": False
+    }
+
+def add_wallet(network, address, label):
+    init_system()
+    if not address or " " in address:
+        raise SystemExit("Invalid public address")
+
+    wallets = load_json("data/cybra_cold_finance/wallets/wallets.json", {"wallets": []})
+    obj = {
+        "wallet_id": "WALLET-" + dsha(network + address + str(time.time()))[:12].upper(),
+        "network": network,
+        "address": address,
+        "label": label,
+        "public_address_only": True,
+        "private_key_stored": False,
+        "created_at": time.time(),
+        "created_at_iso": now_iso()
+    }
+    obj["sha256"] = dsha(json.dumps(obj, ensure_ascii=False, sort_keys=True))
+    wallets.setdefault("wallets", []).append(obj)
+    save_json("data/cybra_cold_finance/wallets/wallets.json", wallets)
+    print("✅ cold/public wallet added")
+    print("WALLET_ID:", obj["wallet_id"])
+    print("ADDRESS:", address)
+
+def add_recipient(recipient_id, name, rail, account, currency):
+    init_system()
+    recipients = load_json("data/cybra_cold_finance/recipients/recipients.json", {"recipients": []})
+
+    obj = {
+        "recipient_id": recipient_id,
+        "name": name,
+        "rail": rail,
+        "account_or_address": account,
+        "currency": currency,
+        "verified": False,
+        "requires_manual_verification": True,
+        "allowed_for_real_payment": False,
+        "note": "Recipient must be verified from official invoice/requisites before real payment.",
+        "created_at": time.time(),
+        "created_at_iso": now_iso()
+    }
+    obj["sha256"] = dsha(json.dumps(obj, ensure_ascii=False, sort_keys=True))
+
+    recipients["recipients"] = [x for x in recipients.get("recipients", []) if x.get("recipient_id") != recipient_id]
+    recipients["recipients"].append(obj)
+
+    save_json("data/cybra_cold_finance/recipients/recipients.json", recipients)
+    print("✅ recipient added")
+    print("RECIPIENT_ID:", recipient_id)
+    print("RAIL:", rail)
+    print("ACCOUNT:", account)
+
+def get_recipient(recipient_id):
+    recipients = load_json("data/cybra_cold_finance/recipients/recipients.json", {"recipients": []})
+    for r in recipients.get("recipients", []):
+        if r.get("recipient_id") == recipient_id:
+            return r
+    return None
+
+def verify_recipient(recipient_id, proof_reference):
+    recipient = get_recipient(recipient_id)
+    if not recipient:
+        raise SystemExit("recipient not found")
+
+    recipients = load_json("data/cybra_cold_finance/recipients/recipients.json", {"recipients": []})
+    for r in recipients.get("recipients", []):
+        if r.get("recipient_id") == recipient_id:
+            r["verified"] = True
+            r["allowed_for_real_payment"] = False
+            r["verification_proof_reference"] = proof_reference
+            r["verified_at"] = time.time()
+            r["verified_at_iso"] = now_iso()
+            r["note"] = "Verified for proposal drafting. Real payment still requires OWNER approval and bank/PSP/manual execution."
+            r["sha256"] = dsha(json.dumps(r, ensure_ascii=False, sort_keys=True))
+
+    save_json("data/cybra_cold_finance/recipients/recipients.json", recipients)
+    print("✅ recipient verification recorded")
+    print("REAL_PAYMENT_ALLOWED_NOW: false")
+
+def make_payment_proposal(recipient_id, amount, currency, purpose):
+    init_system()
+    recipient = get_recipient(recipient_id)
+    if not recipient:
+        raise SystemExit("recipient not found")
+
+    amount_d = dec(amount)
+    bal = balance()
+
+    errors = []
+    if amount_d <= 0:
+        errors.append("amount must be > 0")
+    if not purpose:
+        errors.append("purpose is empty")
+
+    rail = recipient.get("rail", "")
+    requires_fiat = rail.upper() in ["SWIFT", "BANK", "IBAN", "PSP", "SEPA"]
+    requires_external = rail.upper() not in ["KYBRA_INTERNAL", "KIBRA_INTERNAL"]
+
+    proposal_id = "PAY-" + dsha(recipient_id + str(amount) + currency + str(time.time()))[:16].upper()
+
+    proposal = {
+        "status": "pending_OWNER_approval" if not errors else "invalid",
+        "proposal_id": proposal_id,
+        "recipient": recipient,
+        "amount": str(amount_d),
+        "currency": currency,
+        "purpose": purpose,
+        "rail": rail,
+        "requires_fiat_or_provider": requires_fiat,
+        "requires_external_manual_execution": requires_external,
+        "funding_source": {
+            "source": "KIBRA balance / liquidity / cold payment system",
+            "available_kibra": bal["available_kibra"],
+            "real_market_confirmed": bal["real_market_confirmed"],
+            "price_usd_per_kibra": bal["price_usd_per_kibra"],
+            "token_sell_now": False
+        },
+        "execution": {
+            "real_payment_now": False,
+            "automatic_SWIFT": False,
+            "automatic_external_crypto_tx": False,
+            "manual_OWNER_approval_required": True,
+            "manual_bank_or_PSP_execution_required": requires_fiat,
+            "manual_bridge_or_wallet_tx_required": requires_external
+        },
+        "errors": errors,
+        "created_at": time.time(),
+        "created_at_iso": now_iso()
+    }
+
+    proposal["double_sha"] = dsha(json.dumps(proposal, ensure_ascii=False, sort_keys=True))
+
+    save_json(f"data/cybra_cold_finance/proposals/{proposal_id}.json", proposal)
+    redis_lpush(PROPOSALS_Q, proposal)
+
+    task = {
+        "topic": "CYBRA Cold Finance payment proposal",
+        "type": "cybra_cold_finance_binary_task",
+        "priority": "critical",
+        "payload": {
+            "source": "cybra_cold_finance_binary",
+            "proposal_id": proposal_id,
+            "recipient_id": recipient_id,
+            "amount": str(amount_d),
+            "currency": currency,
+            "rail": rail,
+            "purpose": purpose,
+            "proposal_sha": proposal["double_sha"],
+            "convert_to_mining_block_first": True,
+            "real_payment_now": False,
+            "automatic_external_tx": False,
+            "manual_OWNER_approval_required": True
+        }
+    }
+    redis_lpush(AI_BLOCK_INBOX, task)
+
+    print("✅ payment proposal created")
+    print("PROPOSAL_ID:", proposal_id)
+    print("STATUS:", proposal["status"])
+    print("RAIL:", rail)
+    print("REAL_PAYMENT_NOW: false")
+
+def swift_template(proposal_id):
+    proposal = load_json(f"data/cybra_cold_finance/proposals/{proposal_id}.json", {})
+    if not proposal:
+        raise SystemExit("proposal not found")
+
+    recipient = proposal.get("recipient", {})
+
+    text = f"""CYBRA COLD FINANCE - SWIFT / BANK PAYMENT INSTRUCTION DRAFT
+
+Status: DRAFT ONLY - NOT SENT
+
+Proposal ID: {proposal_id}
+Recipient: {recipient.get('name')}
+Recipient rail: {recipient.get('rail')}
+Recipient account / IBAN: {recipient.get('account_or_address')}
+Currency: {proposal.get('currency')}
+Amount: {proposal.get('amount')}
+Purpose: {proposal.get('purpose')}
+
+Payer:
+CYBRA Cold Payment System
+Valid ID: {load_json('data/cybra_cold_finance/system.json', {}).get('valid_id')}
+Internal wallet: {load_json('data/cybra_cold_finance/system.json', {}).get('internal_wallet_address')}
+
+Rules:
+1. This is not an automatic SWIFT transaction.
+2. Bank/PSP must verify recipient requisites from official invoice.
+3. OWNER approval is required.
+4. AML/tax/legal review may be required.
+5. Real payment must be executed only via licensed bank/PSP or manual approved channel.
+
+Proposal SHA:
+{proposal.get('double_sha')}
+"""
+
+    out = f"data/cybra_cold_finance/swift/{proposal_id}_swift_instruction_draft.txt"
+    (ROOT / out).parent.mkdir(parents=True, exist_ok=True)
+    (ROOT / out).write_text(text, encoding="utf-8")
+
+    print("✅ SWIFT/BANK instruction draft created")
+    print(out)
+
+def report():
+    init_system()
+    system = load_json("data/cybra_cold_finance/system.json", {})
+    wallets = load_json("data/cybra_cold_finance/wallets/wallets.json", {"wallets": []})
+    recipients = load_json("data/cybra_cold_finance/recipients/recipients.json", {"recipients": []})
+    bal = balance()
+
+    package = {
+        "status": "cybra_cold_finance_binary_report_generated",
+        "time": time.time(),
+        "time_iso": now_iso(),
+        "system": system,
+        "balance": bal,
+        "wallets_count": len(wallets.get("wallets", [])),
+        "recipients_count": len(recipients.get("recipients", [])),
+        "queues": {
+            "payment_proposals": redis_len(PROPOSALS_Q),
+            "block_inbox": redis_len(AI_BLOCK_INBOX),
+            "task_block_mempool": redis_len("cybra:kibra:task_blocks:mempool"),
+            "pool_mining_blocks": redis_len("cybra:kibra:pool:mining_blocks"),
+            "parliament_queue": redis_len("cybra:parliament:queue"),
+            "parliament_failed": redis_len("cybra:parliament:failed")
+        },
+        "rails": {
+            "KYBRA_INTERNAL": "internal ledger only",
+            "SWIFT": "instruction draft only until licensed bank/provider",
+            "BANK_IBAN": "instruction draft only until bank execution",
+            "PSP": "instruction draft only until licensed PSP",
+            "COLD_WALLET": "public address registry only, manual external tx required"
+        },
+        "safety": {
+            "private_keys_stored": False,
+            "seed_phrase_stored": False,
+            "automatic_SWIFT": False,
+            "automatic_external_crypto_tx": False,
+            "automatic_real_payment": False,
+            "automatic_token_sell": False,
+            "manual_OWNER_approval_required": True
+        }
+    }
+
+    package["double_sha"] = dsha(json.dumps(package, ensure_ascii=False, sort_keys=True))
+
+    save_json("feeds/cybra_cold_finance_binary_report.json", package)
+    save_json("data/cybra_cold_finance/reports/latest_report.json", package)
+
+    req = system.get("payment_system_requisites", {})
+
+    md = f"""# CYBRA Cold Finance Binary System
+
+Status: {package['status']}
+
+## Web payment requisites
+
+System name: {req.get('system_name')}
+Valid ID: {req.get('valid_id')}
+Merchant ID: {req.get('merchant_id')}
+Internal wallet: {req.get('internal_wallet_address')}
+Network: {req.get('network')}
+Asset: {req.get('asset')}
+
+## Balance
+
+Main blocks: {bal['main_blocks']}
+Task blocks: {bal['task_blocks']}
+Total mined KIBRA: {bal['total_mined_kibra']}
+Reserved KIBRA: {bal['reserved_kibra']}
+Internal sent KIBRA: {bal['internal_sent_kibra']}
+Available KIBRA: {bal['available_kibra']}
+
+Price USD/KIBRA: {bal['price_usd_per_kibra']}
+Estimated USD if confirmed: {bal['estimated_usd_if_confirmed']}
+Real market confirmed: {bal['real_market_confirmed']}
+
+## Payment rails
+
+KYBRA_INTERNAL: internal ledger/proposal.
+SWIFT: bank instruction draft only.
+BANK_IBAN: bank instruction draft only.
+PSP: licensed provider instruction draft only.
+COLD_WALLET: public wallet registry and manual external tx proposal.
+
+## Commands
+
+cybra-finance-bin status
+cybra-finance-bin add-wallet NETWORK ADDRESS LABEL
+cybra-finance-bin add-recipient ID NAME RAIL ACCOUNT CURRENCY
+cybra-finance-bin verify-recipient ID PROOF_REFERENCE
+cybra-finance-bin propose RECIPIENT_ID AMOUNT CURRENCY PURPOSE
+cybra-finance-bin swift-template PROPOSAL_ID
+cybra-finance-bin task
+cybra-finance-bin mine
+
+## Safety
+
+No private keys.
+No seed phrase.
+No automatic SWIFT.
+No automatic external crypto transaction.
+No automatic real payment.
+OWNER approval required.
+
+## Double SHA
+
+{package['double_sha']}
+"""
+
+    (ROOT / "posts/cybra_cold_finance_binary_report.md").write_text(md, encoding="utf-8")
+
+    web = f"""CYBRA COLD PAYMENT SYSTEM REQUISITES
+
+System name: {req.get('system_name')}
+Valid ID: {req.get('valid_id')}
+Merchant ID: {req.get('merchant_id')}
+Internal wallet: {req.get('internal_wallet_address')}
+Network: {req.get('network')}
+Asset: {req.get('asset')}
+
+Use:
+Internal KYBRA invoice reference / cold payment reference / future bank or PSP payment route.
+
+Important:
+This is not a bank IBAN.
+SWIFT/BANK/PSP payments require licensed provider, official invoice, recipient verification and OWNER approval.
+"""
+
+    (ROOT / "posts/cybra_cold_payment_requisites.txt").write_text(web, encoding="utf-8")
+
+    with (ROOT / "proofs/cybra_cold_finance_binary.sha256").open("w") as f:
+        subprocess.run([
+            "sha256sum",
+            "parliament/departments/finance_department/cybra_cold_finance_binary_department/department.json",
+            "data/cybra_cold_finance/system.json",
+            "data/cybra_cold_finance/wallets/wallets.json",
+            "data/cybra_cold_finance/recipients/recipients.json",
+            "feeds/cybra_cold_finance_binary_report.json",
+            "posts/cybra_cold_finance_binary_report.md",
+            "posts/cybra_cold_payment_requisites.txt"
+        ], cwd=ROOT, stdout=f, stderr=subprocess.DEVNULL)
+
+    redis_lpush(AUDIT, {
+        "status": "cold_finance_binary_report_generated",
+        "available_kibra": bal["available_kibra"],
+        "total_mined_kibra": bal["total_mined_kibra"],
+        "double_sha": package["double_sha"],
+        "time": package["time"]
+    })
+
+    print("✅ CYBRA Cold Finance Binary report generated")
+    print("VALID_ID:", req.get("valid_id"))
+    print("INTERNAL_WALLET:", req.get("internal_wallet_address"))
+    print("TOTAL_MINED_KIBRA:", bal["total_mined_kibra"])
+    print("AVAILABLE_KIBRA:", bal["available_kibra"])
+    print("REPORT: posts/cybra_cold_finance_binary_report.md")
+    print("REQUISITES: posts/cybra_cold_payment_requisites.txt")
+
+def task():
+    bal = balance()
+    task_obj = {
+        "topic": "CYBRA Cold Finance Binary rebuild and payment rails",
+        "type": "cybra_cold_finance_binary_task",
+        "priority": "critical",
+        "payload": {
+            "source": "cybra_cold_finance_binary",
+            "goal": "Rebuild finance system with cold wallets, KYBRA balance, SWIFT/Bank/PSP adapters, payment proposals and mining-block task flow.",
+            "total_mined_kibra": bal["total_mined_kibra"],
+            "available_kibra": bal["available_kibra"],
+            "convert_to_mining_block_first": True,
+            "send_to_pool_mining": True,
+            "real_payment_now": False,
+            "automatic_external_tx": False,
+            "manual_OWNER_approval_required": True
+        }
+    }
+    redis_lpush(AI_BLOCK_INBOX, task_obj)
+    print("✅ AI task added to block inbox")
+
+def mine():
+    if (ROOT / "cybra_closed_sha_bridge.sh").exists():
+        subprocess.run(["bash", "cybra_closed_sha_bridge.sh", "cycle"], cwd=ROOT)
+    elif (ROOT / "cybra_ai_block_enforcer.sh").exists():
+        subprocess.run(["bash", "cybra_ai_block_enforcer.sh", "enforce", "3"], cwd=ROOT)
+    else:
+        print("No bridge/enforcer found")
+
+def status():
+    init_system()
+    system = load_json("data/cybra_cold_finance/system.json", {})
+    bal = balance()
+    print("SYSTEM:", system.get("system_name"))
+    print("VALID_ID:", system.get("valid_id"))
+    print("INTERNAL_WALLET:", system.get("internal_wallet_address"))
+    print("TOTAL_MINED_KIBRA:", bal["total_mined_kibra"])
+    print("AVAILABLE_KIBRA:", bal["available_kibra"])
+    print("PRICE_USD_PER_KIBRA:", bal["price_usd_per_kibra"])
+    print("REAL_MARKET_CONFIRMED:", bal["real_market_confirmed"])
+    print("PAYMENT_PROPOSALS:", redis_len(PROPOSALS_Q))
+    print("BLOCK_INBOX:", redis_len(AI_BLOCK_INBOX))
+
+def main():
+    args = sys.argv[1:]
+    cmd = args[0] if args else "status"
+
+    if cmd == "init":
+        init_system()
+        report()
+    elif cmd == "status":
+        status()
+    elif cmd == "report":
+        report()
+    elif cmd == "task":
+        task()
+    elif cmd == "mine":
+        mine()
+    elif cmd == "add-wallet":
+        if len(args) < 4:
+            raise SystemExit("Usage: cybra-finance-bin add-wallet NETWORK ADDRESS LABEL")
+        add_wallet(args[1], args[2], " ".join(args[3:]))
+        report()
+    elif cmd == "add-recipient":
+        if len(args) < 6:
+            raise SystemExit("Usage: cybra-finance-bin add-recipient ID NAME RAIL ACCOUNT CURRENCY")
+        add_recipient(args[1], args[2], args[3], args[4], args[5])
+        report()
+    elif cmd == "verify-recipient":
+        if len(args) < 3:
+            raise SystemExit("Usage: cybra-finance-bin verify-recipient ID PROOF_REFERENCE")
+        verify_recipient(args[1], " ".join(args[2:]))
+        report()
+    elif cmd == "propose":
+        if len(args) < 5:
+            raise SystemExit("Usage: cybra-finance-bin propose RECIPIENT_ID AMOUNT CURRENCY PURPOSE")
+        make_payment_proposal(args[1], args[2], args[3], " ".join(args[4:]))
+        report()
+    elif cmd == "swift-template":
+        if len(args) < 2:
+            raise SystemExit("Usage: cybra-finance-bin swift-template PROPOSAL_ID")
+        swift_template(args[1])
+    else:
+        raise SystemExit("Usage: init|status|report|task|mine|add-wallet|add-recipient|verify-recipient|propose|swift-template")
+
+if __name__ == "__main__":
+    main()
+PY
+
+chmod +x bin/cybra-finance-bin
+
+ln -sf "$HOME/CYBRA/bin/cybra-finance-bin" "$PREFIX/bin/cybra-finance-bin" 2>/dev/null || true
+
+cat > cybra_cold_finance_binary_handler.sh <<'EOF'
+#!/data/data/com.termux/files/usr/bin/bash
+set -e
+cd "$HOME/CYBRA"
+
+bin/cybra-finance-bin report >/dev/null 2>&1 || true
+bin/cybra-finance-bin task >/dev/null 2>&1 || true
+bash cybra_closed_sha_bridge.sh cycle >/dev/null 2>&1 || true
+EOF
+
+chmod +x cybra_cold_finance_binary_handler.sh
+
+redis-cli HSET cybra:executor:mapping cybra_cold_finance_binary_task cybra_cold_finance_binary_handler.sh >/dev/null || true
+
+python3 - <<'PY'
+from pathlib import Path
+
+p = Path("parliament_executor_v6.py")
+if p.exists():
+    s = p.read_text(encoding="utf-8")
+    if 'r.hget("cybra:executor:mapping", task_type)' not in s:
+        old = "script_name = SCRIPT_MAP.get(task_type)"
+        new = 'script_name = r.hget("cybra:executor:mapping", task_type) or SCRIPT_MAP.get(task_type)'
+        if old in s:
+            s = s.replace(old, new, 1)
+    if '"cybra_cold_finance_binary_task"' not in s:
+        i = s.find("SCRIPT_MAP")
+        j = s.find("{", i)
+        if i >= 0 and j >= 0:
+            s = s[:j+1] + '\n    "cybra_cold_finance_binary_task": "cybra_cold_finance_binary_handler.sh",' + s[j+1:]
+    p.write_text(s, encoding="utf-8")
+    print("✅ parliament executor patched")
+else:
+    print("⚠ parliament_executor_v6.py not found")
+PY
+
+rm -rf __pycache__
+python3 -m py_compile bin/cybra-finance-bin
+test -f parliament_executor_v6.py && python3 -m py_compile parliament_executor_v6.py || true
+rm -rf __pycache__
+
+echo
+echo "=== INIT COLD FINANCE BINARY ==="
+bin/cybra-finance-bin init
+
+echo
+echo "=== SEND AI TASK TO BLOCKS/POOLS ==="
+bin/cybra-finance-bin task
+bin/cybra-finance-bin mine || true
+
+echo
+echo "=== STATUS ==="
+bin/cybra-finance-bin status
+
+echo
+echo "=== PROOF CHECK ==="
+sha256sum -c proofs/cybra_cold_finance_binary.sha256 || true
+
+echo
+echo "✅ CYBRA COLD FINANCE BINARY SYSTEM INSTALLED"

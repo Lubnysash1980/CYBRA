@@ -1,0 +1,43 @@
+{
+  "status": "pending_OWNER_approval",
+  "proposal_id": "PAY-18E39C7E5BCAD60D",
+  "recipient": {
+    "recipient_id": "autosalon",
+    "name": "Auto Salon",
+    "rail": "SWIFT",
+    "account_or_address": "IBAN_OR_SWIFT_REQUISITES_FROM_INVOICE",
+    "currency": "UAH",
+    "verified": false,
+    "requires_manual_verification": true,
+    "allowed_for_real_payment": false,
+    "note": "Recipient must be verified from official invoice/requisites before real payment.",
+    "created_at": 1780488172.626207,
+    "created_at_iso": "2026-06-03T15:02:52+0300",
+    "sha256": "313d0ae836e21f642a915e93e4a16c0fb0c585e32ebb6e2864eb994f006bb769"
+  },
+  "amount": "100000",
+  "currency": "UAH",
+  "purpose": "оплата авто за рахунком",
+  "rail": "SWIFT",
+  "requires_fiat_or_provider": true,
+  "requires_external_manual_execution": true,
+  "funding_source": {
+    "source": "KIBRA balance / liquidity / cold payment system",
+    "available_kibra": "4000",
+    "real_market_confirmed": false,
+    "price_usd_per_kibra": "0",
+    "token_sell_now": false
+  },
+  "execution": {
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_crypto_tx": false,
+    "manual_OWNER_approval_required": true,
+    "manual_bank_or_PSP_execution_required": true,
+    "manual_bridge_or_wallet_tx_required": true
+  },
+  "errors": [],
+  "created_at": 1780488190.338641,
+  "created_at_iso": "2026-06-03T15:03:10+0300",
+  "double_sha": "7c7c547ffa60b84106234f109f58b2b17ec5d5326f5d090d37ebbde19b51222d"
+}

@@ -17,6 +17,7 @@ Q_FAILED = "cybra:parliament:failed"
 Q_AUDIT = "cybra:audit"
 
 SCRIPT_MAP = {
+    "cybra_cold_finance_binary_task": "cybra_cold_finance_binary_handler.sh",
     "kybra_valid_wallet_task": "kybra_valid_wallet_handler.sh",
     "cybra_payment_requisites_task": "cybra_payment_requisites_handler.sh",
     "finance_redis_committee_task": "finance_redis_committee_handler.sh",

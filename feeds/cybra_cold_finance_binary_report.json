@@ -1,0 +1,75 @@
+{
+  "status": "cybra_cold_finance_binary_report_generated",
+  "time": 1780488190.3723297,
+  "time_iso": "2026-06-03T15:03:10+0300",
+  "system": {
+    "status": "active_internal_cold_finance_system",
+    "system_name": "CYBRA Cold Payment System",
+    "valid_id": "CYBRA-COLD-FIN-6D484C54BB3C5575",
+    "native_asset": "KIBRA",
+    "internal_wallet_address": "kybra:c702a1b6d36314a0ad58995701d1b0e92c8a3eaa",
+    "payment_system_requisites": {
+      "system_name": "CYBRA Cold Payment System",
+      "valid_id": "CYBRA-COLD-FIN-6D484C54BB3C5575",
+      "merchant_id": "CYBRA-MERCHANT-1EB196021A0A",
+      "internal_wallet_address": "kybra:c702a1b6d36314a0ad58995701d1b0e92c8a3eaa",
+      "network": "KYBRA_INTERNAL",
+      "asset": "KIBRA",
+      "note": "Internal web payment requisites. Not a bank IBAN and not a licensed PSP by itself."
+    },
+    "security": {
+      "cold_mode": true,
+      "private_keys_stored": false,
+      "seed_phrase_stored": false,
+      "public_addresses_only": true
+    },
+    "real_payment_now": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true,
+    "created_at": 1780488042.0412123,
+    "created_at_iso": "2026-06-03T15:00:42+0300"
+  },
+  "balance": {
+    "main_blocks": 10,
+    "task_blocks": 30,
+    "block_reward_kibra": "100",
+    "task_block_reward_kibra": "100",
+    "main_kibra": "1000",
+    "task_kibra": "3000",
+    "total_mined_kibra": "4000",
+    "reserved_kibra": "0",
+    "internal_sent_kibra": "0",
+    "available_kibra": "4000",
+    "price_usd_per_kibra": "0",
+    "estimated_usd_if_confirmed": "0",
+    "real_market_confirmed": false,
+    "real_sell_now": false
+  },
+  "wallets_count": 1,
+  "recipients_count": 1,
+  "queues": {
+    "payment_proposals": 1,
+    "block_inbox": 1,
+    "task_block_mempool": 0,
+    "pool_mining_blocks": 2,
+    "parliament_queue": 0,
+    "parliament_failed": 0
+  },
+  "rails": {
+    "KYBRA_INTERNAL": "internal ledger only",
+    "SWIFT": "instruction draft only until licensed bank/provider",
+    "BANK_IBAN": "instruction draft only until bank execution",
+    "PSP": "instruction draft only until licensed PSP",
+    "COLD_WALLET": "public address registry only, manual external tx required"
+  },
+  "safety": {
+    "private_keys_stored": false,
+    "seed_phrase_stored": false,
+    "automatic_SWIFT": false,
+    "automatic_external_crypto_tx": false,
+    "automatic_real_payment": false,
+    "automatic_token_sell": false,
+    "manual_OWNER_approval_required": true
+  },
+  "double_sha": "d67f720f39d592529da57a035e346636b0412c43659040514baa3c0e5b59f6b7"
+}
