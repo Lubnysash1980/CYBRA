@@ -1,0 +1,27 @@
+{
+  "committee_id": "github_autonomy_committee",
+  "name": "CYBRA GitHub / Codespaces Autonomy Committee",
+  "status": "active",
+  "parent": "cybra_parliament",
+  "mission": "Make CYBRA/KYBRA work on GitHub Codespaces and GitHub Actions: bootstrap, scheduled safe cycles, reports, proofs, AI tasks to Parliament and mining blocks.",
+  "scope": [
+    "GitHub Codespaces bootstrap",
+    "GitHub Actions scheduled cycles",
+    "Redis local runner per cycle",
+    "safe test/autofix",
+    "dashboard report",
+    "parliament AI task submission",
+    "closed SHA bridge cycle",
+    "proof generation"
+  ],
+  "limits": [
+    "GitHub Actions is scheduled/ephemeral, not a permanent daemon",
+    "Codespaces is interactive development environment",
+    "No real payment",
+    "No SWIFT",
+    "No external crypto transaction",
+    "No private keys or seed phrases",
+    "No private tax ID publication"
+  ],
+  "manual_OWNER_approval_required": true
+}

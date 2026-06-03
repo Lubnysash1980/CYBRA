@@ -1,0 +1,19 @@
+{
+  "topic": "CYBRA GitHub / Codespaces autonomy verification",
+  "type": "github_autonomy_committee_task",
+  "priority": "critical",
+  "payload": {
+    "source": "github_autonomy_committee",
+    "environment": "local-test",
+    "goal": "Ensure CYBRA/KYBRA works autonomously on GitHub Codespaces and GitHub Actions with safe reports, proofs and AI tasks.",
+    "convert_to_mining_block_first": true,
+    "send_to_pool_mining": true,
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  },
+  "time": 1780508169.3735764,
+  "time_iso": "2026-06-03T20:36:09+0300",
+  "double_sha": "b12a884efa177094535f8fc43104e6e87c6def22bc66803c6460189dd551dd6c"
+}
