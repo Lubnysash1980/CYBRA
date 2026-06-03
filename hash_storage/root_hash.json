@@ -1,785 +1,721 @@
 {
-  "engine": "CYBRA AI OS Hash Engine",
-  "device": {
-    "platform": "android",
-    "arch": "arm64",
-    "hostname_hash": "26964a3cdc38c10b3762ca2376626a0dcb4770d3baca2f4b22f31c2c8d2723cc",
-    "cpus": 0,
-    "memory_total": 3776569344,
-    "memory_free": 795987968,
-    "uptime": 331876,
-    "git_branch": "main",
-    "git_remote_hash": "bd48c7838f50623ef04ca97a482fc158c7d6e644574657e88adf01b178e782cc",
-    "pwd": "/data/data/com.termux/files/home/CYBRA",
-    "time": 1780334805956
-  },
-  "root": {
-    "menu": {
-      "c1c85ff9c657b4c499fcba8a6900904eaae3a35a1a3c76d3d403da4205b351dc": {
-        "level": 0,
-        "timestamp": 1780334805.874,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "a0afc5370afb7707e7857923a6240bc0104a3cf3d0344ecc8b8485bee8e4072f": {
-        "level": 0,
-        "timestamp": 1780334805.874,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "aa3fb8f2af20c731982309df18f476868d3708bf303b4652916f0064545f16d1": {
-        "level": 0,
-        "timestamp": 1780334805.874,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "1cb7397c46e2d4cb28d98befc7c82bcdce534104915337211f6a0c86bcc6fac6": {
-        "level": 0,
-        "timestamp": 1780334805.874,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "4fdcacbc477916447c835b678cab3f3bf4ed49d0b55bfc2463616996c129029d": {
-        "level": 0,
-        "timestamp": 1780334805.874,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "dae90527bd4ae4be7c5d51042673ba4065bafff6b762fb4fc88270a2af004e8b": {
-        "level": 0,
-        "timestamp": 1780334805.874,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "07b448a7644570691f46d12b027a8db3e4c1fdbc8e097247cd7069dd38f74459": {
-        "level": 0,
-        "timestamp": 1780334805.874,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "8430ac1f41f8212ff62b156ab9c95c3e8cd6976dc2c1307e7ddf2caf4a82a24c": {
-        "level": 0,
-        "timestamp": 1780334805.874,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "4ea8b352d4935ad7b35e6dbede00998916beca11f91314a196460ca9adb4a370": {
-        "level": 0,
-        "timestamp": 1780334805.874,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "335f889b2577c12c3782f9b79a447a7a8dc96abdbf68cf8476a8459896e3cad5": {
-        "level": 0,
-        "timestamp": 1780334805.874,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "3dc607a4a902151c8f14460d47a30a3a2412b7760e52faed80b45272210cd34a": {
-        "level": 0,
-        "timestamp": 1780334805.874,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "b4642d56654108d14592a4bc8d18f4b7aa39299559d41ce441b0df8beaa6a5da": {
-        "level": 0,
-        "timestamp": 1780334805.874,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "f9454385c571729147a30df2d9bf5622fde5282a81a6a01669007ef9116e0b88": {
-        "level": 0,
-        "timestamp": 1780334805.874,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "f57401d5ec93c974a27cc305f6f7a8da1452022c72b3bb56665b40cd0ef95bc7": {
-        "level": 0,
-        "timestamp": 1780334805.874,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "2a6b78f65b5a1b2822dfea04c48f65d1b9d005acfe849e635152c69cf8799db6": {
-        "level": 0,
-        "timestamp": 1780334805.874,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "c0934bbb78a55c1f2f49f162cd84c9811e5fc2ad22e31c0a91aa606d09718e0c": {
-        "level": 0,
-        "timestamp": 1780334805.874,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "47cddbe2798452e7d934b052bc3354b7eb713c1e325d5b039dea9e7e04bb58fa": {
-        "level": 0,
-        "timestamp": 1780334805.874,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "dfca52c8b2d2ce54b1fabf5fd18892943867a3c4927d38db5c4c291eb83147c2": {
-        "level": 0,
-        "timestamp": 1780334805.874,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "30919995b0762960c9591e972b9b78b0027600134271dbf86e545463f779a8db": {
-        "level": 0,
-        "timestamp": 1780334805.874,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "ca1a448e5e32416bf55ef0ca52675a5b2724b948d537ffb21bb8e2db6e8d3105": {
-        "level": 0,
-        "timestamp": 1780334805.874,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "610d36a1560e69e744d2fb653d88fc24c4ff9683b045148b1f0929641a08c29d": {
-        "level": 0,
-        "timestamp": 1780334805.874,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "2d409b3f3e42cf2b3dfeafc04e08843ef6cde925cd79908156676e2804659dfd": {
-        "level": 0,
-        "timestamp": 1780334805.874,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "4c78d4b1b8682663963ec6e8a4264ead88b9fe54386908c845d3bc28661dc277": {
-        "level": 0,
-        "timestamp": 1780334805.874,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "71d55d8b1cd64e2c40fdfbb3924141e37dbf3cc7a09bfa2800c16ecbe62a2ca4": {
-        "level": 0,
-        "timestamp": 1780334805.874,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "b9f4ca3456a73ae60767f30f51670ed7cbd1d636b7281af5da3ac6bce90883f5": {
-        "level": 0,
-        "timestamp": 1780334805.874,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "bd1fd4eab3f978cc1f8756c9ed321d90698d5f1cd8ec1655d005584b6d019215": {
-        "level": 0,
-        "timestamp": 1780334805.876,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "c41b8b02fb84bdb56511c1bee587179401cc04b09d5bf93491511f296c7860b4": {
-        "level": 0,
-        "timestamp": 1780334805.876,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "ccba1c6092cd01df1fc1aefbb10f3d355b9ec2dc18bc913b2fb452c4dfecbeb7": {
-        "level": 0,
-        "timestamp": 1780334805.876,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "ee46ad3ba6dddec72023ae4bd29e6ee4adcdfeb1023e7162633c390c518e1490": {
-        "level": 0,
-        "timestamp": 1780334805.876,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "b121ef7a1ed1732e9411e6c17dbde5243f363ef2f40aa7d72172861d648910e9": {
-        "level": 0,
-        "timestamp": 1780334805.876,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "be8cb1b9ae112505915983b9f3e373dfc5747e27fae6928be9ad8849cd570498": {
-        "level": 0,
-        "timestamp": 1780334805.876,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "32fce2468be68af83f55d34272a9b42b0661125d5b51e1e8ff91924c61c57dbb": {
-        "level": 0,
-        "timestamp": 1780334805.876,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "af03679d24632bc158e084d2a562ebbcd7c0da2869843c4735991bbe124c06d0": {
-        "level": 0,
-        "timestamp": 1780334805.876,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "c6db589bedd314075f5e2b06628177f71d1a1c5890da91b0a2a0ce23dd1080a1": {
-        "level": 0,
-        "timestamp": 1780334805.876,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "676c3b9b15225e0c34756e9f1fa1989705a93437cd869a53741d12c899818da8": {
-        "level": 0,
-        "timestamp": 1780334805.876,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "b0fb50917e0614a5eeaf8c8362799413afab7b7d91d51f190e0457d046a66c0f": {
-        "level": 0,
-        "timestamp": 1780334805.876,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "777d78fd70b8fe5fa3facafea5a24c77cf5ff40717ff7fb5e0b2a99f1c0f5ed6": {
-        "level": 0,
-        "timestamp": 1780334805.876,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "07037d56233999e428f595fb86a8e6b14a1b787eae130ae16d788e3c415f750b": {
-        "level": 0,
-        "timestamp": 1780334805.876,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "1a1ea2ea92357362d5481e740db75fb1d527b345af87dafccbc659a4017dc567": {
-        "level": 0,
-        "timestamp": 1780334805.876,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "039a225992d3b697350a366873f1f03d9bcf1e543c10cff3175725bd1e1c475f": {
-        "level": 0,
-        "timestamp": 1780334805.876,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "24b51708e7bdb0c7a991caaedb045ad14db3ac36175a62046803a7c0de53b7a3": {
-        "level": 0,
-        "timestamp": 1780334805.876,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "2c3baa0d31a5a069837fbf26bf6ac1b626cda576508760e53267709730d737e9": {
-        "level": 0,
-        "timestamp": 1780334805.876,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "7374d7af985bcc011f91b562336047f2eaa0859447ff5b5c12814a656233a414": {
-        "level": 0,
-        "timestamp": 1780334805.876,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "5fd6b7b47f2b61a20547402153e0ea4166799624c719c6e121f75944768c477a": {
-        "level": 0,
-        "timestamp": 1780334805.876,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "9981a2f66b83391ade5d8961d061a650256ce80e0aa2102dd24bb8f50be6e18a": {
-        "level": 0,
-        "timestamp": 1780334805.876,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "7781961455f3cfd481029af6adc48ac6f299caf3e209ac030e11d0f6fe2d9a8f": {
-        "level": 0,
-        "timestamp": 1780334805.876,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "d5b9c97f9d39c5f22828dfb5da2b07c787fb5868c0289b7bdddf72befb561b0c": {
-        "level": 0,
-        "timestamp": 1780334805.876,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "4baba8d9565f651dc47869b6bd5b6518c96a534587ee733fa01692b91ff013e9": {
-        "level": 0,
-        "timestamp": 1780334805.876,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "cc4eaa9adac88d919800f5ab5cc9e7300a58227d84d1f1fef8653f9fca125376": {
-        "level": 0,
-        "timestamp": 1780334805.876,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "266989041163f0118e58f4caedbcc26eac6a77d459b9dc612dc696db5496c522": {
-        "level": 0,
-        "timestamp": 1780334805.876,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "f4803d1d4b7f50f5e8f6bb1f85fe2958079fe4b1e7d4355f67e5ae68f902b037": {
-        "level": 0,
-        "timestamp": 1780334805.877,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "2eab1686c0e68dcd899b7571e617979b5defd3261a24d55f98eda018a5e65d6d": {
-        "level": 0,
-        "timestamp": 1780334805.877,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "617182d8713c3e466855e25a4cc0005050622334956bfeb21f02ab6c7dd0b4d1": {
-        "level": 0,
-        "timestamp": 1780334805.877,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "4d65a27f56049e32ea6f2eeaf1da5d1b6850d92c6c1c0581e725ebee651db7da": {
-        "level": 0,
-        "timestamp": 1780334805.877,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "5d389f457b2e8281e57145114511ae95b4e1c93fc80434e5a9e7a192413b3b73": {
-        "level": 0,
-        "timestamp": 1780334805.877,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "12ad82550d79727953f42b45644b4dbad1b1ae33adf50cb24e46ca61f1f4921d": {
-        "level": 0,
-        "timestamp": 1780334805.877,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "45cf04a15ce64e55d74d70e09eb5a751433dfdc4d0cc9be2428f19e5d83ece51": {
-        "level": 0,
-        "timestamp": 1780334805.877,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "34c6e98507ca1ba60727770b577fda431296bbc13abfe65a288648a6867efe62": {
-        "level": 0,
-        "timestamp": 1780334805.877,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "5a8b66c49b0fc260f6b1b412f2f67bbf4bf0b79ab42cd9c922a86087a3ed2c8c": {
-        "level": 0,
-        "timestamp": 1780334805.877,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "5a05ec2f434d001a9f84c0f62948a0972a576e4976715fc9e6cbffbf79891d41": {
-        "level": 0,
-        "timestamp": 1780334805.877,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "8db7f00c0ebb1dc5b43a95259f037b84ffb9b6726732553b26e6d8d9423cd9a3": {
-        "level": 0,
-        "timestamp": 1780334805.877,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "ecd7baec81c9732ab854b4aeaab0af6e9f33d832a41ad6ab3498600179d7128b": {
-        "level": 0,
-        "timestamp": 1780334805.877,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "a9b5aa40867ee10a5f8bb022974a7ed6e840301ee8147f11967ad77aa380f74a": {
-        "level": 0,
-        "timestamp": 1780334805.877,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "3ac9e3f8f872edbc21b13009a79dd815346a55beed47d60d59ac97d0a8860913": {
-        "level": 0,
-        "timestamp": 1780334805.877,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "288f452459b3b010b396947bf558ae1ed75a17eeb94ba578b6ff958d12c5998d": {
-        "level": 0,
-        "timestamp": 1780334805.877,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "304f9865e15531493f35202a1d1cb1a3f6b6f2913cdf8f2212c3bd34f75e8ddb": {
-        "level": 0,
-        "timestamp": 1780334805.877,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "dffff236ce6eddcfa6dd2cb642e813abb860669bdfa3a64fd94c3d941cdc4b96": {
-        "level": 0,
-        "timestamp": 1780334805.877,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "4539af20a52206d5c37311f546b61115e59278b4602176ada6d5dd6778a5a10f": {
-        "level": 0,
-        "timestamp": 1780334805.877,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "9b77111c35c1168c83a65b7031781e84735af4fe84df275eaea4c4796133efd0": {
-        "level": 0,
-        "timestamp": 1780334805.877,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "1542cef9ce1cff84dbbf1d74eb487e8fec953ecbbd4d26a3d7f3bba221417bf0": {
-        "level": 0,
-        "timestamp": 1780334805.877,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "37b0931050da2e4bab6b09f0dab2109feb71125e128e66e56d687799c6e99a32": {
-        "level": 0,
-        "timestamp": 1780334805.877,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "df705477e7ff65279cceaa682791a28f109d2a3b466bd3fd70026d64caa0b43a": {
-        "level": 0,
-        "timestamp": 1780334805.877,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "5e109e132a45329fdf31b819bfdf79499605e547d34f8f7527edb1c730735324": {
-        "level": 0,
-        "timestamp": 1780334805.877,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "b0a857c6b4df0d6f381600091ade90cee9c1b85d76e337c849825cd4767612eb": {
-        "level": 0,
-        "timestamp": 1780334805.877,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "5d7bc02867640e50ca02f9c566da73b0391070c0933704332df5e554bfea5aa6": {
-        "level": 0,
-        "timestamp": 1780334805.877,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "18f12a29e3fe6afa7c6aa9568de550c2eaf3145452a7d3c037c66fb000174950": {
-        "level": 0,
-        "timestamp": 1780334805.878,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "437ed8132a93ab547896280007b05f8cafa973515fc1d54ab065f6d2cddd4f11": {
-        "level": 0,
-        "timestamp": 1780334805.878,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "eeaa293d9c29a542f95f4d977a48c5458cf99dfc76d78ad1b5d0f8c3c6c28ce8": {
-        "level": 0,
-        "timestamp": 1780334805.878,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "6af82f8bf2eca116f74e1d14297b390d0eee533bc463a11c966547b12279f60e": {
-        "level": 0,
-        "timestamp": 1780334805.878,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "8176b7979d6155a047dd84550a56942fcb38f9f9d849ecc2489b0321cca58ed1": {
-        "level": 0,
-        "timestamp": 1780334805.878,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "da3f5f0ec93e43e10ae9ef1b7b88b254d9b6f228c03c27ae94d3e5082b9c62fd": {
-        "level": 0,
-        "timestamp": 1780334805.878,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "6f17bc0838194b22c7c87abc5bd036aeed6ee10cca413663860d527ae46a4ad8": {
-        "level": 0,
-        "timestamp": 1780334805.878,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "d5d1f67722cff0d040ccd10944dd9ef92eb1094695b6bf95a3293b25123b472e": {
-        "level": 0,
-        "timestamp": 1780334805.878,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "7e1200df1c34f56721de6a400204d872f2d0c3bc032242e8af1dee966e6085d3": {
-        "level": 0,
-        "timestamp": 1780334805.878,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "c64880872edbfcfb1b10ede7f5a0985248d967f62c155a64c49685bb48dacfad": {
-        "level": 0,
-        "timestamp": 1780334805.878,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "250fcc9569b1c8aeefc52786939858aec9e9b5201f8a0bbadff567c1ac344ca6": {
-        "level": 0,
-        "timestamp": 1780334805.878,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "a925c4809d788da549cca48557d9f21f75ed144004c55d2e20c678b648875def": {
-        "level": 0,
-        "timestamp": 1780334805.878,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "858e41399192e1b05d280d2313e7deb71ee0681c5c39cdd1c859c283ec860ab6": {
-        "level": 0,
-        "timestamp": 1780334805.878,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "ff480c3fb8a665f21c52647a9327722222b3e58c29d6c0c5a4337ce0ddea75bc": {
-        "level": 0,
-        "timestamp": 1780334805.878,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "fd5ff68ea84a2748a12685f533284a3d8c922f5673b2bcac36c7eb5463d4909f": {
-        "level": 0,
-        "timestamp": 1780334805.878,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "ab722906e393435c0290eff5fc14c7a7a84b605f51386398036fc33792cd9922": {
-        "level": 0,
-        "timestamp": 1780334805.878,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "6f93e3bd662650f8f82014745ee31bf12607d1c97ea6f4bed759f4fb19e0e4c2": {
-        "level": 0,
-        "timestamp": 1780334805.878,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "102de38998c25c9e45d1141998a6091861199f3bcb3d5ed3ae95037a73875e87": {
-        "level": 0,
-        "timestamp": 1780334805.878,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "9d11f5a8039ea9648218857a60efc0a8878590c5e1556e4b83344c7d864087d5": {
-        "level": 0,
-        "timestamp": 1780334805.878,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "69c2a4ef277c590f2f874c89eac21c1b6e84e172d8c3251d55c3fa16b9b72872": {
-        "level": 0,
-        "timestamp": 1780334805.878,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "8aea0de5ec95d9183d1bcbf41766d86be91b6ebb39c2c74d58eb27726229f035": {
-        "level": 0,
-        "timestamp": 1780334805.878,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "ba59646482d0d39fced1de92065d4c89540d8d451e512ea802485121747a3a21": {
-        "level": 0,
-        "timestamp": 1780334805.878,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "b75bb6ce410689148034b8e0cf318cb59a46c5c1431c342397dc1f7bef55e837": {
-        "level": 0,
-        "timestamp": 1780334805.878,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "3cf967dba94bf508540a27134f8b54457057fae4fcf1716dabb8e4a0a0c7adf6": {
-        "level": 0,
-        "timestamp": 1780334805.878,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "b8fef982f28dfbb31701e493343a4b20f74c9577b05212024a53739df2339ac4": {
-        "level": 0,
-        "timestamp": 1780334805.878,
-        "meta": {
-          "type": "data"
-        }
-      },
-      "d0c32701bcda699709e755256a3f66c390d3c73930affa35bc8ede2d0bd37b6a": {
-        "level": 1,
-        "timestamp": 1780334805.879,
-        "meta": {
-          "count": 100,
-          "type": "collapsed"
-        }
-      },
-      "607da215e9e18afc545996cfd47c03a8bae2022e3d6eaa44c74f73989718652a": {
-        "level": 0,
-        "timestamp": 1780334805.881,
-        "meta": {
-          "type": "audio",
-          "sample_rate": 44100,
-          "length_bytes": 17
-        }
-      },
-      "505e9f60108e7e425a4a26bbc6833701ae3118172e285419b0d66a9a871abedc": {
-        "level": 0,
-        "timestamp": 1780334805.881,
-        "meta": {
-          "type": "video_frame",
-          "length_bytes": 16,
-          "width": 1920,
-          "height": 1080
-        }
-      },
-      "3e72512a9187844d672c17f18041cee462e7261d5e972458996249b7b45f04e0": {
-        "level": 0,
-        "timestamp": 1780334805.881,
-        "meta": {
-          "type": "pixel_overlay",
-          "width": 100,
-          "height": 100,
-          "channels": 4,
-          "length_bytes": 18
-        }
-      },
-      "aee488ebbf738f17bb38c8ac1a5a53f86863dd0ea0fd9c937339d6f22aa12a2e": {
-        "level": 0,
-        "timestamp": 1780334805.882,
-        "meta": {
-          "type": "bit_byte_overlay",
-          "length_bytes": 13,
-          "source": "device"
-        }
+  "menu": {
+    "8fa48701e3f3bcba212fa91b0842cbebc555b575efd24731bc8365b3f455aa8e": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
       }
     },
-    "root_hash": "34378c216d94c1a1bd8c7a2faf9ee2791e73f55c66e2fd656ef0eb759dc81a59"
-  },
-  "it": {
-    "health": {
-      "hash_levels": 2,
-      "total_hashes": 1,
-      "memory": {
-        "free": 795987968,
-        "total": 3776569344
-      },
-      "last_check": 1780334805.879
-    },
-    "logs": [
-      {
-        "time": 1780334805.879,
-        "message": "System audit completed"
+    "b73220ba65affc5f9b82ac6cd46400ecc92de332842755792766d6ec89cb0587": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
       }
-    ]
-  }
+    },
+    "27c3a777284e1ba089089b74ec0b226e042f87a10910f6a5612d20508269b37c": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "fb85a25e1e41f2013f2b2a91bc7b4c2e919163e0248d1c3bed845ab9dcaec9ea": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "3951e2884ef6521000254935f549f8a92e0ec191c569104df6db6f18a95f7380": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "5669e210f2e4198499d1edd371b31b296924f0842b056d089ce8c15fe5fe981e": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "dbdaafdfa91a501fc2b87774932c5acb423ec1b90c0eb2c35046f0a895583e65": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "2faf4a1a8dd34dbb10449032e676331cfaac7b6a3a8c97de1e45853fc9ddff02": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "6df6359098d526750a73da73969c7e6f0c973fec23e9dc2f67d70ea8a495851c": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "7f65afcf04fc149ade4844bf9e3b7a8b2f58530c21b0adee8a0c2bef779ffe9d": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "2cb9a6fe970132495d27670f312750315195bf3d7ecba75b5ef8a9eb4e11c694": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "d9aa07a7c5f8be3b15e2345037494296b2038c8908d3da186da97d6f09803059": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "65c34b295fd35b90a3e0a016162966c208372a5c7f69e35daa76d4fdaeb566f0": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "e6cabe9b5230ae2fb6915c9c1d50cdf95cfcbeefbe848e379d57eb6410c13dd4": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "341682fbec7efc65092979a974d207f2a06828dea8bfe58c9f3ccd28a7eea639": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "35f760b582bedbd63782446f93c8f2939ac0ef3e01b50aeadc26a377ca984f0d": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "06fa911860130d089c9376734e445fa781296606047130dfdfcebf892c912e5d": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "979f87c0d3b8e05f95dc62366c275d09483a3150c7890143ed8fd5faa58e968d": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "a52c4e8c3758ac318e7d944e74cfe8036655668a1ea4f5514d837e1359263d72": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "60a156edf0d73ed6b58ba481f80d6afdd78fc9118084870a7a6046c437246a1a": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "74fffc166eef3b0b94f8d947a80e31dabce6e58e8893bf731bb58985af066365": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "d923e8df705e1e4039cfa4f3e068aa72c7ba56cd2eecb204cbb9e489f9c10203": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "1344f56957c98ee28bba56f5ab668a6cc6f2d1d1b6d9055a97edbd7927cff0f3": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "1bb19b81609b97f1f2119e70922d2aec24aa35cb3a19f62e3b243c7364072389": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "987a829abf4789287979bd27565e0f97d746d1290df4df6565bccb1e69188dc9": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "bac120bb015fc27bc9952c5e5873259e4ec881092899d2b6a3e6464b1a14abf1": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "8581b9a6a8e10c995983c6c7c6ddac75c8f5c4df45374f0e96837a731b7c4832": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "703936c1b14abc45d7c810b12c26296aaede611af2212f1a07086f6eb1014f86": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "009533cd97d4113e3fb116f17f107ff64262addf21fc71b8e322054a77e4b4ca": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "1353a2ead34dd0746fafe596987f3e4d4dd515acf57bdf2011c5f842c0b74870": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "5201b3529c0509198f75f8b8642371a31c3b02d7e49625e1a7b930175cd980c6": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "e1fddaaa3211938a7a2924841068de85d3a6869c6447afe0a9528abd3b55482e": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "e77704cf052105d8636e8868a935af04b97781b406725f40bc44fab6fe975b47": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "1c66a5f7501767f27859e1011f8380f6fca61cb202c13d3d7edbf0ae284824b3": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "d536a5f96f2a6b62a417915acf22dffd9b09f09860e4c447eaa5576451d4b26a": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "c834efc5cb3c49408f397b33498dfabf586c69d2ef1c31be676bb494cdbb7af4": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "742c6d3b863d19f78703b000368e48128f3fc125cd8e3a3e7e8b753f3469ec89": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "a62f968267fc81f962254503aa29c901f01616fab4fc8cfe75477543264245d8": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "f20aa876fac3f2d29f31d3977a070985a281ed1616d1a0d88ddd94d5b2034c98": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "057dbe9dafa86a9e74a3027dfa7e9355d88b183494bbb265677db780d6f97e38": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "ddece21772fe3d27ae48d0730e01b839a04438bc65a33f9c0f00bb1449f0556c": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "529312e661c3c16c821fac2a1ad95ecfcccbaacf8396f4fd70760694f892dace": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "a502f5ac94addd4f78cef6d302a615084e2bd9644e317eda259fdfe9a211845b": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "5400e689c5246b03005d900f4a3f4e23ab494281dcef953ab2e0cb25b0ff0630": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "4ab4fa923d436749a9521a8edfa1a383b011c248ffb331406cab7399fcedfc27": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "3bf0a16615b3062c864993ae1369b6ec20041f0bc534716a82d307395479174d": {
+      "level": 0,
+      "timestamp": 1780489318.963,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "a733deea7ea16be44fde926d96ad47af339b4f3e67933839a4737bf5881d62bc": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "a62537987b7d290ef6d402e45258e4919f0da8617f6b60981e8d2ad53a725788": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "b5db1f2452f3895363a5ed2fa8781487915343e670c392529d2840660f0bbd92": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "4b9790f039e8f2ded9b001f9dbb12663deb483e679f94898074803dbbd4befc1": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "18c479a17e79ccf5add2c7e1c79392e92843a4139a08569d101b9944220b5d6d": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "e96a57d1a7213d521061c67fc2c41f35c306ca15ace8e01fa363e01ad62839e3": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "122564fac3cfdf78ed66311892f0a134029d6952fc499e3c71fc1da8aedf454b": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "4281d75168f2c7dda099cbf88ce1598010e08e6c5993eaaa70c765a485072006": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "9a409b1e5e361210dc725bf7d9fd013401a344dcb8b5420180f0140f39510701": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "4be1bf21dea5ec6d38b84d5e0f3911ec6f9c79a89f7422a1d39a75c77e741f79": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "c20c925661445a6ac25ff4479f940aca390ef8f3383b4408a2c4d605d7b2b12c": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "5b881518d3aa150f28f288d8a23094d2dca337494c86a02f673f7ff3186f71c2": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "42e0ccb7fb93f7502a511ef8f4f9f481a0ced1484154ad91064c53dd6cd8fe18": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "976739f43dca0d3964ca0743a023d5e1dc276295a90f11955c785cea0b3906b7": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "c15dd7966232a122c0b62ad2185e8946ff8f22b509880646554793c4603832c1": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "be055f3addc82368afc476233d0a085c1d513ac67906fd1917e0df17f332a85d": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "583ac0e71ed42ac70b78c422ecaa0d8c77a4f3f96e371a3cf1800c66a8dee3eb": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "e8f4e4b41a3a74b58eb68245c0fe4a51fa03022a85af3b0820abe7afbf282d71": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "7f393bc7ec8a9a3eb3d04d3a403b974045ca973f073d463c5e61de797af007c7": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "3b4a06a9a069ff82189ea05e0fb5cf1a8f305d19702956fcf7639e05b33e3ead": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "7c34d524f9c0e50f4752a3a97f4ad40bd5303483b5195f5a75304259eb103494": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "f36f3d4242b685cbbef1e1dc3387c36b2e49cc868d608c3a61fa39618e1601ca": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "7232a11de7520388a2e8358fd13a866a3a98301b36ac3e96d8a366e2ddc6ef6c": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "046467301defbc52b9ad61ace8b325eaa9d8f3625a71461754bdd62b0e64ed7d": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "4cfc5037ea619dbff6b4254d19b8db04fe1477df6bc58153eb40676da9acb6b7": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "fb41437d9796cba71a8a5c4c05859dfbe3c37c84a49148942ad487c1e49be426": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "9bc669d338e9fa97320a94113c7010bb805c967b200754c25c5807c385308fab": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "e5837f013a5c34be54c8a08f748f67dfaa7d780d029fd8f22c820b0347c74e75": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "ca16a56c5c3730af17c8bb27772c3208029c4546e25e77d8fe6d14121b205f60": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "f1eba18482346bf1f5d07d40a3b199226e857a87f79974ea097cb504befab91e": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "ba3c351f48d4ee3ae4be55b0fa7ba7e7781ff0406c47fedaef286d6acd15f4fd": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "90dd5627bf7e9506b65d30bb3df4d833cb0b5afc84e4a8aae1975dc145a92a94": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "8ac3f6c2593473df3e1f29c1808857849da7bb59aec332bdf0de0c8bb5349b32": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "9dc6013c061d4a53b95b6260d1cedb2cc1d6444fbfdf32b0bedaf710373f8b0b": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "cb74e5be26d38839912aa7945472205f9fdd12f5ea2a5d250327491343296afb": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "797f7d16f0cb2454f36fa24d6dd6c088370fdf6e990c74498b6ec57146c7f8fe": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "56a51f677ff7e952008ba42430b4b261d4578e4fc353e6a41ea3411c8152789a": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "fb58d6ca1cbf04677311a661b637ebb343cd5240fcb1ea2d329ed696d14c03bf": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "6ee751b701a5d94c90fd1e73ba0e818c16a7c31759b36783cd5c93d44eb58955": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "f3d532da11cc5f7bec039490b96c77bd31d0970a01b4b42123429b6266291390": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "d3957a2742f6fc081593f7e16beb0824a05ddb0bbab4f5aee62071e3d1fee404": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "ee6d10bf5faecd3b2e9c7ac3079fa0f2f4128523e5b6481dcf3cc931ac364328": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "0016916a5eeb1a5c865336f7c62b3e7f9118354c062573f4a22495b4e57e87ec": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "42bb6957862c07b53b9aac97af570d93e495acc4d6cd1c4d3b96343538c5ccc2": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "8ed56193a04febc1fdd32b2335a91fc8234a279014c51708ffeb09ff115baf47": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "35365bed36f6fdc4da5ff71911609c4463bee01a986a4156e8115098176e0ce4": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "8bd0d20cd46dedbe5d86b69d5d2a265781c51d67ebf72b770494e3c76efdebf1": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "8d374528d6af08518b5339d70bb07b9cbfdd94dba88817f0986176a7e2ac4b40": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "d8a22e567bc7b6ddfab14d3c09fee985813339069cabd7a8013d711edcc18788": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "0e2d17cca742639a9723d063a036dddab242a2ffbba96b3f644f24f6cff16c85": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "e0860da7eccbbb48feca6288dca2762c9a6747061d611c06ad1ce1b849eb9dfe": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "421e06045bacc6c5e72062b4c84dfa89e8c19da0014ba4cfe7661d4bde5a4ce7": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "207d0cdb8f1673447299b4a96291d2a50ca88e42af1b1267f2b3e368cbdbe82a": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "b24b9df3f437dd8afc6ffb4b2b6512d687a9eded99a8d920e4c02a0a44b6256a": {
+      "level": 0,
+      "timestamp": 1780489318.964,
+      "meta": {
+        "type": "data"
+      }
+    },
+    "37d8f33499ce3b90365b31bd3ce72242f3555f60455310a68f916308f5fbf22a": {
+      "level": 1,
+      "timestamp": 1780489318.966,
+      "meta": {
+        "count": 100
+      }
+    },
+    "5a495e06c1b66508a9f7a955883c33000b864243116cac605706172ea5f3099c": {
+      "level": 0,
+      "timestamp": 1780489318.971,
+      "meta": {
+        "type": "audio",
+        "sample_rate": 44100,
+        "length_bytes": 21
+      }
+    }
+  },
+  "root_hash": "8dc5542f1c1428c81b91a43a15e0beb956203a996cd2840379b200f6c410c5d2"
 }
