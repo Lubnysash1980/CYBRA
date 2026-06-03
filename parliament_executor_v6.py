@@ -17,6 +17,10 @@ Q_FAILED = "cybra:parliament:failed"
 Q_AUDIT = "cybra:audit"
 
 SCRIPT_MAP = {
+    "menubar_withdraw_proposal_task": "cybra_menubar_handler.sh",
+    "menubar_create_committee_task": "cybra_menubar_handler.sh",
+    "menubar_post_task": "cybra_menubar_handler.sh",
+    "menubar_owner_task": "cybra_menubar_handler.sh",
     "codespace_runtime_committee_task": "cybra_codespace_runtime_handler.sh",
     "github_autonomy_committee_task": "cybra_github_autonomy_handler.sh",
     "frozen_license_committee_task": "cybra_frozen_committee_handler.sh",

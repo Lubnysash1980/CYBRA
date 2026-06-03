@@ -1,0 +1,30 @@
+{
+  "committee_id": "termux_menubar_committee",
+  "name": "CYBRA Termux Menu-Bar Committee",
+  "status": "active",
+  "parent": "cybra_parliament",
+  "mission": "Надати OWNER зручне Termux меню для керування CYBRA/KYBRA: токени, фінанси, withdraw proposals, AI tasks, пости, створення комітетів, статус виконання, зауваження, рекомендації, safe cycles.",
+  "capabilities": [
+    "show_tokens",
+    "show_finance",
+    "withdraw_proposal",
+    "submit_ai_task",
+    "create_parliament_post",
+    "create_committee",
+    "show_done_failed",
+    "show_recommendations",
+    "run_safe_cycles",
+    "open_dashboard",
+    "generate_report"
+  ],
+  "blocked": [
+    "automatic_real_payment",
+    "automatic_SWIFT",
+    "automatic_external_crypto_tx",
+    "private_key_collection",
+    "seed_phrase_collection",
+    "publishing_private_tax_id"
+  ],
+  "withdraw_rule": "Withdraw in menu creates proposal only. Real external transaction requires manual OWNER approval and valid wallet/payment rail.",
+  "manual_OWNER_approval_required": true
+}
