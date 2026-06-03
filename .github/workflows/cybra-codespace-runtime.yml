@@ -1,0 +1,111 @@
+name: CYBRA Codespace Runtime Committee
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "23 */6 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cybra-codespace-runtime
+  cancel-in-progress: false
+
+jobs:
+  runtime-cycle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout CYBRA
+        uses: actions/checkout@v4
+
+      - name: Prepare runtime
+        run: |
+          set +e
+          sudo apt-get update
+          sudo apt-get install -y redis-server redis-tools jq
+          python3 -m pip install --upgrade pip
+          python3 -m pip install redis fastapi uvicorn
+          mkdir -p "$HOME/CYBRA"
+          rm -rf "$HOME/CYBRA"
+          ln -s "$GITHUB_WORKSPACE" "$HOME/CYBRA"
+          mkdir -p runtime/redis logs posts feeds proofs data
+          redis-server --daemonize yes --bind 127.0.0.1 --port 6379 --dir "$GITHUB_WORKSPACE/runtime/redis" --save "" --appendonly no
+          sleep 1
+          redis-cli ping
+          find . -maxdepth 2 -type f \( -name "*.sh" -o -path "./bin/*" \) -exec chmod +x {} \; 2>/dev/null || true
+
+      - name: Run Codespace Runtime Committee safe cycle
+        env:
+          CYBRA_WORKDIR: ${{ github.workspace }}
+          CYBRA_ENV: github_actions
+        run: |
+          set +e
+          bash cybra_codespace_runtime.sh cycle github-actions
+
+      - name: Upload runtime reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: cybra-codespace-runtime-reports
+          path: |
+            posts/
+            feeds/
+            proofs/
+            data/cybra_codespace_runtime/
+
+      - name: Commit safe runtime reports
+        run: |
+          set +e
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          cat >> .gitignore <<'EOF'
+          runtime/
+          logs/
+          *.log
+          *.pid
+          dump.rdb
+          *.rdb
+          .env
+          *.key
+          *.pem
+          id_rsa
+          id_ed25519
+          *private*
+          *secret*
+          *token*
+          data/cybra_payment_requisites/private/
+          posts/private/
+          feeds/private/
+          proofs/private/
+          *.local.json
+          owner_identity*
+          payer_identity*
+          data/cybra_dashboard/dashboard_token.local
+          EOF
+
+          git rm --cached dump.rdb 2>/dev/null || true
+
+          git add \
+            .github/workflows/cybra-codespace-runtime.yml \
+            .devcontainer \
+            cybra_codespace_runtime.py \
+            cybra_codespace_runtime.sh \
+            cybra_codespace_runtime_handler.sh \
+            parliament/committees/codespace_runtime_committee \
+            parliament/departments/finance_department/codespace_runtime_committee \
+            parliament/departments/cybra_finance_department/codespace_runtime_committee \
+            data/cybra_codespace_runtime \
+            posts/cybra_codespace_runtime_report.md \
+            feeds/cybra_codespace_runtime_report.json \
+            proofs/cybra_codespace_runtime.sha256 \
+            .gitignore 2>/dev/null || true
+
+          if git diff --cached --quiet; then
+            echo "No safe runtime changes to commit"
+          else
+            git commit -m "CYBRA Codespace Runtime Committee report [skip ci]"
+            git push
+          fi

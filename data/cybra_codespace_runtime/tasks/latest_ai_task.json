@@ -1,0 +1,21 @@
+{
+  "topic": "Codespace Runtime Committee safe cycle",
+  "type": "codespace_runtime_committee_task",
+  "priority": "normal",
+  "payload": {
+    "source": "codespace_runtime_committee",
+    "backend": "LOCAL_TERMUX_BACKEND",
+    "goal": "Keep CYBRA working on GitHub Codespaces/GitHub Actions with watchdog, AutoHeal, double backend and Double-SHA proof.",
+    "before_sha": "fee4fd25502fcc283446a04639fa225b1b8423a1f172fbb7020a2fd49f8f07f3",
+    "after_sha": "b488db86ddae3cffd01ffb0a75ad34d3ad5bf618b83fa48cc04a0709203df077",
+    "convert_to_mining_block_first": true,
+    "send_to_pool_mining": true,
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  },
+  "time": 1780509096.823136,
+  "time_iso": "2026-06-03T20:51:36+0300",
+  "double_sha": "8c8a578c2399123341aa32ff4ff6c76042e17d82e3d1d5abf25c42250f0dc0f8"
+}

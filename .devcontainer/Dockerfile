@@ -1,17 +1,8 @@
 FROM python:3.12-slim
 
 RUN apt-get update && apt-get install -y \
-    git \
-    redis-server \
-    redis-tools \
-    curl \
-    jq \
-    openssh-client \
-    ca-certificates \
-    coreutils \
-    findutils \
-    bash \
-    nano \
+    git redis-server redis-tools curl jq openssh-client ca-certificates \
+    coreutils findutils bash nano tar gzip \
  && rm -rf /var/lib/apt/lists/*
 
 RUN python -m pip install --upgrade pip \

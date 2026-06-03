@@ -1,0 +1,41 @@
+{
+  "committee_id": "codespace_runtime_committee",
+  "name": "CYBRA GitHub Codespace Runtime Committee",
+  "status": "active",
+  "parent": "cybra_parliament",
+  "mission": "Запускати, перевіряти, відновлювати і підтримувати CYBRA/KYBRA систему в GitHub Codespaces та GitHub Actions.",
+  "responsibilities": [
+    "codespaces_bootstrap",
+    "github_actions_autonomous_cycle",
+    "redis_watchdog",
+    "autoheal_watchdog",
+    "security_analytics_cycle",
+    "conformation8_cycle",
+    "dashboard_start",
+    "double_backend_state_sync",
+    "double_sha_runtime_seal",
+    "ai_tasks_to_mining_blocks",
+    "parliament_runtime_report"
+  ],
+  "runtime_backends": [
+    "LOCAL_TERMUX_BACKEND",
+    "GITHUB_CODESPACE_BACKEND",
+    "GITHUB_ACTIONS_EPHEMERAL_BACKEND"
+  ],
+  "watchdog_policy": "If Redis, AutoHeal, Security Analytics, Conformation8, Dashboard or recovery reports are missing/down, run safe recovery cycle and create Double-SHA report.",
+  "blocked_actions": [
+    "automatic_real_payment",
+    "automatic_SWIFT",
+    "automatic_external_crypto_transaction",
+    "private_key_collection",
+    "seed_phrase_collection",
+    "publishing_private_tax_id"
+  ],
+  "rules": [
+    "GitHub Actions is scheduled/ephemeral, not an always-on server.",
+    "Codespaces watchdog works while Codespace is running.",
+    "All real payments and external transactions require manual OWNER approval.",
+    "All AI tasks should go through block inbox and mining blocks first."
+  ],
+  "manual_OWNER_approval_required": true
+}

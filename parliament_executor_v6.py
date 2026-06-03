@@ -17,6 +17,7 @@ Q_FAILED = "cybra:parliament:failed"
 Q_AUDIT = "cybra:audit"
 
 SCRIPT_MAP = {
+    "codespace_runtime_committee_task": "cybra_codespace_runtime_handler.sh",
     "github_autonomy_committee_task": "cybra_github_autonomy_handler.sh",
     "frozen_license_committee_task": "cybra_frozen_committee_handler.sh",
     "hash_license_violation_audit_task": "hash_license_guard_handler.sh",
