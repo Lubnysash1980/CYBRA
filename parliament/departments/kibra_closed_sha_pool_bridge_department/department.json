@@ -1,0 +1,25 @@
+{
+  "department_id": "kibra_closed_sha_pool_bridge_department",
+  "name": "KIBRA Closed SHA Pool Bridge Department",
+  "status": "active",
+  "mission": "Закрито SHA-запечатувати AI task-blocks і передавати їх у pool mining queue існуючої майнінг-системи.",
+  "flow": [
+    "AI task",
+    "AI Block Enforcer",
+    "task-block mempool",
+    "closed SHA seal",
+    "pool mining queue",
+    "existing mining system",
+    "mined block",
+    "AI Parliament result"
+  ],
+  "rule": "Повний payload зберігається локально у sealed vault. У pool queue передається SHA envelope/proof.",
+  "blocked": [
+    "external_tx_without_OWNER_approval",
+    "real_payment",
+    "real_sell",
+    "fake_price",
+    "private_keys"
+  ],
+  "manual_OWNER_approval_required": true
+}

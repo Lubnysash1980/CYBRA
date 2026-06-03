@@ -1,0 +1,23 @@
+{
+  "name": "KIBRA Closed SHA Pool Bridge Policy",
+  "status": "active",
+  "main_rule": "Усі нові AI-завдання спочатку стають task-blocks, потім sealed SHA envelope, потім pool mining queue.",
+  "sealed_mode": true,
+  "full_payload_public": false,
+  "pool_receives": [
+    "bridge_id",
+    "payload_sha256",
+    "double_sha",
+    "latest_kibra_hash",
+    "source_queue",
+    "sealed_file_reference",
+    "pool_mining_required"
+  ],
+  "execution": {
+    "connect_to_existing_mining_system": true,
+    "redis_pool_queue": "cybra:kibra:pool:mining_blocks",
+    "redis_task_mempool": "cybra:kibra:task_blocks:mempool",
+    "real_external_tx_now": false,
+    "manual_OWNER_approval_required": true
+  }
+}
