@@ -1,0 +1,33 @@
+{
+  "committee_id": "frozen_license_committee",
+  "name": "Frozen Committee for OWNER Licenses",
+  "status": "active",
+  "parent": "cybra_parliament",
+  "mission": "Protect OWNER licenses. If unauthorized commercial use is detected and confirmed by audit, mark the subject with internal CYBRA status: FROZEN.",
+  "scope": [
+    "OWNER license registry",
+    "commercial use audit",
+    "evidence collection",
+    "violation confirmation",
+    "internal FROZEN status",
+    "manual OWNER review",
+    "unfreeze only by OWNER approval"
+  ],
+  "frozen_meaning": [
+    "commercial permission suspended",
+    "monetization rights blocked",
+    "integration rights revoked",
+    "license case requires OWNER review"
+  ],
+  "blocked_actions": [
+    "no account seizure",
+    "no bank blocking",
+    "no external system interference",
+    "no unlawful access",
+    "no automatic financial action",
+    "no automatic SWIFT",
+    "no automatic external transaction"
+  ],
+  "rule": "FROZEN applies only after audit confirms a license violation. FROZEN is an internal CYBRA/KYBRA license status.",
+  "manual_OWNER_approval_required": true
+}

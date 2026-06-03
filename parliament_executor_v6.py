@@ -17,6 +17,7 @@ Q_FAILED = "cybra:parliament:failed"
 Q_AUDIT = "cybra:audit"
 
 SCRIPT_MAP = {
+    "frozen_license_committee_task": "cybra_frozen_committee_handler.sh",
     "hash_license_violation_audit_task": "hash_license_guard_handler.sh",
     "cybra_dashboard_task": "cybra_dashboard_handler.sh",
     "dashboard_ai_task": "cybra_dashboard_handler.sh",

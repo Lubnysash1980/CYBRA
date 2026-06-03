@@ -1,0 +1,43 @@
+{
+  "status": "frozen_license_committee_report_generated",
+  "time": 1780507438.642297,
+  "time_iso": "2026-06-03T20:23:58+0300",
+  "licenses_total": 2,
+  "cases_total": 1,
+  "frozen_total": 0,
+  "licenses": [
+    {
+      "license_id": "f9b95f2066fc8fbd",
+      "license_name": "Hash Module"
+    },
+    {
+      "license_id": "68e28699078b68a8",
+      "license_name": "CYBRA/KYBRA Core Modules"
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "c2dd35a89c884438",
+      "license_name": "Hash Module",
+      "subject": "Example Company API",
+      "status": "NO_CONFIRMED_VIOLATION"
+    }
+  ],
+  "frozen": [],
+  "queues": {
+    "audit": 6,
+    "frozen_hash": 0,
+    "ai_block_inbox": 0,
+    "parliament_queue": 0,
+    "parliament_failed": 0
+  },
+  "safety": {
+    "internal_status_only": true,
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "external_blocking": false,
+    "manual_OWNER_approval_required": true
+  },
+  "double_sha": "34793d7abc56fa54da40e007116d28bf1f304496fe83bc2b298a38e4c54d4aab"
+}

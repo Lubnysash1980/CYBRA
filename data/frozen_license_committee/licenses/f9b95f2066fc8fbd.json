@@ -1,0 +1,19 @@
+{
+  "license_id": "f9b95f2066fc8fbd",
+  "license_name": "Hash Module",
+  "description": "OWNER controlled Hash Module commercial license",
+  "owner_controlled": true,
+  "commercial_use_requires_owner_approval": true,
+  "frozen_rule": "If unauthorized commercial use is detected and confirmed by audit, mark internal status FROZEN.",
+  "created_at": 1780507385.206226,
+  "created_at_iso": "2026-06-03T20:23:05+0300",
+  "safety": {
+    "internal_status_only": true,
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "external_blocking": false,
+    "manual_OWNER_approval_required": true
+  },
+  "double_sha": "b6814be97283cd787c05837899255dbcb70298f9e08830ce9e1d0dde54cb5bd8"
+}

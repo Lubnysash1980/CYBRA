@@ -1,0 +1,19 @@
+{
+  "license_id": "68e28699078b68a8",
+  "license_name": "CYBRA/KYBRA Core Modules",
+  "description": "OWNER controlled CYBRA/KYBRA ecosystem license",
+  "owner_controlled": true,
+  "commercial_use_requires_owner_approval": true,
+  "frozen_rule": "If unauthorized commercial use is detected and confirmed by audit, mark internal status FROZEN.",
+  "created_at": 1780507385.3978434,
+  "created_at_iso": "2026-06-03T20:23:05+0300",
+  "safety": {
+    "internal_status_only": true,
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "external_blocking": false,
+    "manual_OWNER_approval_required": true
+  },
+  "double_sha": "e08ba86014dbfae6322f613a14188ac91a281ecd590ebca4a6a250c814e5e1ff"
+}
