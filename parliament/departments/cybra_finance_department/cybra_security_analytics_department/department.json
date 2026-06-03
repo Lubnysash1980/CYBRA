@@ -1,0 +1,32 @@
+{
+  "department_id": "cybra_security_analytics_department",
+  "name": "CYBRA Security Analytics Department",
+  "parent_department": "finance_department",
+  "status": "active",
+  "mission": "Сканувати фінансову систему CYBRA/KYBRA, парламент, AutoHeal, платіжні реквізити, market proof, Git/security risks і створювати AI-завдання на виправлення.",
+  "checks": [
+    "redis_health",
+    "parliament_queue_failed_results",
+    "autoheal_7lvl_health",
+    "cold_finance_binary_health",
+    "payment_requisites_readiness",
+    "kybra_valid_wallet_health",
+    "market_price_proof_readiness",
+    "real_payment_safety_flags",
+    "github_remote_token_exposure",
+    "private_key_seed_file_scan",
+    "proof_integrity",
+    "task_block_mining_flow"
+  ],
+  "blocked": [
+    "private_key_collection",
+    "seed_phrase_collection",
+    "automatic_real_payment",
+    "automatic_SWIFT",
+    "automatic_external_crypto_tx",
+    "fake_price",
+    "fake_volume"
+  ],
+  "rule": "Модуль тільки аналізує, ремонтує локальні конфігурації, створює звіти й AI-завдання. Реальні платежі, SWIFT і зовнішні tx не запускає.",
+  "manual_OWNER_approval_required": true
+}

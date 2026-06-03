@@ -1,0 +1,149 @@
+{
+  "status": "security_scan_completed",
+  "time": 1780491270.573181,
+  "time_iso": "2026-06-03T15:54:30+0300",
+  "risk_score": 29,
+  "risk_level": "MEDIUM",
+  "modules": {
+    "redis_committee": true,
+    "autoheal_7lvl": true,
+    "cold_finance_binary": true,
+    "finance_committees": true,
+    "kybra_valid": true,
+    "payment_requisites": true,
+    "market_proof_collector": true,
+    "real_market_price_gate": true,
+    "kibra_stats": true,
+    "closed_sha_bridge": true
+  },
+  "parliament": {
+    "queue": 0,
+    "results": 14,
+    "failed": 0,
+    "ai_block_inbox": 0,
+    "task_block_mempool": 0,
+    "pool_mining_blocks": 8,
+    "task_blocks_mined": 8
+  },
+  "payment_requisites": {
+    "exists": true,
+    "ready": false,
+    "bank_ready": false,
+    "psp_ready": false,
+    "missing": [
+      "payer legal/display name",
+      "tax_id_or_edrpou",
+      "real bank IBAN or PSP provider"
+    ]
+  },
+  "market": {
+    "gate_exists": true,
+    "collector_exists": true,
+    "real_market_confirmed": false,
+    "price_usd_per_kibra": "0",
+    "collector_status": "no_valid_market_proof",
+    "collector_valid": false,
+    "missing": [
+      "real pool/orderbook/provider proof",
+      "provider_name",
+      "proof_source/proof_reference",
+      "provider_review_passed=true",
+      "owner_approval=true"
+    ]
+  },
+  "git": {
+    "git_repo": true,
+    "remote_exists": true,
+    "token_exposed": false,
+    "remote_sanitized": "https://github.com/Lubnysash1980/CYBRA.git"
+  },
+  "sensitive_file_scan": {
+    "found_count": 5,
+    "found": [
+      "ai_network/repos/cybro/cigkkuj/.env",
+      "ai_network/repos/cybr/cigkkuj/.env",
+      "ai_network/repos/c/cigkkuj/.env",
+      ".ssh/id_ed25519",
+      "recovery_unpack/restore_20260602_154741/CYBRA/.ssh/id_ed25519"
+    ]
+  },
+  "autoheal": {
+    "exists": true,
+    "health_ok": true,
+    "levels": [
+      {
+        "level": "L1_REDIS_HEALTH",
+        "name": "Redis Health Level",
+        "ok": true,
+        "bad": []
+      },
+      {
+        "level": "L2_BINARY_HEALTH",
+        "name": "Binary Health Level",
+        "ok": true,
+        "bad": []
+      },
+      {
+        "level": "L3_FINANCE_DATA_HEALTH",
+        "name": "Finance Data Health Level",
+        "ok": true,
+        "bad": []
+      },
+      {
+        "level": "L4_WALLET_REQUISITES_HEALTH",
+        "name": "Wallet Requisites Health Level",
+        "ok": true,
+        "bad": []
+      },
+      {
+        "level": "L5_PARLIAMENT_TASK_HEALTH",
+        "name": "Parliament Task Health Level",
+        "ok": true,
+        "bad": []
+      },
+      {
+        "level": "L6_MARKET_SAFETY_HEALTH",
+        "name": "Market Safety Health Level",
+        "ok": true,
+        "bad": []
+      },
+      {
+        "level": "L7_SEAL_DISPATCHER_HEALTH",
+        "name": "Seal Dispatcher Health Level",
+        "ok": true,
+        "bad": []
+      }
+    ]
+  },
+  "balance": {
+    "main_blocks": 10,
+    "task_blocks": 52,
+    "estimated_kibra_default_reward_100": 6200,
+    "reported_total_mined_kibra": "5800",
+    "reported_available_kibra": "5800"
+  },
+  "missing": [
+    "payment requisites: payer legal/display name",
+    "payment requisites: tax_id_or_edrpou",
+    "payment requisites: real bank IBAN or PSP provider",
+    "market proof: real pool/orderbook/provider proof",
+    "market proof: provider_name",
+    "market proof: proof_source/proof_reference",
+    "market proof: provider_review_passed=true",
+    "market proof: owner_approval=true"
+  ],
+  "warnings": [
+    "Sensitive-looking files exist: ai_network/repos/cybro/cigkkuj/.env, ai_network/repos/cybr/cigkkuj/.env, ai_network/repos/c/cigkkuj/.env, .ssh/id_ed25519, recovery_unpack/restore_20260602_154741/CYBRA/.ssh/id_ed25519"
+  ],
+  "critical": [],
+  "safety": {
+    "private_keys_collected": false,
+    "seed_phrase_collected": false,
+    "automatic_real_payment": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "real_sell_now": false,
+    "manual_OWNER_approval_required": true
+  },
+  "double_sha": "74adb6642bd46f83d9d4a8a973a2d95968fff06fd501cba5404949a1d9a552ec"
+}

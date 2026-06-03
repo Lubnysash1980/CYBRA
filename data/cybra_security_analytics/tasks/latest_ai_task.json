@@ -1,0 +1,40 @@
+{
+  "topic": "CYBRA Security Analytics missing items and risk repair",
+  "type": "cybra_security_analytics_task",
+  "priority": "normal",
+  "payload": {
+    "source": "cybra_security_analytics",
+    "risk_score": 29,
+    "risk_level": "MEDIUM",
+    "missing": [
+      "payment requisites: payer legal/display name",
+      "payment requisites: tax_id_or_edrpou",
+      "payment requisites: real bank IBAN or PSP provider",
+      "market proof: real pool/orderbook/provider proof",
+      "market proof: provider_name",
+      "market proof: proof_source/proof_reference",
+      "market proof: provider_review_passed=true",
+      "market proof: owner_approval=true"
+    ],
+    "warnings": [
+      "Sensitive-looking files exist: ai_network/repos/cybro/cigkkuj/.env, ai_network/repos/cybr/cigkkuj/.env, ai_network/repos/c/cigkkuj/.env, .ssh/id_ed25519, recovery_unpack/restore_20260602_154741/CYBRA/.ssh/id_ed25519"
+    ],
+    "critical": [],
+    "parliament": {
+      "queue": 0,
+      "results": 12,
+      "failed": 0,
+      "ai_block_inbox": 0,
+      "task_block_mempool": 0,
+      "pool_mining_blocks": 6,
+      "task_blocks_mined": 6
+    },
+    "convert_to_mining_block_first": true,
+    "send_to_pool_mining": true,
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  },
+  "double_sha": "4f05042dabd38c2302751462bd08cf6bb446136af2ad0a2bd8676ef91a56cd50"
+}
