@@ -1,0 +1,43 @@
+{
+  "status": "sealed",
+  "patch_id": "CYBRA-AUTORECOVERY-PATCH-V2",
+  "patch_version": "v2",
+  "sealed_at": 1780494381.875602,
+  "sealed_at_iso": "2026-06-03T16:46:21+0300",
+  "files_count": 5,
+  "files": [
+    {
+      "sha256": "c90fcd202c4ab7101c2de49c9044f47a0efc6541275e7518c93a48ada87801e2",
+      "file": "cybra_autorecovery_patch_v2.sh"
+    },
+    {
+      "sha256": "ea61764d1e41d2e826d5bc0cd69cdf91169f42fa5040e7c44ff0822817ff0230",
+      "file": "bin/cybra-recover"
+    },
+    {
+      "sha256": "ea55f297dc417c4639e023053f9f125c192bb6e3f5c8f7ce0e1caff337221fd9",
+      "file": "cybra_recovery.sh"
+    },
+    {
+      "sha256": "94d4b247835bce407feacaa9767c880d50cfa821a8a46811e36a833b0ac6b577",
+      "file": "parliament/departments/finance_department/cybra_autorecovery_committee/committee.json"
+    },
+    {
+      "sha256": "94d4b247835bce407feacaa9767c880d50cfa821a8a46811e36a833b0ac6b577",
+      "file": "parliament/departments/cybra_finance_department/cybra_autorecovery_committee/committee.json"
+    }
+  ],
+  "rules": {
+    "private_identity_included": false,
+    "private_keys_included": false,
+    "seed_phrase_included": false,
+    "github_token_included": false,
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  },
+  "purpose": "Seal CYBRA AutoRecovery Patch v2 restore pack, recovery binary, wrapper, handler, restore script and reports into SHA proof.",
+  "proof_sha256": "227ccebfeb8677d0477da335b014f1f1130f0475be0acfb04a1cd127ba239e72",
+  "double_sha": "747c7250310a223b397af76a5d3939cdd182e4f782ca4a2344bd588c8afa379f"
+}

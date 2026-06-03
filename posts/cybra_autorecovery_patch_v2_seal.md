@@ -1,0 +1,28 @@
+# CYBRA AutoRecovery Patch V2 Seal
+
+Status: sealed
+Patch ID: CYBRA-AUTORECOVERY-PATCH-V2
+Files sealed: 5
+
+## Safety
+private_identity_included: False
+private_keys_included: False
+seed_phrase_included: False
+github_token_included: False
+real_payment_now: False
+automatic_SWIFT: False
+automatic_external_tx: False
+manual_OWNER_approval_required: True
+
+## Proof SHA256
+227ccebfeb8677d0477da335b014f1f1130f0475be0acfb04a1cd127ba239e72
+
+## Double SHA
+747c7250310a223b397af76a5d3939cdd182e4f782ca4a2344bd588c8afa379f
+
+## Files
+- c90fcd202c4ab7101c2de49c9044f47a0efc6541275e7518c93a48ada87801e2  cybra_autorecovery_patch_v2.sh
+- ea61764d1e41d2e826d5bc0cd69cdf91169f42fa5040e7c44ff0822817ff0230  bin/cybra-recover
+- ea55f297dc417c4639e023053f9f125c192bb6e3f5c8f7ce0e1caff337221fd9  cybra_recovery.sh
+- 94d4b247835bce407feacaa9767c880d50cfa821a8a46811e36a833b0ac6b577  parliament/departments/finance_department/cybra_autorecovery_committee/committee.json
+- 94d4b247835bce407feacaa9767c880d50cfa821a8a46811e36a833b0ac6b577  parliament/departments/cybra_finance_department/cybra_autorecovery_committee/committee.json
