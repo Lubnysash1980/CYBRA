@@ -1,0 +1,360 @@
+{
+  "status": "conformation8_report_generated",
+  "time": 1780491685.3742754,
+  "time_iso": "2026-06-03T16:01:25+0300",
+  "modules": [
+    {
+      "id": "conformation8_tester_module",
+      "name": "Tester Module",
+      "role": "test_all_system",
+      "mission": "Тестує Redis, AutoHeal, Cold Finance, KYBRA Valid, Security Analytics, KIBRA Stats, proofs і черги."
+    },
+    {
+      "id": "conformation8_simulator_module",
+      "name": "Simulator Module",
+      "role": "simulate_all_system",
+      "mission": "Симулює падіння Redis, відсутність market proof, незаповнені реквізити, pending queues, failed parliament."
+    },
+    {
+      "id": "conformation8_fixer_module",
+      "name": "Fixer Module",
+      "role": "autofix_local",
+      "mission": "Автофіксить локальні помилки: Redis, chmod, reports, proofs, local queues, gitignore, safe remote."
+    },
+    {
+      "id": "conformation8_solver_module",
+      "name": "Solver Module",
+      "role": "find_solution",
+      "mission": "Шукає рішення для кожного зауваження і створює план покращення системи."
+    },
+    {
+      "id": "conformation8_queue_manager_module",
+      "name": "Queue Manager Module",
+      "role": "manage_parliament_queue",
+      "mission": "Керує задачами до Кіберпарламенту, block inbox, task-blocks, closed SHA bridge і pool mining."
+    }
+  ],
+  "state": {
+    "time": 1780491685.2271357,
+    "time_iso": "2026-06-03T16:01:25+0300",
+    "modules": {
+      "redis": false,
+      "autoheal": true,
+      "security_analytics": true,
+      "cold_finance": true,
+      "kybra_valid": true,
+      "payment_requisites": true,
+      "market_collector": true,
+      "price_gate": true,
+      "kibra_stats": true,
+      "closed_sha_bridge": true,
+      "parliament_executor": true
+    },
+    "blocks": {
+      "main_blocks": 10,
+      "task_blocks": 63,
+      "estimated_kibra_default_reward_100": 7300
+    },
+    "queues": {
+      "ai_block_inbox": 0,
+      "task_block_mempool": 0,
+      "pool_mining_blocks": 0,
+      "task_blocks_mined": 0,
+      "parliament_queue": 0,
+      "parliament_results": 0,
+      "parliament_failed": 0,
+      "autoheal_repair_queue": 0,
+      "security_alerts": 0
+    },
+    "readiness": {
+      "autoheal_ok": true,
+      "payment_ready": false,
+      "security_risk_level": "MEDIUM",
+      "security_risk_score": 29,
+      "real_market_confirmed": false,
+      "price_usd_per_kibra": "0"
+    },
+    "safety": {
+      "private_keys_stored": false,
+      "seed_phrase_required": false,
+      "automatic_real_payment": false,
+      "automatic_SWIFT": false,
+      "automatic_external_tx": false,
+      "manual_OWNER_approval_required": true
+    },
+    "double_sha": "30d0d2819127e9d9dc08e2a3b8ca87163d5f290ee8fb512c1a0ea7cd75c3d84b"
+  },
+  "tester": {
+    "module": "tester",
+    "status": "tested",
+    "time": 1780491667.6256592,
+    "time_iso": "2026-06-03T16:01:07+0300",
+    "state": {
+      "time": 1780491667.369538,
+      "time_iso": "2026-06-03T16:01:07+0300",
+      "modules": {
+        "redis": true,
+        "autoheal": true,
+        "security_analytics": true,
+        "cold_finance": true,
+        "kybra_valid": true,
+        "payment_requisites": true,
+        "market_collector": true,
+        "price_gate": true,
+        "kibra_stats": true,
+        "closed_sha_bridge": true,
+        "parliament_executor": true
+      },
+      "blocks": {
+        "main_blocks": 10,
+        "task_blocks": 63,
+        "estimated_kibra_default_reward_100": 7300
+      },
+      "queues": {
+        "ai_block_inbox": 0,
+        "task_block_mempool": 0,
+        "pool_mining_blocks": 5,
+        "task_blocks_mined": 5,
+        "parliament_queue": 0,
+        "parliament_results": 11,
+        "parliament_failed": 0,
+        "autoheal_repair_queue": 0,
+        "security_alerts": 0
+      },
+      "readiness": {
+        "autoheal_ok": true,
+        "payment_ready": false,
+        "security_risk_level": "MEDIUM",
+        "security_risk_score": 29,
+        "real_market_confirmed": false,
+        "price_usd_per_kibra": "0"
+      },
+      "safety": {
+        "private_keys_stored": false,
+        "seed_phrase_required": false,
+        "automatic_real_payment": false,
+        "automatic_SWIFT": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true
+      },
+      "double_sha": "4363d5afcb5edcc37201385d5654bea9c73ba7a0adbba28a5d7aafaec578ea3c"
+    },
+    "issues": [
+      {
+        "severity": "MEDIUM",
+        "type": "payment_requisites_not_ready",
+        "message": "Payment requisites are not ready: legal name / tax ID / IBAN / PSP missing.",
+        "fix_hint": "fill_real_payment_requisites"
+      },
+      {
+        "severity": "MEDIUM",
+        "type": "market_price_not_confirmed",
+        "message": "Real KIBRA market price is not confirmed.",
+        "fix_hint": "provide_pool_orderbook_provider_or_reserve_proof"
+      }
+    ],
+    "ok": true,
+    "double_sha": "ece9e70e908d5fb6d213fd35ab8561268c8f958e75e9ae419ca16da41be67795"
+  },
+  "simulator": {
+    "module": "simulator",
+    "status": "simulated",
+    "time": 1780491594.2894402,
+    "time_iso": "2026-06-03T15:59:54+0300",
+    "state_snapshot_sha": "801b42d26d7949a32dbf9ea49f1d8b7acdfab1dd6cc0c6b94b1a4a3aad1968c6",
+    "scenarios": [
+      {
+        "name": "redis_down",
+        "input": "Redis unavailable",
+        "expected_repair": "Redis Committee + AutoHeal start redis",
+        "safe": true
+      },
+      {
+        "name": "payment_requisites_missing",
+        "input": "payer/IBAN/PSP empty",
+        "expected_repair": "create alert + ask OWNER to fill real requisites",
+        "safe": true
+      },
+      {
+        "name": "market_proof_missing",
+        "input": "no pool/orderbook/provider proof",
+        "expected_repair": "keep price unconfirmed and real payment false",
+        "safe": true
+      },
+      {
+        "name": "parliament_failed_queue",
+        "input": "failed tasks > 0",
+        "expected_repair": "executor + queue manager creates repair tasks",
+        "safe": true
+      },
+      {
+        "name": "module_missing",
+        "input": "one local module absent",
+        "expected_repair": "restore from AutoHeal snapshot if available",
+        "safe": true
+      }
+    ],
+    "real_actions_executed": false,
+    "real_payment_now": false,
+    "automatic_external_tx": false,
+    "double_sha": "2da4071e604caa0788a518c56d79f1d068b136524bf3b13fdbd50cc4e8b440dd"
+  },
+  "fixer": {
+    "module": "fixer",
+    "status": "fixed_local_safe_items",
+    "time": 1780491646.865396,
+    "time_iso": "2026-06-03T16:00:46+0300",
+    "issues_before": [
+      {
+        "severity": "MEDIUM",
+        "type": "payment_requisites_not_ready",
+        "message": "Payment requisites are not ready: legal name / tax ID / IBAN / PSP missing.",
+        "fix_hint": "fill_real_payment_requisites"
+      },
+      {
+        "severity": "MEDIUM",
+        "type": "market_price_not_confirmed",
+        "message": "Real KIBRA market price is not confirmed.",
+        "fix_hint": "provide_pool_orderbook_provider_or_reserve_proof"
+      }
+    ],
+    "fixed": [
+      "chmod:bin/cybra-conformation8",
+      "chmod:bin/cybra-autoheal",
+      "chmod:bin/cybra-finance-bin",
+      "chmod:bin/cybra-security-analytics",
+      "chmod:cybra_conformation8.sh",
+      "chmod:cybra_autoheal.sh",
+      "chmod:cybra_security_analytics.sh",
+      "chmod:cybra_finance_committees.sh",
+      "chmod:kybra_valid.sh",
+      "chmod:cybra_payment_requisites.sh",
+      "chmod:cybra_closed_sha_bridge.sh",
+      "ran:bash cybra_redis_committee.sh ensure",
+      "ran:bash cybra_security_analytics.sh cycle",
+      "ran:bash cybra_autoheal.sh repair",
+      "ran:bash cybra_market_proof_collector.sh collect",
+      "ran:bash cybra_real_market_price_gate.sh status",
+      "ran:bash cybra_kibra_stats.sh report",
+      "ran:bin/cybra-finance-bin report",
+      "ran:bash kybra_valid.sh report",
+      "ran:bash cybra_payment_requisites.sh report",
+      "ran:bash cybra_finance_committees.sh report"
+    ],
+    "warnings": [],
+    "state_before_sha": "7fbe3e17842c54905408006e8e2e7448c87d4b8239830efa261ee808eeaed80b",
+    "state_after_sha": "019f285aaf4087c17020d2d17d9ebcf226ec3594c15dd038e30af33c4279e040",
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "double_sha": "1b8fdff96792afef616f1b5097f59e83a3d381e798063ca97e4dcbb07ea243f3"
+  },
+  "solver": {
+    "module": "solver",
+    "status": "solution_plan_created",
+    "time": 1780491647.1710315,
+    "time_iso": "2026-06-03T16:00:47+0300",
+    "issues_count": 3,
+    "solutions": [
+      {
+        "issue": {
+          "severity": "MEDIUM",
+          "type": "payment_requisites_not_ready",
+          "message": "Payment requisites are not ready: legal name / tax ID / IBAN / PSP missing.",
+          "fix_hint": "fill_real_payment_requisites"
+        },
+        "solution": "Заповнити реальні payer_full_legal_name, tax_id_or_edrpou, bank IBAN або PSP. Команда: bash cybra_payment_requisites.sh edit",
+        "automatic_safe_fix": false,
+        "requires_OWNER_data": true,
+        "real_payment_now": false
+      },
+      {
+        "issue": {
+          "severity": "MEDIUM",
+          "type": "market_price_not_confirmed",
+          "message": "Real KIBRA market price is not confirmed.",
+          "fix_hint": "provide_pool_orderbook_provider_or_reserve_proof"
+        },
+        "solution": "Додати реальний proof: pool/orderbook/provider/reserve-backed peg. Команда: bash cybra_market_proof_collector.sh files",
+        "automatic_safe_fix": false,
+        "requires_OWNER_data": true,
+        "real_payment_now": false
+      },
+      {
+        "issue": {
+          "severity": "LOW",
+          "type": "ai_tasks_waiting",
+          "message": "AI block inbox has pending tasks.",
+          "fix_hint": "run_closed_sha_bridge_cycle"
+        },
+        "solution": "Прогнати задачі через closed SHA bridge. Команда: bash cybra_closed_sha_bridge.sh cycle",
+        "automatic_safe_fix": true,
+        "requires_OWNER_data": false,
+        "real_payment_now": false
+      }
+    ],
+    "priority_order": [
+      "redis_down",
+      "parliament_failed",
+      "ai_tasks_waiting",
+      "payment_requisites_not_ready",
+      "market_price_not_confirmed"
+    ],
+    "safety": {
+      "real_payment_now": false,
+      "automatic_SWIFT": false,
+      "automatic_external_tx": false,
+      "manual_OWNER_approval_required": true
+    },
+    "double_sha": "34f523b65f4c7fe4d0408b1d7073877022af9bf0acd29a3023de1dbdba061e1d"
+  },
+  "queue_manager": {
+    "module": "queue_manager",
+    "status": "tasks_queued",
+    "time": 1780491647.757356,
+    "time_iso": "2026-06-03T16:00:47+0300",
+    "tasks_to_block_inbox": 8,
+    "parliament_master_task": {
+      "topic": "CYBRA Conformation Eight queue manager master task",
+      "type": "cybra_conformation8_task",
+      "priority": "critical",
+      "payload": {
+        "source": "cybra_conformation8_queue_manager",
+        "tasks_prepared": 8,
+        "state_sha": "55d9425240aab00dac93d5d68b6e1589231b76e4e6b97d0e22d8dc819e964649",
+        "goal": "Improve system until working beginning, middle and end; keep it alive through tests, simulation, fixes and queue control.",
+        "real_payment_now": false,
+        "automatic_SWIFT": false,
+        "automatic_external_tx": false,
+        "manual_OWNER_approval_required": true
+      },
+      "double_sha": "2e175e1ce3e50903e4c69cf6227e1bda3a7a2c77a1f89dbd88061dd317bf5b94"
+    },
+    "queues_after": {
+      "ai_block_inbox": 12,
+      "parliament_queue": 1,
+      "task_block_mempool": 0,
+      "pool_mining_blocks": 2
+    },
+    "double_sha": "fa19b43677df283ba76003b2f50e2198e2070dea46023c25a479837981fefbc9"
+  },
+  "queues": {
+    "audit": 0,
+    "issues": 0,
+    "fix_queue": 0,
+    "solutions": 0,
+    "ai_block_inbox": 0,
+    "parliament_queue": 0,
+    "parliament_failed": 0,
+    "pool_mining_blocks": 0
+  },
+  "safety": {
+    "private_keys": false,
+    "seed_phrase": false,
+    "automatic_real_payment": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  },
+  "double_sha": "42e75a2886be75ccf20fcde70f697ca51d3f6cb502157afb43e65f10ef04c6be"
+}

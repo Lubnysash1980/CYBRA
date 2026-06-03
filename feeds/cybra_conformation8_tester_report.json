@@ -1,0 +1,84 @@
+{
+  "module": "tester",
+  "status": "tested",
+  "time": 1780491696.5263638,
+  "time_iso": "2026-06-03T16:01:36+0300",
+  "state": {
+    "time": 1780491696.322998,
+    "time_iso": "2026-06-03T16:01:36+0300",
+    "modules": {
+      "redis": false,
+      "autoheal": true,
+      "security_analytics": true,
+      "cold_finance": true,
+      "kybra_valid": true,
+      "payment_requisites": true,
+      "market_collector": true,
+      "price_gate": true,
+      "kibra_stats": true,
+      "closed_sha_bridge": true,
+      "parliament_executor": true
+    },
+    "blocks": {
+      "main_blocks": 10,
+      "task_blocks": 63,
+      "estimated_kibra_default_reward_100": 7300
+    },
+    "queues": {
+      "ai_block_inbox": 0,
+      "task_block_mempool": 0,
+      "pool_mining_blocks": 0,
+      "task_blocks_mined": 0,
+      "parliament_queue": 0,
+      "parliament_results": 0,
+      "parliament_failed": 0,
+      "autoheal_repair_queue": 0,
+      "security_alerts": 0
+    },
+    "readiness": {
+      "autoheal_ok": true,
+      "payment_ready": false,
+      "security_risk_level": "MEDIUM",
+      "security_risk_score": 29,
+      "real_market_confirmed": false,
+      "price_usd_per_kibra": "0"
+    },
+    "safety": {
+      "private_keys_stored": false,
+      "seed_phrase_required": false,
+      "automatic_real_payment": false,
+      "automatic_SWIFT": false,
+      "automatic_external_tx": false,
+      "manual_OWNER_approval_required": true
+    },
+    "double_sha": "374a89caeba05dbb475987ef8cd2d1c8432fb1adfc924baca09574e7ce592ae4"
+  },
+  "issues": [
+    {
+      "severity": "HIGH",
+      "type": "missing_module",
+      "message": "Module missing or not active: redis",
+      "fix_hint": "restore_or_reinstall_redis"
+    },
+    {
+      "severity": "CRITICAL",
+      "type": "redis_down",
+      "message": "Redis is not responding.",
+      "fix_hint": "start_redis"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "payment_requisites_not_ready",
+      "message": "Payment requisites are not ready: legal name / tax ID / IBAN / PSP missing.",
+      "fix_hint": "fill_real_payment_requisites"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "market_price_not_confirmed",
+      "message": "Real KIBRA market price is not confirmed.",
+      "fix_hint": "provide_pool_orderbook_provider_or_reserve_proof"
+    }
+  ],
+  "ok": false,
+  "double_sha": "7f3e1f73f18565c7d096477315d8fa8ae1438ad2d69637b1fe78cceb5f5668b9"
+}

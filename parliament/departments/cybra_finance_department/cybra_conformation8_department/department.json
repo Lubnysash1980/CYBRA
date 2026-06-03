@@ -1,0 +1,35 @@
+{
+  "department_id": "cybra_conformation8_department",
+  "name": "CYBRA Conformation Eight Department",
+  "parent_department": "finance_department",
+  "status": "active",
+  "mission": "Створити самоперевіряючу вісімку: тестування, симуляція, автофікс, пошук рішення, керування чергою задач до Кіберпарламенту і mining blocks.",
+  "modules": [
+    "conformation8_tester_module",
+    "conformation8_simulator_module",
+    "conformation8_fixer_module",
+    "conformation8_solver_module",
+    "conformation8_queue_manager_module"
+  ],
+  "cycle": [
+    "test",
+    "simulate",
+    "detect_issues",
+    "fix_local",
+    "solve",
+    "queue_to_parliament",
+    "mine_task_blocks",
+    "test_again"
+  ],
+  "rules": [
+    "No private keys.",
+    "No seed phrase.",
+    "No automatic real payment.",
+    "No automatic SWIFT.",
+    "No automatic external crypto transaction.",
+    "Only local repair, reports, queues and safe configuration changes.",
+    "All AI improvement tasks go through block inbox and mining blocks.",
+    "OWNER approval required for real payments and external actions."
+  ],
+  "manual_OWNER_approval_required": true
+}

@@ -1,0 +1,50 @@
+{
+  "module": "fixer",
+  "status": "fixed_local_safe_items",
+  "time": 1780491646.865396,
+  "time_iso": "2026-06-03T16:00:46+0300",
+  "issues_before": [
+    {
+      "severity": "MEDIUM",
+      "type": "payment_requisites_not_ready",
+      "message": "Payment requisites are not ready: legal name / tax ID / IBAN / PSP missing.",
+      "fix_hint": "fill_real_payment_requisites"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "market_price_not_confirmed",
+      "message": "Real KIBRA market price is not confirmed.",
+      "fix_hint": "provide_pool_orderbook_provider_or_reserve_proof"
+    }
+  ],
+  "fixed": [
+    "chmod:bin/cybra-conformation8",
+    "chmod:bin/cybra-autoheal",
+    "chmod:bin/cybra-finance-bin",
+    "chmod:bin/cybra-security-analytics",
+    "chmod:cybra_conformation8.sh",
+    "chmod:cybra_autoheal.sh",
+    "chmod:cybra_security_analytics.sh",
+    "chmod:cybra_finance_committees.sh",
+    "chmod:kybra_valid.sh",
+    "chmod:cybra_payment_requisites.sh",
+    "chmod:cybra_closed_sha_bridge.sh",
+    "ran:bash cybra_redis_committee.sh ensure",
+    "ran:bash cybra_security_analytics.sh cycle",
+    "ran:bash cybra_autoheal.sh repair",
+    "ran:bash cybra_market_proof_collector.sh collect",
+    "ran:bash cybra_real_market_price_gate.sh status",
+    "ran:bash cybra_kibra_stats.sh report",
+    "ran:bin/cybra-finance-bin report",
+    "ran:bash kybra_valid.sh report",
+    "ran:bash cybra_payment_requisites.sh report",
+    "ran:bash cybra_finance_committees.sh report"
+  ],
+  "warnings": [],
+  "state_before_sha": "7fbe3e17842c54905408006e8e2e7448c87d4b8239830efa261ee808eeaed80b",
+  "state_after_sha": "019f285aaf4087c17020d2d17d9ebcf226ec3594c15dd038e30af33c4279e040",
+  "real_payment_now": false,
+  "automatic_SWIFT": false,
+  "automatic_external_tx": false,
+  "double_sha": "1b8fdff96792afef616f1b5097f59e83a3d381e798063ca97e4dcbb07ea243f3"
+}

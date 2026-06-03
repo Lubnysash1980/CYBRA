@@ -1,0 +1,792 @@
+#!/usr/bin/env python3
+import json
+import time
+import hashlib
+import subprocess
+import sys
+from pathlib import Path
+
+ROOT = Path.home() / "CYBRA"
+DATA = ROOT / "data/cybra_conformation8"
+
+AUDIT = "cybra:conformation8:audit"
+ISSUES_Q = "cybra:conformation8:issues"
+FIX_Q = "cybra:conformation8:fix_queue"
+SOLUTIONS_Q = "cybra:conformation8:solutions"
+AI_BLOCK_INBOX = "cybra:ai:tasks:block_inbox"
+PARLIAMENT_QUEUE = "cybra:parliament:queue"
+
+MODULES = [
+    {
+        "id": "conformation8_tester_module",
+        "name": "Tester Module",
+        "role": "test_all_system",
+        "mission": "Тестує Redis, AutoHeal, Cold Finance, KYBRA Valid, Security Analytics, KIBRA Stats, proofs і черги."
+    },
+    {
+        "id": "conformation8_simulator_module",
+        "name": "Simulator Module",
+        "role": "simulate_all_system",
+        "mission": "Симулює падіння Redis, відсутність market proof, незаповнені реквізити, pending queues, failed parliament."
+    },
+    {
+        "id": "conformation8_fixer_module",
+        "name": "Fixer Module",
+        "role": "autofix_local",
+        "mission": "Автофіксить локальні помилки: Redis, chmod, reports, proofs, local queues, gitignore, safe remote."
+    },
+    {
+        "id": "conformation8_solver_module",
+        "name": "Solver Module",
+        "role": "find_solution",
+        "mission": "Шукає рішення для кожного зауваження і створює план покращення системи."
+    },
+    {
+        "id": "conformation8_queue_manager_module",
+        "name": "Queue Manager Module",
+        "role": "manage_parliament_queue",
+        "mission": "Керує задачами до Кіберпарламенту, block inbox, task-blocks, closed SHA bridge і pool mining."
+    }
+]
+
+def sha(text):
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+def dsha(text):
+    return sha(sha(text))
+
+def now_iso():
+    return time.strftime("%Y-%m-%dT%H:%M:%S%z")
+
+def run(cmd, timeout=90):
+    try:
+        p = subprocess.run(cmd, cwd=ROOT, text=True, capture_output=True, timeout=timeout)
+        return p.returncode, p.stdout.strip(), p.stderr.strip()
+    except Exception as e:
+        return 1, "", str(e)
+
+def rlen(key):
+    code, out, err = run(["redis-cli", "LLEN", key])
+    return int(out) if code == 0 and out.strip().isdigit() else 0
+
+def rpush(key, obj):
+    run(["redis-cli", "LPUSH", key, json.dumps(obj, ensure_ascii=False)])
+
+def hset(key, field, value):
+    run(["redis-cli", "HSET", key, field, value])
+
+def exists(path):
+    return (ROOT / path).exists()
+
+def count(pattern):
+    return len(list(ROOT.glob(pattern)))
+
+def save_json(path, obj):
+    p = ROOT / path
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding="utf-8")
+
+def load_json(path, default=None):
+    p = ROOT / path
+    if not p.exists():
+        return default if default is not None else {}
+    try:
+        return json.loads(p.read_text(encoding="utf-8"))
+    except Exception:
+        return default if default is not None else {}
+
+def redis_ping():
+    code, out, err = run(["redis-cli", "ping"])
+    return code == 0 and out == "PONG"
+
+def start_redis():
+    if redis_ping():
+        return True
+    run(["redis-server", "--daemonize", "yes", "--bind", "127.0.0.1", "--port", "6379", "--dir", str(ROOT / "runtime/redis"), "--save", "", "--appendonly", "no"])
+    time.sleep(1)
+    return redis_ping()
+
+def init():
+    for name in ["tester", "simulator", "fixer", "solver", "queue_manager", "cycles", "reports", "tasks"]:
+        (DATA / name).mkdir(parents=True, exist_ok=True)
+
+    for m in MODULES:
+        obj = {
+            "module_id": m["id"],
+            "name": m["name"],
+            "role": m["role"],
+            "status": "active",
+            "mission": m["mission"],
+            "parent_department": "cybra_conformation8_department",
+            "flow": [
+                "scan",
+                "report",
+                "AI task",
+                "block inbox",
+                "task-block",
+                "closed SHA bridge",
+                "pool mining",
+                "parliament result"
+            ],
+            "safety": {
+                "private_keys": False,
+                "seed_phrase": False,
+                "automatic_real_payment": False,
+                "automatic_SWIFT": False,
+                "automatic_external_tx": False,
+                "manual_OWNER_approval_required": True
+            },
+            "created_at": time.time(),
+            "created_at_iso": now_iso()
+        }
+        obj["double_sha"] = dsha(json.dumps(obj, ensure_ascii=False, sort_keys=True))
+
+        save_json(f"data/cybra_conformation8/{m['role'].split('_')[0]}/{m['id']}.json", obj)
+        save_json(f"parliament/departments/finance_department/cybra_conformation8_department/modules/{m['id']}.json", obj)
+        save_json(f"parliament/departments/cybra_finance_department/cybra_conformation8_department/modules/{m['id']}.json", obj)
+
+def system_state():
+    main_blocks = count("blockchain/kibra_chain/blocks/block_*.json")
+    task_blocks = count("blockchain/kibra_chain/task_blocks/*.json")
+
+    payment = load_json("feeds/cybra_payment_requisites_package.json", {})
+    security = load_json("feeds/cybra_security_analytics_report.json", {})
+    market = load_json("feeds/kibra_real_market_price_gate.json", {})
+    autoheal = load_json("data/cybra_autoheal_7lvl/reports/health.json", {})
+
+    state = {
+        "time": time.time(),
+        "time_iso": now_iso(),
+        "modules": {
+            "redis": redis_ping(),
+            "autoheal": exists("cybra_autoheal.sh"),
+            "security_analytics": exists("cybra_security_analytics.sh"),
+            "cold_finance": exists("bin/cybra-finance-bin"),
+            "kybra_valid": exists("kybra_valid.sh"),
+            "payment_requisites": exists("cybra_payment_requisites.sh"),
+            "market_collector": exists("cybra_market_proof_collector.sh"),
+            "price_gate": exists("cybra_real_market_price_gate.sh"),
+            "kibra_stats": exists("cybra_kibra_stats.sh"),
+            "closed_sha_bridge": exists("cybra_closed_sha_bridge.sh"),
+            "parliament_executor": exists("parliament_executor_v6.py")
+        },
+        "blocks": {
+            "main_blocks": main_blocks,
+            "task_blocks": task_blocks,
+            "estimated_kibra_default_reward_100": (main_blocks + task_blocks) * 100
+        },
+        "queues": {
+            "ai_block_inbox": rlen(AI_BLOCK_INBOX),
+            "task_block_mempool": rlen("cybra:kibra:task_blocks:mempool"),
+            "pool_mining_blocks": rlen("cybra:kibra:pool:mining_blocks"),
+            "task_blocks_mined": rlen("cybra:kibra:task_blocks:mined"),
+            "parliament_queue": rlen(PARLIAMENT_QUEUE),
+            "parliament_results": rlen("cybra:parliament:results"),
+            "parliament_failed": rlen("cybra:parliament:failed"),
+            "autoheal_repair_queue": rlen("cybra:autoheal7:repair_queue"),
+            "security_alerts": rlen("cybra:security_analytics:alerts")
+        },
+        "readiness": {
+            "autoheal_ok": autoheal.get("ok"),
+            "payment_ready": payment.get("validation", {}).get("ready", False),
+            "security_risk_level": security.get("risk_level", "UNKNOWN"),
+            "security_risk_score": security.get("risk_score", None),
+            "real_market_confirmed": bool(market.get("real_market_confirmed", False)),
+            "price_usd_per_kibra": market.get("price_usd_per_kibra", 0)
+        },
+        "safety": {
+            "private_keys_stored": False,
+            "seed_phrase_required": False,
+            "automatic_real_payment": False,
+            "automatic_SWIFT": False,
+            "automatic_external_tx": False,
+            "manual_OWNER_approval_required": True
+        }
+    }
+
+    state["double_sha"] = dsha(json.dumps(state, ensure_ascii=False, sort_keys=True))
+    return state
+
+def detect_issues(state):
+    issues = []
+
+    for k, v in state["modules"].items():
+        if not v:
+            issues.append({
+                "severity": "HIGH",
+                "type": "missing_module",
+                "message": f"Module missing or not active: {k}",
+                "fix_hint": f"restore_or_reinstall_{k}"
+            })
+
+    if not state["modules"]["redis"]:
+        issues.append({
+            "severity": "CRITICAL",
+            "type": "redis_down",
+            "message": "Redis is not responding.",
+            "fix_hint": "start_redis"
+        })
+
+    if state["queues"]["parliament_failed"] > 0:
+        issues.append({
+            "severity": "HIGH",
+            "type": "parliament_failed",
+            "message": "Parliament failed queue is not empty.",
+            "fix_hint": "run_parliament_executor_and_security_cycle"
+        })
+
+    if not state["readiness"]["payment_ready"]:
+        issues.append({
+            "severity": "MEDIUM",
+            "type": "payment_requisites_not_ready",
+            "message": "Payment requisites are not ready: legal name / tax ID / IBAN / PSP missing.",
+            "fix_hint": "fill_real_payment_requisites"
+        })
+
+    if not state["readiness"]["real_market_confirmed"]:
+        issues.append({
+            "severity": "MEDIUM",
+            "type": "market_price_not_confirmed",
+            "message": "Real KIBRA market price is not confirmed.",
+            "fix_hint": "provide_pool_orderbook_provider_or_reserve_proof"
+        })
+
+    if state["queues"]["ai_block_inbox"] > 0:
+        issues.append({
+            "severity": "LOW",
+            "type": "ai_tasks_waiting",
+            "message": "AI block inbox has pending tasks.",
+            "fix_hint": "run_closed_sha_bridge_cycle"
+        })
+
+    return issues
+
+def tester():
+    init()
+    state = system_state()
+    issues = detect_issues(state)
+
+    result = {
+        "module": "tester",
+        "status": "tested",
+        "time": time.time(),
+        "time_iso": now_iso(),
+        "state": state,
+        "issues": issues,
+        "ok": len([x for x in issues if x["severity"] in ["CRITICAL", "HIGH"]]) == 0
+    }
+    result["double_sha"] = dsha(json.dumps(result, ensure_ascii=False, sort_keys=True))
+
+    save_json("data/cybra_conformation8/tester/latest_test.json", result)
+    save_json("feeds/cybra_conformation8_tester_report.json", result)
+
+    for issue in issues:
+        rpush(ISSUES_Q, issue)
+
+    rpush(AUDIT, {
+        "status": "tester_completed",
+        "issues": len(issues),
+        "ok": result["ok"],
+        "double_sha": result["double_sha"],
+        "time": result["time"]
+    })
+
+    print("✅ tester completed")
+    print("OK:", result["ok"])
+    print("ISSUES:", len(issues))
+    return result
+
+def simulator():
+    init()
+    state = system_state()
+
+    scenarios = [
+        {
+            "name": "redis_down",
+            "input": "Redis unavailable",
+            "expected_repair": "Redis Committee + AutoHeal start redis",
+            "safe": True
+        },
+        {
+            "name": "payment_requisites_missing",
+            "input": "payer/IBAN/PSP empty",
+            "expected_repair": "create alert + ask OWNER to fill real requisites",
+            "safe": True
+        },
+        {
+            "name": "market_proof_missing",
+            "input": "no pool/orderbook/provider proof",
+            "expected_repair": "keep price unconfirmed and real payment false",
+            "safe": True
+        },
+        {
+            "name": "parliament_failed_queue",
+            "input": "failed tasks > 0",
+            "expected_repair": "executor + queue manager creates repair tasks",
+            "safe": True
+        },
+        {
+            "name": "module_missing",
+            "input": "one local module absent",
+            "expected_repair": "restore from AutoHeal snapshot if available",
+            "safe": True
+        }
+    ]
+
+    simulation = {
+        "module": "simulator",
+        "status": "simulated",
+        "time": time.time(),
+        "time_iso": now_iso(),
+        "state_snapshot_sha": state["double_sha"],
+        "scenarios": scenarios,
+        "real_actions_executed": False,
+        "real_payment_now": False,
+        "automatic_external_tx": False
+    }
+    simulation["double_sha"] = dsha(json.dumps(simulation, ensure_ascii=False, sort_keys=True))
+
+    save_json("data/cybra_conformation8/simulator/latest_simulation.json", simulation)
+    save_json("feeds/cybra_conformation8_simulator_report.json", simulation)
+
+    rpush(AUDIT, {
+        "status": "simulator_completed",
+        "scenarios": len(scenarios),
+        "double_sha": simulation["double_sha"],
+        "time": simulation["time"]
+    })
+
+    print("✅ simulator completed")
+    print("SCENARIOS:", len(scenarios))
+    return simulation
+
+def fixer():
+    init()
+    state_before = system_state()
+    issues = detect_issues(state_before)
+    fixed = []
+    warnings = []
+
+    if not redis_ping():
+        if start_redis():
+            fixed.append("redis_started")
+        else:
+            warnings.append("redis_start_failed")
+
+    for f in [
+        "bin/cybra-conformation8",
+        "bin/cybra-autoheal",
+        "bin/cybra-finance-bin",
+        "bin/cybra-security-analytics",
+        "cybra_conformation8.sh",
+        "cybra_autoheal.sh",
+        "cybra_security_analytics.sh",
+        "cybra_finance_committees.sh",
+        "kybra_valid.sh",
+        "cybra_payment_requisites.sh",
+        "cybra_closed_sha_bridge.sh"
+    ]:
+        p = ROOT / f
+        if p.exists():
+            try:
+                p.chmod(p.stat().st_mode | 0o111)
+                fixed.append("chmod:" + f)
+            except Exception:
+                warnings.append("chmod_failed:" + f)
+
+    commands = [
+        ["bash", "cybra_redis_committee.sh", "ensure"],
+        ["bash", "cybra_security_analytics.sh", "cycle"],
+        ["bash", "cybra_autoheal.sh", "repair"],
+        ["bash", "cybra_market_proof_collector.sh", "collect"],
+        ["bash", "cybra_real_market_price_gate.sh", "status"],
+        ["bash", "cybra_kibra_stats.sh", "report"],
+        ["bin/cybra-finance-bin", "report"],
+        ["bash", "kybra_valid.sh", "report"],
+        ["bash", "cybra_payment_requisites.sh", "report"],
+        ["bash", "cybra_finance_committees.sh", "report"]
+    ]
+
+    for cmd in commands:
+        if (ROOT / cmd[0]).exists() or cmd[0] == "bash":
+            code, out, err = run(cmd, timeout=120)
+            if code == 0:
+                fixed.append("ran:" + " ".join(cmd))
+            else:
+                warnings.append("failed:" + " ".join(cmd))
+
+    state_after = system_state()
+
+    result = {
+        "module": "fixer",
+        "status": "fixed_local_safe_items",
+        "time": time.time(),
+        "time_iso": now_iso(),
+        "issues_before": issues,
+        "fixed": fixed,
+        "warnings": warnings,
+        "state_before_sha": state_before["double_sha"],
+        "state_after_sha": state_after["double_sha"],
+        "real_payment_now": False,
+        "automatic_SWIFT": False,
+        "automatic_external_tx": False
+    }
+    result["double_sha"] = dsha(json.dumps(result, ensure_ascii=False, sort_keys=True))
+
+    save_json("data/cybra_conformation8/fixer/latest_fix.json", result)
+    save_json("feeds/cybra_conformation8_fixer_report.json", result)
+
+    rpush(AUDIT, {
+        "status": "fixer_completed",
+        "fixed": len(fixed),
+        "warnings": len(warnings),
+        "double_sha": result["double_sha"],
+        "time": result["time"]
+    })
+
+    print("✅ fixer completed")
+    print("FIXED:", len(fixed))
+    print("WARNINGS:", len(warnings))
+    return result
+
+def solver():
+    init()
+    state = system_state()
+    issues = detect_issues(state)
+
+    solutions = []
+    for issue in issues:
+        t = issue["type"]
+        if t == "payment_requisites_not_ready":
+            action = "Заповнити реальні payer_full_legal_name, tax_id_or_edrpou, bank IBAN або PSP. Команда: bash cybra_payment_requisites.sh edit"
+        elif t == "market_price_not_confirmed":
+            action = "Додати реальний proof: pool/orderbook/provider/reserve-backed peg. Команда: bash cybra_market_proof_collector.sh files"
+        elif t == "ai_tasks_waiting":
+            action = "Прогнати задачі через closed SHA bridge. Команда: bash cybra_closed_sha_bridge.sh cycle"
+        elif t == "parliament_failed":
+            action = "Перезапустити executor і security analytics. Команда: python3 parliament_executor_v6.py && bash cybra_security_analytics.sh cycle"
+        elif t == "redis_down":
+            action = "Запустити Redis Committee. Команда: bash cybra_redis_committee.sh ensure"
+        else:
+            action = "Запустити AutoHeal repair + Security Analytics cycle."
+
+        solutions.append({
+            "issue": issue,
+            "solution": action,
+            "automatic_safe_fix": t in ["ai_tasks_waiting", "redis_down", "parliament_failed"],
+            "requires_OWNER_data": t in ["payment_requisites_not_ready", "market_price_not_confirmed"],
+            "real_payment_now": False
+        })
+
+    plan = {
+        "module": "solver",
+        "status": "solution_plan_created",
+        "time": time.time(),
+        "time_iso": now_iso(),
+        "issues_count": len(issues),
+        "solutions": solutions,
+        "priority_order": [
+            "redis_down",
+            "parliament_failed",
+            "ai_tasks_waiting",
+            "payment_requisites_not_ready",
+            "market_price_not_confirmed"
+        ],
+        "safety": {
+            "real_payment_now": False,
+            "automatic_SWIFT": False,
+            "automatic_external_tx": False,
+            "manual_OWNER_approval_required": True
+        }
+    }
+    plan["double_sha"] = dsha(json.dumps(plan, ensure_ascii=False, sort_keys=True))
+
+    save_json("data/cybra_conformation8/solver/latest_solution_plan.json", plan)
+    save_json("feeds/cybra_conformation8_solver_report.json", plan)
+
+    for s in solutions:
+        rpush(SOLUTIONS_Q, s)
+
+    rpush(AUDIT, {
+        "status": "solver_completed",
+        "solutions": len(solutions),
+        "double_sha": plan["double_sha"],
+        "time": plan["time"]
+    })
+
+    print("✅ solver completed")
+    print("SOLUTIONS:", len(solutions))
+    return plan
+
+def queue_manager():
+    init()
+    plan = load_json("data/cybra_conformation8/solver/latest_solution_plan.json", {})
+    state = system_state()
+
+    tasks = []
+
+    for m in MODULES:
+        task = {
+            "topic": "CYBRA Conformation Eight module task",
+            "type": "cybra_conformation8_task",
+            "priority": "critical" if m["role"] in ["autofix_local", "manage_parliament_queue"] else "normal",
+            "payload": {
+                "source": "cybra_conformation8",
+                "module_id": m["id"],
+                "module_name": m["name"],
+                "role": m["role"],
+                "mission": m["mission"],
+                "state_sha": state["double_sha"],
+                "solution_plan_sha": plan.get("double_sha"),
+                "convert_to_mining_block_first": True,
+                "send_to_pool_mining": True,
+                "real_payment_now": False,
+                "automatic_SWIFT": False,
+                "automatic_external_tx": False,
+                "manual_OWNER_approval_required": True
+            }
+        }
+        task["double_sha"] = dsha(json.dumps(task, ensure_ascii=False, sort_keys=True))
+        tasks.append(task)
+
+    for s in plan.get("solutions", []):
+        task = {
+            "topic": "CYBRA Conformation Eight solution task",
+            "type": "cybra_conformation8_task",
+            "priority": "critical" if s["issue"]["severity"] in ["CRITICAL", "HIGH"] else "normal",
+            "payload": {
+                "source": "cybra_conformation8_solver",
+                "issue": s["issue"],
+                "solution": s["solution"],
+                "automatic_safe_fix": s["automatic_safe_fix"],
+                "requires_OWNER_data": s["requires_OWNER_data"],
+                "convert_to_mining_block_first": True,
+                "send_to_pool_mining": True,
+                "real_payment_now": False,
+                "automatic_external_tx": False,
+                "manual_OWNER_approval_required": True
+            }
+        }
+        task["double_sha"] = dsha(json.dumps(task, ensure_ascii=False, sort_keys=True))
+        tasks.append(task)
+
+    for task in tasks:
+        rpush(AI_BLOCK_INBOX, task)
+
+    # парламенту кидаємо master task, а не напряму реальні платежі
+    master = {
+        "topic": "CYBRA Conformation Eight queue manager master task",
+        "type": "cybra_conformation8_task",
+        "priority": "critical",
+        "payload": {
+            "source": "cybra_conformation8_queue_manager",
+            "tasks_prepared": len(tasks),
+            "state_sha": state["double_sha"],
+            "goal": "Improve system until working beginning, middle and end; keep it alive through tests, simulation, fixes and queue control.",
+            "real_payment_now": False,
+            "automatic_SWIFT": False,
+            "automatic_external_tx": False,
+            "manual_OWNER_approval_required": True
+        }
+    }
+    master["double_sha"] = dsha(json.dumps(master, ensure_ascii=False, sort_keys=True))
+    rpush(PARLIAMENT_QUEUE, master)
+
+    result = {
+        "module": "queue_manager",
+        "status": "tasks_queued",
+        "time": time.time(),
+        "time_iso": now_iso(),
+        "tasks_to_block_inbox": len(tasks),
+        "parliament_master_task": master,
+        "queues_after": {
+            "ai_block_inbox": rlen(AI_BLOCK_INBOX),
+            "parliament_queue": rlen(PARLIAMENT_QUEUE),
+            "task_block_mempool": rlen("cybra:kibra:task_blocks:mempool"),
+            "pool_mining_blocks": rlen("cybra:kibra:pool:mining_blocks")
+        }
+    }
+    result["double_sha"] = dsha(json.dumps(result, ensure_ascii=False, sort_keys=True))
+
+    save_json("data/cybra_conformation8/queue_manager/latest_queue_result.json", result)
+    save_json("feeds/cybra_conformation8_queue_manager_report.json", result)
+
+    rpush(AUDIT, {
+        "status": "queue_manager_completed",
+        "tasks": len(tasks),
+        "double_sha": result["double_sha"],
+        "time": result["time"]
+    })
+
+    print("✅ queue manager completed")
+    print("TASKS_TO_BLOCK_INBOX:", len(tasks))
+    print("PARLIAMENT_MASTER_TASK: 1")
+    return result
+
+def mine():
+    if exists("cybra_closed_sha_bridge.sh"):
+        subprocess.run(["bash", "cybra_closed_sha_bridge.sh", "cycle"], cwd=ROOT)
+    elif exists("cybra_ai_block_enforcer.sh"):
+        subprocess.run(["bash", "cybra_ai_block_enforcer.sh", "enforce", "8"], cwd=ROOT)
+
+def report():
+    state = system_state()
+    test = load_json("data/cybra_conformation8/tester/latest_test.json", {})
+    sim = load_json("data/cybra_conformation8/simulator/latest_simulation.json", {})
+    fix = load_json("data/cybra_conformation8/fixer/latest_fix.json", {})
+    sol = load_json("data/cybra_conformation8/solver/latest_solution_plan.json", {})
+    queue = load_json("data/cybra_conformation8/queue_manager/latest_queue_result.json", {})
+
+    package = {
+        "status": "conformation8_report_generated",
+        "time": time.time(),
+        "time_iso": now_iso(),
+        "modules": MODULES,
+        "state": state,
+        "tester": test,
+        "simulator": sim,
+        "fixer": fix,
+        "solver": sol,
+        "queue_manager": queue,
+        "queues": {
+            "audit": rlen(AUDIT),
+            "issues": rlen(ISSUES_Q),
+            "fix_queue": rlen(FIX_Q),
+            "solutions": rlen(SOLUTIONS_Q),
+            "ai_block_inbox": rlen(AI_BLOCK_INBOX),
+            "parliament_queue": rlen(PARLIAMENT_QUEUE),
+            "parliament_failed": rlen("cybra:parliament:failed"),
+            "pool_mining_blocks": rlen("cybra:kibra:pool:mining_blocks")
+        },
+        "safety": {
+            "private_keys": False,
+            "seed_phrase": False,
+            "automatic_real_payment": False,
+            "automatic_SWIFT": False,
+            "automatic_external_tx": False,
+            "manual_OWNER_approval_required": True
+        }
+    }
+    package["double_sha"] = dsha(json.dumps(package, ensure_ascii=False, sort_keys=True))
+
+    save_json("feeds/cybra_conformation8_report.json", package)
+    save_json("data/cybra_conformation8/reports/latest_report.json", package)
+
+    lines = []
+    lines.append("# CYBRA Conformation Eight Report")
+    lines.append("")
+    lines.append("Status: active")
+    lines.append("")
+    lines.append("## Five modules")
+    for m in MODULES:
+        lines.append(f"- {m['name']} / {m['role']}: {m['mission']}")
+    lines.append("")
+    lines.append("## State")
+    lines.append(f"Redis: {state['modules']['redis']}")
+    lines.append(f"AutoHeal: {state['modules']['autoheal']}")
+    lines.append(f"Security Analytics: {state['modules']['security_analytics']}")
+    lines.append(f"Cold Finance: {state['modules']['cold_finance']}")
+    lines.append(f"KYBRA Valid: {state['modules']['kybra_valid']}")
+    lines.append("")
+    lines.append("## Blocks")
+    for k, v in state["blocks"].items():
+        lines.append(f"{k}: {v}")
+    lines.append("")
+    lines.append("## Queues")
+    for k, v in package["queues"].items():
+        lines.append(f"{k}: {v}")
+    lines.append("")
+    lines.append("## Missing / Issues")
+    issues = test.get("issues", [])
+    if issues:
+        for i in issues:
+            lines.append(f"- {i.get('severity')} / {i.get('type')}: {i.get('message')}")
+    else:
+        lines.append("None")
+    lines.append("")
+    lines.append("## Safety")
+    for k, v in package["safety"].items():
+        lines.append(f"{k}: {v}")
+    lines.append("")
+    lines.append("## Double SHA")
+    lines.append(package["double_sha"])
+
+    (ROOT / "posts/cybra_conformation8_report.md").write_text("\n".join(lines), encoding="utf-8")
+
+    with (ROOT / "proofs/cybra_conformation8.sha256").open("w") as f:
+        subprocess.run([
+            "sha256sum",
+            "feeds/cybra_conformation8_report.json",
+            "posts/cybra_conformation8_report.md",
+            "data/cybra_conformation8/reports/latest_report.json"
+        ], cwd=ROOT, stdout=f, stderr=subprocess.DEVNULL)
+
+    rpush(AUDIT, {
+        "status": "report_generated",
+        "double_sha": package["double_sha"],
+        "time": package["time"]
+    })
+
+    print("✅ conformation8 report generated")
+    print("REPORT: posts/cybra_conformation8_report.md")
+    print("PROOF: proofs/cybra_conformation8.sha256")
+
+def cycle():
+    init()
+    tester()
+    simulator()
+    fixer()
+    solver()
+    queue_manager()
+    mine()
+    tester()
+    report()
+
+def status():
+    state = system_state()
+    latest = load_json("feeds/cybra_conformation8_report.json", {})
+    print("CONFORMATION8:", "active")
+    print("REDIS:", state["modules"]["redis"])
+    print("MAIN_BLOCKS:", state["blocks"]["main_blocks"])
+    print("TASK_BLOCKS:", state["blocks"]["task_blocks"])
+    print("EST_KIBRA:", state["blocks"]["estimated_kibra_default_reward_100"])
+    print("AI_BLOCK_INBOX:", state["queues"]["ai_block_inbox"])
+    print("PARLIAMENT_QUEUE:", state["queues"]["parliament_queue"])
+    print("PARLIAMENT_FAILED:", state["queues"]["parliament_failed"])
+    print("POOL_MINING_BLOCKS:", state["queues"]["pool_mining_blocks"])
+    print("PAYMENT_READY:", state["readiness"]["payment_ready"])
+    print("REAL_MARKET_CONFIRMED:", state["readiness"]["real_market_confirmed"])
+    print("REPORT_EXISTS:", bool(latest))
+    print("AUDIT:", rlen(AUDIT))
+    print("ISSUES:", rlen(ISSUES_Q))
+    print("SOLUTIONS:", rlen(SOLUTIONS_Q))
+
+def main():
+    cmd = sys.argv[1] if len(sys.argv) > 1 else "status"
+
+    if cmd == "init":
+        init()
+        report()
+    elif cmd == "test":
+        tester()
+    elif cmd == "simulate":
+        simulator()
+    elif cmd == "fix":
+        fixer()
+    elif cmd == "solve":
+        solver()
+    elif cmd == "queue":
+        queue_manager()
+    elif cmd == "mine":
+        mine()
+    elif cmd == "report":
+        report()
+    elif cmd == "cycle":
+        cycle()
+    elif cmd == "status":
+        status()
+    else:
+        raise SystemExit("Usage: init|status|test|simulate|fix|solve|queue|mine|report|cycle")
+
+if __name__ == "__main__":
+    main()

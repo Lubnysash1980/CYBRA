@@ -1,0 +1,43 @@
+{
+  "module": "simulator",
+  "status": "simulated",
+  "time": 1780491696.8382883,
+  "time_iso": "2026-06-03T16:01:36+0300",
+  "state_snapshot_sha": "adea27322038cdd08f310d3153ab828af303d6ba4dc2f89d71e904fade8995ac",
+  "scenarios": [
+    {
+      "name": "redis_down",
+      "input": "Redis unavailable",
+      "expected_repair": "Redis Committee + AutoHeal start redis",
+      "safe": true
+    },
+    {
+      "name": "payment_requisites_missing",
+      "input": "payer/IBAN/PSP empty",
+      "expected_repair": "create alert + ask OWNER to fill real requisites",
+      "safe": true
+    },
+    {
+      "name": "market_proof_missing",
+      "input": "no pool/orderbook/provider proof",
+      "expected_repair": "keep price unconfirmed and real payment false",
+      "safe": true
+    },
+    {
+      "name": "parliament_failed_queue",
+      "input": "failed tasks > 0",
+      "expected_repair": "executor + queue manager creates repair tasks",
+      "safe": true
+    },
+    {
+      "name": "module_missing",
+      "input": "one local module absent",
+      "expected_repair": "restore from AutoHeal snapshot if available",
+      "safe": true
+    }
+  ],
+  "real_actions_executed": false,
+  "real_payment_now": false,
+  "automatic_external_tx": false,
+  "double_sha": "485f76b25e5a0d24b1e16f17844a85a44549a4a3d43ea709cf77e8a706924474"
+}

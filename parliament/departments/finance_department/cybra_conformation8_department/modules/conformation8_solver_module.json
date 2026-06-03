@@ -1,0 +1,29 @@
+{
+  "module_id": "conformation8_solver_module",
+  "name": "Solver Module",
+  "role": "find_solution",
+  "status": "active",
+  "mission": "Шукає рішення для кожного зауваження і створює план покращення системи.",
+  "parent_department": "cybra_conformation8_department",
+  "flow": [
+    "scan",
+    "report",
+    "AI task",
+    "block inbox",
+    "task-block",
+    "closed SHA bridge",
+    "pool mining",
+    "parliament result"
+  ],
+  "safety": {
+    "private_keys": false,
+    "seed_phrase": false,
+    "automatic_real_payment": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  },
+  "created_at": 1780491696.8852339,
+  "created_at_iso": "2026-06-03T16:01:36+0300",
+  "double_sha": "f85281925becd9b3c7d8f8a2462a35ebd251e7df840f044928f5f337566fd9e1"
+}
