@@ -4,7 +4,7 @@
   "priority": "critical",
   "payload": {
     "source": "github_autonomy_committee",
-    "environment": "local-test",
+    "environment": "github-actions",
     "goal": "Ensure CYBRA/KYBRA works autonomously on GitHub Codespaces and GitHub Actions with safe reports, proofs and AI tasks.",
     "convert_to_mining_block_first": true,
     "send_to_pool_mining": true,
@@ -13,7 +13,7 @@
     "automatic_external_tx": false,
     "manual_OWNER_approval_required": true
   },
-  "time": 1780508169.3735764,
-  "time_iso": "2026-06-03T20:36:09+0300",
-  "double_sha": "b12a884efa177094535f8fc43104e6e87c6def22bc66803c6460189dd551dd6c"
+  "time": 1780522402.012878,
+  "time_iso": "2026-06-03T21:33:22+0000",
+  "double_sha": "f083019aa1845639238110ac3b1b9ace012b2005113f79ecd283ad0f882b4506"
 }
