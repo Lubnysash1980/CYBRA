@@ -1,0 +1,36 @@
+{
+  "committee_id": "finance_teacher_committee",
+  "name": "Комітет-Навчач",
+  "role": "teacher",
+  "parent_department": "cybra_cold_finance_binary_department",
+  "status": "active",
+  "mission": "Створювати правила, інструкції, політики безпечної роботи фінансової системи.",
+  "assigned_tasks": [
+    "create_user_instructions",
+    "create_safe_payment_policy",
+    "create_no_private_key_policy",
+    "create_swift_bank_psp_training",
+    "create_owner_approval_policy"
+  ],
+  "target_system": "CYBRA Cold Finance Binary System",
+  "target_binary": "bin/cybra-finance-bin",
+  "ai_task_flow": [
+    "committee_task",
+    "cybra:ai:tasks:block_inbox",
+    "task_block",
+    "closed_sha_bridge",
+    "pool_mining",
+    "AI Parliament result"
+  ],
+  "safety": {
+    "private_keys": false,
+    "seed_phrase": false,
+    "automatic_swift_payment": false,
+    "automatic_external_crypto_tx": false,
+    "automatic_real_payment": false,
+    "manual_OWNER_approval_required": true
+  },
+  "created_at": 1780488457.340417,
+  "created_at_iso": "2026-06-03T15:07:37+0300",
+  "double_sha": "2d05ae925285a9235d744c511f3de3c1b00f94941e96dc7990026c3d6feffc4a"
+}

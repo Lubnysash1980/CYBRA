@@ -1,0 +1,37 @@
+{
+  "committee_id": "finance_tester_committee",
+  "name": "Комітет-Тестер",
+  "role": "tester",
+  "parent_department": "cybra_cold_finance_binary_department",
+  "status": "active",
+  "mission": "Тестувати фінансовий модуль під екосистему власника: status, proof, queues, reports, бінарник, безпечність.",
+  "assigned_tasks": [
+    "test_binary_compile",
+    "test_redis_queues",
+    "test_payment_proposal_flow",
+    "test_no_private_keys",
+    "test_no_automatic_real_payment",
+    "test_sha_proofs"
+  ],
+  "target_system": "CYBRA Cold Finance Binary System",
+  "target_binary": "bin/cybra-finance-bin",
+  "ai_task_flow": [
+    "committee_task",
+    "cybra:ai:tasks:block_inbox",
+    "task_block",
+    "closed_sha_bridge",
+    "pool_mining",
+    "AI Parliament result"
+  ],
+  "safety": {
+    "private_keys": false,
+    "seed_phrase": false,
+    "automatic_swift_payment": false,
+    "automatic_external_crypto_tx": false,
+    "automatic_real_payment": false,
+    "manual_OWNER_approval_required": true
+  },
+  "created_at": 1780488457.3467228,
+  "created_at_iso": "2026-06-03T15:07:37+0300",
+  "double_sha": "d6389629d182dc0cf4878e519c1b2a243f6336f9d78a08c515d8d8235ef10233"
+}
