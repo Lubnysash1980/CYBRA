@@ -1,0 +1,23 @@
+{
+  "department_id": "kibra_market_price_paths_department",
+  "name": "KIBRA Market Price Paths Department",
+  "parent_committee": "kibra_market_price_confirmation_committee",
+  "status": "active",
+  "mission": "Підготувати реальні можливі шляхи підтвердження ринкової ціни KIBRA: DEX pool, orderbook/backend provider, reserve-backed peg, external blockchain anchor.",
+  "paths": [
+    "DEX_POOL_READINESS",
+    "ORDERBOOK_BACKEND_PROVIDER",
+    "RESERVE_BACKED_PEG",
+    "EXTERNAL_BLOCKCHAIN_ANCHOR"
+  ],
+  "rule": "Internal blockchain and external anchor prove blocks/shares/hash. Market price is confirmed only by DEX pool/orderbook/provider/reserve-backed peg proof.",
+  "blocked": [
+    "fake_price",
+    "fake_volume",
+    "wash_trading",
+    "guaranteed_profit",
+    "automatic_real_sell",
+    "automatic_external_tx_without_OWNER_approval"
+  ],
+  "manual_OWNER_approval_required": true
+}

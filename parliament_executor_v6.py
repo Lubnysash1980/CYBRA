@@ -17,6 +17,8 @@ Q_FAILED = "cybra:parliament:failed"
 Q_AUDIT = "cybra:audit"
 
 SCRIPT_MAP = {
+    "kibra_market_price_paths_task": "kibra_market_price_paths_handler.sh",
+    "kibra_price_confirmation_committee_task": "kibra_price_confirmation_committee_handler.sh",
     "kibra_mint_liquidity_task": "kibra_mint_liquidity_handler.sh",
     "ai_block_enforcer_task": "ai_block_enforcer_handler.sh",
     "kibra_stats_recommendations_task": "kibra_stats_recommendations_handler.sh",

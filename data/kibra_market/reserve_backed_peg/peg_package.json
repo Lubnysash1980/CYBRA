@@ -1,0 +1,39 @@
+{
+  "status": "reserve_backed_peg_package_prepared",
+  "path": "RESERVE_BACKED_PEG",
+  "purpose": "Підготувати модель привʼязки KIBRA до резерву USD/UAH/іншого активу.",
+  "reserve_options": {
+    "peg_usd_0.01": {
+      "price_usd_per_kibra": "0.01",
+      "reserve_required_for_total_mined": "28.00",
+      "reserve_required_for_10_percent_float": "2.8000",
+      "reserve_required_for_5_percent_float": "1.4000"
+    },
+    "peg_usd_0.10": {
+      "price_usd_per_kibra": "0.10",
+      "reserve_required_for_total_mined": "280.00",
+      "reserve_required_for_10_percent_float": "28.0000",
+      "reserve_required_for_5_percent_float": "14.0000"
+    },
+    "peg_usd_1.00": {
+      "price_usd_per_kibra": "1.00",
+      "reserve_required_for_total_mined": "2800.00",
+      "reserve_required_for_10_percent_float": "280.0000",
+      "reserve_required_for_5_percent_float": "140.0000"
+    }
+  },
+  "required_for_real_peg": [
+    "real reserve amount",
+    "reserve custody/provider proof",
+    "redemption policy",
+    "legal/AML/tax review",
+    "OWNER approval",
+    "published proof"
+  ],
+  "real_peg_now": false,
+  "real_market_confirmed": false,
+  "manual_OWNER_approval_required": true,
+  "time": 1780468096.6254416,
+  "time_iso": "2026-06-03T09:28:16+0300",
+  "double_sha": "d0641f297e0ab1ff5b82e0559cc6864b9db11bc5bed6b53c74eea1f0162aa4ca"
+}

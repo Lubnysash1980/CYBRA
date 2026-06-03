@@ -1,0 +1,26 @@
+{
+  "status": "external_anchor_request_prepared",
+  "path": "EXTERNAL_BLOCKCHAIN_ANCHOR",
+  "purpose": "Публічно заякорити latest KIBRA hash, shares, pool proof і market-path package root у зовнішній блокчейн.",
+  "latest_kibra_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab",
+  "accounting": {
+    "main_blocks": 10,
+    "task_blocks": 18,
+    "block_reward_kibra": "100",
+    "task_block_reward_kibra": "100",
+    "total_mined_kibra": "2800"
+  },
+  "file_hashes": {
+    "pool_confirm": "85a499cc676a75a6668d7c351b2d6f0995f2763185e17ac17d1fb57526be52ab",
+    "stats": "af8e5bd1bccd56ce77773fe9a8217768942f261295d364b6a09194bb8175fc28",
+    "liquidity": "7ff5deadbcf76f67ec9bd9ba29642e8d949553edb8d47a992382fa22b0d0b8a8",
+    "price_committee": null
+  },
+  "confirms_price": false,
+  "supports_price_confirmation": true,
+  "external_tx_now": false,
+  "manual_OWNER_approval_required": true,
+  "time": 1780468096.6267078,
+  "time_iso": "2026-06-03T09:28:16+0300",
+  "anchor_root": "205a972eb5404aa8f46975f0e7c6d280886265e05113f690518a4ec188dc08ab"
+}
