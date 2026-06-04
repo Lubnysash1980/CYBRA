@@ -1,0 +1,19 @@
+{
+  "topic": "CYBRA IT Evolution Task",
+  "type": "it_evolution_task",
+  "priority": "normal",
+  "source": "it_department",
+  "payload": {
+    "text": "Auto non-delivery dispute: three Mercedes G500/G580. Investigate VIN/contract/dealer/unknown department. Prepare evidence report. Internal frozen only pending evidence. No external blocking. Owner requests cars or refund plus 40 percent claim if immediate return impossible.",
+    "workflow": "analysis -> script -> test -> report -> proof -> task-block",
+    "convert_to_mining_block_first": true,
+    "send_to_pool_mining": true,
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  },
+  "time": 1780569838.739704,
+  "time_iso": "2026-06-04T13:43:58+0300",
+  "double_sha": "6ee9ee494c71a88f9ff7cc6ec24e36cb168328cfc70b4b35e503bf56a868c2dc"
+}

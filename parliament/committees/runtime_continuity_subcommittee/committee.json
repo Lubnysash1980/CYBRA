@@ -1,0 +1,21 @@
+{
+  "committee_id": "runtime_continuity_subcommittee",
+  "name": "CYBRA Runtime Continuity Subcommittee",
+  "status": "active",
+  "parent": "cybra_parliament",
+  "mission": "Стежити, щоб процеси CYBRA не зупинялися раптово, не ламали одне одного, перезапускали Redis, AutoHeal, Security, Conformation, Dashboard, Recovery, Codespace Runtime.",
+  "watchdog_policy": [
+    "check_redis",
+    "check_reports",
+    "run_safe_cycles",
+    "avoid_parallel_git_lock",
+    "avoid_destructive_cleanup",
+    "restart_only_safe_processes"
+  ],
+  "blocked": [
+    "killing_unknown_user_processes",
+    "deleting_private_data",
+    "automatic_external_tx",
+    "automatic_payment"
+  ]
+}

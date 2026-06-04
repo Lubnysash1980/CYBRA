@@ -1,0 +1,19 @@
+{
+  "topic": "CYBRA IT Evolution Task",
+  "type": "it_evolution_task",
+  "priority": "normal",
+  "source": "it_department",
+  "payload": {
+    "text": "Vehicle 001 Mercedes-Benz G 580 VIN W1NWM0AB1SX058958 plate AI0592YB non-delivery evidence case. Verify registration/import/dealer/logistics/unknown department. Internal frozen only. No external blocking.",
+    "workflow": "analysis -> script -> test -> report -> proof -> task-block",
+    "convert_to_mining_block_first": true,
+    "send_to_pool_mining": true,
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  },
+  "time": 1780570169.5167928,
+  "time_iso": "2026-06-04T13:49:29+0300",
+  "double_sha": "c524733d2737cfd544cb95107d7b83b193a78c158c3b69a67539620c0cbd6244"
+}

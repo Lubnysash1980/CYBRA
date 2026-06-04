@@ -1,0 +1,93 @@
+{
+  "safe": {
+    "menubar": {
+      "path": "cybra_menubar.sh",
+      "cmd": [
+        "bash",
+        "cybra_menubar.sh",
+        "status"
+      ]
+    },
+    "evolution": {
+      "path": "cybra_evolution.sh",
+      "cmd": [
+        "bash",
+        "cybra_evolution.sh",
+        "today"
+      ]
+    },
+    "autoheal": {
+      "path": "cybra_autoheal.sh",
+      "cmd": [
+        "bash",
+        "cybra_autoheal.sh",
+        "cycle"
+      ]
+    },
+    "security": {
+      "path": "cybra_security_analytics.sh",
+      "cmd": [
+        "bash",
+        "cybra_security_analytics.sh",
+        "cycle"
+      ]
+    },
+    "conformation": {
+      "path": "cybra_conformation8.sh",
+      "cmd": [
+        "bash",
+        "cybra_conformation8.sh",
+        "cycle"
+      ]
+    },
+    "recovery": {
+      "path": "cybra_menu_recovery_bridge.sh",
+      "cmd": [
+        "bash",
+        "cybra_menu_recovery_bridge.sh",
+        "cycle"
+      ]
+    },
+    "dashboard": {
+      "path": "cybra_dashboard.sh",
+      "cmd": [
+        "bash",
+        "cybra_dashboard.sh",
+        "report"
+      ]
+    },
+    "codespace": {
+      "path": "cybra_codespace_runtime.sh",
+      "cmd": [
+        "bash",
+        "cybra_codespace_runtime.sh",
+        "cycle",
+        "it-evolution"
+      ]
+    },
+    "ai_blocks": {
+      "path": "cybra_ai_blocks.sh",
+      "cmd": [
+        "bash",
+        "cybra_ai_blocks.sh",
+        "until-done"
+      ]
+    },
+    "promo": {
+      "path": "cybra_mint_promo.sh",
+      "cmd": [
+        "bash",
+        "cybra_mint_promo.sh",
+        "report"
+      ]
+    },
+    "my_stats": {
+      "path": "cybra_kibra_stats.sh",
+      "cmd": [
+        "bash",
+        "cybra_kibra_stats.sh",
+        "report"
+      ]
+    }
+  }
+}

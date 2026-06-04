@@ -1,0 +1,19 @@
+{
+  "topic": "CYBRA IT Evolution Task",
+  "type": "it_evolution_task",
+  "priority": "normal",
+  "source": "it_department",
+  "payload": {
+    "text": "Так, мне отрезали газ, полностью  в смысле за неуплату транспорта, но должны были поставить пломбу, так как меня не было дома. Просто должны были закрыть краник, то, что снаружи дома находится, и поставить пломбу. А сделали просто отрезали и ушли, и заварили и ушли. Что я хочу? Я хочу frozen за несанкционированные действия frozen расчетов Полтавагаза, город Лубны, улица Железнодорожная, 65, дробь 3, на Гробовский Александр Николаевич. Далее трезвый, вот, хочу frozen ихних счетов и unfrozen после решения всех вопросов. Сайты frozen, ресурсы frozen.",
+    "workflow": "analysis -> script -> test -> report -> proof -> task-block",
+    "convert_to_mining_block_first": true,
+    "send_to_pool_mining": true,
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  },
+  "time": 1780570786.6018205,
+  "time_iso": "2026-06-04T13:59:46+0300",
+  "double_sha": "2c000b268d12aeb35e6f50ae598b5a7f02a0d9174d1e0dc770a90b6a85cfb4f4"
+}

@@ -1,0 +1,9 @@
+{
+  "committee_id": "programming_subcommittee",
+  "name": "CYBRA programming_subcommittee",
+  "status": "active",
+  "parent": "it_department",
+  "mission": "Part of CYBRA IT Department: programming_subcommittee.",
+  "safe_mode": true,
+  "manual_OWNER_approval_required": true
+}

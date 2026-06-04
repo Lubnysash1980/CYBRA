@@ -1,0 +1,18 @@
+{
+  "committee_id": "evolution_committee",
+  "name": "CYBRA Evolution Committee",
+  "status": "active",
+  "parent": "cybra_parliament",
+  "mission": "Щоденно вимірювати, планувати і запускати еволюцію CYBRA/KYBRA: що покращилось, що стоїть, що треба доробити, які задачі на день.",
+  "responsibilities": [
+    "daily_evolution_score",
+    "daily_goal_plan",
+    "task_blocks_growth",
+    "module_readiness",
+    "blocker_detection",
+    "tomorrow_recommendations",
+    "evolution_binary_control"
+  ],
+  "rule": "Кожен день має бути evolution snapshot: score %, delta %, blockers, next tasks.",
+  "manual_OWNER_approval_required": true
+}

@@ -1,0 +1,17 @@
+{
+  "committee_id": "it_department",
+  "name": "CYBRA IT Department",
+  "status": "active",
+  "parent": "cybra_parliament",
+  "mission": "Великий IT-відділ для програмування, аналітики, безпеки, cleanup, refactor, написання скриптів, виконання задач, тестування і підтримки еволюції.",
+  "subcommittees": [
+    "programming_subcommittee",
+    "analytics_subcommittee",
+    "security_subcommittee",
+    "refactor_subcommittee",
+    "cleanup_subcommittee",
+    "script_executor_subcommittee"
+  ],
+  "workflow": "task -> analysis -> script -> test -> report -> proof -> parliament/task-block",
+  "manual_OWNER_approval_required": true
+}

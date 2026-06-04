@@ -1,0 +1,19 @@
+{
+  "topic": "CYBRA IT Evolution Task",
+  "type": "it_evolution_task",
+  "priority": "normal",
+  "source": "it_department",
+  "payload": {
+    "text": "Так, треба створити чат CyberAI, треба створити повноцінну службу у всіх екосистемах CyberTaxi, також доставка дронами можна включити, різні види перевезення. Можна включити також туди Aero, перевезення товарів та пасажирів, доставка їди і також можна доставка товарів, така як Нова пошта, як служба доставки.",
+    "workflow": "analysis -> script -> test -> report -> proof -> task-block",
+    "convert_to_mining_block_first": true,
+    "send_to_pool_mining": true,
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  },
+  "time": 1780571382.8513072,
+  "time_iso": "2026-06-04T14:09:42+0300",
+  "double_sha": "93b104ba6633f169f85a027596bec0400eeb9a4290ac19de20c94437f1e685ef"
+}

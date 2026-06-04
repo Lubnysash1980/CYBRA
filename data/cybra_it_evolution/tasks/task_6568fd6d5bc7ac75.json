@@ -1,0 +1,19 @@
+{
+  "topic": "CYBRA IT Evolution Task",
+  "type": "it_evolution_task",
+  "priority": "normal",
+  "source": "it_department",
+  "payload": {
+    "text": "Переписати слабкі shell-скрипти в Python modules із proof report",
+    "workflow": "analysis -> script -> test -> report -> proof -> task-block",
+    "convert_to_mining_block_first": true,
+    "send_to_pool_mining": true,
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  },
+  "time": 1780559607.7102664,
+  "time_iso": "2026-06-04T10:53:27+0300",
+  "double_sha": "6568fd6d5bc7ac75016ff46305f08c40e5d03d93f2ffb23d4fe6debcebe889dc"
+}

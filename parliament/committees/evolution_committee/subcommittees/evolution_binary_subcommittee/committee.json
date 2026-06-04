@@ -1,0 +1,23 @@
+{
+  "committee_id": "evolution_binary_subcommittee",
+  "name": "CYBRA Evolution Binary Subcommittee",
+  "status": "active",
+  "parent": "evolution_committee",
+  "mission": "Створювати власний CYBRA binary/command center, який підключає існуючі скрипти, додає нові команди, запускає safe cycles, створює reports/proofs.",
+  "capabilities": [
+    "script_registry",
+    "command_aliases",
+    "safe_runner",
+    "task_to_script",
+    "binary_dispatcher",
+    "report_generation",
+    "proof_generation"
+  ],
+  "blocked": [
+    "automatic_real_payment",
+    "automatic_SWIFT",
+    "automatic_external_tx",
+    "private_key_collection",
+    "seed_phrase_collection"
+  ]
+}

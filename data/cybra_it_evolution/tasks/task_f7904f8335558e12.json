@@ -1,0 +1,19 @@
+{
+  "topic": "CYBRA IT Evolution Task",
+  "type": "it_evolution_task",
+  "priority": "normal",
+  "source": "it_department",
+  "payload": {
+    "text": "Проаналізувати зайві файли і підготувати safe cleanup plan\n== RECOMMENDATIONS ===\n- posts/kibra_stats_recommendations_report.md: - **important** / : Незавершені AI-завдання треба переводити у mining task-blocks. Action: \n- posts/kibra_stats_recommendations_report.md: - **growth** / : Просувати KIBRA через utility: AI credits, proof services, bridge packages, developer marketplace, pool mining. Action: \n- posts/kibra_stats_recommendations_report.md: - **growth** / : Наступні AI-завдання не відправляти напряму: переводити у task-blocks і давати пулам на майнинг. Action: \n- posts/cybra_conformation8_report.md: - MEDIUM / payment_requisites_not_ready: Payment requisites are not ready: legal name / tax ID / IBAN / PSP missing.\n- posts/cybra_conformation8_report.md: - MEDIUM / market_price_not_confirmed: Real KIBRA market price is not confirmed.\n- posts/cybra_test_autofix_recommendations_report.md: - **growth** / : Просувати KIBRA через utility: AI credits, proof services, bridge packages, developer marketplace, pool mining. Action: \n- posts/cybra_test_autofix_recommendations_report.md: - **growth** / : Наступні AI-завдання не відправляти напряму: переводити у task-blocks і давати пулам на майнинг. Action: \nEnter...",
+    "workflow": "analysis -> script -> test -> report -> proof -> task-block",
+    "convert_to_mining_block_first": true,
+    "send_to_pool_mining": true,
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  },
+  "time": 1780559606.32148,
+  "time_iso": "2026-06-04T10:53:26+0300",
+  "double_sha": "f7904f8335558e12a746f369aec2ca2f7b543bd02712e274c857d70a3ecc383c"
+}

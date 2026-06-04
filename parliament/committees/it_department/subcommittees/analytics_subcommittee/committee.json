@@ -1,0 +1,9 @@
+{
+  "committee_id": "analytics_subcommittee",
+  "name": "CYBRA analytics_subcommittee",
+  "status": "active",
+  "parent": "it_department",
+  "mission": "Part of CYBRA IT Department: analytics_subcommittee.",
+  "safe_mode": true,
+  "manual_OWNER_approval_required": true
+}

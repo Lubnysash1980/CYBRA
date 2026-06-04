@@ -1,0 +1,9 @@
+{
+  "committee_id": "refactor_subcommittee",
+  "name": "CYBRA refactor_subcommittee",
+  "status": "active",
+  "parent": "it_department",
+  "mission": "Part of CYBRA IT Department: refactor_subcommittee.",
+  "safe_mode": true,
+  "manual_OWNER_approval_required": true
+}

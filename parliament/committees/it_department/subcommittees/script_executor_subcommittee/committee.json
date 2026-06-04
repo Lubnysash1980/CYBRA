@@ -1,0 +1,9 @@
+{
+  "committee_id": "script_executor_subcommittee",
+  "name": "CYBRA script_executor_subcommittee",
+  "status": "active",
+  "parent": "it_department",
+  "mission": "Part of CYBRA IT Department: script_executor_subcommittee.",
+  "safe_mode": true,
+  "manual_OWNER_approval_required": true
+}

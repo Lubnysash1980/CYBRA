@@ -1,0 +1,19 @@
+{
+  "topic": "CYBRA IT Evolution Task",
+  "type": "it_evolution_task",
+  "priority": "normal",
+  "source": "it_department",
+  "payload": {
+    "text": "Створити модуль перевірки всіх GitHub Actions і Codespaces reports",
+    "workflow": "analysis -> script -> test -> report -> proof -> task-block",
+    "convert_to_mining_block_first": true,
+    "send_to_pool_mining": true,
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  },
+  "time": 1780559812.5494108,
+  "time_iso": "2026-06-04T10:56:52+0300",
+  "double_sha": "fad384824529396d86f0ed35aa782381995e61effa94131d7125d587ed1ec17b"
+}
