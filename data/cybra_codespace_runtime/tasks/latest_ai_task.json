@@ -4,10 +4,10 @@
   "priority": "normal",
   "payload": {
     "source": "codespace_runtime_committee",
-    "backend": "LOCAL_TERMUX_BACKEND",
+    "backend": "GITHUB_ACTIONS_EPHEMERAL_BACKEND",
     "goal": "Keep CYBRA working on GitHub Codespaces/GitHub Actions with watchdog, AutoHeal, double backend and Double-SHA proof.",
-    "before_sha": "fee4fd25502fcc283446a04639fa225b1b8423a1f172fbb7020a2fd49f8f07f3",
-    "after_sha": "b488db86ddae3cffd01ffb0a75ad34d3ad5bf618b83fa48cc04a0709203df077",
+    "before_sha": "41c299907af2db883e07906b81bdfccf9edeabea7ad7379178aa1e9fe04e73ae",
+    "after_sha": "a994318264a6aa56e87c8bbf8d14a0c52cc2dc82ed37b5ab5c24a78175a1417b",
     "convert_to_mining_block_first": true,
     "send_to_pool_mining": true,
     "real_payment_now": false,
@@ -15,7 +15,7 @@
     "automatic_external_tx": false,
     "manual_OWNER_approval_required": true
   },
-  "time": 1780509096.823136,
-  "time_iso": "2026-06-03T20:51:36+0300",
-  "double_sha": "8c8a578c2399123341aa32ff4ff6c76042e17d82e3d1d5abf25c42250f0dc0f8"
+  "time": 1780588284.7325838,
+  "time_iso": "2026-06-04T15:51:24+0000",
+  "double_sha": "1baa4a43d10f76bfa32633b8ba3c6df2a14ccb1ab57f81ae15f3bf8e091fd1eb"
 }

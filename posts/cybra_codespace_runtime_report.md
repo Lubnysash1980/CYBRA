@@ -1,7 +1,7 @@
 # CYBRA GitHub Codespace Runtime Committee Report
 
 Status: cycle_completed
-Backend: LOCAL_TERMUX_BACKEND
+Backend: GITHUB_ACTIONS_EPHEMERAL_BACKEND
 Health OK: True
 
 ## Modules
@@ -10,7 +10,7 @@ cybra_autoheal.sh: True
 cybra_security_analytics.sh: True
 cybra_conformation8.sh: True
 cybra_recovery.sh: True
-cybra_dashboard.sh: True
+cybra_dashboard.sh: False
 cybra_kibra_stats.sh: True
 cybra_closed_sha_bridge.sh: True
 parliament_executor_v6.py: True
@@ -26,8 +26,8 @@ kibra_stats: True
 
 ## Blocks
 main_blocks: 10
-task_blocks: 211
-estimated_kibra_default_reward_100: 22100
+task_blocks: 59
+estimated_kibra_default_reward_100: 6900
 
 ## Queues
 ai_block_inbox: 0
@@ -43,7 +43,7 @@ codespace_audit: 0
 local_termux_backend_supported: True
 github_codespace_backend_supported: True
 github_actions_ephemeral_backend_supported: True
-active_backend: LOCAL_TERMUX_BACKEND
+active_backend: GITHUB_ACTIONS_EPHEMERAL_BACKEND
 
 ## Watchdog
 redis_watch: True
@@ -60,4 +60,4 @@ automatic_external_tx: False
 manual_OWNER_approval_required: True
 
 ## Double SHA
-08d7cb40897b12d05dbcf0d9b29647875c66e5040d49c5487d15c2ef92719a04
+a2d2180dde5247f2f98bbeca7e00682c3e1db423ec7fcb5c48b76a4cb2e4514e
