@@ -1,0 +1,25 @@
+{
+  "committee_id": "evolution_tracker_committee",
+  "name": "CYBRA Evolution Tracker Committee",
+  "status": "active",
+  "parent": "cybra_parliament",
+  "mission": "Щоденно вимірювати еволюцію CYBRA/KYBRA системи: прогрес у відсотках, приріст блоків, готовність модулів, помилки, фінансові блокери, recovery, dashboard, GitHub/Codespace readiness.",
+  "metrics": [
+    "module_readiness",
+    "report_readiness",
+    "recovery_readiness",
+    "dashboard_readiness",
+    "codespace_github_readiness",
+    "kibra_growth",
+    "parliament_health",
+    "finance_readiness",
+    "market_proof_readiness",
+    "security_health"
+  ],
+  "safety": {
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  }
+}

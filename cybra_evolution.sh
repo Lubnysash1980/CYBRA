@@ -1,29 +1,33 @@
 #!/data/data/com.termux/files/usr/bin/bash
-set -e
-cd "$HOME/CYBRA"
+set +e
+cd "$HOME/CYBRA" || exit 1
 
-case "${1:-status}" in
-  inspect)
-    python3 cybra_evolution_guard.py inspect "$2"
+case "${1:-today}" in
+  today|report|status|history)
+    python3 cybra_evolution_tracker.py "$1"
     ;;
-  submit)
-    python3 cybra_evolution_guard.py submit "$2"
+  start-daily)
+    mkdir -p logs/cybra_evolution runtime
+    INTERVAL="${2:-86400}"
+    nohup bash -c "while true; do cd '$HOME/CYBRA'; python3 cybra_evolution_tracker.py today; sleep $INTERVAL; done" > logs/cybra_evolution/daily.log 2>&1 &
+    echo $! > runtime/cybra_evolution_daily.pid
+    echo "✅ CYBRA daily evolution tracker started"
+    echo "PID: $(cat runtime/cybra_evolution_daily.pid)"
     ;;
-  report)
-    python3 cybra_evolution_guard.py report
-    cat posts/evolution_guard_report.md
+  stop-daily)
+    if [ -f runtime/cybra_evolution_daily.pid ]; then
+      kill "$(cat runtime/cybra_evolution_daily.pid)" 2>/dev/null || true
+      rm -f runtime/cybra_evolution_daily.pid
+    fi
+    echo "✅ stopped"
     ;;
-  status)
-    redis-cli ping
-    echo "EVOLUTION_APPROVED: $(redis-cli LLEN cybra:evolution:approved)"
-    echo "EVOLUTION_HOLD: $(redis-cli LLEN cybra:evolution:hold)"
-    echo "EVOLUTION_REJECTED: $(redis-cli LLEN cybra:evolution:rejected)"
-    echo "EVOLUTION_AUDIT: $(redis-cli LLEN cybra:evolution:audit)"
-    echo "PARLIAMENT_QUEUE: $(redis-cli LLEN cybra:parliament:queue)"
-    echo "PARLIAMENT_RESULTS: $(redis-cli LLEN cybra:parliament:results)"
-    test -f posts/evolution_guard_status.md && echo "STATUS_REPORT: exists" || echo "STATUS_REPORT: missing"
+  log)
+    tail -f logs/cybra_evolution/daily.log
+    ;;
+  proof)
+    cat proofs/cybra_evolution_today.sha256
     ;;
   *)
-    echo "Usage: bash cybra_evolution.sh inspect|submit|report|status"
+    echo "Usage: bash cybra_evolution.sh today|status|history|start-daily|stop-daily|log|proof"
     ;;
 esac

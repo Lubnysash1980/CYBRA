@@ -1,0 +1,82 @@
+{
+  "status": "evolution_snapshot",
+  "date": "2026-06-04",
+  "time": 1780556929.099868,
+  "time_iso": "2026-06-04T10:08:49+0300",
+  "score_percent": 84.33,
+  "score_parts": {
+    "module_readiness": 100.0,
+    "report_readiness": 90.91,
+    "recovery_readiness": 100.0,
+    "github_codespace_readiness": 100.0,
+    "parliament_health": 100,
+    "kibra_growth": 96.67,
+    "finance_readiness": 0.0,
+    "market_readiness": 0,
+    "security_health": 100
+  },
+  "modules": {
+    "menubar": true,
+    "recovery": true,
+    "autoheal": true,
+    "security": true,
+    "conformation8": true,
+    "dashboard": true,
+    "codespace_runtime": true,
+    "github_workflow": true,
+    "parliament_executor": true,
+    "kibra_stats": true,
+    "payment": true,
+    "market_gate": true,
+    "frozen_committee": true,
+    "hash_license_guard": true
+  },
+  "reports": {
+    "menubar": true,
+    "recovery": true,
+    "recovery_test": true,
+    "autoheal": true,
+    "security": true,
+    "conformation8": true,
+    "dashboard": false,
+    "codespace_runtime": true,
+    "kibra_stats": true,
+    "mint_promo": true,
+    "ai_blocks": true
+  },
+  "blocks": {
+    "main_blocks": 10,
+    "task_blocks": 290,
+    "estimated_kibra_default_reward_100": 30000
+  },
+  "queues": {
+    "ai_block_inbox": 0,
+    "task_block_mempool": 0,
+    "pool_mining_blocks": 0,
+    "parliament_queue": 0,
+    "parliament_results": 0,
+    "parliament_failed": 0
+  },
+  "finance": {
+    "payment_ready": false,
+    "bank_ready": false,
+    "psp_ready": false,
+    "real_market_confirmed": false,
+    "price_usd_per_kibra": "0",
+    "real_payment_now": false
+  },
+  "blockers": [
+    "Payment requisites not ready: add IBAN or PSP provider.",
+    "Real KIBRA market price not confirmed: add real pool/orderbook/provider proof."
+  ],
+  "safety": {
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  },
+  "double_sha": "f4cdea6f9f1a6476af9056dd73b467bb2c0d9db923771f35e0019b74bbba886d",
+  "previous_score_percent": null,
+  "daily_delta_percent": null,
+  "movement": "baseline"
+}

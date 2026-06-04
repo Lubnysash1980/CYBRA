@@ -1,0 +1,50 @@
+name: CYBRA Daily Evolution
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "33 6 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  daily-evolution:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Prepare
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y redis-server redis-tools jq
+          mkdir -p "$HOME/CYBRA"
+          rm -rf "$HOME/CYBRA"
+          ln -s "$GITHUB_WORKSPACE" "$HOME/CYBRA"
+          mkdir -p runtime/redis posts feeds proofs data
+          redis-server --daemonize yes --bind 127.0.0.1 --port 6379 --dir "$GITHUB_WORKSPACE/runtime/redis" --save "" --appendonly no
+          sleep 1
+          redis-cli ping
+          chmod +x cybra_evolution.sh cybra_evolution_tracker.py 2>/dev/null || true
+
+      - name: Run daily evolution
+        run: |
+          bash cybra_evolution.sh today
+
+      - name: Commit evolution report
+        run: |
+          set +e
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add \
+            data/cybra_evolution \
+            posts/cybra_evolution_today.md \
+            feeds/cybra_evolution_today.json \
+            proofs/cybra_evolution_today.sha256
+          if git diff --cached --quiet; then
+            echo "No evolution changes"
+          else
+            git commit -m "CYBRA daily evolution report [skip ci]"
+            git push
+          fi

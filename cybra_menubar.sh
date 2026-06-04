@@ -2,9 +2,11 @@
 set +e
 cd "$HOME/CYBRA"
 
-case "${1:-menu}" in
+CMD="${1:-menu}"
+
+case "$CMD" in
   menu|status|finance|recommendations|report)
-    python3 cybra_menubar.py "$1"
+    python3 cybra_menubar.py "$CMD"
     ;;
   task)
     shift
@@ -23,22 +25,35 @@ case "${1:-menu}" in
     python3 cybra_menubar.py withdraw "$@"
     ;;
   cycle)
-    python3 cybra_menubar.py cycle "${2:-safe}"
+    shift
+    python3 cybra_menubar.py cycle "${1:-safe}"
+    ;;
+  recovery)
+    shift
+    bash cybra_menu_recovery_bridge.sh "${1:-status}" "$@"
+    ;;
+  evolution)
+    shift
+    bash cybra_evolution.sh "${1:-status}" "$@"
     ;;
   proof)
     cat proofs/cybra_menubar.sha256
     ;;
-  *)
+  help|--help|-h)
     echo "Usage:"
-    echo "  bash cybra_menubar.sh menu"
-    echo "  bash cybra_menubar.sh status"
-    echo "  bash cybra_menubar.sh finance"
-    echo "  bash cybra_menubar.sh recommendations"
-    echo "  bash cybra_menubar.sh task 'text'"
-    echo "  bash cybra_menubar.sh post 'title' 'body'"
-    echo "  bash cybra_menubar.sh committee 'name' 'mission'"
-    echo "  bash cybra_menubar.sh withdraw AMOUNT DESTINATION NETWORK MEMO"
-    echo "  bash cybra_menubar.sh cycle safe"
-    echo "  bash cybra_menubar.sh report"
+    echo "  cybra-menu"
+    echo "  cybra-menu status"
+    echo "  cybra-menu finance"
+    echo "  cybra-menu recommendations"
+    echo "  cybra-menu task 'text'"
+    echo "  cybra-menu post 'title' 'body'"
+    echo "  cybra-menu committee 'name' 'mission'"
+    echo "  cybra-menu withdraw AMOUNT DESTINATION NETWORK MEMO"
+    echo "  cybra-menu cycle safe"
+    echo "  cybra-menu report"
+    ;;
+  *)
+    echo "Unknown command: $CMD"
+    echo "Run: cybra-menu help"
     ;;
 esac
