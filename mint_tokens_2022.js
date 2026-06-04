@@ -12,6 +12,8 @@ import {
 
 import fs from "fs";
 import bs58 from "bs58";
+import dns from "node:dns";
+dns.setDefaultResultOrder("ipv4first");
 
 // ===== НАЛАШТУВАННЯ =====
 const RPC_URL = "https://api.mainnet-beta.solana.com";

@@ -1,0 +1,28 @@
+{
+  "status": "solana_rpc_termux_fix_generated",
+  "time": 1780553601.1802623,
+  "time_iso": "2026-06-04T09:13:21+0300",
+  "selected_rpc": "https://solana-rpc.publicnode.com",
+  "checks": {
+    "rpc_probe": true,
+    "rpc_probe_report": true,
+    "selected_rpc_local": true,
+    "mint_script": true,
+    "safe_runner": true,
+    "git_lock_exists": false
+  },
+  "pages": {
+    "metadata_json": "HTTP 200 confirmed by curl",
+    "logo_png": "HTTP 200 confirmed by curl"
+  },
+  "safety": {
+    "real_mint_default": false,
+    "real_mint_requires_command": "bash run_mint_tokens_2022_safe.sh real",
+    "automatic_real_payment": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "private_key_required_in_chat": false,
+    "manual_OWNER_approval_required": true
+  },
+  "double_sha": "f5f21cda5aedec7846c58087da715d2e42a3d769f210e64de02aadc48998bfe0"
+}
