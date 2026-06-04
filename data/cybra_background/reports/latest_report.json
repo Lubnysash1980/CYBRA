@@ -1,0 +1,67 @@
+{
+  "status": "CYBRA_BACKGROUND_PLATFORM_REPORT",
+  "time": 1780591524.9466581,
+  "time_iso": "2026-06-04T19:45:24+0300",
+  "workers": {
+    "redis_guard": {
+      "pid": "10865",
+      "running": true
+    },
+    "task_processor": {
+      "pid": "10883",
+      "running": true
+    },
+    "it_department": {
+      "pid": "10900",
+      "running": true
+    },
+    "evolution_tracker": {
+      "pid": "10961",
+      "running": true
+    },
+    "health_security": {
+      "pid": "10988",
+      "running": true
+    },
+    "recovery_watch": {
+      "pid": "11002",
+      "running": true
+    },
+    "codespace_runtime": {
+      "pid": "11056",
+      "running": true
+    },
+    "git_status_watch": {
+      "pid": "11109",
+      "running": true
+    },
+    "mainnet_safety_watch": {
+      "pid": "11162",
+      "running": true
+    },
+    "dashboard": {
+      "pid": "11223",
+      "running": false
+    }
+  },
+  "queues": {
+    "ai_block_inbox": 0,
+    "parliament_queue": 0,
+    "parliament_failed": 0,
+    "task_block_mempool": 0,
+    "pool_mining_blocks": 3,
+    "it_department": 2,
+    "evolution": 0,
+    "security": 0
+  },
+  "safety": {
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "mainnet_deploy_allowed": false,
+    "manual_OWNER_approval_required": true
+  },
+  "running_count": 9,
+  "overall_status": "OK",
+  "double_sha": "63a6de1c47b23fac470832936d7efb92ab131b9a3212acc61629865b99b8fb4d"
+}
