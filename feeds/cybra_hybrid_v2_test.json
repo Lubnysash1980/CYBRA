@@ -1,0 +1,54 @@
+{
+  "status": "CYBRA_HYBRID_V2_TEST_COMPLETED",
+  "time": 1780600558.622887,
+  "time_iso": "2026-06-04T22:15:58+0300",
+  "termux": {
+    "max_expected_workers": 3,
+    "running_count": 3,
+    "workers": {
+      "redis_guard": {
+        "pid": "9518",
+        "running": true
+      },
+      "termux_bridge": {
+        "pid": "9530",
+        "running": true
+      },
+      "cloud_trigger": {
+        "pid": "9577",
+        "running": true
+      }
+    },
+    "redis_ping": true
+  },
+  "cloud_offload": {
+    "cloud_script_exists": true,
+    "cloud_report_exists": true,
+    "cloud_proof_exists": true,
+    "termux_skipped_heavy_cycle": true
+  },
+  "github_actions": {
+    "workflow_exists": true,
+    "has_schedule": true,
+    "has_manual_dispatch": true
+  },
+  "codespace": {
+    "codespace_script_exists": true,
+    "devcontainer_start_exists": true
+  },
+  "queues": {
+    "ai_block_inbox": 0,
+    "parliament_failed": 0,
+    "it_department": 0,
+    "evolution": 0
+  },
+  "safety": {
+    "termux_heavy_cycle_disabled": true,
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "mainnet_deploy_allowed": false
+  },
+  "overall_status": "OK",
+  "double_sha": "9625238cc733adb75cd75f3a11fac104fc7b7e69ccb673c5c5d6dd2ef34ad4d8"
+}

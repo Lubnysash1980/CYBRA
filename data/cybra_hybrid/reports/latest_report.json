@@ -1,7 +1,7 @@
 {
   "status": "CYBRA_HYBRID_LIMITED_BACKGROUND_V2_REPORT",
-  "time": 1780597160.7716062,
-  "time_iso": "2026-06-04T21:19:20+0300",
+  "time": 1780600565.0012226,
+  "time_iso": "2026-06-04T22:16:05+0300",
   "termux_policy": {
     "max_workers": 3,
     "local_workers": [
@@ -16,15 +16,15 @@
   },
   "workers": {
     "redis_guard": {
-      "pid": "19427",
+      "pid": "9518",
       "running": true
     },
     "termux_bridge": {
-      "pid": "19462",
+      "pid": "9530",
       "running": true
     },
     "cloud_trigger": {
-      "pid": "19505",
+      "pid": "9577",
       "running": true
     }
   },
@@ -48,5 +48,5 @@
   },
   "running_count": 3,
   "overall_status": "OK",
-  "double_sha": "05224bcfeaa8651e5c3c0bbc124db2d6457cfb78f3fcc3a2709a221447f040dd"
+  "double_sha": "3955e5e932c871c6e612eaea6b4dd6bef76f33701e75c37a4d478b4778cb9727"
 }

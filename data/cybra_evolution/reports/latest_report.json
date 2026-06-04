@@ -1,16 +1,16 @@
 {
   "status": "evolution_snapshot",
   "date": "2026-06-04",
-  "time": 1780556929.099868,
-  "time_iso": "2026-06-04T10:08:49+0300",
-  "score_percent": 84.33,
+  "time": 1780602528.5381777,
+  "time_iso": "2026-06-04T22:48:48+0300",
+  "score_percent": 84.73,
   "score_parts": {
     "module_readiness": 100.0,
     "report_readiness": 90.91,
     "recovery_readiness": 100.0,
     "github_codespace_readiness": 100.0,
     "parliament_health": 100,
-    "kibra_growth": 96.67,
+    "kibra_growth": 100,
     "finance_readiness": 0.0,
     "market_readiness": 0,
     "security_health": 100
@@ -46,8 +46,8 @@
   },
   "blocks": {
     "main_blocks": 10,
-    "task_blocks": 290,
-    "estimated_kibra_default_reward_100": 30000
+    "task_blocks": 310,
+    "estimated_kibra_default_reward_100": 32000
   },
   "queues": {
     "ai_block_inbox": 0,
@@ -75,7 +75,7 @@
     "automatic_external_tx": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "f4cdea6f9f1a6476af9056dd73b467bb2c0d9db923771f35e0019b74bbba886d",
+  "double_sha": "2f45b7625c3d59946e599a902ef8281636ea4bacbe7e8430a55eb0c49f14928f",
   "previous_score_percent": null,
   "daily_delta_percent": null,
   "movement": "baseline"
