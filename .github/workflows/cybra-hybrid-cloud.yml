@@ -1,0 +1,77 @@
+name: CYBRA Hybrid Cloud Heavy Cycle
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17,47 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cybra-hybrid-cloud
+  cancel-in-progress: false
+
+jobs:
+  heavy-cycle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    services:
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Prepare
+        run: |
+          mkdir -p "$HOME/CYBRA"
+          rm -rf "$HOME/CYBRA"
+          ln -s "$GITHUB_WORKSPACE" "$HOME/CYBRA"
+          mkdir -p runtime/redis posts feeds proofs logs/hybrid data/cybra_cloud_background/reports
+          chmod +x scripts/cybra_cloud_heavy_cycle.sh 2>/dev/null || true
+          chmod +x *.sh 2>/dev/null || true
+          redis-cli -h 127.0.0.1 -p 6379 ping
+
+      - name: Run CYBRA heavy cloud cycle
+        env:
+          CYBRA_ROOT: ${{ github.workspace }}
+          REAL_PAYMENT_NOW: "false"
+          AUTOMATIC_SWIFT: "false"
+          AUTOMATIC_EXTERNAL_TX: "false"
+          CYBRA_MAINNET_DEPLOY_ALLOWED: "false"
+        run: |
+          bash scripts/cybra_cloud_heavy_cycle.sh
+
+      - name: Commit reports
+        run: |
+          set +e
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add \
+            posts/cybra_cloud_background_report.md \
+            feeds/cybra_cloud_background_report.json \
+            data/cybra_cloud_background/reports/latest_report.json \
+            proofs/cybra_cloud_background.sha256 \
+            posts/cybra_task_execution_test_report.md \
+            feeds/cybra_task_execution_test_report.json \
+            posts/cybra_it_menubar_report.md \
+            feeds/cybra_it_menubar_report.json \
+            posts/cybra_it_evolution_report.md \
+            feeds/cybra_it_evolution_report.json \
+            posts/cybra_evolution_today.md \
+            feeds/cybra_evolution_today.json \
+            proofs/cybra_it_menubar.sha256 \
+            proofs/cybra_task_execution_test.sha256 \
+            proofs/cybra_evolution_today.sha256 2>/dev/null || true
+
+          if git diff --cached --quiet; then
+            echo "No cloud changes"
+          else
+            git commit -m "CYBRA hybrid cloud heavy cycle [skip ci]"
+            git push
+          fi

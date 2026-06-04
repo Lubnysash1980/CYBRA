@@ -1,0 +1,31 @@
+{
+  "status": "TERMUX_SKIPPED_HEAVY_CLOUD_CYCLE",
+  "reason": "Heavy cloud cycle is offloaded to GitHub Actions / Codespace to avoid Termux crash.",
+  "time": 1780597135.6861045,
+  "time_iso": "2026-06-04T21:18:55+0300",
+  "environment": {
+    "termux": true,
+    "github_actions": false,
+    "codespaces": false
+  },
+  "offload": {
+    "github_workflow": ".github/workflows/cybra-hybrid-cloud.yml",
+    "codespace_script": "scripts/cybra_codespace_limited_bg.sh",
+    "local_termux_script": "cybra_hybrid_bg.sh"
+  },
+  "queues": {
+    "ai_block_inbox": 0,
+    "parliament_failed": 0,
+    "it_department": 0,
+    "evolution": 0
+  },
+  "safety": {
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "mainnet_deploy_allowed": false,
+    "manual_OWNER_approval_required": true
+  },
+  "overall_status": "OK",
+  "double_sha": "9a9f8d06f6780652b9c376c70dbc1fc56af1aff240f6358024012940cbf03c61"
+}
