@@ -1,0 +1,39 @@
+{
+  "status": "it_evolution_department_report",
+  "time": 1780562463.2481723,
+  "time_iso": "2026-06-04T11:41:03+0300",
+  "modules": {
+    "evolution_committee": true,
+    "evolution_binary_subcommittee": true,
+    "it_department": true,
+    "runtime_continuity": true,
+    "binary_dispatcher": true,
+    "menubar": true,
+    "evolution_tracker": true
+  },
+  "registered_safe_commands": [
+    "menubar",
+    "evolution",
+    "autoheal",
+    "security",
+    "conformation",
+    "recovery",
+    "dashboard",
+    "codespace",
+    "ai_blocks",
+    "promo",
+    "my_stats"
+  ],
+  "queues": {
+    "ai_block_inbox": 0,
+    "it_audit": 0,
+    "parliament_failed": 0
+  },
+  "safety": {
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  },
+  "double_sha": "1b4520f920316332ff442ba8e9a529f6bc863766563c0faecb68ee8541a23958"
+}

@@ -1,0 +1,42 @@
+{
+  "status": "task_execution_runtime_finalized",
+  "time": 1780562464.990555,
+  "time_iso": "2026-06-04T11:41:04+0300",
+  "queues": {
+    "ai_block_inbox": 0,
+    "task_block_mempool": 0,
+    "pool_mining_blocks": 0,
+    "parliament_queue": 0,
+    "parliament_failed": 0
+  },
+  "mappings": {
+    "menubar_owner_task": "cybra_menubar_handler.sh",
+    "it_evolution_task": "cybra_it_evolution_handler.sh",
+    "codespace_runtime_committee_task": "cybra_codespace_runtime_handler.sh",
+    "frozen_license_committee_task": "cybra_frozen_committee_handler.sh",
+    "hash_license_violation_audit_task": "hash_license_guard_handler.sh",
+    "evolution_tracker_task": "cybra_evolution_handler.sh",
+    "task_execution_testing_task": "cybra_task_test_handler.sh"
+  },
+  "reports": {
+    "task_test": true,
+    "menubar": true,
+    "it_evolution": true,
+    "daily_evolution": true,
+    "ai_blocks": true
+  },
+  "result": {
+    "tasks_ready": true,
+    "missing_handlers": [],
+    "parliament_failed_zero": true,
+    "ai_inbox_empty": true
+  },
+  "safety": {
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  },
+  "overall_status": "OK",
+  "double_sha": "01afd64d20036c8b7d7082d6eb34450b11b951f647de7d0ac9833a5da97192fd"
+}

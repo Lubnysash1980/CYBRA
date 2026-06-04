@@ -36,6 +36,14 @@ case "$CMD" in
     shift
     bash cybra_evolution.sh "${1:-status}" "$@"
     ;;
+  it)
+    shift
+    bash cybra_it_evolution.sh "${1:-status}" "$@"
+    ;;
+  test-tasks)
+    shift
+    bash cybra_task_test.sh "${1:-status}" "$@"
+    ;;
   proof)
     cat proofs/cybra_menubar.sha256
     ;;
