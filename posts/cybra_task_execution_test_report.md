@@ -13,7 +13,7 @@ missing: 0
 ai_block_inbox: 0
 parliament_queue: 0
 parliament_failed: 0
-task_blocks: 297
+task_blocks: 300
 
 ## Task readiness
 
@@ -22,42 +22,42 @@ Status: EXECUTED_PREVIOUSLY_AND_READY
 Handler exists: True
 Script exists: True
 Report exists: True
-Redis mapped handler: cybra_menubar_handler.sh
+Redis mapped handler: none
 
 ### it_evolution_task
 Status: EXECUTED_PREVIOUSLY_AND_READY
 Handler exists: True
 Script exists: True
 Report exists: True
-Redis mapped handler: cybra_it_evolution_handler.sh
+Redis mapped handler: none
 
 ### codespace_runtime_committee_task
 Status: EXECUTED_PREVIOUSLY_AND_READY
 Handler exists: True
 Script exists: True
 Report exists: True
-Redis mapped handler: cybra_codespace_runtime_handler.sh
+Redis mapped handler: none
 
 ### frozen_license_committee_task
 Status: EXECUTED_PREVIOUSLY_AND_READY
 Handler exists: True
 Script exists: True
 Report exists: True
-Redis mapped handler: cybra_frozen_committee_handler.sh
+Redis mapped handler: none
 
 ### hash_license_violation_audit_task
 Status: EXECUTED_PREVIOUSLY_AND_READY
 Handler exists: True
 Script exists: True
 Report exists: True
-Redis mapped handler: hash_license_guard_handler.sh
+Redis mapped handler: none
 
 ### evolution_tracker_task
 Status: EXECUTED_PREVIOUSLY_AND_READY
 Handler exists: True
 Script exists: True
 Report exists: True
-Redis mapped handler: cybra_evolution_handler.sh
+Redis mapped handler: none
 
 ## Meaning
 - EXECUTED_PREVIOUSLY_AND_READY: report exists, script exists, handler exists.
@@ -75,4 +75,4 @@ seed_phrase_required: False
 manual_OWNER_approval_required: True
 
 ## Double SHA
-6bb128cff1cdf11fc8bb71e6e9785d2f57cd68bea17269e3ae3dd575074c9a2f
+92cbe4d05808c1d3cd08f4613a3cd6e6a224da59c19995822be2e89e331ef558

@@ -1,0 +1,155 @@
+{
+  "status": "IT_MENU_OK",
+  "time": 1780581558.7513201,
+  "tasks": 19,
+  "queues": {
+    "ai": 0,
+    "parliament": 0,
+    "mining": 0,
+    "pool": 0,
+    "it": 0,
+    "evolution": 0,
+    "security": 0
+  },
+  "latest": [
+    {
+      "short": "b72772ec89b4",
+      "path": "data/cybra_it_menu/tasks/expanded_b72772ec89b47d7a.json",
+      "title": "IT task",
+      "type": "it_task",
+      "status": "EXPANDED"
+    },
+    {
+      "short": "93b104ba6633",
+      "path": "data/cybra_it_evolution/tasks/task_93b104ba6633f169.json",
+      "title": "CYBRA IT Evolution Task",
+      "type": "it_evolution_task",
+      "status": "OPEN"
+    },
+    {
+      "short": "2c000b268d12",
+      "path": "data/cybra_it_evolution/tasks/task_2c000b268d12aeb3.json",
+      "title": "CYBRA IT Evolution Task",
+      "type": "it_evolution_task",
+      "status": "OPEN"
+    },
+    {
+      "short": "b1b7d5984132",
+      "path": "data/cybra_it_evolution/tasks/task_b1b7d5984132083f.json",
+      "title": "CYBRA IT Evolution Task",
+      "type": "it_evolution_task",
+      "status": "OPEN"
+    },
+    {
+      "short": "c524733d2737",
+      "path": "data/cybra_it_evolution/tasks/task_c524733d2737cfd5.json",
+      "title": "CYBRA IT Evolution Task",
+      "type": "it_evolution_task",
+      "status": "OPEN"
+    },
+    {
+      "short": "34ccf8f3eae9",
+      "path": "data/auto_cases/tasks/vehicle_001_g580_it_task_20260604_134929.json",
+      "title": "IT Department AI task: Vehicle 001 Mercedes-Benz G 580 non-delivery evidence",
+      "type": "it_evolution_task",
+      "status": "VEHICLE_001_ADDED_TO_IT_DEPARTMENT_CASE"
+    },
+    {
+      "short": "6ee9ee494c71",
+      "path": "data/cybra_it_evolution/tasks/task_6ee9ee494c71a88f.json",
+      "title": "CYBRA IT Evolution Task",
+      "type": "it_evolution_task",
+      "status": "OPEN"
+    },
+    {
+      "short": "2785891ed18b",
+      "path": "data/auto_cases/tasks/auto_non_delivery_it_task_20260604_134358.json",
+      "title": "IT Department AI task: three Mercedes G500/G580 non-delivery dispute",
+      "type": "it_evolution_task",
+      "status": "IT_TASK_CREATED_FROZEN_INTERNAL_PENDING_EVIDENCE"
+    },
+    {
+      "short": "9d9ac53a9dab",
+      "path": "data/mainnet_prepare/mainnet_prepare_approved_task.json",
+      "title": "Solana mainnet prepare approved",
+      "type": "mainnet_prepare_approved_task",
+      "status": "MAINNET_PREPARE_APPROVED_NOT_EXECUTED"
+    },
+    {
+      "short": "1fa3b40866e2",
+      "path": "data/cybra_it_evolution/tasks/task_1fa3b40866e29bfa.json",
+      "title": "CYBRA IT Evolution Task",
+      "type": "it_evolution_task",
+      "status": "OPEN"
+    },
+    {
+      "short": "1934ee899077",
+      "path": "data/cybra_it_evolution/tasks/task_1934ee899077ad0b.json",
+      "title": "CYBRA IT Evolution Task",
+      "type": "it_evolution_task",
+      "status": "OPEN"
+    },
+    {
+      "short": "e0fa08419588",
+      "path": "data/cybra_it_evolution/tasks/task_e0fa084195880c53.json",
+      "title": "CYBRA IT Evolution Task",
+      "type": "it_evolution_task",
+      "status": "OPEN"
+    },
+    {
+      "short": "1c88227ba82b",
+      "path": "data/cybra_it_evolution/tasks/task_1c88227ba82bf5f7.json",
+      "title": "CYBRA IT Evolution Task",
+      "type": "it_evolution_task",
+      "status": "OPEN"
+    },
+    {
+      "short": "8d829d50a11f",
+      "path": "data/cybra_it_evolution/tasks/task_8d829d50a11f270b.json",
+      "title": "CYBRA IT Evolution Task",
+      "type": "it_evolution_task",
+      "status": "OPEN"
+    },
+    {
+      "short": "10f21a0e2a60",
+      "path": "data/cybra_it_evolution/tasks/task_10f21a0e2a606963.json",
+      "title": "CYBRA IT Evolution Task",
+      "type": "it_evolution_task",
+      "status": "OPEN"
+    },
+    {
+      "short": "fad384824529",
+      "path": "data/cybra_it_evolution/tasks/task_fad384824529396d.json",
+      "title": "CYBRA IT Evolution Task",
+      "type": "it_evolution_task",
+      "status": "OPEN"
+    },
+    {
+      "short": "6568fd6d5bc7",
+      "path": "data/cybra_it_evolution/tasks/task_6568fd6d5bc7ac75.json",
+      "title": "CYBRA IT Evolution Task",
+      "type": "it_evolution_task",
+      "status": "OPEN"
+    },
+    {
+      "short": "f7904f833555",
+      "path": "data/cybra_it_evolution/tasks/task_f7904f8335558e12.json",
+      "title": "CYBRA IT Evolution Task",
+      "type": "it_evolution_task",
+      "status": "OPEN"
+    },
+    {
+      "short": "3d0bcabacc81",
+      "path": "data/cybra_it_evolution/tasks/task_3d0bcabacc814986.json",
+      "title": "CYBRA IT Evolution Task",
+      "type": "it_evolution_task",
+      "status": "OPEN"
+    }
+  ],
+  "safety": {
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false
+  },
+  "double_sha": "8a3f96e56b144ce43e6e699ab3eefbdf0c1e304fbf30e2f115fdf2f7135cf209"
+}
