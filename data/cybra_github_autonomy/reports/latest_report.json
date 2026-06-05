@@ -1,7 +1,7 @@
 {
   "status": "github_autonomy_cycle_completed",
-  "time": 1780604902.686938,
-  "time_iso": "2026-06-04T20:28:22+0000",
+  "time": 1780635077.7481172,
+  "time_iso": "2026-06-05T04:51:17+0000",
   "environment": "github-actions",
   "github_actions": "true",
   "codespaces": "false",
@@ -61,7 +61,7 @@
       "cmd": "bash cybra_redis_committee.sh ensure",
       "ok": true,
       "code": 0,
-      "stdout_tail": "REDIS_OK: True\nEVENT: redis_ok\nMESSAGE: already_running\nDOUBLE_SHA: 17ba72a5e47e8c6c2a85aa228eff214cbe316aaf2d4fcb8af2951e71a7c14f9a",
+      "stdout_tail": "REDIS_OK: True\nEVENT: redis_ok\nMESSAGE: already_running\nDOUBLE_SHA: 2b0a6d0d65cf2623521edee56ec94ad0115b6b824d726958d94e92b47388c038",
       "stderr_tail": ""
     },
     {
@@ -82,7 +82,7 @@
       "cmd": "bash cybra_autoheal.sh cycle",
       "ok": true,
       "code": 0,
-      "stdout_tail": "✅ AI Block Enforcer cycle complete\nCONVERTED: 10\nSKIPPED: 2\nMEMPOOL: 0\nMINED_TASK_BLOCKS: 8\nPOOL_QUEUE: 8\n✅ closed SHA bridge dispatch complete\nDISPATCHED: 0\nSKIPPED: 0\nTASK_MEMPOOL: 0\nPOOL_QUEUE: 8\nBRIDGE_OUTBOX: 0\n✅ closed SHA bridge dispatch complete\nDISPATCHED: 0\nSKIPPED: 0\nTASK_MEMPOOL: 0\nPOOL_QUEUE: 9\nBRIDGE_OUTBOX: 0\n✅ closed SHA pool bridge cycle complete\nMINING_SYSTEM_RAN: ['bash cybra_ai_blocks.sh until-done']\nPONG\nAI_BLOCK_INBOX: 0\nTASK_BLOCK_MEMPOOL: 0\nPOOL_MINING_BLOCKS: 9\nBRIDGE_OUTBOX: 0\nBRIDGE_SEALED: 0\nBRIDGE_SEEN: 0\nTASK_BLOCKS_MINED: 9\nPARLIAMENT_QUEUE: 0\nPARLIAMENT_FAILED: 0\nREPORT_EXISTS: True\n✅ snapshot created\nSNAPSHOT: SNAP-20260604_202803\nDOUBLE_SHA: 950203db1ce255bd0fc88b1682fc9e7cb8e9a13a301d6b4763497d669b90b948\n✅ repair completed\nREPAIRED: 8\nWARNINGS: 0\nDOUBLE_SHA: c3d6fa5a42fb1a960621bab053f2547ce98802f0ae9369801a7671fdf7c7af64\n✅ tasks dispatched\nTASKS: 8\nSEAL: e6db9d31ce4026c0a98758dfba50f3344c329023b9d9d23a04ce58e96dd9a3da\n✅ AutoHeal 7LVL report generated\nHEALTH_OK: True\nSEAL: 4ec8ffd11867300ebfae048ca70e7efa16d4b5dee87585fe8ac23be812ff6af0\nREPORT: posts/cybra_autoheal_7lvl_report.md\nPROOF: proofs/cybra_autoheal_7lvl.sha256",
+      "stdout_tail": "✅ AI Block Enforcer cycle complete\nCONVERTED: 10\nSKIPPED: 2\nMEMPOOL: 0\nMINED_TASK_BLOCKS: 8\nPOOL_QUEUE: 8\n✅ closed SHA bridge dispatch complete\nDISPATCHED: 0\nSKIPPED: 0\nTASK_MEMPOOL: 0\nPOOL_QUEUE: 8\nBRIDGE_OUTBOX: 0\n✅ closed SHA bridge dispatch complete\nDISPATCHED: 0\nSKIPPED: 0\nTASK_MEMPOOL: 0\nPOOL_QUEUE: 9\nBRIDGE_OUTBOX: 0\n✅ closed SHA pool bridge cycle complete\nMINING_SYSTEM_RAN: ['bash cybra_ai_blocks.sh until-done']\nPONG\nAI_BLOCK_INBOX: 0\nTASK_BLOCK_MEMPOOL: 0\nPOOL_MINING_BLOCKS: 9\nBRIDGE_OUTBOX: 0\nBRIDGE_SEALED: 0\nBRIDGE_SEEN: 0\nTASK_BLOCKS_MINED: 9\nPARLIAMENT_QUEUE: 0\nPARLIAMENT_FAILED: 0\nREPORT_EXISTS: True\n✅ snapshot created\nSNAPSHOT: SNAP-20260605_045058\nDOUBLE_SHA: e49bc64e5fb37e349fe2661cf420263327185c8d9590347137f870c29a620170\n✅ repair completed\nREPAIRED: 8\nWARNINGS: 0\nDOUBLE_SHA: 03a8b2453479bad5a80e17bb3d42940f0048f6f562e1a76dc48e383e7081f50e\n✅ tasks dispatched\nTASKS: 8\nSEAL: 5f10c70e454cafa1f12c2f2f625978779b3579483bf89150c76c34c65dfdbb3a\n✅ AutoHeal 7LVL report generated\nHEALTH_OK: True\nSEAL: 1f95e0f7021185737bffbf8071592e1aec4e03b6c88c1a66d8a58dc6db3f4c23\nREPORT: posts/cybra_autoheal_7lvl_report.md\nPROOF: proofs/cybra_autoheal_7lvl.sha256",
       "stderr_tail": ""
     },
     {
@@ -96,14 +96,14 @@
       "cmd": "bash cybra_kibra_stats.sh report",
       "ok": true,
       "code": 0,
-      "stdout_tail": "5bf90b14f36493cb26494bdcaab`\n\n## Difficulty\n\n`{'2': 6, '3': 2, '4': 2}`\n\n## Task blocks\n\n- Task block files: **59**\n- Mempool: **0**\n- Mined: **9**\n- Pool queue: **9**\n\n## Parliament\n\n- Queue: **0**\n- Results: **15**\n- Failed: **0**\n\n## Mint / Finance\n\n- Mint audit: **0**\n- Mint promotion: **0**\n- Mint management: **0**\n- Mint finance: **0**\n- Sell plans: **0**\n- Repair queue: **0**\n- Broken blocks: **0**\n\n## Bridge\n\n- Bridge outbox: **0**\n- Sealed packages: **0**\n- Manual anchor ready: **0**\n\n## Parliament recommendations\n\n- **growth** / `promotion`: Просувати KIBRA через utility: AI credits, proof services, bridge packages, developer marketplace, pool mining. Action: `bash cybra_mint_promo.sh report`\n- **growth** / `next_blocks`: Наступні AI-завдання не відправляти напряму: переводити у task-blocks і давати пулам на майнинг. Action: `bash cybra_ai_blocks.sh until-done`\n\n\n## AI tasks\n\n- Prepared: **2**\n- Submitted now: **0**\n\n## Safety\n\n- Real sell: **false**\n- Real payment: **false**\n- Fake price: **false**\n- Fake volume: **false**\n- External tx: **false**\n- Manual OWNER approval required: **true**\n\n## Double SHA\n\n`71d19216c7464e037004a6b12562e94cda2b2e08fa75e2810fbb9990fb709452`",
+      "stdout_tail": "5bf90b14f36493cb26494bdcaab`\n\n## Difficulty\n\n`{'2': 6, '3': 2, '4': 2}`\n\n## Task blocks\n\n- Task block files: **59**\n- Mempool: **0**\n- Mined: **9**\n- Pool queue: **9**\n\n## Parliament\n\n- Queue: **0**\n- Results: **15**\n- Failed: **0**\n\n## Mint / Finance\n\n- Mint audit: **0**\n- Mint promotion: **0**\n- Mint management: **0**\n- Mint finance: **0**\n- Sell plans: **0**\n- Repair queue: **0**\n- Broken blocks: **0**\n\n## Bridge\n\n- Bridge outbox: **0**\n- Sealed packages: **0**\n- Manual anchor ready: **0**\n\n## Parliament recommendations\n\n- **growth** / `promotion`: Просувати KIBRA через utility: AI credits, proof services, bridge packages, developer marketplace, pool mining. Action: `bash cybra_mint_promo.sh report`\n- **growth** / `next_blocks`: Наступні AI-завдання не відправляти напряму: переводити у task-blocks і давати пулам на майнинг. Action: `bash cybra_ai_blocks.sh until-done`\n\n\n## AI tasks\n\n- Prepared: **2**\n- Submitted now: **0**\n\n## Safety\n\n- Real sell: **false**\n- Real payment: **false**\n- Fake price: **false**\n- Fake volume: **false**\n- External tx: **false**\n- Manual OWNER approval required: **true**\n\n## Double SHA\n\n`f2de3144be63c0552a6aebb503f2ebc7229dc6ec0d87c0e6870d7e7b73b4f1ba`",
       "stderr_tail": ""
     },
     {
       "cmd": "bash cybra_market_proof_collector.sh collect",
       "ok": true,
       "code": 0,
-      "stdout_tail": "✅ market proof collector report generated\nSTATUS: no_valid_market_proof\nVALID: False\nREPORT: posts/kibra_market_proof_collector_report.md\n# KIBRA Market Proof Collector\n\nStatus: **no_valid_market_proof**\n\nValid: **False**\nPrice USD/KIBRA: **0**\n\nErrors:\n\n[\n  \"provider_name порожній\",\n  \"нема proof_source або proof_reference\",\n  \"provider_review_passed має бути true\",\n  \"owner_approval має бути true\",\n  \"unknown proof_type\"\n]\n\nRule:\n\nБез real pool/orderbook/provider proof ціна не підтверджується як ринкова.\n\nDouble SHA:\n\ne4fe214817805810be1d39babf27db26281aa6e57762d861ad65192ae11a7553",
+      "stdout_tail": "✅ market proof collector report generated\nSTATUS: no_valid_market_proof\nVALID: False\nREPORT: posts/kibra_market_proof_collector_report.md\n# KIBRA Market Proof Collector\n\nStatus: **no_valid_market_proof**\n\nValid: **False**\nPrice USD/KIBRA: **0**\n\nErrors:\n\n[\n  \"provider_name порожній\",\n  \"нема proof_source або proof_reference\",\n  \"provider_review_passed має бути true\",\n  \"owner_approval має бути true\",\n  \"unknown proof_type\"\n]\n\nRule:\n\nБез real pool/orderbook/provider proof ціна не підтверджується як ринкова.\n\nDouble SHA:\n\n798a06a75780e828ad6082dcc77e1aadadccdee40c7308d95db60d6318d098df",
       "stderr_tail": ""
     },
     {
@@ -128,7 +128,7 @@
       "stderr_tail": ""
     }
   ],
-  "ai_task_double_sha": "1b1e416ca41b44fc4bdc7c8c1a55e00b97abba0b7d16252dde272ebfdf0910ee",
+  "ai_task_double_sha": "2c7775b3cc1a5ce1d4d6dc01573a4f239504b9102a7a6c293afb5a5ff432dfa9",
   "recommendations": [
     "Run CYBRA in Codespaces for interactive dashboard and development.",
     "Run GitHub Actions scheduled cycle for autonomous safe report/proof refresh.",
@@ -136,5 +136,5 @@
     "Provide real bank IBAN or PSP provider for payment readiness.",
     "Provide real pool/orderbook/provider/reserve proof for KIBRA market price."
   ],
-  "double_sha": "e00c919bc9eb77a9b6c4ca741f2b8dc1f08d3cc63ddf921a47845ab47d1cdfce"
+  "double_sha": "0c6b9c653a563b7c02f7abc46442c82dd3ca1cec5aba5a4789746aff854fff32"
 }
