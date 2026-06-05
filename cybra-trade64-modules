@@ -1,0 +1,56 @@
+#!/data/data/com.termux/files/usr/bin/bash
+set +e
+cd "$HOME/CYBRA" || exit 1
+
+CMD="${1:-list}"
+N="${2:-}"
+
+case "$CMD" in
+  list)
+    cat trading_bot/v64/modules/ALL_MODULES_INDEX.md
+    ;;
+  report)
+    cat posts/cybra_trading_bot_6000_modules_report.md
+    ;;
+  original)
+    echo "FILE: trading_bot/v64/models/original_full_bot_6000_latest.mjs"
+    wc -l trading_bot/v64/models/original_full_bot_6000_latest.mjs
+    sha256sum trading_bot/v64/models/original_full_bot_6000_latest.mjs
+    ;;
+  module)
+    if [ -z "$N" ]; then
+      echo "Usage: cybra-trade64-modules module 64"
+      exit 1
+    fi
+    NN="$(printf "%02d" "$N")"
+    echo "=== MODULE $NN ==="
+    cat "trading_bot/v64/modules/$NN/INDEX.md" 2>/dev/null || true
+    echo
+    ls -lh "trading_bot/v64/modules/$NN" 2>/dev/null || true
+    ;;
+  show)
+    if [ -z "$N" ]; then
+      echo "Usage: cybra-trade64-modules show 64"
+      exit 1
+    fi
+    NN="$(printf "%02d" "$N")"
+    for f in trading_bot/v64/modules/$NN/module_${NN}_*.mjs; do
+      [ -f "$f" ] || continue
+      echo "===== $f ====="
+      sed -n '1,220p' "$f"
+      echo
+    done
+    ;;
+  verify)
+    sha256sum -c proofs/cybra_trading_bot_6000_modules.sha256
+    ;;
+  *)
+    echo "Usage:"
+    echo "  cybra-trade64-modules list"
+    echo "  cybra-trade64-modules report"
+    echo "  cybra-trade64-modules original"
+    echo "  cybra-trade64-modules module 64"
+    echo "  cybra-trade64-modules show 64"
+    echo "  cybra-trade64-modules verify"
+    ;;
+esac
