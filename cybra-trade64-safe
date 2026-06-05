@@ -1,0 +1,7 @@
+#!/data/data/com.termux/files/usr/bin/bash
+cd "$HOME/CYBRA" || exit 1
+export CYBRA_SAFE_MODE=true
+export AUTO_SELECT_MODE=1
+export ORCHESTRATOR_MODE=false
+export BINANCE_TESTNET=true
+node trading_bot/v64/models/original_full_bot_6000_fixed_safe.mjs

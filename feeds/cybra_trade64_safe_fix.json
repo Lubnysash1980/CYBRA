@@ -1,0 +1,15 @@
+{
+  "status": "TRADE64_SAFE_SYNTAX_FIX_CREATED",
+  "timestamp": "2026-06-05T14:37:56",
+  "original_file": "trading_bot/v64/models/original_full_bot_6000_latest.mjs",
+  "original_sha256": "5452e639ea54cfc5bb9e3ee54f4c188f3bbd666de0a17ecd2e2bc09603cf23e8",
+  "backup_file": "trading_bot/v64/models/backups/original_full_bot_6000_latest_20260605_143756.mjs",
+  "fixed_file": "trading_bot/v64/models/original_full_bot_6000_fixed_safe.mjs",
+  "fixed_sha256": "c934260d1a5ecddeb9a7f3e90befb5727086dca75d8ee2b1c17f123811f3dc67",
+  "module64_preserved": true,
+  "original_6000_lines_preserved": true,
+  "real_trading_now": false,
+  "live_force_trading_disabled_by_default": true,
+  "automatic_external_tx": false,
+  "manual_OWNER_approval_required": true
+}
