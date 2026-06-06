@@ -1,10 +1,10 @@
 {
-  "task_id": "ORACLE-MGS-1780661179-ea6d58c2",
+  "task_id": "KIBRA-IT-1780752627-90063dce",
   "timestamp": "2026-06-06T16:30:42",
-  "source_file": "data/cybra_oracle/tasks/ORACLE-MGS-1780661179-ea6d58c2.json",
+  "source_file": "data/cybra_oracle/tasks/KIBRA-IT-1780752627-90063dce.json",
   "status": "ORACLE_ACCEPTED",
   "runner": "Oracle VPS CYBRA Agent",
-  "title": "Upgrade v64 real-safe runner",
+  "title": "Restart watchdog patch",
   "target": "all",
   "committees": [
     "mgs_analytics",
@@ -18,8 +18,6 @@
     "real_trading_now": false,
     "live_force_trading_disabled": true,
     "automatic_external_tx": false,
-    "automatic_SWIFT": false,
-    "manual_OWNER_approval_required": true,
-    "mainnet_deploy_allowed": false
+    "manual_OWNER_approval_required": true
   }
 }
