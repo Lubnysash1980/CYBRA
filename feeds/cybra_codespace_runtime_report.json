@@ -1,12 +1,12 @@
 {
   "status": "codespace_runtime_cycle_completed",
   "environment": "github-actions",
-  "time": 1780655362.8570573,
-  "time_iso": "2026-06-05T10:29:22+0000",
+  "time": 1780736802.0540173,
+  "time_iso": "2026-06-06T09:06:42+0000",
   "before": {
     "status": "codespace_runtime_status",
-    "time": 1780655304.1188378,
-    "time_iso": "2026-06-05T10:28:24+0000",
+    "time": 1780736743.3933077,
+    "time_iso": "2026-06-06T09:05:43+0000",
     "backend": "GITHUB_ACTIONS_EPHEMERAL_BACKEND",
     "root": "/home/runner/work/CYBRA/CYBRA",
     "redis": true,
@@ -58,12 +58,12 @@
       "manual_OWNER_approval_required": true
     },
     "health_ok": true,
-    "double_sha": "9d9314c7d3a676c448ea81003f82e848e268e39c93cf62c4ae417905a5c338ea"
+    "double_sha": "6a8029461911b8a23b5156afeeec17d624b4860f56ee0ed973562b5147fd5456"
   },
   "after": {
     "status": "codespace_runtime_status",
-    "time": 1780655362.81944,
-    "time_iso": "2026-06-05T10:29:22+0000",
+    "time": 1780736802.019639,
+    "time_iso": "2026-06-06T09:06:42+0000",
     "backend": "GITHUB_ACTIONS_EPHEMERAL_BACKEND",
     "root": "/home/runner/work/CYBRA/CYBRA",
     "redis": true,
@@ -115,14 +115,14 @@
       "manual_OWNER_approval_required": true
     },
     "health_ok": true,
-    "double_sha": "7b1e03990dafc255ee4ab3f7a7099469276c67ef0b0fb73f48832ddf3da1549e"
+    "double_sha": "f37d4a931303138474138cec12ccb9c5d7c079405c5d93d62fab60eb6e5908d0"
   },
   "commands": [
     {
       "cmd": "bash cybra_redis_committee.sh ensure",
       "ok": true,
       "code": 0,
-      "stdout_tail": "REDIS_OK: True\nEVENT: redis_ok\nMESSAGE: already_running\nDOUBLE_SHA: 24e4b288fdc941041316b19a77177df9ccfe12c19432440a9b2a639b9ad238c0",
+      "stdout_tail": "REDIS_OK: True\nEVENT: redis_ok\nMESSAGE: already_running\nDOUBLE_SHA: 638ab3799ff8604d65196706def4bbc3c16fc24072c7f972e2b6a25374e8d8dd",
       "stderr_tail": ""
     },
     {
@@ -143,7 +143,7 @@
       "cmd": "bash cybra_autoheal.sh cycle",
       "ok": true,
       "code": 0,
-      "stdout_tail": "K_MEMPOOL: 0\nPOOL_QUEUE: 8\nBRIDGE_OUTBOX: 0\n✅ closed SHA bridge dispatch complete\nDISPATCHED: 0\nSKIPPED: 0\nTASK_MEMPOOL: 0\nPOOL_QUEUE: 9\nBRIDGE_OUTBOX: 0\n✅ closed SHA pool bridge cycle complete\nMINING_SYSTEM_RAN: ['bash cybra_ai_blocks.sh until-done']\nPONG\nAI_BLOCK_INBOX: 0\nTASK_BLOCK_MEMPOOL: 0\nPOOL_MINING_BLOCKS: 9\nBRIDGE_OUTBOX: 0\nBRIDGE_SEALED: 0\nBRIDGE_SEEN: 0\nTASK_BLOCKS_MINED: 9\nPARLIAMENT_QUEUE: 0\nPARLIAMENT_FAILED: 0\nREPORT_EXISTS: True\n✅ snapshot created\nSNAPSHOT: SNAP-20260605_102902\nDOUBLE_SHA: a3a8babb2db47c7441a76cd91ffc043e8fa9823515b4be57f1ac15d97605d2bf\n✅ repair completed\nREPAIRED: 8\nWARNINGS: 0\nDOUBLE_SHA: c5c11d611b07ed407995151f673ec22a167b83029e948cf60f0c6ef4a1fbfa75\n✅ tasks dispatched\nTASKS: 8\nSEAL: f224dcc34138f584689c1639ee512f4bc76e4ce94750ada0859ccd100f1d300c\n✅ AutoHeal 7LVL report generated\nHEALTH_OK: True\nSEAL: a7b6cfa89a780735bf55cc4eaac45b2789da7d3ee6fcd99791b8c0889a37859b\nREPORT: posts/cybra_autoheal_7lvl_report.md\nPROOF: proofs/cybra_autoheal_7lvl.sha256",
+      "stdout_tail": "K_MEMPOOL: 0\nPOOL_QUEUE: 8\nBRIDGE_OUTBOX: 0\n✅ closed SHA bridge dispatch complete\nDISPATCHED: 0\nSKIPPED: 0\nTASK_MEMPOOL: 0\nPOOL_QUEUE: 9\nBRIDGE_OUTBOX: 0\n✅ closed SHA pool bridge cycle complete\nMINING_SYSTEM_RAN: ['bash cybra_ai_blocks.sh until-done']\nPONG\nAI_BLOCK_INBOX: 0\nTASK_BLOCK_MEMPOOL: 0\nPOOL_MINING_BLOCKS: 9\nBRIDGE_OUTBOX: 0\nBRIDGE_SEALED: 0\nBRIDGE_SEEN: 0\nTASK_BLOCKS_MINED: 9\nPARLIAMENT_QUEUE: 0\nPARLIAMENT_FAILED: 0\nREPORT_EXISTS: True\n✅ snapshot created\nSNAPSHOT: SNAP-20260606_090621\nDOUBLE_SHA: 15b8a1cae8d327234c821ce0eb584549d4d2ec764394a1f9b3b6d0924fc42906\n✅ repair completed\nREPAIRED: 8\nWARNINGS: 0\nDOUBLE_SHA: c36d9ba5b3340af0f7903ae40976f32334eb4f77eea699d40521f54664400245\n✅ tasks dispatched\nTASKS: 8\nSEAL: 7921250ac1cffda322b4f4c4344dbc50c6973d59251b10d861a1324fbb77d80a\n✅ AutoHeal 7LVL report generated\nHEALTH_OK: True\nSEAL: 12f1ec8fbb74e7cbd632c621c3fae4207f7c5e70f2589d0cd4b9b8954dd30ea5\nREPORT: posts/cybra_autoheal_7lvl_report.md\nPROOF: proofs/cybra_autoheal_7lvl.sha256",
       "stderr_tail": ""
     },
     {
@@ -157,7 +157,7 @@
       "cmd": "bash cybra_kibra_stats.sh report",
       "ok": true,
       "code": 0,
-      "stdout_tail": " Results: **15**\n- Failed: **0**\n\n## Mint / Finance\n\n- Mint audit: **0**\n- Mint promotion: **0**\n- Mint management: **0**\n- Mint finance: **0**\n- Sell plans: **0**\n- Repair queue: **0**\n- Broken blocks: **0**\n\n## Bridge\n\n- Bridge outbox: **0**\n- Sealed packages: **0**\n- Manual anchor ready: **0**\n\n## Parliament recommendations\n\n- **growth** / `promotion`: Просувати KIBRA через utility: AI credits, proof services, bridge packages, developer marketplace, pool mining. Action: `bash cybra_mint_promo.sh report`\n- **growth** / `next_blocks`: Наступні AI-завдання не відправляти напряму: переводити у task-blocks і давати пулам на майнинг. Action: `bash cybra_ai_blocks.sh until-done`\n\n\n## AI tasks\n\n- Prepared: **2**\n- Submitted now: **0**\n\n## Safety\n\n- Real sell: **false**\n- Real payment: **false**\n- Fake price: **false**\n- Fake volume: **false**\n- External tx: **false**\n- Manual OWNER approval required: **true**\n\n## Double SHA\n\n`9d26aacea8bd52da8fa54b5330f507df0e38981425b54671a3d3c7450fc534cc`",
+      "stdout_tail": " Results: **15**\n- Failed: **0**\n\n## Mint / Finance\n\n- Mint audit: **0**\n- Mint promotion: **0**\n- Mint management: **0**\n- Mint finance: **0**\n- Sell plans: **0**\n- Repair queue: **0**\n- Broken blocks: **0**\n\n## Bridge\n\n- Bridge outbox: **0**\n- Sealed packages: **0**\n- Manual anchor ready: **0**\n\n## Parliament recommendations\n\n- **growth** / `promotion`: Просувати KIBRA через utility: AI credits, proof services, bridge packages, developer marketplace, pool mining. Action: `bash cybra_mint_promo.sh report`\n- **growth** / `next_blocks`: Наступні AI-завдання не відправляти напряму: переводити у task-blocks і давати пулам на майнинг. Action: `bash cybra_ai_blocks.sh until-done`\n\n\n## AI tasks\n\n- Prepared: **2**\n- Submitted now: **0**\n\n## Safety\n\n- Real sell: **false**\n- Real payment: **false**\n- Fake price: **false**\n- Fake volume: **false**\n- External tx: **false**\n- Manual OWNER approval required: **true**\n\n## Double SHA\n\n`9e946c5bc4b9e48643a88861e51e416306d5bcfca56573af03fb91e66a4dd2f9`",
       "stderr_tail": ""
     },
     {
@@ -175,7 +175,7 @@
       "stderr_tail": ""
     }
   ],
-  "ai_task_sha": "0682a76b0dace7652a2ad8333f26ec2f4384659fad9061ff6cb8ee62959f81a3",
+  "ai_task_sha": "d86d1920f2e51a1954237886515746e34d5a44148f80618462f3af0d667eacb1",
   "double_backend": {
     "local_termux_backend_supported": true,
     "github_codespace_backend_supported": true,
@@ -196,5 +196,5 @@
     "automatic_external_tx": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "e7f5db0bc332a2384e8b2b4c7825926bccaaaecf7905d99d99aeae871f820f9e"
+  "double_sha": "d204e767b2a767a8de09df391215656382d03f0e54a13e3fa8cf93f10b4b4680"
 }
