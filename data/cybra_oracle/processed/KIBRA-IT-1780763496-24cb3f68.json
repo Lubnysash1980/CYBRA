@@ -1,10 +1,10 @@
 {
-  "task_id": "KIBRA-MENU-1780751508-29e1731a",
+  "task_id": "KIBRA-IT-1780763496-24cb3f68",
   "timestamp": "2026-06-06T19:32:43",
-  "source_file": "data/cybra_oracle/tasks/KIBRA-MENU-1780751508-29e1731a.json",
+  "source_file": "data/cybra_oracle/tasks/KIBRA-IT-1780763496-24cb3f68.json",
   "status": "ORACLE_ACCEPTED",
   "runner": "Oracle VPS CYBRA Agent",
-  "title": "токен",
+  "title": "Oracle runner upgrade",
   "target": "all",
   "committees": [
     "mgs_analytics",
