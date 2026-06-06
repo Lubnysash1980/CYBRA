@@ -1,23 +1,25 @@
 {
-  "task_id": "KIBRA-MENU-1780751508-29e1731a",
+  "task_id": "BAR-MGS-1780762571-a1591fbf",
   "timestamp": "2026-06-06T19:16:35",
-  "source_file": "data/cybra_oracle/tasks/KIBRA-MENU-1780751508-29e1731a.json",
+  "source_file": "data/cybra_oracle/tasks/BAR-MGS-1780762571-a1591fbf.json",
   "status": "ORACLE_ACCEPTED",
   "runner": "Oracle VPS CYBRA Agent",
-  "title": "токен",
+  "title": "пермішнс",
   "target": "all",
   "committees": [
-    "mgs_analytics",
-    "mgs_workers",
-    "mgs_it_department",
-    "mgs_restart_watchdog",
-    "mgs_integration"
+    "MGS Analytics",
+    "MGS Workers",
+    "MGS IT Department",
+    "MGS Restart Watchdog",
+    "MGS Integration"
   ],
   "action": "Task accepted by Oracle VPS. Heavy work stays on VPS/Codespace. Termux only controls.",
   "safety": {
     "real_trading_now": false,
     "live_force_trading_disabled": true,
     "automatic_external_tx": false,
+    "automatic_SWIFT": false,
+    "mainnet_deploy_allowed": false,
     "manual_OWNER_approval_required": true
   }
 }
