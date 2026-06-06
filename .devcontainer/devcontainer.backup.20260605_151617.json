@@ -1,0 +1,22 @@
+{
+  "name": "CYBRA Codespace Runtime",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "workspaceFolder": "/workspaces/CYBRA",
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "forwardPorts": [8099],
+  "portsAttributes": {
+    "8099": {
+      "label": "CYBRA Dashboard",
+      "onAutoForward": "notify"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python"
+      ]
+    }
+  }
+}

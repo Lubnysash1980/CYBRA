@@ -1,0 +1,28 @@
+{
+  "task_id": "MGS-1780660086-416fbad8",
+  "timestamp": "2026-06-05T14:48:06",
+  "title": "Upgrade v64 bot",
+  "body": "Переписать модуль 64 безопасно, без real trading, сохранить 6000 строк",
+  "target": "all",
+  "routes": [
+    "ai",
+    "parliament",
+    "it",
+    "codespace",
+    "mgs"
+  ],
+  "committees": [
+    "mgs_analytics",
+    "mgs_workers",
+    "mgs_it_department",
+    "mgs_restart_watchdog",
+    "mgs_integration"
+  ],
+  "status": "QUEUED",
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  }
+}

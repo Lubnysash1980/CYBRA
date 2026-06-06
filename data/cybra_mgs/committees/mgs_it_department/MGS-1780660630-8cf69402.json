@@ -1,0 +1,31 @@
+{
+  "task_id": "MGS-1780660630-8cf69402",
+  "timestamp": "2026-06-05T14:57:10",
+  "title": "Evolution v64 bot",
+  "body": "AI + IT + Cyber Parliament: перевірити v64/module64, зробити evolution patch без пошкодження старого коду, Binance+Bybit тільки public/paper mode",
+  "target": "all",
+  "routes": [
+    "ai",
+    "parliament",
+    "it",
+    "codespace",
+    "mgs"
+  ],
+  "committees": [
+    "mgs_analytics",
+    "mgs_workers",
+    "mgs_it_department",
+    "mgs_restart_watchdog",
+    "mgs_integration"
+  ],
+  "evolution_rule": "do_not_break_existing_system; patch_as_layer; preserve_module64; preserve_original_6000_lines",
+  "status": "QUEUED_FOR_TERMUX_GITHUB_CODESPACE",
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "binance_real_orders": false,
+    "bybit_real_orders": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "submissions": {
+    "total": 1,
+    "unique": 1,
+    "duplicate_groups": 0
+  },
+  "results": {
+    "total": 13,
+    "unique": 13,
+    "duplicate_groups": 0
+  },
+  "failed": {
+    "total": 1,
+    "unique": 1,
+    "duplicate_groups": 0
+  },
+  "retry": {
+    "total": 0,
+    "unique": 0,
+    "duplicate_groups": 0
+  },
+  "audit": {
+    "total": 13,
+    "unique": 10,
+    "duplicate_groups": 3
+  }
+}

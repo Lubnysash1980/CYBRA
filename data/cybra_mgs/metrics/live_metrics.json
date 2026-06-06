@@ -1,0 +1,42 @@
+{
+  "timestamp": "2026-06-05T14:57:16",
+  "status": "LIVE_CONTROL_CENTER_OK",
+  "ecosystem": "MGS_SCRIPT_ECOSYSTEM",
+  "termux_role": "CONTROL_BAR_ONLY",
+  "codespace_role": "EXECUTOR_WORKER",
+  "github_role": "SYNC_AND_AUDIT",
+  "committees": [
+    "mgs_analytics",
+    "mgs_workers",
+    "mgs_it_department",
+    "mgs_restart_watchdog",
+    "mgs_integration"
+  ],
+  "queues": {
+    "ai_block_inbox": 1,
+    "parliament_inbox": 1,
+    "it_department": 1,
+    "cybra_codespace_inbox": 1,
+    "cybra_mgs_all": 1
+  },
+  "tasks_total": 2,
+  "codespace_reports": 0,
+  "module64_ok": true,
+  "original_6000_lines_ok": true,
+  "evolution_score_percent": 88.23,
+  "market": {
+    "timestamp": "2026-06-05T14:57:16",
+    "symbol": "DOGEUSDT",
+    "binance_public_price": 0.08418,
+    "bybit_public_price": 0.08415,
+    "mode": "PUBLIC_DATA_ONLY_NO_REAL_ORDERS"
+  },
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "binance_real_orders": false,
+    "bybit_real_orders": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  }
+}

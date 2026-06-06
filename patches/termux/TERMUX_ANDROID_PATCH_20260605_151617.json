@@ -1,0 +1,18 @@
+{
+  "kind": "TERMUX_ANDROID_PATCH",
+  "title": "CYBRA Android Termux menu-bar signed patch",
+  "timestamp": "2026-06-05T15:16:19",
+  "target_file": "patches/termux/TERMUX_ANDROID_PATCH_20260605_151617.json",
+  "body": "Android Termux не виконує важкі процеси. Він керує Oracle VPS, CodeSpace, GitHub, AI, IT, Cyber Parliament і 5 MGS committees через menu-bar.",
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "automatic_SWIFT": false,
+    "mainnet_deploy_allowed": false,
+    "manual_OWNER_approval_required": true
+  },
+  "sha256": "44f5b8a03fe3c66bc77b6d46a883e0d5e0fd4d4daf0c6eaa26e937ca04c2595d",
+  "double_sha256": "0011315d785ac6f92807648479e47720f6c4340f9489d97c3a5e0f51f1d41652",
+  "signature_type": "CYBRA_DOUBLE_SHA256_LOCAL_SIGNATURE"
+}

@@ -1,0 +1,13 @@
+{
+  "classes": [
+    "legal",
+    "real_estate",
+    "payments",
+    "token",
+    "workers",
+    "watchdog",
+    "github_pages",
+    "research"
+  ],
+  "status": "initialized"
+}

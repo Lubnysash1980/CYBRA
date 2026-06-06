@@ -1,0 +1,3 @@
+#!/data/data/com.termux/files/usr/bin/bash
+cd "$HOME/CYBRA" || exit 1
+python3 kibra_menu.py "$@"

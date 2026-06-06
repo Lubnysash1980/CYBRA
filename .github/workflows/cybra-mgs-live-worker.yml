@@ -1,0 +1,26 @@
+name: CYBRA MGS Live Worker
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'data/cybra_mgs/tasks/**'
+      - 'scripts/cybra_codespace_mgs_live_worker.py'
+
+permissions:
+  contents: write
+
+jobs:
+  run-mgs-worker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run MGS Codespace/GitHub worker
+        run: python3 scripts/cybra_codespace_mgs_live_worker.py
+      - name: Commit worker reports
+        run: |
+          git config user.name "cybra-mgs-live-bot"
+          git config user.email "cybra-mgs-live-bot@users.noreply.github.com"
+          git add data/cybra_mgs/codespace feeds/cybra_mgs_codespace_worker.json posts/cybra_mgs_codespace_worker.md proofs/cybra_mgs_codespace_worker.sha256 || true
+          git commit -m "update MGS live worker reports" || true
+          git push || true

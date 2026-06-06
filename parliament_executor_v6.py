@@ -200,3 +200,20 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+# CYBRA_EXECUTOR_LOOP_PATCH_V1
+if __name__ == "__main__":
+    import time
+    print("=== CYBRA PARLIAMENT EXECUTOR V6 LOOP PATCH ACTIVE ===")
+    while True:
+        try:
+            main()
+        except NameError:
+            # fallback: file has no main(), execute one-shot logic is missing
+            print("ERROR: main() not found in parliament_executor_v6.py")
+            time.sleep(5)
+        except Exception as e:
+            print("EXECUTOR_LOOP_ERROR:", e)
+            time.sleep(5)
+        time.sleep(1)

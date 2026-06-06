@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-06-05T14:48:06",
+  "status": "OK",
+  "ecosystem": "MGS_SCRIPT_ECOSYSTEM",
+  "committees_count": 5,
+  "committees": [
+    "mgs_analytics",
+    "mgs_workers",
+    "mgs_it_department",
+    "mgs_restart_watchdog",
+    "mgs_integration"
+  ],
+  "queues": {
+    "ai_block_inbox": 0,
+    "parliament_inbox": 0,
+    "it_department": 0,
+    "cybra_codespace_inbox": 0,
+    "cybra_mgs_all": 0
+  },
+  "local_tasks": 0,
+  "codespace_tasks": 0,
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "patch": "KIBRA_MENU_PATCH",
+  "timestamp": "20260605_192501",
+  "commands": ["kibra-menu", "kibra"],
+  "files": ["kibra_menu.py", "kibra-menu"],
+  "purpose": "Main KIBRA menu-bar for Android Termux control of Oracle, Codespace, GitHub, AI, IT, Cyber Parliament.",
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  }
+}

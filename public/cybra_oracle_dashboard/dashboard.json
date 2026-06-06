@@ -1,0 +1,384 @@
+{
+  "updated": "2026-06-06T16:27:52",
+  "status": {
+    "timestamp": "2026-06-06T16:27:52",
+    "status": "ORACLE_VPS_OK",
+    "role": "MAIN_REMOTE_RUNNER",
+    "termux_role": "CONTROL_BAR_ONLY",
+    "github_role": "SYNC_AND_DEPLOY",
+    "codespace_role": "SECONDARY_WORKSPACE",
+    "oracle_role": "HEAVY_PROCESS_RUNNER",
+    "committees": [
+      "mgs_analytics",
+      "mgs_workers",
+      "mgs_it_department",
+      "mgs_restart_watchdog",
+      "mgs_integration"
+    ],
+    "tasks_total": 22,
+    "processed_total": 12,
+    "last_processed": [
+      {
+        "task_id": "BAR-MGS-1780673954-8825cfa4",
+        "timestamp": "2026-06-06T16:27:52",
+        "source_file": "data/cybra_oracle/tasks/BAR-MGS-1780673954-8825cfa4.json",
+        "status": "ORACLE_ACCEPTED",
+        "runner": "Oracle VPS CYBRA Agent",
+        "title": "Daily evolution safe upgrade",
+        "target": "all",
+        "committees": [
+          "MGS Analytics",
+          "MGS Workers",
+          "MGS IT Department",
+          "MGS Restart Watchdog",
+          "MGS Integration"
+        ],
+        "action": "Task accepted by Oracle VPS. Heavy work stays on VPS/Codespace. Termux only controls.",
+        "safety": {
+          "real_trading_now": false,
+          "live_force_trading_disabled": true,
+          "automatic_external_tx": false,
+          "automatic_SWIFT": false,
+          "mainnet_deploy_allowed": false,
+          "manual_OWNER_approval_required": true
+        }
+      },
+      {
+        "task_id": "KIBRA-IT-1780752324-3418298b",
+        "timestamp": "2026-06-06T16:27:52",
+        "source_file": "data/cybra_oracle/tasks/KIBRA-IT-1780752324-3418298b.json",
+        "status": "ORACLE_ACCEPTED",
+        "runner": "Oracle VPS CYBRA Agent",
+        "title": "пермішнс",
+        "target": "all",
+        "committees": [
+          "mgs_analytics",
+          "mgs_workers",
+          "mgs_it_department",
+          "mgs_restart_watchdog",
+          "mgs_integration"
+        ],
+        "action": "Task accepted by Oracle VPS. Heavy work stays on VPS/Codespace. Termux only controls.",
+        "safety": {
+          "real_trading_now": false,
+          "live_force_trading_disabled": true,
+          "automatic_external_tx": false,
+          "manual_OWNER_approval_required": true
+        }
+      },
+      {
+        "task_id": "KIBRA-IT-1780752441-62484a31",
+        "timestamp": "2026-06-06T16:27:52",
+        "source_file": "data/cybra_oracle/tasks/KIBRA-IT-1780752441-62484a31.json",
+        "status": "ORACLE_ACCEPTED",
+        "runner": "Oracle VPS CYBRA Agent",
+        "title": "Repair v64 module64 runner",
+        "target": "all",
+        "committees": [
+          "mgs_analytics",
+          "mgs_workers",
+          "mgs_it_department",
+          "mgs_restart_watchdog",
+          "mgs_integration"
+        ],
+        "action": "Task accepted by Oracle VPS. Heavy work stays on VPS/Codespace. Termux only controls.",
+        "safety": {
+          "real_trading_now": false,
+          "live_force_trading_disabled": true,
+          "automatic_external_tx": false,
+          "manual_OWNER_approval_required": true
+        }
+      },
+      {
+        "task_id": "KIBRA-IT-1780752454-758d2281",
+        "timestamp": "2026-06-06T16:27:52",
+        "source_file": "data/cybra_oracle/tasks/KIBRA-IT-1780752454-758d2281.json",
+        "status": "ORACLE_ACCEPTED",
+        "runner": "Oracle VPS CYBRA Agent",
+        "title": "Restart watchdog patch",
+        "target": "all",
+        "committees": [
+          "mgs_analytics",
+          "mgs_workers",
+          "mgs_it_department",
+          "mgs_restart_watchdog",
+          "mgs_integration"
+        ],
+        "action": "Task accepted by Oracle VPS. Heavy work stays on VPS/Codespace. Termux only controls.",
+        "safety": {
+          "real_trading_now": false,
+          "live_force_trading_disabled": true,
+          "automatic_external_tx": false,
+          "manual_OWNER_approval_required": true
+        }
+      },
+      {
+        "task_id": "KIBRA-MENU-1780751007-acc83fba",
+        "timestamp": "2026-06-06T16:27:52",
+        "source_file": "data/cybra_oracle/tasks/KIBRA-MENU-1780751007-acc83fba.json",
+        "status": "ORACLE_ACCEPTED",
+        "runner": "Oracle VPS CYBRA Agent",
+        "title": "4",
+        "target": "all",
+        "committees": [
+          "mgs_analytics",
+          "mgs_workers",
+          "mgs_it_department",
+          "mgs_restart_watchdog",
+          "mgs_integration"
+        ],
+        "action": "Task accepted by Oracle VPS. Heavy work stays on VPS/Codespace. Termux only controls.",
+        "safety": {
+          "real_trading_now": false,
+          "live_force_trading_disabled": true,
+          "automatic_external_tx": false,
+          "manual_OWNER_approval_required": true
+        }
+      },
+      {
+        "task_id": "KIBRA-MENU-1780751074-a759a1cc",
+        "timestamp": "2026-06-06T16:27:52",
+        "source_file": "data/cybra_oracle/tasks/KIBRA-MENU-1780751074-a759a1cc.json",
+        "status": "ORACLE_ACCEPTED",
+        "runner": "Oracle VPS CYBRA Agent",
+        "title": "ракетна небезпека",
+        "target": "all",
+        "committees": [
+          "mgs_analytics",
+          "mgs_workers",
+          "mgs_it_department",
+          "mgs_restart_watchdog",
+          "mgs_integration"
+        ],
+        "action": "Task accepted by Oracle VPS. Heavy work stays on VPS/Codespace. Termux only controls.",
+        "safety": {
+          "real_trading_now": false,
+          "live_force_trading_disabled": true,
+          "automatic_external_tx": false,
+          "manual_OWNER_approval_required": true
+        }
+      },
+      {
+        "task_id": "KIBRA-MENU-1780751309-74ea01b0",
+        "timestamp": "2026-06-06T16:27:52",
+        "source_file": "data/cybra_oracle/tasks/KIBRA-MENU-1780751309-74ea01b0.json",
+        "status": "ORACLE_ACCEPTED",
+        "runner": "Oracle VPS CYBRA Agent",
+        "title": "бінарнік",
+        "target": "all",
+        "committees": [
+          "mgs_analytics",
+          "mgs_workers",
+          "mgs_it_department",
+          "mgs_restart_watchdog",
+          "mgs_integration"
+        ],
+        "action": "Task accepted by Oracle VPS. Heavy work stays on VPS/Codespace. Termux only controls.",
+        "safety": {
+          "real_trading_now": false,
+          "live_force_trading_disabled": true,
+          "automatic_external_tx": false,
+          "manual_OWNER_approval_required": true
+        }
+      },
+      {
+        "task_id": "KIBRA-MENU-1780751508-29e1731a",
+        "timestamp": "2026-06-06T16:27:52",
+        "source_file": "data/cybra_oracle/tasks/KIBRA-MENU-1780751508-29e1731a.json",
+        "status": "ORACLE_ACCEPTED",
+        "runner": "Oracle VPS CYBRA Agent",
+        "title": "токен",
+        "target": "all",
+        "committees": [
+          "mgs_analytics",
+          "mgs_workers",
+          "mgs_it_department",
+          "mgs_restart_watchdog",
+          "mgs_integration"
+        ],
+        "action": "Task accepted by Oracle VPS. Heavy work stays on VPS/Codespace. Termux only controls.",
+        "safety": {
+          "real_trading_now": false,
+          "live_force_trading_disabled": true,
+          "automatic_external_tx": false,
+          "manual_OWNER_approval_required": true
+        }
+      },
+      {
+        "task_id": "KIBRA-MENU-1780752188-455296f4",
+        "timestamp": "2026-06-06T16:27:52",
+        "source_file": "data/cybra_oracle/tasks/KIBRA-MENU-1780752188-455296f4.json",
+        "status": "ORACLE_ACCEPTED",
+        "runner": "Oracle VPS CYBRA Agent",
+        "title": "топ",
+        "target": "all",
+        "committees": [
+          "mgs_analytics",
+          "mgs_workers",
+          "mgs_it_department",
+          "mgs_restart_watchdog",
+          "mgs_integration"
+        ],
+        "action": "Task accepted by Oracle VPS. Heavy work stays on VPS/Codespace. Termux only controls.",
+        "safety": {
+          "real_trading_now": false,
+          "live_force_trading_disabled": true,
+          "automatic_external_tx": false,
+          "manual_OWNER_approval_required": true
+        }
+      },
+      {
+        "task_id": "ORACLE-MGS-1780661179-ea6d58c2",
+        "timestamp": "2026-06-06T16:27:52",
+        "source_file": "data/cybra_oracle/tasks/ORACLE-MGS-1780661179-ea6d58c2.json",
+        "status": "ORACLE_ACCEPTED",
+        "runner": "Oracle VPS CYBRA Agent",
+        "title": "Upgrade v64 real-safe runner",
+        "target": "all",
+        "committees": [
+          "mgs_analytics",
+          "mgs_workers",
+          "mgs_it_department",
+          "mgs_restart_watchdog",
+          "mgs_integration"
+        ],
+        "action": "Task accepted by Oracle VPS. Heavy work stays on VPS/Codespace. Termux only controls.",
+        "safety": {
+          "real_trading_now": false,
+          "live_force_trading_disabled": true,
+          "automatic_external_tx": false,
+          "automatic_SWIFT": false,
+          "manual_OWNER_approval_required": true,
+          "mainnet_deploy_allowed": false
+        }
+      }
+    ],
+    "evolution_percent": 100.0,
+    "git": {
+      "branch": "main",
+      "head": "813393881"
+    },
+    "module64": {
+      "original_6000_file": "trading_bot/v64/models/original_full_bot_6000_latest.mjs",
+      "original_line_count": 6133,
+      "module64_present": true,
+      "module64_files": [
+        "trading_bot/v64/modules/64/INDEX.md",
+        "trading_bot/v64/modules/64/module_64_part_01_ULTIMATE_FORCE_TRADE_NO_WINDOW.mjs",
+        "trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs"
+      ],
+      "modules_total_dirs": 66,
+      "module64_preserved": true
+    },
+    "dashboard": {
+      "path": "public/cybra_oracle_dashboard/index.html",
+      "port": 8099
+    },
+    "safety": {
+      "real_trading_now": false,
+      "live_force_trading_disabled": true,
+      "automatic_external_tx": false,
+      "automatic_SWIFT": false,
+      "manual_OWNER_approval_required": true,
+      "mainnet_deploy_allowed": false
+    }
+  },
+  "history": [
+    {
+      "ts": "2026-06-05T15:06:15",
+      "tasks": 2,
+      "processed": 2,
+      "evolution_percent": 80.0,
+      "module64": 1,
+      "oracle_alive": 1
+    },
+    {
+      "ts": "2026-06-05T15:06:15",
+      "tasks": 2,
+      "processed": 2,
+      "evolution_percent": 100.0,
+      "module64": 1,
+      "oracle_alive": 1
+    },
+    {
+      "ts": "2026-06-05T15:06:19",
+      "tasks": 2,
+      "processed": 2,
+      "evolution_percent": 100.0,
+      "module64": 1,
+      "oracle_alive": 1
+    },
+    {
+      "ts": "2026-06-05T15:16:20",
+      "tasks": 4,
+      "processed": 3,
+      "evolution_percent": 100.0,
+      "module64": 1,
+      "oracle_alive": 1
+    },
+    {
+      "ts": "2026-06-05T15:17:36",
+      "tasks": 4,
+      "processed": 3,
+      "evolution_percent": 100.0,
+      "module64": 1,
+      "oracle_alive": 1
+    },
+    {
+      "ts": "2026-06-05T15:20:24",
+      "tasks": 4,
+      "processed": 3,
+      "evolution_percent": 100.0,
+      "module64": 1,
+      "oracle_alive": 1
+    },
+    {
+      "ts": "2026-06-05T15:20:24",
+      "tasks": 4,
+      "processed": 3,
+      "evolution_percent": 100.0,
+      "module64": 1,
+      "oracle_alive": 1
+    },
+    {
+      "ts": "2026-06-05T15:21:43",
+      "tasks": 4,
+      "processed": 3,
+      "evolution_percent": 100.0,
+      "module64": 1,
+      "oracle_alive": 1
+    },
+    {
+      "ts": "2026-06-05T18:38:32",
+      "tasks": 4,
+      "processed": 3,
+      "evolution_percent": 100.0,
+      "module64": 1,
+      "oracle_alive": 1
+    },
+    {
+      "ts": "2026-06-05T19:31:01",
+      "tasks": 6,
+      "processed": 4,
+      "evolution_percent": 100.0,
+      "module64": 1,
+      "oracle_alive": 1
+    },
+    {
+      "ts": "2026-06-06T16:27:52",
+      "tasks": 22,
+      "processed": 12,
+      "evolution_percent": 100.0,
+      "module64": 1,
+      "oracle_alive": 1
+    }
+  ],
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "automatic_SWIFT": false,
+    "manual_OWNER_approval_required": true,
+    "mainnet_deploy_allowed": false
+  }
+}

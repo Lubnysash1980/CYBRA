@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CYBRA MGS Live</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+body { font-family: Arial, sans-serif; background:#080b12; color:#e8f0ff; margin:0; }
+header { padding:14px; background:#111827; position:sticky; top:0; z-index:2; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; padding:12px; }
+.card { background:#111827; border:1px solid #263247; border-radius:14px; padding:14px; }
+.big { font-size:32px; font-weight:bold; }
+.ok { color:#6ee7b7; }
+.warn { color:#fbbf24; }
+.bad { color:#fb7185; }
+button { background:#1f6feb; color:white; border:0; padding:10px 12px; border-radius:10px; margin:4px; }
+pre { white-space:pre-wrap; font-size:12px; }
+</style>
+</head>
+<body>
+<header>
+  <b>CYBRA MGS Live Control Center</b><br>
+  Termux Control → GitHub Sync → Codespace Executor → AI + IT + Cyber Parliament
+</header>
+
+<div class="grid">
+  <div class="card">
+    <div>Evolution</div>
+    <div class="big ok">88.23%</div>
+    <small>daily evolution score</small>
+  </div>
+  <div class="card">
+    <div>Tasks</div>
+    <div class="big">2</div>
+    <small>MGS queued tasks</small>
+  </div>
+  <div class="card">
+    <div>Codespace reports</div>
+    <div class="big">0</div>
+    <small>executor output</small>
+  </div>
+  <div class="card">
+    <div>Module 64</div>
+    <div class="big ok">OK</div>
+    <small>v64 preserved</small>
+  </div>
+  <div class="card">
+    <div>Binance DOGEUSDT</div>
+    <div class="big">0.08418</div>
+    <small>public data only</small>
+  </div>
+  <div class="card">
+    <div>Bybit DOGEUSDT</div>
+    <div class="big">0.08415</div>
+    <small>public data only</small>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="card">
+    <h3>Evolution curve</h3>
+    <canvas id="evo"></canvas>
+  </div>
+  <div class="card">
+    <h3>Queues</h3>
+    <canvas id="queues"></canvas>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="card">
+    <h3>5 Committees</h3>
+    <ol>
+      <li>MGS Analytics</li>
+      <li>MGS Workers</li>
+      <li>MGS IT Department</li>
+      <li>MGS Restart Watchdog</li>
+      <li>MGS Integration</li>
+    </ol>
+  </div>
+  <div class="card">
+    <h3>Safety</h3>
+    <pre>{
+  "real_trading_now": false,
+  "live_force_trading_disabled": true,
+  "binance_real_orders": false,
+  "bybit_real_orders": false,
+  "automatic_external_tx": false,
+  "manual_OWNER_approval_required": true
+}</pre>
+  </div>
+</div>
+
+<script>
+new Chart(document.getElementById('evo'), {
+  type: 'line',
+  data: {
+    labels: ["14:57:04", "14:57:10", "14:57:11", "14:57:16"],
+    datasets: [{ label: 'Evolution %', data: [87.98, 87.98, 88.23, 88.23], tension: 0.25 }]
+  },
+  options: { responsive:true, scales: { y: { min:80, max:100 } } }
+});
+
+new Chart(document.getElementById('queues'), {
+  type: 'bar',
+  data: {
+    labels: ["ai_block_inbox", "parliament_inbox", "it_department", "cybra_codespace_inbox", "cybra_mgs_all"],
+    datasets: [{ label: 'Queue length', data: [1, 1, 1, 1, 1] }]
+  },
+  options: { responsive:true }
+});
+
+setTimeout(() => location.reload(), 15000);
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "patch": "KIBRA_IT_MENU_PATCH",
+  "timestamp": "20260605_192501",
+  "commands": ["kibra-it-menu", "cybra-it-menu", "kibra-it"],
+  "files": ["kibra_it_menu.py", "kibra-it-menu"],
+  "purpose": "Separate KIBRA IT department menu for module64 repair, Oracle runner, Codespace worker, restart watchdog and evolutionary patches.",
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  }
+}

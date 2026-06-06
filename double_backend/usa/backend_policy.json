@@ -1,0 +1,14 @@
+{
+  "system": "USA Double Backend",
+  "mode": "mirror_recovery_autofix",
+  "rules": [
+    "double_sha_every_task",
+    "backup_before_push",
+    "recover_from_git_paths",
+    "autoheal_on_failure",
+    "watchdog_required",
+    "autofix_required",
+    "no_private_keys"
+  ],
+  "status": "active"
+}

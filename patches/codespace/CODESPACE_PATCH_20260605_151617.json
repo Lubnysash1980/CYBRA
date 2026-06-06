@@ -1,0 +1,18 @@
+{
+  "kind": "CODESPACE_PATCH",
+  "title": "CYBRA CodeSpace signed patch",
+  "timestamp": "2026-06-05T15:16:19",
+  "target_file": "patches/codespace/CODESPACE_PATCH_20260605_151617.json",
+  "body": "CodeSpace виконує окремий runner, приймає задачі з GitHub, формує reports/proofs, не запускає live trading без OWNER approval.",
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "automatic_SWIFT": false,
+    "mainnet_deploy_allowed": false,
+    "manual_OWNER_approval_required": true
+  },
+  "sha256": "9cf6eb0ea533b5f5d9f44f2e8fc9afb1c5be36720979800dc9d5409ec48719a0",
+  "double_sha256": "aa1dbe6250ddebe948bfb5fed3787d7e0c6d8c7ceeca441366b6bdba988d096d",
+  "signature_type": "CYBRA_DOUBLE_SHA256_LOCAL_SIGNATURE"
+}

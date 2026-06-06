@@ -1,0 +1,33 @@
+#!/data/data/com.termux/files/usr/bin/bash
+set -e
+cd "$HOME/CYBRA"
+
+CMD="${1:-}"
+shift || true
+
+case "$CMD" in
+  parliament)
+    redis-cli LPUSH cybra:parliament:queue "$1"
+    echo "✅ Parliament task submitted"
+    ;;
+  results)
+    redis-cli LRANGE cybra:results 0 -1
+    ;;
+  status)
+    echo "QUEUE: $(redis-cli LLEN cybra:parliament:queue)"
+    echo "RESULTS: $(redis-cli LLEN cybra:results)"
+    echo "AUDIT: $(redis-cli LLEN cybra:audit)"
+    ;;
+  worker-start)
+    bash cybra_worker_start.sh
+    ;;
+  worker-stop)
+    bash cybra_worker_stop.sh
+    ;;
+  worker-status)
+    bash cybra_worker_status.sh
+    ;;
+  *)
+    echo "Usage: cybra parliament|results|status|worker-start|worker-stop|worker-status"
+    ;;
+esac

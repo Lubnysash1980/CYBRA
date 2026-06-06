@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CYBRA Oracle VPS Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{font-family:Arial;background:#05070d;color:#e8f0ff;margin:0;padding:14px}
+h1{font-size:22px;margin:6px 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.card{background:#111827;border:1px solid #243244;border-radius:14px;padding:12px}
+.big{font-size:28px;font-weight:700}
+.small{font-size:12px;color:#9fb0c9}
+canvas{width:100%;height:130px;background:#07101e;border-radius:12px}
+pre{white-space:pre-wrap;font-size:12px;color:#b8c7df}
+.ok{color:#8cffb0}.bad{color:#ff8c8c}
+</style>
+</head>
+<body>
+<h1>CYBRA Oracle + Codespace + GitHub Control</h1>
+<div class="grid">
+  <div class="card"><div class="small">Oracle status</div><div id="alive" class="big">...</div></div>
+  <div class="card"><div class="small">Tasks</div><div id="tasks" class="big">0</div></div>
+  <div class="card"><div class="small">Processed</div><div id="processed" class="big">0</div></div>
+  <div class="card"><div class="small">Evolution</div><div id="evo" class="big">0%</div></div>
+  <div class="card"><div class="small">Module 64</div><div id="m64" class="big">...</div></div>
+</div>
+<br>
+<div class="grid">
+  <div class="card"><div class="small">Tasks curve</div><canvas id="c1"></canvas></div>
+  <div class="card"><div class="small">Evolution curve</div><canvas id="c2"></canvas></div>
+  <div class="card"><div class="small">Oracle alive</div><canvas id="c3"></canvas></div>
+</div>
+<br>
+<div class="card">
+<div class="small">Last report</div>
+<pre id="raw">loading...</pre>
+</div>
+<script>
+function draw(canvasId, arr, key, maxv){
+  const c=document.getElementById(canvasId), ctx=c.getContext('2d');
+  c.width=c.clientWidth*2; c.height=c.clientHeight*2;
+  ctx.clearRect(0,0,c.width,c.height);
+  ctx.lineWidth=3; ctx.beginPath();
+  if(!arr.length){return}
+  const vals=arr.map(x=>Number(x[key]||0));
+  const max=Math.max(maxv||1, ...vals, 1);
+  vals.forEach((v,i)=>{
+    const x=i/(Math.max(vals.length-1,1))*c.width;
+    const y=c.height-(v/max)*c.height;
+    if(i===0)ctx.moveTo(x,y); else ctx.lineTo(x,y);
+  });
+  ctx.strokeStyle="#78a6ff"; ctx.stroke();
+}
+async function load(){
+  try{
+    const r=await fetch("dashboard.json?x="+Date.now());
+    const d=await r.json();
+    const s=d.status||{};
+    document.getElementById("alive").innerHTML='<span class="ok">LIVE</span>';
+    document.getElementById("tasks").textContent=s.tasks_total||0;
+    document.getElementById("processed").textContent=s.processed_total||0;
+    document.getElementById("evo").textContent=(s.evolution_percent||0)+"%";
+    document.getElementById("m64").innerHTML=s.module64 && s.module64.module64_present ? '<span class="ok">OK</span>' : '<span class="bad">NO</span>';
+    document.getElementById("raw").textContent=JSON.stringify(s,null,2);
+    draw("c1", d.history||[], "tasks");
+    draw("c2", d.history||[], "evolution_percent", 100);
+    draw("c3", d.history||[], "oracle_alive", 1);
+  }catch(e){
+    document.getElementById("alive").innerHTML='<span class="bad">OFFLINE</span>';
+  }
+}
+load(); setInterval(load,5000);
+</script>
+</body>
+</html>

@@ -1,0 +1,785 @@
+{
+  "engine": "CYBRA AI OS Hash Engine",
+  "device": {
+    "platform": "android",
+    "arch": "arm64",
+    "hostname_hash": "26964a3cdc38c10b3762ca2376626a0dcb4770d3baca2f4b22f31c2c8d2723cc",
+    "cpus": 0,
+    "memory_total": 3776569344,
+    "memory_free": 760098816,
+    "uptime": 301314,
+    "git_branch": "main",
+    "git_remote_hash": "bd48c7838f50623ef04ca97a482fc158c7d6e644574657e88adf01b178e782cc",
+    "pwd": "/data/data/com.termux/files/home/CYBRA",
+    "time": 1780304243720
+  },
+  "root": {
+    "menu": {
+      "82e9290832169e32c027243829fac07c1c105b7b4d576a457268f1756c7ef7bd": {
+        "level": 0,
+        "timestamp": 1780304243.599,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "dd846e893a665f76740bc036c4e501622b52d97abe4ab5adefbf4e80a239c457": {
+        "level": 0,
+        "timestamp": 1780304243.599,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "5e2bbf6d27953a1aa8bca29f515179bf30df333c04a8a7126e671d43eac3538b": {
+        "level": 0,
+        "timestamp": 1780304243.599,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "372cc5e926d76bd179b8924f280249bfa97c0fd09da7bd58028ec491153f583b": {
+        "level": 0,
+        "timestamp": 1780304243.599,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "f5dc3d3b4255ac90b8b9cd0fc732c03a75eec4aa3075e0931f7430f315b625d5": {
+        "level": 0,
+        "timestamp": 1780304243.599,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "1640e73a54cdd6b3e6843a722e1d10a767097102d2198b8b7774e16651ab81ec": {
+        "level": 0,
+        "timestamp": 1780304243.599,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "d62c4516f6b471671f042053665c69e2ac9887b944c737a1334febe39e1de32d": {
+        "level": 0,
+        "timestamp": 1780304243.599,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "7a47e4b3556750d380c00c6bb4aec8e0859ecc6522ebe90c6324da656e95949c": {
+        "level": 0,
+        "timestamp": 1780304243.599,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "d80e3d931932654f71fd0f4815cce5a500acae08d3e5b10dde45a52108bfc272": {
+        "level": 0,
+        "timestamp": 1780304243.599,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "bcf4a49a28ad60c7580395065f7a804df783853de51fc3d5ad53b96ac9b4050b": {
+        "level": 0,
+        "timestamp": 1780304243.6,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "879eb7041dd89fc4104f375d4d9b8bb070c2338df37af86412e57bc51fd17ce4": {
+        "level": 0,
+        "timestamp": 1780304243.6,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "8c48d574f5433be174370120affc44a840e3e70cc379a2a7e814e015b768e295": {
+        "level": 0,
+        "timestamp": 1780304243.6,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "e96e78bb92755095ed3bc9c00ca463b404af79c3b31c378d7950bc2206b1273b": {
+        "level": 0,
+        "timestamp": 1780304243.6,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "191582630c8ea6909a26dc841a3cd22e7919d9ec5105b59b4468385341caa506": {
+        "level": 0,
+        "timestamp": 1780304243.6,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "2b8e22ebf322bfd20dc95647be32fea41153e674f0180c32522118574c320097": {
+        "level": 0,
+        "timestamp": 1780304243.6,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "ba303745b3c15472dc65ae52c78a9b567da01116cc6e2aa4036870f545c2f788": {
+        "level": 0,
+        "timestamp": 1780304243.6,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "ec6e73427e59140a22de7fab9d0f988a87181640e71dd0b5a68b353b9aaba8ea": {
+        "level": 0,
+        "timestamp": 1780304243.6,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "a8208372e8f4e08ae447499d487c28641076ca89ad1c93be8e6c83368596e8f2": {
+        "level": 0,
+        "timestamp": 1780304243.6,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "eca314cac6951d025ac316de133e45a7ebd383a982a3f18ae47840f2c183bad2": {
+        "level": 0,
+        "timestamp": 1780304243.6,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "5600007a113bfe9252e01291ea68be46cd2c8935b56a33b5be25c91de5956814": {
+        "level": 0,
+        "timestamp": 1780304243.6,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "4146531563fb582a7a0521c7c9a3d5d7bc217bc771e004fb44beb49c3fb2988d": {
+        "level": 0,
+        "timestamp": 1780304243.6,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "77b1aa21d478030db9f57acb1e981df611d9479cdf889ecf6e87bfb7ce625cea": {
+        "level": 0,
+        "timestamp": 1780304243.6,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "29f62a9735562a3a5e4d31c7e634adeb28117e983743b3e5c5c15728085008c9": {
+        "level": 0,
+        "timestamp": 1780304243.6,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "dc94acc6e4adb2c0de70b018548e3b46fa5df44adf64ea6f48d59ae0667043ed": {
+        "level": 0,
+        "timestamp": 1780304243.6,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "6a59b34bf1b3f3a73c5509ec8f2329b1751ca18b8a62599ad2d97f715777ae85": {
+        "level": 0,
+        "timestamp": 1780304243.6,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "896c375f9963ea1cbf8b8f582cd4d5a48e4e98c543ef3b8590595a9fee590aa9": {
+        "level": 0,
+        "timestamp": 1780304243.602,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "1676fa6d3a8e9242720b05d59deb6337391eaf54a31ab191ae99be59b0c95a47": {
+        "level": 0,
+        "timestamp": 1780304243.602,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "c099f289b3d1a4249b550d29f1d970d4e1fde5cfa9153918b1ce1179c29c0d5a": {
+        "level": 0,
+        "timestamp": 1780304243.602,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "8e055f722890768c629ce689aead0b6f19fefd976a791f4b6af115bc32cdccca": {
+        "level": 0,
+        "timestamp": 1780304243.602,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "9680ce688d49823799e02f3e2e08e88cccc47f3d5defe1b6e9c14bb6355a2b95": {
+        "level": 0,
+        "timestamp": 1780304243.602,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "d882c57a8933681dd076fe1e377efc0923f844c2971d767617ca308e1527c538": {
+        "level": 0,
+        "timestamp": 1780304243.602,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "acfa36dc2627940f91b53ac3a60d8fe3154da41c941e768858e2ddd50702f9c1": {
+        "level": 0,
+        "timestamp": 1780304243.602,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "86a55a6a5059b9132f6c61b4e86ecd1beb10d36513ba780dc213111811be4196": {
+        "level": 0,
+        "timestamp": 1780304243.602,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "84e4f861798812e9986f8aeddf844fa5ca5e9fb5eac8d2f10d299120804d9868": {
+        "level": 0,
+        "timestamp": 1780304243.602,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "6b776b7fef5abe0861f08cf04a001f91bc18e3e05f032b0e68611ae3aa8fa724": {
+        "level": 0,
+        "timestamp": 1780304243.602,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "1cfc01f67d384032bcae8955e4d73a4a5c66fb0afbf51b48a0b3f6e22beb623b": {
+        "level": 0,
+        "timestamp": 1780304243.602,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "00bb22effb60cc9d45a849ee0c5174dc0bdbbee9c84698a2cdca4322ee04988f": {
+        "level": 0,
+        "timestamp": 1780304243.602,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "f233ffe99be4cab7690112e49edbd26a39073e2597bc4767a30112ab0d754596": {
+        "level": 0,
+        "timestamp": 1780304243.602,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "c3598960f9069e7b625fac7e99a79988c8dff3837029ad222a83d7b5d3f5255b": {
+        "level": 0,
+        "timestamp": 1780304243.602,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "bde3d6e284835328d7007b160dc5edbb9542ba7cb9e2e52778c61e7ec6c7c527": {
+        "level": 0,
+        "timestamp": 1780304243.602,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "830e7b1f8867245b2c15487207f09d9e7705319f0eb5faa900afb21a2ce57877": {
+        "level": 0,
+        "timestamp": 1780304243.602,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "d07cce236ceeb5ac84f4d666ecc722cd492d86482ccb8f6c39594c58da266749": {
+        "level": 0,
+        "timestamp": 1780304243.602,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "9dd875b21a44b3f5e572ab785f4f6e1f55c59b11320057ec2b502194572e79f9": {
+        "level": 0,
+        "timestamp": 1780304243.602,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "6b12d32131704d6099e32c270f78f644a163ea9cdf61fcc6a9b42c98425c6cdb": {
+        "level": 0,
+        "timestamp": 1780304243.602,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "024e97ae89ec8fdce080d5dea15b9205eaa74f1fa9f9c8f42a3e68fdc90f0ac0": {
+        "level": 0,
+        "timestamp": 1780304243.602,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "3447b5ef79f6335308e791ef8ad374d2bc70661cbcc5dc67ae8493185cc95f4a": {
+        "level": 0,
+        "timestamp": 1780304243.602,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "6d7a96c4b32189605b1006f65e37506936710810c3e82e46c17551fe57491f54": {
+        "level": 0,
+        "timestamp": 1780304243.602,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "ce8b6401b948ec3b4244a68b6c4aad69dce7e107861742b07a72df8a9a0b86a0": {
+        "level": 0,
+        "timestamp": 1780304243.602,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "c4e0abad48670fe32bf9dfb490043d9fee90984f8cdb447e5675d53c901df3a5": {
+        "level": 0,
+        "timestamp": 1780304243.602,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "b5491658b1f795d80eecf1a08fc61753d53d6e1c2622501e1640e5c271d9ff2d": {
+        "level": 0,
+        "timestamp": 1780304243.602,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "c3c5e82887163dd310210561a8a21f7a0ee8993eedaaee8fe36b44faf9fbdb58": {
+        "level": 0,
+        "timestamp": 1780304243.603,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "d82ca04fc3520b0963ec92224ee003a56b5c71bd21cea5a2aca2030471079b0f": {
+        "level": 0,
+        "timestamp": 1780304243.603,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "1a9836eee9028b588b54236f30fba32df501c9f8141e2992a463da26752caccc": {
+        "level": 0,
+        "timestamp": 1780304243.603,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "c7ad3670689bd2da207853daf505e8351ee80ee73a60032577969a692c81ee29": {
+        "level": 0,
+        "timestamp": 1780304243.603,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "6bc3d794e73d4e689d2dde000c2b1e631bf0bfaea778d527b5c5560da48e96c8": {
+        "level": 0,
+        "timestamp": 1780304243.603,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "53a7cb402da1f15bb93aa60cb8927d9606867890acb32cfd55eae4d524625526": {
+        "level": 0,
+        "timestamp": 1780304243.603,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "126bba87e913c11f23b9b552d534391e1feba8161db666e1ab3075ff41135fea": {
+        "level": 0,
+        "timestamp": 1780304243.603,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "e94785aa9f8ccbde94f26975c5dfe1cbae96c0abc058a7485e8d339acdc408be": {
+        "level": 0,
+        "timestamp": 1780304243.603,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "be30a3f23a5b069b26c0f3bb4ad21ee4e25460f160985ee903babf3b68e7b8d3": {
+        "level": 0,
+        "timestamp": 1780304243.603,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "b41e52df668583d19b671646f07b3ed1715bbe7e9af1e7dc493a8816553b956e": {
+        "level": 0,
+        "timestamp": 1780304243.603,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "284cd990ab8440c2f13f0fd53d4f2287d5066e28cb6ff2a2c72496b04ee9d1ed": {
+        "level": 0,
+        "timestamp": 1780304243.603,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "e71677cc6965d6918c1cf0597095ed03ff3e878944dc907554e693783293f3c2": {
+        "level": 0,
+        "timestamp": 1780304243.603,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "44c555c5ef4687c67b59c13a239d44723c1cf3917d9774eb38ed82fc10b20444": {
+        "level": 0,
+        "timestamp": 1780304243.603,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "6f9c33422ef40e72f5840d820f3f8a5fa6d83302e4601e1cc7c6d44fe812efab": {
+        "level": 0,
+        "timestamp": 1780304243.603,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "f661e9674c4401ebb28383456c725924cd9f295e82c9c186e18fa48fa47857d0": {
+        "level": 0,
+        "timestamp": 1780304243.603,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "9b4a89a062bf7fd19bddc4a8f7850a582bce8d7d4c2a3d813e07b2b0dd400aae": {
+        "level": 0,
+        "timestamp": 1780304243.603,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "0f7b466ac88b1bb991e9bcf1f8d5badc094d332076c997e6337a39514fbafe12": {
+        "level": 0,
+        "timestamp": 1780304243.603,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "3a4dee5dcc2af34c4b563ff0e15c3359a777ddbd52c0b896cd2a7a1feb500f67": {
+        "level": 0,
+        "timestamp": 1780304243.603,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "c14ceff801a3e0edfacc2b416c2d983561c614d5bbe84227f9ed399e72f2a199": {
+        "level": 0,
+        "timestamp": 1780304243.603,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "0cf08d7098a443de6c9f875b2e03364a49265a95b8e8723e2a81890aa4a97b09": {
+        "level": 0,
+        "timestamp": 1780304243.603,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "6aecc109ed8b698be5a05f5be1cc8546f58a9bca2345e14cd271016088a9a1ba": {
+        "level": 0,
+        "timestamp": 1780304243.604,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "adbfd3037b207c797de4c45aaf0f35fac7794deda6bef377d737ccdacd672daf": {
+        "level": 0,
+        "timestamp": 1780304243.604,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "4cdd032f496b8e0dfde73b686e72b94552fdad6523441f7536780f6d0decce46": {
+        "level": 0,
+        "timestamp": 1780304243.604,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "6d27af8c4433a69f553d3599fc2ea516058e67e2aca99dd6f34e3a14d6a97b20": {
+        "level": 0,
+        "timestamp": 1780304243.604,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "8d4b916db5f609f0a4cc289c5174e8df6bc05368787c2239d7765669a5a82c63": {
+        "level": 0,
+        "timestamp": 1780304243.604,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "e7e30bd1710c63a623ccabd7d64b4fb263c440b1793f4e8eac5153ce9c7cc80b": {
+        "level": 0,
+        "timestamp": 1780304243.605,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "4b904d5a3961e7aff798efb08788b38e7dea18b7b2780e15891455dc558daef0": {
+        "level": 0,
+        "timestamp": 1780304243.605,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "3ef6eb00afebf4207f6b60c6095f857f518343bd594176daf5c9cb3e7b073030": {
+        "level": 0,
+        "timestamp": 1780304243.605,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "ec340c3b8a3221ef18ee29e770e09fbcbf1baa38901b3bffdefb335b2cc764d4": {
+        "level": 0,
+        "timestamp": 1780304243.605,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "61fdbc38fc418ffb6b22cbdc21a0ae43e7d364933cbc37238ee8abc60f577cd3": {
+        "level": 0,
+        "timestamp": 1780304243.605,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "a8356c693154396c3609579568d1d8f19a0892d3b6bf375b4aba16479fb8691e": {
+        "level": 0,
+        "timestamp": 1780304243.605,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "e7c8a56763c99be30c30f8c52216d9ca8e8802093e718013a736ee46d8cb1d95": {
+        "level": 0,
+        "timestamp": 1780304243.605,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "9af5aafb237eebecff34827f2a316730a0c70743441c6242c7fd1c8b47decdae": {
+        "level": 0,
+        "timestamp": 1780304243.605,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "9a941f3a7e958dac6a285d735c2090e5be0b82f537336215b70f11303e513b61": {
+        "level": 0,
+        "timestamp": 1780304243.605,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "c818499d2b9811ea2e820cf4a1a9cf14713a737dd481722586411dca21b3bf55": {
+        "level": 0,
+        "timestamp": 1780304243.605,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "bdabb7407da7bfa6e5886b45a09ffbe3afb595fcef570b404bef306b0a86a50d": {
+        "level": 0,
+        "timestamp": 1780304243.605,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "ef0defa2f891bf996d86ad7d71b9e8fd1cf319c9ee7a6eea7db7fb14bad506a2": {
+        "level": 0,
+        "timestamp": 1780304243.605,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "d95d0320c6748d9658293d22b825f534354a777aa0a80f95aea7528db32373f7": {
+        "level": 0,
+        "timestamp": 1780304243.605,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "51bdcc22511ec029506fd445ddd270f75f3103542f8751bc4f3f255ba2c887f0": {
+        "level": 0,
+        "timestamp": 1780304243.605,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "a11c5fe749d32a489f84ca70b5038d3e6cbde1b6ae2896694283e20fedb844fa": {
+        "level": 0,
+        "timestamp": 1780304243.605,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "8eaf24569c60e49da860c645ed979a3687fcad8f835a931a460453b5c3019f60": {
+        "level": 0,
+        "timestamp": 1780304243.605,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "e11a20302e0c3bcac6c03d6071fa748d090fb0ef41b6995fa784071dc167a327": {
+        "level": 0,
+        "timestamp": 1780304243.605,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "3e14e146ed98fd00c8f5d7aa16d81d4e29b836bc6ecd7b499c570c8d351a3630": {
+        "level": 0,
+        "timestamp": 1780304243.605,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "52d267cb7ab40493969cf4b02fd55a33064f8eed2e157b4f0e1e1eb4f7b2b62a": {
+        "level": 0,
+        "timestamp": 1780304243.605,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "5115560e1381fb62ea8e14ddfac059f78ce64c47d06fabe74659467139e63de9": {
+        "level": 0,
+        "timestamp": 1780304243.605,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "877938e3148a21ee55d1539f8ebc53f165fd7048335052c8b2549b51cff7790b": {
+        "level": 0,
+        "timestamp": 1780304243.605,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "19b9a902279ad4c9c0a1d5156e25847593c0d58b0c044f5e2d56670a96c03537": {
+        "level": 0,
+        "timestamp": 1780304243.605,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "764a0d7d81b1ce36d15bc73baa3ddb5e832c1ed8b68e499eab8596a53e9af1eb": {
+        "level": 0,
+        "timestamp": 1780304243.605,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "df3b0a7fe38e21ab7798d7f809397810a4f792cc23c675c3f16209e1a553686b": {
+        "level": 0,
+        "timestamp": 1780304243.605,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "1afa4e6b71daa70d5add54f141c45dc9abfbb3f8fab34881753a133758a57ca9": {
+        "level": 0,
+        "timestamp": 1780304243.605,
+        "meta": {
+          "type": "data"
+        }
+      },
+      "2d02f47ead8418444e84eaf0ee727308400a6e0d770d4c4698e05d08a4cf8284": {
+        "level": 1,
+        "timestamp": 1780304243.606,
+        "meta": {
+          "count": 100,
+          "type": "collapsed"
+        }
+      },
+      "607da215e9e18afc545996cfd47c03a8bae2022e3d6eaa44c74f73989718652a": {
+        "level": 0,
+        "timestamp": 1780304243.609,
+        "meta": {
+          "type": "audio",
+          "sample_rate": 44100,
+          "length_bytes": 17
+        }
+      },
+      "505e9f60108e7e425a4a26bbc6833701ae3118172e285419b0d66a9a871abedc": {
+        "level": 0,
+        "timestamp": 1780304243.609,
+        "meta": {
+          "type": "video_frame",
+          "length_bytes": 16,
+          "width": 1920,
+          "height": 1080
+        }
+      },
+      "3e72512a9187844d672c17f18041cee462e7261d5e972458996249b7b45f04e0": {
+        "level": 0,
+        "timestamp": 1780304243.61,
+        "meta": {
+          "type": "pixel_overlay",
+          "width": 100,
+          "height": 100,
+          "channels": 4,
+          "length_bytes": 18
+        }
+      },
+      "aee488ebbf738f17bb38c8ac1a5a53f86863dd0ea0fd9c937339d6f22aa12a2e": {
+        "level": 0,
+        "timestamp": 1780304243.611,
+        "meta": {
+          "type": "bit_byte_overlay",
+          "length_bytes": 13,
+          "source": "device"
+        }
+      }
+    },
+    "root_hash": "6f5bab5f4677abe767288766c6b41c323c3a233e05ac4af238ee3f408ef80cb0"
+  },
+  "it": {
+    "health": {
+      "hash_levels": 2,
+      "total_hashes": 1,
+      "memory": {
+        "free": 759554048,
+        "total": 3776569344
+      },
+      "last_check": 1780304243.607
+    },
+    "logs": [
+      {
+        "time": 1780304243.607,
+        "message": "System audit completed"
+      }
+    ]
+  }
+}

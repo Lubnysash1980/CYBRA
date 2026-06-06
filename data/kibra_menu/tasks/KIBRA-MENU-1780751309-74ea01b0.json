@@ -1,0 +1,21 @@
+{
+  "task_id": "KIBRA-MENU-1780751309-74ea01b0",
+  "timestamp": "2026-06-06T16:08:29",
+  "source": "kibra-menu",
+  "title": "бінарнік",
+  "body": "переписати весь бінарнік платіорми за для безпеки , без безпекоаих фрагментіа які не про безпеку .",
+  "routes": [
+    "ai",
+    "it",
+    "parliament",
+    "oracle",
+    "codespace",
+    "mgs"
+  ],
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  }
+}

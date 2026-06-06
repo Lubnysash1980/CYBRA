@@ -1,0 +1,16 @@
+{
+  "status": "INSTALLED",
+  "timestamp": "20260605_192501",
+  "kibra_menu": "kibra-menu",
+  "kibra_it_menu": "kibra-it-menu",
+  "patches": {
+    "kibra_menu": "patches/kibra_menu/KIBRA_MENU_PATCH_20260605_192501.json",
+    "kibra_it_menu": "patches/kibra_it_menu/KIBRA_IT_MENU_PATCH_20260605_192501.json"
+  },
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "kind": "ORACLE_VPS_PATCH",
+  "title": "CYBRA Oracle VPS signed patch",
+  "timestamp": "2026-06-05T15:16:19",
+  "target_file": "patches/oracle/ORACLE_VPS_PATCH_20260605_151617.json",
+  "body": "Oracle VPS є головний runner. Він тягне GitHub, приймає MGS задачі, тримає dashboard, обробляє 6000-line bot reports, module 64 зберігається.",
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "automatic_SWIFT": false,
+    "mainnet_deploy_allowed": false,
+    "manual_OWNER_approval_required": true
+  },
+  "sha256": "b415800762748cfb189ba393f6446e78b8a537ab508ab9ef5229963f29fa39c8",
+  "double_sha256": "2ad2da9aabe6c300d76a0547f77745dd650c9a10db028ea7a061a82b5aade687",
+  "signature_type": "CYBRA_DOUBLE_SHA256_LOCAL_SIGNATURE"
+}

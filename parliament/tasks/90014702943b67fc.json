@@ -1,0 +1,22 @@
+{
+  "topic": "CYBRA AI OS Engine Sync",
+  "type": "ai_os_hash_engine_task",
+  "payload": {
+    "root_double_sha": "5ab9b765e66842a8cc7e408691a6bb3c551ebf7f59e07e002a935148c346b791",
+    "device": {
+      "platform": "android",
+      "arch": "arm64",
+      "hostname_hash": "26964a3cdc38c10b3762ca2376626a0dcb4770d3baca2f4b22f31c2c8d2723cc",
+      "cpus": 0,
+      "memory_total": 3776569344,
+      "memory_free": 847978496,
+      "uptime": 331600,
+      "git_branch": "main",
+      "git_remote_hash": "bd48c7838f50623ef04ca97a482fc158c7d6e644574657e88adf01b178e782cc",
+      "pwd": "/data/data/com.termux/files/home/CYBRA",
+      "time": 1780334529224
+    }
+  },
+  "source": "gitcybrahash_double_backend",
+  "time": 1780334529232
+}

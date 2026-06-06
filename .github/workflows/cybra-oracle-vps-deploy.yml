@@ -1,0 +1,52 @@
+name: CYBRA Oracle VPS Deploy
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/oracle/**'
+      - 'data/cybra_mgs/tasks/**'
+      - 'trading_bot/v64/**'
+      - 'public/cybra_oracle_dashboard/**'
+      - '.github/workflows/cybra-oracle-vps-deploy.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  deploy-oracle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check required secrets
+        run: |
+          test -n "${{ secrets.ORACLE_HOST }}" || (echo "Missing ORACLE_HOST" && exit 1)
+          test -n "${{ secrets.ORACLE_USER }}" || (echo "Missing ORACLE_USER" && exit 1)
+          test -n "${{ secrets.ORACLE_SSH_KEY }}" || (echo "Missing ORACLE_SSH_KEY" && exit 1)
+
+      - name: Prepare SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.ORACLE_SSH_KEY }}" > ~/.ssh/oracle_key
+          chmod 600 ~/.ssh/oracle_key
+          ssh-keyscan -p "${{ secrets.ORACLE_PORT || 22 }}" "${{ secrets.ORACLE_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null || true
+
+      - name: Deploy to Oracle VPS
+        run: |
+          ssh -i ~/.ssh/oracle_key \
+            -p "${{ secrets.ORACLE_PORT || 22 }}" \
+            "${{ secrets.ORACLE_USER }}@${{ secrets.ORACLE_HOST }}" \
+            'bash -s' < scripts/oracle/install_on_oracle.sh
+
+      - name: Run agent once locally
+        run: |
+          python3 scripts/oracle/cybra_oracle_agent.py || true
+
+      - name: Commit Oracle report
+        run: |
+          git config user.name "cybra-oracle-bot"
+          git config user.email "cybra-oracle-bot@users.noreply.github.com"
+          git add data/cybra_oracle posts/cybra_oracle_vps_report.md feeds/cybra_oracle_vps_status.json proofs/cybra_oracle_vps.sha256 public/cybra_oracle_dashboard || true
+          git commit -m "update oracle vps report" || true
+          git push || true

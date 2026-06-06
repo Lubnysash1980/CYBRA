@@ -1,0 +1,902 @@
+{
+  "system": "CYBRA Git Double Backend",
+  "mode": "kilobyte_index_not_repo_clone",
+  "files_indexed": 175,
+  "root_double_sha256": "d1da818ea0805eae3b9f8df91936a5a43bc99982876330025fd944bb18e680fe",
+  "blocked": [
+    "ai_network/repos",
+    "node_modules",
+    "logs",
+    "recovery",
+    ".git"
+  ],
+  "safe_paths": [
+    "token",
+    "posts",
+    "proofs",
+    "feeds",
+    "bridge",
+    "remote_queue",
+    "sha",
+    "patches",
+    "cybra_codespace_termux_bridge_patch.sh",
+    "cybra_mainnet_mint_gatekeeper.sh"
+  ],
+  "files": [
+    {
+      "file": "token/native/registry.json",
+      "double_sha256": "11b119743d4fb2cbdc4a3a9cfbc5ed7b4166ca2eb72e569cada265337a4fa19f",
+      "size": 234
+    },
+    {
+      "file": "token/wallets/wallets.json",
+      "double_sha256": "bc9243635ec7d8d580f59c6ab5ab2969b7c62307cc4ce6b3fdce13ecee0a9817",
+      "size": 139
+    },
+    {
+      "file": "token/audit/native_token_evolution_audit.md",
+      "double_sha256": "4e7b307598757c094ddf167b32207b255ba847d9c1dc9ca9c7b9f8173b33e9bd",
+      "size": 178
+    },
+    {
+      "file": "token/rewards/reward_mapping.json",
+      "double_sha256": "0dd2e85e61e7f2f6619d03a71fb20c0e3ab7215f8a5a5bb721cd360615fbedf7",
+      "size": 170
+    },
+    {
+      "file": "token/dao/parliament_token_rules.json",
+      "double_sha256": "e4a005b6b4783d5ce66ec9d4985156125890e3c77c7a0331c48860888be960fd",
+      "size": 119
+    },
+    {
+      "file": "token/deployment_plan/solana_devnet_plan.md",
+      "double_sha256": "c43cd007f1620984d543f409b42bf196ab0cbab9caa283b8b35e6c18c5dcd68d",
+      "size": 472
+    },
+    {
+      "file": "token/deploy/solana_devnet/deploy_cybra_spl_devnet.sh",
+      "double_sha256": "2fedda0753105ac5165eb4037813e73df38bf1399ac05ad8d47012b969fc6d90",
+      "size": 1085
+    },
+    {
+      "file": "token/deploy/solana_devnet/README_NEXT.md",
+      "double_sha256": "c34803c6a719609c29409d16c26ae6ead4092c2bf49e77e26cb5588203c68a69",
+      "size": 236
+    },
+    {
+      "file": "token/deploy/solana_mainnet/mainnet_deploy_timestamp_sleep.sh",
+      "double_sha256": "15437b1454b3c68b2b86ee70e7c67bfbdccca29a6e1af23c8f892dccddfc5bd4",
+      "size": 1091
+    },
+    {
+      "file": "token/watchdog/mainnet_conditions.json",
+      "double_sha256": "8b151282b1028c597d3c17cf4a5106040507faa26424e82ba4d5ec537cb9a458",
+      "size": 225
+    },
+    {
+      "file": "token/autofix/mainnet_autostart.signal",
+      "double_sha256": "7de605c65ec7dd068cc0e5da590294a01cb9dba8e1067b22e5137f38666149b6",
+      "size": 55
+    },
+    {
+      "file": "token/autofix/token_autofix.sh",
+      "double_sha256": "d095adf58a0bd0a1e1198f1bcc0113b036bf61b2d7fa44e14ce45821a438f5b2",
+      "size": 888
+    },
+    {
+      "file": "token/runtime/chain_env.json",
+      "double_sha256": "362b99983c6c6a8d1c5df52f68e3d4fb40fa656cbbd58f72de3763e73504b58f",
+      "size": 201
+    },
+    {
+      "file": "token/health/token_health.json",
+      "double_sha256": "12e864b453f1e705bc52309d17773773439fdfc017c0ed6eeabaf754cecf1846",
+      "size": 208
+    },
+    {
+      "file": "token/hash_backend/double_sha_backend.py",
+      "double_sha256": "612192b6199556a0427eed577d52f3cd34351f9d0eafc97f23fded9f40c0ff18",
+      "size": 736
+    },
+    {
+      "file": "token/hash_backend/latest_double_sha.json",
+      "double_sha256": "52d133a6d3559aaeef410c06e34680c624fbf7c5a50ff60f92f0a54a84c73d22",
+      "size": 485
+    },
+    {
+      "file": "token/hash_backend/double_sha_report.json",
+      "double_sha256": "ffd2ea49edbe9a0695ef18afb78772b5a6101315a5acb44d2d92dbdbbdde0461",
+      "size": 484
+    },
+    {
+      "file": "posts/native_token_status.md",
+      "double_sha256": "b62f8cc8eb8b42a79c984c3821ebfb6a495b3998d2195921736d8647179636b7",
+      "size": 215
+    },
+    {
+      "file": "posts/cybra_mainnet_status.md",
+      "double_sha256": "8a0f36a7a4b864d95bc30065cb1b5900bfee744a90c34548489ed366f751bf31",
+      "size": 225
+    },
+    {
+      "file": "posts/autofix_report.md",
+      "double_sha256": "8b8bd74d17e7fff169eb6cbbfede7b2976ad5ce83f6dc81a6f36e683bd3a9b53",
+      "size": 278
+    },
+    {
+      "file": "posts/pmz_status.md",
+      "double_sha256": "ee270545ffdfa14204257e61ab0f2a65ce821643ed65cd0c54fa9682cf269b77",
+      "size": 142
+    },
+    {
+      "file": "posts/mainnet_png_status.md",
+      "double_sha256": "d132700b8b9a5346ae0e12e3abe8fd718613856a1e9b5db8c931059eb4cba4b8",
+      "size": 174
+    },
+    {
+      "file": "posts/cybra_final_status.md",
+      "double_sha256": "58ab7294d765f60d263e76e625a7f38c485de3b50493c720df3044c01de3ec35",
+      "size": 530
+    },
+    {
+      "file": "posts/pages_autofix_status.md",
+      "double_sha256": "08e870db0a84e53ecc75410def7ba0f0c1b7fc8697fbbe126094b580ed1a7cc1",
+      "size": 194
+    },
+    {
+      "file": "posts/mining_status.md",
+      "double_sha256": "26b2dd85a291d61b0c026152e77cd5eb8dbfa1ad96e25e40878db43d865cdfc9",
+      "size": 245
+    },
+    {
+      "file": "posts/executor_autoheal_status.md",
+      "double_sha256": "976c6dfc20e6644f71fcaf39d7bdba43f6dd4c6a4200d8bc6910d6cd30b48ab5",
+      "size": 332
+    },
+    {
+      "file": "posts/executor_v5_status.md",
+      "double_sha256": "0cafb2fdef70aa6b1979d78816014727fc46136e17f3c79e3f02fc0a3c5a7413",
+      "size": 176
+    },
+    {
+      "file": "posts/guardian_install_status.md",
+      "double_sha256": "975a351e41d00405aaf8981230b708c597d2f0fe42613413a5cc7bec9218b838",
+      "size": 235
+    },
+    {
+      "file": "posts/guardian_5levels_status.md",
+      "double_sha256": "bebb2f71594b862c75abfe89c91b7c0f48c48d326e2bf9282522dd856701beab",
+      "size": 212
+    },
+    {
+      "file": "posts/self_expanding_engine_install.md",
+      "double_sha256": "cf964503d0a072ce7f0e15c1143b8b598d0e42df5fad1a74ad5e05e712fd56a0",
+      "size": 210
+    },
+    {
+      "file": "posts/self_expanding_engine_status.md",
+      "double_sha256": "a7bebe03d8d1da6c9a15b765f1832e5e2417b4ca90411ac1dc85fbf132186827",
+      "size": 150
+    },
+    {
+      "file": "posts/emergency_alert_status.md",
+      "double_sha256": "a3f82db30e0d3efe4712cdba75419df6a593607b5723eb3eea82d8fd9b89b9bc",
+      "size": 407
+    },
+    {
+      "file": "posts/executor_checker_status.md",
+      "double_sha256": "cbb96176e02808478537c228ebcf9e2b90196f2cb78c8d9ec1f134a73624d36b",
+      "size": 228
+    },
+    {
+      "file": "posts/codespace_checker_status.md",
+      "double_sha256": "944d8199d776c8833d48c3103312725e4b4d60213873573d37823f2ff3f9ac68",
+      "size": 352
+    },
+    {
+      "file": "posts/task_checker_status.md",
+      "double_sha256": "bb645b28441af7719d0c5543e5ab4c41a8837acbce67c39596025af509cc8a16",
+      "size": 8441
+    },
+    {
+      "file": "posts/redis_queue_upgrade_status.md",
+      "double_sha256": "2cd2a7d8437619823b51b9dd1589e343c9612ea0f7cbc3198ade7197b150cecb",
+      "size": 182
+    },
+    {
+      "file": "posts/duplicate_checker_status.md",
+      "double_sha256": "2d03e657db63a389d19c7420183c7d2c89b810227199356372066e37d8c4140f",
+      "size": 315
+    },
+    {
+      "file": "posts/executor_quality_status.md",
+      "double_sha256": "c2fec9bd457263609f93941db28c81d96df991db7e6ea35bcc89111629667561",
+      "size": 190
+    },
+    {
+      "file": "posts/parliament_test_report.md",
+      "double_sha256": "65e004de5884295b9c2c9c6f49e1e0f515bfbf613e309c6d9fdb4ee303cc75d6",
+      "size": 4137
+    },
+    {
+      "file": "posts/basic_task_status.md",
+      "double_sha256": "6929b8c973e39f3208f28164356bbbe0052b1351c7d39378e6f46407a3e0a447",
+      "size": 123
+    },
+    {
+      "file": "posts/parliament_100_questions_report.md",
+      "double_sha256": "593858b3a045b6a06795db1b0cfe790dc71bfb477badce159c9780b7534c7a7e",
+      "size": 7085
+    },
+    {
+      "file": "posts/accuracy_threshold_report.md",
+      "double_sha256": "9767af5560917e6147e04dd7959189922df94319335c6fe60fe6f827ebe71b9d",
+      "size": 5058
+    },
+    {
+      "file": "posts/parliament_1000_stress_report.md",
+      "double_sha256": "f779c5a78b6886c6ebaf9bfd236b62edf80235f57d761fbc981e5410733ad9d2",
+      "size": 113
+    },
+    {
+      "file": "posts/impossible_task_analysis.md",
+      "double_sha256": "1aa2f169cdb299febeb657dc0f6823fdb5c211f80ddc800f530f6c45c4433ea8",
+      "size": 1084
+    },
+    {
+      "file": "posts/ai_question_answer.md",
+      "double_sha256": "7babbbf3706d1fce15653b85f4dfcec8eb631c40a561fd77b2edd9f8b49b1258",
+      "size": 170
+    },
+    {
+      "file": "posts/cybra_v7_status.md",
+      "double_sha256": "cb6812a7e8796ac295f4dffbb7e981dfbf47bdc18bf58bf2c94ab5db1eadbc1d",
+      "size": 168
+    },
+    {
+      "file": "posts/v7_structure_status.md",
+      "double_sha256": "0ce88459c80205723bb323560c9e0dfea7093a84213b255966ad7c7adc66c819",
+      "size": 159
+    },
+    {
+      "file": "posts/v7_next_evolution_report.md",
+      "double_sha256": "a73037e8b0b50ccf761ca3b9f1a978ad339e4cb04a5165db2a83a753849a439f",
+      "size": 32536
+    },
+    {
+      "file": "posts/evolution_status.md",
+      "double_sha256": "ac9924e07cdbaccd428349025d11c260d4860ec3feaee1a1205918d5ff027950",
+      "size": 188
+    },
+    {
+      "file": "posts/evolution_resilience_status.md",
+      "double_sha256": "7ee54a61742a7638704af0cc77b6d0998091a2c1e9c5804ff4d6ca21eca32b9c",
+      "size": 45
+    },
+    {
+      "file": "posts/evolution_lock_status.md",
+      "double_sha256": "98862ba0a2606691c9a3ee5ebd498022af26321ec91976c758f25f30dcfabe0a",
+      "size": 137
+    },
+    {
+      "file": "posts/legal_registry_check_status.md",
+      "double_sha256": "eaf18470ae4ac0490d2e393e310fdc4270c3ccc16951a4a7a64783db8462c09a",
+      "size": 1132
+    },
+    {
+      "file": "posts/legal_evolution_status.md",
+      "double_sha256": "7682af86ee952b776e6955f1a672d1fc88a203606804d503fc00100d5f731f47",
+      "size": 176
+    },
+    {
+      "file": "posts/legal_3x_requests_status.md",
+      "double_sha256": "b4d73987ab088be8ad0ddcba871e7e977f08a3c30f7d733aadb87f016158603b",
+      "size": 323
+    },
+    {
+      "file": "posts/real_estate_legal_status.md",
+      "double_sha256": "3de1bd82691ef600eadc38c9908c9fa18768950fa6a2ddf73a0a3a37162ea165",
+      "size": 394
+    },
+    {
+      "file": "posts/latest_legal_response.md",
+      "double_sha256": "db264631a620b1c48446467713adc61faa8c5f3b41b9294ad32fd46611df5f91",
+      "size": 209
+    },
+    {
+      "file": "posts/legal_submission_autofix_status.md",
+      "double_sha256": "20c57b34e7b4cfedce71f1ac096a10daa96af41ca818ea90e827b8c93f975759",
+      "size": 172
+    },
+    {
+      "file": "posts/legal_watchdog_v2_status.md",
+      "double_sha256": "3aba10f78c5c569056f27b9fb40c797c9732ee098b40dfef4cd4d2e482e3816b",
+      "size": 468
+    },
+    {
+      "file": "posts/cybra_workers_status.md",
+      "double_sha256": "baedf034377d09733da8fd4317c509224d7f4d3b2cba8d70c3c1f09388fd550f",
+      "size": 213
+    },
+    {
+      "file": "posts/fingerprint_approval_status.md",
+      "double_sha256": "d7eec88630919335040e44da22ab884ed4ed2d0367da5e1c630f71015692e077",
+      "size": 162
+    },
+    {
+      "file": "posts/approval_20260527_205101.md",
+      "double_sha256": "ac6750c5b3a57961737a6774cc6697d580d069ceeccb25e4ee4297e8f28a2070",
+      "size": 517
+    },
+    {
+      "file": "posts/approval_20260527_205101_confirmed.md",
+      "double_sha256": "04431acf19955c7576ca4ddccd6c32a4082fe76f9d7835a1bfee927eb87d4df8",
+      "size": 259
+    },
+    {
+      "file": "posts/approval_20260527_205101_submission_ready.md",
+      "double_sha256": "af61d94c4db259c8488ddaed33bd9629d4d63f7236fd7451983d7b61b79c4747",
+      "size": 336
+    },
+    {
+      "file": "posts/token_vault_status.md",
+      "double_sha256": "b893029b6ab359ef3eec2e79eb4261fea2abde37a14a9b70aae2a9ae2e6fb895",
+      "size": 263
+    },
+    {
+      "file": "posts/native_token_evolution_status.md",
+      "double_sha256": "cd0c09870cf9b84a51732f9cd0bd3a4218b04c59ec92c17f09cb8e12d9039147",
+      "size": 392
+    },
+    {
+      "file": "posts/wallet_visible_token_plan.md",
+      "double_sha256": "83cb6d062335d142d1a9928bb5097df137ea3bd506209b0c428b9ab647d35e5c",
+      "size": 267
+    },
+    {
+      "file": "posts/solana_devnet_spl_deploy_status.md",
+      "double_sha256": "218667c19eb6d6ae89c31d029b353a5ee9b2338e799bd4f0a0fd6dba23d1f23a",
+      "size": 214
+    },
+    {
+      "file": "posts/solana_tools_check.md",
+      "double_sha256": "966a5584ddddff7f9bd63221a29edd25f58574104d8c2fdcf4f30f69f3785f1f",
+      "size": 152
+    },
+    {
+      "file": "posts/solana_mainnet_timestamp_sleep_status.md",
+      "double_sha256": "2f2aaef2a3b23972adc0a257e84151638d256d85c30e6a6e79ba201b731c476e",
+      "size": 256
+    },
+    {
+      "file": "posts/mainnet_guardian_status.md",
+      "double_sha256": "8a601eadcf061ad7553513a86fc5e9e2781555b617bd12789467132d0c618ad7",
+      "size": 174
+    },
+    {
+      "file": "posts/portal_web3_status.md",
+      "double_sha256": "52fc87e8f80aeed920c70ea373333ab772f8aaaef26240df07471883077c514a",
+      "size": 259
+    },
+    {
+      "file": "posts/pages_deploy_status.md",
+      "double_sha256": "79cda25d9cdb16d03bc1d647f41fc5258b47f6856b37b307cba64f5a5c4d2bf4",
+      "size": 146
+    },
+    {
+      "file": "posts/pages_404_autofix.md",
+      "double_sha256": "f7cfa1979c1d42d7b40a59fbe692cd4d4fcc265a5bf655ed88c5d5750f6a6243",
+      "size": 132
+    },
+    {
+      "file": "posts/self_healing_supervisor_status.md",
+      "double_sha256": "ca22af5ffb467ac0aef9514c4e86d1bdb6454e5ac3cf46bd28d894354a67850f",
+      "size": 186
+    },
+    {
+      "file": "posts/cybra_import_classes_status.md",
+      "double_sha256": "38f01b3656ea2227f70173f022e7699150593ba4cf60bab88c257ca21a545560",
+      "size": 907
+    },
+    {
+      "file": "posts/double_backend_status.md",
+      "double_sha256": "66a983a013190228c32e8a243bf02cce4fff6aaa69f7f3277afe2ec8b4ebfe8b",
+      "size": 137
+    },
+    {
+      "file": "posts/git_path_recovery_status.md",
+      "double_sha256": "d555acb059332965cb7497da3a56a582473aecf3873acbc6ecec88c6bc61b553",
+      "size": 187
+    },
+    {
+      "file": "posts/cybra_coin_next_step_status.md",
+      "double_sha256": "f3bd0222bca771626b37e261d406bce25d2ab98457eee8e898920315ea2e18ba",
+      "size": 186
+    },
+    {
+      "file": "posts/cybra_chain_environment_status.md",
+      "double_sha256": "adf7a2c9bba40d5ce27dd6aee071f71b88dfcb8fee7c9656a5737af06a1cf1d3",
+      "size": 233
+    },
+    {
+      "file": "posts/codespace_termux_bridge_status.md",
+      "double_sha256": "548c039ace0455d7f623d4685b9f4d65db6f6e6e298f04e8b95ff1f02d905da5",
+      "size": 271
+    },
+    {
+      "file": "proofs/native_tokens_hashes.txt",
+      "double_sha256": "c38dd3eecafe3a9e1744b892d56899cf5e170f1233e6e2f66e5957f6a0db1f4c",
+      "size": 574
+    },
+    {
+      "file": "proofs/cybra_mainnet_hashes.txt",
+      "double_sha256": "b7eaabb850ef30f9191b204858f91c31eefb22c332fdcf7ecbc0cca5ba778773",
+      "size": 413
+    },
+    {
+      "file": "proofs/final_review_hashes.txt",
+      "double_sha256": "11eef9ec15c68a660e49e9397a2e328e5c742cc23402e0c75b376e81a118c26b",
+      "size": 1710
+    },
+    {
+      "file": "proofs/github_pages_hashes.txt",
+      "double_sha256": "f54fa42dac16156f7e96d69c3cccabe98b4242f5387a287b2870660de8e62f59",
+      "size": 350
+    },
+    {
+      "file": "proofs/pages_hashes.txt",
+      "double_sha256": "0e3c4956b24d11accc848e214b45392673a6df9fb04196527d0aa68525d33a22",
+      "size": 506
+    },
+    {
+      "file": "proofs/mining_hashes.txt",
+      "double_sha256": "0386fba87b811c521c7e5bf1255836f1fe3875341ca9af7428f438d92c324ce1",
+      "size": 81
+    },
+    {
+      "file": "proofs/executor_v4_hash.txt",
+      "double_sha256": "713d89366041f197c6c05480791fafcef8c254f1c57539facfaf2885458a8c2e",
+      "size": 92
+    },
+    {
+      "file": "proofs/executor_double_sha_proof.json",
+      "double_sha256": "e61994923c76957314b1cdd0ce3d6e9363d10d58fb88ef53f3a5ddc5d0e3e185",
+      "size": 299
+    },
+    {
+      "file": "proofs/executor_v5_double_sha.json",
+      "double_sha256": "eda060e7bfc2570ea021ce67c934915d543382c1b8a67b7df2d3d08b9d43949e",
+      "size": 300
+    },
+    {
+      "file": "proofs/guardian_level_1.json",
+      "double_sha256": "edf795c9ad3d899609fa3b0307c22db277b8f41145c3d534203b0fb739739f5b",
+      "size": 964
+    },
+    {
+      "file": "proofs/guardian_level_2.json",
+      "double_sha256": "0236cdc0427553a110c99d19a4a97e780a1f6156f18983edf0ae9eb19c2f8ab4",
+      "size": 964
+    },
+    {
+      "file": "proofs/guardian_level_3.json",
+      "double_sha256": "4be4814ddad42309f99cf53e62e974a1b63d6b3b634046d853edbc802bc7c2ea",
+      "size": 964
+    },
+    {
+      "file": "proofs/guardian_level_4.json",
+      "double_sha256": "e5ae23b17d1d8a27c9991ce32b0aec52b4bf51200a0cd09b7af4b84239a16e3c",
+      "size": 964
+    },
+    {
+      "file": "proofs/guardian_level_5.json",
+      "double_sha256": "c4c719d1515d3d70f2d320756ace4a44672b766765a057ce6072b438893ce96c",
+      "size": 963
+    },
+    {
+      "file": "proofs/guardian_5levels_report.json",
+      "double_sha256": "74e66da10af9c8d651b1e146650eb9f23e22a6207806a49a1be0778b554860cd",
+      "size": 7707
+    },
+    {
+      "file": "proofs/github_backend_sha256.txt",
+      "double_sha256": "90fc8e8e00157a665437b80710cd57e1a7154a748b950ba8a7010368df2b3812",
+      "size": 8946713
+    },
+    {
+      "file": "proofs/self_expanding_engine_hashes.txt",
+      "double_sha256": "3d07ffcb89ff03a38230f3f0452985467d55ad2a32fff8d47a458cc3aa5ba265",
+      "size": 299
+    },
+    {
+      "file": "proofs/emergency_alert_hash.txt",
+      "double_sha256": "3609b4d411ec06e33fa8fbc04a64e01cb7ba56e4e067b403f2f6c058de1baf30",
+      "size": 98
+    },
+    {
+      "file": "proofs/executor_checker.json",
+      "double_sha256": "dc0b575dc27480f4b909f420eca551c17ce1e7e944ba0cc95bdf6014b02a7754",
+      "size": 1195
+    },
+    {
+      "file": "proofs/executor_checker.sha256",
+      "double_sha256": "fa138d6840e334688893f4d750e44205e5126a420703bb153260f2acc778b4de",
+      "size": 64
+    },
+    {
+      "file": "proofs/last_codespace_check_task.txt",
+      "double_sha256": "2bc9cc598a86808ee6302a4ae12d21e9c79edf1b05d480e5ca452baebb1e40e8",
+      "size": 37
+    },
+    {
+      "file": "proofs/task_checker_hash.txt",
+      "double_sha256": "6efd98660e1c3b53529dfd3346a5e30976fc6951b8397b05a5ee4a21af8b91c7",
+      "size": 95
+    },
+    {
+      "file": "proofs/redis_queue_upgrade_hashes.txt",
+      "double_sha256": "714f210780332ec51cc35a9be0f22a418632b4f94801b146e3edbe9d33b6f854",
+      "size": 283
+    },
+    {
+      "file": "proofs/duplicate_checker.json",
+      "double_sha256": "2dbe746fbfa92c3271a82e54baa3412d19a9bd89139cdbad74038e77f3849eca",
+      "size": 400
+    },
+    {
+      "file": "proofs/duplicate_checker.sha256",
+      "double_sha256": "1d3bf5377dea6cbc95e1a7b6ea6f32d45b3c6840710a8b7128330a22b0a2198d",
+      "size": 64
+    },
+    {
+      "file": "proofs/executor_quality_report.json",
+      "double_sha256": "49e0139348eafd9f8eba45f8027149dae837680fd6af30f6fac98c74efca95bf",
+      "size": 464
+    },
+    {
+      "file": "proofs/executor_quality_report.sha256",
+      "double_sha256": "2e950a487783ad1aa4014c837c17f569a8d63d0779bc20a0f6eaa47bbe0425a4",
+      "size": 64
+    },
+    {
+      "file": "proofs/parliament_test_report.sha256",
+      "double_sha256": "ad52e9be8aa2de3f4ba04da199aead3ee31264d39b48cd4eda9d601e5719561d",
+      "size": 98
+    },
+    {
+      "file": "proofs/basic_task_hash.txt",
+      "double_sha256": "933676f900104ce8f0f21f13b967518d6e86699307f7e2ebf65c666dbfab5d3c",
+      "size": 93
+    },
+    {
+      "file": "proofs/parliament_100_questions_report.sha256",
+      "double_sha256": "f2e5f4c632f6a7ca651268a9540af2a258d6980483c748bc44891d7743ebefcf",
+      "size": 107
+    },
+    {
+      "file": "proofs/accuracy_threshold_report.sha256",
+      "double_sha256": "83b390d0829d8516415d36897c132cbcf8d3acacb4964120a283f0ffa37f6bdf",
+      "size": 101
+    },
+    {
+      "file": "proofs/parliament_1000_stress_report.sha256",
+      "double_sha256": "2f283acbc6f5f5dafbc6a749c6e59c41d979d510b254d240bdebe87d6b31880f",
+      "size": 105
+    },
+    {
+      "file": "proofs/impossible_task_analysis.sha256",
+      "double_sha256": "fb87b1fe0b857c465512cfa44e4b2019a80fb3d3dacf90203d971720626cb008",
+      "size": 100
+    },
+    {
+      "file": "proofs/ai_question_answer.sha256",
+      "double_sha256": "5a3bc708b7d870de0530bace7fa80205ac9904291745479d6939b276bbe990c9",
+      "size": 64
+    },
+    {
+      "file": "proofs/cybra_v7_hashes.txt",
+      "double_sha256": "611dc988bbeeef59d18dc5d0cbf9a40c897d1bf5c6a032dafc1c380e35404d3f",
+      "size": 3219
+    },
+    {
+      "file": "proofs/v7_structure_dirs.txt",
+      "double_sha256": "f4cc239a8f28afc3918c75d3d9c28b08aab6c847f3d03ef9dd757e1c782ae4e9",
+      "size": 403
+    },
+    {
+      "file": "proofs/v7_structure_dirs.sha256",
+      "double_sha256": "90d5189a4b408b1d21e558668205d41c8c7d0edbd8b365b1f0106dc9c3a759f2",
+      "size": 95
+    },
+    {
+      "file": "proofs/v7_next_evolution_report.sha256",
+      "double_sha256": "5c0cc37c7514b361ad662b8bb704a2cb32b40acd155f5c91efe6389b716bd691",
+      "size": 100
+    },
+    {
+      "file": "proofs/evolution_latest.sha256",
+      "double_sha256": "afc541a6107d1662880fd6f0db0d413aadc17e0bc56ab1298907de735f354de1",
+      "size": 64
+    },
+    {
+      "file": "proofs/evolution_all_hashes.txt",
+      "double_sha256": "84737cea5ea5d11c3a4958f828f5d7244955128a2ac62e54865920308f7f4eda",
+      "size": 7672
+    },
+    {
+      "file": "proofs/evolution_resilience.sha256",
+      "double_sha256": "a7443ed623620372280e69c85f02a58746fd2f9835750745d2645b57e3fd099a",
+      "size": 64
+    },
+    {
+      "file": "proofs/evolution_lock.sha256",
+      "double_sha256": "90c47d85210a92e29ba3b3ea1e128fb8de8d9c43f5950e01e3f405c71a3aa284",
+      "size": 105
+    },
+    {
+      "file": "proofs/legal_registry_check.sha256",
+      "double_sha256": "e4bb24b8d6cc110e634a1b5c27024b485975fcca7d9b4cf4489eb567692e93a4",
+      "size": 103
+    },
+    {
+      "file": "proofs/legal_registry_request.sha256",
+      "double_sha256": "144181ab451b720467524b6f554bdc5bbfd1c4c25a9dbf6b3f07ffcb47904748",
+      "size": 214
+    },
+    {
+      "file": "proofs/legal_evolution_pack.sha256",
+      "double_sha256": "3a7647fd0f554a60139bb4b24adf36915d11acae81581b80e92f1eecf2c4c494",
+      "size": 824
+    },
+    {
+      "file": "proofs/legal_3x_requests.sha256",
+      "double_sha256": "f4c188dda5ac14f8d435b43d0355be74c77ff861e94dc335c7f75536a973e837",
+      "size": 1520
+    },
+    {
+      "file": "proofs/legal_3x_requests_approved.sha256",
+      "double_sha256": "201c00e749bd4c5a5ea063a2c6d211b89233d789dfafe36a117f275899073c7d",
+      "size": 1417
+    },
+    {
+      "file": "proofs/real_estate_legal.sha256",
+      "double_sha256": "a524b278e811fc6a3172441a37ea52f0d33fff637349e6aea719d58bd6d3ca95",
+      "size": 2108
+    },
+    {
+      "file": "proofs/legal_response_20260527_113959_dbr.sha256",
+      "double_sha256": "d36b63927c79ce2df339e014fb3d2d9e89a3703de638011dd39ba1142050ae9b",
+      "size": 309
+    },
+    {
+      "file": "proofs/legal_submission_autofix.sha256",
+      "double_sha256": "9781ba270eeba02f69d82c48e53dfb7b0929bf6c12e03f91fdfddf7fc25bf099",
+      "size": 208
+    },
+    {
+      "file": "proofs/legal_watchdog_v2.sha256",
+      "double_sha256": "328a78aa243c1a4920acf7a1cb882c5ee7d61cd80208fb6b821cd373db5de0ae",
+      "size": 64
+    },
+    {
+      "file": "proofs/legal_response_20260527_114526_dbr.sha256",
+      "double_sha256": "d066e83a366522b3c76823cf47173cb3ecea15d38b31c854d6b75c0bdb813fc9",
+      "size": 309
+    },
+    {
+      "file": "proofs/cybra_workers.sha256",
+      "double_sha256": "dfad730f43afd4f3a78bff8d34ad854634a0e5e8bf47970466978e2c65e9beba",
+      "size": 264
+    },
+    {
+      "file": "proofs/fingerprint_approval.sha256",
+      "double_sha256": "5577be898c0442c8cd38d51c63f90b37fe29697b2da6743a4ae7026c9e3f0776",
+      "size": 102
+    },
+    {
+      "file": "proofs/approval_20260527_205101.sha256",
+      "double_sha256": "bdfc28bf2dfa90d7069e80fdeeffe5547e8701e345dd038e2514bb5dbd82aa22",
+      "size": 217
+    },
+    {
+      "file": "proofs/approval_20260527_205101_confirmed.sha256",
+      "double_sha256": "e8625cf76b7cf6a300118d6ed3620475f950db600c1075bf8adcacdd37c8126d",
+      "size": 241
+    },
+    {
+      "file": "proofs/approval_20260527_205101_submission_ready.sha256",
+      "double_sha256": "468ae3d3c1b0d40570929fced24b7ceb79c53a844046638f42186579b65f46b1",
+      "size": 117
+    },
+    {
+      "file": "proofs/legal_response_20260527_205401_dbr.sha256",
+      "double_sha256": "17b5035eda9d1b65d7d40cf2a3e312ea341644b8e55e4eef39ba4cba47619759",
+      "size": 309
+    },
+    {
+      "file": "proofs/legal_response_20260527_205547_prosecutor.sha256",
+      "double_sha256": "fd53e5a4ae0599156c23b7f20b8ee18adcf53bf4325351e80cc7187b3e18b01d",
+      "size": 323
+    },
+    {
+      "file": "proofs/token_vault.sha256",
+      "double_sha256": "ef0eb5f1977a7313b03f604e0005b8628f1059e66e4ef60edcb2633eb82fa6c1",
+      "size": 285
+    },
+    {
+      "file": "proofs/native_token_evolution.sha256",
+      "double_sha256": "963bbf29d58519ec9b0efc3f5cc2ebb06f74d194013f68ae4c0eadf8dc6d4e9b",
+      "size": 500
+    },
+    {
+      "file": "proofs/wallet_visible_token_plan.sha256",
+      "double_sha256": "89ae37e9c78e35d68819990843532aac3d4b77bd7af4226605fa0ee0fd0fcff3",
+      "size": 211
+    },
+    {
+      "file": "proofs/solana_devnet_spl_deploy_prepare.sha256",
+      "double_sha256": "d0196eb71716e3cf9f8fe3a95f7d31da7fa2a8d324654d0310318700114d7e22",
+      "size": 227
+    },
+    {
+      "file": "proofs/solana_tools_check.sha256",
+      "double_sha256": "79c20c272da19f60a196f87457267fed91e118c715744f9f6fc21bf21626b324",
+      "size": 94
+    },
+    {
+      "file": "proofs/solana_mainnet_timestamp_sleep.sha256",
+      "double_sha256": "d047c74425d1809f1c54821f98b0cd5ae067156fd760b820d23150688c980f11",
+      "size": 241
+    },
+    {
+      "file": "proofs/mainnet_guardian.sha256",
+      "double_sha256": "6b26b019728fe9e4a7b0dcdaf148206804a6d1528cc0e0490c3898f44efa3206",
+      "size": 204
+    },
+    {
+      "file": "proofs/portal_web3.sha256",
+      "double_sha256": "63ea459a6629df2fcb8d0bf9c7a58781e5ca454cf91eb01679879f9099a5f40b",
+      "size": 950
+    },
+    {
+      "file": "proofs/pages_deploy.sha256",
+      "double_sha256": "879ec25945c7e94794a4e24da67b0ff640950c239c5d99716d66cb4811417977",
+      "size": 177
+    },
+    {
+      "file": "proofs/pages_404_autofix.sha256",
+      "double_sha256": "d4329306d2af5d4fe2ed864bf33477197dbd915e46ad0359a1a83e751cd11d3d",
+      "size": 256
+    },
+    {
+      "file": "proofs/self_healing_supervisor.sha256",
+      "double_sha256": "84c61344642df8b9e4c4a39b0c86b31b38b1f1f97b6bf59d1f791cca7d5afdc0",
+      "size": 64
+    },
+    {
+      "file": "proofs/cybra_import_classes.sha256",
+      "double_sha256": "8b2c2e982991e9a2dfdf4c3a2eae187358e9cdfa7de96dd36ac23a49c069600c",
+      "size": 2441
+    },
+    {
+      "file": "proofs/double_backend.sha256",
+      "double_sha256": "329bbbb7167b60699a9787ca9cd333c9da1e7cc3be566e2f63e2cbd6ee6f90bf",
+      "size": 421
+    },
+    {
+      "file": "proofs/git_path_recovery.sha256",
+      "double_sha256": "bffbee5d197bfbeb9875a34b510d05025317365e9e8cf416df564aae239b1258",
+      "size": 298
+    },
+    {
+      "file": "proofs/cybra_coin_next_step.sha256",
+      "double_sha256": "17f02e85dcea34399145ffd35c231fef47893296ab9323f0ac532ffcd1299738",
+      "size": 320
+    },
+    {
+      "file": "proofs/cybra_chain_environment.sha256",
+      "double_sha256": "115ba78c127906f67c53b1ab32127765bd4a47696e5219260c072d378bdcf08c",
+      "size": 610
+    },
+    {
+      "file": "proofs/codespace_termux_bridge.sha256",
+      "double_sha256": "bd7843447e409a0acfab050e4a87c3629d6b07ada33e6355f3fd62ab1b5dbf84",
+      "size": 722
+    },
+    {
+      "file": "feeds/codespace_termux_bridge.json",
+      "double_sha256": "adca46a6fa4f6110bfa2ed89624f628f98e5e8a18c007ecd4bd4f8e02501a486",
+      "size": 102
+    },
+    {
+      "file": "bridge/termux/push_to_codespaces.sh",
+      "double_sha256": "aa96d86440e0d6e717ddb1ecf2efc9f02fb8e2b8991a5abed8bf95f5c18fc837",
+      "size": 387
+    },
+    {
+      "file": "bridge/termux/pull_from_codespaces.sh",
+      "double_sha256": "5bbae3bec28214faf13ca314af81f70372da5ddbd2c22061da8e6c1c0f61683a",
+      "size": 135
+    },
+    {
+      "file": "bridge/codespaces/pull_from_termux.sh",
+      "double_sha256": "3466d53c4aef0e46dc068064a5585f8d2da6b8787cc90fad4a01ca297e53c7bd",
+      "size": 146
+    },
+    {
+      "file": "bridge/codespaces/push_to_termux.sh",
+      "double_sha256": "1b70b6177ed4738a177c58a5f35f2a4f1476d1eec89c2115d0526588ebe7a803",
+      "size": 251
+    },
+    {
+      "file": "remote_queue/task_20260526_084755.task",
+      "double_sha256": "0e5a1fb19114c98a0034abcaa4df45fc9b742eae5a3ce609d1ba36a5ca5fee93",
+      "size": 38
+    },
+    {
+      "file": "remote_queue/task_20260526_085011.task",
+      "double_sha256": "0e5a1fb19114c98a0034abcaa4df45fc9b742eae5a3ce609d1ba36a5ca5fee93",
+      "size": 38
+    },
+    {
+      "file": "remote_queue/task_20260526_090721_device2.task",
+      "double_sha256": "0e5a1fb19114c98a0034abcaa4df45fc9b742eae5a3ce609d1ba36a5ca5fee93",
+      "size": 38
+    },
+    {
+      "file": "remote_queue/task_20260526_091432_device2.task",
+      "double_sha256": "0e5a1fb19114c98a0034abcaa4df45fc9b742eae5a3ce609d1ba36a5ca5fee93",
+      "size": 38
+    },
+    {
+      "file": "remote_queue/task_20260526_091529_device2.task",
+      "double_sha256": "0e5a1fb19114c98a0034abcaa4df45fc9b742eae5a3ce609d1ba36a5ca5fee93",
+      "size": 38
+    },
+    {
+      "file": "remote_queue/task_20260526_093253_device2.task",
+      "double_sha256": "0e5a1fb19114c98a0034abcaa4df45fc9b742eae5a3ce609d1ba36a5ca5fee93",
+      "size": 38
+    },
+    {
+      "file": "remote_queue/task_20260526_093514_device2.task",
+      "double_sha256": "0e5a1fb19114c98a0034abcaa4df45fc9b742eae5a3ce609d1ba36a5ca5fee93",
+      "size": 38
+    },
+    {
+      "file": "remote_queue/task_codespace_keepalive_20260526_232950.task",
+      "double_sha256": "0c4a394afb07101d17d8a27076bf54dd84a144bc6ad1fb4e9453270daee9948b",
+      "size": 106
+    },
+    {
+      "file": "remote_queue/codespace_check_20260526_233834.task",
+      "double_sha256": "c9f1e25c0358070e248440e9abc85caa44a134c8784f73d28ac72472a82a2d72",
+      "size": 47
+    },
+    {
+      "file": "remote_queue/codespace_check_20260526_234028.task",
+      "double_sha256": "c9f1e25c0358070e248440e9abc85caa44a134c8784f73d28ac72472a82a2d72",
+      "size": 47
+    },
+    {
+      "file": "remote_queue/solana_devnet_deploy_prepare.task",
+      "double_sha256": "7e079694f1a74331a1fe124683419865d6a989e3caf7978f7a6b5028e52c46cc",
+      "size": 59
+    },
+    {
+      "file": "remote_queue/cybra_coin_devnet_deploy.task",
+      "double_sha256": "e841eb5391ce6f321e47f8daf3ad816e0e32145d06ee722c1d7e138058b03c66",
+      "size": 174
+    },
+    {
+      "file": "remote_queue/codespaces_startup.task",
+      "double_sha256": "7ebf4a1bc32206f90dee0fa77bfca771cc0eeb3c89211447ec3543541a89e1b7",
+      "size": 259
+    },
+    {
+      "file": "cybra_codespace_termux_bridge_patch.sh",
+      "double_sha256": "bd9a1b44c259c5e62e19e667de3d3f3bde22bc7227e6cd1597e181e60bbe7d15",
+      "size": 2587
+    }
+  ]
+}

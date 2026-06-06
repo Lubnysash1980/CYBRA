@@ -1,0 +1,24 @@
+name: CYBRA MGS Worker
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'data/cybra_mgs/tasks/**'
+      - 'scripts/cybra_codespace_mgs_worker.py'
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/cybra_codespace_mgs_worker.py
+      - run: |
+          git config user.name "cybra-mgs-bot"
+          git config user.email "cybra-mgs-bot@users.noreply.github.com"
+          git add data/cybra_mgs/codespace posts/cybra_mgs_codespace_report.md feeds/cybra_mgs_codespace_report.json || true
+          git commit -m "update MGS codespace report" || true
+          git push || true

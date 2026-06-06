@@ -1,0 +1,21 @@
+{
+  "task_id": "KIBRA-MENU-1780751508-29e1731a",
+  "timestamp": "2026-06-06T16:11:48",
+  "source": "kibra-menu",
+  "title": "токен",
+  "body": "дописати токен . можно написати програму для написання за допомогою пінарного коду",
+  "routes": [
+    "ai",
+    "it",
+    "parliament",
+    "oracle",
+    "codespace",
+    "mgs"
+  ],
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  }
+}
