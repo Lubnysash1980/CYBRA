@@ -1,0 +1,7 @@
+{
+  "oracle_host": "123.45.67.89",
+  "oracle_user": "ubuntu",
+  "oracle_port": "22",
+  "oracle_key": "$HOME/.ssh/id_ed25519",
+  "status": "SET_MANUALLY"
+}
