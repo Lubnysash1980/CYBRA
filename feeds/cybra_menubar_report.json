@@ -1,15 +1,15 @@
 {
   "status": "cybra_menubar_report_generated",
-  "time": 1780511264.7782633,
-  "time_iso": "2026-06-03T21:27:44+0300",
+  "time": 1780589678.664187,
+  "time_iso": "2026-06-04T19:14:38+0300",
   "state": {
     "status": "cybra_menubar_state",
-    "time": 1780511264.5626044,
-    "time_iso": "2026-06-03T21:27:44+0300",
+    "time": 1780589678.4074626,
+    "time_iso": "2026-06-04T19:14:38+0300",
     "tokens": {
       "main_blocks": 10,
-      "task_blocks": 270,
-      "estimated_kibra_default_reward_100": 28000,
+      "task_blocks": 301,
+      "estimated_kibra_default_reward_100": 31100,
       "price_usd_per_kibra": "0",
       "real_market_confirmed": false
     },
@@ -21,15 +21,15 @@
       "real_sell_now": false
     },
     "queues": {
-      "ai_block_inbox": 0,
+      "ai_block_inbox": 2,
       "task_block_mempool": 0,
       "pool_mining_blocks": 0,
       "task_blocks_mined": 0,
       "parliament_queue": 0,
       "parliament_results": 0,
       "parliament_failed": 0,
-      "menubar_tasks": 0,
-      "menubar_posts": 0,
+      "menubar_tasks": 1,
+      "menubar_posts": 1,
       "withdraw_proposals": 0
     },
     "modules": {
@@ -64,9 +64,10 @@
       "private_key_required": false,
       "manual_OWNER_approval_required": true
     },
-    "double_sha": "fb2f3107ee363b9cd3facd721191caff47dabe4dde81e1989b5bfba9fd3a5a5c"
+    "double_sha": "cdf852b6769b3abc4a4cfc92e7af6679af7bc87ae8233bd100be1897940cde04"
   },
   "recommendations": [
+    "posts/kibra_stats_recommendations_report.md: - **important** / `ai_task_blocks`: Незавершені AI-завдання треба переводити у mining task-blocks. Action: `bash cybra_ai_blocks.sh cycle`",
     "posts/kibra_stats_recommendations_report.md: - **growth** / `promotion`: Просувати KIBRA через utility: AI credits, proof services, bridge packages, developer marketplace, pool mining. Action: `bash cybra_mint_promo.sh report`",
     "posts/kibra_stats_recommendations_report.md: - **growth** / `next_blocks`: Наступні AI-завдання не відправляти напряму: переводити у task-blocks і давати пулам на майнинг. Action: `bash cybra_ai_blocks.sh until-done`",
     "posts/cybra_conformation8_report.md: - MEDIUM / payment_requisites_not_ready: Payment requisites are not ready: legal name / tax ID / IBAN / PSP missing.",
@@ -82,5 +83,5 @@
     "private_key_required": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "8209f875d2d051b248ce44087a9689688110819a318394fc3e7ba4caab2778c3"
+  "double_sha": "9227e5a6aba18ffc9fb0defa2a3815cd0a5555c896c0fd12a198203375854387"
 }

@@ -1,7 +1,7 @@
 {
   "status": "health_checked",
-  "time": 1780490506.1581087,
-  "time_iso": "2026-06-03T15:41:46+0300",
+  "time": 1780591956.0928135,
+  "time_iso": "2026-06-04T19:52:36+0300",
   "checks": {
     "redis_ping": true,
     "redis_committee": true,
@@ -66,11 +66,11 @@
     }
   ],
   "queues": {
-    "repair_queue": 16,
-    "seal_queue": 5,
+    "repair_queue": 0,
+    "seal_queue": 0,
     "block_inbox": 0,
     "task_block_mempool": 0,
-    "pool_mining_blocks": 6,
+    "pool_mining_blocks": 3,
     "parliament_queue": 0,
     "parliament_failed": 0
   },
@@ -82,5 +82,5 @@
     "manual_OWNER_approval_required": true
   },
   "ok": true,
-  "double_sha": "f5366840a6ee56ce13d2a7658552d77e222327aa4bb075fa08f89934303399ef"
+  "double_sha": "6c25b4970df12d786da92151abc3064b748ced927f1f9cd995404121ca2eb673"
 }

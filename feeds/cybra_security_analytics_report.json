@@ -1,9 +1,9 @@
 {
   "status": "security_scan_completed",
-  "time": 1780491270.573181,
-  "time_iso": "2026-06-03T15:54:30+0300",
-  "risk_score": 29,
-  "risk_level": "MEDIUM",
+  "time": 1780648956.4694679,
+  "time_iso": "2026-06-05T11:42:36+0300",
+  "risk_score": 23,
+  "risk_level": "LOW",
   "modules": {
     "redis_committee": true,
     "autoheal_7lvl": true,
@@ -17,13 +17,13 @@
     "closed_sha_bridge": true
   },
   "parliament": {
-    "queue": 0,
-    "results": 14,
+    "queue": 1,
+    "results": 0,
     "failed": 0,
-    "ai_block_inbox": 0,
+    "ai_block_inbox": 1,
     "task_block_mempool": 0,
-    "pool_mining_blocks": 8,
-    "task_blocks_mined": 8
+    "pool_mining_blocks": 0,
+    "task_blocks_mined": 0
   },
   "payment_requisites": {
     "exists": true,
@@ -31,8 +31,6 @@
     "bank_ready": false,
     "psp_ready": false,
     "missing": [
-      "payer legal/display name",
-      "tax_id_or_edrpou",
       "real bank IBAN or PSP provider"
     ]
   },
@@ -117,14 +115,12 @@
   },
   "balance": {
     "main_blocks": 10,
-    "task_blocks": 52,
-    "estimated_kibra_default_reward_100": 6200,
-    "reported_total_mined_kibra": "5800",
-    "reported_available_kibra": "5800"
+    "task_blocks": 310,
+    "estimated_kibra_default_reward_100": 32000,
+    "reported_total_mined_kibra": "31700",
+    "reported_available_kibra": "31700"
   },
   "missing": [
-    "payment requisites: payer legal/display name",
-    "payment requisites: tax_id_or_edrpou",
     "payment requisites: real bank IBAN or PSP provider",
     "market proof: real pool/orderbook/provider proof",
     "market proof: provider_name",
@@ -145,5 +141,5 @@
     "real_sell_now": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "74adb6642bd46f83d9d4a8a973a2d95968fff06fd501cba5404949a1d9a552ec"
+  "double_sha": "14cf0ce5864aaca9854ff124846b0ce43dd2a20482d8a37836f2bb67f7f199ca"
 }

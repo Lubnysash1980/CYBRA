@@ -6,9 +6,9 @@ Status: not_ready_missing_real_requisites
 
 Payment System ID: CYBRA-PAY-541883964C95E7EC
 Payer type: personal_or_company
-Legal name: NOT_FILLED
-Display name: NOT_FILLED
-Tax ID / EDRPOU: NOT_FILLED
+Legal name: Грабовський Олександр Миколайович
+Display name: Грабовський Олександр Миколайович
+Tax ID / EDRPOU: 2937******
 Address: NOT_FILLED
 Phone: NOT_FILLED
 Email: NOT_FILLED
@@ -30,14 +30,11 @@ Dealer crypto acceptance ready: False
 
 Errors:
 [
-  "Не заповнено legal/display name платника",
   "Нема реального платіжного каналу: bank IBAN / PSP / офіційне crypto acceptance автосалону"
 ]
 
 Warnings:
-[
-  "Не заповнено tax_id_or_edrpou"
-]
+[]
 
 ## Для автосалону
 
@@ -62,4 +59,4 @@ Real sell now: false
 
 ## Double SHA
 
-19da52b28642447ca29c7d2e8f1f3b706cc8901fd03fd4ba2eff4b0eb0313ba3
+327b3d8ea55d6ccf5f61f51b3f85080391d7ea57b851ba5c6bd5a64f1337e29e

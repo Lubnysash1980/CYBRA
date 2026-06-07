@@ -10,11 +10,22 @@
   "version": "1.0.0",
   "description": "",
   "main": "create_mint_2022.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lubnysash1980/CYBRA.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Lubnysash1980/CYBRA/issues"
+  },
+  "homepage": "https://github.com/Lubnysash1980/CYBRA#readme"
 }

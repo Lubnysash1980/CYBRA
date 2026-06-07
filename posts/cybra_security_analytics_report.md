@@ -1,28 +1,26 @@
 # CYBRA Security Analytics Report
 
 Status: security_scan_completed
-Risk level: MEDIUM
-Risk score: 29
+Risk level: LOW
+Risk score: 23
 
 ## Parliament
-queue: 0
-results: 14
+queue: 1
+results: 0
 failed: 0
-ai_block_inbox: 0
+ai_block_inbox: 1
 task_block_mempool: 0
-pool_mining_blocks: 8
-task_blocks_mined: 8
+pool_mining_blocks: 0
+task_blocks_mined: 0
 
 ## Balance
 main_blocks: 10
-task_blocks: 52
-estimated_kibra_default_reward_100: 6200
-reported_total_mined_kibra: 5800
-reported_available_kibra: 5800
+task_blocks: 310
+estimated_kibra_default_reward_100: 32000
+reported_total_mined_kibra: 31700
+reported_available_kibra: 31700
 
 ## Missing
-- payment requisites: payer legal/display name
-- payment requisites: tax_id_or_edrpou
 - payment requisites: real bank IBAN or PSP provider
 - market proof: real pool/orderbook/provider proof
 - market proof: provider_name
@@ -49,7 +47,7 @@ exists: True
 ready: False
 bank_ready: False
 psp_ready: False
-missing: ['payer legal/display name', 'tax_id_or_edrpou', 'real bank IBAN or PSP provider']
+missing: ['real bank IBAN or PSP provider']
 
 ## Safety
 private_keys_collected: False
@@ -61,4 +59,4 @@ real_sell_now: False
 manual_OWNER_approval_required: True
 
 ## Double SHA
-74adb6642bd46f83d9d4a8a973a2d95968fff06fd501cba5404949a1d9a552ec
+14cf0ce5864aaca9854ff124846b0ce43dd2a20482d8a37836f2bb67f7f199ca

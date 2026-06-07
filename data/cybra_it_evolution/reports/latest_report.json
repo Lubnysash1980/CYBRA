@@ -1,7 +1,7 @@
 {
   "status": "it_evolution_department_report",
-  "time": 1780570806.4891932,
-  "time_iso": "2026-06-04T14:00:06+0300",
+  "time": 1780873079.7066774,
+  "time_iso": "2026-06-08T01:57:59+0300",
   "modules": {
     "evolution_committee": true,
     "evolution_binary_subcommittee": true,
@@ -25,7 +25,7 @@
     "my_stats"
   ],
   "queues": {
-    "ai_block_inbox": 0,
+    "ai_block_inbox": 1,
     "it_audit": 0,
     "parliament_failed": 0
   },
@@ -35,5 +35,5 @@
     "automatic_external_tx": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "8730d71bf00f01607ba75b59c9957a9b14c6f409b09da3c2b7c5bf6b3fa27abd"
+  "double_sha": "058bff3703a057b49393bf61e1b640e9e4943ec3b4fc5846c0bc39c5be19b19d"
 }

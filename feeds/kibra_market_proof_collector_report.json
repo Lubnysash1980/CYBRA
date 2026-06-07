@@ -1,6 +1,6 @@
 {
   "status": "no_valid_market_proof",
-  "time": 1780490477.125376,
+  "time": 1780591954.084256,
   "proof": {
     "status": "draft",
     "proof_type": "pool_or_orderbook_or_provider",
@@ -32,5 +32,5 @@
   "real_market_confirmed": false,
   "real_sell_now": false,
   "manual_OWNER_approval_required": true,
-  "double_sha": "3278c64bdac8f035bb1e53e2c0b41b8a2e2b2bd81fc335fd4ad3e99440d3c9ee"
+  "double_sha": "6618668c7d6e5e3e30770641d6f7a594c333121ec1b03197a40c0cafb7758982"
 }

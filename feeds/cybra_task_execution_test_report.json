@@ -1,8 +1,8 @@
 {
   "status": "task_execution_lite_report",
   "mode": "lite",
-  "time": 1780584427.3810046,
-  "time_iso": "2026-06-04T17:47:07+0300",
+  "time": 1780873077.3804352,
+  "time_iso": "2026-06-08T01:57:57+0300",
   "summary": {
     "executed_previously_and_ready": 6,
     "will_execute": 0,
@@ -72,10 +72,10 @@
     }
   },
   "queues": {
-    "ai_block_inbox": 0,
-    "parliament_queue": 0,
+    "ai_block_inbox": 1,
+    "parliament_queue": 1,
     "parliament_failed": 0,
-    "task_blocks": 300
+    "task_blocks": 312
   },
   "command_results": [],
   "safety": {
@@ -88,5 +88,5 @@
     "manual_OWNER_approval_required": true
   },
   "overall_status": "OK",
-  "double_sha": "92cbe4d05808c1d3cd08f4613a3cd6e6a224da59c19995822be2e89e331ef558"
+  "double_sha": "cb559fc92d1ee089c08ae698cb5642d3f9c4eef855a03950510e664f539ce192"
 }

@@ -1,7 +1,7 @@
 {
   "status": "cybra_finance_5_committees_report_generated",
-  "time": 1780490473.0479162,
-  "time_iso": "2026-06-03T15:41:13+0300",
+  "time": 1780591953.8494797,
+  "time_iso": "2026-06-04T19:52:33+0300",
   "committees": [
     {
       "id": "finance_finder_committee",
@@ -71,8 +71,8 @@
     }
   ],
   "state": {
-    "time": 1780490472.3400307,
-    "time_iso": "2026-06-03T15:41:12+0300",
+    "time": 1780591952.891337,
+    "time_iso": "2026-06-04T19:52:32+0300",
     "binary_exists": true,
     "binary_global_exists": true,
     "cold_finance_report_exists": true,
@@ -84,20 +84,20 @@
       "block_inbox": 0,
       "parliament_queue": 0,
       "parliament_failed": 0,
-      "task_block_mempool": 0,
-      "pool_mining_blocks": 4,
-      "task_blocks_mined": 4
+      "task_block_mempool": 1,
+      "pool_mining_blocks": 2,
+      "task_blocks_mined": 1
     },
     "proofs": {
-      "cold_finance": "701b2d4142f7ae070e5217b35cde092a50f1f9ca999eed86b211be6f0be86ca3",
-      "payment_requisites": "0271a9988338bc602e7dbe83aa5f55b9d3765d20e5e0b765f1127b875406d30f",
-      "kybra_valid": "25688466d2a915e592f797827114008fe337d340651255c12881850d2d966cd2",
+      "cold_finance": "a03084683cc6aafccc9c8f50955a4ac6c84834a37207c8933eaa0f1854f26ea0",
+      "payment_requisites": "2410ba5d83a6adf6dff4c8f75fb0f4b7cc55e2374ca4746371b66f83ac49035a",
+      "kybra_valid": "27e72bf7303dd3c75aecb34bf3f462edc47cf8118ecaa2fd1f946684e780279c",
       "redis_committee": "278e074247869e12982098587fa55e1ec2a9e0fb8c76159800b0e19de21ecc25"
     },
     "git": {
       "branch": "main",
-      "commit": "c61de609d",
-      "dirty_files": 149
+      "commit": "9fb6f9daf",
+      "dirty_files": 1829
     }
   },
   "ai_tasks_prepared": 6,
@@ -121,5 +121,5 @@
     "automatic_real_payment": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "c7df42f4a1f6a973f57032d9edca8381c32fc96c10409c172f3872cb7c58d400"
+  "double_sha": "2c86e4db9aaf42a187b720eb57d76ca9556c76d71e9a441ffb2f4658be093917"
 }

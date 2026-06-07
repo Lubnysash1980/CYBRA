@@ -1,0 +1,102 @@
+{
+  "status": "IT_TASK_TWO_SOLANA_MINTS_NATIVE_TOKEN_POOL_CREATED",
+  "timestamp": "2026-06-08T02:51:43+0300",
+  "title": "IT Department: prepare pool tasks for two Solana mints and native token proof",
+  "owner_wallet": "EPEhVVhY7AXzWqcJeidWNuBqNbGDjJF35JzPVFXEbYxv",
+  "solana_mints": {
+    "mint_1": {
+      "symbol": "ALEX",
+      "mint": "BNhNw6waDiEobccELrZ483aYEqFRzYGwwHB6DLk5VnFr",
+      "pool_pair": "ALEX/USDC"
+    },
+    "mint_2": {
+      "symbol": "EFI",
+      "mint": "EfiCgx3svRwZ1voPXsnYdZo35kzyt5Ct7UHLuvnm6fcR",
+      "pool_pair": "EFI/USDC"
+    },
+    "quote": {
+      "symbol": "USDC",
+      "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+    }
+  },
+  "native_token": {
+    "symbol": "KIBRA",
+    "mint": "F5zxQyxq8qWdyauN8ArPofkKKVFxbeTAWSd1oeyazfeU",
+    "proof_type": "NFT_PROOF_OF_NATIVE_TOKEN"
+  },
+  "pool_target": {
+    "base_tokens_ui": 32000,
+    "quote_usdc_ui": 2000000,
+    "target_price_usd_per_token": 62.5,
+    "base_amount_raw": "32000000000000",
+    "quote_amount_raw": "2000000000000",
+    "pairs_to_prepare": [
+      "ALEX/USDC",
+      "EFI/USDC"
+    ],
+    "native_token_proof_to_attach": "KIBRA NFT-proof metadata"
+  },
+  "it_department_tasks": [
+    {
+      "task": "Prepare ALEX/USDC pool plan",
+      "base_mint": "BNhNw6waDiEobccELrZ483aYEqFRzYGwwHB6DLk5VnFr",
+      "quote_mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+      "base_amount_raw": "32000000000000",
+      "quote_amount_raw": "2000000000000",
+      "live_create": false
+    },
+    {
+      "task": "Prepare EFI/USDC pool plan",
+      "base_mint": "EfiCgx3svRwZ1voPXsnYdZo35kzyt5Ct7UHLuvnm6fcR",
+      "quote_mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+      "base_amount_raw": "32000000000000",
+      "quote_amount_raw": "2000000000000",
+      "live_create": false
+    },
+    {
+      "task": "Attach native KIBRA token NFT-proof to pool package",
+      "native_token_mint": "F5zxQyxq8qWdyauN8ArPofkKKVFxbeTAWSd1oeyazfeU",
+      "proof_required": true,
+      "real_onchain_nft_mint_now": false
+    },
+    {
+      "task": "Run clean RPC gate before any blockchain proof",
+      "blocked_rpc_action": "If sinkhole.cert.gov.ua detected, stop live activation and use Oracle VPS/VPN.",
+      "required_before_real_tx": true
+    },
+    {
+      "task": "Run owner balance check after clean RPC",
+      "check": [
+        "owner has 32,000 ALEX or 32,000 EFI",
+        "owner/liquidity source has 2,000,000 USDC",
+        "owner has SOL for fees"
+      ],
+      "required_before_real_tx": true
+    }
+  ],
+  "finance_department_tasks": [
+    "Keep 62.5 USD/token as target reference only.",
+    "Do not mark real market price until DEX reserves are on-chain verified.",
+    "Require USDC reserve proof before market confirmation.",
+    "Prepare liquidity requirement report."
+  ],
+  "cyber_parliament_tasks": [
+    "Review pool proposal.",
+    "Review native token NFT-proof.",
+    "Block fake/manual price activation.",
+    "Approve only after real reserve proof and OWNER confirmation."
+  ],
+  "safety": {
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "automatic_price_manipulation": false,
+    "mainnet_deploy_allowed": false,
+    "real_mainnet_tx_executed": false,
+    "real_market_confirmed": false,
+    "live_dex_create": false,
+    "manual_OWNER_approval_required": true,
+    "approval_phrase_required_later": "I_ACCEPT_DEX_POOL_CREATION_RISK"
+  },
+  "double_sha": "36f0a9e20a7ffba20a6d8ff19b223dea75fb5c3b236867dd4d7e65ce8049178a"
+}

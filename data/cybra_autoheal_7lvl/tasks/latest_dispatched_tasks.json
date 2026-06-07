@@ -10,7 +10,7 @@
         "level_name": "Redis Health Level",
         "ok": true,
         "bad": [],
-        "seal_sha": "56e318f0794b18692d779f530dddccd72daf091e2b9dc690bc977dee608cafae",
+        "seal_sha": "7c0fbb0e9496a8e17b5362b51f88dda95df28a4f288c886a466885e9a2d88053",
         "repair_alpha_beta": true,
         "convert_to_mining_block_first": true,
         "send_to_pool_mining": true,
@@ -18,7 +18,7 @@
         "automatic_external_tx": false,
         "manual_OWNER_approval_required": true
       },
-      "double_sha": "0ab3ced8cb9dcd198f108821b8307b0eaf93655ba5a4eb111f718f48688fb45f"
+      "double_sha": "ac30760ab041093a88d41b6fd347d2e222e3a94d22a3a1d62d1a5058f3bb71a2"
     },
     {
       "topic": "CYBRA AutoHeal 7LVL task distribution",
@@ -30,7 +30,7 @@
         "level_name": "Binary Health Level",
         "ok": true,
         "bad": [],
-        "seal_sha": "56e318f0794b18692d779f530dddccd72daf091e2b9dc690bc977dee608cafae",
+        "seal_sha": "7c0fbb0e9496a8e17b5362b51f88dda95df28a4f288c886a466885e9a2d88053",
         "repair_alpha_beta": true,
         "convert_to_mining_block_first": true,
         "send_to_pool_mining": true,
@@ -38,7 +38,7 @@
         "automatic_external_tx": false,
         "manual_OWNER_approval_required": true
       },
-      "double_sha": "dfc7254c7d6fccf978716ba1db6f28e206b5fccc5b025820d29951198504b4f2"
+      "double_sha": "b6ceee947732850ffe70e6de75460a779965083daa478394ff3a6b1b45594d7e"
     },
     {
       "topic": "CYBRA AutoHeal 7LVL task distribution",
@@ -50,7 +50,7 @@
         "level_name": "Finance Data Health Level",
         "ok": true,
         "bad": [],
-        "seal_sha": "56e318f0794b18692d779f530dddccd72daf091e2b9dc690bc977dee608cafae",
+        "seal_sha": "7c0fbb0e9496a8e17b5362b51f88dda95df28a4f288c886a466885e9a2d88053",
         "repair_alpha_beta": true,
         "convert_to_mining_block_first": true,
         "send_to_pool_mining": true,
@@ -58,7 +58,7 @@
         "automatic_external_tx": false,
         "manual_OWNER_approval_required": true
       },
-      "double_sha": "3661c2ac7ad3e983c5b12b26faa7212122a9515e632ba029e6aec4320704ebdc"
+      "double_sha": "31d993413930b3a3445edb6550008278b50cacb120d4491146c6ce9022ad582c"
     },
     {
       "topic": "CYBRA AutoHeal 7LVL task distribution",
@@ -70,7 +70,7 @@
         "level_name": "Wallet Requisites Health Level",
         "ok": true,
         "bad": [],
-        "seal_sha": "56e318f0794b18692d779f530dddccd72daf091e2b9dc690bc977dee608cafae",
+        "seal_sha": "7c0fbb0e9496a8e17b5362b51f88dda95df28a4f288c886a466885e9a2d88053",
         "repair_alpha_beta": true,
         "convert_to_mining_block_first": true,
         "send_to_pool_mining": true,
@@ -78,7 +78,7 @@
         "automatic_external_tx": false,
         "manual_OWNER_approval_required": true
       },
-      "double_sha": "c640b09305b4a28266d3443c87809b938b2d070894c538e86cb8d51875d12b41"
+      "double_sha": "7bffa60b2e12597982c090d06e5b05e248665148ddc207966b8d812809678d0a"
     },
     {
       "topic": "CYBRA AutoHeal 7LVL task distribution",
@@ -90,7 +90,7 @@
         "level_name": "Parliament Task Health Level",
         "ok": true,
         "bad": [],
-        "seal_sha": "56e318f0794b18692d779f530dddccd72daf091e2b9dc690bc977dee608cafae",
+        "seal_sha": "7c0fbb0e9496a8e17b5362b51f88dda95df28a4f288c886a466885e9a2d88053",
         "repair_alpha_beta": true,
         "convert_to_mining_block_first": true,
         "send_to_pool_mining": true,
@@ -98,7 +98,7 @@
         "automatic_external_tx": false,
         "manual_OWNER_approval_required": true
       },
-      "double_sha": "ac4538c3a35ac99eebfd8c910dadda566a534da2e316d86a11b5fed2005af5e4"
+      "double_sha": "0543efd826086e477a07fd55b63181ea7737a5626e5aa9547d9a24c87171bc0c"
     },
     {
       "topic": "CYBRA AutoHeal 7LVL task distribution",
@@ -110,7 +110,7 @@
         "level_name": "Market Safety Health Level",
         "ok": true,
         "bad": [],
-        "seal_sha": "56e318f0794b18692d779f530dddccd72daf091e2b9dc690bc977dee608cafae",
+        "seal_sha": "7c0fbb0e9496a8e17b5362b51f88dda95df28a4f288c886a466885e9a2d88053",
         "repair_alpha_beta": true,
         "convert_to_mining_block_first": true,
         "send_to_pool_mining": true,
@@ -118,7 +118,7 @@
         "automatic_external_tx": false,
         "manual_OWNER_approval_required": true
       },
-      "double_sha": "f5776f5fe22d625683b00f9cd86a43ab6d0cbdb2afb49e866096d3041561fc49"
+      "double_sha": "a17093432e2e048bfbc195c0287e48b4b5a619ad3d5d4942a10ed8a29f49d6fa"
     },
     {
       "topic": "CYBRA AutoHeal 7LVL task distribution",
@@ -130,7 +130,7 @@
         "level_name": "Seal Dispatcher Health Level",
         "ok": true,
         "bad": [],
-        "seal_sha": "56e318f0794b18692d779f530dddccd72daf091e2b9dc690bc977dee608cafae",
+        "seal_sha": "7c0fbb0e9496a8e17b5362b51f88dda95df28a4f288c886a466885e9a2d88053",
         "repair_alpha_beta": true,
         "convert_to_mining_block_first": true,
         "send_to_pool_mining": true,
@@ -138,7 +138,7 @@
         "automatic_external_tx": false,
         "manual_OWNER_approval_required": true
       },
-      "double_sha": "27602dcd3a3dfebc02c7c262ffb2538a7623ee478e97a43187bdbf7e5d87e75e"
+      "double_sha": "0ada31c658b298b49f4e637f27eba2504cb2273b53dfb8e88086d48e990a7beb"
     },
     {
       "topic": "CYBRA AutoHeal Alpha/Beta sealed repair cycle",
@@ -148,7 +148,7 @@
         "source": "cybra_autoheal_7lvl",
         "goal": "Alpha repairs Beta, Beta repairs Alpha, Seal Dispatcher distributes repair tasks through mining blocks.",
         "levels": 7,
-        "seal_sha": "56e318f0794b18692d779f530dddccd72daf091e2b9dc690bc977dee608cafae",
+        "seal_sha": "7c0fbb0e9496a8e17b5362b51f88dda95df28a4f288c886a466885e9a2d88053",
         "health_ok": true,
         "convert_to_mining_block_first": true,
         "send_to_pool_mining": true,
@@ -156,10 +156,10 @@
         "automatic_external_tx": false,
         "manual_OWNER_approval_required": true
       },
-      "double_sha": "eac2a3a28dd785a35b6478c0e43636a2ff6f199738ad62d6a4dbe6e5875f83ff"
+      "double_sha": "c4ea3897b2763c3b342fd5b11e580087bb779dbb9f39246ef6971cde139001db"
     }
   ],
   "count": 8,
-  "time": 1780490449.1083748,
-  "time_iso": "2026-06-03T15:40:49+0300"
+  "time": 1780591956.6492255,
+  "time_iso": "2026-06-04T19:52:36+0300"
 }

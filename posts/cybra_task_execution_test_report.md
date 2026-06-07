@@ -10,10 +10,10 @@ handler_missing: 0
 missing: 0
 
 ## Queues
-ai_block_inbox: 0
-parliament_queue: 0
+ai_block_inbox: 1
+parliament_queue: 1
 parliament_failed: 0
-task_blocks: 300
+task_blocks: 312
 
 ## Task readiness
 
@@ -75,4 +75,4 @@ seed_phrase_required: False
 manual_OWNER_approval_required: True
 
 ## Double SHA
-92cbe4d05808c1d3cd08f4613a3cd6e6a224da59c19995822be2e89e331ef558
+cb559fc92d1ee089c08ae698cb5642d3f9c4eef855a03950510e664f539ce192

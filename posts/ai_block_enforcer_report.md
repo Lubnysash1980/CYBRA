@@ -8,13 +8,13 @@ Status: **active**
 
 ## Current
 
-- Converted now: **2**
+- Converted now: **0**
 - Mempool: **0**
-- Mined task blocks: **11**
-- Pool mining blocks: **11**
+- Mined task blocks: **1**
+- Pool mining blocks: **1**
 - Parliament queue: **0**
 - Parliament failed: **0**
-- Converted hashes: **33**
+- Converted hashes: **1**
 
 ## Flow
 
@@ -30,4 +30,4 @@ AI task → task-block mempool → pool mining → mined block → AI support ta
 
 ## Double SHA
 
-`e48c482d9f11ce1504d99533a86e0a63a48942df0c350bf75a613598ecc9bbb5`
+`8bd75a61c630d9286a97d8dcd126422f13a62daeea55e9a17100c08d6f4889b9`

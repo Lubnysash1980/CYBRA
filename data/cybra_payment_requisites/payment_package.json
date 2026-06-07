@@ -1,14 +1,14 @@
 {
   "status": "not_ready_missing_real_requisites",
-  "time": 1780490476.154507,
-  "time_iso": "2026-06-03T15:41:16+0300",
+  "time": 1780591952.059366,
+  "time_iso": "2026-06-04T19:52:32+0300",
   "payer_profile": {
     "status": "draft_not_ready_for_real_payment",
     "payment_system_id": "CYBRA-PAY-541883964C95E7EC",
     "payer_type": "personal_or_company",
-    "payer_display_name": "",
-    "payer_full_legal_name": "",
-    "payer_tax_id_or_edrpou": "",
+    "payer_display_name": "Грабовський Олександр Миколайович",
+    "payer_full_legal_name": "Грабовський Олександр Миколайович",
+    "payer_tax_id_or_edrpou": "2937002115",
     "payer_address": "",
     "payer_phone": "",
     "payer_email": "",
@@ -40,7 +40,10 @@
       "owner_approval_required": true
     },
     "real_payment_ready": false,
-    "note": "Заповнити тільки реальні реквізити банку або PSP."
+    "note": "Заповнити тільки реальні реквізити банку або PSP.",
+    "owner_identity_filled": true,
+    "owner_identity_time": 1780493031.5862713,
+    "owner_identity_note": "Private local identity. Do not commit to public GitHub."
   },
   "validation": {
     "ready": false,
@@ -48,12 +51,9 @@
     "psp_ready": false,
     "crypto_ready": false,
     "errors": [
-      "Не заповнено legal/display name платника",
       "Нема реального платіжного каналу: bank IBAN / PSP / офіційне crypto acceptance автосалону"
     ],
-    "warnings": [
-      "Не заповнено tax_id_or_edrpou"
-    ]
+    "warnings": []
   },
   "car_invoice_request": {},
   "funding_plan": {
@@ -72,7 +72,7 @@
     "real_sell_now": false
   },
   "queues": {
-    "block_inbox": 1,
+    "block_inbox": 0,
     "parliament_queue": 0,
     "parliament_failed": 0,
     "task_block_mempool": 0
@@ -84,5 +84,5 @@
     "automatic_token_sell": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "19da52b28642447ca29c7d2e8f1f3b706cc8901fd03fd4ba2eff4b0eb0313ba3"
+  "double_sha": "327b3d8ea55d6ccf5f61f51b3f85080391d7ea57b851ba5c6bd5a64f1337e29e"
 }

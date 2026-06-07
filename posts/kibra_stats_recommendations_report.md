@@ -16,15 +16,15 @@ Status: **generated**
 
 ## Task blocks
 
-- Task block files: **48**
+- Task block files: **309**
 - Mempool: **0**
-- Mined: **4**
-- Pool queue: **4**
+- Mined: **2**
+- Pool queue: **3**
 
 ## Parliament
 
 - Queue: **0**
-- Results: **10**
+- Results: **0**
 - Failed: **0**
 
 ## Mint / Finance
@@ -65,4 +65,4 @@ Status: **generated**
 
 ## Double SHA
 
-`0da8b5ca2412686e4afe398b27e6999da8641e8bc56de3521be5372dc4963a71`
+`edcfd7e7b4121b894534b79e7384f91b4f60d40f6fb8771385d38ecf9a64602e`

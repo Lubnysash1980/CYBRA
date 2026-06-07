@@ -14,11 +14,11 @@ Asset: KIBRA
 ## Balance
 
 Main blocks: 10
-Task blocks: 48
-Total mined KIBRA: 5800
+Task blocks: 307
+Total mined KIBRA: 31700
 Reserved KIBRA: 0
 Internal sent KIBRA: 0
-Available KIBRA: 5800
+Available KIBRA: 31700
 
 Price USD/KIBRA: 0
 Estimated USD if confirmed: 0
@@ -54,4 +54,4 @@ OWNER approval required.
 
 ## Double SHA
 
-b5f6742375855f275666e42613201d9a08f0ad1533ca3ab406531c9335bbf8d5
+94619a1ad4e1c50fe8c54bcfa2372b50342f462f7f75a4b40bb31c01ddf30f25

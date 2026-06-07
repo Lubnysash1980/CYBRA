@@ -25,7 +25,7 @@ evolution_tracker: True
 - my_stats
 
 ## Queues
-ai_block_inbox: 0
+ai_block_inbox: 1
 it_audit: 0
 parliament_failed: 0
 
@@ -36,4 +36,4 @@ automatic_external_tx: False
 manual_OWNER_approval_required: True
 
 ## Double SHA
-8730d71bf00f01607ba75b59c9957a9b14c6f409b09da3c2b7c5bf6b3fa27abd
+058bff3703a057b49393bf61e1b640e9e4943ec3b4fc5846c0bc39c5be19b19d

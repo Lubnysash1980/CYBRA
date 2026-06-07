@@ -1,11 +1,11 @@
 {
   "status": "sealed",
-  "time": 1780490470.3368835,
-  "time_iso": "2026-06-03T15:41:10+0300",
-  "alpha_sha": "5c0c48d3ff6a1594a5a919cd40a1d833e356a053d138b9701eceeb1f91ffcb62",
-  "beta_sha": "ff024b2857ab6110a23aa66c7f16d2149e0e206200a0a620aec3a8f8c62957c6",
-  "dispatcher_sha": "491387efdc9c98e3d632674eecd792825f92015b4b35fd846af1c28a8225cbf3",
-  "health_sha": "08cce53dccfade6230426d35a407dd44c0e0451e00724b96354d2d3f88c05401",
+  "time": 1780591956.2609396,
+  "time_iso": "2026-06-04T19:52:36+0300",
+  "alpha_sha": "6677fb46127ead90bd90f2fdf4d35b23526f002accd3198c82e24b8850c871b3",
+  "beta_sha": "64c2e78af76fba01924ebb4a03f2c00c8e9eccb99c385a1c53282bb5716992f4",
+  "dispatcher_sha": "1ab606f6ccf7c69dc01e0b5dd73bcdde9150197cb4d896fb31c0e67e864a07f2",
+  "health_sha": "6c25b4970df12d786da92151abc3064b748ced927f1f9cd995404121ca2eb673",
   "watch_files": {
     "bin/cybra-finance-bin": "c7c32d55d5ac366cc67efa24cdb5a71440ed5771859f759cbf342b3f300d0015",
     "bin/cybra-autoheal": "931f60b341994aac4701444a72c05fdd23828b7397fc2694d0db43a8a7c002eb",
@@ -17,7 +17,7 @@
     "cybra_real_market_price_gate.sh": "4909de3313e9ceb191612d4af6028bf14df0ac2e6c67ce154727c2de82dafa51",
     "cybra_closed_sha_bridge.sh": "8d2069ab006a7a3811c5b2045d04ccec513de14656ed06f6186dd509b20a9ea8",
     "cybra_kibra_stats.sh": "4cc70720f41c7d352fcfa150d47456e18aa6966e20d379ae9b37635bb61fa0e5",
-    "parliament_executor_v6.py": "a451e3afad27fa2db221860f99cc3ba5490af04cec8671ce5208684829e6a1b6"
+    "parliament_executor_v6.py": "ce5b5f7f532d3c4a22e4b13eb438938e4259627f08e5999200311a740bd3ebf8"
   },
   "levels": [
     {
@@ -121,5 +121,5 @@
     "no_automatic_real_payment": true,
     "owner_approval_required": true
   },
-  "double_sha": "262fba11030f97c3bff5c7998071ccb3e5dd94fdc5fb686b402976bed828a4a4"
+  "double_sha": "7c0fbb0e9496a8e17b5362b51f88dda95df28a4f288c886a466885e9a2d88053"
 }

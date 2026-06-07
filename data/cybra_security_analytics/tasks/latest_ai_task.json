@@ -4,11 +4,9 @@
   "priority": "normal",
   "payload": {
     "source": "cybra_security_analytics",
-    "risk_score": 29,
-    "risk_level": "MEDIUM",
+    "risk_score": 23,
+    "risk_level": "LOW",
     "missing": [
-      "payment requisites: payer legal/display name",
-      "payment requisites: tax_id_or_edrpou",
       "payment requisites: real bank IBAN or PSP provider",
       "market proof: real pool/orderbook/provider proof",
       "market proof: provider_name",
@@ -21,13 +19,13 @@
     ],
     "critical": [],
     "parliament": {
-      "queue": 0,
-      "results": 12,
+      "queue": 1,
+      "results": 0,
       "failed": 0,
-      "ai_block_inbox": 0,
+      "ai_block_inbox": 1,
       "task_block_mempool": 0,
-      "pool_mining_blocks": 6,
-      "task_blocks_mined": 6
+      "pool_mining_blocks": 0,
+      "task_blocks_mined": 0
     },
     "convert_to_mining_block_first": true,
     "send_to_pool_mining": true,
@@ -36,5 +34,5 @@
     "automatic_external_tx": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "4f05042dabd38c2302751462bd08cf6bb446136af2ad0a2bd8676ef91a56cd50"
+  "double_sha": "c9209429a1b039dd1710c7210e1d3543b5ee55382397702553cd5dbe3e5a1593"
 }

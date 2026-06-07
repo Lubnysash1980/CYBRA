@@ -62,3 +62,5 @@ data/cybra_autoheal_7lvl/snapshots/
 local_backup_before_pull/
 recovery_unpack/
 *.tmp
+
+# CYBRA DEX pool private signer

@@ -2,18 +2,26 @@
 
 Status: IT_MENU_OK
 
-Tasks: 19
+Tasks: 27
 
 ## Queues
-ai: 0
-parliament: 0
+ai: 1
+parliament: 1
 mining: 0
 pool: 0
-it: 0
-evolution: 0
+it: 1
+evolution: 1
 security: 0
 
 ## Latest
+- 3ad57f6a29de | OPEN | it_department_task | ракетна небезпека
+- 9005e2df7a8d | OPEN | it_department_task | треба з cybraparlamentom розпочати р о боту щодо тасків
+- 627365f7316c | OPEN | it_department_task | треба переписати весь бінарний код задля безпеки й легкої роботи
+- 5cba7a334902 | EXPANDED | it_task | IT task
+- 747611e20999 | EXPANDED | it_task | IT task
+- 6903b1138aba | EXPANDED | it_task | IT task
+- c906a67828dc | OPEN | it_department_task | Створити нативний токен під назвою Кібра для пулів, для того, щоб пули підхоплювали через тунель шифрований в США, підхо
+- c26e95e2e0ad | OPEN | it_department_task | Перевірити справу по Mercedes G580 AI0592YB VIN W1NWM0AB1SX058958 і створити evidence report
 - b72772ec89b4 | EXPANDED | it_task | IT task
 - 93b104ba6633 | OPEN | it_evolution_task | CYBRA IT Evolution Task
 - 2c000b268d12 | OPEN | it_evolution_task | CYBRA IT Evolution Task
@@ -35,4 +43,4 @@ security: 0
 - 3d0bcabacc81 | OPEN | it_evolution_task | CYBRA IT Evolution Task
 
 ## Double SHA
-8a3f96e56b144ce43e6e699ab3eefbdf0c1e304fbf30e2f115fdf2f7135cf209
+c27eb92d261193a20642b70f30d366876fe0051e14ddff0fa7e65d66df476b6a

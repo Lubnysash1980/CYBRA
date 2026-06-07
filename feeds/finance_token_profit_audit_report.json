@@ -1,13 +1,13 @@
 {
   "status": "finance_token_profit_audit_report_generated",
-  "time": 1780489287.456561,
-  "time_iso": "2026-06-03T15:21:27+0300",
+  "time": 1780511975.1031737,
+  "time_iso": "2026-06-03T21:39:35+0300",
   "score": 100,
   "max_score": 100,
   "state": {
     "status": "finance_token_profit_audit_generated",
-    "time": 1780489286.9734197,
-    "time_iso": "2026-06-03T15:21:26+0300",
+    "time": 1780511974.4833314,
+    "time_iso": "2026-06-03T21:39:34+0300",
     "latest_kibra_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab",
     "modules": {
       "finance_department": true,
@@ -20,7 +20,7 @@
     },
     "runtime": {
       "queue": 0,
-      "results": 19,
+      "results": 15,
       "failed": 0,
       "finance_ledger": 0,
       "finance_audit": 0,
@@ -53,13 +53,13 @@
       "finance_infrastructure": "e603dfc17cc6e92fc1c843eabe94222205b4f0a75296cfe7e547e70c3fb1a623",
       "monetization": "1b531bc60881bac751a68f335b2e1803b65be449abaa9b163f89413bf0bc3546",
       "market_exchange": "cb66fbf546da32a64eca5811a9a5d1fe7ff951eff02b47fc4c4bbd29f22e5e95",
-      "native_kibra": "063f7093b13353b3e7578f4ec1a51005fdce800340772aa3ed817fe77e712a96",
+      "native_kibra": "119c09e303a3e8b63ef075b19c75f0f860697b989b7b45ecad8fda630ad47f07",
       "kibra_chain": "92d4c65228a63257f417b5211aebeb8ec4cb306e3d7269a182346ffeeb1da58c"
     },
     "git": {
       "branch": "main",
-      "commit": "d7b49bf3a",
-      "dirty_files": 333
+      "commit": "6fa000201",
+      "dirty_files": 1508
     }
   },
   "recommendations": [
@@ -164,5 +164,5 @@
   ],
   "submit_ai": false,
   "profit_notice": "No guaranteed profit. This module creates optimization recommendations only.",
-  "double_sha": "bc9005116ef8b219115e9e7201738e10b567043d52db07bfc3c6a350ce68db3b"
+  "double_sha": "badfcb36bf7585cf79374b2ad2f05ea2c4d5ff6ae021e7a0e91ea480a45a5586"
 }

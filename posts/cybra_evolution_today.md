@@ -1,10 +1,10 @@
 # CYBRA Daily Evolution Report
 
-Date: 2026-06-04
+Date: 2026-06-05
 Evolution score: 84.73%
-Previous score: None
-Daily delta: None
-Movement: baseline
+Previous score: 84.73
+Daily delta: 0.0
+Movement: stable_but_blocks_changed
 
 ## Score parts
 module_readiness: 100.0%
@@ -19,14 +19,14 @@ security_health: 100%
 
 ## Blocks / KIBRA
 main_blocks: 10
-task_blocks: 310
-estimated_kibra_default_reward_100: 32000
+task_blocks: 311
+estimated_kibra_default_reward_100: 32100
 
 ## Queues
-ai_block_inbox: 0
+ai_block_inbox: 1
 task_block_mempool: 0
 pool_mining_blocks: 0
-parliament_queue: 0
+parliament_queue: 1
 parliament_results: 0
 parliament_failed: 0
 
@@ -52,4 +52,4 @@ automatic_external_tx: False
 manual_OWNER_approval_required: True
 
 ## Double SHA
-2f45b7625c3d59946e599a902ef8281636ea4bacbe7e8430a55eb0c49f14928f
+96d47db4bf835cb1c2981c4a0dfaf63f1831c7190bbdfbf06ed43397628a1599

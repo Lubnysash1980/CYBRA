@@ -1,0 +1,364 @@
+{
+  "status": "TWO_SOLANA_MINTS_NATIVE_POOL_IT_TASK_CHECK",
+  "timestamp": "2026-06-08T02:55:18+0300",
+  "summary": {
+    "pass": 37,
+    "fail": 0
+  },
+  "queue_status": {
+    "cybra:it_department:queue": 2,
+    "cybra:finance_department:queue": 4,
+    "cybra:dex_pool:queue": 2,
+    "cybra:nft_proof:queue": 8,
+    "cybra:native_token:proof_queue": 8,
+    "cybra:parliament:queue": 12,
+    "cybra:audit:queue": 12,
+    "cybra:ai:tasks:block_inbox": 2,
+    "cybra:market_activation:queue": 3
+  },
+  "tests": [
+    {
+      "name": "task_exists",
+      "status": "PASS",
+      "ok": true,
+      "detail": "feeds/solana_two_mints_native_pool_it_task.json"
+    },
+    {
+      "name": "status_ok",
+      "status": "PASS",
+      "ok": true,
+      "detail": "IT_TASK_TWO_SOLANA_MINTS_NATIVE_TOKEN_POOL_CREATED"
+    },
+    {
+      "name": "owner_ok",
+      "status": "PASS",
+      "ok": true,
+      "detail": "EPEhVVhY7AXzWqcJeidWNuBqNbGDjJF35JzPVFXEbYxv"
+    },
+    {
+      "name": "alex_mint_ok",
+      "status": "PASS",
+      "ok": true,
+      "detail": {
+        "symbol": "ALEX",
+        "mint": "BNhNw6waDiEobccELrZ483aYEqFRzYGwwHB6DLk5VnFr",
+        "pool_pair": "ALEX/USDC"
+      }
+    },
+    {
+      "name": "efi_mint_ok",
+      "status": "PASS",
+      "ok": true,
+      "detail": {
+        "symbol": "EFI",
+        "mint": "EfiCgx3svRwZ1voPXsnYdZo35kzyt5Ct7UHLuvnm6fcR",
+        "pool_pair": "EFI/USDC"
+      }
+    },
+    {
+      "name": "usdc_mint_ok",
+      "status": "PASS",
+      "ok": true,
+      "detail": {
+        "symbol": "USDC",
+        "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+      }
+    },
+    {
+      "name": "native_kibra_ok",
+      "status": "PASS",
+      "ok": true,
+      "detail": {
+        "symbol": "KIBRA",
+        "mint": "F5zxQyxq8qWdyauN8ArPofkKKVFxbeTAWSd1oeyazfeU",
+        "proof_type": "NFT_PROOF_OF_NATIVE_TOKEN"
+      }
+    },
+    {
+      "name": "native_proof_type_ok",
+      "status": "PASS",
+      "ok": true,
+      "detail": {
+        "symbol": "KIBRA",
+        "mint": "F5zxQyxq8qWdyauN8ArPofkKKVFxbeTAWSd1oeyazfeU",
+        "proof_type": "NFT_PROOF_OF_NATIVE_TOKEN"
+      }
+    },
+    {
+      "name": "pool_base_tokens_ok",
+      "status": "PASS",
+      "ok": true,
+      "detail": {
+        "base_tokens_ui": 32000,
+        "quote_usdc_ui": 2000000,
+        "target_price_usd_per_token": 62.5,
+        "base_amount_raw": "32000000000000",
+        "quote_amount_raw": "2000000000000",
+        "pairs_to_prepare": [
+          "ALEX/USDC",
+          "EFI/USDC"
+        ],
+        "native_token_proof_to_attach": "KIBRA NFT-proof metadata"
+      }
+    },
+    {
+      "name": "pool_target_usdc_ok",
+      "status": "PASS",
+      "ok": true,
+      "detail": {
+        "base_tokens_ui": 32000,
+        "quote_usdc_ui": 2000000,
+        "target_price_usd_per_token": 62.5,
+        "base_amount_raw": "32000000000000",
+        "quote_amount_raw": "2000000000000",
+        "pairs_to_prepare": [
+          "ALEX/USDC",
+          "EFI/USDC"
+        ],
+        "native_token_proof_to_attach": "KIBRA NFT-proof metadata"
+      }
+    },
+    {
+      "name": "pool_price_ok",
+      "status": "PASS",
+      "ok": true,
+      "detail": {
+        "base_tokens_ui": 32000,
+        "quote_usdc_ui": 2000000,
+        "target_price_usd_per_token": 62.5,
+        "base_amount_raw": "32000000000000",
+        "quote_amount_raw": "2000000000000",
+        "pairs_to_prepare": [
+          "ALEX/USDC",
+          "EFI/USDC"
+        ],
+        "native_token_proof_to_attach": "KIBRA NFT-proof metadata"
+      }
+    },
+    {
+      "name": "base_raw_ok",
+      "status": "PASS",
+      "ok": true,
+      "detail": "32000000000000"
+    },
+    {
+      "name": "usdc_raw_ok",
+      "status": "PASS",
+      "ok": true,
+      "detail": "2000000000000"
+    },
+    {
+      "name": "alex_usdc_pair_ok",
+      "status": "PASS",
+      "ok": true,
+      "detail": [
+        "ALEX/USDC",
+        "EFI/USDC"
+      ]
+    },
+    {
+      "name": "efi_usdc_pair_ok",
+      "status": "PASS",
+      "ok": true,
+      "detail": [
+        "ALEX/USDC",
+        "EFI/USDC"
+      ]
+    },
+    {
+      "name": "live_dex_false",
+      "status": "PASS",
+      "ok": true,
+      "detail": {
+        "real_payment_now": false,
+        "automatic_SWIFT": false,
+        "automatic_external_tx": false,
+        "automatic_price_manipulation": false,
+        "mainnet_deploy_allowed": false,
+        "real_mainnet_tx_executed": false,
+        "real_market_confirmed": false,
+        "live_dex_create": false,
+        "manual_OWNER_approval_required": true,
+        "approval_phrase_required_later": "I_ACCEPT_DEX_POOL_CREATION_RISK"
+      }
+    },
+    {
+      "name": "mainnet_tx_false",
+      "status": "PASS",
+      "ok": true,
+      "detail": {
+        "real_payment_now": false,
+        "automatic_SWIFT": false,
+        "automatic_external_tx": false,
+        "automatic_price_manipulation": false,
+        "mainnet_deploy_allowed": false,
+        "real_mainnet_tx_executed": false,
+        "real_market_confirmed": false,
+        "live_dex_create": false,
+        "manual_OWNER_approval_required": true,
+        "approval_phrase_required_later": "I_ACCEPT_DEX_POOL_CREATION_RISK"
+      }
+    },
+    {
+      "name": "market_confirmed_false",
+      "status": "PASS",
+      "ok": true,
+      "detail": {
+        "real_payment_now": false,
+        "automatic_SWIFT": false,
+        "automatic_external_tx": false,
+        "automatic_price_manipulation": false,
+        "mainnet_deploy_allowed": false,
+        "real_mainnet_tx_executed": false,
+        "real_market_confirmed": false,
+        "live_dex_create": false,
+        "manual_OWNER_approval_required": true,
+        "approval_phrase_required_later": "I_ACCEPT_DEX_POOL_CREATION_RISK"
+      }
+    },
+    {
+      "name": "external_tx_false",
+      "status": "PASS",
+      "ok": true,
+      "detail": {
+        "real_payment_now": false,
+        "automatic_SWIFT": false,
+        "automatic_external_tx": false,
+        "automatic_price_manipulation": false,
+        "mainnet_deploy_allowed": false,
+        "real_mainnet_tx_executed": false,
+        "real_market_confirmed": false,
+        "live_dex_create": false,
+        "manual_OWNER_approval_required": true,
+        "approval_phrase_required_later": "I_ACCEPT_DEX_POOL_CREATION_RISK"
+      }
+    },
+    {
+      "name": "owner_approval_required",
+      "status": "PASS",
+      "ok": true,
+      "detail": {
+        "real_payment_now": false,
+        "automatic_SWIFT": false,
+        "automatic_external_tx": false,
+        "automatic_price_manipulation": false,
+        "mainnet_deploy_allowed": false,
+        "real_mainnet_tx_executed": false,
+        "real_market_confirmed": false,
+        "live_dex_create": false,
+        "manual_OWNER_approval_required": true,
+        "approval_phrase_required_later": "I_ACCEPT_DEX_POOL_CREATION_RISK"
+      }
+    },
+    {
+      "name": "file_exists_data_it_department_tasks_solana_two_mints_native_pool_task.json",
+      "status": "PASS",
+      "ok": true,
+      "detail": "data/it_department/tasks/solana_two_mints_native_pool_task.json"
+    },
+    {
+      "name": "file_exists_data_finance_department_tasks_solana_two_mints_native_pool_task.json",
+      "status": "PASS",
+      "ok": true,
+      "detail": "data/finance_department/tasks/solana_two_mints_native_pool_task.json"
+    },
+    {
+      "name": "file_exists_data_kibra_dex_pool_tasks_solana_two_mints_native_pool_task.json",
+      "status": "PASS",
+      "ok": true,
+      "detail": "data/kibra_dex_pool/tasks/solana_two_mints_native_pool_task.json"
+    },
+    {
+      "name": "file_exists_data_native_token_nft_proof_tasks_native_token_pool_proof_task.json",
+      "status": "PASS",
+      "ok": true,
+      "detail": "data/native_token_nft_proof/tasks/native_token_pool_proof_task.json"
+    },
+    {
+      "name": "file_exists_data_solana_two_mints_native_pool_reports_latest_report.json",
+      "status": "PASS",
+      "ok": true,
+      "detail": "data/solana_two_mints_native_pool/reports/latest_report.json"
+    },
+    {
+      "name": "file_exists_posts_solana_two_mints_native_pool_it_task.md",
+      "status": "PASS",
+      "ok": true,
+      "detail": "posts/solana_two_mints_native_pool_it_task.md"
+    },
+    {
+      "name": "file_exists_proofs_solana_two_mints_native_pool_it_task.sha256",
+      "status": "PASS",
+      "ok": true,
+      "detail": "proofs/solana_two_mints_native_pool_it_task.sha256"
+    },
+    {
+      "name": "sha256_verify_ok",
+      "status": "PASS",
+      "ok": true,
+      "detail": "feeds/solana_two_mints_native_pool_it_task.json: OK\ndata/it_department/tasks/solana_two_mints_native_pool_task.json: OK\ndata/finance_department/tasks/solana_two_mints_native_pool_task.json: OK\ndata/kibra_dex_pool/tasks/solana_two_mints_native_pool_task.json: OK\ndata/native_token_nft_proof/tasks/native_token_pool_proof_task.json: OK\ndata/solana_two_mints_native_pool/reports/latest_report.json: OK\nposts/solana_two_mints_native_pool_it_task.md: OK"
+    },
+    {
+      "name": "queue_has_cybra_it_department_queue",
+      "status": "PASS",
+      "ok": true,
+      "detail": "cybra:it_department:queue=2"
+    },
+    {
+      "name": "queue_has_cybra_finance_department_queue",
+      "status": "PASS",
+      "ok": true,
+      "detail": "cybra:finance_department:queue=4"
+    },
+    {
+      "name": "queue_has_cybra_dex_pool_queue",
+      "status": "PASS",
+      "ok": true,
+      "detail": "cybra:dex_pool:queue=2"
+    },
+    {
+      "name": "queue_has_cybra_nft_proof_queue",
+      "status": "PASS",
+      "ok": true,
+      "detail": "cybra:nft_proof:queue=8"
+    },
+    {
+      "name": "queue_has_cybra_native_token_proof_queue",
+      "status": "PASS",
+      "ok": true,
+      "detail": "cybra:native_token:proof_queue=8"
+    },
+    {
+      "name": "queue_has_cybra_parliament_queue",
+      "status": "PASS",
+      "ok": true,
+      "detail": "cybra:parliament:queue=12"
+    },
+    {
+      "name": "queue_has_cybra_audit_queue",
+      "status": "PASS",
+      "ok": true,
+      "detail": "cybra:audit:queue=12"
+    },
+    {
+      "name": "queue_has_cybra_ai_tasks_block_inbox",
+      "status": "PASS",
+      "ok": true,
+      "detail": "cybra:ai:tasks:block_inbox=2"
+    },
+    {
+      "name": "queue_has_cybra_market_activation_queue",
+      "status": "PASS",
+      "ok": true,
+      "detail": "cybra:market_activation:queue=3"
+    }
+  ],
+  "safety": {
+    "real_payment_now": false,
+    "automatic_external_tx": false,
+    "real_mainnet_tx_executed": false,
+    "real_market_confirmed": false,
+    "live_dex_create": false
+  },
+  "double_sha": "c7a740ac6d9af33d4d266095a76b32d18a110bf112ec4ebf74489064cf5e583c"
+}

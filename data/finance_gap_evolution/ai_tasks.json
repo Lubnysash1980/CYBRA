@@ -1,13 +1,33 @@
 [
   {
-    "topic": "Finance Gap Evolution: anchor_queue",
-    "type": "owner_orchestrator_task",
+    "topic": "Finance Gap Evolution: mint_proposal",
+    "type": "finance_infrastructure_task",
     "priority": "high",
     "payload": {
       "source": "finance_gap_evolution_committee",
-      "area": "anchor_queue",
-      "recommendation": "External anchor queue is not packaged.",
-      "suggested_action": "bash fix_kibra_verify_finance_anchor.sh",
+      "area": "mint_proposal",
+      "recommendation": "No token/native mint proposal records found.",
+      "suggested_action": "bash cybra_finance_infra.sh mint-proposal",
+      "real_payment_execution": false,
+      "automatic_token_mint": false,
+      "automatic_liquidity_pool": false,
+      "automatic_exchange_launch": false,
+      "automatic_gold_purchase": false,
+      "automatic_external_tx": false,
+      "manual_OWNER_approval_required": true,
+      "no_guaranteed_profit": true,
+      "evolution_required": true
+    }
+  },
+  {
+    "topic": "Finance Gap Evolution: spendability",
+    "type": "monetization_department_task",
+    "priority": "high",
+    "payload": {
+      "source": "finance_gap_evolution_committee",
+      "area": "spendability",
+      "recommendation": "No KIBRA spendability proposal found.",
+      "suggested_action": "bash cybra_monetization.sh spend KIBRA-AI-TASK 0",
       "real_payment_execution": false,
       "automatic_token_mint": false,
       "automatic_liquidity_pool": false,

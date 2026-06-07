@@ -1,7 +1,7 @@
 {
   "status": "cybra_cold_finance_binary_report_generated",
-  "time": 1780490470.9906437,
-  "time_iso": "2026-06-03T15:41:10+0300",
+  "time": 1780591948.7812479,
+  "time_iso": "2026-06-04T19:52:28+0300",
   "system": {
     "status": "active_internal_cold_finance_system",
     "system_name": "CYBRA Cold Payment System",
@@ -31,15 +31,15 @@
   },
   "balance": {
     "main_blocks": 10,
-    "task_blocks": 48,
+    "task_blocks": 307,
     "block_reward_kibra": "100",
     "task_block_reward_kibra": "100",
     "main_kibra": "1000",
-    "task_kibra": "4800",
-    "total_mined_kibra": "5800",
+    "task_kibra": "30700",
+    "total_mined_kibra": "31700",
     "reserved_kibra": "0",
     "internal_sent_kibra": "0",
-    "available_kibra": "5800",
+    "available_kibra": "31700",
     "price_usd_per_kibra": "0",
     "estimated_usd_if_confirmed": "0",
     "real_market_confirmed": false,
@@ -51,7 +51,7 @@
     "payment_proposals": 0,
     "block_inbox": 0,
     "task_block_mempool": 0,
-    "pool_mining_blocks": 4,
+    "pool_mining_blocks": 0,
     "parliament_queue": 0,
     "parliament_failed": 0
   },
@@ -71,5 +71,5 @@
     "automatic_token_sell": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "b5f6742375855f275666e42613201d9a08f0ad1533ca3ab406531c9335bbf8d5"
+  "double_sha": "94619a1ad4e1c50fe8c54bcfa2372b50342f462f7f75a4b40bb31c01ddf30f25"
 }

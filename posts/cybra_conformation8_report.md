@@ -10,7 +10,7 @@ Status: active
 - Queue Manager Module / manage_parliament_queue: Керує задачами до Кіберпарламенту, block inbox, task-blocks, closed SHA bridge і pool mining.
 
 ## State
-Redis: False
+Redis: True
 AutoHeal: True
 Security Analytics: True
 Cold Finance: True
@@ -18,18 +18,18 @@ KYBRA Valid: True
 
 ## Blocks
 main_blocks: 10
-task_blocks: 63
-estimated_kibra_default_reward_100: 7300
+task_blocks: 277
+estimated_kibra_default_reward_100: 28700
 
 ## Queues
-audit: 0
-issues: 0
+audit: 6
+issues: 4
 fix_queue: 0
-solutions: 0
+solutions: 3
 ai_block_inbox: 0
 parliament_queue: 0
 parliament_failed: 0
-pool_mining_blocks: 0
+pool_mining_blocks: 7
 
 ## Missing / Issues
 - MEDIUM / payment_requisites_not_ready: Payment requisites are not ready: legal name / tax ID / IBAN / PSP missing.
@@ -44,4 +44,4 @@ automatic_external_tx: False
 manual_OWNER_approval_required: True
 
 ## Double SHA
-42e75a2886be75ccf20fcde70f697ca51d3f6cb502157afb43e65f10ef04c6be
+65d1494b546050a2bdd751ef0bef2655ace10129a629f84e9a4a369b2254e7f2

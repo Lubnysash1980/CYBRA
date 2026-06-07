@@ -1,8 +1,8 @@
 {
   "status": "task_execution_lite_report",
   "mode": "lite",
-  "time": 1780562469.4198837,
-  "time_iso": "2026-06-04T11:41:09+0300",
+  "time": 1780873077.3804352,
+  "time_iso": "2026-06-08T01:57:57+0300",
   "summary": {
     "executed_previously_and_ready": 6,
     "will_execute": 0,
@@ -13,7 +13,7 @@
     "menubar_owner_task": {
       "status": "EXECUTED_PREVIOUSLY_AND_READY",
       "handler": "cybra_menubar_handler.sh",
-      "redis_mapped_handler": "cybra_menubar_handler.sh",
+      "redis_mapped_handler": "none",
       "handler_exists": true,
       "script": "cybra_menubar.sh",
       "script_exists": true,
@@ -23,7 +23,7 @@
     "it_evolution_task": {
       "status": "EXECUTED_PREVIOUSLY_AND_READY",
       "handler": "cybra_it_evolution_handler.sh",
-      "redis_mapped_handler": "cybra_it_evolution_handler.sh",
+      "redis_mapped_handler": "none",
       "handler_exists": true,
       "script": "cybra_it_evolution.sh",
       "script_exists": true,
@@ -33,7 +33,7 @@
     "codespace_runtime_committee_task": {
       "status": "EXECUTED_PREVIOUSLY_AND_READY",
       "handler": "cybra_codespace_runtime_handler.sh",
-      "redis_mapped_handler": "cybra_codespace_runtime_handler.sh",
+      "redis_mapped_handler": "none",
       "handler_exists": true,
       "script": "cybra_codespace_runtime.sh",
       "script_exists": true,
@@ -43,7 +43,7 @@
     "frozen_license_committee_task": {
       "status": "EXECUTED_PREVIOUSLY_AND_READY",
       "handler": "cybra_frozen_committee_handler.sh",
-      "redis_mapped_handler": "cybra_frozen_committee_handler.sh",
+      "redis_mapped_handler": "none",
       "handler_exists": true,
       "script": "cybra_frozen_committee.sh",
       "script_exists": true,
@@ -53,7 +53,7 @@
     "hash_license_violation_audit_task": {
       "status": "EXECUTED_PREVIOUSLY_AND_READY",
       "handler": "hash_license_guard_handler.sh",
-      "redis_mapped_handler": "hash_license_guard_handler.sh",
+      "redis_mapped_handler": "none",
       "handler_exists": true,
       "script": "hash_license_guard.sh",
       "script_exists": true,
@@ -63,7 +63,7 @@
     "evolution_tracker_task": {
       "status": "EXECUTED_PREVIOUSLY_AND_READY",
       "handler": "cybra_evolution.sh",
-      "redis_mapped_handler": "cybra_evolution_handler.sh",
+      "redis_mapped_handler": "none",
       "handler_exists": true,
       "script": "cybra_evolution.sh",
       "script_exists": true,
@@ -72,10 +72,10 @@
     }
   },
   "queues": {
-    "ai_block_inbox": 0,
-    "parliament_queue": 0,
+    "ai_block_inbox": 1,
+    "parliament_queue": 1,
     "parliament_failed": 0,
-    "task_blocks": 297
+    "task_blocks": 312
   },
   "command_results": [],
   "safety": {
@@ -88,5 +88,5 @@
     "manual_OWNER_approval_required": true
   },
   "overall_status": "OK",
-  "double_sha": "6bb128cff1cdf11fc8bb71e6e9785d2f57cd68bea17269e3ae3dd575074c9a2f"
+  "double_sha": "cb559fc92d1ee089c08ae698cb5642d3f9c4eef855a03950510e664f539ce192"
 }

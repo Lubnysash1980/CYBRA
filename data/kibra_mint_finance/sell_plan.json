@@ -1,49 +1,49 @@
 {
   "status": "sell_plan_created",
-  "time": 1780439737.0588958,
-  "time_iso": "2026-06-03T01:35:37+0300",
+  "time": 1780483485.5233612,
+  "time_iso": "2026-06-03T13:44:45+0300",
   "native_coin": "KIBRA",
   "accounting": {
     "main_blocks": 10,
-    "task_blocks": 11,
+    "task_blocks": 24,
     "block_reward_kibra": "100",
     "task_block_reward_kibra": "100",
     "main_reward_accounting_kibra": "1000",
-    "task_reward_accounting_kibra": "1100",
-    "total_mined_accounting_kibra": "2100",
+    "task_reward_accounting_kibra": "2400",
+    "total_mined_accounting_kibra": "3400",
     "pool_shares_total": 210,
     "real_payout_now": false,
     "accounting_only": true
   },
   "market_price": {
     "status": "reference_price_available",
-    "price_usd_per_kibra": "0.001",
-    "source": "verified_pool_reserves",
+    "price_usd_per_kibra": "0.01",
+    "source": "manual_liquidity_reference",
     "real_market_confirmed": false,
     "quote_reserve_usd": "1000",
-    "kibra_reserve": "1000000"
+    "kibra_reserve": "100000"
   },
   "strategy": {
     "strategy": "reference_price_hold_or_utility_sale",
     "reason": "Reference price exists but real market is not confirmed. Do not sell automatically; prepare utility sale and verification.",
-    "estimated_value_usd": "2.100",
-    "market_price_usd_per_kibra": "0.001",
+    "estimated_value_usd": "34.00",
+    "market_price_usd_per_kibra": "0.01",
     "real_market_confirmed": false,
     "sell_allowed_now": false,
     "owner_approval_required": true
   },
   "sell_tiers": {
     "conservative_1_percent": {
-      "kibra": "21.00",
-      "estimated_usd": "0.02100"
+      "kibra": "34.00",
+      "estimated_usd": "0.3400"
     },
     "moderate_3_percent": {
-      "kibra": "63.00",
-      "estimated_usd": "0.06300"
+      "kibra": "102.00",
+      "estimated_usd": "1.0200"
     },
     "maximum_planned_5_percent": {
-      "kibra": "105.00",
-      "estimated_usd": "0.10500"
+      "kibra": "170.00",
+      "estimated_usd": "1.7000"
     }
   },
   "risk_controls": [
@@ -59,5 +59,5 @@
   "real_sell_now": false,
   "automatic_exchange_trade": false,
   "manual_OWNER_approval_required": true,
-  "double_sha": "fa8af42f2098eb08be16b04d74a76ddf564f0c5ce3ff8a25594c1ebcec079500"
+  "double_sha": "6f2ddaf354ae2186f722807f1a81f00b67fb43a428beb962f531453388f61497"
 }

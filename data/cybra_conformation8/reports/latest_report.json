@@ -1,7 +1,7 @@
 {
   "status": "conformation8_report_generated",
-  "time": 1780491685.3742754,
-  "time_iso": "2026-06-03T16:01:25+0300",
+  "time": 1780511927.2326717,
+  "time_iso": "2026-06-03T21:38:47+0300",
   "modules": [
     {
       "id": "conformation8_tester_module",
@@ -35,10 +35,10 @@
     }
   ],
   "state": {
-    "time": 1780491685.2271357,
-    "time_iso": "2026-06-03T16:01:25+0300",
+    "time": 1780511927.0014045,
+    "time_iso": "2026-06-03T21:38:47+0300",
     "modules": {
-      "redis": false,
+      "redis": true,
       "autoheal": true,
       "security_analytics": true,
       "cold_finance": true,
@@ -52,16 +52,16 @@
     },
     "blocks": {
       "main_blocks": 10,
-      "task_blocks": 63,
-      "estimated_kibra_default_reward_100": 7300
+      "task_blocks": 277,
+      "estimated_kibra_default_reward_100": 28700
     },
     "queues": {
       "ai_block_inbox": 0,
       "task_block_mempool": 0,
-      "pool_mining_blocks": 0,
-      "task_blocks_mined": 0,
+      "pool_mining_blocks": 7,
+      "task_blocks_mined": 7,
       "parliament_queue": 0,
-      "parliament_results": 0,
+      "parliament_results": 13,
       "parliament_failed": 0,
       "autoheal_repair_queue": 0,
       "security_alerts": 0
@@ -69,8 +69,8 @@
     "readiness": {
       "autoheal_ok": true,
       "payment_ready": false,
-      "security_risk_level": "MEDIUM",
-      "security_risk_score": 29,
+      "security_risk_level": "LOW",
+      "security_risk_score": 23,
       "real_market_confirmed": false,
       "price_usd_per_kibra": "0"
     },
@@ -82,16 +82,16 @@
       "automatic_external_tx": false,
       "manual_OWNER_approval_required": true
     },
-    "double_sha": "30d0d2819127e9d9dc08e2a3b8ca87163d5f290ee8fb512c1a0ea7cd75c3d84b"
+    "double_sha": "9428966e6cd259163eed81dad640819f68505b81c127a78ab0c463d3fd801351"
   },
   "tester": {
     "module": "tester",
     "status": "tested",
-    "time": 1780491667.6256592,
-    "time_iso": "2026-06-03T16:01:07+0300",
+    "time": 1780511926.8822272,
+    "time_iso": "2026-06-03T21:38:46+0300",
     "state": {
-      "time": 1780491667.369538,
-      "time_iso": "2026-06-03T16:01:07+0300",
+      "time": 1780511926.6926665,
+      "time_iso": "2026-06-03T21:38:46+0300",
       "modules": {
         "redis": true,
         "autoheal": true,
@@ -107,16 +107,16 @@
       },
       "blocks": {
         "main_blocks": 10,
-        "task_blocks": 63,
-        "estimated_kibra_default_reward_100": 7300
+        "task_blocks": 277,
+        "estimated_kibra_default_reward_100": 28700
       },
       "queues": {
         "ai_block_inbox": 0,
         "task_block_mempool": 0,
-        "pool_mining_blocks": 5,
-        "task_blocks_mined": 5,
+        "pool_mining_blocks": 7,
+        "task_blocks_mined": 7,
         "parliament_queue": 0,
-        "parliament_results": 11,
+        "parliament_results": 13,
         "parliament_failed": 0,
         "autoheal_repair_queue": 0,
         "security_alerts": 0
@@ -124,8 +124,8 @@
       "readiness": {
         "autoheal_ok": true,
         "payment_ready": false,
-        "security_risk_level": "MEDIUM",
-        "security_risk_score": 29,
+        "security_risk_level": "LOW",
+        "security_risk_score": 23,
         "real_market_confirmed": false,
         "price_usd_per_kibra": "0"
       },
@@ -137,7 +137,7 @@
         "automatic_external_tx": false,
         "manual_OWNER_approval_required": true
       },
-      "double_sha": "4363d5afcb5edcc37201385d5654bea9c73ba7a0adbba28a5d7aafaec578ea3c"
+      "double_sha": "dce313ab8937ded56567d004058a2c00384e9f9cc5aed85aca189e022178d62b"
     },
     "issues": [
       {
@@ -154,14 +154,14 @@
       }
     ],
     "ok": true,
-    "double_sha": "ece9e70e908d5fb6d213fd35ab8561268c8f958e75e9ae419ca16da41be67795"
+    "double_sha": "95433ef84748ac818b1a3344e2a4af89f6b281625dd12dfd2cff8b76159c741d"
   },
   "simulator": {
     "module": "simulator",
     "status": "simulated",
-    "time": 1780491594.2894402,
-    "time_iso": "2026-06-03T15:59:54+0300",
-    "state_snapshot_sha": "801b42d26d7949a32dbf9ea49f1d8b7acdfab1dd6cc0c6b94b1a4a3aad1968c6",
+    "time": 1780511828.685006,
+    "time_iso": "2026-06-03T21:37:08+0300",
+    "state_snapshot_sha": "20293f3cf726e8340832204cd428b2f17eadef172bf9eb4dceafdd71bf59a470",
     "scenarios": [
       {
         "name": "redis_down",
@@ -197,13 +197,13 @@
     "real_actions_executed": false,
     "real_payment_now": false,
     "automatic_external_tx": false,
-    "double_sha": "2da4071e604caa0788a518c56d79f1d068b136524bf3b13fdbd50cc4e8b440dd"
+    "double_sha": "59e1da235880b775828ad66431e08ea95843b900b653dc4eda24112b6d2116db"
   },
   "fixer": {
     "module": "fixer",
     "status": "fixed_local_safe_items",
-    "time": 1780491646.865396,
-    "time_iso": "2026-06-03T16:00:46+0300",
+    "time": 1780511901.0061934,
+    "time_iso": "2026-06-03T21:38:21+0300",
     "issues_before": [
       {
         "severity": "MEDIUM",
@@ -242,18 +242,18 @@
       "ran:bash cybra_finance_committees.sh report"
     ],
     "warnings": [],
-    "state_before_sha": "7fbe3e17842c54905408006e8e2e7448c87d4b8239830efa261ee808eeaed80b",
-    "state_after_sha": "019f285aaf4087c17020d2d17d9ebcf226ec3594c15dd038e30af33c4279e040",
+    "state_before_sha": "f0c617e3aaa67006ea267627a5c99d294ec3bbe9ee71a6c35c6db23ac59651a0",
+    "state_after_sha": "6d0ac6635beae78c3fee8d1dbd68aa30a11f7e26f922c9da3eb06c4e83551511",
     "real_payment_now": false,
     "automatic_SWIFT": false,
     "automatic_external_tx": false,
-    "double_sha": "1b8fdff96792afef616f1b5097f59e83a3d381e798063ca97e4dcbb07ea243f3"
+    "double_sha": "f521ed0db169ab50e9de911ea9c38b001cd5f702f24e7f8f6cc04d1e84233311"
   },
   "solver": {
     "module": "solver",
     "status": "solution_plan_created",
-    "time": 1780491647.1710315,
-    "time_iso": "2026-06-03T16:00:47+0300",
+    "time": 1780511901.3263972,
+    "time_iso": "2026-06-03T21:38:21+0300",
     "issues_count": 3,
     "solutions": [
       {
@@ -306,13 +306,13 @@
       "automatic_external_tx": false,
       "manual_OWNER_approval_required": true
     },
-    "double_sha": "34f523b65f4c7fe4d0408b1d7073877022af9bf0acd29a3023de1dbdba061e1d"
+    "double_sha": "04629db1e8bba27c78802b6b31dc0cd87c6628879fc2affa73b54c0dab039569"
   },
   "queue_manager": {
     "module": "queue_manager",
     "status": "tasks_queued",
-    "time": 1780491647.757356,
-    "time_iso": "2026-06-03T16:00:47+0300",
+    "time": 1780511901.895973,
+    "time_iso": "2026-06-03T21:38:21+0300",
     "tasks_to_block_inbox": 8,
     "parliament_master_task": {
       "topic": "CYBRA Conformation Eight queue manager master task",
@@ -321,32 +321,32 @@
       "payload": {
         "source": "cybra_conformation8_queue_manager",
         "tasks_prepared": 8,
-        "state_sha": "55d9425240aab00dac93d5d68b6e1589231b76e4e6b97d0e22d8dc819e964649",
+        "state_sha": "e26c0ee1a48fdfb289b0d1627b2b1308ee8ca76549a05d47ef13d6eaeba40b41",
         "goal": "Improve system until working beginning, middle and end; keep it alive through tests, simulation, fixes and queue control.",
         "real_payment_now": false,
         "automatic_SWIFT": false,
         "automatic_external_tx": false,
         "manual_OWNER_approval_required": true
       },
-      "double_sha": "2e175e1ce3e50903e4c69cf6227e1bda3a7a2c77a1f89dbd88061dd317bf5b94"
+      "double_sha": "a229ffea29421cee174997f00f6a83b82f705c77aba1f58ae2c7c08183aff7a1"
     },
     "queues_after": {
       "ai_block_inbox": 12,
       "parliament_queue": 1,
       "task_block_mempool": 0,
-      "pool_mining_blocks": 2
+      "pool_mining_blocks": 4
     },
-    "double_sha": "fa19b43677df283ba76003b2f50e2198e2070dea46023c25a479837981fefbc9"
+    "double_sha": "44591953e26a4de0877d833af60c82f7354dca30a2f16d633f96bbff9807aea7"
   },
   "queues": {
-    "audit": 0,
-    "issues": 0,
+    "audit": 6,
+    "issues": 4,
     "fix_queue": 0,
-    "solutions": 0,
+    "solutions": 3,
     "ai_block_inbox": 0,
     "parliament_queue": 0,
     "parliament_failed": 0,
-    "pool_mining_blocks": 0
+    "pool_mining_blocks": 7
   },
   "safety": {
     "private_keys": false,
@@ -356,5 +356,5 @@
     "automatic_external_tx": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "42e75a2886be75ccf20fcde70f697ca51d3f6cb502157afb43e65f10ef04c6be"
+  "double_sha": "65d1494b546050a2bdd751ef0bef2655ace10129a629f84e9a4a369b2254e7f2"
 }

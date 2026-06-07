@@ -1,17 +1,73 @@
 {
   "status": "IT_MENU_OK",
-  "time": 1780581558.7513201,
-  "tasks": 19,
+  "time": 1780648917.437702,
+  "tasks": 27,
   "queues": {
-    "ai": 0,
-    "parliament": 0,
+    "ai": 1,
+    "parliament": 1,
     "mining": 0,
     "pool": 0,
-    "it": 0,
-    "evolution": 0,
+    "it": 1,
+    "evolution": 1,
     "security": 0
   },
   "latest": [
+    {
+      "short": "3ad57f6a29de",
+      "path": "data/cybra_it_menu/tasks/it_task_3ad57f6a29de9087.json",
+      "title": "ракетна небезпека",
+      "type": "it_department_task",
+      "status": "OPEN"
+    },
+    {
+      "short": "9005e2df7a8d",
+      "path": "data/cybra_it_menu/tasks/it_task_9005e2df7a8d38b3.json",
+      "title": "треба з cybraparlamentom розпочати р о боту щодо тасків",
+      "type": "it_department_task",
+      "status": "OPEN"
+    },
+    {
+      "short": "627365f7316c",
+      "path": "data/cybra_it_menu/tasks/it_task_627365f7316c4970.json",
+      "title": "треба переписати весь бінарний код задля безпеки й легкої роботи",
+      "type": "it_department_task",
+      "status": "OPEN"
+    },
+    {
+      "short": "5cba7a334902",
+      "path": "data/cybra_it_menu/tasks/expanded_5cba7a3349027750.json",
+      "title": "IT task",
+      "type": "it_task",
+      "status": "EXPANDED"
+    },
+    {
+      "short": "747611e20999",
+      "path": "data/cybra_it_menu/tasks/expanded_747611e20999cbf7.json",
+      "title": "IT task",
+      "type": "it_task",
+      "status": "EXPANDED"
+    },
+    {
+      "short": "6903b1138aba",
+      "path": "data/cybra_it_menu/tasks/expanded_6903b1138aba2b56.json",
+      "title": "IT task",
+      "type": "it_task",
+      "status": "EXPANDED"
+    },
+    {
+      "short": "c906a67828dc",
+      "path": "data/cybra_it_menu/tasks/it_task_c906a67828dc34ed.json",
+      "title": "Створити нативний токен під назвою Кібра для пулів, для того, щоб пули підхоплювали через тунель шифрований в США, підхо",
+      "type": "it_department_task",
+      "status": "OPEN"
+    },
+    {
+      "short": "c26e95e2e0ad",
+      "path": "data/cybra_it_menu/tasks/it_task_c26e95e2e0ad8337.json",
+      "title": "Перевірити справу по Mercedes G580 AI0592YB VIN W1NWM0AB1SX058958 і створити evidence report",
+      "type": "it_department_task",
+      "status": "OPEN"
+    },
     {
       "short": "b72772ec89b4",
       "path": "data/cybra_it_menu/tasks/expanded_b72772ec89b47d7a.json",
@@ -151,5 +207,5 @@
     "automatic_SWIFT": false,
     "automatic_external_tx": false
   },
-  "double_sha": "8a3f96e56b144ce43e6e699ab3eefbdf0c1e304fbf30e2f115fdf2f7135cf209"
+  "double_sha": "c27eb92d261193a20642b70f30d366876fe0051e14ddff0fa7e65d66df476b6a"
 }

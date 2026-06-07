@@ -1,11 +1,11 @@
 {
   "module": "tester",
   "status": "tested",
-  "time": 1780491696.5263638,
-  "time_iso": "2026-06-03T16:01:36+0300",
+  "time": 1780591550.5761151,
+  "time_iso": "2026-06-04T19:45:50+0300",
   "state": {
-    "time": 1780491696.322998,
-    "time_iso": "2026-06-03T16:01:36+0300",
+    "time": 1780591550.3851697,
+    "time_iso": "2026-06-04T19:45:50+0300",
     "modules": {
       "redis": false,
       "autoheal": true,
@@ -21,8 +21,8 @@
     },
     "blocks": {
       "main_blocks": 10,
-      "task_blocks": 63,
-      "estimated_kibra_default_reward_100": 7300
+      "task_blocks": 306,
+      "estimated_kibra_default_reward_100": 31600
     },
     "queues": {
       "ai_block_inbox": 0,
@@ -38,8 +38,8 @@
     "readiness": {
       "autoheal_ok": true,
       "payment_ready": false,
-      "security_risk_level": "MEDIUM",
-      "security_risk_score": 29,
+      "security_risk_level": "LOW",
+      "security_risk_score": 23,
       "real_market_confirmed": false,
       "price_usd_per_kibra": "0"
     },
@@ -51,7 +51,7 @@
       "automatic_external_tx": false,
       "manual_OWNER_approval_required": true
     },
-    "double_sha": "374a89caeba05dbb475987ef8cd2d1c8432fb1adfc924baca09574e7ce592ae4"
+    "double_sha": "53e14d3d64fccd18b9c302335b27d0e9472379be35a34bed3ac78bed44f190d1"
   },
   "issues": [
     {
@@ -80,5 +80,5 @@
     }
   ],
   "ok": false,
-  "double_sha": "7f3e1f73f18565c7d096477315d8fa8ae1438ad2d69637b1fe78cceb5f5668b9"
+  "double_sha": "3288926c4aa01a1fc7da49f5ccd96944a75b3045738cef7a0f927b85a1dce77f"
 }

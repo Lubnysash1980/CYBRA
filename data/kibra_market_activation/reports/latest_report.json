@@ -1,0 +1,46 @@
+{
+  "status": "BLOCKED_RPC_SINKHOLE",
+  "timestamp": "2026-06-08T02:34:16+0300",
+  "owner_wallet": "EPEhVVhY7AXzWqcJeidWNuBqNbGDjJF35JzPVFXEbYxv",
+  "target": {
+    "tokens": 32000,
+    "target_usd": 2000000,
+    "target_price_usd_per_token": 62.5,
+    "formula": "2,000,000 USD / 32,000 tokens = 62.5 USD/token"
+  },
+  "tokens": {
+    "alex_mint": "BNhNw6waDiEobccELrZ483aYEqFRzYGwwHB6DLk5VnFr",
+    "efi_mint": "EfiCgx3svRwZ1voPXsnYdZo35kzyt5Ct7UHLuvnm6fcR",
+    "usdc_mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+  },
+  "market_activation_steps": [
+    "Use clean RPC / Oracle VPS / VPN.",
+    "Run DEX pool safe plan.",
+    "Verify owner token balance.",
+    "Verify USDC liquidity balance.",
+    "Create real DEX pool only after OWNER approval.",
+    "Verify on-chain pool vault reserves.",
+    "Submit reserve proof to Cyber Parliament.",
+    "Only then set REAL_MARKET_CONFIRMED=true."
+  ],
+  "current_gate": {
+    "rpc_tls_ok": false,
+    "rpc_sinkhole_detected": true,
+    "dex_live_create_allowed": false,
+    "market_activation_allowed_now": false,
+    "reason": "Live activation is blocked until clean RPC and real on-chain reserve proof exist."
+  },
+  "safety": {
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "automatic_price_manipulation": false,
+    "mainnet_deploy_allowed": false,
+    "real_mainnet_tx_executed": false,
+    "manual_OWNER_approval_required": true,
+    "target_price_is_not_market_price": true,
+    "real_market_confirmed": false
+  },
+  "tls_check_head": "*   Trying 3.73.33.225:443...\n* Host api.mainnet-beta.solana.com:443 was resolved.\n* IPv6: (none)\n* IPv4: 3.73.33.225\n* ALPN: curl offers h2,http/1.1\n} [5 bytes data]\n* TLSv1.3 (OUT), TLS handshake, Client hello (1):\n} [1578 bytes data]\n* SSL Trust Anchors:\n*   CAfile: /data/data/com.termux/files/usr/etc/tls/cert.pem\n*   CApath: /data/data/com.termux/files/usr/etc/tls/certs\n{ [5 bytes data]\n* TLSv1.3 (IN), TLS handshake, Server hello (2):\n{ [1210 bytes data]\n* TLSv1.3 (IN), TLS change cipher, Change cipher spec (1):\n{ [1 bytes data]\n* TLSv1.3 (IN), TLS handshake, Encrypted Extensions (8):\n{ [25 bytes data]\n* TLSv1.3 (IN), TLS handshake, Certificate (11):\n{ [818 bytes data]\n* TLSv1.3 (IN), TLS handshake, CERT verify (15):\n{ [264 bytes data]\n* TLSv1.3 (IN), TLS handshake, Finished (20):\n{ [52 bytes data]\n* TLSv1.3 (OUT), TLS change cipher, Change cipher spec (1):\n} [1 bytes data]\n* TLSv1.3 (OUT), TLS handshake, Finished (20):\n} [52 bytes data]\n* SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384 / X25519MLKEM768 / RSASSA-PSS\n* ALPN: server accepted http/1.1\n* Server certificate:\n*   subject: CN=sinkhole.cert.gov.ua\n*   start date: May 31 15:46:45 2023 GMT\n*   expire date: May  7 15:46:45 2123 GMT\n*   issuer: CN=sinkhole.cert.gov.ua\n*   Certificate level 0: Public key type RSA (2048/112 Bits/secBits), signed using sha256WithRSAEncryption\n* SSL: certificate subject name 'sinkhole.cert.gov.ua' does not match target hostname 'api.mainnet-beta.solana.com'\n* closing connection #0\ncurl: (60) SSL: certificate subject name 'sinkhole.cert.gov.ua' does not match target hostname 'api.mainnet-beta.solana.com'\nMore details here: https://curl.se/docs/sslcerts.html\n\ncurl failed to verify the legitimacy of the server and therefore could not\nestablish a secure connection to it. To learn more about this situation and\nhow to fix it, please visit the webpage mentioned above.\n",
+  "double_sha": "c74b96e3270530196ce6abf6b9e4c97ea370d6cfebdf31bf13a69009b2673ea2"
+}

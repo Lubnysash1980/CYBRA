@@ -1,8 +1,8 @@
 {
   "module": "queue_manager",
   "status": "tasks_queued",
-  "time": 1780491647.757356,
-  "time_iso": "2026-06-03T16:00:47+0300",
+  "time": 1780511901.895973,
+  "time_iso": "2026-06-03T21:38:21+0300",
   "tasks_to_block_inbox": 8,
   "parliament_master_task": {
     "topic": "CYBRA Conformation Eight queue manager master task",
@@ -11,20 +11,20 @@
     "payload": {
       "source": "cybra_conformation8_queue_manager",
       "tasks_prepared": 8,
-      "state_sha": "55d9425240aab00dac93d5d68b6e1589231b76e4e6b97d0e22d8dc819e964649",
+      "state_sha": "e26c0ee1a48fdfb289b0d1627b2b1308ee8ca76549a05d47ef13d6eaeba40b41",
       "goal": "Improve system until working beginning, middle and end; keep it alive through tests, simulation, fixes and queue control.",
       "real_payment_now": false,
       "automatic_SWIFT": false,
       "automatic_external_tx": false,
       "manual_OWNER_approval_required": true
     },
-    "double_sha": "2e175e1ce3e50903e4c69cf6227e1bda3a7a2c77a1f89dbd88061dd317bf5b94"
+    "double_sha": "a229ffea29421cee174997f00f6a83b82f705c77aba1f58ae2c7c08183aff7a1"
   },
   "queues_after": {
     "ai_block_inbox": 12,
     "parliament_queue": 1,
     "task_block_mempool": 0,
-    "pool_mining_blocks": 2
+    "pool_mining_blocks": 4
   },
-  "double_sha": "fa19b43677df283ba76003b2f50e2198e2070dea46023c25a479837981fefbc9"
+  "double_sha": "44591953e26a4de0877d833af60c82f7354dca30a2f16d633f96bbff9807aea7"
 }

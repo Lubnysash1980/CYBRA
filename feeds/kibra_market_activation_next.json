@@ -1,0 +1,8 @@
+{
+  "status": "BLOCKED_RPC_SINKHOLE_NEXT_REQUIRED",
+  "termux_market_activation": false,
+  "need_clean_vpn_or_oracle_vps": true,
+  "real_market_confirmed": false,
+  "real_mainnet_tx_executed": false,
+  "live_dex_create": false
+}

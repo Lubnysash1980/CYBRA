@@ -1,11 +1,11 @@
 {
   "status": "kibra_stats_recommendations_report_generated",
-  "time": 1780490478.5043259,
-  "time_iso": "2026-06-03T15:41:18+0300",
+  "time": 1780591955.4869933,
+  "time_iso": "2026-06-04T19:52:35+0300",
   "submit_ai": false,
   "stats": {
-    "time": 1780490477.8780806,
-    "time_iso": "2026-06-03T15:41:17+0300",
+    "time": 1780591954.6740396,
+    "time_iso": "2026-06-04T19:52:34+0300",
     "kibra": {
       "total_blocks": 10,
       "pool_tagged_blocks": 10,
@@ -20,10 +20,10 @@
       "latest_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab"
     },
     "task_blocks": {
-      "files": 48,
+      "files": 309,
       "mempool": 0,
-      "mined": 4,
-      "pool_queue": 4
+      "mined": 2,
+      "pool_queue": 3
     },
     "ai": {
       "native_kibra_ai": 0,
@@ -31,16 +31,16 @@
       "finance_profit_ai": 0,
       "bridge_pool_ai": 0,
       "price_sell_repair_ai": 0,
-      "block_ai_support": 0,
+      "block_ai_support": 2,
       "mint_promotion_ai": 0,
       "mint_audit_ai": 0,
       "mint_management_ai": 0
     },
     "parliament": {
       "queue": 0,
-      "results": 10,
+      "results": 0,
       "failed": 0,
-      "audit": 10
+      "audit": 0
     },
     "mint": {
       "audit": 0,
@@ -76,8 +76,8 @@
     },
     "git": {
       "branch": "main",
-      "commit": "c61de609d",
-      "dirty_files": 149
+      "commit": "9fb6f9daf",
+      "dirty_files": 1829
     }
   },
   "recommendations": [
@@ -106,5 +106,5 @@
     "external_tx": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "0da8b5ca2412686e4afe398b27e6999da8641e8bc56de3521be5372dc4963a71"
+  "double_sha": "edcfd7e7b4121b894534b79e7384f91b4f60d40f6fb8771385d38ecf9a64602e"
 }

@@ -4,8 +4,10 @@
     "dockerfile": "Dockerfile"
   },
   "workspaceFolder": "/workspaces/CYBRA",
-  "postCreateCommand": "bash .devcontainer/post-create.sh",
-  "forwardPorts": [8099],
+  "postCreateCommand": "bash .devcontainer/post-create.sh && sudo apt-get update && sudo apt-get install -y redis-server redis-tools jq curl git || true && sudo apt-get update && sudo apt-get install -y redis-server redis-tools jq curl git gh || true",
+  "forwardPorts": [
+    8099
+  ],
   "portsAttributes": {
     "8099": {
       "label": "CYBRA Dashboard",
@@ -18,5 +20,7 @@
         "ms-python.python"
       ]
     }
-  }
+  },
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "postStartCommand": "bash .devcontainer/cybra-codespace-start.sh"
 }

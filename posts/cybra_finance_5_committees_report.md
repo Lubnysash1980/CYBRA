@@ -28,9 +28,9 @@ Redis ping: True
 block_inbox: 0
 parliament_queue: 0
 parliament_failed: 0
-task_block_mempool: 0
-pool_mining_blocks: 4
-task_blocks_mined: 4
+task_block_mempool: 1
+pool_mining_blocks: 2
+task_blocks_mined: 1
 
 ## Rules
 
@@ -44,4 +44,4 @@ OWNER approval required.
 
 ## Double SHA
 
-c7df42f4a1f6a973f57032d9edca8381c32fc96c10409c172f3872cb7c58d400
+2c86e4db9aaf42a187b720eb57d76ca9556c76d71e9a441ffb2f4658be093917

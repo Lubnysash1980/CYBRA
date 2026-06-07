@@ -17,17 +17,17 @@ L6_MARKET_SAFETY_HEALTH: ok=True bad=[]
 L7_SEAL_DISPATCHER_HEALTH: ok=True bad=[]
 
 ## Queues
-audit: 10
-repair_queue: 16
-seal_queue: 5
+audit: 4
+repair_queue: 8
+seal_queue: 2
 block_inbox: 0
 task_block_mempool: 0
-pool_mining_blocks: 4
+pool_mining_blocks: 2
 parliament_queue: 0
 parliament_failed: 0
 
 ## Seal
-262fba11030f97c3bff5c7998071ccb3e5dd94fdc5fb686b402976bed828a4a4
+5981817bc73640432569bc070bac5646e3f1405521fe47c8b7d9be4ae3050379
 
 ## Safety
 private_keys: false
@@ -37,4 +37,4 @@ automatic_external_tx: false
 OWNER approval required: true
 
 ## Double SHA
-013e8be6f132e68d951b9b237504ffa0334a92e622eec61833c1854dab1cf774
+52eacc751755b66291eb4b60491f79c6d5f01e215d8919fe6480d3da4288d3d9

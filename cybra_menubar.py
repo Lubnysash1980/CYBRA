@@ -613,6 +613,7 @@ def interactive_menu():
         print("11) Run Codespace runtime cycle")
         print("12) Generate Menu-Bar report")
         print("13) Start web dashboard")
+        print("14) Recovery / AutoRecovery")
         print("0) Exit")
         print("══════════════════════════════")
         choice = input("Select: ").strip()
@@ -672,6 +673,14 @@ def interactive_menu():
             else:
                 print("Dashboard not installed")
             input("Enter...")
+        elif choice == "14":
+            code, out, err = run(["bash", "cybra_menu_recovery_bridge.sh", "cycle"], timeout=240)
+            if out:
+                print(out)
+            if err:
+                print(err)
+            report()
+            input("Enter...")
         else:
             print("Unknown option")
             time.sleep(1)
@@ -712,6 +721,13 @@ def main():
         withdraw_proposal(amount, dest, network, memo)
     elif cmd == "cycle":
         run_cycle(args.args[0] if args.args else "safe")
+    elif cmd == "recovery":
+        subcmd = args.args[0] if args.args else "status"
+        code, out, err = run(["bash", "cybra_menu_recovery_bridge.sh", subcmd], timeout=240)
+        if out:
+            print(out)
+        if err:
+            print(err)
     elif cmd == "report":
         report()
     else:

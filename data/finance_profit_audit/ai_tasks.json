@@ -1,24 +1,6 @@
 [
   {
-    "topic": "Finance Profit Audit Recommendation 1: anchor",
-    "type": "owner_orchestrator_task",
-    "priority": "high",
-    "payload": {
-      "source": "finance_token_profit_audit_department",
-      "area": "anchor",
-      "recommendation": "Anchor queue треба пакувати в manual anchor package, не виконуючи on-chain автоматично.",
-      "action": "bash fix_kibra_verify_finance_anchor.sh",
-      "real_payment_execution": false,
-      "automatic_token_mint": false,
-      "automatic_liquidity_pool": false,
-      "automatic_external_tx": false,
-      "manual_OWNER_approval_required": true,
-      "no_guaranteed_profit": true,
-      "no_market_manipulation": true
-    }
-  },
-  {
-    "topic": "Finance Profit Audit Recommendation 2: profit_optimization",
+    "topic": "Finance Profit Audit Recommendation 1: profit_optimization",
     "type": "monetization_department_task",
     "priority": "high",
     "payload": {
@@ -36,7 +18,7 @@
     }
   },
   {
-    "topic": "Finance Profit Audit Recommendation 3: liquidity",
+    "topic": "Finance Profit Audit Recommendation 2: liquidity",
     "type": "kibra_market_exchange_task",
     "priority": "high",
     "payload": {
@@ -54,7 +36,7 @@
     }
   },
   {
-    "topic": "Finance Profit Audit Recommendation 4: native_emission",
+    "topic": "Finance Profit Audit Recommendation 3: native_emission",
     "type": "native_kibra_evolution_task",
     "priority": "high",
     "payload": {
@@ -72,7 +54,7 @@
     }
   },
   {
-    "topic": "Finance Profit Audit Recommendation 5: gold_treasury",
+    "topic": "Finance Profit Audit Recommendation 4: gold_treasury",
     "type": "finance_infrastructure_task",
     "priority": "high",
     "payload": {

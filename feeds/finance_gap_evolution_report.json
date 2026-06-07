@@ -1,8 +1,8 @@
 {
   "status": "finance_gap_evolution_report_generated",
   "submit_ai": false,
-  "time": 1780489286.000352,
-  "time_iso": "2026-06-03T15:21:26+0300",
+  "time": 1780511973.3006306,
+  "time_iso": "2026-06-03T21:39:33+0300",
   "score": 90,
   "modules_total": 12,
   "modules_ok": 12,
@@ -230,10 +230,10 @@
   ],
   "redis": {
     "queue": 0,
-    "results": 19,
+    "results": 15,
     "failed": 0,
     "ai_tasks_finance_gap": 0,
-    "audit": 13
+    "audit": 11
   },
   "proof_inputs": {
     "committee": "78df2222dd023ddf0a13a6a9437402b56254fa3024493007eea0cdc9020755a3",
@@ -241,8 +241,8 @@
   },
   "git": {
     "branch": "main",
-    "commit": "d7b49bf3a",
-    "dirty_files": 333
+    "commit": "6fa000201",
+    "dirty_files": 1508
   },
-  "double_sha": "b20bfc41dfc97e6a854d669b7768f87821b25bbe3755805814b5087eee633c76"
+  "double_sha": "1c4f90443bb2531568b745da4de0163730f1e61c0cd8caeeeb8ff74f4d7c273e"
 }
