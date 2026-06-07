@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+cd "$HOME/CYBRA" || exit 1
+
+WALLET="${KIBRA_WALLET:-FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y}"
+CYCLES="${2:-5}"
+
+case "$1" in
+  run)
+    python3 scripts/kibra/kibra_autotest_fix_loop.py --wallet "$WALLET" --cycles "$CYCLES"
+    ;;
+  status)
+    cat posts/kibra_autotest_fix_loop.md
+    ;;
+  json)
+    cat data/cybra_mainnet/reports/kibra_autotest_fix_loop_latest.json
+    ;;
+  proof)
+    sha256sum -c proofs/kibra_autotest_fix_loop.sha256
+    ;;
+  serve)
+    python3 -m http.server 8793 --bind 127.0.0.1 --directory dashboard/kibra_mainnet
+    ;;
+  *)
+    echo "Commands:"
+    echo "  cybra-kibra-loop run [cycles]"
+    echo "  cybra-kibra-loop status"
+    echo "  cybra-kibra-loop json"
+    echo "  cybra-kibra-loop proof"
+    echo "  cybra-kibra-loop serve"
+    ;;
+esac

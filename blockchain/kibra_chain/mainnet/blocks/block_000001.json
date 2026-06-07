@@ -15,7 +15,9 @@
       "to": "system:mainnet_test",
       "amount": 0,
       "external": false,
-      "note": "Internal test transaction only. No real value transfer."
+      "note": "Internal test transaction only. No real value transfer.",
+      "real_value": false,
+      "hash": "5cb27aeb42b56c61a88e60bc9128a05488f96ca1b5b43e6684d699dbc969ffb9"
     }
   ],
   "reward": {
@@ -34,9 +36,9 @@
     "external_bridge_enabled": false,
     "bank_live_mode": false,
     "psp_live_mode": false,
-    "mainnet_scope": "INTERNAL_LOCAL_CHAIN_ONLY",
+    "mainnet_scope": "INTERNAL_MAINNET_AUTOTEST_ONLY",
     "manual_OWNER_approval_required_for_external_live": true,
     "cyber_parliament_approval_required_for_external_live": true
   },
-  "hash": "dbd8f35e7602d290865d1aea33418673b871fde43043299c6ea86afa943e655c"
+  "hash": "510649cbb6111cbc16886af0b7d38039eb631ae87547411fa6d003c5cca6a0cf"
 }

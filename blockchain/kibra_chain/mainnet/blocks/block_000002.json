@@ -3,7 +3,7 @@
   "chain_id": "kibra-mainnet-internal-c16752607334018d",
   "timestamp": "2026-06-07T12:34:49",
   "height": 2,
-  "previous_hash": "dbd8f35e7602d290865d1aea33418673b871fde43043299c6ea86afa943e655c",
+  "previous_hash": "510649cbb6111cbc16886af0b7d38039eb631ae87547411fa6d003c5cca6a0cf",
   "status": "MINER_WALLET_BINDING_BLOCK",
   "miner": "cybra_internal_mainnet_miner",
   "transactions": [
@@ -15,7 +15,9 @@
       "to_wallet": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
       "amount": 0,
       "external": false,
-      "note": "Bind miner claim to wallet. No payout. No external transaction."
+      "note": "Bind miner claim to wallet. No payout. No external transaction.",
+      "real_value": false,
+      "hash": "006e4724114285d6d7047dbf6f0a6b977b6f1fe05f22aed958dd4a730a657a4b"
     }
   ],
   "wallet_binding": {
@@ -46,5 +48,19 @@
     "real_reward": 0,
     "claim_only": true
   },
-  "hash": "b9a406e9691abd70c6caaf75429710b8f8609a4ceb24168da6995103ebd9dae0"
+  "hash": "25ccbbba4cae90de97f7ec8ee9d3fb02a0fadd5ed8bd30e0b0fab9404da139ab",
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "bank_live_mode": false,
+    "psp_live_mode": false,
+    "mainnet_scope": "INTERNAL_MAINNET_AUTOTEST_ONLY",
+    "manual_OWNER_approval_required_for_external_live": true,
+    "cyber_parliament_approval_required_for_external_live": true
+  }
 }

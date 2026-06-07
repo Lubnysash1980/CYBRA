@@ -1,0 +1,177 @@
+{
+  "timestamp": "2026-06-07T13:06:36",
+  "status": "KIBRA_AUTOTEST_FIX_LOOP_PASS",
+  "score_percent": 100.0,
+  "wallet": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
+  "network": "KIBRA_INTERNAL_MAINNET_TEST",
+  "chain_id": "kibra-mainnet-internal-c16752607334018d",
+  "latest_height": 10,
+  "latest_block_hash": "de37d16d75f856d872b503126597d624989fd909cb105352606ea481b359d708",
+  "loops": [
+    {
+      "cycle": 1,
+      "before_score": 100.0,
+      "after_score": 100.0,
+      "fixes": [
+        "repaired_blocks:block_000001.json,block_000002.json,block_000003.json,block_000004.json,block_000005.json",
+        "mined_autotest_block_6"
+      ],
+      "latest_height": 6,
+      "latest_block_hash": "4b9505a3fc727f9162076766d1629557a728081786e37962acc6f62e5540e960"
+    },
+    {
+      "cycle": 2,
+      "before_score": 100.0,
+      "after_score": 100.0,
+      "fixes": [
+        "mined_autotest_block_7"
+      ],
+      "latest_height": 7,
+      "latest_block_hash": "227cbddca9826f8d69a3cab0aca1255049ffdae3da0e9dc09cf1e072137a034a"
+    },
+    {
+      "cycle": 3,
+      "before_score": 100.0,
+      "after_score": 100.0,
+      "fixes": [
+        "mined_autotest_block_8"
+      ],
+      "latest_height": 8,
+      "latest_block_hash": "cc7f44dfc6d8bb6f6af18aa2a5c3c9cc88ab408eb44a101e10817ff871a8e1fd"
+    },
+    {
+      "cycle": 4,
+      "before_score": 100.0,
+      "after_score": 100.0,
+      "fixes": [
+        "mined_autotest_block_9"
+      ],
+      "latest_height": 9,
+      "latest_block_hash": "b7ad9400920013ee75155453d9a532bd54a9cbc042d0b1d71b6819b9d42b9050"
+    },
+    {
+      "cycle": 5,
+      "before_score": 100.0,
+      "after_score": 100.0,
+      "fixes": [
+        "mined_autotest_block_10"
+      ],
+      "latest_height": 10,
+      "latest_block_hash": "de37d16d75f856d872b503126597d624989fd909cb105352606ea481b359d708"
+    }
+  ],
+  "checks": {
+    "wallet_format_ok": true,
+    "genesis_exists": true,
+    "state_exists": true,
+    "claims_exists": true,
+    "wallet_in_state": true,
+    "unknown_miner_removed": true,
+    "external_live_false": true,
+    "withdrawals_disabled": true,
+    "swift_disabled": true,
+    "external_tx_disabled": true,
+    "real_rewards_disabled": true,
+    "genesis_hash_ok": true,
+    "blocks_exist": true,
+    "chain_links_ok": true,
+    "block_hashes_ok": true,
+    "no_external_tx_in_blocks": true,
+    "no_real_rewards_in_blocks": true,
+    "state_latest_hash_ok": true,
+    "claim_wallet_ok": true,
+    "anti_sybil_no_duplicates": true
+  },
+  "fixes": [
+    "cycle_1:repaired_blocks:block_000001.json,block_000002.json,block_000003.json,block_000004.json,block_000005.json",
+    "cycle_1:mined_autotest_block_6",
+    "cycle_2:mined_autotest_block_7",
+    "cycle_3:mined_autotest_block_8",
+    "cycle_4:mined_autotest_block_9",
+    "cycle_5:mined_autotest_block_10"
+  ],
+  "claims": {
+    "timestamp": "2026-06-07T13:06:36",
+    "status": "PRE_MAINNET_CLAIMS_WALLET_BOUND_AUTOTESTED",
+    "mainnet_rewards_now": 0,
+    "claims": [
+      {
+        "miner": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
+        "test_blocks": 60,
+        "claim_status": "WALLET_BOUND_PENDING_FINAL_APPROVAL",
+        "mainnet_reward_now": 0,
+        "previous_miner_id": "unknown_miner",
+        "wallet": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y"
+      }
+    ],
+    "policy": {
+      "claims_registered": true,
+      "claims_payable_now": false,
+      "requires_owner_approval": true,
+      "requires_parliament_approval": true,
+      "requires_anti_sybil_review": true
+    },
+    "wallet_binding": {
+      "final_id": "KIBRA-MAINNET-READINESS-20260607_124537",
+      "timestamp": "2026-06-07T12:45:37",
+      "status": "MINER_WALLET_BOUND_AND_VALIDATED",
+      "wallet": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
+      "previous_miner_id": "unknown_miner",
+      "network": "KIBRA_INTERNAL_MAINNET_TEST",
+      "chain_id": "kibra-mainnet-internal-c16752607334018d",
+      "pre_mainnet_claim_blocks": 60,
+      "internal_candidate_credit": 60,
+      "real_reward_now": 0,
+      "binding_scope": "INTERNAL_MAINNET_TEST_AND_MAINNET_CANDIDATE_CLAIM",
+      "safety": {
+        "wallet_binding_is_not_payout": true,
+        "real_payment_now": false,
+        "automatic_external_tx": false,
+        "automatic_withdrawals": false,
+        "automatic_real_rewards": false,
+        "external_live": false,
+        "manual_OWNER_approval_required_for_external_live": true,
+        "cyber_parliament_approval_required_for_external_live": true
+      }
+    }
+  },
+  "miner_registry": {
+    "timestamp": "2026-06-07T13:06:36",
+    "status": "MINER_WALLET_BOUND_AUTOTESTED",
+    "wallet": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
+    "previous_miner_id": "unknown_miner",
+    "network": "KIBRA_INTERNAL_MAINNET_TEST",
+    "chain_id": "kibra-mainnet-internal-c16752607334018d",
+    "pre_mainnet_claim_blocks": 60,
+    "internal_candidate_credit": 60,
+    "real_reward_now": 0,
+    "safety": {
+      "real_payment_now": false,
+      "real_trading_now": false,
+      "automatic_SWIFT": false,
+      "automatic_external_tx": false,
+      "automatic_withdrawals": false,
+      "automatic_real_rewards": false,
+      "external_bridge_enabled": false,
+      "bank_live_mode": false,
+      "psp_live_mode": false,
+      "mainnet_scope": "INTERNAL_MAINNET_AUTOTEST_ONLY",
+      "manual_OWNER_approval_required_for_external_live": true,
+      "cyber_parliament_approval_required_for_external_live": true
+    }
+  },
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "bank_live_mode": false,
+    "psp_live_mode": false,
+    "mainnet_scope": "INTERNAL_MAINNET_AUTOTEST_ONLY",
+    "manual_OWNER_approval_required_for_external_live": true,
+    "cyber_parliament_approval_required_for_external_live": true
+  }
+}

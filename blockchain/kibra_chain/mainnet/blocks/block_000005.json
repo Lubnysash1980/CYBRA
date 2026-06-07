@@ -3,7 +3,7 @@
   "chain_id": "kibra-mainnet-internal-c16752607334018d",
   "timestamp": "2026-06-07T13:02:24",
   "height": 5,
-  "previous_hash": "920709015cba565fc46c16ac7a593c4c620516bbdb39e49a6f95f5c3c9d7f783",
+  "previous_hash": "5e325b2be963d5df0d2765dc1e3e1b1455c615bcee061d57895aceeec1cc6395",
   "status": "INTERNAL_MAINNET_BLOCK_MINED",
   "miner": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
   "transactions": [
@@ -37,9 +37,9 @@
     "external_bridge_enabled": false,
     "bank_live_mode": false,
     "psp_live_mode": false,
-    "mainnet_scope": "INTERNAL_NODE_ONLY",
+    "mainnet_scope": "INTERNAL_MAINNET_AUTOTEST_ONLY",
     "manual_OWNER_approval_required_for_external_live": true,
     "cyber_parliament_approval_required_for_external_live": true
   },
-  "hash": "80597fce5c43d11fed2cce30bf8050ca95ce789699258436d65bca83d3ea87f3"
+  "hash": "aedb8d9f0bdd5b5618aee687ec14733af8372b4cfc810edc3c4da6ed5e0d4f75"
 }

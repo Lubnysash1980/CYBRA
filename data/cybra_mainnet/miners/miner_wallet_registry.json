@@ -1,7 +1,6 @@
 {
-  "final_id": "KIBRA-MAINNET-READINESS-20260607_124537",
-  "timestamp": "2026-06-07T12:45:37",
-  "status": "MINER_WALLET_BOUND_AND_VALIDATED",
+  "timestamp": "2026-06-07T13:06:36",
+  "status": "MINER_WALLET_BOUND_AUTOTESTED",
   "wallet": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
   "previous_miner_id": "unknown_miner",
   "network": "KIBRA_INTERNAL_MAINNET_TEST",
@@ -9,14 +8,17 @@
   "pre_mainnet_claim_blocks": 60,
   "internal_candidate_credit": 60,
   "real_reward_now": 0,
-  "binding_scope": "INTERNAL_MAINNET_TEST_AND_MAINNET_CANDIDATE_CLAIM",
   "safety": {
-    "wallet_binding_is_not_payout": true,
     "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_SWIFT": false,
     "automatic_external_tx": false,
     "automatic_withdrawals": false,
     "automatic_real_rewards": false,
-    "external_live": false,
+    "external_bridge_enabled": false,
+    "bank_live_mode": false,
+    "psp_live_mode": false,
+    "mainnet_scope": "INTERNAL_MAINNET_AUTOTEST_ONLY",
     "manual_OWNER_approval_required_for_external_live": true,
     "cyber_parliament_approval_required_for_external_live": true
   }

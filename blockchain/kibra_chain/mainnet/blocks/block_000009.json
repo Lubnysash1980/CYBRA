@@ -1,26 +1,26 @@
 {
   "network": "KIBRA_INTERNAL_MAINNET_TEST",
   "chain_id": "kibra-mainnet-internal-c16752607334018d",
-  "timestamp": "2026-06-07T12:54:00",
-  "height": 4,
-  "previous_hash": "822fcf530ce621ad58537c860f60de2d7f2516402fd9d6a2547865f1b91e48c4",
-  "status": "INTERNAL_MAINNET_BLOCK_MINED",
+  "timestamp": "2026-06-07T13:06:36",
+  "height": 9,
+  "previous_hash": "cc7f44dfc6d8bb6f6af18aa2a5c3c9cc88ab408eb44a101e10817ff871a8e1fd",
+  "status": "INTERNAL_MAINNET_AUTOTEST_BLOCK_MINED",
   "miner": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
+  "cycle": 4,
   "transactions": [
     {
-      "tx_id": "KIBRA-TX-0ab64315c30e4c7b",
-      "timestamp": "2026-06-07T12:54:00",
-      "type": "INTERNAL_CREDIT_TX",
+      "tx_id": "KIBRA-LOOP-TX-6488f9a330f8",
+      "timestamp": "2026-06-07T13:06:36",
+      "type": "INTERNAL_AUTOTEST_LOOP_TX",
       "from": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
       "to": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
       "amount": 0,
       "external": false,
       "real_value": false,
-      "note": "internal real node heartbeat test",
-      "hash": "d3f45fb3a3be46e74abdf8dcde476abbb8f56a7ab7580b05c2071ba186932be6"
+      "note": "autotest cycle 4, no real value",
+      "hash": "43086269b814f802ae0d7414e6737a281da9c232aacb5e47f085753e49fc878a"
     }
   ],
-  "rejected_transactions": [],
   "external_tx": false,
   "reward": {
     "internal_reward": 0,
@@ -41,5 +41,5 @@
     "manual_OWNER_approval_required_for_external_live": true,
     "cyber_parliament_approval_required_for_external_live": true
   },
-  "hash": "5e325b2be963d5df0d2765dc1e3e1b1455c615bcee061d57895aceeec1cc6395"
+  "hash": "b7ad9400920013ee75155453d9a532bd54a9cbc042d0b1d71b6819b9d42b9050"
 }

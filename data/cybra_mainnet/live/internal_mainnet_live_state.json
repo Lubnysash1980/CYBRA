@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-06-07T12:45:37",
+  "timestamp": "2026-06-07T13:02:24",
   "network": "KIBRA_INTERNAL_MAINNET_TEST",
   "chain_id": "kibra-mainnet-internal-c16752607334018d",
-  "status": "INTERNAL_MAINNET_RUNNING_TESTED",
-  "latest_height": 3,
+  "status": "INTERNAL_MAINNET_AUTOTEST_RUNNING",
+  "latest_height": 10,
   "genesis_hash": "031ff4302ad2952751bb0849a8d1e81f0006946078851063636e56d27233dae2",
-  "latest_block_hash": "13e2d4b679fec22e18c9d60f063a9a804d0dd657697dc46a3ec9b9f3bc8dd596",
-  "blocks_count": 4,
+  "latest_block_hash": "de37d16d75f856d872b503126597d624989fd909cb105352606ea481b359d708",
+  "blocks_count": 11,
   "test_blocks_snapshot_count": 60,
   "miners_count": 1,
   "balances": {
@@ -30,7 +30,7 @@
     "external_bridge_enabled": false,
     "bank_live_mode": false,
     "psp_live_mode": false,
-    "mainnet_scope": "INTERNAL_LOCAL_CHAIN_ONLY",
+    "mainnet_scope": "INTERNAL_MAINNET_AUTOTEST_ONLY",
     "manual_OWNER_approval_required_for_external_live": true,
     "cyber_parliament_approval_required_for_external_live": true
   },
@@ -56,5 +56,6 @@
       "manual_OWNER_approval_required_for_external_live": true,
       "cyber_parliament_approval_required_for_external_live": true
     }
-  }
+  },
+  "node_wallet": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y"
 }

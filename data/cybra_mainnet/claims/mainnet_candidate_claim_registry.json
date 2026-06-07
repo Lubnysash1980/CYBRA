@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-06-07T12:45:37",
-  "status": "PRE_MAINNET_CLAIMS_WALLET_BOUND_VALIDATED",
+  "timestamp": "2026-06-07T13:06:36",
+  "status": "PRE_MAINNET_CLAIMS_WALLET_BOUND_AUTOTESTED",
   "mainnet_rewards_now": 0,
   "claims": [
     {
