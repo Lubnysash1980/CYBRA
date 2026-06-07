@@ -1,0 +1,263 @@
+{
+  "status": "FINANCE_2M_ACTIONS_TEST_REPORT",
+  "timestamp": "2026-06-08T02:03:25+0300",
+  "summary": {
+    "pass": 38,
+    "fail": 0,
+    "warn": 0
+  },
+  "expected": {
+    "tokens": 32000,
+    "target_usd": 2000000,
+    "price": 62.5,
+    "base_raw": "32000000000000",
+    "usdc_raw": "2000000000000",
+    "owner": "EPEhVVhY7AXzWqcJeidWNuBqNbGDjJF35JzPVFXEbYxv"
+  },
+  "queue_status": {
+    "cybra:it_department:queue": 1,
+    "cybra:finance_department:queue": 1,
+    "cybra:parliament:queue": 2,
+    "cybra:ai:tasks:block_inbox": 1,
+    "cybra:kibra:market_proof:queue": 1,
+    "cybra:dex_pool:queue": 1,
+    "cybra:audit:queue": 2
+  },
+  "tests": [
+    {
+      "name": "task_json_exists",
+      "ok": true,
+      "detail": "feeds/finance_target_2m_usd_task.json",
+      "status": "PASS"
+    },
+    {
+      "name": "dispatch_json_exists",
+      "ok": true,
+      "detail": "feeds/finance_target_2m_usd_dispatch_report.json",
+      "status": "PASS"
+    },
+    {
+      "name": "post_exists",
+      "ok": true,
+      "detail": "posts/finance_target_2m_usd_task.md",
+      "status": "PASS"
+    },
+    {
+      "name": "tokens_32000",
+      "ok": true,
+      "detail": "{'base_tokens_ui': 32000, 'target_usd_total': 2000000, 'target_price_usd_per_token': 62.5, 'formula': '2,000,000 USD / 32,000 tokens = 62.5 USD/token'}",
+      "status": "PASS"
+    },
+    {
+      "name": "target_usd_2000000",
+      "ok": true,
+      "detail": "{'base_tokens_ui': 32000, 'target_usd_total': 2000000, 'target_price_usd_per_token': 62.5, 'formula': '2,000,000 USD / 32,000 tokens = 62.5 USD/token'}",
+      "status": "PASS"
+    },
+    {
+      "name": "price_62_5",
+      "ok": true,
+      "detail": "{'base_tokens_ui': 32000, 'target_usd_total': 2000000, 'target_price_usd_per_token': 62.5, 'formula': '2,000,000 USD / 32,000 tokens = 62.5 USD/token'}",
+      "status": "PASS"
+    },
+    {
+      "name": "base_raw_correct",
+      "ok": true,
+      "detail": "32000000000000",
+      "status": "PASS"
+    },
+    {
+      "name": "usdc_raw_correct",
+      "ok": true,
+      "detail": "2000000000000",
+      "status": "PASS"
+    },
+    {
+      "name": "real_market_false",
+      "ok": true,
+      "detail": "{'real_payment_now': False, 'automatic_SWIFT': False, 'automatic_external_tx': False, 'automatic_price_manipulation': False, 'mainnet_deploy_allowed': False, 'real_mainnet_tx_executed': False, 'manual_OWNER_approval_required': True, 'price_must_be_evidence_based': True, 'target_price_is_not_market_price': True, 'real_market_confirmed': False}",
+      "status": "PASS"
+    },
+    {
+      "name": "real_payment_false",
+      "ok": true,
+      "detail": "{'real_payment_now': False, 'automatic_SWIFT': False, 'automatic_external_tx': False, 'automatic_price_manipulation': False, 'mainnet_deploy_allowed': False, 'real_mainnet_tx_executed': False, 'manual_OWNER_approval_required': True, 'price_must_be_evidence_based': True, 'target_price_is_not_market_price': True, 'real_market_confirmed': False}",
+      "status": "PASS"
+    },
+    {
+      "name": "external_tx_false",
+      "ok": true,
+      "detail": "{'real_payment_now': False, 'automatic_SWIFT': False, 'automatic_external_tx': False, 'automatic_price_manipulation': False, 'mainnet_deploy_allowed': False, 'real_mainnet_tx_executed': False, 'manual_OWNER_approval_required': True, 'price_must_be_evidence_based': True, 'target_price_is_not_market_price': True, 'real_market_confirmed': False}",
+      "status": "PASS"
+    },
+    {
+      "name": "mainnet_tx_not_executed",
+      "ok": true,
+      "detail": "{'real_payment_now': False, 'automatic_SWIFT': False, 'automatic_external_tx': False, 'automatic_price_manipulation': False, 'mainnet_deploy_allowed': False, 'real_mainnet_tx_executed': False, 'manual_OWNER_approval_required': True, 'price_must_be_evidence_based': True, 'target_price_is_not_market_price': True, 'real_market_confirmed': False}",
+      "status": "PASS"
+    },
+    {
+      "name": "target_not_market_price",
+      "ok": true,
+      "detail": "{'real_payment_now': False, 'automatic_SWIFT': False, 'automatic_external_tx': False, 'automatic_price_manipulation': False, 'mainnet_deploy_allowed': False, 'real_mainnet_tx_executed': False, 'manual_OWNER_approval_required': True, 'price_must_be_evidence_based': True, 'target_price_is_not_market_price': True, 'real_market_confirmed': False}",
+      "status": "PASS"
+    },
+    {
+      "name": "owner_wallet_correct",
+      "ok": true,
+      "detail": "owner=EPEhVVhY7AXzWqcJeidWNuBqNbGDjJF35JzPVFXEbYxv expected=EPEhVVhY7AXzWqcJeidWNuBqNbGDjJF35JzPVFXEbYxv",
+      "status": "PASS"
+    },
+    {
+      "name": "it_queue_declared",
+      "ok": true,
+      "detail": "['cybra:it_department:queue', 'cybra:finance_department:queue', 'cybra:parliament:queue', 'cybra:ai:tasks:block_inbox', 'cybra:kibra:market_proof:queue', 'cybra:dex_pool:queue', 'cybra:audit:queue']",
+      "status": "PASS"
+    },
+    {
+      "name": "finance_queue_declared",
+      "ok": true,
+      "detail": "['cybra:it_department:queue', 'cybra:finance_department:queue', 'cybra:parliament:queue', 'cybra:ai:tasks:block_inbox', 'cybra:kibra:market_proof:queue', 'cybra:dex_pool:queue', 'cybra:audit:queue']",
+      "status": "PASS"
+    },
+    {
+      "name": "parliament_queue_declared",
+      "ok": true,
+      "detail": "['cybra:it_department:queue', 'cybra:finance_department:queue', 'cybra:parliament:queue', 'cybra:ai:tasks:block_inbox', 'cybra:kibra:market_proof:queue', 'cybra:dex_pool:queue', 'cybra:audit:queue']",
+      "status": "PASS"
+    },
+    {
+      "name": "dex_queue_declared",
+      "ok": true,
+      "detail": "['cybra:it_department:queue', 'cybra:finance_department:queue', 'cybra:parliament:queue', 'cybra:ai:tasks:block_inbox', 'cybra:kibra:market_proof:queue', 'cybra:dex_pool:queue', 'cybra:audit:queue']",
+      "status": "PASS"
+    },
+    {
+      "name": "audit_queue_declared",
+      "ok": true,
+      "detail": "['cybra:it_department:queue', 'cybra:finance_department:queue', 'cybra:parliament:queue', 'cybra:ai:tasks:block_inbox', 'cybra:kibra:market_proof:queue', 'cybra:dex_pool:queue', 'cybra:audit:queue']",
+      "status": "PASS"
+    },
+    {
+      "name": "post_has_62_5",
+      "ok": true,
+      "detail": "markdown target price",
+      "status": "PASS"
+    },
+    {
+      "name": "post_has_not_market_proof_warning",
+      "ok": true,
+      "detail": "warning exists",
+      "status": "PASS"
+    },
+    {
+      "name": "finance_sha256_ok",
+      "ok": true,
+      "detail": "feeds/finance_target_2m_usd_task.json: OK\nfeeds/finance_target_2m_usd_dispatch_report.json: OK\ndata/finance_target_2m/tasks/latest_task.json: OK\ndata/finance_target_2m/reports/latest_report.json: OK\nposts/finance_target_2m_usd_task.md: OK",
+      "status": "PASS"
+    },
+    {
+      "name": "queue_len_cybra:it_department:queue",
+      "ok": true,
+      "detail": "cybra:it_department:queue=1; if 0, executor may have already consumed it",
+      "status": "PASS"
+    },
+    {
+      "name": "queue_len_cybra:finance_department:queue",
+      "ok": true,
+      "detail": "cybra:finance_department:queue=1; if 0, executor may have already consumed it",
+      "status": "PASS"
+    },
+    {
+      "name": "queue_len_cybra:parliament:queue",
+      "ok": true,
+      "detail": "cybra:parliament:queue=2; if 0, executor may have already consumed it",
+      "status": "PASS"
+    },
+    {
+      "name": "queue_len_cybra:ai:tasks:block_inbox",
+      "ok": true,
+      "detail": "cybra:ai:tasks:block_inbox=1; if 0, executor may have already consumed it",
+      "status": "PASS"
+    },
+    {
+      "name": "queue_len_cybra:kibra:market_proof:queue",
+      "ok": true,
+      "detail": "cybra:kibra:market_proof:queue=1; if 0, executor may have already consumed it",
+      "status": "PASS"
+    },
+    {
+      "name": "queue_len_cybra:dex_pool:queue",
+      "ok": true,
+      "detail": "cybra:dex_pool:queue=1; if 0, executor may have already consumed it",
+      "status": "PASS"
+    },
+    {
+      "name": "queue_len_cybra:audit:queue",
+      "ok": true,
+      "detail": "cybra:audit:queue=2; if 0, executor may have already consumed it",
+      "status": "PASS"
+    },
+    {
+      "name": "target_env_exists",
+      "ok": true,
+      "detail": "data/kibra_dex_pool/private/.env.finance_target_2m",
+      "status": "PASS"
+    },
+    {
+      "name": "target_env_live_disabled",
+      "ok": true,
+      "detail": "target env",
+      "status": "PASS"
+    },
+    {
+      "name": "target_env_market_false",
+      "ok": true,
+      "detail": "target env",
+      "status": "PASS"
+    },
+    {
+      "name": "target_env_2m_usdc_raw",
+      "ok": true,
+      "detail": "USDC raw",
+      "status": "PASS"
+    },
+    {
+      "name": "live_env_not_enabled",
+      "ok": true,
+      "detail": "main .env must not be live",
+      "status": "PASS"
+    },
+    {
+      "name": "dex_approval_not_enabled",
+      "ok": true,
+      "detail": "approval must not be active",
+      "status": "PASS"
+    },
+    {
+      "name": "dex_pool_not_created",
+      "ok": true,
+      "detail": "created=False status=KIBRA_DEX_POOL_SAFE_PLAN",
+      "status": "PASS"
+    },
+    {
+      "name": "blockchain_anchor_tx_not_sent",
+      "ok": true,
+      "detail": "no anchor tx file",
+      "status": "PASS"
+    },
+    {
+      "name": "dex_plan_command_runs",
+      "ok": true,
+      "detail": "_per_token\": 62.5,\n  \"rpc_verified\": false,\n  \"owner_base_balance_ui\": null,\n  \"owner_quote_balance_ui\": null,\n  \"warnings\": [\n    \"rpc_not_verified_plan_uses_local_decimals\"\n  ],\n  \"created\": false,\n  \"live_dex_create\": false,\n  \"safety\": {\n    \"real_payment_now\": false,\n    \"automatic_SWIFT\": false,\n    \"automatic_external_tx\": false,\n    \"automatic_price_manipulation\": false,\n    \"mainnet_deploy_allowed\": false,\n    \"manual_OWNER_approval_required\": true,\n    \"plan_only_no_transaction\": true\n  },\n  \"rpc_error\": \"curl: (60) SSL: certificate subject name 'sinkhole.cert.gov.ua' does not match target hostname 'api.mainnet-beta.solana.com'\\nMore details here: https://curl.se/docs/sslcerts.html\\n\\ncurl failed to verify the legitimacy of the server and therefore could not\\nestablish a secure connection to it. To learn more about this situation and\\nhow to fix it, please visit the webpage mentioned above.\",\n  \"double_sha\": \"bb1db2014e4648c87cfa87368bc0f9dce691b76c547819c682cb796b73b15fa0\"\n}",
+      "status": "PASS"
+    }
+  ],
+  "safe_result": {
+    "real_payment_now": false,
+    "automatic_external_tx": false,
+    "real_mainnet_tx_executed": false,
+    "live_dex_create_tested": false
+  },
+  "double_sha": "51d451e590190edf6954467f50cc7c2ecd1e066d65d01d20d1eb495b6bd2b38c"
+}
