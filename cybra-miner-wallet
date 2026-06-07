@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+cd "$HOME/CYBRA" || exit 1
+
+case "$1" in
+  status)
+    cat posts/cybra_miner_wallet_binding.md
+    ;;
+  registry)
+    cat data/cybra_mainnet/miners/miner_wallet_registry.json
+    ;;
+  claims)
+    cat data/cybra_mainnet/claims/mainnet_candidate_claim_registry.json
+    ;;
+  state)
+    cat blockchain/kibra_chain/mainnet/state/latest_state.json
+    ;;
+  proof)
+    sha256sum -c proofs/cybra_miner_wallet_binding.sha256
+    ;;
+  *)
+    echo "Commands:"
+    echo "  cybra-miner-wallet status"
+    echo "  cybra-miner-wallet registry"
+    echo "  cybra-miner-wallet claims"
+    echo "  cybra-miner-wallet state"
+    echo "  cybra-miner-wallet proof"
+    ;;
+esac

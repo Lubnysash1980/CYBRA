@@ -1,24 +1,23 @@
 {
+  "network": "KIBRA_INTERNAL_MAINNET_TEST",
+  "chain_id": "kibra-mainnet-internal-c16752607334018d",
   "timestamp": "2026-06-07T12:34:49",
-  "status": "PRE_MAINNET_CLAIMS_REGISTERED_WITH_WALLET_BINDING",
-  "mainnet_rewards_now": 0,
-  "claims": [
+  "height": 2,
+  "previous_hash": "dbd8f35e7602d290865d1aea33418673b871fde43043299c6ea86afa943e655c",
+  "status": "MINER_WALLET_BINDING_BLOCK",
+  "miner": "cybra_internal_mainnet_miner",
+  "transactions": [
     {
-      "miner": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
-      "test_blocks": 60,
-      "claim_status": "WALLET_BOUND_PENDING_FINAL_APPROVAL",
-      "mainnet_reward_now": 0,
-      "previous_miner_id": "unknown_miner",
-      "wallet": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y"
+      "tx_id": "KIBRA-MINER-WALLET-BIND-20260607_123448",
+      "timestamp": "2026-06-07T12:34:49",
+      "type": "MINER_WALLET_BINDING",
+      "from": "unknown_miner",
+      "to_wallet": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
+      "amount": 0,
+      "external": false,
+      "note": "Bind miner claim to wallet. No payout. No external transaction."
     }
   ],
-  "policy": {
-    "claims_registered": true,
-    "claims_payable_now": false,
-    "requires_owner_approval": true,
-    "requires_parliament_approval": true,
-    "requires_anti_sybil_review": true
-  },
   "wallet_binding": {
     "bind_id": "KIBRA-MINER-WALLET-BIND-20260607_123448",
     "timestamp": "2026-06-07T12:34:49",
@@ -40,5 +39,12 @@
       "manual_OWNER_approval_required_for_external_live": true,
       "cyber_parliament_approval_required_for_external_live": true
     }
-  }
+  },
+  "external_tx": false,
+  "reward": {
+    "internal_reward": 0,
+    "real_reward": 0,
+    "claim_only": true
+  },
+  "hash": "b9a406e9691abd70c6caaf75429710b8f8609a4ceb24168da6995103ebd9dae0"
 }

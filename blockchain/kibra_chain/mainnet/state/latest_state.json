@@ -1,20 +1,22 @@
 {
-  "timestamp": "2026-06-07T12:16:19",
+  "timestamp": "2026-06-07T12:34:49",
   "network": "KIBRA_INTERNAL_MAINNET_TEST",
   "chain_id": "kibra-mainnet-internal-c16752607334018d",
   "status": "INTERNAL_MAINNET_RUNNING_TESTED",
-  "latest_height": 1,
+  "latest_height": 2,
   "genesis_hash": "031ff4302ad2952751bb0849a8d1e81f0006946078851063636e56d27233dae2",
-  "latest_block_hash": "dbd8f35e7602d290865d1aea33418673b871fde43043299c6ea86afa943e655c",
-  "blocks_count": 2,
+  "latest_block_hash": "b9a406e9691abd70c6caaf75429710b8f8609a4ceb24168da6995103ebd9dae0",
+  "blocks_count": 3,
   "test_blocks_snapshot_count": 60,
   "miners_count": 1,
   "balances": {
-    "unknown_miner": {
+    "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y": {
       "pre_mainnet_claim_blocks": 60,
       "internal_candidate_credit": 60,
       "real_reward_now": 0,
-      "claim_status": "REGISTERED_INTERNAL_MAINNET_TEST_ONLY"
+      "claim_status": "WALLET_BOUND_INTERNAL_MAINNET_TEST_ONLY",
+      "wallet": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
+      "previous_miner_id": "unknown_miner"
     }
   },
   "external_live": false,
@@ -31,5 +33,27 @@
     "mainnet_scope": "INTERNAL_LOCAL_CHAIN_ONLY",
     "manual_OWNER_approval_required_for_external_live": true,
     "cyber_parliament_approval_required_for_external_live": true
+  },
+  "last_wallet_binding": {
+    "bind_id": "KIBRA-MINER-WALLET-BIND-20260607_123448",
+    "timestamp": "2026-06-07T12:34:49",
+    "status": "MINER_WALLET_BOUND",
+    "network": "KIBRA_INTERNAL_MAINNET_TEST",
+    "chain_id": "kibra-mainnet-internal-c16752607334018d",
+    "previous_miner_id": "unknown_miner",
+    "wallet": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
+    "pre_mainnet_claim_blocks": 60,
+    "internal_candidate_credit": 60,
+    "real_reward_now": 0,
+    "binding_scope": "INTERNAL_MAINNET_TEST_AND_MAINNET_CANDIDATE_CLAIM",
+    "safety": {
+      "real_payment_now": false,
+      "automatic_external_tx": false,
+      "automatic_withdrawals": false,
+      "automatic_real_rewards": false,
+      "wallet_binding_is_not_payout": true,
+      "manual_OWNER_approval_required_for_external_live": true,
+      "cyber_parliament_approval_required_for_external_live": true
+    }
   }
 }
