@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+cd "$HOME/CYBRA" || exit 1
+
+case "$1" in
+  run)
+    bash check_kibra_token.sh "${2:-}" "${3:-}"
+    ;;
+  status)
+    cat posts/kibra_token_check.md
+    ;;
+  json)
+    cat data/cybra_token/checks/kibra_token_check_latest.json
+    ;;
+  proof)
+    sha256sum -c proofs/kibra_token_check.sha256
+    ;;
+  *)
+    echo "Commands:"
+    echo "  cybra-token-check run [mint] [wallet]"
+    echo "  cybra-token-check status"
+    echo "  cybra-token-check json"
+    echo "  cybra-token-check proof"
+    ;;
+esac
