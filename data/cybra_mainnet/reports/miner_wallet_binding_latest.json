@@ -1,6 +1,6 @@
 {
-  "bind_id": "KIBRA-MINER-WALLET-BIND-20260607_123448",
-  "timestamp": "2026-06-07T12:34:49",
+  "bind_id": "KIBRA-MINER-WALLET-BIND-20260607_123743",
+  "timestamp": "2026-06-07T12:37:43",
   "status": "MINER_WALLET_BOUND",
   "network": "KIBRA_INTERNAL_MAINNET_TEST",
   "chain_id": "kibra-mainnet-internal-c16752607334018d",
