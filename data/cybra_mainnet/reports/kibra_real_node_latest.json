@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-06-07T13:02:28",
+  "timestamp": "2026-06-07T13:07:40",
   "status": "KIBRA_REAL_NODE_VALIDATE_PASS",
   "score_percent": 100.0,
-  "latest_height": 5,
-  "latest_block_hash": "80597fce5c43d11fed2cce30bf8050ca95ce789699258436d65bca83d3ea87f3",
-  "blocks_count": 6,
+  "latest_height": 21,
+  "latest_block_hash": "81512ab6d76d75e3da7735839fd7c24a073d3fe9afb27015155f97a9342ca708",
+  "blocks_count": 22,
   "checks": {
     "genesis_exists": true,
     "genesis_hash_ok": true,
