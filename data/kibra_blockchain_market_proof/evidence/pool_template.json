@@ -1,0 +1,18 @@
+{
+  "type": "solana_pool_vaults",
+  "name": "KIBRA_USDC_POOL_EXAMPLE",
+  "cluster": "mainnet-beta",
+  "rpc_url": "https://api.mainnet-beta.solana.com",
+  "base_symbol": "KIBRA",
+  "base_mint": "PUT_KIBRA_ONCHAIN_MINT_HERE",
+  "base_vault": "PUT_KIBRA_POOL_VAULT_TOKEN_ACCOUNT_HERE",
+  "quote_symbol": "USDC",
+  "quote_mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+  "quote_vault": "PUT_USDC_POOL_VAULT_TOKEN_ACCOUNT_HERE",
+  "quote_usd": 1,
+  "pool_address": "PUT_REAL_POOL_ADDRESS_HERE",
+  "source_url": "PUT_DEX_OR_EXPLORER_URL_HERE",
+  "created_at": "2026-06-08T01:09:24+0300",
+  "owner_approval_required": true,
+  "fake_or_manual_price": false
+}

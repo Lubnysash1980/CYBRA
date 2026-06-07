@@ -51,3 +51,14 @@ data/cybra_trading/private/
 logs/trading/
 *.secret
 .env.*
+
+# CYBRA trading private keys
+
+# CYBRA blockchain proof private keys
+# CYBRA runtime / heavy generated files
+data/ai_task_blocks/mined/
+data/ai_task_blocks/pool_queue/
+data/cybra_autoheal_7lvl/snapshots/
+local_backup_before_pull/
+recovery_unpack/
+*.tmp

@@ -1,0 +1,84 @@
+{
+  "status": "KIBRA_BLOCKCHAIN_MARKET_PROOF",
+  "timestamp": "2026-06-08T01:09:58+0300",
+  "chain": "solana",
+  "token": "KIBRA",
+  "price_usd_per_kibra": 0,
+  "real_market_confirmed": false,
+  "valid_blockchain_sources": 0,
+  "total_blockchain_sources": 2,
+  "liquidity_usd_estimated_total": 0,
+  "requirements": {
+    "pool_vaults_required": true,
+    "rpc_onchain_balances_required": true,
+    "min_liquidity_usd": 100.0,
+    "manual_fake_price_blocked": true
+  },
+  "checked_sources": [
+    {
+      "type": "solana_pool_vaults",
+      "name": "KIBRA_USDC_POOL",
+      "cluster": "mainnet-beta",
+      "rpc_url": "https://api.mainnet-beta.solana.com",
+      "base_symbol": "KIBRA",
+      "base_mint": "PUT_KIBRA_ONCHAIN_MINT_HERE",
+      "base_vault": "PUT_KIBRA_POOL_VAULT_TOKEN_ACCOUNT_HERE",
+      "quote_symbol": "USDC",
+      "quote_mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+      "quote_vault": "PUT_USDC_POOL_VAULT_TOKEN_ACCOUNT_HERE",
+      "quote_usd": 1.0,
+      "pool_address": "PUT_REAL_POOL_ADDRESS_HERE",
+      "source_url": "PUT_DEX_OR_SOLSCAN_POOL_URL_HERE",
+      "created_at": "2026-06-08T01:09:35+0300",
+      "owner_approval_required": true,
+      "fake_or_manual_price": false,
+      "_valid": false,
+      "_problems": [
+        "missing_base_mint",
+        "missing_base_vault",
+        "missing_quote_vault",
+        "missing_pool_address",
+        "missing_source_url"
+      ],
+      "_file": "data/kibra_blockchain_market_proof/evidence/1780870175_KIBRA_USDC_POOL.json"
+    },
+    {
+      "type": "solana_pool_vaults",
+      "name": "KIBRA_USDC_POOL_EXAMPLE",
+      "cluster": "mainnet-beta",
+      "rpc_url": "https://api.mainnet-beta.solana.com",
+      "base_symbol": "KIBRA",
+      "base_mint": "PUT_KIBRA_ONCHAIN_MINT_HERE",
+      "base_vault": "PUT_KIBRA_POOL_VAULT_TOKEN_ACCOUNT_HERE",
+      "quote_symbol": "USDC",
+      "quote_mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+      "quote_vault": "PUT_USDC_POOL_VAULT_TOKEN_ACCOUNT_HERE",
+      "quote_usd": 1,
+      "pool_address": "PUT_REAL_POOL_ADDRESS_HERE",
+      "source_url": "PUT_DEX_OR_EXPLORER_URL_HERE",
+      "created_at": "2026-06-08T01:09:24+0300",
+      "owner_approval_required": true,
+      "fake_or_manual_price": false,
+      "_valid": false,
+      "_problems": [
+        "missing_base_mint",
+        "missing_base_vault",
+        "missing_quote_vault",
+        "missing_pool_address",
+        "missing_source_url"
+      ],
+      "_file": "data/kibra_blockchain_market_proof/evidence/pool_template.json"
+    }
+  ],
+  "valid_sources": [],
+  "safety": {
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "automatic_price_manipulation": false,
+    "mainnet_deploy_allowed": false,
+    "manual_OWNER_approval_required": true,
+    "price_must_be_evidence_based": true
+  },
+  "double_sha": "453e6489ac5adbcd6c266d31053c2e85eee699cbcf324c1bce57d429c9a8cce6"
+}
