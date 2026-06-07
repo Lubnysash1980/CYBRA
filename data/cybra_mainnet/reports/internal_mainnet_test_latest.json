@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-06-07T12:16:19",
+  "status": "KIBRA_INTERNAL_MAINNET_TEST_PASS",
+  "score_percent": 100.0,
+  "network": "KIBRA_INTERNAL_MAINNET_TEST",
+  "chain_id": "kibra-mainnet-internal-c16752607334018d",
+  "genesis_hash": "031ff4302ad2952751bb0849a8d1e81f0006946078851063636e56d27233dae2",
+  "test_block_hash": "dbd8f35e7602d290865d1aea33418673b871fde43043299c6ea86afa943e655c",
+  "test_blocks_snapshot_count": 60,
+  "miners_count": 1,
+  "tests": {
+    "genesis_created": true,
+    "block1_created": true,
+    "block1_links_to_genesis": true,
+    "state_latest_block_ok": true,
+    "snapshot_preserved": true,
+    "claims_registered": true,
+    "no_real_rewards": true,
+    "no_external_tx": true,
+    "swift_disabled": true,
+    "withdrawals_disabled": true,
+    "external_bridge_disabled": true
+  },
+  "decision": "Internal mainnet test launched successfully. External live mainnet remains locked.",
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "bank_live_mode": false,
+    "psp_live_mode": false,
+    "mainnet_scope": "INTERNAL_LOCAL_CHAIN_ONLY",
+    "manual_OWNER_approval_required_for_external_live": true,
+    "cyber_parliament_approval_required_for_external_live": true
+  }
+}
