@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-06-07T08:35:37",
+  "timestamp": "2026-06-07T08:46:43",
   "status": "OK",
-  "processed_count": 19,
+  "processed_count": 20,
   "processed": [
     "BAR-MGS-1780673954-8825cfa4",
     "BAR-MGS-1780762571-a1591fbf",
@@ -9,6 +9,7 @@
     "BAR-MGS-1780763755-7af42254",
     "BAR-MGS-1780777684-50b737de",
     "BAR-MGS-1780777981-938f6f28",
+    "COIN-APPROVAL-20260607_114544",
     "KIBRA-IT-1780752324-3418298b",
     "KIBRA-IT-1780752441-62484a31",
     "KIBRA-IT-1780752454-758d2281",
