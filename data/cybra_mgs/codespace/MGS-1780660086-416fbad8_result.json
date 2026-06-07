@@ -1,16 +1,8 @@
 {
   "task_id": "MGS-1780660086-416fbad8",
-  "timestamp": "2026-06-05T14:48:06",
-  "title": "Upgrade v64 bot",
-  "body": "Переписать модуль 64 безопасно, без real trading, сохранить 6000 строк",
-  "target": "all",
-  "routes": [
-    "ai",
-    "parliament",
-    "it",
-    "codespace",
-    "mgs"
-  ],
+  "timestamp": "2026-06-07T09:05:52",
+  "status": "CODESPACE_EXECUTOR_ACCEPTED",
+  "executor": "MGS Codespace Worker",
   "committees": [
     "mgs_analytics",
     "mgs_workers",
@@ -18,13 +10,13 @@
     "mgs_restart_watchdog",
     "mgs_integration"
   ],
-  "status": "QUEUED",
+  "title": "Upgrade v64 bot",
+  "evolution_rule": null,
+  "result": "Task accepted. Patch/report should be produced as separate evolution layer. Existing v64/module64 preserved.",
   "safety": {
     "real_trading_now": false,
-    "live_force_trading_disabled": true,
-    "automatic_external_tx": false,
-    "manual_OWNER_approval_required": true
-  },
-  "codespace_status": "ACCEPTED",
-  "codespace_timestamp": "2026-06-07T08:53:51"
+    "binance_real_orders": false,
+    "bybit_real_orders": false,
+    "automatic_external_tx": false
+  }
 }

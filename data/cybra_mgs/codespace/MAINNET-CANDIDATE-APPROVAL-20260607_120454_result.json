@@ -1,17 +1,11 @@
 {
-  "task_id": "MGS-1780660630-8cf69402",
+  "task_id": "MAINNET-CANDIDATE-APPROVAL-20260607_120454",
   "timestamp": "2026-06-07T09:05:52",
   "status": "CODESPACE_EXECUTOR_ACCEPTED",
   "executor": "MGS Codespace Worker",
-  "committees": [
-    "mgs_analytics",
-    "mgs_workers",
-    "mgs_it_department",
-    "mgs_restart_watchdog",
-    "mgs_integration"
-  ],
-  "title": "Evolution v64 bot",
-  "evolution_rule": "do_not_break_existing_system; patch_as_layer; preserve_module64; preserve_original_6000_lines",
+  "committees": [],
+  "title": "OWNER + Cyber Parliament approval for KIBRA mainnet candidate stage",
+  "evolution_rule": null,
   "result": "Task accepted. Patch/report should be produced as separate evolution layer. Existing v64/module64 preserved.",
   "safety": {
     "real_trading_now": false,

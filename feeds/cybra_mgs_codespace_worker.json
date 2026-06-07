@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-06-06T13:28:56",
+  "timestamp": "2026-06-07T09:05:52",
   "status": "CODESPACE_WORKER_OK",
-  "processed_count": 12,
+  "processed_count": 22,
   "processed": [
     {
       "task_id": "BAR-MGS-1780673954-8825cfa4",
-      "timestamp": "2026-06-06T13:28:56",
+      "timestamp": "2026-06-07T09:05:52",
       "status": "CODESPACE_EXECUTOR_ACCEPTED",
       "executor": "MGS Codespace Worker",
       "committees": [
@@ -26,8 +26,143 @@
       }
     },
     {
+      "task_id": "BAR-MGS-1780762571-a1591fbf",
+      "timestamp": "2026-06-07T09:05:52",
+      "status": "CODESPACE_EXECUTOR_ACCEPTED",
+      "executor": "MGS Codespace Worker",
+      "committees": [
+        "MGS Analytics",
+        "MGS Workers",
+        "MGS IT Department",
+        "MGS Restart Watchdog",
+        "MGS Integration"
+      ],
+      "title": "пермішнс",
+      "evolution_rule": null,
+      "result": "Task accepted. Patch/report should be produced as separate evolution layer. Existing v64/module64 preserved.",
+      "safety": {
+        "real_trading_now": false,
+        "binance_real_orders": false,
+        "bybit_real_orders": false,
+        "automatic_external_tx": false
+      }
+    },
+    {
+      "task_id": "BAR-MGS-1780763679-b5e2a43a",
+      "timestamp": "2026-06-07T09:05:52",
+      "status": "CODESPACE_EXECUTOR_ACCEPTED",
+      "executor": "MGS Codespace Worker",
+      "committees": [
+        "MGS Analytics",
+        "MGS Workers",
+        "MGS IT Department",
+        "MGS Restart Watchdog",
+        "MGS Integration"
+      ],
+      "title": "Daily evolution safe upgrade",
+      "evolution_rule": null,
+      "result": "Task accepted. Patch/report should be produced as separate evolution layer. Existing v64/module64 preserved.",
+      "safety": {
+        "real_trading_now": false,
+        "binance_real_orders": false,
+        "bybit_real_orders": false,
+        "automatic_external_tx": false
+      }
+    },
+    {
+      "task_id": "BAR-MGS-1780763755-7af42254",
+      "timestamp": "2026-06-07T09:05:52",
+      "status": "CODESPACE_EXECUTOR_ACCEPTED",
+      "executor": "MGS Codespace Worker",
+      "committees": [
+        "MGS Analytics",
+        "MGS Workers",
+        "MGS IT Department",
+        "MGS Restart Watchdog",
+        "MGS Integration"
+      ],
+      "title": "permisions",
+      "evolution_rule": null,
+      "result": "Task accepted. Patch/report should be produced as separate evolution layer. Existing v64/module64 preserved.",
+      "safety": {
+        "real_trading_now": false,
+        "binance_real_orders": false,
+        "bybit_real_orders": false,
+        "automatic_external_tx": false
+      }
+    },
+    {
+      "task_id": "BAR-MGS-1780777684-50b737de",
+      "timestamp": "2026-06-07T09:05:52",
+      "status": "CODESPACE_EXECUTOR_ACCEPTED",
+      "executor": "MGS Codespace Worker",
+      "committees": [
+        "MGS Analytics",
+        "MGS Workers",
+        "MGS IT Department",
+        "MGS Restart Watchdog",
+        "MGS Integration"
+      ],
+      "title": "Daily evolution safe upgrade",
+      "evolution_rule": null,
+      "result": "Task accepted. Patch/report should be produced as separate evolution layer. Existing v64/module64 preserved.",
+      "safety": {
+        "real_trading_now": false,
+        "binance_real_orders": false,
+        "bybit_real_orders": false,
+        "automatic_external_tx": false
+      }
+    },
+    {
+      "task_id": "BAR-MGS-1780777981-938f6f28",
+      "timestamp": "2026-06-07T09:05:52",
+      "status": "CODESPACE_EXECUTOR_ACCEPTED",
+      "executor": "MGS Codespace Worker",
+      "committees": [
+        "MGS Analytics",
+        "MGS Workers",
+        "MGS IT Department",
+        "MGS Restart Watchdog",
+        "MGS Integration"
+      ],
+      "title": "Daily evolution safe upgrade",
+      "evolution_rule": null,
+      "result": "Task accepted. Patch/report should be produced as separate evolution layer. Existing v64/module64 preserved.",
+      "safety": {
+        "real_trading_now": false,
+        "binance_real_orders": false,
+        "bybit_real_orders": false,
+        "automatic_external_tx": false
+      }
+    },
+    {
+      "task_id": "COIN-APPROVAL-20260607_114544",
+      "timestamp": "2026-06-07T09:05:52",
+      "status": "CODESPACE_EXECUTOR_ACCEPTED",
+      "executor": "MGS Codespace Worker",
+      "committees": [
+        "coin_approval_committee",
+        "finance_risk_committee",
+        "finance_it_committee",
+        "mgs_integration",
+        "mgs_analytics",
+        "cyber_parliament_approval",
+        "oracle_runner_committee",
+        "codespace_worker_committee"
+      ],
+      "title": "Доробити монету до approval",
+      "evolution_rule": null,
+      "result": "Task accepted. Patch/report should be produced as separate evolution layer. Existing v64/module64 preserved.",
+      "safety": {
+        "real_trading_now": false,
+        "binance_real_orders": false,
+        "bybit_real_orders": false,
+        "automatic_external_tx": false
+      }
+    },
+    {
       "task_id": "KIBRA-IT-1780752324-3418298b",
-      "timestamp": "2026-06-06T13:28:56",
+      "timestamp": "2026-06-07T09:05:52",
       "status": "CODESPACE_EXECUTOR_ACCEPTED",
       "executor": "MGS Codespace Worker",
       "committees": [],
@@ -43,7 +178,7 @@
     },
     {
       "task_id": "KIBRA-IT-1780752441-62484a31",
-      "timestamp": "2026-06-06T13:28:56",
+      "timestamp": "2026-06-07T09:05:52",
       "status": "CODESPACE_EXECUTOR_ACCEPTED",
       "executor": "MGS Codespace Worker",
       "committees": [],
@@ -59,7 +194,7 @@
     },
     {
       "task_id": "KIBRA-IT-1780752454-758d2281",
-      "timestamp": "2026-06-06T13:28:56",
+      "timestamp": "2026-06-07T09:05:52",
       "status": "CODESPACE_EXECUTOR_ACCEPTED",
       "executor": "MGS Codespace Worker",
       "committees": [],
@@ -74,8 +209,40 @@
       }
     },
     {
+      "task_id": "KIBRA-IT-1780752627-90063dce",
+      "timestamp": "2026-06-07T09:05:52",
+      "status": "CODESPACE_EXECUTOR_ACCEPTED",
+      "executor": "MGS Codespace Worker",
+      "committees": [],
+      "title": "Restart watchdog patch",
+      "evolution_rule": "patch_as_layer; do_not_break_existing; preserve_module64; preserve_original_6000_lines",
+      "result": "Task accepted. Patch/report should be produced as separate evolution layer. Existing v64/module64 preserved.",
+      "safety": {
+        "real_trading_now": false,
+        "binance_real_orders": false,
+        "bybit_real_orders": false,
+        "automatic_external_tx": false
+      }
+    },
+    {
+      "task_id": "KIBRA-IT-1780763496-24cb3f68",
+      "timestamp": "2026-06-07T09:05:52",
+      "status": "CODESPACE_EXECUTOR_ACCEPTED",
+      "executor": "MGS Codespace Worker",
+      "committees": [],
+      "title": "Oracle runner upgrade",
+      "evolution_rule": "patch_as_layer; do_not_break_existing; preserve_module64; preserve_original_6000_lines",
+      "result": "Task accepted. Patch/report should be produced as separate evolution layer. Existing v64/module64 preserved.",
+      "safety": {
+        "real_trading_now": false,
+        "binance_real_orders": false,
+        "bybit_real_orders": false,
+        "automatic_external_tx": false
+      }
+    },
+    {
       "task_id": "KIBRA-MENU-1780751007-acc83fba",
-      "timestamp": "2026-06-06T13:28:56",
+      "timestamp": "2026-06-07T09:05:52",
       "status": "CODESPACE_EXECUTOR_ACCEPTED",
       "executor": "MGS Codespace Worker",
       "committees": [],
@@ -91,7 +258,7 @@
     },
     {
       "task_id": "KIBRA-MENU-1780751074-a759a1cc",
-      "timestamp": "2026-06-06T13:28:56",
+      "timestamp": "2026-06-07T09:05:52",
       "status": "CODESPACE_EXECUTOR_ACCEPTED",
       "executor": "MGS Codespace Worker",
       "committees": [],
@@ -107,7 +274,7 @@
     },
     {
       "task_id": "KIBRA-MENU-1780751309-74ea01b0",
-      "timestamp": "2026-06-06T13:28:56",
+      "timestamp": "2026-06-07T09:05:52",
       "status": "CODESPACE_EXECUTOR_ACCEPTED",
       "executor": "MGS Codespace Worker",
       "committees": [],
@@ -123,7 +290,7 @@
     },
     {
       "task_id": "KIBRA-MENU-1780751508-29e1731a",
-      "timestamp": "2026-06-06T13:28:56",
+      "timestamp": "2026-06-07T09:05:52",
       "status": "CODESPACE_EXECUTOR_ACCEPTED",
       "executor": "MGS Codespace Worker",
       "committees": [],
@@ -139,7 +306,7 @@
     },
     {
       "task_id": "KIBRA-MENU-1780752188-455296f4",
-      "timestamp": "2026-06-06T13:28:56",
+      "timestamp": "2026-06-07T09:05:52",
       "status": "CODESPACE_EXECUTOR_ACCEPTED",
       "executor": "MGS Codespace Worker",
       "committees": [],
@@ -154,8 +321,40 @@
       }
     },
     {
+      "task_id": "MAINNET-CANDIDATE-APPROVAL-20260607_120454",
+      "timestamp": "2026-06-07T09:05:52",
+      "status": "CODESPACE_EXECUTOR_ACCEPTED",
+      "executor": "MGS Codespace Worker",
+      "committees": [],
+      "title": "OWNER + Cyber Parliament approval for KIBRA mainnet candidate stage",
+      "evolution_rule": null,
+      "result": "Task accepted. Patch/report should be produced as separate evolution layer. Existing v64/module64 preserved.",
+      "safety": {
+        "real_trading_now": false,
+        "binance_real_orders": false,
+        "bybit_real_orders": false,
+        "automatic_external_tx": false
+      }
+    },
+    {
+      "task_id": "MAINNET-MIGRATION-FIX-20260607_115134",
+      "timestamp": "2026-06-07T09:05:52",
+      "status": "CODESPACE_EXECUTOR_ACCEPTED",
+      "executor": "MGS Codespace Worker",
+      "committees": [],
+      "title": "Fix test blocks and prepare KIBRA coin for mainnet migration",
+      "evolution_rule": null,
+      "result": "Task accepted. Patch/report should be produced as separate evolution layer. Existing v64/module64 preserved.",
+      "safety": {
+        "real_trading_now": false,
+        "binance_real_orders": false,
+        "bybit_real_orders": false,
+        "automatic_external_tx": false
+      }
+    },
+    {
       "task_id": "MGS-1780660086-416fbad8",
-      "timestamp": "2026-06-06T13:28:56",
+      "timestamp": "2026-06-07T09:05:52",
       "status": "CODESPACE_EXECUTOR_ACCEPTED",
       "executor": "MGS Codespace Worker",
       "committees": [
@@ -177,7 +376,7 @@
     },
     {
       "task_id": "MGS-1780660630-8cf69402",
-      "timestamp": "2026-06-06T13:28:56",
+      "timestamp": "2026-06-07T09:05:52",
       "status": "CODESPACE_EXECUTOR_ACCEPTED",
       "executor": "MGS Codespace Worker",
       "committees": [
@@ -199,7 +398,7 @@
     },
     {
       "task_id": "ORACLE-MGS-1780661179-ea6d58c2",
-      "timestamp": "2026-06-06T13:28:56",
+      "timestamp": "2026-06-07T09:05:52",
       "status": "CODESPACE_EXECUTOR_ACCEPTED",
       "executor": "MGS Codespace Worker",
       "committees": [
