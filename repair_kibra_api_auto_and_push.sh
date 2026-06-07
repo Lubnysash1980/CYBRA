@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
+set +e
+cd "$HOME/CYBRA" || exit 1
+
+echo "=== REPAIR KIBRA API-AUTO + PUSH ==="
+
+cat > cybra-kibra-real <<'EOF'
+#!/usr/bin/env bash
 cd "$HOME/CYBRA" || exit 1
 
 WALLET="${KIBRA_WALLET:-FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y}"
@@ -71,3 +78,26 @@ PY
     echo "  cybra-kibra-real test"
     ;;
 esac
+EOF
+
+chmod +x cybra-kibra-real
+ln -sf "$HOME/CYBRA/cybra-kibra-real" "$PREFIX/bin/cybra-kibra-real" 2>/dev/null || true
+
+echo
+echo "=== VALIDATE ==="
+cybra-kibra-real validate
+
+echo
+echo "=== PROOF ==="
+cybra-kibra-real proof
+
+echo
+echo "=== GIT STATUS ==="
+git status --short
+
+echo
+echo "✅ API-AUTO RESTORED"
+echo "Run API:"
+echo "  cybra-kibra-real api-auto"
+echo "or:"
+echo "  cybra-kibra-real api 8794"

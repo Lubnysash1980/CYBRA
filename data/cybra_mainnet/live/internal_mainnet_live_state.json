@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-06-07T13:07:34",
+  "timestamp": "2026-06-07T15:21:04",
   "network": "KIBRA_INTERNAL_MAINNET_TEST",
   "chain_id": "kibra-mainnet-internal-c16752607334018d",
   "status": "INTERNAL_MAINNET_RUNNING",
-  "latest_height": 21,
+  "latest_height": 22,
   "genesis_hash": "031ff4302ad2952751bb0849a8d1e81f0006946078851063636e56d27233dae2",
-  "latest_block_hash": "81512ab6d76d75e3da7735839fd7c24a073d3fe9afb27015155f97a9342ca708",
-  "blocks_count": 22,
+  "latest_block_hash": "e7b891029181fc603a4cea621642eab9b4b4b59dbc1a91f3d55b1371db806bc5",
+  "blocks_count": 23,
   "test_blocks_snapshot_count": 60,
   "miners_count": 1,
   "balances": {
