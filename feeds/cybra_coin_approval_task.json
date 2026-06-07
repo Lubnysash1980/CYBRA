@@ -1,0 +1,10 @@
+{
+  "task_id": "COIN-APPROVAL-20260607_114544",
+  "status": "QUEUED_FOR_APPROVAL_PREPARATION",
+  "title": "Доробити монету до approval",
+  "mainnet_deploy_allowed": false,
+  "manual_OWNER_approval_required": true,
+  "cyber_parliament_approval_required": true,
+  "automatic_external_tx": false,
+  "automatic_liquidity_creation": false
+}
