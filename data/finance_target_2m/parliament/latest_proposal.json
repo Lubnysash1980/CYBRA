@@ -1,0 +1,33 @@
+{
+  "status": "CYBER_PARLIAMENT_2M_TARGET_PROPOSAL_CREATED",
+  "timestamp": "2026-06-08T02:00:27+0300",
+  "proposal_title": "Approve target valuation: 32,000 tokens = 2,000,000 USD",
+  "owner_wallet": "EPEhVVhY7AXzWqcJeidWNuBqNbGDjJF35JzPVFXEbYxv",
+  "target_price_usd_per_token": 62.5,
+  "target_usd_total": 2000000,
+  "tokens": 32000,
+  "vote_options": [
+    "approve_as_target_only",
+    "reject",
+    "request_more_liquidity_proof"
+  ],
+  "rules": [
+    "This is not real market proof.",
+    "REAL_MARKET_CONFIRMED remains false.",
+    "No fake/manual price activation.",
+    "Real DEX reserves required before market price activation."
+  ],
+  "source_execution_sha": "6a023f44996de5aeaa2a4f75b0a538c43d86846776846ee884e7a158d9d036f1",
+  "safety": {
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "automatic_price_manipulation": false,
+    "mainnet_deploy_allowed": false,
+    "real_mainnet_tx_executed": false,
+    "manual_OWNER_approval_required": true,
+    "price_must_be_evidence_based": true,
+    "target_price_is_not_market_price": true
+  },
+  "double_sha": "37e1db13e1cac00aba4a9ade9e8a137e1454420cc631ae1253a86fad57b48b80"
+}
