@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+cd "$HOME/CYBRA" || exit 1
+
+case "$1" in
+  status)
+    cat posts/cybra_mainnet_candidate_stage.md
+    ;;
+  candidate)
+    cat data/cybra_mainnet/candidate/latest_mainnet_candidate_stage.json
+    ;;
+  genesis)
+    cat blockchain/kibra_chain/mainnet_candidate/genesis_candidate_block.json
+    ;;
+  claims)
+    cat data/cybra_mainnet/claims/mainnet_candidate_claim_registry.json
+    ;;
+  proof)
+    sha256sum -c proofs/cybra_mainnet_candidate_stage.sha256
+    ;;
+  *)
+    echo "Commands:"
+    echo "  cybra-mainnet-stage status"
+    echo "  cybra-mainnet-stage candidate"
+    echo "  cybra-mainnet-stage genesis"
+    echo "  cybra-mainnet-stage claims"
+    echo "  cybra-mainnet-stage proof"
+    ;;
+esac

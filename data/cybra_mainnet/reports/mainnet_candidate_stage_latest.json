@@ -1,0 +1,31 @@
+{
+  "network": "KIBRA_MAINNET_CANDIDATE",
+  "timestamp": "2026-06-07T12:10:37",
+  "status": "MAINNET_CANDIDATE_READY",
+  "stage": "MAINNET_CANDIDATE_STAGE",
+  "mainnet_live_now": false,
+  "real_rewards_now": false,
+  "external_transactions_now": false,
+  "source_snapshot_hash": "cfabfc2d3b255e3a0bb13cdcdf5478fb7d1fc46072a6163b764712511b9076f4",
+  "source_claims_hash": "b3f8608785ca0196b13a27b62bfbff61850531b424ad7cec2914e4081c01a103",
+  "test_blocks_count": 60,
+  "miners_count": 1,
+  "height_start": 0,
+  "chain_mode": "CANDIDATE_LOCKED",
+  "approval_gate": {
+    "owner_ticket_created": true,
+    "parliament_ticket_created": true,
+    "owner_approval_status": "PENDING",
+    "parliament_approval_status": "PENDING"
+  },
+  "safety": {
+    "automatic_mainnet_launch": false,
+    "automatic_real_rewards": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_liquidity_creation": false,
+    "manual_OWNER_approval_required": true,
+    "cyber_parliament_approval_required": true,
+    "anti_sybil_review_required": true
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-06-07T12:10:37",
+  "status": "PRE_MAINNET_CLAIMS_REGISTERED_IN_CANDIDATE",
+  "mainnet_rewards_now": 0,
+  "claims": [
+    {
+      "miner": "unknown_miner",
+      "test_blocks": 60,
+      "claim_status": "PENDING_REVIEW",
+      "mainnet_reward_now": 0
+    }
+  ],
+  "policy": {
+    "claims_registered": true,
+    "claims_payable_now": false,
+    "requires_owner_approval": true,
+    "requires_parliament_approval": true,
+    "requires_anti_sybil_review": true
+  }
+}
