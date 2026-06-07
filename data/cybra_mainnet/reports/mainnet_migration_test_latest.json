@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-06-07T11:57:27",
+  "status": "MAINNET_MIGRATION_TEST_PASS",
+  "score_percent": 100.0,
+  "blocks_count": 60,
+  "miners_count": 1,
+  "checks": {
+    "exists:snapshot": true,
+    "exists:claims": true,
+    "exists:genesis": true,
+    "exists:report": true,
+    "exists:post": true,
+    "exists:feed": true,
+    "exists:proof": true,
+    "snapshot_status_ok": true,
+    "claims_status_ok": true,
+    "genesis_status_ok": true,
+    "mainnet_live_false": true,
+    "automatic_mainnet_launch_false": true,
+    "automatic_real_rewards_false": true,
+    "automatic_external_tx_false": true,
+    "owner_approval_required": true,
+    "test_blocks_not_deleted": true,
+    "test_blocks_not_mainnet_yet": true,
+    "claims_pending_review": true,
+    "sha256_proof_ok": true,
+    "snapshot_has_block_counter": true,
+    "snapshot_has_miner_counter": true
+  },
+  "decision": "Test blocks are preserved as snapshot/claims. Mainnet is still locked until OWNER + Cyber Parliament approval.",
+  "safety": {
+    "mainnet_live_now": false,
+    "automatic_mainnet_launch": false,
+    "automatic_real_rewards": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true,
+    "cyber_parliament_approval_required": true
+  }
+}
