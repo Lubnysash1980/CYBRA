@@ -1,0 +1,31 @@
+{
+  "status": "FINANCE_TARGET_2M_USD_DISPATCHED",
+  "timestamp": "2026-06-08T01:51:39+0300",
+  "queues": [
+    "cybra:it_department:queue",
+    "cybra:finance_department:queue",
+    "cybra:parliament:queue",
+    "cybra:ai:tasks:block_inbox",
+    "cybra:kibra:market_proof:queue",
+    "cybra:dex_pool:queue",
+    "cybra:audit:queue"
+  ],
+  "base_tokens_ui": 32000,
+  "target_usd_total": 2000000,
+  "target_price_usd_per_token": 62.5,
+  "base_amount_raw": "32000000000000",
+  "quote_amount_raw": "2000000000000",
+  "task_sha": "53869b1209ca206ef59a31b833ed89f88e72c459f9dc9a296c93bbf775b917a2",
+  "safety": {
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "automatic_price_manipulation": false,
+    "mainnet_deploy_allowed": false,
+    "real_mainnet_tx_executed": false,
+    "manual_OWNER_approval_required": true,
+    "price_must_be_evidence_based": true,
+    "target_price_is_not_market_price": true,
+    "real_market_confirmed": false
+  }
+}

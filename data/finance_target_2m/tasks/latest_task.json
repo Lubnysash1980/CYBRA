@@ -1,0 +1,65 @@
+{
+  "status": "FINANCE_TARGET_2M_USD_TASK_CREATED",
+  "timestamp": "2026-06-08T01:51:39+0300",
+  "title": "IT + Finance + Cyber Parliament: target valuation 32,000 tokens = 2,000,000 USD",
+  "owner_wallet": "EPEhVVhY7AXzWqcJeidWNuBqNbGDjJF35JzPVFXEbYxv",
+  "tokens": {
+    "alex_mint": "BNhNw6waDiEobccELrZ483aYEqFRzYGwwHB6DLk5VnFr",
+    "efi_mint": "EfiCgx3svRwZ1voPXsnYdZo35kzyt5Ct7UHLuvnm6fcR",
+    "usdc_mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+  },
+  "request": {
+    "base_tokens_ui": 32000,
+    "target_usd_total": 2000000,
+    "target_price_usd_per_token": 62.5,
+    "formula": "2,000,000 USD / 32,000 tokens = 62.5 USD/token"
+  },
+  "dex_pool_target_plan": {
+    "base_options": [
+      "ALEX/USDC",
+      "EFI/USDC"
+    ],
+    "base_tokens_ui": 32000,
+    "quote_usdc_ui": 2000000,
+    "base_decimals": 9,
+    "quote_decimals": 6,
+    "base_amount_raw": "32000000000000",
+    "quote_amount_raw": "2000000000000",
+    "initial_price_usd_per_token": 62.5,
+    "real_liquidity_required": true,
+    "important": "This is target valuation only. It becomes market proof only after real DEX pool reserves are verified on-chain."
+  },
+  "departments": {
+    "it_department": [
+      "Patch DEX config for target plan: 32,000 base tokens / 2,000,000 USDC.",
+      "Keep live DEX create disabled.",
+      "Generate plan/report only.",
+      "Prepare blockchain reserve proof after real pool creation.",
+      "Check owner wallet balance before any live transaction."
+    ],
+    "finance_department": [
+      "Register 62.5 USD/token as target valuation, not market price.",
+      "Require real 2,000,000 USDC liquidity or audited equivalent.",
+      "Keep REAL_MARKET_CONFIRMED=false until on-chain proof passes.",
+      "Prepare liquidity requirement and risk report."
+    ],
+    "cyber_parliament": [
+      "Vote on target valuation proposal.",
+      "Block fake/manual market proof activation.",
+      "Require DEX pool proof, reserve proof, audit hash and OWNER approval."
+    ]
+  },
+  "safety": {
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "automatic_price_manipulation": false,
+    "mainnet_deploy_allowed": false,
+    "real_mainnet_tx_executed": false,
+    "manual_OWNER_approval_required": true,
+    "price_must_be_evidence_based": true,
+    "target_price_is_not_market_price": true,
+    "real_market_confirmed": false
+  },
+  "double_sha": "53869b1209ca206ef59a31b833ed89f88e72c459f9dc9a296c93bbf775b917a2"
+}

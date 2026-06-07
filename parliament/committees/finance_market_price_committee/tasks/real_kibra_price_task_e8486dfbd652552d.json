@@ -1,0 +1,101 @@
+{
+  "status": "REAL_KIBRA_PRICE_TASK_CREATED",
+  "title": "Доробити реальну ціну KIBRA і винагороду майнерам пулів",
+  "created_at": "2026-06-05T11:41:31+0300",
+  "created_ts": 1780648891.9050026,
+  "reason": "Price USD/KIBRA зараз дорівнює 0, тому треба створити реальний механізм ціноутворення і винагороди для власника системи та майнерів, які майнять task-blocks на пулах.",
+  "current_problem": {
+    "price_usd_per_kibra": 0,
+    "real_market_confirmed": false,
+    "miner_reward_has_real_usd_value": false
+  },
+  "main_goal": {
+    "description": "KIBRA повинна отримати реальну підтверджену ціну тільки через доказ ринку, провайдера або пулу, а не вручну.",
+    "target": "price_usd_per_kibra > 0 only after market proof",
+    "must_benefit": [
+      "OWNER / platform operator",
+      "miners / pool participants",
+      "AI task-block validators",
+      "Cyber Parliament audit layer"
+    ]
+  },
+  "required_market_proofs": [
+    "real pool settlement proof",
+    "orderbook or liquidity provider proof",
+    "PSP / payment provider proof",
+    "public price feed proof",
+    "volume/liquidity evidence",
+    "Cyber Parliament vote and audit hash",
+    "manual OWNER approval before enabling any real payment"
+  ],
+  "departments": {
+    "IT_department": {
+      "queue": "cybra:it_department:queue",
+      "task": [
+        "Створити модуль price_oracle_provider.py для KIBRA.",
+        "Додати перевірку: якщо немає доказу ринку, price_usd_per_kibra лишається 0.",
+        "Додати price proof JSON, audit hash, double SHA.",
+        "Додати dashboard/report: real_market_confirmed, provider, liquidity, last_update.",
+        "Додати pool reward calculator для майнерів task-blocks.",
+        "Не запускати реальні платежі без OWNER approval."
+      ]
+    },
+    "Cyber_Parliament": {
+      "queue": "cybra:parliament:queue",
+      "task": [
+        "Створити політику реального ціноутворення KIBRA.",
+        "Затвердити правило: ціну не можна ставити вручну без доказу.",
+        "Затвердити винагороду майнерам пулів після підтвердження ціни.",
+        "Підготувати голосування за reward split.",
+        "Підготувати anti-fake-market-price rule."
+      ]
+    },
+    "AI_department": {
+      "queue": "cybra:ai:tasks:block_inbox",
+      "task": [
+        "Проаналізувати варіанти реального proof-of-market для KIBRA.",
+        "Згенерувати пропозицію price model.",
+        "Перевірити, як task-blocks можуть давати utility value.",
+        "Підготувати рекомендації для IT і Cyber Parliament.",
+        "Сформувати task-block для пулів."
+      ]
+    },
+    "Pool_miners": {
+      "queue": "cybra:kibra:pool:price_policy_tasks",
+      "task": [
+        "Отримувати винагороду тільки після підтвердження реальної ціни.",
+        "Мати прозорий reward ledger.",
+        "Бачити reward per task-block.",
+        "Не отримувати фейкові USD-виплати без PSP/market proof."
+      ]
+    }
+  },
+  "proposed_reward_policy": {
+    "status": "proposal_not_final",
+    "default_internal_kibra_reward_per_task_block": 100,
+    "proposed_split_after_market_confirmation": {
+      "owner_platform_share_percent": 50,
+      "miners_pool_share_percent": 50
+    },
+    "note": "Split is a proposal for Cyber Parliament approval. No real payout until market and PSP are confirmed."
+  },
+  "acceptance_criteria": [
+    "PRICE_USD_PER_KIBRA більше 0 тільки якщо є real_market_confirmed=True.",
+    "Є файл feeds/kibra_real_price_feed.json.",
+    "Є proof у proofs/kibra_real_price.sha256.",
+    "Є policy post у posts/kibra_real_price_policy.md.",
+    "Є miner reward calculator.",
+    "Є Cyber Parliament vote/proposal.",
+    "Є audit: хто, коли, за яким доказом оновив ціну.",
+    "Якщо proof відсутній — система безпечно повертає price=0."
+  ],
+  "strict_safety": {
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "automatic_price_manipulation": false,
+    "manual_OWNER_approval_required": true,
+    "price_must_be_evidence_based": true
+  },
+  "double_sha": "e8486dfbd652552d66f6e498cd94354087dbe73a18db21757053dab84045a4c1"
+}
