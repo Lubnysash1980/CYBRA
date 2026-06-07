@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+cd "$HOME/CYBRA" || exit 1
+
+case "$1" in
+  status)
+    cat posts/kibra_mainnet_final_readiness.md
+    ;;
+  json)
+    cat data/cybra_mainnet/audit/final_readiness_latest.json
+    ;;
+  wallet)
+    cat data/cybra_mainnet/miners/miner_wallet_registry.json
+    ;;
+  claims)
+    cat data/cybra_mainnet/claims/mainnet_candidate_claim_registry.json
+    ;;
+  state)
+    cat blockchain/kibra_chain/mainnet/state/latest_state.json
+    ;;
+  anti-sybil)
+    cat data/cybra_mainnet/audit/anti_sybil_latest.json
+    ;;
+  dashboard)
+    echo "Open local file:"
+    echo "  dashboard/kibra_mainnet/final.html"
+    ;;
+  serve)
+    python3 -m http.server 8791 --bind 127.0.0.1 --directory dashboard/kibra_mainnet
+    ;;
+  proof)
+    sha256sum -c proofs/kibra_mainnet_final_readiness.sha256
+    ;;
+  *)
+    echo "Commands:"
+    echo "  cybra-kibra-final status"
+    echo "  cybra-kibra-final json"
+    echo "  cybra-kibra-final wallet"
+    echo "  cybra-kibra-final claims"
+    echo "  cybra-kibra-final state"
+    echo "  cybra-kibra-final anti-sybil"
+    echo "  cybra-kibra-final dashboard"
+    echo "  cybra-kibra-final serve"
+    echo "  cybra-kibra-final proof"
+    ;;
+esac

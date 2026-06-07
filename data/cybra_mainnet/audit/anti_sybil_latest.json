@@ -1,0 +1,9 @@
+{
+  "timestamp": "2026-06-07T12:45:37",
+  "status": "ANTI_SYBIL_PASS",
+  "wallet": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
+  "duplicates": [],
+  "claims_count": 1,
+  "unique_wallets_count": 1,
+  "manual_review_required_before_external_live": true
+}

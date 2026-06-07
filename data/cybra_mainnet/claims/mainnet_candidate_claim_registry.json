@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-06-07T12:34:49",
-  "status": "PRE_MAINNET_CLAIMS_REGISTERED_WITH_WALLET_BINDING",
+  "timestamp": "2026-06-07T12:45:37",
+  "status": "PRE_MAINNET_CLAIMS_WALLET_BOUND_VALIDATED",
   "mainnet_rewards_now": 0,
   "claims": [
     {
@@ -20,23 +20,24 @@
     "requires_anti_sybil_review": true
   },
   "wallet_binding": {
-    "bind_id": "KIBRA-MINER-WALLET-BIND-20260607_123448",
-    "timestamp": "2026-06-07T12:34:49",
-    "status": "MINER_WALLET_BOUND",
+    "final_id": "KIBRA-MAINNET-READINESS-20260607_124537",
+    "timestamp": "2026-06-07T12:45:37",
+    "status": "MINER_WALLET_BOUND_AND_VALIDATED",
+    "wallet": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
+    "previous_miner_id": "unknown_miner",
     "network": "KIBRA_INTERNAL_MAINNET_TEST",
     "chain_id": "kibra-mainnet-internal-c16752607334018d",
-    "previous_miner_id": "unknown_miner",
-    "wallet": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
     "pre_mainnet_claim_blocks": 60,
     "internal_candidate_credit": 60,
     "real_reward_now": 0,
     "binding_scope": "INTERNAL_MAINNET_TEST_AND_MAINNET_CANDIDATE_CLAIM",
     "safety": {
+      "wallet_binding_is_not_payout": true,
       "real_payment_now": false,
       "automatic_external_tx": false,
       "automatic_withdrawals": false,
       "automatic_real_rewards": false,
-      "wallet_binding_is_not_payout": true,
+      "external_live": false,
       "manual_OWNER_approval_required_for_external_live": true,
       "cyber_parliament_approval_required_for_external_live": true
     }
