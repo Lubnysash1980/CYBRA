@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-06-07T13:02:28",
+  "status": "KIBRA_REAL_NODE_VALIDATE_PASS",
+  "score_percent": 100.0,
+  "latest_height": 5,
+  "latest_block_hash": "80597fce5c43d11fed2cce30bf8050ca95ce789699258436d65bca83d3ea87f3",
+  "blocks_count": 6,
+  "checks": {
+    "genesis_exists": true,
+    "genesis_hash_ok": true,
+    "blocks_exist": true,
+    "chain_links_ok": true,
+    "block_hashes_ok": true,
+    "state_latest_hash_ok": true,
+    "no_external_tx": true,
+    "no_real_rewards": true,
+    "withdrawals_disabled": true,
+    "swift_disabled": true
+  },
+  "external_live": false,
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "bank_live_mode": false,
+    "psp_live_mode": false,
+    "mainnet_scope": "INTERNAL_NODE_ONLY",
+    "manual_OWNER_approval_required_for_external_live": true,
+    "cyber_parliament_approval_required_for_external_live": true
+  }
+}

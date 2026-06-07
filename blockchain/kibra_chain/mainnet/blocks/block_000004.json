@@ -1,0 +1,45 @@
+{
+  "network": "KIBRA_INTERNAL_MAINNET_TEST",
+  "chain_id": "kibra-mainnet-internal-c16752607334018d",
+  "timestamp": "2026-06-07T12:54:00",
+  "height": 4,
+  "previous_hash": "13e2d4b679fec22e18c9d60f063a9a804d0dd657697dc46a3ec9b9f3bc8dd596",
+  "status": "INTERNAL_MAINNET_BLOCK_MINED",
+  "miner": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
+  "transactions": [
+    {
+      "tx_id": "KIBRA-TX-0ab64315c30e4c7b",
+      "timestamp": "2026-06-07T12:54:00",
+      "type": "INTERNAL_CREDIT_TX",
+      "from": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
+      "to": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
+      "amount": 0,
+      "external": false,
+      "real_value": false,
+      "note": "internal real node heartbeat test",
+      "hash": "d3f45fb3a3be46e74abdf8dcde476abbb8f56a7ab7580b05c2071ba186932be6"
+    }
+  ],
+  "rejected_transactions": [],
+  "external_tx": false,
+  "reward": {
+    "internal_reward": 0,
+    "real_reward": 0,
+    "claim_only": true
+  },
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "bank_live_mode": false,
+    "psp_live_mode": false,
+    "mainnet_scope": "INTERNAL_NODE_ONLY",
+    "manual_OWNER_approval_required_for_external_live": true,
+    "cyber_parliament_approval_required_for_external_live": true
+  },
+  "hash": "920709015cba565fc46c16ac7a593c4c620516bbdb39e49a6f95f5c3c9d7f783"
+}
