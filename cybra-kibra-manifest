@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+cd "$HOME/CYBRA" || exit 1
+
+case "$1" in
+  status)
+    cat posts/kibra_wallet_binding_manifest.md
+    ;;
+  json)
+    cat data/cybra_mainnet/manifests/kibra_wallet_binding_manifest_latest.json
+    ;;
+  dashboard)
+    echo "Open:"
+    echo "  dashboard/kibra_mainnet/index.html"
+    ;;
+  serve)
+    python3 -m http.server 8790 --bind 127.0.0.1 --directory dashboard/kibra_mainnet
+    ;;
+  proof)
+    sha256sum -c proofs/kibra_wallet_binding_manifest.sha256
+    ;;
+  *)
+    echo "Commands:"
+    echo "  cybra-kibra-manifest status"
+    echo "  cybra-kibra-manifest json"
+    echo "  cybra-kibra-manifest dashboard"
+    echo "  cybra-kibra-manifest serve"
+    echo "  cybra-kibra-manifest proof"
+    ;;
+esac
