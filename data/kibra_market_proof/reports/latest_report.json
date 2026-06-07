@@ -1,0 +1,93 @@
+{
+  "status": "KIBRA_MARKET_PROOF_REPORT",
+  "timestamp": "2026-06-08T01:03:40+0300",
+  "token": "KIBRA",
+  "valid_sources": 1,
+  "total_sources": 2,
+  "min_sources_required": 1,
+  "price_usd_per_kibra": 0.01,
+  "real_market_confirmed": true,
+  "liquidity_usd_total": 500.0,
+  "volume_24h_usd_total": 100.0,
+  "requirements": {
+    "min_liquidity_usd": 100.0,
+    "min_24h_volume_usd": 25.0,
+    "real_orderbook_or_pool_required": true,
+    "manual_price_blocked": true,
+    "fake_market_blocked": true,
+    "owner_approval_required": true
+  },
+  "evidence": [
+    {
+      "provider_name": "REAL_PROVIDER_NAME",
+      "proof_type": "manual_import_real_market_source",
+      "pair": "KIBRA/USDT",
+      "price_usd_per_kibra": 0.01,
+      "liquidity_usd": 500.0,
+      "volume_24h_usd": 100.0,
+      "source_url": "https://REAL_SOURCE_URL",
+      "timestamp": "2026-06-08T01:03:34+0300",
+      "real_orderbook_or_pool": true,
+      "fake_or_manual_price": false,
+      "owner_approval_required": true,
+      "notes": "Manual import. Must be backed by real external source_url and later audited.",
+      "_file": "data/kibra_market_proof/evidence/1780869814_REAL_PROVIDER_NAME_KIBRA_USDT.json",
+      "_valid": true,
+      "_problems": [],
+      "_double_sha": "d6e949eb7e52cb12412a427f5ad9dfcabcd7a4153c9c73d938ab65d71fb47f68"
+    },
+    {
+      "provider_name": "PUT_REAL_PROVIDER_NAME_HERE",
+      "proof_type": "exchange_orderbook_or_dex_pool_or_psp_quote",
+      "pair": "KIBRA/USDT",
+      "price_usd_per_kibra": 0,
+      "liquidity_usd": 0,
+      "volume_24h_usd": 0,
+      "source_url": "PUT_REAL_SOURCE_URL_HERE",
+      "timestamp": "2026-06-08T01:03:25+0300",
+      "real_orderbook_or_pool": false,
+      "fake_or_manual_price": false,
+      "owner_approval_required": true,
+      "notes": "Заповни тільки реальними даними з біржі, DEX-пулу, PSP або провайдера ліквідності.",
+      "_file": "data/kibra_market_proof/evidence/market_source_template.json",
+      "_valid": false,
+      "_problems": [
+        "price_not_positive",
+        "liquidity_too_low",
+        "volume_too_low",
+        "real_orderbook_or_pool_not_confirmed"
+      ],
+      "_double_sha": "8fc5544b8957e1e506b7cd21ae21921964f44eee357bfd63b744ad5a30b004d4"
+    }
+  ],
+  "valid_evidence": [
+    {
+      "provider_name": "REAL_PROVIDER_NAME",
+      "proof_type": "manual_import_real_market_source",
+      "pair": "KIBRA/USDT",
+      "price_usd_per_kibra": 0.01,
+      "liquidity_usd": 500.0,
+      "volume_24h_usd": 100.0,
+      "source_url": "https://REAL_SOURCE_URL",
+      "timestamp": "2026-06-08T01:03:34+0300",
+      "real_orderbook_or_pool": true,
+      "fake_or_manual_price": false,
+      "owner_approval_required": true,
+      "notes": "Manual import. Must be backed by real external source_url and later audited.",
+      "_file": "data/kibra_market_proof/evidence/1780869814_REAL_PROVIDER_NAME_KIBRA_USDT.json",
+      "_valid": true,
+      "_problems": [],
+      "_double_sha": "d6e949eb7e52cb12412a427f5ad9dfcabcd7a4153c9c73d938ab65d71fb47f68"
+    }
+  ],
+  "safety": {
+    "real_payment_now": false,
+    "automatic_SWIFT": false,
+    "automatic_external_tx": false,
+    "automatic_price_manipulation": false,
+    "mainnet_deploy_allowed": false,
+    "manual_OWNER_approval_required": true,
+    "price_must_be_evidence_based": true
+  },
+  "double_sha": "588a820bfc8ea9f58a691ca576894bc97afacc90c7dcf9bb82ccaf67761e72e0"
+}

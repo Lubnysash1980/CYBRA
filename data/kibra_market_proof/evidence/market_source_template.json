@@ -1,0 +1,14 @@
+{
+  "provider_name": "PUT_REAL_PROVIDER_NAME_HERE",
+  "proof_type": "exchange_orderbook_or_dex_pool_or_psp_quote",
+  "pair": "KIBRA/USDT",
+  "price_usd_per_kibra": 0,
+  "liquidity_usd": 0,
+  "volume_24h_usd": 0,
+  "source_url": "PUT_REAL_SOURCE_URL_HERE",
+  "timestamp": "2026-06-08T01:03:25+0300",
+  "real_orderbook_or_pool": false,
+  "fake_or_manual_price": false,
+  "owner_approval_required": true,
+  "notes": "Заповни тільки реальними даними з біржі, DEX-пулу, PSP або провайдера ліквідності."
+}
