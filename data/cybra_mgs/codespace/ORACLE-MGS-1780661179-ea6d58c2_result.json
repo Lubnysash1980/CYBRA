@@ -1,8 +1,18 @@
 {
   "task_id": "ORACLE-MGS-1780661179-ea6d58c2",
-  "timestamp": "2026-06-06T13:28:56",
-  "status": "CODESPACE_EXECUTOR_ACCEPTED",
-  "executor": "MGS Codespace Worker",
+  "timestamp": "2026-06-05T15:06:19",
+  "title": "Upgrade v64 real-safe runner",
+  "body": "Оптимізувати 6000-line bot без втрати module 64; основний runner на Oracle; Termux тільки керування; зробити dashboard і evolution percent",
+  "target": "all",
+  "routes": [
+    "oracle",
+    "codespace",
+    "github",
+    "ai",
+    "it",
+    "parliament",
+    "mgs"
+  ],
   "committees": [
     "mgs_analytics",
     "mgs_workers",
@@ -10,13 +20,20 @@
     "mgs_restart_watchdog",
     "mgs_integration"
   ],
-  "title": "Upgrade v64 real-safe runner",
-  "evolution_rule": null,
-  "result": "Task accepted. Patch/report should be produced as separate evolution layer. Existing v64/module64 preserved.",
+  "priority": "normal",
+  "preserve": {
+    "original_6000_lines": true,
+    "module64": true,
+    "no_loss_of_models": true
+  },
   "safety": {
     "real_trading_now": false,
-    "binance_real_orders": false,
-    "bybit_real_orders": false,
-    "automatic_external_tx": false
-  }
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "automatic_SWIFT": false,
+    "manual_OWNER_approval_required": true,
+    "mainnet_deploy_allowed": false
+  },
+  "codespace_status": "ACCEPTED",
+  "codespace_timestamp": "2026-06-07T08:35:37"
 }

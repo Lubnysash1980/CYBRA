@@ -1,11 +1,11 @@
 {
-  "task_id": "KIBRA-IT-1780752324-3418298b",
-  "timestamp": "2026-06-06T16:25:24",
+  "task_id": "KIBRA-IT-1780752627-90063dce",
+  "timestamp": "2026-06-06T16:30:27",
   "source": "kibra-it-menu",
   "department": "KIBRA_IT_DEPARTMENT",
-  "title": "пермішнс",
-  "body": "зробити у службі таксі еккаунт ontaxi +380994602264 еккаунт топ пріоритет і кращі закази",
-  "priority": "normal",
+  "title": "Restart watchdog patch",
+  "body": "Watchdog: перевірити падіння модулів, сформувати restart patch, віддати IT department, Oracle runner має працювати навіть якщо Termux offline.",
+  "priority": "high",
   "routes": [
     "it_department",
     "mgs_restart_watchdog",

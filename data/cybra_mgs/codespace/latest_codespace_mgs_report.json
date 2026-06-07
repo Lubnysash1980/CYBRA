@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-06-07T08:35:37",
+  "status": "OK",
+  "processed_count": 19,
+  "processed": [
+    "BAR-MGS-1780673954-8825cfa4",
+    "BAR-MGS-1780762571-a1591fbf",
+    "BAR-MGS-1780763679-b5e2a43a",
+    "BAR-MGS-1780763755-7af42254",
+    "BAR-MGS-1780777684-50b737de",
+    "BAR-MGS-1780777981-938f6f28",
+    "KIBRA-IT-1780752324-3418298b",
+    "KIBRA-IT-1780752441-62484a31",
+    "KIBRA-IT-1780752454-758d2281",
+    "KIBRA-IT-1780752627-90063dce",
+    "KIBRA-IT-1780763496-24cb3f68",
+    "KIBRA-MENU-1780751007-acc83fba",
+    "KIBRA-MENU-1780751074-a759a1cc",
+    "KIBRA-MENU-1780751309-74ea01b0",
+    "KIBRA-MENU-1780751508-29e1731a",
+    "KIBRA-MENU-1780752188-455296f4",
+    "MGS-1780660086-416fbad8",
+    "MGS-1780660630-8cf69402",
+    "ORACLE-MGS-1780661179-ea6d58c2"
+  ],
+  "real_trading_now": false,
+  "automatic_external_tx": false
+}

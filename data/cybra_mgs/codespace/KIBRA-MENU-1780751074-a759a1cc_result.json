@@ -1,16 +1,23 @@
 {
   "task_id": "KIBRA-MENU-1780751074-a759a1cc",
-  "timestamp": "2026-06-06T13:28:56",
-  "status": "CODESPACE_EXECUTOR_ACCEPTED",
-  "executor": "MGS Codespace Worker",
-  "committees": [],
+  "timestamp": "2026-06-06T16:04:34",
+  "source": "kibra-menu",
   "title": "ракетна небезпека",
-  "evolution_rule": null,
-  "result": "Task accepted. Patch/report should be produced as separate evolution layer. Existing v64/module64 preserved.",
+  "body": "над україною ракетна небезпека",
+  "routes": [
+    "ai",
+    "it",
+    "parliament",
+    "oracle",
+    "codespace",
+    "mgs"
+  ],
   "safety": {
     "real_trading_now": false,
-    "binance_real_orders": false,
-    "bybit_real_orders": false,
-    "automatic_external_tx": false
-  }
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  },
+  "codespace_status": "ACCEPTED",
+  "codespace_timestamp": "2026-06-07T08:35:37"
 }

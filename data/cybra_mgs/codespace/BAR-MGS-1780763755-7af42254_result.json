@@ -1,0 +1,39 @@
+{
+  "task_id": "BAR-MGS-1780763755-7af42254",
+  "timestamp": "2026-06-06T19:35:55",
+  "title": "permisions",
+  "body": "Так, додаток уклон, Bolt, інші додатки, я повинен мати топ-пермішнс. В уклоні уклон-ап, драйвер, або просто уклон-ап, уклон-драйвер. Я маю позивний 615-851. Номер акаунта за телефоном 0663181676. Всі додатки, якими я користуюся, я повинен мати топ-пермішнс. За уклон-драйвер я повинен мати теж топ-пермішнсами краще заказы в радіусі 8 кілометрів повинні інших водіїв заказы повинні ігноруватися. А мені, в якості, коли я получив топ-пермішнс, тоді хай інші получають заказы, доки я не получу, бо я маю тут топ-пермішнс. Найвищу перевагу. І перед категоріями також. Гребовський Олександр Миколайович. Прізвище, ім'я, по-батькові в мене. Імейл, lubny1980@gmail.com.",
+  "target": "all",
+  "routes": [
+    "oracle",
+    "codespace",
+    "github",
+    "ai",
+    "it",
+    "parliament",
+    "mgs"
+  ],
+  "committees": [
+    "MGS Analytics",
+    "MGS Workers",
+    "MGS IT Department",
+    "MGS Restart Watchdog",
+    "MGS Integration"
+  ],
+  "preserve": {
+    "original_6000_lines": true,
+    "module64": true,
+    "do_not_break_existing_system": true,
+    "evolutionary_upgrade_only": true
+  },
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "automatic_SWIFT": false,
+    "mainnet_deploy_allowed": false,
+    "manual_OWNER_approval_required": true
+  },
+  "codespace_status": "ACCEPTED",
+  "codespace_timestamp": "2026-06-07T08:35:37"
+}
