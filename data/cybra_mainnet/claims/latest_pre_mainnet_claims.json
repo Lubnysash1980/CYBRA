@@ -1,0 +1,22 @@
+{
+  "claim_id": "PRE-MAINNET-CLAIM-20260607_115134",
+  "timestamp": "2026-06-07T11:51:34",
+  "status": "CLAIM_DRAFT_LOCKED",
+  "description": "Майнери отримали тестові блоки. Вони переводяться в pre-mainnet claim snapshot, а не в реальні mainnet rewards автоматично.",
+  "miners": [
+    {
+      "miner": "unknown_miner",
+      "test_blocks": 60,
+      "claim_status": "PENDING_REVIEW",
+      "mainnet_reward_now": 0
+    }
+  ],
+  "safety": {
+    "real_payment_now": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "mainnet_live_now": false,
+    "manual_OWNER_approval_required": true,
+    "cyber_parliament_approval_required": true
+  }
+}

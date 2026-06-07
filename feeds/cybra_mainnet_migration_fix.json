@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-06-07T11:51:34",
+  "status": "MAINNET_MIGRATION_FIX_PREPARED",
+  "task_id": "MAINNET-MIGRATION-FIX-20260607_115134",
+  "test_blocks_count": 60,
+  "miners_count": 1,
+  "mainnet_live_now": false,
+  "snapshot_file": "data/cybra_mainnet/snapshots/latest_test_blocks_snapshot.json",
+  "claim_file": "data/cybra_mainnet/claims/latest_pre_mainnet_claims.json",
+  "genesis_candidate_file": "data/cybra_mainnet/genesis/latest_mainnet_genesis_candidate.json",
+  "decision": "Test blocks are preserved as pre-mainnet claims. Mainnet conversion requires approval.",
+  "safety": {
+    "automatic_mainnet_launch": false,
+    "automatic_real_rewards": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  }
+}

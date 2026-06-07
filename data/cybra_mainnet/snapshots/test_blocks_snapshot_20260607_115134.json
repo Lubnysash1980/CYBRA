@@ -1,0 +1,741 @@
+{
+  "snapshot_id": "TEST-BLOCK-SNAPSHOT-20260607_115134",
+  "timestamp": "2026-06-07T11:51:34",
+  "status": "TEST_BLOCKS_SNAPSHOTTED_FOR_MAINNET_REVIEW",
+  "blocks_count": 60,
+  "miners_count": 1,
+  "blocks": [
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_000a3c476c545a11.json",
+      "sha256": "5f82585957382c0698c0ffccc83c9cee54251e1ac656ff5413c12eeb4bfcf389",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780488439,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00181811aa66cd1e.json",
+      "sha256": "71efc7a97dd926950f62575924376eca541f2106704042911c8d2dacd6e9d156",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780484718,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_002066fa3938cb49.json",
+      "sha256": "84bf9579cf0b36c6e2534d5f90833cac116a48e61219c2d8b82b9c9b4540e7d6",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780488876,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_002bc8e560ece92b.json",
+      "sha256": "052c305736fa0f52aecd080dc4cfb52faefcb7ca009c7f0f9164f441c5fb9b38",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780439736,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_0033f9cabae9a8fd.json",
+      "sha256": "77a633e6c1a39fe01e7b4759936c9320acc3a89f17de4d458c21ffdb4fe41d2d",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780468042,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_0036db2bf81cdda2.json",
+      "sha256": "4237968549745445cbd5cc1a9b18ce6ec30ff114e0fde2c3db17589744233b64",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780488440,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00380a71f651d670.json",
+      "sha256": "b47ce6d6ee94aa71746c1c21c5772c55b46180b9e0686d644201b303d6400526",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780488907,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_0038228402c523f7.json",
+      "sha256": "97a0785e066d5f61524c9286c49fc89a499fdf8513be8a42f9c3a0320d0f1950",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780488043,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00390e7baa3640a6.json",
+      "sha256": "69e8a9c1f63f3a846ac5ef0491baf0c5e34b13b30acb6d2460447a87693f1b2b",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780484719,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_0039b1ff8c91f103.json",
+      "sha256": "73ab6c7caeb102afe22da35d4bedc32bda7319fc33652d55f570ad287fc775c4",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780483327,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_0045e6c1104bca99.json",
+      "sha256": "9f82baf9a34ad569fdfc785275a77f1a71d56d0896278fa7aa30874947be0ef4",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780490119,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_004b3bb7619a5056.json",
+      "sha256": "17fad47d917f8dadd1bd6614cda6f41e4df567b885b174a62d45d0e5d8b2c09f",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780484871,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_005215c7d0344c43.json",
+      "sha256": "0c60a623e41b90e57c3e42fb964f0bff6cacd15cbca37dd5cafb14d039a43afa",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780438907,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00532f283d956c31.json",
+      "sha256": "0d1845b50835c3a5f12149f0aa98720e7ef1e5c2dd5b4555cdb285ebdb0e88c4",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780483325,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_0057eb6583a75fe8.json",
+      "sha256": "a186212995dfaadd2896bd04bd3f1f36f5f70a9b54b4637caa0d08021e2bc5b0",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780437523,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_005b5fae0c4bc279.json",
+      "sha256": "52f3c1c786b7bf066b90e7e44c88390d7088cb0164cac780c6b226241eec0205",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780438464,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_005bf039c486da2c.json",
+      "sha256": "1b1bc6677d51a80dd2e5b8691e1d8e726e30837cb8dd749d79dea431ab1e50e9",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780439974,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00680d1ff7040f7b.json",
+      "sha256": "45f96f170166f5d61f63c02e80d6d747f8c36bb0dd4346dcfeaeccfe40297cbe",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780490452,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_0068f4ed5e08103d.json",
+      "sha256": "0dc6a5bd4f9c5266794584cbeae77db3edf2bbe6759b8101da53f2c7b473b810",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780438880,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_006ae640caed114c.json",
+      "sha256": "32d6d77ac52b73b47a56d50bca1876b3728fedf5568cf06c85bd45031df09273",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780438016,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_006b43854bd6ccf4.json",
+      "sha256": "aa2ff94d61d5dc02b43c222106ab3683eaaa76ffea1f55e5a7c9b4fe0951b5ae",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780468035,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00713be4b4de6840.json",
+      "sha256": "19d2eed901eac11de94bf5d5de169a097026d82915af74d96f8e0ab3a7e06faa",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780468027,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_0072e7daa6c365e4.json",
+      "sha256": "c2655fffdebbcb20bdd2924237045470e15193d0c6948a3f66f10e1e067fafb0",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780468022,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00777854b1acdf1a.json",
+      "sha256": "5730349949e7ffd10c79eb83461781c56d51fe51471a818768882b7633e61efe",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780489271,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_0084d5051b9aa0e2.json",
+      "sha256": "95d01a6f19352cceefad0c18a7931a1b16939d2593e4245d4d5f3e5cd682f9cc",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780489274,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00863de629a4aee8.json",
+      "sha256": "b14e45acd97bb3559f3bfd2eef28e948b91fb501a4a82c50e4e6df6ecda9b619",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780483451,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_0087e5b0a6886f0f.json",
+      "sha256": "5dfa2d186294f0f0f355067163cb993b0dec8bd8f3104d76c60129af1bf1cca6",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780488394,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_008e8a55a2954834.json",
+      "sha256": "b945dec610c98144405ae50584e22682c5b7fb49d30c53d90b2c7c5e39326d6a",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780488878,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00974054fe8d5094.json",
+      "sha256": "9c62fae68d900b0e3a78b5a08f58ea57268f89d7726cbff022801deeec2e9a13",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780437484,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_009fc0eeb9a9b92d.json",
+      "sha256": "e4d7690de5d3aa7dad6fb80d770f1970f5484249677e0b90b9475c29000b9239",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780439978,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00a9f5b7f22b77b8.json",
+      "sha256": "9e7fe2273f0496e30a811329e5d9d245a0de43ec7efcd448588d99267a34898c",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780488397,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00aacd054122e2d6.json",
+      "sha256": "adfbec4d6100a7f87ec67fadf66e0077b0e5d299a8512e9a1cd900e8d041748c",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780438504,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00ad440c9e7a5761.json",
+      "sha256": "c1066019e4969c8330d95a974bc066e5e8849eacd5f16b60884a96d9ecd692e4",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780483484,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00ae24c6f1f39c6c.json",
+      "sha256": "791a6b7ae76818dd0563858626c72fc2204ee864a9bf9ee41fc1fdd2d4443655",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780490121,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00afc6b32eac186f.json",
+      "sha256": "5fae7ecfffa594ed059cee77f8f37957e983f7c8ae83497107968e04868c5d5b",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780483263,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00b8aee7927c261e.json",
+      "sha256": "7e9b6d145e177a42d675ec555c990f4b6f9e267ac1b8ac64d53594e243be18bc",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780483448,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00b9118d83dbc4fb.json",
+      "sha256": "28a4ab37a034d0b2bf454fbbe40c6d89c25fcc9f9cfab4e0f6c961eaf3d74125",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780437995,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00bca8571216a2aa.json",
+      "sha256": "1c424ad50033b0133eb75e831459368505e417df2bf26f5e6b26778cbf1bc76a",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780490480,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00bd226777e7c3a6.json",
+      "sha256": "d3263c90c10da4c35b19f499149a42b97655d60202fee20d920f5fd5e13c6823",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780484873,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00bf2a2c9c247085.json",
+      "sha256": "9b070f1ff39a522339b62be6473aaf03c6bcad900b45a98e24748d00f0707705",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780439505,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00c897f16fc547f7.json",
+      "sha256": "3e05bc5f7263e34a5cd4e6272b023620e4d31716b47fca22e4aa8c772c3bd585",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780488854,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00cac086eee4fcbf.json",
+      "sha256": "6991f28e611a670ed329609234d1e2de192c406dec8062a94857d9b568ba0560",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780490213,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00cbef37031079d7.json",
+      "sha256": "52f397638c83cdc1d4f55cb735d0d71055248cbd1a6ace363e73157fe842f817",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780438887,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00d059c9787c21fa.json",
+      "sha256": "2eec211f26049015e53d3992d6ef1c60f4ccc477edf195e81427b8fb204f2af2",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780468025,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00d298130ae9907d.json",
+      "sha256": "ab6fd5dcaa79929a997ef53cd337207136c4a434a3c427d12738937e39bb5fe7",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780490481,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00df69c57ed45070.json",
+      "sha256": "784821090da0f70ac2ba9e63b161ed34df9b896ad8ac0f3c9150dc53d4c8897a",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780488908,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00e4f337cfa4bd9b.json",
+      "sha256": "214c91b8beff4a7f81f760d6f593aba1bd08e0090ebc79272b4b13743f0cf5f7",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780490450,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00e8f82b6fe28747.json",
+      "sha256": "96969f82aff886ba8c1fc96ddc2fc4b7e96d8a1792296bf1883f18291f4a666a",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780488855,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00ead2c9bc25eaaa.json",
+      "sha256": "30343257208dc6a5b8b989fd2af0762c9a31a0721bcdfa5d04a22f2f72689258",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780488048,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/task_blocks/task_block_00ef8fbccbd38b5a.json",
+      "sha256": "f491ba77577471fb28666fafa51af7f170f88908fae58babe67b608d9683c1e0",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1780490212,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/blocks/block_000000000_0009ef400c073dd2.json",
+      "sha256": "d7e62c0e2d2ba4e1a1843ea5967dcc7169af548bd916a7646807cfe35cb05f7c",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 0,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/blocks/block_000000001_0007773a785ed403.json",
+      "sha256": "1339f6abc47233a2d50b9fc8af1a8b55c61f14d6a7156fe918285993c0a788a7",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 1,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/blocks/block_000000002_000054cc3d0b18f2.json",
+      "sha256": "536e6e306be4dc7e216d3d6af8ba6955923186522d36e047fa7a6fb283c4bf3d",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 2,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/blocks/block_000000003_000080003f082db8.json",
+      "sha256": "b6dfd1d4fc0fce99fe1698c5c4476235b4a2ca597ad4742883ff1379ee0e6834",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 3,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/blocks/block_000000004_0000f65c9116a62d.json",
+      "sha256": "a737fa7e2961932bba5a3dbfdc818de587cde8e5a4bf3d055c44d633cf20741a",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 4,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/blocks/block_000000005_003a676ebdf5bf79.json",
+      "sha256": "a5754c685c42fa74c50789b6385316baaf41ee4118f8f4ce016db2df93a6a613",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 5,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/blocks/block_000000006_008d79a470194224.json",
+      "sha256": "ea82f07e51350d5052a47d156c41dfce5ccd77b762a6fe3bb48f69b5c752c050",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 6,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/blocks/block_000000007_008a14703eb45247.json",
+      "sha256": "4bc414d8767a769bfa3979568b60e19dffedf38be0142033a9c5ed60175e23d8",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 7,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/blocks/block_000000008_00f957b0f5cda9f6.json",
+      "sha256": "1bb3d952053fbacc82c0e7f922c30bd4f8b7ff80f5648c802d70f4d55802b838",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 8,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    },
+    {
+      "file": "blockchain/kibra_chain/blocks/block_000000009_00510d744e45cfee.json",
+      "sha256": "97df454ac73d445a3ee4e694eb25919c1655f4709d4a6214253acb7ba0f1bdea",
+      "detected_status": "TEST_BLOCK_OR_TASK_BLOCK",
+      "mainnet_status": "NOT_MAINNET_YET",
+      "data_hint": {
+        "height": 9,
+        "miner": null,
+        "reward": null,
+        "task_id": null
+      }
+    }
+  ],
+  "miners_block_counts": {
+    "unknown_miner": 60
+  },
+  "policy": {
+    "test_blocks_are_not_deleted": true,
+    "test_blocks_are_not_real_mainnet_blocks_yet": true,
+    "test_blocks_can_become_pre_mainnet_claims_after_approval": true,
+    "mainnet_conversion_requires_owner_approval": true,
+    "mainnet_conversion_requires_cyber_parliament_approval": true,
+    "anti_sybil_review_required": true,
+    "no_automatic_real_payout": true
+  }
+}

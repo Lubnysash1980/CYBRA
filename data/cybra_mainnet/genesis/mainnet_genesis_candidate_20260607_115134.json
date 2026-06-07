@@ -1,0 +1,18 @@
+{
+  "network": "KIBRA_MAINNET_CANDIDATE",
+  "timestamp": "2026-06-07T11:51:34",
+  "status": "GENESIS_CANDIDATE_LOCKED",
+  "source_snapshot": "TEST-BLOCK-SNAPSHOT-20260607_115134",
+  "test_blocks_included_as_history": true,
+  "test_blocks_count": 60,
+  "miners_count": 1,
+  "mainnet_height_start": 0,
+  "mainnet_live_now": false,
+  "conversion_rule": "test blocks stay as audit history and pre-mainnet claims until OWNER + Cyber Parliament approval",
+  "safety": {
+    "automatic_mainnet_launch": false,
+    "automatic_real_rewards": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  }
+}

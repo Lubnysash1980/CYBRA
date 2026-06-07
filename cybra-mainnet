@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+cd "$HOME/CYBRA" || exit 1
+case "$1" in
+  status)
+    cat posts/cybra_mainnet_migration_fix.md 2>/dev/null || true
+    ;;
+  snapshot)
+    cat data/cybra_mainnet/snapshots/latest_test_blocks_snapshot.json 2>/dev/null || true
+    ;;
+  claims)
+    cat data/cybra_mainnet/claims/latest_pre_mainnet_claims.json 2>/dev/null || true
+    ;;
+  genesis)
+    cat data/cybra_mainnet/genesis/latest_mainnet_genesis_candidate.json 2>/dev/null || true
+    ;;
+  proof)
+    sha256sum -c proofs/cybra_mainnet_migration_fix.sha256
+    ;;
+  *)
+    echo "Commands:"
+    echo "  cybra-mainnet status"
+    echo "  cybra-mainnet snapshot"
+    echo "  cybra-mainnet claims"
+    echo "  cybra-mainnet genesis"
+    echo "  cybra-mainnet proof"
+    ;;
+esac
