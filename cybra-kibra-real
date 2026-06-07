@@ -26,30 +26,7 @@ case "$1" in
     python3 scripts/kibra/cybra_kibra_real_node.py proof
     ;;
   api)
-    PORT="${2:-8792}"
-    echo "Starting KIBRA API on http://127.0.0.1:${PORT}/"
-    python3 scripts/kibra/cybra_kibra_real_node.py api --host 127.0.0.1 --port "$PORT"
-    ;;
-  api-auto)
-    PORT="$(python3 - <<'PY'
-import socket
-for port in range(8792, 8810):
-    s = socket.socket()
-    try:
-        s.bind(("127.0.0.1", port))
-        s.close()
-        print(port)
-        break
-    except OSError:
-        s.close()
-PY
-)"
-    if [ -z "$PORT" ]; then
-      echo "No free port found in 8792..8809"
-      exit 1
-    fi
-    echo "Starting KIBRA API on http://127.0.0.1:${PORT}/"
-    python3 scripts/kibra/cybra_kibra_real_node.py api --host 127.0.0.1 --port "$PORT"
+    python3 scripts/kibra/cybra_kibra_real_node.py api --host 127.0.0.1 --port 8792
     ;;
   test)
     python3 scripts/kibra/cybra_kibra_real_node.py init --wallet "$WALLET"
@@ -66,8 +43,7 @@ PY
     echo "  cybra-kibra-real validate"
     echo "  cybra-kibra-real status"
     echo "  cybra-kibra-real proof"
-    echo "  cybra-kibra-real api [port]"
-    echo "  cybra-kibra-real api-auto"
+    echo "  cybra-kibra-real api"
     echo "  cybra-kibra-real test"
     ;;
 esac

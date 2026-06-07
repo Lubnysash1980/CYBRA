@@ -12,8 +12,8 @@ Score: **100.0%**
 
 - Network: `KIBRA_INTERNAL_MAINNET_TEST`
 - Chain ID: `kibra-mainnet-internal-c16752607334018d`
-- Latest height: `21`
-- Latest block hash: `81512ab6d76d75e3da7735839fd7c24a073d3fe9afb27015155f97a9342ca708`
+- Latest height: `22`
+- Latest block hash: `e7b891029181fc603a4cea621642eab9b4b4b59dbc1a91f3d55b1371db806bc5`
 
 ## What is working
 
