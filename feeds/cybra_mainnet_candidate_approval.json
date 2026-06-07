@@ -1,0 +1,35 @@
+{
+  "ticket_id": "MAINNET-CANDIDATE-APPROVAL-20260607_120454",
+  "timestamp": "2026-06-07T12:04:55",
+  "status": "MAINNET_CANDIDATE_APPROVAL_GATE_CREATED",
+  "stage_requested": "MAINNET_CANDIDATE_STAGE",
+  "mainnet_live_now": false,
+  "owner_ticket": "MAINNET-CANDIDATE-APPROVAL-20260607_120454-OWNER",
+  "parliament_ticket": "MAINNET-CANDIDATE-APPROVAL-20260607_120454-PARLIAMENT",
+  "requirements": {
+    "owner_approval": "PENDING",
+    "cyber_parliament_approval": "PENDING",
+    "anti_sybil_review": "PENDING",
+    "mainnet_readiness_gate": "LOCKED",
+    "finance_live_gate": "LOCKED"
+  },
+  "detected": {
+    "test_blocks_count": 60,
+    "miners_count": 1,
+    "migration_test_status": "MAINNET_MIGRATION_TEST_PASS",
+    "migration_test_score": 100.0
+  },
+  "decision": "Approval tickets created. Snapshot/claims can move to mainnet candidate stage only after manual approvals.",
+  "safety": {
+    "mainnet_live_now": false,
+    "automatic_mainnet_launch": false,
+    "automatic_real_rewards": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_liquidity_creation": false,
+    "real_payment_now": false,
+    "manual_OWNER_approval_required": true,
+    "cyber_parliament_approval_required": true,
+    "anti_sybil_review_required": true
+  }
+}

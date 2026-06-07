@@ -1,0 +1,39 @@
+{
+  "ticket_id": "MAINNET-CANDIDATE-APPROVAL-20260607_120454-OWNER",
+  "timestamp": "2026-06-07T12:04:55",
+  "type": "OWNER_APPROVAL_TICKET",
+  "status": "WAITING_OWNER_APPROVAL",
+  "title": "OWNER approval for moving test-block snapshot/claims into mainnet candidate stage",
+  "decision_requested": "Approve preparation of KIBRA mainnet candidate stage from preserved test block snapshot and pre-mainnet miner claims.",
+  "not_approved_automatically": [
+    "mainnet live launch",
+    "real rewards",
+    "external transfers",
+    "withdrawals",
+    "liquidity creation",
+    "exchange listing"
+  ],
+  "source_snapshot": "data/cybra_mainnet/snapshots/latest_test_blocks_snapshot.json",
+  "source_claims": "data/cybra_mainnet/claims/latest_pre_mainnet_claims.json",
+  "source_genesis_candidate": "data/cybra_mainnet/genesis/latest_mainnet_genesis_candidate.json",
+  "detected": {
+    "test_blocks_count": 60,
+    "miners_count": 1,
+    "migration_test_status": "MAINNET_MIGRATION_TEST_PASS",
+    "migration_test_score": 100.0
+  },
+  "owner_manual_action_required": true,
+  "owner_approval_value": "PENDING",
+  "safety": {
+    "mainnet_live_now": false,
+    "automatic_mainnet_launch": false,
+    "automatic_real_rewards": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_liquidity_creation": false,
+    "real_payment_now": false,
+    "manual_OWNER_approval_required": true,
+    "cyber_parliament_approval_required": true,
+    "anti_sybil_review_required": true
+  }
+}

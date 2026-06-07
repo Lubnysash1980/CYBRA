@@ -1,0 +1,46 @@
+{
+  "ticket_id": "MAINNET-CANDIDATE-APPROVAL-20260607_120454-PARLIAMENT",
+  "timestamp": "2026-06-07T12:04:55",
+  "type": "CYBER_PARLIAMENT_APPROVAL_TICKET",
+  "status": "WAITING_CYBER_PARLIAMENT_VOTE",
+  "title": "Cyber Parliament vote for KIBRA mainnet candidate stage",
+  "vote_subject": "Move preserved test-block snapshot and pre-mainnet miner claims into KIBRA mainnet candidate stage.",
+  "vote_options": [
+    "APPROVE_MAINNET_CANDIDATE_STAGE_ONLY",
+    "REJECT_AND_KEEP_TESTNET_ONLY",
+    "REQUEST_ADDITIONAL_AUDIT"
+  ],
+  "recommended_vote": "APPROVE_MAINNET_CANDIDATE_STAGE_ONLY",
+  "vote_does_not_enable": [
+    "mainnet live launch",
+    "real rewards",
+    "external transfers",
+    "withdrawals",
+    "liquidity creation"
+  ],
+  "required_before_live": [
+    "OWNER approval",
+    "Cyber Parliament approval",
+    "anti-sybil miner audit",
+    "mainnet readiness gate",
+    "finance live gate review"
+  ],
+  "detected": {
+    "test_blocks_count": 60,
+    "miners_count": 1,
+    "migration_test_status": "MAINNET_MIGRATION_TEST_PASS",
+    "migration_test_score": 100.0
+  },
+  "safety": {
+    "mainnet_live_now": false,
+    "automatic_mainnet_launch": false,
+    "automatic_real_rewards": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_liquidity_creation": false,
+    "real_payment_now": false,
+    "manual_OWNER_approval_required": true,
+    "cyber_parliament_approval_required": true,
+    "anti_sybil_review_required": true
+  }
+}

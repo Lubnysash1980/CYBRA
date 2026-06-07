@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+cd "$HOME/CYBRA" || exit 1
+
+case "$1" in
+  status)
+    cat posts/cybra_mainnet_candidate_approval.md 2>/dev/null || true
+    ;;
+  proof)
+    sha256sum -c proofs/cybra_mainnet_candidate_approval.sha256
+    ;;
+  owner)
+    ls -1 data/cybra_mainnet/approval/owner/*.json 2>/dev/null | tail -1 | xargs -r cat
+    ;;
+  parliament)
+    ls -1 data/cybra_mainnet/approval/parliament/*.json 2>/dev/null | tail -1 | xargs -r cat
+    ;;
+  combined)
+    ls -1 data/cybra_mainnet/approval/combined/*.json 2>/dev/null | tail -1 | xargs -r cat
+    ;;
+  *)
+    echo "Commands:"
+    echo "  cybra-mainnet-approval status"
+    echo "  cybra-mainnet-approval owner"
+    echo "  cybra-mainnet-approval parliament"
+    echo "  cybra-mainnet-approval combined"
+    echo "  cybra-mainnet-approval proof"
+    ;;
+esac
