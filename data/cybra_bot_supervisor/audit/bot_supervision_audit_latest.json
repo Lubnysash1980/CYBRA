@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-06-08T15:41:19",
+  "timestamp": "2026-06-08T15:46:06",
   "status": "BOT_SUPERVISION_AUDIT_DONE",
   "bot_status": {
-    "timestamp": "2026-06-08T15:41:19",
-    "status": "BOT_SUPERVISED_RUNNING",
+    "timestamp": "2026-06-08T15:46:06",
+    "status": "BOT_SUPERVISED_NOT_RUNNING",
     "pid": 4104,
-    "alive": true,
+    "alive": false,
     "bot_file_under_supervision": "trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs",
     "harness_file": "data/cybra_bot_supervisor/harness/cybra_bot_paper_harness.mjs",
     "risk_scan": {
@@ -31,12 +31,12 @@
       "watchdog": true
     },
     "queues": {
-      "it_department": 1,
-      "parliament_inbox": 1,
-      "cybra:audit:finance": 1,
-      "cybra:bot:supervised": 1,
-      "cybra:finance:evolution:pool": 1,
-      "cybra:meta:evolution:pool": 1
+      "it_department": 0,
+      "parliament_inbox": 0,
+      "cybra:audit:finance": 0,
+      "cybra:bot:supervised": 0,
+      "cybra:finance:evolution:pool": 0,
+      "cybra:meta:evolution:pool": 0
     },
     "log_file": "data/cybra_bot_supervisor/logs/bot_supervised.log",
     "extra": {},
@@ -59,7 +59,7 @@
     }
   },
   "advice": [
-    "Супервізор працює. Paper/testnet harness активний.",
+    "Супервізор не працює. Запуск: cybra-bot-supervised start",
     "Знайдено trading-risk слова. Прямий live запуск заблокований.",
     "IT Department і CyberParliament отримали supervision task.",
     "Реальні ордери, withdrawals, SWIFT, external tx заблоковані."

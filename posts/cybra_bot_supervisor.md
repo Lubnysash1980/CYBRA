@@ -1,9 +1,9 @@
 # CYBRA Bot Supervisor
 
-Status: **BOT_SUPERVISED_RUNNING**
+Status: **BOT_SUPERVISED_NOT_RUNNING**
 
 PID: `4104`
-Alive: `True`
+Alive: `False`
 Bot file under supervision: `trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs`
 Harness file: `data/cybra_bot_supervisor/harness/cybra_bot_paper_harness.mjs`
 Mode: `PAPER_TESTNET_SUPERVISED`
