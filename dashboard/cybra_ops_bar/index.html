@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CYBRA Ops Bar</title>
+<style>
+body { font-family: system-ui, sans-serif; max-width: 1100px; margin: 35px auto; padding: 20px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+.card { border: 1px solid #ddd; border-radius: 16px; padding: 16px; }
+code { word-break: break-all; }
+.ok { font-weight: 700; }
+</style>
+</head>
+<body>
+<h1>CYBRA Ops Bar</h1>
+<p>Timestamp: <code>2026-06-08T12:04:54</code></p>
+
+<div class="grid">
+<div class="card"><b>Meta tasks</b><br><code>1232</code></div>
+<div class="card"><b>Meta modules</b><br><code>1232</code></div>
+<div class="card"><b>AI blocks</b><br><code>1232</code></div>
+<div class="card"><b>Routes</b><br><code>1231</code></div>
+<div class="card"><b>Repairs</b><br><code>478</code></div>
+<div class="card"><b>Completed</b><br><code>0</code></div>
+<div class="card"><b>Returned</b><br><code>1</code></div>
+<div class="card"><b>KIBRA blocks</b><br><code>22</code></div>
+<div class="card"><b>Binary blobs</b><br><code>0</code></div>
+<div class="card"><b>Proof OK / FAIL</b><br><code>172 / 61</code></div>
+<div class="card"><b>Problems</b><br><code>13</code></div>
+<div class="card"><b>Redis</b><br><code>True</code></div>
+</div>
+
+<h2>Git</h2>
+<p>Branch: <code>main</code></p>
+<p>Last commit: <code>62b3967b2 check IT task for two Solana mints native pool</code></p>
+<p>Changed: <code>1686</code></p>
+
+<h2>KIBRA</h2>
+<p>Network: <code>KIBRA_INTERNAL_MAINNET_TEST</code></p>
+<p>Chain ID: <code>kibra-mainnet-internal-c16752607334018d</code></p>
+<p>Height: <code>22</code></p>
+<p>External live: <code>False</code></p>
+
+<h2>Meta evolution</h2>
+<p>Status: <code>None</code></p>
+<p>Tasks discovered: <code>None</code></p>
+<p>Ecosystems: <code>None</code></p>
+<p>Layers: <code>None</code></p>
+<p>AI blocks routed: <code>None</code></p>
+
+<h2>Analytics / what to fix</h2>
+<ul><li><code>Proof failures: 61</code></li><li><code>Git has uncommitted changes: 1686</code></li><li><code>No binary-safe blobs</code></li><li><code>Queue too large: cybra:meta:evolution:pool=1020</code></li><li><code>Queue too large: cybra:kibra:pool:mining_blocks=1020</code></li><li><code>Queue too large: cybra:ai:tasks:block_inbox=1020</code></li><li><code>Queue too large: cybra:finance:evolution:pool=1020</code></li><li><code>Queue too large: cybra:completed:ai_tasks=1019</code></li><li><code>Queue too large: cybra:return:ai_tasks=1019</code></li><li><code>Queue too large: ai_block_inbox=1020</code></li><li><code>Queue too large: cybra_mgs_all=1020</code></li><li><code>Queue too large: cybra_oracle_tasks=1020</code></li><li><code>Queue too large: parliament_inbox=1020</code></li></ul>
+
+<h2>Fix commands</h2>
+<ul><li><code>Rebuild stale proofs: cybra-structure-fix all && cybra-structure-fix proof</code></li><li><code>Review: git status --short</code></li><li><code>Run: cybra-structure-fix binary</code></li><li><code>Process queue or scale workers for: cybra:meta:evolution:pool</code></li><li><code>Process queue or scale workers for: cybra:kibra:pool:mining_blocks</code></li><li><code>Process queue or scale workers for: cybra:ai:tasks:block_inbox</code></li><li><code>Process queue or scale workers for: cybra:finance:evolution:pool</code></li><li><code>Process queue or scale workers for: cybra:completed:ai_tasks</code></li><li><code>Process queue or scale workers for: cybra:return:ai_tasks</code></li><li><code>Process queue or scale workers for: ai_block_inbox</code></li><li><code>Process queue or scale workers for: cybra_mgs_all</code></li><li><code>Process queue or scale workers for: cybra_oracle_tasks</code></li><li><code>Process queue or scale workers for: parliament_inbox</code></li></ul>
+
+<h2>Safety</h2>
+<p>No withdrawals. No SWIFT. No automatic external transactions. No automatic real rewards.</p>
+</body>
+</html>

@@ -1,0 +1,1656 @@
+{
+  "timestamp": "2026-06-08T12:04:54",
+  "status": "CYBRA_OPS_BAR_REPORT",
+  "structure": {
+    "files_total_rough": 210384,
+    "scripts_py": 8,
+    "scripts_sh": 1239,
+    "json_files": 25237,
+    "proof_files": 233,
+    "dashboard_files": 6,
+    "meta_tasks": 1232,
+    "meta_modules": 1232,
+    "meta_blocks": 1232,
+    "meta_routes": 1231,
+    "meta_repairs": 478,
+    "meta_completed": 0,
+    "meta_returned": 1,
+    "kibra_blocks": 22,
+    "kibra_task_blocks": 1544,
+    "kibra_meta_blocks": 1232,
+    "binary_blobs": 0,
+    "python_bytecode": 0,
+    "library_manifests": 0
+  },
+  "redis": {
+    "online": true,
+    "queues": {
+      "cybra:meta:evolution:pool": 1020,
+      "cybra:kibra:pool:mining_blocks": 1020,
+      "cybra:ai:tasks:block_inbox": 1020,
+      "cybra:finance:evolution:pool": 1020,
+      "cybra:completed:ai_tasks": 1019,
+      "cybra:return:ai_tasks": 1019,
+      "ai_block_inbox": 1020,
+      "cybra_mgs_all": 1020,
+      "cybra_oracle_tasks": 1020,
+      "it_department": 0,
+      "parliament_inbox": 1020,
+      "cybra_coin_approval": 0,
+      "cybra_mainnet_approval": 0
+    }
+  },
+  "git": {
+    "branch": "main",
+    "last_commit": "62b3967b2 check IT task for two Solana mints native pool",
+    "changed_count": 1686,
+    "untracked_count": 1686,
+    "modified_count": 0,
+    "remote": [
+      "origin\tgit@github.com:Lubnysash1980/CYBRA.git (fetch)",
+      "origin\tgit@github.com:Lubnysash1980/CYBRA.git (push)"
+    ],
+    "clean": false
+  },
+  "processes": {
+    "process_lines_count": 12,
+    "matched_processes_count": 7,
+    "matched_processes": [
+      "u0_a298  15210 15156  0  1970 pts/0    00:00:00 bash install_cybra_meta_evolution.sh",
+      "u0_a298  15216 15210  0  1970 pts/0    00:00:00 bash /data/data/com.termux/files/usr/bin/cybra-meta-evo cycle",
+      "u0_a298  15217 15216 17  1970 pts/0    00:02:09 python3 scripts/meta_evolution/cybra_meta_evolution.py cycle",
+      "u0_a298  15223     1  3  1970 ?        00:00:26 redis-server 127.0.0.1:6379",
+      "u0_a298  20811 10677  0  1970 pts/1    00:00:00 bash install_cybra_ops_bar.sh",
+      "u0_a298  22446 20811  0  1970 pts/1    00:00:00 bash /data/data/com.termux/files/usr/bin/cybra-ops-bar proof",
+      "u0_a298  23081 15217  0  1970 pts/0    00:00:00 /data/data/com.termux/files/usr/bin/sh -c redis-cli ping >/dev/null 2>&1 || redis-server --daemonize yes --bind 127.0.0.1 --port 6379 --dir runtime/redis --save '' --appendonly no >/dev/null 2>&1"
+    ]
+  },
+  "proofs": {
+    "proofs_count": 233,
+    "ok_count": 172,
+    "fail_count": 61,
+    "proofs": [
+      {
+        "file": "proofs/CODESPACE_PATCH_20260605_151617.sha256",
+        "ok": false,
+        "stdout_tail": "patches/codespace/CODESPACE_PATCH_20260605_151617.json: FAILED",
+        "stderr_tail": "sha256sum: WARNING: 1 line is improperly formatted\nsha256sum: WARNING: 1 computed checksum did NOT match"
+      },
+      {
+        "file": "proofs/MIHAILKA_LAUNCHER_PATCH.sha256",
+        "ok": false,
+        "stdout_tail": "patches/mihailka/MIHAILKA_LAUNCHER_PATCH.json: FAILED",
+        "stderr_tail": "sha256sum: WARNING: 1 line is improperly formatted\nsha256sum: WARNING: 1 computed checksum did NOT match"
+      },
+      {
+        "file": "proofs/ORACLE_VPS_PATCH_20260605_151617.sha256",
+        "ok": false,
+        "stdout_tail": "patches/oracle/ORACLE_VPS_PATCH_20260605_151617.json: FAILED",
+        "stderr_tail": "sha256sum: WARNING: 1 line is improperly formatted\nsha256sum: WARNING: 1 computed checksum did NOT match"
+      },
+      {
+        "file": "proofs/TERMUX_ANDROID_PATCH_20260605_151617.sha256",
+        "ok": false,
+        "stdout_tail": "patches/termux/TERMUX_ANDROID_PATCH_20260605_151617.json: FAILED",
+        "stderr_tail": "sha256sum: WARNING: 1 line is improperly formatted\nsha256sum: WARNING: 1 computed checksum did NOT match"
+      },
+      {
+        "file": "proofs/accuracy_threshold_report.sha256",
+        "ok": true,
+        "stdout_tail": "posts/accuracy_threshold_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/ai_block_enforcer.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/ai_block_enforcer/policy.json: OK\nparliament/departments/ai_block_enforcer_department/department.json: OK\nfeeds/ai_block_enforcer_report.json: OK\nposts/ai_block_enforcer_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/ai_neural_network.sha256",
+        "ok": true,
+        "stdout_tail": "ai_network/graph/ai_neural_network.json: OK\nposts/ai_neural_network_status.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/ai_os_engine.sha256",
+        "ok": false,
+        "stdout_tail": "gitcybrahash_double_backend.mjs: OK\nhash_storage/root_hash.json: FAILED\nfeeds/ai_os_engine.json: OK\nposts/ai_os_engine_status.md: OK\ndevice/os/device_snapshot.json: OK",
+        "stderr_tail": "sha256sum: WARNING: 1 computed checksum did NOT match"
+      },
+      {
+        "file": "proofs/ai_os_engine_install.sha256",
+        "ok": false,
+        "stdout_tail": "gitcybrahash_double_backend.mjs: OK\nhash_storage/root_hash.json: FAILED\nfeeds/ai_os_engine.json: FAILED\nposts/ai_os_engine_status.md: FAILED\nproofs/ai_os_engine.sha256: FAILED",
+        "stderr_tail": "sha256sum: WARNING: 4 computed checksums did NOT match"
+      },
+      {
+        "file": "proofs/ai_question_answer.sha256",
+        "ok": false,
+        "stdout_tail": "",
+        "stderr_tail": "sha256sum: proofs/ai_question_answer.sha256: no properly formatted checksum lines found"
+      },
+      {
+        "file": "proofs/ai_tasks_to_mining_blocks.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/ai_tasks_to_mining_blocks_report.json: OK\nposts/ai_tasks_to_mining_blocks_report.md: OK\nparliament/ai_task_mining_blocks/policy.json: OK\nparliament/departments/ai_task_block_mining_department/department.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/ai_until_done_report.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/ai_until_done_report.json: OK\nposts/ai_until_done_report.md: OK\nfeeds/owner_directive_ai_until_done.json: OK\nposts/owner_directive_ai_until_done.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/air_alert.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/air_alert_state.json: OK\nposts/air_alert_status.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/analytics_committee.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/analytics_committee_report.json: OK\nposts/analytics_committee_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/approval_20260527_205101.sha256",
+        "ok": true,
+        "stdout_tail": "legal/approval_queue/approval_20260527_205101.json: OK\nposts/approval_20260527_205101.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/approval_20260527_205101_confirmed.sha256",
+        "ok": true,
+        "stdout_tail": "legal/submission_posts/approval_20260527_205101.confirmation.txt: OK\nposts/approval_20260527_205101_confirmed.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/approval_20260527_205101_submission_ready.sha256",
+        "ok": true,
+        "stdout_tail": "posts/approval_20260527_205101_submission_ready.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/audit_dedupe_report.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/audit_dedupe_report.json: OK\nposts/audit_dedupe_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/audit_dedupe_status.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/audit_dedupe_status.json: OK\nposts/audit_dedupe_status.md: OK\nparliament/audit/audit_dedupe_policy.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/audit_dedupe_test.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/audit_dedupe_test.json: OK\nposts/audit_dedupe_test.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/autoheal_recovery.sha256",
+        "ok": true,
+        "stdout_tail": "recovery_packs/CYBRA_RECOVERY_20260602_144711.tar.gz.manifest.json: OK\nfeeds/autoheal_recovery_latest.json: OK\nposts/autoheal_recovery_status.md: OK\ndocs/recovery/index.html: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/autoheal_recovery_install.sha256",
+        "ok": true,
+        "stdout_tail": "install_cybra_autoheal_recovery_pack.sh: OK\ncybra_autoheal_recovery_pack.sh: OK\ncybra_recovery_watchdog.sh: OK\ncybra_recovery.sh: OK\nfeeds/autoheal_recovery_latest.json: OK\nposts/autoheal_recovery_status.md: OK\ndocs/recovery/index.html: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/basic_task_status.sha256",
+        "ok": true,
+        "stdout_tail": "posts/basic_task_status.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/biometric_succession_guard.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/succession/biometric_succession_policy.json: OK\nfeeds/biometric_succession_guard.json: OK\nposts/biometric_succession_guard.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/biometric_succession_guard_install.sha256",
+        "ok": false,
+        "stdout_tail": "parliament/succession/biometric_succession_policy.json: OK\ncybra_biometric_succession_guard.py: OK\nbiometric_succession_handler.sh: OK\ncybra_succession.sh: OK\nfeeds/biometric_succession_guard.json: FAILED\nposts/biometric_succession_guard.md: FAILED",
+        "stderr_tail": "sha256sum: WARNING: 2 computed checksums did NOT match"
+      },
+      {
+        "file": "proofs/closed_evolution_selfseal.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/evolution_closed/closed_evolution_policy.json: OK\nfeeds/closed_evolution_selfseal.json: OK\nposts/closed_evolution_selfseal.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/closed_usa_patch.sha256",
+        "ok": true,
+        "stdout_tail": "private_patches/usa_patch/README.md: OK\nprivate_patches/usa_patch/usa_patch.json: OK\nposts/closed_usa_patch_status.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/codespace_termux_bridge.sha256",
+        "ok": false,
+        "stdout_tail": "bridge/termux/pull_from_codespaces.sh: OK\nbridge/termux/push_to_codespaces.sh: OK\nbridge/codespaces/pull_from_termux.sh: OK\nbridge/codespaces/push_to_termux.sh: OK\nremote_queue/codespaces_startup.task: OK\nposts/codespace_termux_bridge_status.md: FAILED\nfeeds/codespace_termux_bridge.json: OK",
+        "stderr_tail": "sha256sum: WARNING: 1 computed checksum did NOT match"
+      },
+      {
+        "file": "proofs/cybra_3patch_menubar.sha256",
+        "ok": true,
+        "stdout_tail": "cybra_bar.py: OK\ncybra-bar: OK\nscripts/cybra_patch_signer.py: OK\nscripts/codespace/cybra_codespace_patch_runner.sh: OK\nscripts/oracle/cybra_oracle_patch_runner.sh: OK\nscripts/termux/cybra_termux_patch_runner.sh: OK\nscripts/mihailka/build_mihailka_launcher.sh: OK\nscripts/mihailka/mihailka_autostart.sh: OK\ndist/mihailka_cybra_launcher.sh: OK\nposts/cybra_3patch_menubar_report.md: OK\nfeeds/cybra_3patch_menubar_report.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_ai_blocks.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_ai_blocks_report.json: OK\nposts/cybra_ai_blocks_report.md: OK\ndata/cybra_ai_blocks/reports/latest_report.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_auto_non_delivery_it_task.sha256",
+        "ok": false,
+        "stdout_tail": "data/auto_cases/tasks/auto_non_delivery_it_task_20260604_134358.json: OK\nfeeds/cybra_auto_non_delivery_it_task.json: FAILED\nposts/cybra_auto_non_delivery_it_task.md: FAILED\ndata/auto_cases/reports/latest_auto_non_delivery_case.json: OK",
+        "stderr_tail": "sha256sum: WARNING: 2 computed checksums did NOT match"
+      },
+      {
+        "file": "proofs/cybra_auto_vehicle_001_g580.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_auto_vehicle_001_g580.json: OK\nposts/cybra_auto_vehicle_001_g580.md: OK\ndata/auto_cases/tasks/vehicle_001_g580_it_task_20260604_134929.json: OK\ndata/auto_cases/vehicles/vehicle_001_g580_public.json: OK\ndata/auto_cases/reports/latest_vehicle_001_g580.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_autoheal_7lvl.sha256",
+        "ok": false,
+        "stdout_tail": "feeds/cybra_autoheal_7lvl_report.json: OK\nposts/cybra_autoheal_7lvl_report.md: OK\ndata/cybra_autoheal_7lvl/seal/seal_manifest.json: FAILED",
+        "stderr_tail": "sha256sum: WARNING: 1 computed checksum did NOT match"
+      },
+      {
+        "file": "proofs/cybra_autorecovery.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_autorecovery_report.json: OK\nposts/cybra_autorecovery_report.md: OK\ndata/cybra_autorecovery/reports/latest_report.json: OK\ncybra_termux_restore.sh: OK\ndata/cybra_autorecovery/packs/cybra_restore_pack.tar.gz: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_autorecovery_patch_v2.sha256",
+        "ok": false,
+        "stdout_tail": "cybra_autorecovery_patch_v2.sh: OK\nbin/cybra-recover: FAILED\ncybra_recovery.sh: OK\nparliament/departments/finance_department/cybra_autorecovery_committee/committee.json: OK\nparliament/departments/cybra_finance_department/cybra_autorecovery_committee/committee.json: OK",
+        "stderr_tail": "sha256sum: WARNING: 1 computed checksum did NOT match"
+      },
+      {
+        "file": "proofs/cybra_autorecovery_patch_v2_full.sha256",
+        "ok": false,
+        "stdout_tail": "cybra_autorecovery_patch_v2.sh: OK\ncybra_autorecovery_seal_patch_v2.sh: OK\ncybra_autorecovery_full_reseal_v2.sh: OK\nbin/cybra-recover: FAILED\ncybra_recovery.sh: OK\nparliament/departments/finance_department/cybra_autorecovery_committee/committee.json: OK\nparliament/departments/cybra_finance_department/cybra_autorecovery_committee/committee.json: OK",
+        "stderr_tail": "sha256sum: WARNING: 1 computed checksum did NOT match"
+      },
+      {
+        "file": "proofs/cybra_autorecovery_patch_v2_full_seal.sha256",
+        "ok": true,
+        "stdout_tail": "data/cybra_autorecovery/patches/v2_full_reseal.json: OK\nfeeds/cybra_autorecovery_patch_v2_full_seal.json: OK\nposts/cybra_autorecovery_patch_v2_full_seal.md: OK\nproofs/cybra_autorecovery_patch_v2_full.sha256: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_autorecovery_patch_v2_seal.sha256",
+        "ok": true,
+        "stdout_tail": "data/cybra_autorecovery/patches/v2_patch_seal.json: OK\nfeeds/cybra_autorecovery_patch_v2_seal.json: OK\nposts/cybra_autorecovery_patch_v2_seal.md: OK\nproofs/cybra_autorecovery_patch_v2.sha256: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_background_platform.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_background_platform_report.json: OK\nposts/cybra_background_platform_report.md: OK\ndata/cybra_background/reports/latest_report.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_chain_environment.sha256",
+        "ok": false,
+        "stdout_tail": "token/runtime/chain_env.json: OK\ntoken/health/token_health.json: FAILED\ntoken/hash_backend/double_sha_backend.py: OK\ntoken/hash_backend/latest_double_sha.json: FAILED\ntoken/autofix/token_autofix.sh: FAILED\nposts/cybra_chain_environment_status.md: FAILED",
+        "stderr_tail": "sha256sum: WARNING: 4 computed checksums did NOT match"
+      },
+      {
+        "file": "proofs/cybra_cloud_background.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_cloud_background_report.json: OK\nposts/cybra_cloud_background_report.md: OK\ndata/cybra_cloud_background/reports/latest_report.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_codespace_patch_status.sha256",
+        "ok": true,
+        "stdout_tail": "posts/cybra_codespace_patch_status.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_codespace_runtime.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/committees/codespace_runtime_committee/committee.json: OK\nfeeds/cybra_codespace_runtime_report.json: OK\nposts/cybra_codespace_runtime_report.md: OK\ndata/cybra_codespace_runtime/reports/latest_report.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_coin_approval_task.sha256",
+        "ok": false,
+        "stdout_tail": "oin_approval_committee/tasks/COIN-APPROVAL-20260607_114544.json: OK\ndata/cybra_coin/approval/checklists/coin_approval_checklist.md: OK\ndata/cybra_coin/approval/checklists/tokenomics_approval_draft.md: FAILED open or read\ndata/cybra_coin/approval/checklists/owner_approval_ticket.md: OK\ndata/cybra_coin/approval/checklists/cyber_parliament_vote_draft.md: OK\ndata/cybra_coin/approval/checklists/mainnet_readiness_gate.md: OK\nposts/cybra_coin_approval_task.md: OK\nfeeds/cybra_coin_approval_task.json: OK",
+        "stderr_tail": "sha256sum: data/cybra_coin/approval/checklists/tokenomics_approval_draft.md: No such file or directory\nsha256sum: WARNING: 1 listed file could not be read"
+      },
+      {
+        "file": "proofs/cybra_coin_completion.sha256",
+        "ok": true,
+        "stdout_tail": "token/coin/cybra_metadata.json: OK\ntoken/assets/cybra.png: OK\ntoken/deploy/solana_devnet/deploy_cybra_spl_devnet.sh: OK\nposts/cybra_coin_completion_status.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_coin_final.sha256",
+        "ok": false,
+        "stdout_tail": "token/registry/token_registry.json: FAILED\ntoken/wallet/phantom_add.json: FAILED\nposts/cybra_coin_final_status.md: OK\nfeeds/token_dashboard.json: OK",
+        "stderr_tail": "sha256sum: WARNING: 2 computed checksums did NOT match"
+      },
+      {
+        "file": "proofs/cybra_coin_next_step.sha256",
+        "ok": true,
+        "stdout_tail": "token/deploy/solana_devnet/README_NEXT.md: OK\nremote_queue/cybra_coin_devnet_deploy.task: OK\nposts/cybra_coin_next_step_status.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_cold_finance_binary.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/departments/finance_department/cybra_cold_finance_binary_department/department.json: OK\ndata/cybra_cold_finance/system.json: OK\ndata/cybra_cold_finance/wallets/wallets.json: OK\ndata/cybra_cold_finance/recipients/recipients.json: OK\nfeeds/cybra_cold_finance_binary_report.json: OK\nposts/cybra_cold_finance_binary_report.md: OK\nposts/cybra_cold_payment_requisites.txt: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_conformation8.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_conformation8_report.json: OK\nposts/cybra_conformation8_report.md: OK\ndata/cybra_conformation8/reports/latest_report.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_devnet_mint.sha256",
+        "ok": true,
+        "stdout_tail": "token/registry/token_registry.json: OK\nposts/phantom_add_cybra.md: OK\ntoken/runtime/latest_mint.txt: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_evolution_today.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_evolution_today.json: OK\nposts/cybra_evolution_today.md: OK\ndata/cybra_evolution/reports/latest_report.json: OK\ndata/cybra_evolution/daily/2026-06-05.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_finance_5_committees.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_finance_5_committees_report.json: OK\nposts/cybra_finance_5_committees_report.md: OK\ndata/cybra_cold_finance/committees/latest_report.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_finance_full_autotest.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_finance_full_autotest_report.json: OK\nposts/cybra_finance_full_autotest_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_finance_it_bank_psp_creation_test.sha256",
+        "ok": true,
+        "stdout_tail": "data/cybra_finance/reports/finance_it_bank_psp_creation_test_latest.json: OK\nfeeds/cybra_finance_it_bank_psp_creation_test.json: OK\nposts/cybra_finance_it_bank_psp_creation_test.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_finance_it_bank_psp_task.sha256",
+        "ok": false,
+        "stdout_tail": "nce/contracts/drafts/psp_contract_checklist.md: FAILED open or read\ndata/cybra_finance/contracts/drafts/merchant_onboarding_checklist.md: FAILED open or read\ndata/cybra_finance/contracts/drafts/kyc_aml_policy_draft.md: FAILED open or read\ndata/cybra_finance/keys/policy/api_key_vault_policy.md: OK\ndata/cybra_finance/live_gate/withdrawal_limits_draft.json: FAILED open or read\nposts/cybra_finance_it_bank_psp_task.md: FAILED open or read\nfeeds/cybra_finance_it_bank_psp_task.json: FAILED open or read",
+        "stderr_tail": "data/cybra_finance/contracts/drafts/merchant_onboarding_checklist.md: No such file or directory\nsha256sum: data/cybra_finance/contracts/drafts/kyc_aml_policy_draft.md: No such file or directory\nsha256sum: data/cybra_finance/live_gate/withdrawal_limits_draft.json: No such file or directory\nsha256sum: posts/cybra_finance_it_bank_psp_task.md: No such file or directory\nsha256sum: feeds/cybra_finance_it_bank_psp_task.json: No such file or directory\nsha256sum: WARNING: 8 listed files could not be read"
+      },
+      {
+        "file": "proofs/cybra_git_lock_pages_rpc_fix.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_git_lock_pages_rpc_fix.json: OK\nposts/cybra_git_lock_pages_rpc_fix.md: OK\ndata/cybra_runtime_fix/reports/latest_git_lock_pages_rpc_fix.json: OK\ncybra_git_safe_commit.sh: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_github_autonomy.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_github_autonomy_report.json: OK\nposts/cybra_github_autonomy_report.md: OK\ndata/cybra_github_autonomy/reports/latest_report.json: OK\nparliament/committees/github_autonomy_committee/committee.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_hybrid_background.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_hybrid_background_report.json: OK\nposts/cybra_hybrid_background_report.md: OK\ndata/cybra_hybrid/reports/latest_report.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_hybrid_v2_test.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_hybrid_v2_test.json: OK\nposts/cybra_hybrid_v2_test.md: OK\ndata/cybra_hybrid/reports/hybrid_v2_test_latest.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_import_classes.sha256",
+        "ok": false,
+        "stdout_tail": "kers.cpython-313.pyc: FAILED open or read\ncybra_core/tasks/__pycache__/watchdog.cpython-313.pyc: FAILED open or read\ncybra_core/tasks/__pycache__/github_pages.cpython-313.pyc: FAILED open or read\ncybra_core/tasks/__pycache__/research.cpython-313.pyc: FAILED open or read\ncybra_core/registry/task_classes.json: OK\ncybra_core/__init__.py: OK\ncybra_core/router.py: OK\ncybra_core/__pycache__/__init__.cpython-313.pyc: FAILED open or read\ncybra_core/__pycache__/router.cpython-313.pyc: FAILED open or read",
+        "stderr_tail": "256sum: cybra_core/tasks/__pycache__/watchdog.cpython-313.pyc: No such file or directory\nsha256sum: cybra_core/tasks/__pycache__/github_pages.cpython-313.pyc: No such file or directory\nsha256sum: cybra_core/tasks/__pycache__/research.cpython-313.pyc: No such file or directory\nsha256sum: cybra_core/__pycache__/__init__.cpython-313.pyc: No such file or directory\nsha256sum: cybra_core/__pycache__/router.cpython-313.pyc: No such file or directory\nsha256sum: WARNING: 12 listed files could not be read"
+      },
+      {
+        "file": "proofs/cybra_internal_mainnet_test.sha256",
+        "ok": false,
+        "stdout_tail": "blockchain/kibra_chain/mainnet/genesis.json: OK\nblockchain/kibra_chain/mainnet/blocks/block_000001.json: FAILED\nblockchain/kibra_chain/mainnet/state/latest_state.json: FAILED\ndata/cybra_mainnet/live/internal_mainnet_live_state.json: FAILED\ndata/cybra_mainnet/reports/internal_mainnet_test_latest.json: OK\nfeeds/cybra_internal_mainnet_test.json: OK\nposts/cybra_internal_mainnet_test.md: OK",
+        "stderr_tail": "sha256sum: WARNING: 3 computed checksums did NOT match"
+      },
+      {
+        "file": "proofs/cybra_it_evolution.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_it_evolution_report.json: OK\nposts/cybra_it_evolution_report.md: OK\ndata/cybra_it_evolution/reports/latest_report.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_it_menubar.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_it_menubar_report.json: OK\nposts/cybra_it_menubar_report.md: OK\ndata/cybra_it_menu/reports/latest_report.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_launch_preflight.sha256",
+        "ok": false,
+        "stdout_tail": "token/runtime/rpc.env.template: OK\ntoken/wallet/wallet_visibility.json: FAILED\ntoken/registry/token_registry.json: FAILED\ntoken/devnet/devnet_preflight_check.sh: OK\ndocs/index.html: FAILED\nfeeds/launch_preflight_status.json: OK\nposts/cybra_launch_preflight_status.md: OK",
+        "stderr_tail": "sha256sum: WARNING: 3 computed checksums did NOT match"
+      },
+      {
+        "file": "proofs/cybra_mainnet_candidate_approval.sha256",
+        "ok": true,
+        "stdout_tail": "r/MAINNET-CANDIDATE-APPROVAL-20260607_120454-OWNER.json: OK\ndata/cybra_mainnet/approval/parliament/MAINNET-CANDIDATE-APPROVAL-20260607_120454-PARLIAMENT.json: OK\ndata/cybra_mainnet/approval/combined/MAINNET-CANDIDATE-APPROVAL-20260607_120454.json: OK\ndata/cybra_mainnet/tasks/MAINNET-CANDIDATE-APPROVAL-20260607_120454.json: OK\ndata/cybra_mainnet/approval/reports/latest_mainnet_candidate_approval.json: OK\nfeeds/cybra_mainnet_candidate_approval.json: OK\nposts/cybra_mainnet_candidate_approval.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_mainnet_candidate_stage.sha256",
+        "ok": false,
+        "stdout_tail": "data/cybra_mainnet/candidate/latest_mainnet_candidate_stage.json: OK\nblockchain/kibra_chain/mainnet_candidate/genesis_candidate_block.json: OK\ndata/cybra_mainnet/claims/mainnet_candidate_claim_registry.json: FAILED\ndata/cybra_mainnet/reports/mainnet_candidate_stage_latest.json: OK\nfeeds/cybra_mainnet_candidate_stage.json: OK\nposts/cybra_mainnet_candidate_stage.md: OK",
+        "stderr_tail": "sha256sum: WARNING: 1 computed checksum did NOT match"
+      },
+      {
+        "file": "proofs/cybra_mainnet_migration_fix.sha256",
+        "ok": true,
+        "stdout_tail": "data/cybra_mainnet/snapshots/latest_test_blocks_snapshot.json: OK\ndata/cybra_mainnet/claims/latest_pre_mainnet_claims.json: OK\ndata/cybra_mainnet/genesis/latest_mainnet_genesis_candidate.json: OK\ndata/cybra_mainnet/tasks/MAINNET-MIGRATION-FIX-20260607_115134.json: OK\nfeeds/cybra_mainnet_migration_fix.json: OK\ndata/cybra_mainnet/reports/latest_mainnet_migration_fix.json: OK\nposts/cybra_mainnet_migration_fix.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_mainnet_migration_test.sha256",
+        "ok": true,
+        "stdout_tail": "data/cybra_mainnet/reports/mainnet_migration_test_latest.json: OK\nfeeds/cybra_mainnet_migration_test.json: OK\nposts/cybra_mainnet_migration_test.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_mainnet_prepare_approved.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_mainnet_prepare_approved.json: OK\nposts/cybra_mainnet_prepare_approved.md: OK\ndata/mainnet_prepare/latest_approved_prepare.json: OK\ndata/mainnet_prepare/mainnet_prepare_approved_task.json: OK\ntoken/deploy/solana_mainnet/approvals/mainnet_approved_20260604_115050.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_menubar.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/committees/termux_menubar_committee/committee.json: OK\nfeeds/cybra_menubar_report.json: OK\nposts/cybra_menubar_report.md: OK\ndata/cybra_menubar/reports/latest_report.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_menubar_recovery_test.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_menubar_recovery_test_report.json: OK\nposts/cybra_menubar_recovery_test_report.md: OK\ndata/cybra_menubar/reports/recovery_test_latest.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_mgs_codespace_worker.sha256",
+        "ok": true,
+        "stdout_tail": "data/cybra_mgs/codespace/latest_mgs_codespace_worker.json: OK\nfeeds/cybra_mgs_codespace_worker.json: OK\nposts/cybra_mgs_codespace_worker.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_mgs_live.sha256",
+        "ok": true,
+        "stdout_tail": "data/cybra_mgs/metrics/live_metrics.json: OK\nfeeds/cybra_mgs_live_metrics.json: OK\nposts/cybra_mgs_live_status.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_mgs_live_install.sha256",
+        "ok": false,
+        "stdout_tail": "cybra_mgs_live.py: OK\ncybra-mgs-live: OK\nscripts/cybra_codespace_mgs_live_worker.py: OK\n.github/workflows/cybra-mgs-live-worker.yml: OK\n.devcontainer/cybra_mgs_live_start.sh: OK\ndashboard/mgs/index.html: FAILED\nfeeds/cybra_mgs_live_metrics.json: FAILED\nposts/cybra_mgs_live_status.md: FAILED",
+        "stderr_tail": "sha256sum: WARNING: 3 computed checksums did NOT match"
+      },
+      {
+        "file": "proofs/cybra_mgs_quick_install.sha256",
+        "ok": true,
+        "stdout_tail": "cybra_mgs.py: OK\ncybra-mgs: OK\nscripts/cybra_codespace_mgs_worker.py: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_mgs_status.sha256",
+        "ok": true,
+        "stdout_tail": "data/cybra_mgs/reports/latest_status.json: OK\nposts/cybra_mgs_status.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_miner_wallet_binding.sha256",
+        "ok": false,
+        "stdout_tail": "ry.json: FAILED\ndata/cybra_mainnet/miners/KIBRA-MINER-WALLET-BIND-20260607_123743.json: OK\ndata/cybra_mainnet/claims/mainnet_candidate_claim_registry.json: FAILED\nblockchain/kibra_chain/mainnet/state/latest_state.json: FAILED\ndata/cybra_mainnet/live/internal_mainnet_live_state.json: FAILED\nblockchain/kibra_chain/mainnet/blocks/block_000003.json: FAILED\ndata/cybra_mainnet/reports/miner_wallet_binding_latest.json: OK\nfeeds/cybra_miner_wallet_binding.json: OK\nposts/cybra_miner_wallet_binding.md: OK",
+        "stderr_tail": "sha256sum: WARNING: 5 computed checksums did NOT match"
+      },
+      {
+        "file": "proofs/cybra_mint_promo.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_mint_promo_report.json: OK\nposts/cybra_mint_promo_report.md: OK\ndata/cybra_mint_promo/reports/latest_report.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_ops_bar.sha256",
+        "ok": true,
+        "stdout_tail": "data/cybra_ops_bar/reports/ops_bar_latest.json: OK\nfeeds/cybra_ops_bar.json: OK\nposts/cybra_ops_bar.md: OK\ndashboard/cybra_ops_bar/index.html: OK\nscripts/ops/cybra_ops_bar.py: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_oracle_bridge_install.sha256",
+        "ok": false,
+        "stdout_tail": "cybra_oracle.py: OK\ncybra-oracle: OK\nscripts/oracle/cybra_oracle_agent.py: OK\nscripts/oracle/cybra_oracle_start.sh: OK\nscripts/oracle/install_on_oracle.sh: OK\n.github/workflows/cybra-oracle-vps-deploy.yml: OK\npublic/cybra_oracle_dashboard/index.html: OK\npublic/cybra_oracle_dashboard/dashboard.json: FAILED\nposts/cybra_oracle_vps_report.md: FAILED\nfeeds/cybra_oracle_vps_status.json: FAILED\ndata/cybra_oracle/reports/latest_status.json: FAILED",
+        "stderr_tail": "sha256sum: WARNING: 4 computed checksums did NOT match"
+      },
+      {
+        "file": "proofs/cybra_oracle_patch_status.sha256",
+        "ok": true,
+        "stdout_tail": "posts/cybra_oracle_patch_status.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_oracle_vps.sha256",
+        "ok": true,
+        "stdout_tail": "data/cybra_oracle/reports/latest_status.json: OK\nfeeds/cybra_oracle_vps_status.json: OK\nposts/cybra_oracle_vps_report.md: OK\npublic/cybra_oracle_dashboard/dashboard.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_payment_requisites_package.sha256",
+        "ok": false,
+        "stdout_tail": "parliament/departments/finance_department/payment_requisites_department/department.json: OK\ndata/cybra_payment_requisites/payer_profile.json: OK\ndata/cybra_payment_requisites/car_purchase/invoice_request.json: OK\nfeeds/cybra_payment_requisites_package.json: FAILED\nposts/cybra_payment_requisites_package.md: FAILED\nposts/car_dealer_invoice_request.txt: OK",
+        "stderr_tail": "sha256sum: WARNING: 2 computed checksums did NOT match"
+      },
+      {
+        "file": "proofs/cybra_privacy_guard.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_privacy_guard_report.json: OK\nposts/cybra_privacy_guard_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_real_kibra_price_task.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_real_kibra_price_task.json: OK\nfeeds/cybra_real_kibra_price_dispatch_report.json: OK\nposts/cybra_real_kibra_price_task.md: OK\ndata/cybra_real_price/tasks/latest_task.json: OK\ndata/cybra_real_price/reports/latest_report.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_security_analytics.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_security_analytics_report.json: OK\nposts/cybra_security_analytics_report.md: OK\ndata/cybra_security_analytics/scans/latest_scan.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_selected_dex_mint.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_selected_dex_mint.json: OK\ndata/cybra_two_mints/reports/selected_dex_mint.json: OK\nposts/cybra_selected_dex_mint.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_solana_rpc_termux_fix.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_solana_rpc_termux_fix.json: OK\nposts/cybra_solana_rpc_termux_fix.md: OK\nsolana_rpc_probe.mjs: OK\nrun_mint_tokens_2022_safe.sh: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_system_test.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_system_test_report.json: OK\nposts/cybra_system_test_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_task_execution_runtime_final.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_task_execution_runtime_final.json: OK\nposts/cybra_task_execution_runtime_final.md: OK\ndata/cybra_task_tests/reports/runtime_final.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_task_execution_test.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_task_execution_test_report.json: OK\nposts/cybra_task_execution_test_report.md: OK\ndata/cybra_task_tests/reports/latest_report.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_termux_patch_status.sha256",
+        "ok": true,
+        "stdout_tail": "posts/cybra_termux_patch_status.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_test_autofix_recommendations.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_test_autofix_recommendations_report.json: OK\nposts/cybra_test_autofix_recommendations_report.md: OK\ndata/cybra_test_autofix/latest_report.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_trade64_safe_fix.sha256",
+        "ok": true,
+        "stdout_tail": "data/cybra_trading_bot/reports/trade64_safe_fix_latest.json: OK\nfeeds/cybra_trade64_safe_fix.json: OK\nposts/cybra_trading_bot_safe_fix_report.md: OK\ntrading_bot/v64/models/original_full_bot_6000_fixed_safe.mjs: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_trading_bot_6000_modules.sha256",
+        "ok": true,
+        "stdout_tail": "module_64_part_01_ULTIMATE_FORCE_TRADE_NO_WINDOW.mjs: OK\ntrading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs: OK\ntrading_bot/v64/modules/ALL_MODULES_INDEX.md: OK\ntrading_bot/v64/modules/_core/core_runtime_before_module_01.mjs: OK\ntrading_bot/v64/models/original_full_bot_6000_latest.mjs: OK\nfeeds/cybra_trading_bot_6000_modules_registry.json: OK\nposts/cybra_trading_bot_6000_modules_report.md: OK\ndata/cybra_trading_bot/reports/6000_modules_registry_latest.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_triplatform_background_test.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_triplatform_background_test.json: OK\nposts/cybra_triplatform_background_test.md: OK\ndata/cybra_triplatform_test/reports/latest_report.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_two_mints_status.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/cybra_two_mints_status.json: OK\ndata/cybra_two_mints/reports/latest_report.json: OK\nposts/cybra_two_mints_status.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/cybra_wallet_ready.sha256",
+        "ok": false,
+        "stdout_tail": "token/registry/token_registry.json: FAILED\ntoken/wallet/wallet_visibility.json: FAILED\ntoken/wallet/phantom_add.json: FAILED\nposts/cybra_devnet_mint_status.md: FAILED\nposts/phantom_add_cybra.md: FAILED",
+        "stderr_tail": "sha256sum: WARNING: 5 computed checksums did NOT match"
+      },
+      {
+        "file": "proofs/cybra_workers.sha256",
+        "ok": false,
+        "stdout_tail": "cybra_worker_start.sh: FAILED\ncybra_worker_stop.sh: OK\ncybra_worker_status.sh: FAILED",
+        "stderr_tail": "sha256sum: WARNING: 2 computed checksums did NOT match"
+      },
+      {
+        "file": "proofs/developer_support.sha256",
+        "ok": true,
+        "stdout_tail": "posts/developer_support_status.md: OK\nfeeds/developer_support.json: OK\npatches/developer_support_golod_andrii.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/device_sync_android.sha256",
+        "ok": false,
+        "stdout_tail": "device/android/device_id.txt: OK\ndevices/android_SM-A057G_1780336091.json: FAILED\nhash_storage/device/android_SM-A057G_1780336091.sha256: FAILED\ndevices/android_SM-A057G_1780336091.json: FAILED\nhash_storage/device/android_SM-A057G_1780336091.sha256: FAILED\nfeeds/device_sync_android.json: OK\nposts/device_sync_android_status.md: OK",
+        "stderr_tail": "sha256sum: WARNING: 3 lines are improperly formatted\nsha256sum: WARNING: 4 computed checksums did NOT match"
+      },
+      {
+        "file": "proofs/dialogue_key.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/dialogue_key_status.json: OK\nposts/dialogue_key_status.md: OK\nposts/dialogue_key_runtime.md: OK\nparliament/dialogue/dialogue_policy.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/double_backend.sha256",
+        "ok": true,
+        "stdout_tail": "double_backend/usa/backend_policy.json: OK\ndouble_backend/hash/double_sha_backend.py: OK\ndouble_backend/recovery/git_path_recovery.sh: OK\nposts/double_backend_status.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/duplicate_checker.sha256",
+        "ok": false,
+        "stdout_tail": "",
+        "stderr_tail": "sha256sum: proofs/duplicate_checker.sha256: no properly formatted checksum lines found"
+      },
+      {
+        "file": "proofs/evo_committee.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/evo/evo_laws.json: OK\nfeeds/evo_committee_report.json: OK\nposts/evo_committee_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/evo_committee_install.sha256",
+        "ok": false,
+        "stdout_tail": "parliament/evo/evo_laws.json: OK\ncybra_evo_committee_factory.py: OK\nevo_committee_handler.sh: OK\ncybra_evo.sh: OK\nfeeds/evo_committee_report.json: FAILED\nposts/evo_committee_report.md: FAILED",
+        "stderr_tail": "sha256sum: WARNING: 2 computed checksums did NOT match"
+      },
+      {
+        "file": "proofs/evolution_deployment.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/evolution_deployment/evolution_deployment_policy.json: OK\nfeeds/evolution_deployment_report.json: OK\nposts/evolution_deployment_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/evolution_guard_report.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/evolution_guard_report.json: OK\nposts/evolution_guard_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/evolution_guard_status.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/evolution_guard_status.json: OK\nposts/evolution_guard_status.md: OK\nparliament/evolution/evolution_laws.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/evolution_latest.sha256",
+        "ok": false,
+        "stdout_tail": "",
+        "stderr_tail": "sha256sum: proofs/evolution_latest.sha256: no properly formatted checksum lines found"
+      },
+      {
+        "file": "proofs/evolution_lock.sha256",
+        "ok": true,
+        "stdout_tail": "registry/evolution/evolution_lock.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/evolution_resilience.sha256",
+        "ok": false,
+        "stdout_tail": "",
+        "stderr_tail": "sha256sum: proofs/evolution_resilience.sha256: no properly formatted checksum lines found"
+      },
+      {
+        "file": "proofs/executor_checker.sha256",
+        "ok": false,
+        "stdout_tail": "",
+        "stderr_tail": "sha256sum: proofs/executor_checker.sha256: no properly formatted checksum lines found"
+      },
+      {
+        "file": "proofs/executor_mapping.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/executor_mapping.json: OK\nposts/executor_mapping_status.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/executor_quality_report.sha256",
+        "ok": false,
+        "stdout_tail": "",
+        "stderr_tail": "sha256sum: proofs/executor_quality_report.sha256: no properly formatted checksum lines found"
+      },
+      {
+        "file": "proofs/existing_tasks_evolution_activation.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/existing_tasks_activation/policy.json: OK\nfeeds/existing_tasks_evolution_activation.json: OK\nposts/existing_tasks_evolution_activation.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/external_anchor_package.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/external_anchor_package.json: OK\nposts/external_anchor_package.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/final_integration.sha256",
+        "ok": false,
+        "stdout_tail": "workers/pool/mainnet_gatekeeper.sh: OK\ntoken/runtime/mainnet_gate.json: FAILED\nrecovery/final_recovery_index.json: OK\nposts/final_integration_status.md: OK",
+        "stderr_tail": "sha256sum: WARNING: 1 computed checksum did NOT match"
+      },
+      {
+        "file": "proofs/finance_2m_actions_test_report.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/finance_2m_actions_test_report.json: OK\ndata/finance_target_2m/tests/latest_test_report.json: OK\nposts/finance_2m_actions_test_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/finance_department.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/departments/finance_department/department.json: OK\nparliament/finance/finance_policy.json: OK\ndata/finance/budget_ledger_template.json: OK\nfeeds/finance_department_report.json: OK\nposts/finance_department_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/finance_gap_evolution.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/departments/finance_department/committees/finance_gap_evolution_committee/committee.json: OK\nparliament/finance_gap_evolution/policy.json: OK\nfeeds/finance_gap_evolution_report.json: OK\ndata/finance_gap_evolution/ai_tasks.json: OK\nposts/finance_gap_evolution_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/finance_infrastructure.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/finance/infrastructure/finance_infrastructure_policy.json: OK\npayments/rails/payment_rails.json: OK\ntoken/kibra/mint/kibra_mint_policy.json: OK\ntreasury/gold/gold_treasury_policy.json: OK\nfeeds/finance_infrastructure_report.json: OK\nposts/finance_infrastructure_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/finance_redis_committee.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/departments/finance_department/redis_committee/committee.json: OK\nfeeds/finance_redis_committee_report.json: OK\nposts/finance_redis_committee_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/finance_target_2m_it_execution.sha256",
+        "ok": false,
+        "stdout_tail": "feeds/finance_target_2m_it_execution.json: FAILED\ndata/finance_target_2m/execution/latest_execution.json: FAILED\ndata/it_department/results/finance_target_2m_execution.json: FAILED\nposts/finance_target_2m_it_execution.md: OK",
+        "stderr_tail": "sha256sum: WARNING: 3 computed checksums did NOT match"
+      },
+      {
+        "file": "proofs/finance_target_2m_usd.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/finance_target_2m_usd_task.json: OK\nfeeds/finance_target_2m_usd_dispatch_report.json: OK\ndata/finance_target_2m/tasks/latest_task.json: OK\ndata/finance_target_2m/reports/latest_report.json: OK\nposts/finance_target_2m_usd_task.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/finance_token_profit_audit.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/departments/finance_token_profit_audit_department/department.json: OK\nparliament/finance_profit_audit/policy.json: OK\nfeeds/finance_token_profit_audit_report.json: OK\ndata/finance_profit_audit/ai_tasks.json: OK\nposts/finance_token_profit_audit_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/fingerprint_approval.sha256",
+        "ok": true,
+        "stdout_tail": "legal/auth/fingerprint_approval.txt: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/force_institution_organs.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/force_institution_organs.json: OK\nposts/force_institution_organs.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/frozen_license_committee.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/committees/frozen_license_committee/committee.json: OK\nfeeds/frozen_license_committee_report.json: OK\nposts/frozen_license_committee_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/full_task_test_report.sha256",
+        "ok": false,
+        "stdout_tail": "",
+        "stderr_tail": "sha256sum: proofs/full_task_test_report.sha256: no properly formatted checksum lines found"
+      },
+      {
+        "file": "proofs/generic_ai_safe_task_latest.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/generic_ai_safe_task_latest.json: OK\nposts/generic_ai_safe_task_latest.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/git_path_recovery.sha256",
+        "ok": false,
+        "stdout_tail": "recovery/git_paths/file_index.txt: FAILED open or read\nrecovery/git_paths/last_commits.txt: FAILED open or read\nrecovery/git_paths/status.txt: FAILED open or read",
+        "stderr_tail": "sha256sum: recovery/git_paths/file_index.txt: No such file or directory\nsha256sum: recovery/git_paths/last_commits.txt: No such file or directory\nsha256sum: recovery/git_paths/status.txt: No such file or directory\nsha256sum: WARNING: 3 listed files could not be read"
+      },
+      {
+        "file": "proofs/gitcybrahash_double_backend.sha256",
+        "ok": false,
+        "stdout_tail": "gitcybrahash_double_backend.mjs: FAILED\nhash_storage/gitcybra_index.json: OK\nhash_storage/gitcybra_root.sha256: OK\nposts/gitcybrahash_status.md: FAILED",
+        "stderr_tail": "sha256sum: WARNING: 2 computed checksums did NOT match"
+      },
+      {
+        "file": "proofs/gitcybrahash_install.sha256",
+        "ok": false,
+        "stdout_tail": "gitcybrahash_double_backend.mjs: FAILED\nposts/gitcybrahash_install_status.md: OK\nproofs/gitcybrahash_double_backend.sha256: OK",
+        "stderr_tail": "sha256sum: WARNING: 1 computed checksum did NOT match"
+      },
+      {
+        "file": "proofs/hash_license_guard.sha256",
+        "ok": true,
+        "stdout_tail": "data/hash_license_guard/license_policy.json: OK\nparliament/departments/finance_department/hash_license_guard_committee/committee.json: OK\nfeeds/hash_license_guard_report.json: OK\nposts/hash_license_guard_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/hash_module_test.sha256",
+        "ok": true,
+        "stdout_tail": "logs/hash/hash_test_payload.json: OK\nhash_storage/test/hash_module_test_manifest.json: OK\nfeeds/hash_module_test.json: OK\nposts/hash_module_test.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/impossible_task_analysis.sha256",
+        "ok": true,
+        "stdout_tail": "posts/impossible_task_analysis.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/institution_audit_report.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/institution_audit_report.json: OK\nposts/institution_audit_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/kibra_autotest_fix_loop.sha256",
+        "ok": false,
+        "stdout_tail": "lock_000012.json: OK\nblockchain/kibra_chain/mainnet/blocks/block_000013.json: OK\nblockchain/kibra_chain/mainnet/blocks/block_000014.json: OK\nblockchain/kibra_chain/mainnet/blocks/block_000015.json: OK\nblockchain/kibra_chain/mainnet/blocks/block_000016.json: OK\nblockchain/kibra_chain/mainnet/blocks/block_000017.json: OK\nblockchain/kibra_chain/mainnet/blocks/block_000018.json: OK\nblockchain/kibra_chain/mainnet/blocks/block_000019.json: OK\nblockchain/kibra_chain/mainnet/blocks/block_000020.json: OK",
+        "stderr_tail": "sha256sum: WARNING: 2 computed checksums did NOT match"
+      },
+      {
+        "file": "proofs/kibra_block_ai_support.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/kibra_block_ai_support/policy.json: OK\nparliament/departments/kibra_block_ai_support_department/department.json: OK\nfeeds/kibra_block_ai_support_report.json: OK\ndata/kibra_block_ai_support/tasks/block_ai_tasks.json: OK\ndata/kibra_block_ai_support/outbox/block_ai_outbox.json: OK\nposts/kibra_block_ai_support_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/kibra_blockchain_market_proof.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/kibra_blockchain_market_proof.json: OK\ndata/kibra_blockchain_market_proof/reports/latest_report.json: OK\nposts/kibra_blockchain_market_proof.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/kibra_bridge_pool_monetization.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/kibra_bridge/policy.json: OK\nparliament/departments/kibra_bridge_department/department.json: OK\ndata/kibra_pool_monetization/pool_monetization_plan.json: OK\ndata/kibra_bridge/outbox/KIBRA-BRIDGE-4479c82f64edec92.json: OK\ndata/kibra_bridge/sealed/KIBRA-BRIDGE-4479c82f64edec92.sealed.json: OK\nfeeds/kibra_bridge_pool_monetization_report.json: OK\nposts/kibra_bridge_pool_monetization_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/kibra_closed_sha_pool_bridge.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/departments/kibra_closed_sha_pool_bridge_department/department.json: OK\nparliament/kibra_closed_sha_pool_bridge/policy.json: OK\nfeeds/kibra_closed_sha_pool_bridge_report.json: OK\nposts/kibra_closed_sha_pool_bridge_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/kibra_dex_pool_report.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/kibra_dex_pool_report.json: OK\ndata/kibra_dex_pool/reports/latest_report.json: OK\nposts/kibra_dex_pool_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/kibra_dex_pool_setup.sha256",
+        "ok": false,
+        "stdout_tail": "kibra_dex_pool.sh: FAILED\nkibra_raydium_cpmm_pool.mjs: OK\nposts/kibra_dex_pool_setup.md: OK\nfeeds/kibra_dex_pool_setup.json: OK",
+        "stderr_tail": "sha256sum: WARNING: 1 computed checksum did NOT match"
+      },
+      {
+        "file": "proofs/kibra_difficulty_classes.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/kibra_difficulty_classes/policy.json: OK\nfeeds/kibra_difficulty_classes_report.json: OK\ndata/kibra_difficulty_classes/classes.json: OK\nposts/kibra_difficulty_classes_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/kibra_finance_status_current.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/kibra_finance_status_current.json: OK\ndata/kibra_finance_status/reports/latest_report.json: OK\nposts/kibra_finance_status_current.md: OK\nkibra_finance_safe_status.py: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/kibra_mainnet_final_readiness.sha256",
+        "ok": false,
+        "stdout_tail": "bra_mainnet/claims/mainnet_candidate_claim_registry.json: FAILED\ndata/cybra_mainnet/miners/miner_wallet_registry.json: FAILED\ndata/cybra_mainnet/audit/anti_sybil_latest.json: OK\ndata/cybra_mainnet/audit/final_readiness_latest.json: OK\ndata/cybra_mainnet/manifests/kibra_final_manifest_latest.json: OK\ndata/cybra_mainnet/reports/kibra_mainnet_final_readiness_latest.json: OK\nfeeds/kibra_mainnet_final_readiness.json: OK\nposts/kibra_mainnet_final_readiness.md: OK\ndashboard/kibra_mainnet/final.html: OK",
+        "stderr_tail": "sha256sum: WARNING: 4 computed checksums did NOT match"
+      },
+      {
+        "file": "proofs/kibra_market_activation_next.sha256",
+        "ok": true,
+        "stdout_tail": "posts/kibra_market_activation_next.md: OK\nfeeds/kibra_market_activation_next.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/kibra_market_activation_status.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/kibra_market_activation_status.json: OK\ndata/kibra_market_activation/reports/latest_report.json: OK\ndata/kibra_market_activation/tasks/market_activation_gate_task.json: OK\nposts/kibra_market_activation_status.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/kibra_market_exchange_plan.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/kibra_market/kibra_market_exchange_policy.json: OK\nparliament/departments/exchange_department/department.json: OK\ndata/exchange/cybra_exchange_architecture.json: OK\ndata/kibra_market/market_readiness_plan.json: OK\nfeeds/kibra_market_exchange_plan.json: OK\nposts/kibra_market_exchange_plan.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/kibra_market_price_paths.sha256",
+        "ok": true,
+        "stdout_tail": "price_confirmation_committee/market_paths_department/department.json: OK\ndata/kibra_market/paths/available_price_paths.json: OK\ndata/kibra_market/dex_pool_readiness/dex_pool_readiness.json: OK\ndata/kibra_market/orderbook_backend_provider/backend_provider_package.json: OK\ndata/kibra_market/reserve_backed_peg/peg_package.json: OK\ndata/kibra_market/external_anchor_requests/price_paths_anchor_request.json: OK\nfeeds/kibra_market_price_paths_report.json: OK\nposts/kibra_market_price_paths_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/kibra_market_proof.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/kibra_market_proof.json: OK\ndata/kibra_market_proof/reports/latest_report.json: OK\nposts/kibra_market_proof.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/kibra_market_proof_collector.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/kibra_market_proof_collector_report.json: OK\nposts/kibra_market_proof_collector_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/kibra_menu_patches.sha256",
+        "ok": true,
+        "stdout_tail": "kibra_menu.py: OK\nkibra-menu: OK\nkibra_it_menu.py: OK\nkibra-it-menu: OK\npatches/kibra_menu/KIBRA_MENU_PATCH_20260605_192501.json: OK\npatches/kibra_it_menu/KIBRA_IT_MENU_PATCH_20260605_192501.json: OK\nposts/kibra_menu_patches_report.md: OK\nfeeds/kibra_menu_patches_report.json: OK\n.termux/boot/start-kibra-menus.sh: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/kibra_mined_money.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/kibra_mined_money_report.json: OK\nposts/kibra_mined_money_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/kibra_mint_audit.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/departments/kibra_mint_repair_department/audit_department/department.json: OK\nparliament/kibra_mint_audit/policy.json: OK\nfeeds/kibra_mint_audit_report.json: OK\ndata/kibra_mint_audit/ai_tasks.json: OK\nposts/kibra_mint_audit_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/kibra_mint_liquidity.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/departments/kibra_mint_repair_department/liquidity_department/department.json: OK\nparliament/kibra_mint_liquidity/policy.json: OK\ndata/kibra_mint_liquidity/liquidity_plan.json: OK\nfeeds/kibra_mint_liquidity_report.json: OK\nposts/kibra_mint_liquidity_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/kibra_mint_management_finance.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/departments/kibra_mint_repair_department/management_department/department.json: OK\nparliament/departments/kibra_mint_repair_department/finance_department/department.json: OK\nparliament/kibra_mint_management/policy.json: OK\ndata/kibra_mint_finance/reward_policy.json: OK\ndata/kibra_mint_finance/sell_plan.json: OK\nfeeds/kibra_mint_management_finance_report.json: OK\nposts/kibra_mint_management_finance_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/kibra_mint_promotion.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/departments/kibra_mint_repair_department/promotion_department/department.json: OK\nparliament/kibra_mint_promotion/policy.json: OK\ndata/kibra_mint_promotion/promotion_plan.json: OK\nwebsite/kibra/promotion.html: OK\nfeeds/kibra_mint_promotion_report.json: OK\nposts/kibra_mint_promotion_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/kibra_pool_confirm.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/kibra_pool_confirm_report.json: OK\ndata/kibra_pool_confirm/confirmed_blocks.json: OK\nposts/kibra_pool_confirm_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/kibra_price_sell_repair.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/departments/kibra_market_price_committee/committee.json: OK\nparliament/departments/kibra_mint_repair_department/department.json: OK\nparliament/kibra_price_sell_repair/policy.json: OK\ndata/kibra_sell/latest_sell_proposal.json: OK\nfeeds/kibra_price_sell_repair_report.json: OK\nposts/kibra_price_sell_repair_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/kibra_proof_coins_status.sha256",
+        "ok": true,
+        "stdout_tail": "posts/kibra_proof_coins_status.md: OK\nfeeds/kibra_proof_coins_status.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/kibra_real_internal_node.sha256",
+        "ok": true,
+        "stdout_tail": "lock_000014.json: OK\nblockchain/kibra_chain/mainnet/blocks/block_000015.json: OK\nblockchain/kibra_chain/mainnet/blocks/block_000016.json: OK\nblockchain/kibra_chain/mainnet/blocks/block_000017.json: OK\nblockchain/kibra_chain/mainnet/blocks/block_000018.json: OK\nblockchain/kibra_chain/mainnet/blocks/block_000019.json: OK\nblockchain/kibra_chain/mainnet/blocks/block_000020.json: OK\nblockchain/kibra_chain/mainnet/blocks/block_000021.json: OK\nblockchain/kibra_chain/mainnet/blocks/block_000022.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/kibra_real_market_price_gate.sha256",
+        "ok": true,
+        "stdout_tail": "data/kibra_market/real_market_proof.json: OK\nfeeds/kibra_real_market_price_gate.json: OK\nposts/kibra_real_market_price_gate.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/kibra_stats_recommendations.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/departments/kibra_stats_recommendations_department/department.json: OK\nparliament/kibra_stats_recommendations/policy.json: OK\nfeeds/kibra_stats_recommendations_report.json: OK\ndata/kibra_stats_recommendations/recommendations.json: OK\ndata/kibra_stats_recommendations/ai_tasks.json: OK\nposts/kibra_stats_recommendations_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/kibra_token_chain.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/token_kibra/kibra_token_policy.json: OK\ntoken/kibra/image/token_image_meta.json: OK\nfeeds/kibra_token_chain_status.json: OK\nposts/kibra_token_chain_status.md: OK\nblockchain/kibra_chain/latest.block.json: OK\nblockchain/kibra_chain/latest.block.hash: OK\nblockchain/kibra_chain/difficulty_stream.jsonl: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/kibra_wallet_binding_manifest.sha256",
+        "ok": true,
+        "stdout_tail": "data/cybra_mainnet/manifests/kibra_wallet_binding_manifest_latest.json: OK\ndata/cybra_mainnet/reports/kibra_wallet_binding_manifest_latest.json: OK\nfeeds/kibra_wallet_binding_manifest.json: OK\nposts/kibra_wallet_binding_manifest.md: OK\ndashboard/kibra_mainnet/index.html: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/kybra_valid_wallet_gateway.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/departments/finance_department/kybra_valid_wallet_department/department.json: OK\ndata/kybra_valid/wallet.json: OK\ndata/kybra_valid/web_payment_requisites.json: OK\ndata/kybra_valid/latest_report.json: OK\nfeeds/kybra_valid_wallet_gateway_report.json: OK\nposts/kybra_valid_wallet_gateway_report.md: OK\nposts/kybra_valid_web_payment_requisites.txt: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/legal_3x_requests.sha256",
+        "ok": false,
+        "stdout_tail": "LED\nlegal/requests/dbr/request_1.md: FAILED\nlegal/requests/dbr/request_2.md: FAILED\nlegal/requests/dbr/request_3.md: FAILED\nlegal/requests/court/request_1.md: FAILED\nlegal/requests/court/request_2.md: FAILED\nlegal/requests/court/request_3.md: FAILED\nlegal/requests/police/request_1.md: FAILED\nlegal/requests/police/request_2.md: FAILED\nlegal/requests/police/request_3.md: FAILED\nlegal/watchdog/deadline_watchdog.json: OK\nlegal/watchdog/response_control.json: OK\nlegal/auth/fingerprint_approval.md: OK",
+        "stderr_tail": "sha256sum: WARNING: 12 computed checksums did NOT match"
+      },
+      {
+        "file": "proofs/legal_3x_requests_approved.sha256",
+        "ok": false,
+        "stdout_tail": "ts/court/request_3.md: FAILED\nlegal/requests/dbr/request_1.md: FAILED\nlegal/requests/dbr/request_2.md: FAILED\nlegal/requests/dbr/request_3.md: FAILED\nlegal/requests/police/request_1.md: FAILED\nlegal/requests/police/request_2.md: FAILED\nlegal/requests/police/request_3.md: FAILED\nlegal/requests/prosecutor/request_1.md: FAILED\nlegal/requests/prosecutor/request_2.md: FAILED\nlegal/requests/prosecutor/request_3.md: FAILED\nlegal/watchdog/response_control.json: OK\nlegal/auth/fingerprint_approval.txt: OK",
+        "stderr_tail": "sha256sum: WARNING: 12 computed checksums did NOT match"
+      },
+      {
+        "file": "proofs/legal_evolution_pack.sha256",
+        "ok": true,
+        "stdout_tail": "legal/auto_registry/request_template.md: OK\nlegal/auto_registry/evidence_checklist.md: OK\nlegal/timeline/case_timeline.md: OK\nlegal/evidence/evidence_graph.json: OK\nlegal/documents/export_manifest.json: OK\nlegal/court/court_package_manifest.md: OK\nlegal/dbr/dbr_followup_request.md: OK\nlegal/watchdog/deadline_watchdog.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/legal_registry_check.sha256",
+        "ok": true,
+        "stdout_tail": "posts/legal_registry_check_status.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/legal_registry_request.sha256",
+        "ok": true,
+        "stdout_tail": "legal/auto_registry/evidence_checklist.md: OK\nlegal/auto_registry/request_template.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/legal_response_20260527_113959_dbr.sha256",
+        "ok": false,
+        "stdout_tail": "legal/inbox/20260527_113959_dbr.txt: OK\nlegal/responses/20260527_113959_dbr.md: OK\nlegal/timeline/response_timeline.md: FAILED",
+        "stderr_tail": "sha256sum: WARNING: 1 computed checksum did NOT match"
+      },
+      {
+        "file": "proofs/legal_response_20260527_114526_dbr.sha256",
+        "ok": false,
+        "stdout_tail": "legal/inbox/20260527_114526_dbr.txt: OK\nlegal/responses/20260527_114526_dbr.md: OK\nlegal/timeline/response_timeline.md: FAILED",
+        "stderr_tail": "sha256sum: WARNING: 1 computed checksum did NOT match"
+      },
+      {
+        "file": "proofs/legal_response_20260527_205401_dbr.sha256",
+        "ok": true,
+        "stdout_tail": "legal/inbox/20260527_205401_dbr.txt: OK\nlegal/responses/20260527_205401_dbr.md: OK\nlegal/timeline/response_timeline.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/legal_response_20260527_205547_prosecutor.sha256",
+        "ok": false,
+        "stdout_tail": "legal/inbox/20260527_205547_prosecutor.txt: OK\nlegal/responses/20260527_205547_prosecutor.md: OK\nlegal/timeline/response_timeline.md: FAILED",
+        "stderr_tail": "sha256sum: WARNING: 1 computed checksum did NOT match"
+      },
+      {
+        "file": "proofs/legal_submission_autofix.sha256",
+        "ok": true,
+        "stdout_tail": "posts/legal_submission_autofix_status.md: OK\nlegal/autofix/pending_requests.log: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/legal_watchdog_v2.sha256",
+        "ok": false,
+        "stdout_tail": "",
+        "stderr_tail": "sha256sum: proofs/legal_watchdog_v2.sha256: no properly formatted checksum lines found"
+      },
+      {
+        "file": "proofs/main_orchestrator.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/orchestrator/main_orchestrator_policy.json: OK\nfeeds/main_orchestrator_status.json: OK\nposts/main_orchestrator_status.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/mainnet_gatekeeper.sha256",
+        "ok": true,
+        "stdout_tail": "token/runtime/mainnet_gate.json: OK\nposts/mainnet_gatekeeper_status.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/mainnet_guardian.sha256",
+        "ok": true,
+        "stdout_tail": "token/watchdog/mainnet_conditions.json: OK\nposts/mainnet_guardian_status.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/mainnet_mint_gatekeeper.sha256",
+        "ok": true,
+        "stdout_tail": "token/mainnet/mainnet_mint_policy.json: OK\ntoken/mainnet/mainnet_gate_status.json: OK\nposts/mainnet_mint_gatekeeper_status.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/mihailka_cybra_launcher.sha256",
+        "ok": true,
+        "stdout_tail": "dist/mihailka_cybra_launcher.sh: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/missile_danger_civil_safety.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/missile_danger_civil_safety.json: OK\nposts/missile_danger_civil_safety.md: OK\nparliament/air_safety/missile_danger_policy.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/monetization_department.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/departments/monetization_department/department.json: OK\nparliament/monetization/kibra_monetization_policy.json: OK\ntoken/kibra/monetization/utility_catalog.json: OK\ntoken/kibra/monetization/price_model_proposal.json: OK\ntoken/kibra/monetization/liquidity_plan_proposal.json: OK\nfeeds/monetization_department_report.json: OK\nposts/monetization_department_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/native_kibra_ai_task_package.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/native_kibra/policy/native_kibra_policy.json: OK\nparliament/native_kibra/tasks/native_kibra_evolution_task.json: OK\ntoken/kibra/native/assets/kibra_token.png: OK\ntoken/kibra/native/assets/logo.png: OK\ndocs/kibra/native_kibra_whitepaper.md: OK\nwebsite/kibra/index.html: OK\nwebsite/kibra/explorer.html: OK\nwebsite/kibra/stats.html: OK\nfeeds/native_kibra_ai_task_package.json: OK\nposts/native_kibra_ai_task_package.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/native_token_evolution.sha256",
+        "ok": false,
+        "stdout_tail": "son: OK\ntoken/registry/token_registry.json: OK\ntoken/mainnet/mainnet_mint_policy.json: OK\ntoken/mainnet/mainnet_gate_status.json: OK\ntoken/kibra/image/token_image_meta.json: OK\ntoken/kibra/image/README.md: OK\ntoken/kibra/monetization/utility_catalog.json: OK\ntoken/kibra/monetization/price_model_proposal.json: OK\ntoken/kibra/monetization/liquidity_plan_proposal.json: OK\ntoken/kibra/mint/kibra_mint_policy.json: OK\ntoken/kibra/native/assets/kibra_token.png: OK\ntoken/kibra/native/assets/logo.png: OK",
+        "stderr_tail": "sha256sum: WARNING: 1 computed checksum did NOT match"
+      },
+      {
+        "file": "proofs/native_token_nft_proof.sha256",
+        "ok": true,
+        "stdout_tail": "data/native_token_nft_proof/metadata/kibra_native_token_proof.json: OK\ndocs/native-token-proof/metadata.json: OK\ndocs/native-token-proof/native_token_proof.svg: OK\nfeeds/native_token_nft_proof.json: OK\ndata/native_token_nft_proof/reports/latest_report.json: OK\ndata/native_token_nft_proof/mint_plan/latest_mint_plan.json: OK\nposts/native_token_nft_proof.md: OK\ndocs/native-token-proof/index.html: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/native_token_nft_proof_pack.sha256",
+        "ok": false,
+        "stdout_tail": " FAILED\ndata/native_token_nft_proof/mint_plan/efi_mint_plan.json: OK\ndocs/native-token-proof/efi/metadata.json: OK\ndocs/native-token-proof/efi/native_token_proof.svg: OK\ndocs/native-token-proof/efi/index.html: OK\ndata/native_token_nft_proof/metadata/kibra_native_token_proof.json: FAILED\ndata/native_token_nft_proof/mint_plan/kibra_mint_plan.json: OK\ndocs/native-token-proof/kibra/metadata.json: OK\ndocs/native-token-proof/kibra/native_token_proof.svg: OK\ndocs/native-token-proof/kibra/index.html: OK",
+        "stderr_tail": "sha256sum: WARNING: 5 computed checksums did NOT match"
+      },
+      {
+        "file": "proofs/neural_runtime.sha256",
+        "ok": true,
+        "stdout_tail": "ai_network/runtime/runtime_map.json: OK\nposts/neural_runtime_status.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/next_after_2m_finance_task.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/finance_target_2m_it_execution.json: OK\nfeeds/finance_target_2m_parliament_proposal.json: OK\ndata/finance_target_2m/execution/latest_execution.json: OK\ndata/finance_target_2m/parliament/latest_proposal.json: OK\nposts/next_after_2m_finance_task.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/oracle_ip_command_created.sha256",
+        "ok": false,
+        "stdout_tail": "cybra-oracle-ip: FAILED open or read\nposts/oracle_ip_command_created.md: OK",
+        "stderr_tail": "sha256sum: cybra-oracle-ip: No such file or directory\nsha256sum: WARNING: 1 listed file could not be read"
+      },
+      {
+        "file": "proofs/oracle_ip_discovery.sha256",
+        "ok": true,
+        "stdout_tail": "data/cybra_oracle/reports/oracle_ip_discovery_latest.json: OK\nposts/oracle_ip_discovery.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/oracle_ip_strict_patch.sha256",
+        "ok": true,
+        "stdout_tail": "posts/oracle_ip_strict_patch.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/owner_directive_ai_until_done.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/owner_directive_ai_until_done.json: OK\nposts/owner_directive_ai_until_done.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/owner_manual_approval_latest.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/owner_manual_approval_latest.json: OK\nposts/owner_manual_approval_latest.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/owner_orchestrator_finance_anchor_car.sha256",
+        "ok": true,
+        "stdout_tail": "parliament/orchestrator/main_owner_orchestrator_policy.json: OK\nparliament/finance/risk_resolution/finance_risk_resolution_policy.json: OK\nparliament/blockchain_anchor/external_anchor_resolution_policy.json: OK\nparliament/car_purchase/car_purchase_preflight_policy.json: OK\nfeeds/owner_orchestrator_finance_anchor_car.json: OK\nposts/owner_orchestrator_finance_anchor_car.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/owner_protection.sha256",
+        "ok": true,
+        "stdout_tail": "owner/protection/owner_profile.json: OK\nposts/owner_protection_status.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/pages_404_autofix.sha256",
+        "ok": false,
+        "stdout_tail": "docs/index.html: FAILED\ndocs/.nojekyll: OK\nposts/pages_404_autofix.md: OK",
+        "stderr_tail": "sha256sum: WARNING: 1 computed checksum did NOT match"
+      },
+      {
+        "file": "proofs/pages_deploy.sha256",
+        "ok": false,
+        "stdout_tail": "posts/pages_deploy_status.md: OK\ndocs/index.html: FAILED",
+        "stderr_tail": "sha256sum: WARNING: 1 computed checksum did NOT match"
+      },
+      {
+        "file": "proofs/parliament_1000_stress_report.sha256",
+        "ok": true,
+        "stdout_tail": "posts/parliament_1000_stress_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/parliament_100_questions_report.sha256",
+        "ok": true,
+        "stdout_tail": "posts/parliament_100_questions_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/parliament_kibra_response_review.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/parliament_kibra_response_review.json: OK\nposts/parliament_kibra_response_review.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/parliament_test_report.sha256",
+        "ok": true,
+        "stdout_tail": "posts/parliament_test_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/patch_system.sha256",
+        "ok": true,
+        "stdout_tail": "patches/index.json: OK\nposts/patch_system_status.md: OK\nproofs/developer_support.sha256: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/portal_web3.sha256",
+        "ok": true,
+        "stdout_tail": "web/pages/token.html: OK\nweb/pages/proofs.html: OK\nweb/pages/watchdog.html: OK\nweb/pages/dao.html: OK\nweb/pages/legal.html: OK\nweb/assets/style.css: OK\nweb/assets/app.js: OK\nweb/index.html: OK\nsite/index.html: OK\nsite/CNAME.example: OK\nposts/portal_web3_status.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/real_estate_legal.sha256",
+        "ok": true,
+        "stdout_tail": "tate/requests/court/request_3.md: OK\nlegal/real_estate/requests/police/request_1.md: OK\nlegal/real_estate/requests/police/request_2.md: OK\nlegal/real_estate/requests/police/request_3.md: OK\nlegal/real_estate/requests/council/request_1.md: OK\nlegal/real_estate/requests/council/request_2.md: OK\nlegal/real_estate/requests/council/request_3.md: OK\nlegal/real_estate/evidence/evidence_registry.md: OK\nlegal/real_estate/timeline/case_timeline.md: OK\nlegal/real_estate/registry/ownership_watchdog.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/review_committee.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/review_status.json: OK\nposts/review_committee_status.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/revision_organ.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/revision_organ_report.json: OK\nposts/revision_organ_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/revision_organ_install.sha256",
+        "ok": false,
+        "stdout_tail": "parliament/revision/cybra_revision_organ.json: OK\ncybra_revision_organ.py: OK\nrevision_organ_handler.sh: OK\ncybra_revision.sh: OK\nfeeds/revision_organ_report.json: FAILED\nposts/revision_organ_report.md: FAILED",
+        "stderr_tail": "sha256sum: WARNING: 2 computed checksums did NOT match"
+      },
+      {
+        "file": "proofs/self_healing_supervisor.sha256",
+        "ok": false,
+        "stdout_tail": "",
+        "stderr_tail": "sha256sum: proofs/self_healing_supervisor.sha256: no properly formatted checksum lines found"
+      },
+      {
+        "file": "proofs/sha_core_manager_public.sha256",
+        "ok": true,
+        "stdout_tail": "posts/sha_core_manager_status.md: OK\nsha/proofs/sha_core_manager.sha256: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/solana_devnet_spl_deploy_prepare.sha256",
+        "ok": false,
+        "stdout_tail": "token/deploy/solana_devnet/deploy_cybra_spl_devnet.sh: FAILED\nposts/solana_devnet_spl_deploy_status.md: OK",
+        "stderr_tail": "sha256sum: WARNING: 1 computed checksum did NOT match"
+      },
+      {
+        "file": "proofs/solana_mainnet_timestamp_sleep.sha256",
+        "ok": false,
+        "stdout_tail": "token/deploy/solana_mainnet/mainnet_deploy_timestamp_sleep.sh: FAILED\nposts/solana_mainnet_timestamp_sleep_status.md: OK",
+        "stderr_tail": "sha256sum: WARNING: 1 computed checksum did NOT match"
+      },
+      {
+        "file": "proofs/solana_tools_check.sha256",
+        "ok": true,
+        "stdout_tail": "posts/solana_tools_check.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/solana_two_mints_native_pool_it_task.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/solana_two_mints_native_pool_it_task.json: OK\ndata/it_department/tasks/solana_two_mints_native_pool_task.json: OK\ndata/finance_department/tasks/solana_two_mints_native_pool_task.json: OK\ndata/kibra_dex_pool/tasks/solana_two_mints_native_pool_task.json: OK\ndata/native_token_nft_proof/tasks/native_token_pool_proof_task.json: OK\ndata/solana_two_mints_native_pool/reports/latest_report.json: OK\nposts/solana_two_mints_native_pool_it_task.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/solana_two_mints_native_pool_live_execution.sha256",
+        "ok": false,
+        "stdout_tail": "ution.json: OK\ndata/token_task_execution/reports/latest_report.json: FAILED\ndata/it_department/results/solana_two_mints_native_pool_live_execution.json: OK\ndata/finance_department/results/solana_two_mints_native_pool_live_execution.json: OK\ndata/native_token_nft_proof/results/native_token_pool_proof_live_execution.json: OK\ndata/kibra_dex_pool/plans/alex_usdc_live_pool_plan.json: OK\ndata/kibra_dex_pool/plans/efi_usdc_live_pool_plan.json: OK\nposts/solana_two_mints_native_pool_live_execution.md: OK",
+        "stderr_tail": "sha256sum: WARNING: 1 computed checksum did NOT match"
+      },
+      {
+        "file": "proofs/task_diagnostics_report.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/task_diagnostics_report.json: OK\nposts/task_diagnostics_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/task_statistics.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/task_statistics.json: OK\nposts/task_statistics.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/token_dashboard.sha256",
+        "ok": true,
+        "stdout_tail": "docs/index.html: OK\nfeeds/token_dashboard.json: OK\nposts/token_dashboard_status.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/token_pool_ai.sha256",
+        "ok": true,
+        "stdout_tail": "blocks/token_pool_ai/pool_ai_block_1780432283_81b44d46b5d6.json: OK\nblocks/token_pool_ai/latest.block.json: OK\nblocks/token_pool_ai/latest.block.hash: OK\nfeeds/token_pool_ai_status.json: OK\nposts/token_pool_ai_status.md: OK\nparliament/token_pool_ai/token_pool_ai_policy.json: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/token_tasks_execution_status.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/token_tasks_execution_status.json: OK\ndata/token_task_execution/reports/latest_report.json: OK\nposts/token_tasks_execution_status.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/token_vault.sha256",
+        "ok": true,
+        "stdout_tail": "vault/policy/token_policy.json: OK\nvault/tokens/README.md: OK\nvault/audit/token_vault_audit.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/two_mints_native_pool_it_task_check.sha256",
+        "ok": true,
+        "stdout_tail": "feeds/two_mints_native_pool_it_task_check.json: OK\ndata/solana_two_mints_native_pool/reports/latest_check.json: OK\nposts/two_mints_native_pool_it_task_check.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/universal_bootstrap_recovery.sha256",
+        "ok": true,
+        "stdout_tail": "recovery/universal/commits.txt: OK\nrecovery/universal/files.txt: OK\nrecovery/universal/status.txt: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/universal_bootstrap_status.sha256",
+        "ok": true,
+        "stdout_tail": "posts/universal_bootstrap_status.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/v7_next_evolution_report.sha256",
+        "ok": true,
+        "stdout_tail": "posts/v7_next_evolution_report.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/v7_structure_dirs.sha256",
+        "ok": true,
+        "stdout_tail": "proofs/v7_structure_dirs.txt: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/wallet_visible_token_plan.sha256",
+        "ok": true,
+        "stdout_tail": "token/deployment_plan/solana_devnet_plan.md: OK\nposts/wallet_visible_token_plan.md: OK",
+        "stderr_tail": ""
+      },
+      {
+        "file": "proofs/web_worker_resilience.sha256",
+        "ok": false,
+        "stdout_tail": "bridges/web/internet_bridge.py: OK\nworkers/pool/worker_resilience_manager.sh: FAILED\nposts/web_worker_resilience_status.md: OK",
+        "stderr_tail": "sha256sum: WARNING: 1 computed checksum did NOT match"
+      },
+      {
+        "file": "proofs/worker_resilience.sha256",
+        "ok": false,
+        "stdout_tail": "posts/worker_resilience_status.md: OK\nfeeds/worker_resilience_status.json: FAILED\nworkers/pool/worker_resilience_policy.json: OK",
+        "stderr_tail": "sha256sum: WARNING: 1 computed checksum did NOT match"
+      }
+    ]
+  },
+  "committees": {
+    "committees_count": 63,
+    "committees": [
+      "data/cybra_it_department/meta_evolution_analytics_department",
+      "data/cybra_it_department/meta_evolution_binary_committee",
+      "data/cybra_it_department/meta_evolution_finance_committee",
+      "data/cybra_it_department/meta_evolution_repair_department",
+      "parliament/committees/ai_task_committee",
+      "parliament/committees/ai_tasks_committee",
+      "parliament/committees/air_alert_task_committee",
+      "parliament/committees/analytics_committee_task_committee",
+      "parliament/committees/audit_dedupe_test_task_committee",
+      "parliament/committees/biometric_succession_task_committee",
+      "parliament/committees/closed_evolution_selfseal_task_committee",
+      "parliament/committees/codespace_runtime_committee",
+      "parliament/committees/codespaces_keepalive_task_committee",
+      "parliament/committees/codespaces_support_committee",
+      "parliament/committees/coin_approval_committee",
+      "parliament/committees/cybra_autofix_task_committee",
+      "parliament/committees/evo_committee_task_committee",
+      "parliament/committees/evo_council",
+      "parliament/committees/evolution_committee",
+      "parliament/committees/evolution_deployment_task_committee",
+      "parliament/committees/evolution_guard_task_committee",
+      "parliament/committees/evolution_tracker_committee",
+      "parliament/committees/executor_autoheal_task_committee",
+      "parliament/committees/executor_mapping_committee",
+      "parliament/committees/existing_tasks_activation_task_committee",
+      "parliament/committees/finance_department_task_committee",
+      "parliament/committees/finance_infrastructure_task_committee",
+      "parliament/committees/finance_market_price_committee",
+      "parliament/committees/frozen_license_committee",
+      "parliament/committees/github_autonomy_committee",
+      "parliament/committees/github_backend_committee",
+      "parliament/committees/github_double_backend_task_committee",
+      "parliament/committees/guardian_recovery_committee",
+      "parliament/committees/hash_module_test_task_committee",
+      "parliament/committees/institution_audit_task_committee",
+      "parliament/committees/it_department",
+      "parliament/committees/kibra_bridge_pool_task_committee",
+      "parliament/committees/kibra_market_exchange_task_committee",
+      "parliament/committees/kibra_market_price_confirmation_committee",
+      "parliament/committees/kibra_token_chain_task_committee",
+      "parliament/committees/mainnet_approval_committee",
+      "parliament/committees/mainnet_migration_committee",
+      "parliament/committees/monetization_department_task_committee",
+      "parliament/committees/native_kibra_evolution_task_committee",
+      "parliament/committees/native_token_ecosystem_task_committee",
+      "parliament/committees/owner_orchestrator_task_committee",
+      "parliament/committees/parliament_support_committee",
+      "parliament/committees/pmz_historical_metadata_task_committee",
+      "parliament/committees/proof",
+      "parliament/committees/queue_fix_committee",
+      "parliament/committees/queue_integrity_committee",
+      "parliament/committees/revision_organ_task_committee",
+      "parliament/committees/runtime_continuity_subcommittee",
+      "parliament/committees/safety_alert_committee",
+      "parliament/committees/self_expanding_execution_engine_task_committee",
+      "parliament/committees/self_expansion_committee",
+      "parliament/committees/smart_autofix_mining_pool_task_committee",
+      "parliament/committees/task_execution_testing_committee",
+      "parliament/committees/task_lifecycle_committee",
+      "parliament/committees/termux_menubar_committee",
+      "parliament/committees/test_committee",
+      "parliament/committees/testing_committee",
+      "parliament/committees/token_pool_ai_task_committee"
+    ]
+  },
+  "latest": {
+    "meta_evolution": {},
+    "token_check": {},
+    "kibra_state": {
+      "timestamp": "2026-06-07T15:21:04",
+      "network": "KIBRA_INTERNAL_MAINNET_TEST",
+      "chain_id": "kibra-mainnet-internal-c16752607334018d",
+      "status": "INTERNAL_MAINNET_RUNNING",
+      "latest_height": 22,
+      "genesis_hash": "031ff4302ad2952751bb0849a8d1e81f0006946078851063636e56d27233dae2",
+      "latest_block_hash": "e7b891029181fc603a4cea621642eab9b4b4b59dbc1a91f3d55b1371db806bc5",
+      "blocks_count": 23,
+      "test_blocks_snapshot_count": 60,
+      "miners_count": 1,
+      "balances": {
+        "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y": {
+          "pre_mainnet_claim_blocks": 60,
+          "internal_candidate_credit": 60,
+          "real_reward_now": 0,
+          "claim_status": "WALLET_BOUND_INTERNAL_MAINNET_TEST_ONLY",
+          "wallet": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
+          "previous_miner_id": "unknown_miner"
+        }
+      },
+      "external_live": false,
+      "safety": {
+        "real_payment_now": false,
+        "real_trading_now": false,
+        "automatic_SWIFT": false,
+        "automatic_external_tx": false,
+        "automatic_withdrawals": false,
+        "automatic_real_rewards": false,
+        "external_bridge_enabled": false,
+        "bank_live_mode": false,
+        "psp_live_mode": false,
+        "mainnet_scope": "INTERNAL_NODE_ONLY",
+        "manual_OWNER_approval_required_for_external_live": true,
+        "cyber_parliament_approval_required_for_external_live": true
+      },
+      "last_wallet_binding": {
+        "final_id": "KIBRA-MAINNET-READINESS-20260607_124537",
+        "timestamp": "2026-06-07T12:45:37",
+        "status": "MINER_WALLET_BOUND_AND_VALIDATED",
+        "wallet": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
+        "previous_miner_id": "unknown_miner",
+        "network": "KIBRA_INTERNAL_MAINNET_TEST",
+        "chain_id": "kibra-mainnet-internal-c16752607334018d",
+        "pre_mainnet_claim_blocks": 60,
+        "internal_candidate_credit": 60,
+        "real_reward_now": 0,
+        "binding_scope": "INTERNAL_MAINNET_TEST_AND_MAINNET_CANDIDATE_CLAIM",
+        "safety": {
+          "wallet_binding_is_not_payout": true,
+          "real_payment_now": false,
+          "automatic_external_tx": false,
+          "automatic_withdrawals": false,
+          "automatic_real_rewards": false,
+          "external_live": false,
+          "manual_OWNER_approval_required_for_external_live": true,
+          "cyber_parliament_approval_required_for_external_live": true
+        }
+      },
+      "node_wallet": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y"
+    },
+    "structure_fix": {},
+    "smoke_test": {},
+    "proof_department": {},
+    "binary_report": {}
+  },
+  "safety": {
+    "real_payment_now": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false
+  },
+  "analytics": {
+    "problems_count": 13,
+    "problems": [
+      "Proof failures: 61",
+      "Git has uncommitted changes: 1686",
+      "No binary-safe blobs",
+      "Queue too large: cybra:meta:evolution:pool=1020",
+      "Queue too large: cybra:kibra:pool:mining_blocks=1020",
+      "Queue too large: cybra:ai:tasks:block_inbox=1020",
+      "Queue too large: cybra:finance:evolution:pool=1020",
+      "Queue too large: cybra:completed:ai_tasks=1019",
+      "Queue too large: cybra:return:ai_tasks=1019",
+      "Queue too large: ai_block_inbox=1020",
+      "Queue too large: cybra_mgs_all=1020",
+      "Queue too large: cybra_oracle_tasks=1020",
+      "Queue too large: parliament_inbox=1020"
+    ],
+    "fixes": [
+      "Rebuild stale proofs: cybra-structure-fix all && cybra-structure-fix proof",
+      "Review: git status --short",
+      "Run: cybra-structure-fix binary",
+      "Process queue or scale workers for: cybra:meta:evolution:pool",
+      "Process queue or scale workers for: cybra:kibra:pool:mining_blocks",
+      "Process queue or scale workers for: cybra:ai:tasks:block_inbox",
+      "Process queue or scale workers for: cybra:finance:evolution:pool",
+      "Process queue or scale workers for: cybra:completed:ai_tasks",
+      "Process queue or scale workers for: cybra:return:ai_tasks",
+      "Process queue or scale workers for: ai_block_inbox",
+      "Process queue or scale workers for: cybra_mgs_all",
+      "Process queue or scale workers for: cybra_oracle_tasks",
+      "Process queue or scale workers for: parliament_inbox"
+    ],
+    "ages": {
+      "meta_evolution_report_age_sec": null,
+      "structure_report_age_sec": null,
+      "token_check_age_sec": null
+    }
+  }
+}
