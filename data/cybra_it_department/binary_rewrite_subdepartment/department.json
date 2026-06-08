@@ -1,0 +1,11 @@
+{
+  "name": "CYBRA Binary Rewrite Subdepartment",
+  "path": "data/cybra_it_department/binary_rewrite_subdepartment",
+  "responsibility": [
+    "compile Python into bytecode",
+    "pack scripts into binary-safe gzip blobs",
+    "create library manifests",
+    "do not delete source files",
+    "do not hide secrets in git"
+  ]
+}

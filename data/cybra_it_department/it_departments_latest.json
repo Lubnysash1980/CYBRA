@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-06-08T10:33:26",
+  "status": "IT_DEPARTMENTS_CREATED",
+  "departments": {
+    "structure_department": {
+      "name": "CYBRA IT Structure Department",
+      "path": "data/cybra_it_department/structure_department",
+      "responsibility": [
+        "collect full project structure",
+        "validate required folders",
+        "detect missing files",
+        "build structure manifests",
+        "route fixes to AI blocks and pools"
+      ]
+    },
+    "binary_rewrite_subdepartment": {
+      "name": "CYBRA Binary Rewrite Subdepartment",
+      "path": "data/cybra_it_department/binary_rewrite_subdepartment",
+      "responsibility": [
+        "compile Python into bytecode",
+        "pack scripts into binary-safe gzip blobs",
+        "create library manifests",
+        "do not delete source files",
+        "do not hide secrets in git"
+      ]
+    },
+    "proof_department": {
+      "name": "CYBRA Proof Department",
+      "path": "data/cybra_it_department/proof_department",
+      "responsibility": [
+        "produce sha256 proofs",
+        "produce multicurrency proof account",
+        "produce token proof",
+        "connect proof reports to AI tasks",
+        "connect proof reports to KIBRA task blocks"
+      ]
+    }
+  },
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "bank_live_mode": false,
+    "psp_live_mode": false,
+    "do_not_store_secrets_in_git": true,
+    "manual_OWNER_approval_required_for_external_live": true,
+    "cyber_parliament_approval_required_for_external_live": true
+  }
+}

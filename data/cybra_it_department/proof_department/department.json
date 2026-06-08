@@ -1,0 +1,11 @@
+{
+  "name": "CYBRA Proof Department",
+  "path": "data/cybra_it_department/proof_department",
+  "responsibility": [
+    "produce sha256 proofs",
+    "produce multicurrency proof account",
+    "produce token proof",
+    "connect proof reports to AI tasks",
+    "connect proof reports to KIBRA task blocks"
+  ]
+}

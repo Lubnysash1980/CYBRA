@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-06-08T10:34:35",
+  "status": "AI_BLOCK_CREATED_AND_ROUTED",
+  "task_id": "AI-STRUCT-BINARY-PROOF-20260608_103435",
+  "task_file": "data/cybra_ai_blocks/AI-STRUCT-BINARY-PROOF-20260608_103435.json",
+  "kibra_task_block": "blockchain/kibra_chain/task_blocks/AI-STRUCT-BINARY-PROOF-20260608_103435.json",
+  "usha_seal": {
+    "mode": "openssl_aes_256_cbc_pbkdf2",
+    "raw": "data/cybra_usha_tunnel/outbox/AI-STRUCT-BINARY-PROOF-20260608_103435.json",
+    "sealed": "data/cybra_usha_tunnel/outbox/AI-STRUCT-BINARY-PROOF-20260608_103435.enc",
+    "sha256": "653759836c1bb49f2ec7cd9c1d4f8555fd0fbcc0567b722eb796570b1729f3e8",
+    "key_location": ".cybra_local_secret/usha.key",
+    "git_safe": true
+  },
+  "redis_routes": {
+    "cybra_mgs_all": false,
+    "cybra_oracle_tasks": true,
+    "ai_block_inbox": true,
+    "it_department": true,
+    "parliament_inbox": true,
+    "cybra:kibra:pool:mining_blocks": true,
+    "cybra:ai:tasks:block_inbox": true
+  },
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "bank_live_mode": false,
+    "psp_live_mode": false,
+    "do_not_store_secrets_in_git": true,
+    "manual_OWNER_approval_required_for_external_live": true,
+    "cyber_parliament_approval_required_for_external_live": true
+  }
+}

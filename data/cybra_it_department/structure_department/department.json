@@ -1,0 +1,11 @@
+{
+  "name": "CYBRA IT Structure Department",
+  "path": "data/cybra_it_department/structure_department",
+  "responsibility": [
+    "collect full project structure",
+    "validate required folders",
+    "detect missing files",
+    "build structure manifests",
+    "route fixes to AI blocks and pools"
+  ]
+}

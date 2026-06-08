@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-06-08T10:34:35",
+  "status": "PROOF_DEPARTMENT_FULL_CREATED",
+  "multicurrency_proof": "data/cybra_proof_department/multicurrency/proof_account_latest.json",
+  "token_proof": "data/cybra_proof_department/tokens/kibra_token_proof_latest.json",
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "bank_live_mode": false,
+    "psp_live_mode": false,
+    "do_not_store_secrets_in_git": true,
+    "manual_OWNER_approval_required_for_external_live": true,
+    "cyber_parliament_approval_required_for_external_live": true
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "task_id": "AI-STRUCT-BINARY-PROOF-20260608_103435",
+  "timestamp": "2026-06-08T10:34:35",
+  "title": "Fix CYBRA structure, binary-safe rewrite, proof token, AI block to KIBRA pools",
+  "priority": "HIGH",
+  "wallet": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
+  "departments": [
+    "cybra_it_structure_department",
+    "cybra_binary_rewrite_subdepartment",
+    "cybra_proof_department",
+    "cybra_ai_block_pool_router",
+    "cybra_usha_tunnel"
+  ],
+  "required_work": [
+    "scan full structure",
+    "detect missing structure",
+    "create IT structure department",
+    "create binary rewrite subdepartment",
+    "compile Python to bytecode",
+    "pack scripts/configs into binary-safe gzip blobs",
+    "create GitHub library manifests",
+    "create AI block",
+    "send AI block to pools through USHA sealed tunnel",
+    "create multicurrency proof account",
+    "create token proof",
+    "create KIBRA coin proof"
+  ],
+  "routes": [
+    "cybra_mgs_all",
+    "cybra_oracle_tasks",
+    "ai_block_inbox",
+    "it_department",
+    "parliament_inbox",
+    "cybra:kibra:pool:mining_blocks",
+    "cybra:ai:tasks:block_inbox"
+  ],
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "bank_live_mode": false,
+    "psp_live_mode": false,
+    "do_not_store_secrets_in_git": true,
+    "manual_OWNER_approval_required_for_external_live": true,
+    "cyber_parliament_approval_required_for_external_live": true
+  }
+}

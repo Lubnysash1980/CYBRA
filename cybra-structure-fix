@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+cd "$HOME/CYBRA" || exit 1
+WALLET="${KIBRA_WALLET:-FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y}"
+
+case "$1" in
+  all|"")
+    python3 scripts/it/cybra_structure_binary_system.py all "$WALLET"
+    ;;
+  scan)
+    python3 scripts/it/cybra_structure_binary_system.py scan "$WALLET"
+    ;;
+  binary)
+    python3 scripts/it/cybra_structure_binary_system.py binary "$WALLET"
+    ;;
+  departments)
+    python3 scripts/it/cybra_structure_binary_system.py departments "$WALLET"
+    ;;
+  ai-block)
+    python3 scripts/it/cybra_structure_binary_system.py ai-block "$WALLET"
+    ;;
+  proof-dept)
+    python3 scripts/it/cybra_structure_binary_system.py proof "$WALLET"
+    ;;
+  status)
+    python3 scripts/it/cybra_structure_binary_system.py status "$WALLET"
+    ;;
+  proof)
+    sha256sum -c proofs/cybra_structure_binary_proof_system.sha256
+    ;;
+  validate)
+    python3 scripts/it/cybra_structure_binary_system.py validate "$WALLET"
+    ;;
+  serve)
+    python3 -m http.server 8793 --bind 127.0.0.1 --directory dashboard/cybra_structure
+    ;;
+  *)
+    echo "Commands:"
+    echo "  cybra-structure-fix all"
+    echo "  cybra-structure-fix scan"
+    echo "  cybra-structure-fix binary"
+    echo "  cybra-structure-fix departments"
+    echo "  cybra-structure-fix ai-block"
+    echo "  cybra-structure-fix proof-dept"
+    echo "  cybra-structure-fix status"
+    echo "  cybra-structure-fix proof"
+    echo "  cybra-structure-fix validate"
+    echo "  cybra-structure-fix serve"
+    ;;
+esac
