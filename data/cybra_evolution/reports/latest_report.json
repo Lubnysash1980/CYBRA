@@ -1,16 +1,16 @@
 {
   "status": "evolution_snapshot",
-  "date": "2026-06-05",
-  "time": 1780652557.990657,
-  "time_iso": "2026-06-05T12:42:37+0300",
-  "score_percent": 84.73,
+  "date": "2026-06-08",
+  "time": 1780917943.422008,
+  "time_iso": "2026-06-08T11:25:43+0000",
+  "score_percent": 74.46,
   "score_parts": {
-    "module_readiness": 100.0,
-    "report_readiness": 90.91,
+    "module_readiness": 92.86,
+    "report_readiness": 72.73,
     "recovery_readiness": 100.0,
     "github_codespace_readiness": 100.0,
     "parliament_health": 100,
-    "kibra_growth": 100,
+    "kibra_growth": 46.33,
     "finance_readiness": 0.0,
     "market_readiness": 0,
     "security_health": 100
@@ -21,7 +21,7 @@
     "autoheal": true,
     "security": true,
     "conformation8": true,
-    "dashboard": true,
+    "dashboard": false,
     "codespace_runtime": true,
     "github_workflow": true,
     "parliament_executor": true,
@@ -41,19 +41,19 @@
     "dashboard": false,
     "codespace_runtime": true,
     "kibra_stats": true,
-    "mint_promo": true,
-    "ai_blocks": true
+    "mint_promo": false,
+    "ai_blocks": false
   },
   "blocks": {
     "main_blocks": 10,
-    "task_blocks": 311,
-    "estimated_kibra_default_reward_100": 32100
+    "task_blocks": 139,
+    "estimated_kibra_default_reward_100": 14900
   },
   "queues": {
-    "ai_block_inbox": 1,
+    "ai_block_inbox": 0,
     "task_block_mempool": 0,
     "pool_mining_blocks": 0,
-    "parliament_queue": 1,
+    "parliament_queue": 0,
     "parliament_results": 0,
     "parliament_failed": 0
   },
@@ -75,8 +75,8 @@
     "automatic_external_tx": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "96d47db4bf835cb1c2981c4a0dfaf63f1831c7190bbdfbf06ed43397628a1599",
+  "double_sha": "1e2f5d508cebd36981fa780b7ddf28f57d65182583a14e983f4aaa198bc51ced",
   "previous_score_percent": 84.73,
-  "daily_delta_percent": 0.0,
-  "movement": "stable_but_blocks_changed"
+  "daily_delta_percent": -10.27,
+  "movement": "regressed"
 }
