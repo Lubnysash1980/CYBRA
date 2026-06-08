@@ -1,0 +1,41 @@
+{
+  "task_id": "LIVE-ON-REQUEST-20260608_231416",
+  "timestamp": "2026-06-08T23:14:16",
+  "status": "LIVE_ON_REQUEST_CREATED_NOT_ENABLED",
+  "title": "Cyberbot live mode request",
+  "body": "Request to review possible live mode for Bybit/Binance. Real live orders remain disabled until separate manual OWNER approval and audit.",
+  "routes": {
+    "it_department": true,
+    "cyber_parliament": true,
+    "finance_audit": true,
+    "risk_audit_committee": true,
+    "api_security_committee": true
+  },
+  "required_checks_before_any_live": [
+    "API keys local only",
+    "withdrawals disabled on exchange API",
+    "IP restrictions checked",
+    "paper/testnet logs verified",
+    "PIP and risk limits verified",
+    "manual OWNER approval created separately",
+    "live_orders_enabled remains false until all checks pass"
+  ],
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "live_orders_enabled": false,
+    "live_order_requested": true,
+    "live_order_gate": "OWNER_APPROVAL_PENDING",
+    "paper_trading": true,
+    "testnet_mode": true,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "manual_OWNER_approval_required": true,
+    "it_supervision_required": true,
+    "cyber_parliament_supervision_required": true,
+    "api_keys_stored_local_only": true,
+    "do_not_store_secrets_in_git": true
+  }
+}

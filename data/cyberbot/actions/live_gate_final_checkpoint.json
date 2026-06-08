@@ -1,0 +1,17 @@
+{
+  "status": "LIVE_GATE_FINAL_CHECKPOINT",
+  "live_orders_enabled": false,
+  "real_trading_now": false,
+  "allow_live_orders": false,
+  "live_order_gate": "REQUESTED_AUDIT_AND_OWNER_APPROVAL_REQUIRED",
+  "who_can_enable_live_orders": "OWNER_ONLY_AFTER_IT_PARLIAMENT_FINANCE_AUDIT",
+  "required_before_live": [
+    "IT audit",
+    "CyberParliament review",
+    "Finance/Risk audit",
+    "API permissions check",
+    "withdrawals disabled on exchange API",
+    "paper/testnet logs checked",
+    "separate manual OWNER approval"
+  ]
+}

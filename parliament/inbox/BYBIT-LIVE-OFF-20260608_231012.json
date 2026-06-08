@@ -1,0 +1,30 @@
+{
+  "task_id": "BYBIT-LIVE-OFF-20260608_231012",
+  "timestamp": "2026-06-08T23:10:12",
+  "status": "BYBIT_LIVE_DISABLED",
+  "title": "Bybit live mode disabled",
+  "body": "Bybit live-orders are disabled. Paper/testnet mode remains allowed. API key remains local-only.",
+  "routes": {
+    "it_department": true,
+    "cyber_parliament": true,
+    "finance_audit": true,
+    "cyberbot": true
+  },
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "live_orders_enabled": false,
+    "bybit_live_enabled": false,
+    "paper_trading": true,
+    "testnet_mode": true,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "manual_OWNER_approval_required": true,
+    "it_supervision_required": true,
+    "cyber_parliament_supervision_required": true,
+    "api_keys_stored_local_only": true,
+    "do_not_store_secrets_in_git": true
+  }
+}

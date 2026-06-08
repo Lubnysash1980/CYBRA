@@ -1,0 +1,34 @@
+{
+  "task_id": "CYBERBOT-TASK-20260608_232039",
+  "timestamp": "2026-06-08T23:20:39",
+  "status": "CYBERBOT_AI_TASK_CREATED",
+  "title": "Перевірити Bybit/Binance API status, PIP=10, paper/testnet supervisor logs, live_order_gate=OWNER_APPROVAL_PENDING, queues IT/Parliament/Audit, заборону withdrawals/SWIFT/external tx, і підготувати рекомендації без увімкнення live_orders.",
+  "body": "Перевірити Bybit/Binance API status, PIP=10, paper/testnet supervisor logs, live_order_gate=OWNER_APPROVAL_PENDING, queues IT/Parliament/Audit, заборону withdrawals/SWIFT/external tx, і підготувати рекомендації без увімкнення live_orders.",
+  "exchange": "all",
+  "routes": {
+    "it_department": true,
+    "cyber_parliament": true,
+    "finance_audit": true,
+    "meta_evolution": true,
+    "bybit": true,
+    "binance": true
+  },
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "live_orders_enabled": false,
+    "live_order_button_creates_request_only": true,
+    "paper_trading": true,
+    "testnet_mode": true,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "manual_OWNER_approval_required": true,
+    "it_supervision_required": true,
+    "cyber_parliament_supervision_required": true,
+    "api_keys_stored_local_only": true,
+    "do_not_store_secrets_in_git": true,
+    "github_import_safe": true
+  }
+}
