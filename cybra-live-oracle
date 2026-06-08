@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+cd "$HOME/CYBRA" && python3 scripts/oracle_bridge/live_oracle_germany.py "$@"
