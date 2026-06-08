@@ -2,36 +2,166 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>CYBRA Load Monitor</title>
+<title>CYBRA Branch Load Monitor</title>
 <style>
-body { font-family: system-ui, sans-serif; max-width: 1100px; margin: 35px auto; padding: 20px; }
+body { font-family: system-ui, sans-serif; max-width: 1280px; margin: 30px auto; padding: 20px; }
 table { border-collapse: collapse; width: 100%; }
-td, th { border: 1px solid #ddd; padding: 8px; }
+td, th { border: 1px solid #ddd; padding: 8px; vertical-align: top; }
 .red { color: #c40000; font-weight: 800; }
+.green { color: #008a2e; font-weight: 800; }
 .yellow { color: #a36b00; font-weight: 800; }
-.green { color: #007a2f; font-weight: 800; }
+.neutral { color: #555; font-weight: 800; }
 .card { border: 1px solid #ddd; border-radius: 14px; padding: 16px; margin: 14px 0; }
+.btn { display:inline-block; padding:6px 9px; margin:3px; border:1px solid #999; border-radius:8px; text-decoration:none; }
+.btn.red { border-color:#c40000; }
+.btn.green { border-color:#008a2e; }
+.btn.yellow { border-color:#a36b00; }
+.btn.neutral { border-color:#555; }
 code { word-break: break-all; }
 </style>
 </head>
 <body>
-<h1>CYBRA Redis / Task / Process Load</h1>
+<h1>CYBRA Branch Load Monitor V2</h1>
+
 <div class="card">
-<p>Status: <b>CYBRA_LOAD_MONITOR_OK</b></p>
-<p>Redis: <b>True</b></p>
-<p>Done: <span class="green">(0)</span></p>
-<p>Returned unfinished: <span class="red">(0)</span></p>
-<p>Pending all: <span class="green">(0)</span></p>
-<p>Git branch: <code>main</code>, dirty: <span class="red">(3305)</span></p>
+<p><b>Legend:</b></p>
+<p class="red">червоне = невиконане / pending / returned</p>
+<p class="green">зелене = виконується / running / process active</p>
+<p class="neutral">нейтральне = виконане / done</p>
 </div>
-<h2>Queues / branches</h2>
+
+<div class="card">
+<p>Time: <code>2026-06-08T12:56:30</code></p>
+<p>Redis: <b>True</b></p>
+<p>Git branch: <code>main</code>, dirty: <span class="yellow">(3310)</span></p>
+<p>Pending: <span class="red">(3)</span> | Running: <span class="green">(1)</span> | Done: <span class="neutral">(5)</span> | Return: <span class="red">(5)</span> | Audit: <span class="yellow">(4)</span></p>
+<p>Processes running: <span class="green">(1)</span> | Missing: <span class="red">(5)</span></p>
+</div>
+
 <table>
-<tr><th>Гілка</th><th>Навантаження</th><th>Тип</th></tr>
-<tr><td><b>DONE / виконані</b></td><td class='green'>(0)</td><td></td></tr><tr><td>cybra:completed:ai_tasks</td><td class='green'>(0)</td><td>queue</td></tr><tr><td><b>RETURN / невиконані назад</b></td><td class='green'>(0)</td><td></td></tr><tr><td>cybra:return:ai_tasks</td><td class='green'>(0)</td><td>queue</td></tr><tr><td><b>META EVOLUTION</b></td><td class='green'>(0)</td><td></td></tr><tr><td>cybra:meta:evolution:pool</td><td class='green'>(0)</td><td>queue</td></tr><tr><td><b>KIBRA POOLS</b></td><td class='green'>(0)</td><td></td></tr><tr><td>cybra:kibra:pool:mining_blocks</td><td class='green'>(0)</td><td>queue</td></tr><tr><td>cybra:ai:tasks:block_inbox</td><td class='green'>(0)</td><td>queue</td></tr><tr><td>ai_block_inbox</td><td class='green'>(0)</td><td>queue</td></tr><tr><td><b>IT / STRUCTURE</b></td><td class='green'>(0)</td><td></td></tr><tr><td>it_department</td><td class='green'>(0)</td><td>queue</td></tr><tr><td>cybra_mgs_all</td><td class='green'>(0)</td><td>queue</td></tr><tr><td><b>FINANCE</b></td><td class='green'>(0)</td><td></td></tr><tr><td>cybra:finance:evolution:pool</td><td class='green'>(0)</td><td>queue</td></tr><tr><td>cybra_finance_evolution</td><td class='green'>(0)</td><td>queue</td></tr><tr><td><b>ORACLE / CODESPACE</b></td><td class='green'>(0)</td><td></td></tr><tr><td>cybra_oracle_tasks</td><td class='green'>(0)</td><td>queue</td></tr><tr><td>cybra_codespace_inbox</td><td class='green'>(0)</td><td>queue</td></tr><tr><td><b>PARLIAMENT</b></td><td class='green'>(0)</td><td></td></tr><tr><td>parliament_inbox</td><td class='green'>(0)</td><td>queue</td></tr>
+<tr>
+<th>Гілка / структура</th>
+<th>Статус</th>
+<th>Невиконане</th>
+<th>Виконується</th>
+<th>Виконане</th>
+<th>Return</th>
+<th>Audit</th>
+<th>Процеси йдуть / не йдуть</th>
+<th>Навантаження</th>
+<th>Кнопки</th>
+</tr>
+
+<tr>
+<td><b>FINANCE / фінансові задачі</b><br><small>банк, PSP, токени, proof, KIBRA finance</small></td>
+<td class="red">НЕВИКОНАНЕ</td>
+<td class="red">(3)</td>
+<td class="green">(0)</td>
+<td class="neutral">(3)</td>
+<td class="red">(3)</td>
+<td class="yellow">(4)</td>
+<td><span class="green">(0)</span> / <span class="red">(1)</span></td>
+<td class="red">(100%)</td>
+<td>
+<a class="btn yellow" href="/action?branch=finance&do=audit">Аудит</a>
+<a class="btn red" href="/action?branch=finance&do=return">На доопрацювання</a>
+<a class="btn neutral" href="/action?branch=finance&do=done">Виконано</a>
+<a class="btn green" href="/action?branch=finance&do=rebalance">Розвантажити</a>
+</td>
+</tr>
+
+<tr>
+<td><b>META EVOLUTION / еволюція</b><br><small>екосистема задач, layers, AI-blocks, committees</small></td>
+<td class="red">НЕВИКОНАНЕ</td>
+<td class="red">(0)</td>
+<td class="green">(0)</td>
+<td class="neutral">(2)</td>
+<td class="red">(2)</td>
+<td class="yellow">(0)</td>
+<td><span class="green">(0)</span> / <span class="red">(1)</span></td>
+<td class="yellow">(50%)</td>
+<td>
+<a class="btn yellow" href="/action?branch=meta&do=audit">Аудит</a>
+<a class="btn red" href="/action?branch=meta&do=return">На доопрацювання</a>
+<a class="btn neutral" href="/action?branch=meta&do=done">Виконано</a>
+<a class="btn green" href="/action?branch=meta&do=rebalance">Розвантажити</a>
+</td>
+</tr>
+
+<tr>
+<td><b>KIBRA POOLS / монета і пули</b><br><small>mining queue, task blocks, KIBRA chain</small></td>
+<td class="green">ВИКОНУЄТЬСЯ</td>
+<td class="red">(0)</td>
+<td class="green">(1)</td>
+<td class="neutral">(0)</td>
+<td class="red">(0)</td>
+<td class="yellow">(0)</td>
+<td><span class="green">(1)</span> / <span class="red">(0)</span></td>
+<td class="green">(6%)</td>
+<td>
+<a class="btn yellow" href="/action?branch=kibra&do=audit">Аудит</a>
+<a class="btn red" href="/action?branch=kibra&do=return">На доопрацювання</a>
+<a class="btn neutral" href="/action?branch=kibra&do=done">Виконано</a>
+<a class="btn green" href="/action?branch=kibra&do=rebalance">Розвантажити</a>
+</td>
+</tr>
+
+<tr>
+<td><b>IT STRUCTURE / структура</b><br><small>структура, binary-safe, proof, автозбір</small></td>
+<td class="yellow">НЕЙТРАЛЬНО</td>
+<td class="red">(0)</td>
+<td class="green">(0)</td>
+<td class="neutral">(0)</td>
+<td class="red">(0)</td>
+<td class="yellow">(0)</td>
+<td><span class="green">(0)</span> / <span class="red">(1)</span></td>
+<td class="green">(20%)</td>
+<td>
+<a class="btn yellow" href="/action?branch=structure&do=audit">Аудит</a>
+<a class="btn red" href="/action?branch=structure&do=return">На доопрацювання</a>
+<a class="btn neutral" href="/action?branch=structure&do=done">Виконано</a>
+<a class="btn green" href="/action?branch=structure&do=rebalance">Розвантажити</a>
+</td>
+</tr>
+
+<tr>
+<td><b>ORACLE / CODESPACE</b><br><small>Oracle VPS, Codespace, remote workers</small></td>
+<td class="yellow">НЕЙТРАЛЬНО</td>
+<td class="red">(0)</td>
+<td class="green">(0)</td>
+<td class="neutral">(0)</td>
+<td class="red">(0)</td>
+<td class="yellow">(0)</td>
+<td><span class="green">(0)</span> / <span class="red">(1)</span></td>
+<td class="green">(20%)</td>
+<td>
+<a class="btn yellow" href="/action?branch=oracle&do=audit">Аудит</a>
+<a class="btn red" href="/action?branch=oracle&do=return">На доопрацювання</a>
+<a class="btn neutral" href="/action?branch=oracle&do=done">Виконано</a>
+<a class="btn green" href="/action?branch=oracle&do=rebalance">Розвантажити</a>
+</td>
+</tr>
+
+<tr>
+<td><b>CYBER PARLIAMENT / парламент</b><br><small>комітети, голосування, review, approval</small></td>
+<td class="yellow">НЕЙТРАЛЬНО</td>
+<td class="red">(0)</td>
+<td class="green">(0)</td>
+<td class="neutral">(0)</td>
+<td class="red">(0)</td>
+<td class="yellow">(0)</td>
+<td><span class="green">(0)</span> / <span class="red">(1)</span></td>
+<td class="green">(20%)</td>
+<td>
+<a class="btn yellow" href="/action?branch=parliament&do=audit">Аудит</a>
+<a class="btn red" href="/action?branch=parliament&do=return">На доопрацювання</a>
+<a class="btn neutral" href="/action?branch=parliament&do=done">Виконано</a>
+<a class="btn green" href="/action?branch=parliament&do=rebalance">Розвантажити</a>
+</td>
+</tr>
+
 </table>
-<h2>Recommendations</h2>
-<ul>
-<li>Навантаження нормальне. Критичних черг не видно.</li>
-</ul>
+
+<p><a href="/json">JSON</a> | <a href="/">Refresh</a></p>
 </body>
 </html>

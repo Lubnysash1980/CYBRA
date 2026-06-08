@@ -1,125 +1,302 @@
 {
-  "timestamp": "2026-06-08T12:38:23",
-  "status": "CYBRA_LOAD_MONITOR_OK",
+  "timestamp": "2026-06-08T12:56:30",
+  "status": "CYBRA_BRANCH_LOAD_MONITOR_OK",
   "redis_ok": true,
-  "summary": {
-    "done_tasks_redis": 0,
-    "returned_unfinished_redis": 0,
-    "pending_all_redis": 0,
-    "process_lines": 11,
-    "git_branch": "main",
-    "git_dirty_files": 3305
-  },
-  "queue_groups": {
-    "DONE / виконані": [
-      {
-        "queue": "cybra:completed:ai_tasks",
-        "count": 0
-      }
-    ],
-    "RETURN / невиконані назад": [
-      {
-        "queue": "cybra:return:ai_tasks",
-        "count": 0
-      }
-    ],
-    "META EVOLUTION": [
-      {
-        "queue": "cybra:meta:evolution:pool",
-        "count": 0
-      }
-    ],
-    "KIBRA POOLS": [
-      {
-        "queue": "cybra:kibra:pool:mining_blocks",
-        "count": 0
-      },
-      {
-        "queue": "cybra:ai:tasks:block_inbox",
-        "count": 0
-      },
-      {
-        "queue": "ai_block_inbox",
-        "count": 0
-      }
-    ],
-    "IT / STRUCTURE": [
-      {
-        "queue": "it_department",
-        "count": 0
-      },
-      {
-        "queue": "cybra_mgs_all",
-        "count": 0
-      }
-    ],
-    "FINANCE": [
-      {
-        "queue": "cybra:finance:evolution:pool",
-        "count": 0
-      },
-      {
-        "queue": "cybra_finance_evolution",
-        "count": 0
-      }
-    ],
-    "ORACLE / CODESPACE": [
-      {
-        "queue": "cybra_oracle_tasks",
-        "count": 0
-      },
-      {
-        "queue": "cybra_codespace_inbox",
-        "count": 0
-      }
-    ],
-    "PARLIAMENT": [
-      {
-        "queue": "parliament_inbox",
-        "count": 0
-      }
-    ]
-  },
-  "process_counts": {
-    "redis-server": 1,
-    "python": 2,
-    "uvicorn": 0,
-    "cybra": 0,
-    "kibra": 0,
-    "node": 0,
-    "pm2": 0,
-    "ssh": 0,
-    "git": 0,
-    "total_process_lines": 11
-  },
-  "file_task_counts": {
-    "AI blocks": 2,
-    "KIBRA task blocks": 139,
-    "Meta evolution blocks": 87,
-    "Meta modules": 87,
-    "Finance IT tasks": 1,
-    "Oracle tasks": 35,
-    "MGS tasks": 37,
-    "Completed": 0,
-    "Returned": 1
-  },
   "git": {
     "repo": true,
     "branch": "main",
-    "dirty_files": 3305,
-    "remote": [
-      "origin\tgit@github.com:Lubnysash1980/CYBRA.git (fetch)",
-      "origin\tgit@github.com:Lubnysash1980/CYBRA.git (push)"
-    ]
+    "dirty_files": 3310
   },
-  "recommendations": [
-    "Навантаження нормальне. Критичних черг не видно."
-  ],
+  "totals": {
+    "pending": 3,
+    "running": 1,
+    "done": 5,
+    "returned": 5,
+    "audit": 4,
+    "process_running": 1,
+    "process_missing": 5
+  },
+  "branches": {
+    "finance": {
+      "slug": "finance",
+      "name": "FINANCE / фінансові задачі",
+      "description": "банк, PSP, токени, proof, KIBRA finance",
+      "status": "НЕВИКОНАНЕ",
+      "pending": 3,
+      "running": 0,
+      "running_queue": 0,
+      "done": 3,
+      "returned": 3,
+      "audit": 4,
+      "process_running": 0,
+      "process_missing": 1,
+      "process_expected": 1,
+      "process_details": {
+        "finance": 0,
+        "cybra_finance": 0,
+        "kibra": 0
+      },
+      "load_percent": 100,
+      "pending_queues": {
+        "cybra:finance:evolution:pool": 3,
+        "cybra_finance_evolution": 0
+      },
+      "running_queues": {
+        "cybra:branch:finance:running": 0
+      },
+      "done_queues": {
+        "cybra:branch:finance:done": 1,
+        "cybra:completed:ai_tasks": 2
+      },
+      "returned_queues": {
+        "cybra:branch:finance:return": 1,
+        "cybra:return:ai_tasks": 2
+      },
+      "audit_queues": {
+        "cybra:branch:finance:audit": 2,
+        "cybra:audit:finance": 2
+      },
+      "storage_total": 5,
+      "storage_counts": {
+        "data/cybra_finance/it_department/tasks": 1,
+        "data/cybra_finance/reports": 1,
+        "data/cybra_proof_department": 3
+      }
+    },
+    "meta": {
+      "slug": "meta",
+      "name": "META EVOLUTION / еволюція",
+      "description": "екосистема задач, layers, AI-blocks, committees",
+      "status": "НЕВИКОНАНЕ",
+      "pending": 0,
+      "running": 0,
+      "running_queue": 0,
+      "done": 2,
+      "returned": 2,
+      "audit": 0,
+      "process_running": 0,
+      "process_missing": 1,
+      "process_expected": 1,
+      "process_details": {
+        "meta_evolution": 0,
+        "cybra-meta-evo": 0
+      },
+      "load_percent": 50,
+      "pending_queues": {
+        "cybra:meta:evolution:pool": 0
+      },
+      "running_queues": {
+        "cybra:branch:meta:running": 0
+      },
+      "done_queues": {
+        "cybra:branch:meta:done": 0,
+        "cybra:completed:ai_tasks": 2
+      },
+      "returned_queues": {
+        "cybra:branch:meta:return": 0,
+        "cybra:return:ai_tasks": 2
+      },
+      "audit_queues": {
+        "cybra:branch:meta:audit": 0,
+        "cybra:audit:meta": 0
+      },
+      "storage_total": 175,
+      "storage_counts": {
+        "data/cybra_meta_evolution/modules": 87,
+        "data/cybra_meta_evolution/blocks": 87,
+        "data/cybra_meta_evolution/reports": 1
+      }
+    },
+    "kibra": {
+      "slug": "kibra",
+      "name": "KIBRA POOLS / монета і пули",
+      "description": "mining queue, task blocks, KIBRA chain",
+      "status": "ВИКОНУЄТЬСЯ",
+      "pending": 0,
+      "running": 1,
+      "running_queue": 0,
+      "done": 0,
+      "returned": 0,
+      "audit": 0,
+      "process_running": 1,
+      "process_missing": 0,
+      "process_expected": 1,
+      "process_details": {
+        "kibra": 0,
+        "miner": 0,
+        "redis-server": 1
+      },
+      "load_percent": 6,
+      "pending_queues": {
+        "cybra:kibra:pool:mining_blocks": 0,
+        "cybra:ai:tasks:block_inbox": 0,
+        "ai_block_inbox": 0
+      },
+      "running_queues": {
+        "cybra:branch:kibra:running": 0
+      },
+      "done_queues": {
+        "cybra:branch:kibra:done": 0
+      },
+      "returned_queues": {
+        "cybra:branch:kibra:return": 0
+      },
+      "audit_queues": {
+        "cybra:branch:kibra:audit": 0,
+        "cybra:audit:kibra": 0
+      },
+      "storage_total": 251,
+      "storage_counts": {
+        "blockchain/kibra_chain/task_blocks": 139,
+        "blockchain/kibra_chain/mainnet": 25,
+        "blockchain/kibra_chain/meta_evolution_blocks": 87
+      }
+    },
+    "structure": {
+      "slug": "structure",
+      "name": "IT STRUCTURE / структура",
+      "description": "структура, binary-safe, proof, автозбір",
+      "status": "НЕЙТРАЛЬНО",
+      "pending": 0,
+      "running": 0,
+      "running_queue": 0,
+      "done": 0,
+      "returned": 0,
+      "audit": 0,
+      "process_running": 0,
+      "process_missing": 1,
+      "process_expected": 1,
+      "process_details": {
+        "cybra-structure": 0,
+        "structure": 0,
+        "binary": 0
+      },
+      "load_percent": 20,
+      "pending_queues": {
+        "it_department": 0,
+        "cybra_mgs_all": 0
+      },
+      "running_queues": {
+        "cybra:branch:structure:running": 0
+      },
+      "done_queues": {
+        "cybra:branch:structure:done": 0
+      },
+      "returned_queues": {
+        "cybra:branch:structure:return": 0
+      },
+      "audit_queues": {
+        "cybra:branch:structure:audit": 0,
+        "cybra:audit:structure": 0
+      },
+      "storage_total": 7,
+      "storage_counts": {
+        "data/cybra_structure_autocollector": 3,
+        "data/cybra_binary_safe": 1,
+        "build/cybra_binary_safe": 3
+      }
+    },
+    "oracle": {
+      "slug": "oracle",
+      "name": "ORACLE / CODESPACE",
+      "description": "Oracle VPS, Codespace, remote workers",
+      "status": "НЕЙТРАЛЬНО",
+      "pending": 0,
+      "running": 0,
+      "running_queue": 0,
+      "done": 0,
+      "returned": 0,
+      "audit": 0,
+      "process_running": 0,
+      "process_missing": 1,
+      "process_expected": 1,
+      "process_details": {
+        "oracle": 0,
+        "ssh": 0,
+        "codespace": 0
+      },
+      "load_percent": 20,
+      "pending_queues": {
+        "cybra_oracle_tasks": 0,
+        "cybra_codespace_inbox": 0
+      },
+      "running_queues": {
+        "cybra:branch:oracle:running": 0
+      },
+      "done_queues": {
+        "cybra:branch:oracle:done": 0
+      },
+      "returned_queues": {
+        "cybra:branch:oracle:return": 0
+      },
+      "audit_queues": {
+        "cybra:branch:oracle:audit": 0,
+        "cybra:audit:oracle": 0
+      },
+      "storage_total": 35,
+      "storage_counts": {
+        "data/cybra_oracle/tasks": 35,
+        "scripts/oracle": 0,
+        ".github/workflows": 0
+      }
+    },
+    "parliament": {
+      "slug": "parliament",
+      "name": "CYBER PARLIAMENT / парламент",
+      "description": "комітети, голосування, review, approval",
+      "status": "НЕЙТРАЛЬНО",
+      "pending": 0,
+      "running": 0,
+      "running_queue": 0,
+      "done": 0,
+      "returned": 0,
+      "audit": 0,
+      "process_running": 0,
+      "process_missing": 1,
+      "process_expected": 1,
+      "process_details": {
+        "parliament": 0,
+        "uvicorn": 0
+      },
+      "load_percent": 20,
+      "pending_queues": {
+        "parliament_inbox": 0
+      },
+      "running_queues": {
+        "cybra:branch:parliament:running": 0
+      },
+      "done_queues": {
+        "cybra:branch:parliament:done": 0
+      },
+      "returned_queues": {
+        "cybra:branch:parliament:return": 0
+      },
+      "audit_queues": {
+        "cybra:branch:parliament:audit": 0,
+        "cybra:audit:parliament": 0
+      },
+      "storage_total": 306,
+      "storage_counts": {
+        "parliament": 186,
+        "posts": 0,
+        "feeds": 120
+      }
+    }
+  },
+  "legend": {
+    "red": "НЕВИКОНАНЕ / pending / returned",
+    "green": "ВИКОНУЄТЬСЯ / running / process active",
+    "neutral": "ВИКОНАНЕ / done",
+    "yellow": "НЕЙТРАЛЬНО / no active load"
+  },
   "safety": {
     "real_payment_now": false,
+    "real_trading_now": false,
     "automatic_external_tx": false,
     "automatic_withdrawals": false,
     "automatic_SWIFT": false,
-    "automatic_real_rewards": false
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "dashboard_actions_are_internal_only": true
   }
 }

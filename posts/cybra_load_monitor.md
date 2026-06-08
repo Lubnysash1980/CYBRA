@@ -1,58 +1,106 @@
-[1m=== CYBRA REDIS / TASK / PROCESS LOAD ===[0m
-Time: 2026-06-08T12:38:23
+[1m=== CYBRA BRANCH LOAD MONITOR V2 ===[0m
+Time: 2026-06-08T12:56:30
 Redis: [92mOK[0m
+Git branch: main dirty (3310)
+
+[1mLEGEND[0m
+[91mчервоне = невиконане / pending / returned[0m
+[92mзелене = виконується / process active[0m
+[90mнейтральне = виконане / done[0m
 
 [1mSUMMARY[0m
-Виконані Redis [92m(0)[0m
-Невиконані/повернуті Redis [92m(0)[0m
-Усі pending Redis [92m(0)[0m
-Git branch: [94mmain[0m dirty [91m(3305)[0m
+Невиконане pending: [91m(3)[0m
+Виконується running: [92m(1)[0m
+Виконане done: [90m(5)[0m
+Повернуте return: [91m(5)[0m
+Аудит audit: [93m(4)[0m
+Процеси йдуть: [92m(1)[0m
+Процеси не йдуть/відсутні: [91m(5)[0m
 
-[1mQUEUES / ГІЛКИ НАВАНТАЖЕННЯ[0m
-DONE / виконані: [92m(0)[0m
-  - cybra:completed:ai_tasks [92m(0)[0m
-RETURN / невиконані назад: [92m(0)[0m
-  - cybra:return:ai_tasks [92m(0)[0m
-META EVOLUTION: [92m(0)[0m
-  - cybra:meta:evolution:pool [92m(0)[0m
-KIBRA POOLS: [92m(0)[0m
-  - cybra:kibra:pool:mining_blocks [92m(0)[0m
-  - cybra:ai:tasks:block_inbox [92m(0)[0m
-  - ai_block_inbox [92m(0)[0m
-IT / STRUCTURE: [92m(0)[0m
-  - it_department [92m(0)[0m
-  - cybra_mgs_all [92m(0)[0m
-FINANCE: [92m(0)[0m
-  - cybra:finance:evolution:pool [92m(0)[0m
-  - cybra_finance_evolution [92m(0)[0m
-ORACLE / CODESPACE: [92m(0)[0m
-  - cybra_oracle_tasks [92m(0)[0m
-  - cybra_codespace_inbox [92m(0)[0m
-PARLIAMENT: [92m(0)[0m
-  - parliament_inbox [92m(0)[0m
+[1mBRANCHES / ГІЛКИ[0m
 
-[1mFILES / TASK STORAGE[0m
-AI blocks: [91m(2)[0m
-KIBRA task blocks: [91m(139)[0m
-Meta evolution blocks: [91m(87)[0m
-Meta modules: [91m(87)[0m
-Finance IT tasks: [91m(1)[0m
-Oracle tasks: [93m(35)[0m
-MGS tasks: [93m(37)[0m
-Completed: [92m(0)[0m
-Returned: [91m(1)[0m
+[1mFINANCE / фінансові задачі[0m
+  статус: [91mНЕВИКОНАНЕ[0m
+  навантаження: [91m(100%)[0m
+  невиконане: [91m(3)[0m | виконується: [92m(0)[0m | виконане: [90m(3)[0m
+  return: [91m(3)[0m | audit: [93m(4)[0m
+  процеси йдуть: [92m(0)[0m | не йдуть: [91m(1)[0m | очікувано: (1)
+  storage files: (5)
+  queues:
+    pending cybra:finance:evolution:pool: [91m(3)[0m
+    pending cybra_finance_evolution: [91m(0)[0m
+    running cybra:branch:finance:running: [92m(0)[0m
+    done cybra:branch:finance:done: [90m(1)[0m
+    done cybra:completed:ai_tasks: [90m(2)[0m
 
-[1mPROCESSES[0m
-redis-server: [91m(1)[0m
-python: [91m(2)[0m
-uvicorn: [92m(0)[0m
-cybra: [92m(0)[0m
-kibra: [92m(0)[0m
-node: [92m(0)[0m
-pm2: [92m(0)[0m
-ssh: [92m(0)[0m
-git: [92m(0)[0m
-total_process_lines: [93m(11)[0m
+[1mMETA EVOLUTION / еволюція[0m
+  статус: [91mНЕВИКОНАНЕ[0m
+  навантаження: [93m(50%)[0m
+  невиконане: [91m(0)[0m | виконується: [92m(0)[0m | виконане: [90m(2)[0m
+  return: [91m(2)[0m | audit: [93m(0)[0m
+  процеси йдуть: [92m(0)[0m | не йдуть: [91m(1)[0m | очікувано: (1)
+  storage files: (175)
+  queues:
+    pending cybra:meta:evolution:pool: [91m(0)[0m
+    running cybra:branch:meta:running: [92m(0)[0m
+    done cybra:branch:meta:done: [90m(0)[0m
+    done cybra:completed:ai_tasks: [90m(2)[0m
 
-[1mRECOMMENDATIONS[0m
-- Навантаження нормальне. Критичних черг не видно.
+[1mKIBRA POOLS / монета і пули[0m
+  статус: [92mВИКОНУЄТЬСЯ[0m
+  навантаження: [92m(6%)[0m
+  невиконане: [91m(0)[0m | виконується: [92m(1)[0m | виконане: [90m(0)[0m
+  return: [91m(0)[0m | audit: [93m(0)[0m
+  процеси йдуть: [92m(1)[0m | не йдуть: [91m(0)[0m | очікувано: (1)
+  storage files: (251)
+  queues:
+    pending cybra:kibra:pool:mining_blocks: [91m(0)[0m
+    pending cybra:ai:tasks:block_inbox: [91m(0)[0m
+    pending ai_block_inbox: [91m(0)[0m
+    running cybra:branch:kibra:running: [92m(0)[0m
+    done cybra:branch:kibra:done: [90m(0)[0m
+
+[1mIT STRUCTURE / структура[0m
+  статус: [93mНЕЙТРАЛЬНО[0m
+  навантаження: [92m(20%)[0m
+  невиконане: [91m(0)[0m | виконується: [92m(0)[0m | виконане: [90m(0)[0m
+  return: [91m(0)[0m | audit: [93m(0)[0m
+  процеси йдуть: [92m(0)[0m | не йдуть: [91m(1)[0m | очікувано: (1)
+  storage files: (7)
+  queues:
+    pending it_department: [91m(0)[0m
+    pending cybra_mgs_all: [91m(0)[0m
+    running cybra:branch:structure:running: [92m(0)[0m
+    done cybra:branch:structure:done: [90m(0)[0m
+
+[1mORACLE / CODESPACE[0m
+  статус: [93mНЕЙТРАЛЬНО[0m
+  навантаження: [92m(20%)[0m
+  невиконане: [91m(0)[0m | виконується: [92m(0)[0m | виконане: [90m(0)[0m
+  return: [91m(0)[0m | audit: [93m(0)[0m
+  процеси йдуть: [92m(0)[0m | не йдуть: [91m(1)[0m | очікувано: (1)
+  storage files: (35)
+  queues:
+    pending cybra_oracle_tasks: [91m(0)[0m
+    pending cybra_codespace_inbox: [91m(0)[0m
+    running cybra:branch:oracle:running: [92m(0)[0m
+    done cybra:branch:oracle:done: [90m(0)[0m
+
+[1mCYBER PARLIAMENT / парламент[0m
+  статус: [93mНЕЙТРАЛЬНО[0m
+  навантаження: [92m(20%)[0m
+  невиконане: [91m(0)[0m | виконується: [92m(0)[0m | виконане: [90m(0)[0m
+  return: [91m(0)[0m | audit: [93m(0)[0m
+  процеси йдуть: [92m(0)[0m | не йдуть: [91m(1)[0m | очікувано: (1)
+  storage files: (306)
+  queues:
+    pending parliament_inbox: [91m(0)[0m
+    running cybra:branch:parliament:running: [92m(0)[0m
+    done cybra:branch:parliament:done: [90m(0)[0m
+
+[1mACTIONS / ДІЇ[0m
+  cybra-load audit finance
+  cybra-load return finance
+  cybra-load done finance
+  cybra-load rebalance finance
+  cybra-load serve 8796

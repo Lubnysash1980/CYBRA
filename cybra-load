@@ -3,22 +3,41 @@ cd "$HOME/CYBRA" || exit 1
 
 case "$1" in
   status|run|"")
-    python3 scripts/monitor/cybra_redis_load_monitor.py status
+    python3 scripts/monitor/cybra_redis_load_monitor_v2.py status
     ;;
   json)
-    python3 scripts/monitor/cybra_redis_load_monitor.py json
+    python3 scripts/monitor/cybra_redis_load_monitor_v2.py json
     ;;
   proof)
-    python3 scripts/monitor/cybra_redis_load_monitor.py proof
+    python3 scripts/monitor/cybra_redis_load_monitor_v2.py proof
+    ;;
+  audit)
+    python3 scripts/monitor/cybra_redis_load_monitor_v2.py action "${2:-finance}" audit
+    ;;
+  return)
+    python3 scripts/monitor/cybra_redis_load_monitor_v2.py action "${2:-finance}" return
+    ;;
+  done)
+    python3 scripts/monitor/cybra_redis_load_monitor_v2.py action "${2:-finance}" done
+    ;;
+  rebalance)
+    python3 scripts/monitor/cybra_redis_load_monitor_v2.py action "${2:-finance}" rebalance
     ;;
   serve)
-    python3 -m http.server 8795 --bind 127.0.0.1 --directory dashboard/cybra_load_monitor
+    python3 scripts/monitor/cybra_redis_load_monitor_v2.py serve "${2:-8795}"
     ;;
   *)
     echo "Commands:"
     echo "  cybra-load status"
     echo "  cybra-load json"
     echo "  cybra-load proof"
-    echo "  cybra-load serve"
+    echo "  cybra-load audit [branch]"
+    echo "  cybra-load return [branch]"
+    echo "  cybra-load done [branch]"
+    echo "  cybra-load rebalance [branch]"
+    echo "  cybra-load serve [port]"
+    echo
+    echo "Branches:"
+    echo "  finance meta kibra structure oracle parliament"
     ;;
 esac

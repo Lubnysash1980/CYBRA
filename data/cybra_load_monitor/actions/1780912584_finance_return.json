@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-06-08T12:56:24",
+  "status": "BRANCH_RETURN_REQUEST_CREATED",
+  "branch": "finance",
+  "branch_name": "FINANCE / фінансові задачі",
+  "action": "return",
+  "source": "cybra_load_monitor_button_or_cli",
+  "meaning": "повернути гілку на доопрацювання",
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "dashboard_actions_are_internal_only": true
+  }
+}
