@@ -1,0 +1,95 @@
+{
+  "task_id": "MODULE-64-FINANCE-AUDIT-20260608_143623",
+  "timestamp": "2026-06-08T14:36:23",
+  "status": "MODULE_64_REGISTERED_AS_LAST_TASK_FOR_AUDIT",
+  "title": "Аудит Module 64 — примусова торгівля без вікна",
+  "scope": "FINANCE_TRADING_MODULE_AUDIT_ONLY",
+  "module": {
+    "module_number": 64,
+    "name": "ULTIMATE_FORCE_TRADE_NO_WINDOW",
+    "files_count": 4,
+    "files": [
+      {
+        "path": "/data/data/com.termux/files/home/CYBRA/trading_bot/v64/modules/64/module_64_part_01_ULTIMATE_FORCE_TRADE_NO_WINDOW.mjs",
+        "relative_to_home": "CYBRA/trading_bot/v64/modules/64/module_64_part_01_ULTIMATE_FORCE_TRADE_NO_WINDOW.mjs",
+        "size_bytes": 505,
+        "sha256": "9467923f43d38d8536687b6b540d151e40da30c96a1c42f7514a08d548b3ef67",
+        "lines": 13,
+        "danger_words": [
+          "FORCE_TRADE",
+          "NO_WINDOW",
+          "trade"
+        ]
+      },
+      {
+        "path": "/data/data/com.termux/files/home/CYBRA/trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs",
+        "relative_to_home": "CYBRA/trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs",
+        "size_bytes": 2664,
+        "sha256": "4ff0c91c8321efba4f8bd2c15101eb5216cfb32ea1afa41687fc9742b7f7ba8f",
+        "lines": 79,
+        "danger_words": [
+          "FORCE_TRADE",
+          "ACTIVE",
+          "NO_WINDOW",
+          "order",
+          "trade"
+        ]
+      },
+      {
+        "path": "/data/data/com.termux/files/home/CYBRA/trading_bot/v64/models/extracted_modules/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs",
+        "relative_to_home": "CYBRA/trading_bot/v64/models/extracted_modules/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs",
+        "size_bytes": 2664,
+        "sha256": "4ff0c91c8321efba4f8bd2c15101eb5216cfb32ea1afa41687fc9742b7f7ba8f",
+        "lines": 79,
+        "danger_words": [
+          "FORCE_TRADE",
+          "ACTIVE",
+          "NO_WINDOW",
+          "order",
+          "trade"
+        ]
+      },
+      {
+        "path": "/data/data/com.termux/files/home/CYBRA/trading_bot/v64/models/extracted_modules/module_64_part_01_ULTIMATE_FORCE_TRADE_NO_WINDOW.mjs",
+        "relative_to_home": "CYBRA/trading_bot/v64/models/extracted_modules/module_64_part_01_ULTIMATE_FORCE_TRADE_NO_WINDOW.mjs",
+        "size_bytes": 505,
+        "sha256": "9467923f43d38d8536687b6b540d151e40da30c96a1c42f7514a08d548b3ef67",
+        "lines": 13,
+        "danger_words": [
+          "FORCE_TRADE",
+          "NO_WINDOW",
+          "trade"
+        ]
+      }
+    ]
+  },
+  "required_actions": [
+    "Надіслати фінансовому комітету",
+    "Надіслати комітету бінарного коду",
+    "Надіслати кіберпарламенту",
+    "Перевірити ризик живих ордерів",
+    "Перевірити ризик примусової торгівлі без вікна",
+    "Переписати в безпечний paper/testnet режим",
+    "Блокувати живі ордери до ручного схвалення власником"
+  ],
+  "routing": {
+    "finance": "cybra:finance:evolution:pool",
+    "audit": "cybra:audit:finance",
+    "parliament": "parliament_inbox",
+    "binary": "cybra:binary:tasks",
+    "return_rework": "cybra:return:ai_tasks"
+  },
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "live_orders_enabled": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "force_trade_blocked_until_audit": true,
+    "manual_OWNER_approval_required": true,
+    "do_not_store_secrets_in_git": true
+  },
+  "sha256": "ca8747dbe9609291255028f8298cf5b89060073478a59b7dea8c54fee47c02ac"
+}

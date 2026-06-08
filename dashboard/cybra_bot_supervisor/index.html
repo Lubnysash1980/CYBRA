@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CYBRA Bot Supervisor</title>
+<style>
+body { font-family: system-ui, sans-serif; max-width: 1050px; margin: 30px auto; padding: 20px; }
+.card { border: 1px solid #ddd; border-radius: 14px; padding: 16px; margin: 14px 0; }
+.red { color: #c40000; font-weight: 800; }
+.green { color: #008a2e; font-weight: 800; }
+.btn { display:inline-block; padding:10px 12px; margin:5px; border:1px solid #999; border-radius:9px; text-decoration:none; }
+code { word-break: break-all; }
+pre { white-space: pre-wrap; background:#f6f6f6; padding:12px; border-radius:10px; }
+</style>
+</head>
+<body>
+<h1>CYBRA Bot Supervisor</h1>
+<div class="card">
+<p>Status: <b>BOT_SUPERVISED_RUNNING</b></p>
+<p>PID: <code>4104</code></p>
+<p>Alive: <code>True</code></p>
+<p>Bot file: <code>trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs</code></p>
+<p>Harness: <code>data/cybra_bot_supervisor/harness/cybra_bot_paper_harness.mjs</code></p>
+<p>Mode: <b>PAPER / TESTNET / IT + CYBERPARLIAMENT</b></p>
+</div>
+<div class="card">
+<a class="btn" href="/action?do=start">Start</a>
+<a class="btn" href="/action?do=stop">Stop</a>
+<a class="btn" href="/action?do=restart">Restart</a>
+<a class="btn" href="/action?do=audit">Audit</a>
+<a class="btn" href="/action?do=watchdog">Watchdog</a>
+<a class="btn" href="/logs">Logs</a>
+<a class="btn" href="/json">JSON</a>
+</div>
+<div class="card">
+<p class="red">real_trading_now: false</p>
+<p class="red">live_orders_enabled: false</p>
+<p class="green">paper_trading: true</p>
+<p class="green">testnet_mode: true</p>
+<p class="red">direct_bot_execution_blocked: true</p>
+</div>
+</body>
+</html>

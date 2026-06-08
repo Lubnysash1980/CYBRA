@@ -1,0 +1,31 @@
+{
+  "title": "CYBRA Bot Supervisor",
+  "dashboard": "http://127.0.0.1:8798/",
+  "commands": [
+    "cybra-bot-supervised start",
+    "cybra-bot-supervised status",
+    "cybra-bot-supervised audit",
+    "cybra-bot-supervised watchdog",
+    "cybra-bot-supervised logs",
+    "cybra-bot-supervised stop",
+    "cybra-bot-supervised proof",
+    "cybra-bot-supervised serve 8798"
+  ],
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "live_orders_enabled": false,
+    "paper_trading": true,
+    "testnet_mode": true,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "manual_OWNER_approval_required": true,
+    "it_supervision_required": true,
+    "cyber_parliament_supervision_required": true,
+    "do_not_store_secrets_in_git": true,
+    "direct_bot_execution_blocked": true,
+    "paper_harness_only": true
+  }
+}

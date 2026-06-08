@@ -1,10 +1,9 @@
 {
-  "timestamp": "2026-06-08T15:41:25",
-  "status": "BOT_SUPERVISED_RUNNING",
-  "pid": 4104,
-  "alive": true,
-  "bot_file_under_supervision": "trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs",
-  "harness_file": "data/cybra_bot_supervisor/harness/cybra_bot_paper_harness.mjs",
+  "task_id": "BOT-SUPERVISED-FIXED-20260608_154056",
+  "timestamp": "2026-06-08T15:40:56",
+  "status": "BOT_SUPERVISION_TASK_CREATED",
+  "title": "Bot under IT and CyberParliament supervision",
+  "bot_file": "trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs",
   "risk_scan": {
     "risk": "HIGH_TRADING_RISK",
     "risk_words": [
@@ -24,19 +23,19 @@
     "it_department": true,
     "cyber_parliament": true,
     "finance_audit": true,
+    "watchdog": true,
     "redis_monitoring": true,
-    "watchdog": true
+    "dashboard": true
   },
-  "queues": {
-    "it_department": 1,
-    "parliament_inbox": 2,
-    "cybra:audit:finance": 2,
-    "cybra:bot:supervised": 1,
-    "cybra:finance:evolution:pool": 1,
-    "cybra:meta:evolution:pool": 1
-  },
-  "log_file": "data/cybra_bot_supervisor/logs/bot_supervised.log",
-  "extra": {},
+  "required_rules": [
+    "paper mode only",
+    "testnet mode only",
+    "no live orders",
+    "no withdrawals",
+    "no SWIFT",
+    "no real payments",
+    "manual OWNER approval required before live mode"
+  ],
   "safety": {
     "real_payment_now": false,
     "real_trading_now": false,
