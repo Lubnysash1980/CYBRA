@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CYBRA Load Monitor</title>
+<style>
+body { font-family: system-ui, sans-serif; max-width: 1100px; margin: 35px auto; padding: 20px; }
+table { border-collapse: collapse; width: 100%; }
+td, th { border: 1px solid #ddd; padding: 8px; }
+.red { color: #c40000; font-weight: 800; }
+.yellow { color: #a36b00; font-weight: 800; }
+.green { color: #007a2f; font-weight: 800; }
+.card { border: 1px solid #ddd; border-radius: 14px; padding: 16px; margin: 14px 0; }
+code { word-break: break-all; }
+</style>
+</head>
+<body>
+<h1>CYBRA Redis / Task / Process Load</h1>
+<div class="card">
+<p>Status: <b>CYBRA_LOAD_MONITOR_OK</b></p>
+<p>Redis: <b>True</b></p>
+<p>Done: <span class="green">(0)</span></p>
+<p>Returned unfinished: <span class="red">(0)</span></p>
+<p>Pending all: <span class="green">(0)</span></p>
+<p>Git branch: <code>main</code>, dirty: <span class="red">(3304)</span></p>
+</div>
+<h2>Queues / branches</h2>
+<table>
+<tr><th>Гілка</th><th>Навантаження</th><th>Тип</th></tr>
+<tr><td><b>DONE / виконані</b></td><td class='green'>(0)</td><td></td></tr><tr><td>cybra:completed:ai_tasks</td><td class='green'>(0)</td><td>queue</td></tr><tr><td><b>RETURN / невиконані назад</b></td><td class='green'>(0)</td><td></td></tr><tr><td>cybra:return:ai_tasks</td><td class='green'>(0)</td><td>queue</td></tr><tr><td><b>META EVOLUTION</b></td><td class='green'>(0)</td><td></td></tr><tr><td>cybra:meta:evolution:pool</td><td class='green'>(0)</td><td>queue</td></tr><tr><td><b>KIBRA POOLS</b></td><td class='green'>(0)</td><td></td></tr><tr><td>cybra:kibra:pool:mining_blocks</td><td class='green'>(0)</td><td>queue</td></tr><tr><td>cybra:ai:tasks:block_inbox</td><td class='green'>(0)</td><td>queue</td></tr><tr><td>ai_block_inbox</td><td class='green'>(0)</td><td>queue</td></tr><tr><td><b>IT / STRUCTURE</b></td><td class='green'>(0)</td><td></td></tr><tr><td>it_department</td><td class='green'>(0)</td><td>queue</td></tr><tr><td>cybra_mgs_all</td><td class='green'>(0)</td><td>queue</td></tr><tr><td><b>FINANCE</b></td><td class='green'>(0)</td><td></td></tr><tr><td>cybra:finance:evolution:pool</td><td class='green'>(0)</td><td>queue</td></tr><tr><td>cybra_finance_evolution</td><td class='green'>(0)</td><td>queue</td></tr><tr><td><b>ORACLE / CODESPACE</b></td><td class='green'>(0)</td><td></td></tr><tr><td>cybra_oracle_tasks</td><td class='green'>(0)</td><td>queue</td></tr><tr><td>cybra_codespace_inbox</td><td class='green'>(0)</td><td>queue</td></tr><tr><td><b>PARLIAMENT</b></td><td class='green'>(0)</td><td></td></tr><tr><td>parliament_inbox</td><td class='green'>(0)</td><td>queue</td></tr>
+</table>
+<h2>Recommendations</h2>
+<ul>
+<li>Навантаження нормальне. Критичних черг не видно.</li>
+</ul>
+</body>
+</html>

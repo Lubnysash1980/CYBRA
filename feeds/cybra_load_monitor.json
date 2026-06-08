@@ -1,0 +1,125 @@
+{
+  "timestamp": "2026-06-08T12:23:37",
+  "status": "CYBRA_LOAD_MONITOR_OK",
+  "redis_ok": true,
+  "summary": {
+    "done_tasks_redis": 0,
+    "returned_unfinished_redis": 0,
+    "pending_all_redis": 0,
+    "process_lines": 11,
+    "git_branch": "main",
+    "git_dirty_files": 3304
+  },
+  "queue_groups": {
+    "DONE / виконані": [
+      {
+        "queue": "cybra:completed:ai_tasks",
+        "count": 0
+      }
+    ],
+    "RETURN / невиконані назад": [
+      {
+        "queue": "cybra:return:ai_tasks",
+        "count": 0
+      }
+    ],
+    "META EVOLUTION": [
+      {
+        "queue": "cybra:meta:evolution:pool",
+        "count": 0
+      }
+    ],
+    "KIBRA POOLS": [
+      {
+        "queue": "cybra:kibra:pool:mining_blocks",
+        "count": 0
+      },
+      {
+        "queue": "cybra:ai:tasks:block_inbox",
+        "count": 0
+      },
+      {
+        "queue": "ai_block_inbox",
+        "count": 0
+      }
+    ],
+    "IT / STRUCTURE": [
+      {
+        "queue": "it_department",
+        "count": 0
+      },
+      {
+        "queue": "cybra_mgs_all",
+        "count": 0
+      }
+    ],
+    "FINANCE": [
+      {
+        "queue": "cybra:finance:evolution:pool",
+        "count": 0
+      },
+      {
+        "queue": "cybra_finance_evolution",
+        "count": 0
+      }
+    ],
+    "ORACLE / CODESPACE": [
+      {
+        "queue": "cybra_oracle_tasks",
+        "count": 0
+      },
+      {
+        "queue": "cybra_codespace_inbox",
+        "count": 0
+      }
+    ],
+    "PARLIAMENT": [
+      {
+        "queue": "parliament_inbox",
+        "count": 0
+      }
+    ]
+  },
+  "process_counts": {
+    "redis-server": 1,
+    "python": 2,
+    "uvicorn": 0,
+    "cybra": 0,
+    "kibra": 0,
+    "node": 0,
+    "pm2": 0,
+    "ssh": 0,
+    "git": 0,
+    "total_process_lines": 11
+  },
+  "file_task_counts": {
+    "AI blocks": 2,
+    "KIBRA task blocks": 139,
+    "Meta evolution blocks": 87,
+    "Meta modules": 87,
+    "Finance IT tasks": 1,
+    "Oracle tasks": 35,
+    "MGS tasks": 37,
+    "Completed": 0,
+    "Returned": 1
+  },
+  "git": {
+    "repo": true,
+    "branch": "main",
+    "dirty_files": 3304,
+    "remote": [
+      "origin\tgit@github.com:Lubnysash1980/CYBRA.git (fetch)",
+      "origin\tgit@github.com:Lubnysash1980/CYBRA.git (push)"
+    ]
+  },
+  "recommendations": [
+    "Навантаження нормальне. Критичних черг не видно."
+  ],
+  "safety": {
+    "real_payment_now": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false
+  }
+}
