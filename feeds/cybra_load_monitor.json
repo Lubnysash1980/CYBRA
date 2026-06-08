@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-08T12:23:37",
+  "timestamp": "2026-06-08T12:38:23",
   "status": "CYBRA_LOAD_MONITOR_OK",
   "redis_ok": true,
   "summary": {
@@ -8,7 +8,7 @@
     "pending_all_redis": 0,
     "process_lines": 11,
     "git_branch": "main",
-    "git_dirty_files": 3304
+    "git_dirty_files": 3305
   },
   "queue_groups": {
     "DONE / виконані": [
@@ -106,7 +106,7 @@
   "git": {
     "repo": true,
     "branch": "main",
-    "dirty_files": 3304,
+    "dirty_files": 3305,
     "remote": [
       "origin\tgit@github.com:Lubnysash1980/CYBRA.git (fetch)",
       "origin\tgit@github.com:Lubnysash1980/CYBRA.git (push)"

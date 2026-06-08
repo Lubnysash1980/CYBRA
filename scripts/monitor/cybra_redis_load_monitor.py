@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import json, time, hashlib, subprocess, shutil, os, sys
+import json, time, hashlib, subprocess, shutil, os, sys, sys
 from pathlib import Path
 
 ROOT = Path.home() / "CYBRA"
