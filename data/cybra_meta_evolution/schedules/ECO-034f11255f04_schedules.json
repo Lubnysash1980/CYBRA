@@ -1,0 +1,24 @@
+{
+  "ecosystem_id": "ECO-034f11255f04",
+  "schedules": [
+    "every_cycle_scan_unfinished",
+    "on_broken_block_peel_last_layer",
+    "on_owner_pass_move_to_completed",
+    "on_owner_not_pass_return_to_pool",
+    "on_missing_module_create_next_layer"
+  ],
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "finance_scope_only": true,
+    "meta_evolution_only": true,
+    "analytics_may_only_create_evolution_tasks": true,
+    "broken_blocks_repaired_by_peeling_last_layer": true,
+    "owner_final_pass_required": true
+  }
+}

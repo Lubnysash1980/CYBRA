@@ -1,0 +1,37 @@
+{
+  "layer_id": "META-EVO-LAYER-20260608_115014-9b0bd60610",
+  "timestamp": "2026-06-08T11:50:14",
+  "status": "EVOLUTION_LAYER_CREATED",
+  "action_type": "EVOLUTION_ADD_MODULE_LAYER",
+  "parent_task_id": "AI-STRUCT-BINARY-PROOF-20260608_112733",
+  "parent_task_sha256": "fe9d2dacb8d2b3cabf747a92c1698a8682d32360d47a542ead8d9e1cb951785d",
+  "ecosystem_id": "ECO-47f21a8e3461",
+  "layer_number": 1,
+  "module_policy": {
+    "add_module_around_task": true,
+    "do_not_mutate_original_task": true,
+    "scale_analytics_until_task_solution": true,
+    "next_layer_allowed_if_task_not_solved": true,
+    "finance_scope_only": true
+  },
+  "evolution_goal": {
+    "task_title": "Fix CYBRA structure, binary-safe rewrite, proof token, AI block to KIBRA pools",
+    "solution_path": "module_by_module_until_solved",
+    "analytics_scope": "evolutionary_actions_only"
+  },
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "finance_scope_only": true,
+    "meta_evolution_only": true,
+    "analytics_may_only_create_evolution_tasks": true,
+    "broken_blocks_repaired_by_peeling_last_layer": true,
+    "owner_final_pass_required": true
+  },
+  "sha256": "17001e857546afe4ba0dbc07b4248b8bf4d3f196babce40b39dfcb618eee3a8c"
+}

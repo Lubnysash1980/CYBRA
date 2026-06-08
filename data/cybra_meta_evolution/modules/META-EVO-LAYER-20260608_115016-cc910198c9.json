@@ -1,0 +1,37 @@
+{
+  "layer_id": "META-EVO-LAYER-20260608_115016-cc910198c9",
+  "timestamp": "2026-06-08T11:50:16",
+  "status": "EVOLUTION_LAYER_CREATED",
+  "action_type": "EVOLUTION_ADD_MODULE_LAYER",
+  "parent_task_id": "BAR-MGS-1780763755-7af42254",
+  "parent_task_sha256": "240047304339d5c396eac10406c0e75bc0b81bc2ac8744e7a670ff0323343efe",
+  "ecosystem_id": "ECO-71fa98fd1f4b",
+  "layer_number": 1,
+  "module_policy": {
+    "add_module_around_task": true,
+    "do_not_mutate_original_task": true,
+    "scale_analytics_until_task_solution": true,
+    "next_layer_allowed_if_task_not_solved": true,
+    "finance_scope_only": true
+  },
+  "evolution_goal": {
+    "task_title": "permisions",
+    "solution_path": "module_by_module_until_solved",
+    "analytics_scope": "evolutionary_actions_only"
+  },
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "finance_scope_only": true,
+    "meta_evolution_only": true,
+    "analytics_may_only_create_evolution_tasks": true,
+    "broken_blocks_repaired_by_peeling_last_layer": true,
+    "owner_final_pass_required": true
+  },
+  "sha256": "c78b57ca7d3a46174dc97a4f2c13efe8db81f4150f24a6b511a09de2afb2c52e"
+}

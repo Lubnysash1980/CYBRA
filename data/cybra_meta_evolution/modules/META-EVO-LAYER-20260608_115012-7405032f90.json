@@ -1,0 +1,37 @@
+{
+  "layer_id": "META-EVO-LAYER-20260608_115012-7405032f90",
+  "timestamp": "2026-06-08T11:50:12",
+  "status": "EVOLUTION_LAYER_CREATED",
+  "action_type": "EVOLUTION_ADD_MODULE_LAYER",
+  "parent_task_id": "COIN-APPROVAL-20260607_114544",
+  "parent_task_sha256": "f0ef24ef6ecff493c4a9b0dbf9197e1370c8880ba7f18f7825b8dbeeaff29c81",
+  "ecosystem_id": "ECO-8acb028c12b5",
+  "layer_number": 1,
+  "module_policy": {
+    "add_module_around_task": true,
+    "do_not_mutate_original_task": true,
+    "scale_analytics_until_task_solution": true,
+    "next_layer_allowed_if_task_not_solved": true,
+    "finance_scope_only": true
+  },
+  "evolution_goal": {
+    "task_title": "Доробити монету до approval",
+    "solution_path": "module_by_module_until_solved",
+    "analytics_scope": "evolutionary_actions_only"
+  },
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "finance_scope_only": true,
+    "meta_evolution_only": true,
+    "analytics_may_only_create_evolution_tasks": true,
+    "broken_blocks_repaired_by_peeling_last_layer": true,
+    "owner_final_pass_required": true
+  },
+  "sha256": "b25a804dc48a190808c6d27ca825034a6de3d065d9f9b30bc17d1c6970f12eef"
+}

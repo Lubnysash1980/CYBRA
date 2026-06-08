@@ -1,0 +1,37 @@
+{
+  "layer_id": "META-EVO-LAYER-20260608_115016-d46a4b49ff",
+  "timestamp": "2026-06-08T11:50:16",
+  "status": "EVOLUTION_LAYER_CREATED",
+  "action_type": "EVOLUTION_ADD_MODULE_LAYER",
+  "parent_task_id": "BAR-MGS-1780777981-938f6f28",
+  "parent_task_sha256": "5788eadfed0b0affb7c55b8573046ec8e71ba88f8edf06abd60b5ea55e0bd49f",
+  "ecosystem_id": "ECO-03cfe0419d39",
+  "layer_number": 1,
+  "module_policy": {
+    "add_module_around_task": true,
+    "do_not_mutate_original_task": true,
+    "scale_analytics_until_task_solution": true,
+    "next_layer_allowed_if_task_not_solved": true,
+    "finance_scope_only": true
+  },
+  "evolution_goal": {
+    "task_title": "Daily evolution safe upgrade",
+    "solution_path": "module_by_module_until_solved",
+    "analytics_scope": "evolutionary_actions_only"
+  },
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "finance_scope_only": true,
+    "meta_evolution_only": true,
+    "analytics_may_only_create_evolution_tasks": true,
+    "broken_blocks_repaired_by_peeling_last_layer": true,
+    "owner_final_pass_required": true
+  },
+  "sha256": "87f5ac9148a220634d11a9f5e952c93f8413f06bbe1eb210b09f9d64769320c3"
+}

@@ -1,0 +1,1373 @@
+{
+  "timestamp": "2026-06-08T11:51:10",
+  "status": "BROKEN_BLOCK_REPAIR_DONE",
+  "broken_count": 50,
+  "repaired_count": 50,
+  "repaired": [
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115049-5f82585957",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_000a3c476c545a11.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115049-5f82585957_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115049-5f82585957_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115049-5f82585957.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115049-5f82585957.enc",
+        "sha256": "af37766a59343bf8214ff17473e2e1e6977e1089cc471a9da8aee83e10ca529c",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115049-71efc7a97d",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00181811aa66cd1e.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115049-71efc7a97d_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115049-71efc7a97d_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115049-71efc7a97d.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115049-71efc7a97d.enc",
+        "sha256": "5cb04e23297e76010fccd5fb8e5197dcfa0f3c9c1ccfa6c89450de12bc906f64",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115050-84bf9579cf",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_002066fa3938cb49.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115050-84bf9579cf_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115050-84bf9579cf_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115050-84bf9579cf.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115050-84bf9579cf.enc",
+        "sha256": "adc84f58767437682185a642caa8d17d2c407d7d787097b59220e4ffc6450e41",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115050-052c305736",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_002bc8e560ece92b.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115050-052c305736_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115050-052c305736_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115050-052c305736.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115050-052c305736.enc",
+        "sha256": "e769735c70580ad4785034523ae6f8e7b7b2e6c704643173e5de9e839a903940",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115051-77a633e6c1",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_0033f9cabae9a8fd.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115051-77a633e6c1_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115051-77a633e6c1_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115051-77a633e6c1.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115051-77a633e6c1.enc",
+        "sha256": "854862b8b6ae468f2afb892cb057020b297741e79a57fb20fc0e104d2a98dfd0",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115051-4237968549",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_0036db2bf81cdda2.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115051-4237968549_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115051-4237968549_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115051-4237968549.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115051-4237968549.enc",
+        "sha256": "441acd44d7e38f87298539fecd467a60082cf02dca3b900a43d99d1a5319bdae",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115052-b47ce6d6ee",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00380a71f651d670.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115052-b47ce6d6ee_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115052-b47ce6d6ee_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115052-b47ce6d6ee.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115052-b47ce6d6ee.enc",
+        "sha256": "7513e7349ab345d5bb51b2bd89eb1e39b3b080484064e8260e23b143afeba8e0",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115052-97a0785e06",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_0038228402c523f7.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115052-97a0785e06_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115052-97a0785e06_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115052-97a0785e06.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115052-97a0785e06.enc",
+        "sha256": "55f7e4022cba92371c9dc4a5dfc3aef0f3492280bebacf8da8aafbb4ce994be0",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115052-69e8a9c1f6",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00390e7baa3640a6.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115052-69e8a9c1f6_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115052-69e8a9c1f6_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115052-69e8a9c1f6.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115052-69e8a9c1f6.enc",
+        "sha256": "18fd06e357ca0955b0f7f59ed3ea4a7858c90ee110538916c1c619673dbb0fe5",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115053-73ab6c7cae",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_0039b1ff8c91f103.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115053-73ab6c7cae_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115053-73ab6c7cae_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115053-73ab6c7cae.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115053-73ab6c7cae.enc",
+        "sha256": "0c48eadf6228e4006db04c27f1d184c67b129c9994aa10db55dd21852947c39c",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115053-9f82baf9a3",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_0045e6c1104bca99.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115053-9f82baf9a3_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115053-9f82baf9a3_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115053-9f82baf9a3.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115053-9f82baf9a3.enc",
+        "sha256": "6c2b3dd0e74c6ac60f7abbe194b1c4a4ce6b76dd0f6e38b074e772583325b110",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115054-17fad47d91",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_004b3bb7619a5056.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115054-17fad47d91_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115054-17fad47d91_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115054-17fad47d91.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115054-17fad47d91.enc",
+        "sha256": "0514aa449b38e4d524c25ea4364cd1c4ca062ca4054d97879d4ddd997f8858e1",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115054-0c60a623e4",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_005215c7d0344c43.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115054-0c60a623e4_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115054-0c60a623e4_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115054-0c60a623e4.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115054-0c60a623e4.enc",
+        "sha256": "88f243d09f9739f0625831b6b591300ac4004441b6ae8726337a61ac6a160d97",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115055-0d1845b508",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00532f283d956c31.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115055-0d1845b508_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115055-0d1845b508_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115055-0d1845b508.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115055-0d1845b508.enc",
+        "sha256": "f60870dccbb25a49cd7a86101c7fad3752f3a6ed00547c37513f8996ef09bf27",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115055-a186212995",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_0057eb6583a75fe8.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115055-a186212995_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115055-a186212995_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115055-a186212995.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115055-a186212995.enc",
+        "sha256": "e17c62a85700e2517268fcc046d7bc43cc28600e69fda92f11d53aaa5b374dcc",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115056-52f3c1c786",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_005b5fae0c4bc279.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115056-52f3c1c786_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115056-52f3c1c786_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115056-52f3c1c786.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115056-52f3c1c786.enc",
+        "sha256": "bfc1eb5b7d3468a192d848d8d437973ebebd9a986c4e54be11a603fd006ac46c",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115056-1b1bc6677d",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_005bf039c486da2c.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115056-1b1bc6677d_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115056-1b1bc6677d_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115056-1b1bc6677d.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115056-1b1bc6677d.enc",
+        "sha256": "b016343b7cb4f6f59a518f3941f1499851353e6e5dee522e6b5ec62aaa5e7f65",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115056-45f96f1701",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00680d1ff7040f7b.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115056-45f96f1701_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115056-45f96f1701_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115056-45f96f1701.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115056-45f96f1701.enc",
+        "sha256": "8f944e2b695f47af78c657018036ce7dcab4fc48bbd76ec32db51f3cc31b0af1",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115057-0dc6a5bd4f",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_0068f4ed5e08103d.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115057-0dc6a5bd4f_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115057-0dc6a5bd4f_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115057-0dc6a5bd4f.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115057-0dc6a5bd4f.enc",
+        "sha256": "a79a8da16c25171906a684e2590c0de096cdb2b1226bfc4cddfd609402df2b97",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115057-32d6d77ac5",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_006ae640caed114c.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115057-32d6d77ac5_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115057-32d6d77ac5_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115057-32d6d77ac5.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115057-32d6d77ac5.enc",
+        "sha256": "1d750024b923ead670b5dc7c29383d30dd9ecc061252a2bb230c114cca1429bf",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115058-aa2ff94d61",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_006b43854bd6ccf4.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115058-aa2ff94d61_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115058-aa2ff94d61_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115058-aa2ff94d61.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115058-aa2ff94d61.enc",
+        "sha256": "244eb7947de0d58d3f188821a2799ad4d8c9186d8148082882e94fad6261674b",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115058-19d2eed901",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00713be4b4de6840.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115058-19d2eed901_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115058-19d2eed901_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115058-19d2eed901.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115058-19d2eed901.enc",
+        "sha256": "f29323a85aaca780ab3cd66fbac209898629a3395543b9cb864de0902c30184e",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115058-c2655fffde",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_0072e7daa6c365e4.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115058-c2655fffde_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115058-c2655fffde_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115058-c2655fffde.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115058-c2655fffde.enc",
+        "sha256": "7fbc80d8d2707d04eaae03f3f609126556dba4bd93c13a6533364dd8d1cb94de",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115059-5730349949",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00777854b1acdf1a.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115059-5730349949_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115059-5730349949_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115059-5730349949.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115059-5730349949.enc",
+        "sha256": "362fd987f551b5a9a8ee93c4272c10d1b87e37ef3d3646c829a96564ea1a2bdd",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115059-95d01a6f19",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_0084d5051b9aa0e2.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115059-95d01a6f19_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115059-95d01a6f19_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115059-95d01a6f19.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115059-95d01a6f19.enc",
+        "sha256": "6c31a9d35e60be9f1af508908e413e83d96edd5d68ce0fad047827c765f7fc4e",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115100-b14e45acd9",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00863de629a4aee8.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115100-b14e45acd9_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115100-b14e45acd9_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115100-b14e45acd9.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115100-b14e45acd9.enc",
+        "sha256": "64182738c12ff92bf258c272f9d8fe87ec106807f8b4fbd1874cf765f76e7a83",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115100-5dfa2d1862",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_0087e5b0a6886f0f.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115100-5dfa2d1862_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115100-5dfa2d1862_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115100-5dfa2d1862.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115100-5dfa2d1862.enc",
+        "sha256": "e986932a9bef69a896361ff8848fd8c91075e35528c11782d35c01dcf2549fca",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115100-b945dec610",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_008e8a55a2954834.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115100-b945dec610_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115100-b945dec610_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115100-b945dec610.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115100-b945dec610.enc",
+        "sha256": "015bb256cf8c7805c139ac2c68193b3d42925eb310285f6ba56f9f00504730ca",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115101-9c62fae68d",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00974054fe8d5094.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115101-9c62fae68d_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115101-9c62fae68d_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115101-9c62fae68d.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115101-9c62fae68d.enc",
+        "sha256": "939c05ea7763f5d7c00164c1e2918a5578bd2b856bce6d3d0ba31c0feb431dd5",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115101-e4d7690de5",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_009fc0eeb9a9b92d.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115101-e4d7690de5_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115101-e4d7690de5_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115101-e4d7690de5.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115101-e4d7690de5.enc",
+        "sha256": "b77b1aac8d193d7edddeec2ba488783a80acab62c5cceaf5dec1c53a2db06c8f",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115102-9e7fe2273f",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00a9f5b7f22b77b8.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115102-9e7fe2273f_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115102-9e7fe2273f_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115102-9e7fe2273f.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115102-9e7fe2273f.enc",
+        "sha256": "2cc96152c672a9f89c7b51514bd4d60c468d35ea119c5cb220086d074a24c5cc",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115102-adfbec4d61",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00aacd054122e2d6.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115102-adfbec4d61_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115102-adfbec4d61_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115102-adfbec4d61.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115102-adfbec4d61.enc",
+        "sha256": "110fb71078b9eea8aa8a1b4ca390f62a299cdd3b923a6a7d175d48f054ce2bba",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115103-c1066019e4",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00ad440c9e7a5761.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115103-c1066019e4_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115103-c1066019e4_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115103-c1066019e4.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115103-c1066019e4.enc",
+        "sha256": "d146c3c369d2ba92adf6a988b93d6c8030dc9fab20c7c4193f8e82bb8a4fbf54",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115103-791a6b7ae7",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00ae24c6f1f39c6c.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115103-791a6b7ae7_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115103-791a6b7ae7_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115103-791a6b7ae7.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115103-791a6b7ae7.enc",
+        "sha256": "78253843f09766b011896c9132c5dbe736e7885e55083516464df8c04ffeaebd",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115103-5fae7ecfff",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00afc6b32eac186f.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115103-5fae7ecfff_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115103-5fae7ecfff_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115103-5fae7ecfff.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115103-5fae7ecfff.enc",
+        "sha256": "e7037902cc840cb4abd2fa90dd8c2eb36144d9a3472572a3a426ba8ed2f9e02f",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115104-7e9b6d145e",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00b8aee7927c261e.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115104-7e9b6d145e_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115104-7e9b6d145e_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115104-7e9b6d145e.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115104-7e9b6d145e.enc",
+        "sha256": "829270a318040bd96b9a66131f8da3df4c80dfe6a1735ea3410ee571252cba7d",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115104-28a4ab37a0",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00b9118d83dbc4fb.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115104-28a4ab37a0_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115104-28a4ab37a0_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115104-28a4ab37a0.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115104-28a4ab37a0.enc",
+        "sha256": "d956126782f1bd9965500f6f9f622c0b3595f24bfb2cbbb04b48f387d8b409a3",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115105-1c424ad500",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00bca8571216a2aa.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115105-1c424ad500_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115105-1c424ad500_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115105-1c424ad500.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115105-1c424ad500.enc",
+        "sha256": "95adf29ef57f0dcc6d9fbdb705bcd9bd0d95e628daf899140fdb355e2f579821",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115105-d3263c90c1",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00bd226777e7c3a6.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115105-d3263c90c1_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115105-d3263c90c1_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115105-d3263c90c1.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115105-d3263c90c1.enc",
+        "sha256": "1687b5c675acf350e81843f18ea570f77a5b9d2efcc24fd7d21a381d6418fea4",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115106-9b070f1ff3",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00bf2a2c9c247085.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115106-9b070f1ff3_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115106-9b070f1ff3_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115106-9b070f1ff3.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115106-9b070f1ff3.enc",
+        "sha256": "69d5d2b04d1cac918215b836dc202e2e1d7c73b8debb99b02639b1ba24e3497f",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115106-3e05bc5f72",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00c897f16fc547f7.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115106-3e05bc5f72_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115106-3e05bc5f72_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115106-3e05bc5f72.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115106-3e05bc5f72.enc",
+        "sha256": "31f5cb927311b56be7771df44777b8762b30237a3c5a3c7ef7b87a2659df06f6",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115107-6991f28e61",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00cac086eee4fcbf.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115107-6991f28e61_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115107-6991f28e61_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115107-6991f28e61.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115107-6991f28e61.enc",
+        "sha256": "9472b84ee7208bb1985ed20c2fa05d226f6a60b5bc4eea1c1137d37aa8ed6070",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115107-52f397638c",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00cbef37031079d7.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115107-52f397638c_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115107-52f397638c_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115107-52f397638c.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115107-52f397638c.enc",
+        "sha256": "36185b58b366a01d6195470341c424e10cd9b2d14e82eb83c42458dfba1b23bd",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115107-2eec211f26",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00d059c9787c21fa.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115107-2eec211f26_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115107-2eec211f26_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115107-2eec211f26.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115107-2eec211f26.enc",
+        "sha256": "c68dc93996e9f9006af9ad9d52ea8239831c2ab298cfe6604f0f70fb85be45a9",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115108-ab6fd5dcaa",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00d298130ae9907d.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115108-ab6fd5dcaa_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115108-ab6fd5dcaa_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115108-ab6fd5dcaa.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115108-ab6fd5dcaa.enc",
+        "sha256": "137141f4b3a5ae9051c3aad4ba5d8915f52df5ba4d9164e8352e76a6f9725767",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115108-784821090d",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00df69c57ed45070.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115108-784821090d_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115108-784821090d_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115108-784821090d.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115108-784821090d.enc",
+        "sha256": "56883103397284a8e4648bdfc58b5f73db815dedd5ca6bddaf054d8ac5689c94",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115109-214c91b8be",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00e4f337cfa4bd9b.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115109-214c91b8be_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115109-214c91b8be_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115109-214c91b8be.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115109-214c91b8be.enc",
+        "sha256": "f8301df247f6792bbba6b93f5ec6feb270864dc4c6a8de80377176f21b9d1dec",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115109-96969f82af",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00e8f82b6fe28747.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115109-96969f82af_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115109-96969f82af_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115109-96969f82af.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115109-96969f82af.enc",
+        "sha256": "ecea17870ed2c14d9d6fd285ddb181c3513786215a9cc0d92128925d4ff09cab",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115109-3034325720",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00ead2c9bc25eaaa.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115109-3034325720_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115109-3034325720_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115109-3034325720.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115109-3034325720.enc",
+        "sha256": "4bb2c52ef9a69210d4746382c91fdb0bc71f60afc7c29cdf246fa939612038cc",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    },
+    {
+      "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115110-f491ba7757",
+      "source": "blockchain/kibra_chain/task_blocks/task_block_00ef8fbccbd38b5a.json",
+      "reason": "missing_id",
+      "archived": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115110-f491ba7757_original.json",
+      "repaired": "data/cybra_meta_evolution/repair/REPAIR-BROKEN-BLOCK-20260608_115110-f491ba7757_repaired.json",
+      "usha_seal": {
+        "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+        "raw": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115110-f491ba7757.json",
+        "sealed": "data/cybra_meta_evolution/outbox/REPAIR-BROKEN-BLOCK-20260608_115110-f491ba7757.enc",
+        "sha256": "06673abed93b1aa2e055d8c52f19d1615eddea34cc88297de1c86be6654c5dc4",
+        "key_location": ".cybra_local_secret/usha.key",
+        "git_safe": true
+      },
+      "routes": {
+        "cybra:meta:evolution:pool": true,
+        "cybra:kibra:pool:mining_blocks": true,
+        "cybra:ai:tasks:block_inbox": true,
+        "cybra:finance:evolution:pool": true,
+        "ai_block_inbox": true,
+        "cybra_mgs_all": true,
+        "cybra_oracle_tasks": true,
+        "parliament_inbox": true,
+        "cybra:completed:ai_tasks": true,
+        "cybra:return:ai_tasks": true
+      }
+    }
+  ],
+  "policy": "remove last broken layer and send back to pools",
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "finance_scope_only": true,
+    "meta_evolution_only": true,
+    "analytics_may_only_create_evolution_tasks": true,
+    "broken_blocks_repaired_by_peeling_last_layer": true,
+    "owner_final_pass_required": true
+  }
+}

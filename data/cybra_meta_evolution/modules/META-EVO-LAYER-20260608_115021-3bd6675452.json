@@ -1,0 +1,37 @@
+{
+  "layer_id": "META-EVO-LAYER-20260608_115021-3bd6675452",
+  "timestamp": "2026-06-08T11:50:21",
+  "status": "EVOLUTION_LAYER_CREATED",
+  "action_type": "EVOLUTION_ADD_MODULE_LAYER",
+  "parent_task_id": "KIBRA-IT-1780864304-df5a8ac8",
+  "parent_task_sha256": "0904e87592993f83d67ea40702a1d45a05436f9434799ec499c1d20901a09e07",
+  "ecosystem_id": "ECO-59b550447a3a",
+  "layer_number": 1,
+  "module_policy": {
+    "add_module_around_task": true,
+    "do_not_mutate_original_task": true,
+    "scale_analytics_until_task_solution": true,
+    "next_layer_allowed_if_task_not_solved": true,
+    "finance_scope_only": true
+  },
+  "evolution_goal": {
+    "task_title": "integrathion",
+    "solution_path": "module_by_module_until_solved",
+    "analytics_scope": "evolutionary_actions_only"
+  },
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "finance_scope_only": true,
+    "meta_evolution_only": true,
+    "analytics_may_only_create_evolution_tasks": true,
+    "broken_blocks_repaired_by_peeling_last_layer": true,
+    "owner_final_pass_required": true
+  },
+  "sha256": "23a5c55705c9430e47894588e4a8557cb9adbdf40931b467d577c82012e6b5f4"
+}

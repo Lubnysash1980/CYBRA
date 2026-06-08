@@ -1,0 +1,56 @@
+{
+  "ecosystem_id": "ECO-c42fe16c7c06",
+  "timestamp": "2026-06-08T11:50:42",
+  "status": "TASK_ECOSYSTEM_CREATED",
+  "parent_task_id": "task_block_00b8aee7927c261e",
+  "parent_task_sha256": "7e9b6d145e177a42d675ec555c990f4b6f9e267ac1b8ac64d53594e243be18bc",
+  "scope": "FINANCE_ONLY",
+  "committees": [
+    "finance_execution_committee",
+    "analytics_scaling_committee",
+    "binary_code_committee",
+    "proof_committee",
+    "risk_safety_committee",
+    "cyber_parliament_review_committee"
+  ],
+  "handlers": [
+    "task_intake_handler",
+    "finance_scope_handler",
+    "module_layer_handler",
+    "binary_rewrite_handler",
+    "proof_handler",
+    "pool_route_handler",
+    "broken_layer_repair_handler",
+    "owner_pass_handler",
+    "return_to_rework_handler"
+  ],
+  "schedules": [
+    "every_cycle_scan_unfinished",
+    "on_broken_block_peel_last_layer",
+    "on_owner_pass_move_to_completed",
+    "on_owner_not_pass_return_to_pool",
+    "on_missing_module_create_next_layer"
+  ],
+  "policy": {
+    "build_modules_around_task": true,
+    "scale_into_multiprocess": true,
+    "scale_into_superprocess": true,
+    "create_new_committees_when_needed": true,
+    "return_unfinished_to_rework": true,
+    "owner_pass_marks_done": true
+  },
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "finance_scope_only": true,
+    "meta_evolution_only": true,
+    "analytics_may_only_create_evolution_tasks": true,
+    "broken_blocks_repaired_by_peeling_last_layer": true,
+    "owner_final_pass_required": true
+  }
+}

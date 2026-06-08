@@ -1,0 +1,75 @@
+{
+  "block_id": "AI-META-EVO-BLOCK-20260608_115038-8f26f8df8f",
+  "timestamp": "2026-06-08T11:50:38",
+  "status": "AI_META_EVOLUTION_BLOCK_CREATED",
+  "action_type": "EVOLUTION_CREATE_AI_TASK_BLOCK",
+  "source_layer_id": "META-EVO-LAYER-20260608_115038-a98a336687",
+  "source_layer_sha256": "8f26f8df8f725216bc3f512a434b1e3f6d34da8eab93fed69d2d00fa6d3c0a41",
+  "parent_task_id": "task_block_0087e5b0a6886f0f",
+  "parent_task_sha256": "5dfa2d186294f0f0f355067163cb993b0dec8bd8f3104d76c60129af1bf1cca6",
+  "ecosystem_id": "ECO-414ad70f6658",
+  "layer_number": 1,
+  "pool_policy": {
+    "route_to_kibra_pool": true,
+    "route_through_usha_tunnel": true,
+    "if_broken_peel_last_layer_and_return": true,
+    "if_owner_pass_mark_completed": true,
+    "if_not_pass_return_to_rework_pool": true
+  },
+  "payload": {
+    "analytics_scope": "evolution_only_finance_only",
+    "task_solution_strategy": "add_module_layer_until_solution",
+    "module_layer": {
+      "layer_id": "META-EVO-LAYER-20260608_115038-a98a336687",
+      "timestamp": "2026-06-08T11:50:38",
+      "status": "EVOLUTION_LAYER_CREATED",
+      "action_type": "EVOLUTION_ADD_MODULE_LAYER",
+      "parent_task_id": "task_block_0087e5b0a6886f0f",
+      "parent_task_sha256": "5dfa2d186294f0f0f355067163cb993b0dec8bd8f3104d76c60129af1bf1cca6",
+      "ecosystem_id": "ECO-414ad70f6658",
+      "layer_number": 1,
+      "module_policy": {
+        "add_module_around_task": true,
+        "do_not_mutate_original_task": true,
+        "scale_analytics_until_task_solution": true,
+        "next_layer_allowed_if_task_not_solved": true,
+        "finance_scope_only": true
+      },
+      "evolution_goal": {
+        "task_title": "NO_TITLE",
+        "solution_path": "module_by_module_until_solved",
+        "analytics_scope": "evolutionary_actions_only"
+      },
+      "safety": {
+        "real_payment_now": false,
+        "real_trading_now": false,
+        "automatic_external_tx": false,
+        "automatic_withdrawals": false,
+        "automatic_SWIFT": false,
+        "automatic_real_rewards": false,
+        "external_bridge_enabled": false,
+        "finance_scope_only": true,
+        "meta_evolution_only": true,
+        "analytics_may_only_create_evolution_tasks": true,
+        "broken_blocks_repaired_by_peeling_last_layer": true,
+        "owner_final_pass_required": true
+      },
+      "sha256": "8f26f8df8f725216bc3f512a434b1e3f6d34da8eab93fed69d2d00fa6d3c0a41"
+    }
+  },
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "finance_scope_only": true,
+    "meta_evolution_only": true,
+    "analytics_may_only_create_evolution_tasks": true,
+    "broken_blocks_repaired_by_peeling_last_layer": true,
+    "owner_final_pass_required": true
+  },
+  "sha256": "fc4d9b225a4bbc8bce46aa9985c1c7f9aab79e85b23df7e18c79885c0110ca2e"
+}

@@ -1,0 +1,32 @@
+{
+  "department": "CYBRA META EVOLUTION ANALYTICS DEPARTMENT",
+  "status": "ACTIVE",
+  "scope": "FINANCE_TASKS_ONLY",
+  "rule": "ANALYTICS_MUST_ONLY_CONSIDER_EVOLUTIONARY_ACTIONS",
+  "allowed_actions": [
+    "EVOLUTION_ADD_MODULE_LAYER",
+    "EVOLUTION_CREATE_AI_TASK_BLOCK",
+    "EVOLUTION_ROUTE_TO_POOL",
+    "EVOLUTION_CREATE_COMMITTEE",
+    "EVOLUTION_CREATE_HANDLER",
+    "EVOLUTION_CREATE_SCHEDULE",
+    "EVOLUTION_REPAIR_BROKEN_BLOCK_BY_PEELING_LAST_LAYER",
+    "EVOLUTION_RESUBMIT_TO_POOL",
+    "EVOLUTION_MARK_DONE_AFTER_OWNER_PASS",
+    "EVOLUTION_RETURN_TO_REWORK_IF_NOT_PASS"
+  ],
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "finance_scope_only": true,
+    "meta_evolution_only": true,
+    "analytics_may_only_create_evolution_tasks": true,
+    "broken_blocks_repaired_by_peeling_last_layer": true,
+    "owner_final_pass_required": true
+  }
+}

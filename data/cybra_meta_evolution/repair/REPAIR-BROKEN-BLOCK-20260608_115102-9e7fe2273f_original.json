@@ -1,0 +1,62 @@
+{
+  "timestamp": "2026-06-08T11:51:02",
+  "status": "BROKEN_BLOCK_ARCHIVED",
+  "source": "blockchain/kibra_chain/task_blocks/task_block_00a9f5b7f22b77b8.json",
+  "reason": "missing_id",
+  "original": {
+    "type": "KIBRA_AI_TASK_BLOCK",
+    "index": 1780488397,
+    "time": 1780488397.5171726,
+    "time_iso": "2026-06-03T15:06:37+0300",
+    "previous_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab",
+    "pool_id": "KIBRA-AI-POOL",
+    "difficulty": 2,
+    "difficulty_prefix": "00",
+    "task_count": 1,
+    "tasks": [
+      {
+        "topic": "KIBRA mined AI task block support task_block_0087e5b0a6886f0f",
+        "type": "kibra_block_ai_support_task",
+        "priority": "high",
+        "payload": {
+          "source": "ai_task_block_mining_department",
+          "mined_task_block": "task_block_0087e5b0a6886f0f",
+          "block_hash": "0087e5b0a6886f0f2bb818c8e57d77ebbb627b58c28c04393b6343540be26881",
+          "task_count": 6,
+          "pool_id": "KIBRA-AI-POOL",
+          "difficulty": 2,
+          "shares_count": 21,
+          "support_ai_parliament": true,
+          "block_was_mined_before_sending": true,
+          "real_payment": false,
+          "real_sell": false,
+          "manual_OWNER_approval_required": true,
+          "source_queue": "cybra:ai:tasks:kibra_block_ai_support",
+          "converted_to_kibra_task_block": true,
+          "not_sent_directly": true,
+          "must_be_mined_by_pool": true,
+          "external_tx": false
+        },
+        "task_hash": "610745d32bf0d60982ee21e9132de721cde8be433f6494909779263d7ecf49f4"
+      }
+    ],
+    "native_coin": "KIBRA",
+    "external_mint": false,
+    "pool_mining": true,
+    "not_sent_directly": true,
+    "real_payment": false,
+    "real_sell": false,
+    "external_tx": false,
+    "manual_OWNER_approval_required": true,
+    "nonce": 256,
+    "block_hash": "00a9f5b7f22b77b8987ad5bf20be429047b5353eae397609c52d051962c81cfa",
+    "pow_ok": true,
+    "shares_count": 12,
+    "pool_tagged": true,
+    "pool_reward_accounting": {
+      "ready": true,
+      "real_payout_now": false,
+      "reward_type": "native_kibra_task_block_accounting"
+    }
+  }
+}

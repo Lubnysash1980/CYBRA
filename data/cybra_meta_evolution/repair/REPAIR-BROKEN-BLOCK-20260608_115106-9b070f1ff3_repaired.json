@@ -1,0 +1,70 @@
+{
+  "type": "KIBRA_AI_TASK_BLOCK",
+  "index": 1780439505,
+  "time": 1780439505.9151537,
+  "time_iso": "2026-06-03T01:31:45+0300",
+  "previous_hash": "00510d744e45cfee9e7889daaf0209b5efadb5bf90b14f36493cb26494bdcaab",
+  "pool_id": "KIBRA-AI-POOL",
+  "difficulty": 2,
+  "difficulty_prefix": "00",
+  "task_count": 1,
+  "tasks": [
+    {
+      "topic": "Нове AI-завдання",
+      "type": "generic_ai_safe_task",
+      "priority": "high",
+      "payload": {
+        "goal": "спочатку в mining block, потім у парламент",
+        "converted_by_ai_block_enforcer": true,
+        "not_sent_directly": true,
+        "must_be_mined_by_pool": true,
+        "real_payment": false,
+        "real_sell": false,
+        "external_tx": false,
+        "manual_OWNER_approval_required": true,
+        "source_queue": "cybra:ai:tasks:block_inbox",
+        "owner_rule": "all_new_ai_tasks_must_be_mined_into_blocks",
+        "ai_block_enforcer_hash": "e490509f605c688fb25808556dfc5e2840c88b001d1e2f8ca22fc6d763af6ac9"
+      }
+    }
+  ],
+  "native_coin": "KIBRA",
+  "external_mint": false,
+  "pool_mining": true,
+  "not_sent_directly": true,
+  "real_payment": false,
+  "real_sell": false,
+  "external_tx": false,
+  "manual_OWNER_approval_required": true,
+  "nonce": 106,
+  "block_hash": "00bf2a2c9c247085b9184638d5cb6c2a24fd094d021461894bf22151ae59b203",
+  "pow_ok": true,
+  "shares_count": 5,
+  "pool_tagged": true,
+  "pool_reward_accounting": {
+    "ready": true,
+    "real_payout_now": false,
+    "reward_type": "native_kibra_task_block_accounting"
+  },
+  "repair_id": "REPAIR-BROKEN-BLOCK-20260608_115106-9b070f1ff3",
+  "timestamp": "2026-06-08T11:51:06",
+  "status": "BROKEN_BLOCK_REPAIRED_LAST_LAYER_PEELED",
+  "action_type": "EVOLUTION_REPAIR_BROKEN_BLOCK_BY_PEELING_LAST_LAYER",
+  "broken_reason": "missing_id",
+  "removed_last_broken_layer": null,
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "finance_scope_only": true,
+    "meta_evolution_only": true,
+    "analytics_may_only_create_evolution_tasks": true,
+    "broken_blocks_repaired_by_peeling_last_layer": true,
+    "owner_final_pass_required": true
+  },
+  "sha256": "8786ec5ac7deb94e8bdbdb0dfae11b42a5c2c13d041907fde4b4cbde2e395ce0"
+}

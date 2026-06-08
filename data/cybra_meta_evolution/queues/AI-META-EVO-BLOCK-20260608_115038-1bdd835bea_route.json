@@ -1,0 +1,41 @@
+{
+  "timestamp": "2026-06-08T11:50:39",
+  "status": "AI_META_EVOLUTION_BLOCK_ROUTED_TO_POOLS",
+  "block_id": "AI-META-EVO-BLOCK-20260608_115038-1bdd835bea",
+  "block_file": "data/cybra_meta_evolution/blocks/AI-META-EVO-BLOCK-20260608_115038-1bdd835bea.json",
+  "kibra_block_file": "blockchain/kibra_chain/meta_evolution_blocks/AI-META-EVO-BLOCK-20260608_115038-1bdd835bea.json",
+  "usha_seal": {
+    "mode": "USHA_OPENSSL_AES_256_CBC_PBKDF2",
+    "raw": "data/cybra_meta_evolution/outbox/AI-META-EVO-BLOCK-20260608_115038-1bdd835bea.json",
+    "sealed": "data/cybra_meta_evolution/outbox/AI-META-EVO-BLOCK-20260608_115038-1bdd835bea.enc",
+    "sha256": "5f2d3088861093711d36431ce118c9f10f37a96acc18d9e11bddc79238500e7c",
+    "key_location": ".cybra_local_secret/usha.key",
+    "git_safe": true
+  },
+  "queues": {
+    "cybra:meta:evolution:pool": true,
+    "cybra:kibra:pool:mining_blocks": true,
+    "cybra:ai:tasks:block_inbox": true,
+    "cybra:finance:evolution:pool": true,
+    "ai_block_inbox": true,
+    "cybra_mgs_all": true,
+    "cybra_oracle_tasks": true,
+    "parliament_inbox": true,
+    "cybra:completed:ai_tasks": true,
+    "cybra:return:ai_tasks": true
+  },
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "finance_scope_only": true,
+    "meta_evolution_only": true,
+    "analytics_may_only_create_evolution_tasks": true,
+    "broken_blocks_repaired_by_peeling_last_layer": true,
+    "owner_final_pass_required": true
+  }
+}

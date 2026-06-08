@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+cd "$HOME/CYBRA" || exit 1
+
+case "$1" in
+  cycle|"")
+    python3 scripts/meta_evolution/cybra_meta_evolution.py cycle
+    ;;
+  scan)
+    python3 scripts/meta_evolution/cybra_meta_evolution.py scan
+    ;;
+  repair)
+    python3 scripts/meta_evolution/cybra_meta_evolution.py repair
+    ;;
+  departments)
+    python3 scripts/meta_evolution/cybra_meta_evolution.py departments
+    ;;
+  done)
+    python3 scripts/meta_evolution/cybra_meta_evolution.py done
+    ;;
+  return)
+    python3 scripts/meta_evolution/cybra_meta_evolution.py return
+    ;;
+  status)
+    python3 scripts/meta_evolution/cybra_meta_evolution.py status
+    ;;
+  proof)
+    python3 scripts/meta_evolution/cybra_meta_evolution.py proof
+    ;;
+  serve)
+    python3 -m http.server 8794 --bind 127.0.0.1 --directory dashboard/cybra_meta_evolution
+    ;;
+  *)
+    echo "Commands:"
+    echo "  cybra-meta-evo cycle"
+    echo "  cybra-meta-evo scan"
+    echo "  cybra-meta-evo repair"
+    echo "  cybra-meta-evo departments"
+    echo "  cybra-meta-evo done"
+    echo "  cybra-meta-evo return"
+    echo "  cybra-meta-evo status"
+    echo "  cybra-meta-evo proof"
+    echo "  cybra-meta-evo serve"
+    ;;
+esac
