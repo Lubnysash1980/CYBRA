@@ -1,0 +1,1 @@
+console.log('=== PAPER/TESTNET HARNESS STARTED ==='); setInterval(()=>console.log(JSON.stringify({timestamp:new Date().toISOString(),status:'PAPER_HARNESS_TICK'})),5000);

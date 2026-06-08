@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-06-08T14:54:35",
+  "status": "BOT_SUPERVISED_PAPER_HARNESS_STARTED",
+  "pid": 28086,
+  "alive": true,
+  "harness_file": "data/cybra_bot_supervisor/harness/cybra_bot_paper_harness.mjs",
+  "safety": {
+    "paper_trading": true,
+    "testnet_mode": true,
+    "live_orders_enabled": false
+  }
+}
