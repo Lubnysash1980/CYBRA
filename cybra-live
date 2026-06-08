@@ -1,0 +1,3 @@
+#!/bin/bash
+cd ~/CYBRA
+python3 scripts/live/oracle_germany_live.py "$@"
