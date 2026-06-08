@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Cyberbot</title>
+<style>
+body { font-family: system-ui, sans-serif; max-width: 1200px; margin: 28px auto; padding: 20px; }
+.card { border:1px solid #ddd; border-radius:14px; padding:16px; margin:14px 0; }
+.red { color:#c40000; font-weight:800; }
+.green { color:#008a2e; font-weight:800; }
+.btn { display:inline-block; padding:10px 12px; margin:5px; border:1px solid #999; border-radius:9px; text-decoration:none; }
+input, textarea, select { width:100%; padding:8px; margin:4px 0 10px 0; }
+table { border-collapse: collapse; width:100%; }
+td, th { border:1px solid #ddd; padding:8px; }
+code { word-break: break-all; }
+</style>
+</head>
+<body>
+<h1>Cyberbot Bar Menu</h1>
+
+<div class="card">
+<p>Bot alive: <b>False</b></p>
+<p>IT active: <b>true</b></p>
+<p>CyberParliament active: <b>true</b></p>
+<p>Bybit: <b>True</b></p>
+<p>Binance: <b>True</b></p>
+<p class="red">Live orders enabled: false</p>
+</div>
+
+<div class="card">
+<a class="btn green" href="/action?do=start">Start</a>
+<a class="btn red" href="/action?do=stop">Stop</a>
+<a class="btn" href="/action?do=audit">Audit</a>
+<a class="btn" href="/action?do=committees">Standard committees</a>
+<a class="btn" href="/action?do=pip_on">PIP ON</a>
+<a class="btn" href="/action?do=pip_off">PIP OFF</a>
+<a class="btn red" href="/action?do=live_block">Block live</a>
+<a class="btn" href="/action?do=live_request">Live request</a>
+<a class="btn" href="/json">JSON</a>
+</div>
+
+<div class="card">
+<h2>Create AI task</h2>
+<form method="post" action="/task">
+<input name="title" placeholder="Task title">
+<textarea name="body" placeholder="Task body"></textarea>
+<select name="exchange"><option value="all">all</option><option value="bybit">bybit</option><option value="binance">binance</option></select>
+<button type="submit">Send to IT + Parliament + audit</button>
+</form>
+</div>
+
+<div class="card">
+<h2>Bybit local API</h2>
+<p>Key: <code>cybr...vEiy</code></p>
+<form method="post" action="/exchange">
+<input type="hidden" name="exchange" value="bybit">
+<input name="api_key" placeholder="Bybit API Key">
+<input name="api_secret" type="password" placeholder="Bybit API Secret">
+<select name="testnet"><option value="true">Testnet/Paper</option><option value="false">Live key stored, live orders blocked</option></select>
+<button type="submit">Save Bybit local-only</button>
+</form>
+</div>
+
+<div class="card">
+<h2>Binance local API</h2>
+<p>Key: <code>None</code></p>
+<form method="post" action="/exchange">
+<input type="hidden" name="exchange" value="binance">
+<input name="api_key" placeholder="Binance API Key">
+<input name="api_secret" type="password" placeholder="Binance API Secret">
+<select name="testnet"><option value="true">Testnet/Paper</option><option value="false">Live key stored, live orders blocked</option></select>
+<button type="submit">Save Binance local-only</button>
+</form>
+</div>
+
+<div class="card">
+<h2>Audit advice</h2>
+<ul><li>Перевірити Bybit/Binance API status.</li><li>Створювати AI tasks для IT + Parliament.</li><li>Live orders blocked до окремого OWNER approval.</li><li>Для іншого пристрою використовувати Cyberbot GitHub import.</li></ul>
+</div>
+
+<table><tr><th>Queue</th><th>Redis</th><th>Load</th></tr><tr><td>it</td><td><code>it_department</code></td><td>(0)</td></tr><tr><td>parliament</td><td><code>parliament_inbox</code></td><td>(0)</td></tr><tr><td>finance_audit</td><td><code>cybra:audit:finance</code></td><td>(0)</td></tr><tr><td>bot</td><td><code>cybra:bot:supervised</code></td><td>(0)</td></tr><tr><td>finance</td><td><code>cybra:finance:evolution:pool</code></td><td>(0)</td></tr><tr><td>meta</td><td><code>cybra:meta:evolution:pool</code></td><td>(0)</td></tr><tr><td>bybit</td><td><code>cyberbot:bybit</code></td><td>(0)</td></tr><tr><td>binance</td><td><code>cyberbot:binance</code></td><td>(0)</td></tr></table>
+</body>
+</html>

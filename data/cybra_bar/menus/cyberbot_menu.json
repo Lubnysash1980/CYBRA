@@ -1,0 +1,38 @@
+{
+  "title": "Cyberbot Bar Menu",
+  "github_import_command": "curl -fsSL https://raw.githubusercontent.com/Lubnysash1980/CYBRA/main/install_cyberbot_import_bar_menu.sh | bash",
+  "commands": [
+    "cyberbot status",
+    "cyberbot menu",
+    "cyberbot start",
+    "cyberbot stop",
+    "cyberbot audit",
+    "cyberbot configure bybit",
+    "cyberbot configure binance",
+    "cyberbot set-pip on 10",
+    "cyberbot live-request",
+    "cyberbot live-block",
+    "cyberbot task",
+    "cyberbot committees",
+    "cyberbot patch",
+    "cyberbot serve 8802"
+  ],
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "live_orders_enabled": false,
+    "live_order_button_creates_request_only": true,
+    "paper_trading": true,
+    "testnet_mode": true,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "manual_OWNER_approval_required": true,
+    "it_supervision_required": true,
+    "cyber_parliament_supervision_required": true,
+    "api_keys_stored_local_only": true,
+    "do_not_store_secrets_in_git": true,
+    "github_import_safe": true
+  }
+}
