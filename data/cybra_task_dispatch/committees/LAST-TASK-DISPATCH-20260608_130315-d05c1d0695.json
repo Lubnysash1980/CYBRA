@@ -1,0 +1,44 @@
+{
+  "timestamp": "2026-06-08T13:03:15",
+  "status": "COMMITTEES_ADDED_AROUND_LAST_TASK",
+  "packet_id": "LAST-TASK-DISPATCH-20260608_130315-d05c1d0695",
+  "source_task": {
+    "task_id": "LAST-TASK-DISPATCH-20260608_130313-bb82d5199a_meta",
+    "title": "LAST_TASK_DISPATCH_CREATED",
+    "status": "LAST_TASK_DISPATCH_CREATED",
+    "source": "data/cybra_meta_evolution/tasks/LAST-TASK-DISPATCH-20260608_130313-bb82d5199a_meta.json",
+    "sha256": "b4f9d14db6e8d02d471a957844100139733ea36f5d8c4b5128aef1c71510b418"
+  },
+  "committees": [
+    {
+      "committee": "finance_extra_committee",
+      "file": "parliament/committees/finance_extra_committee/tasks/LAST-TASK-DISPATCH-20260608_130315-d05c1d0695.json",
+      "queue": "cybra:committee:finance_extra_committee",
+      "redis_ok": true
+    },
+    {
+      "committee": "security_extra_committee",
+      "file": "parliament/committees/security_extra_committee/tasks/LAST-TASK-DISPATCH-20260608_130315-d05c1d0695.json",
+      "queue": "cybra:committee:security_extra_committee",
+      "redis_ok": true
+    },
+    {
+      "committee": "audit_extra_committee",
+      "file": "parliament/committees/audit_extra_committee/tasks/LAST-TASK-DISPATCH-20260608_130315-d05c1d0695.json",
+      "queue": "cybra:committee:audit_extra_committee",
+      "redis_ok": true
+    }
+  ],
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "manual_OWNER_approval_required": true,
+    "cyber_parliament_approval_required": true,
+    "dispatcher_actions_are_internal_only": true
+  }
+}

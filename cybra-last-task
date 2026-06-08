@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+cd "$HOME/CYBRA" || exit 1
+
+case "$1" in
+  inspect|"")
+    python3 scripts/task_dispatch/cybra_last_task_dispatcher.py inspect
+    ;;
+  parliament)
+    python3 scripts/task_dispatch/cybra_last_task_dispatcher.py parliament
+    ;;
+  it|voiti|it-department)
+    python3 scripts/task_dispatch/cybra_last_task_dispatcher.py it
+    ;;
+  merge)
+    python3 scripts/task_dispatch/cybra_last_task_dispatcher.py merge
+    ;;
+  committees)
+    shift
+    python3 scripts/task_dispatch/cybra_last_task_dispatcher.py committees "$@"
+    ;;
+  audit)
+    python3 scripts/task_dispatch/cybra_last_task_dispatcher.py audit
+    ;;
+  auto)
+    python3 scripts/task_dispatch/cybra_last_task_dispatcher.py auto
+    ;;
+  status)
+    python3 scripts/task_dispatch/cybra_last_task_dispatcher.py status
+    ;;
+  proof)
+    python3 scripts/task_dispatch/cybra_last_task_dispatcher.py proof
+    ;;
+  *)
+    echo "Commands:"
+    echo "  cybra-last-task inspect"
+    echo "  cybra-last-task parliament"
+    echo "  cybra-last-task it"
+    echo "  cybra-last-task merge"
+    echo "  cybra-last-task committees [committee1 committee2]"
+    echo "  cybra-last-task audit"
+    echo "  cybra-last-task auto"
+    echo "  cybra-last-task status"
+    echo "  cybra-last-task proof"
+    ;;
+esac

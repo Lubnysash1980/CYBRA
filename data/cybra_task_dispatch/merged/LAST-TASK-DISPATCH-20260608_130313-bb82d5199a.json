@@ -1,0 +1,77 @@
+{
+  "timestamp": "2026-06-08T13:03:13",
+  "status": "ALL_DEPARTMENTS_MERGED_AROUND_LAST_TASK",
+  "packet_id": "LAST-TASK-DISPATCH-20260608_130313-bb82d5199a",
+  "source_task": {
+    "task_id": "LAST-TASK-DISPATCH-20260608_130312-dbfe9b781c",
+    "title": "LAST_TASK_DISPATCH_CREATED",
+    "status": "LAST_TASK_DISPATCH_CREATED",
+    "source": "data/cybra_finance/it_department/tasks/LAST-TASK-DISPATCH-20260608_130312-dbfe9b781c.json",
+    "sha256": "533466582a2e4dbf6a3ad05257459dd57c4d2cd28536e49db60a58071409fe10"
+  },
+  "routes": {
+    "parliament": {
+      "department": "Cyber Parliament",
+      "queue": "parliament_inbox",
+      "redis_ok": true,
+      "file": "parliament/inbox/LAST-TASK-DISPATCH-20260608_130313-bb82d5199a_parliament.json"
+    },
+    "it": {
+      "department": "IT Department",
+      "queue": "it_department",
+      "redis_ok": true,
+      "file": "data/cybra_finance/it_department/tasks/LAST-TASK-DISPATCH-20260608_130313-bb82d5199a_it.json"
+    },
+    "mgs": {
+      "department": "MGS Department",
+      "queue": "cybra_mgs_all",
+      "redis_ok": true,
+      "file": "data/cybra_mgs/tasks/LAST-TASK-DISPATCH-20260608_130313-bb82d5199a_mgs.json"
+    },
+    "oracle": {
+      "department": "Oracle Department",
+      "queue": "cybra_oracle_tasks",
+      "redis_ok": true,
+      "file": "data/cybra_oracle/tasks/LAST-TASK-DISPATCH-20260608_130313-bb82d5199a_oracle.json"
+    },
+    "meta": {
+      "department": "Meta Evolution Department",
+      "queue": "cybra:meta:evolution:pool",
+      "redis_ok": true,
+      "file": "data/cybra_meta_evolution/tasks/LAST-TASK-DISPATCH-20260608_130313-bb82d5199a_meta.json"
+    },
+    "proof": {
+      "department": "Proof Department",
+      "queue": "cybra:audit:proof",
+      "redis_ok": true,
+      "file": "data/cybra_proof_department/reports/LAST-TASK-DISPATCH-20260608_130313-bb82d5199a_proof.json"
+    },
+    "binary": {
+      "department": "Binary Code Department",
+      "queue": "cybra:binary:tasks",
+      "redis_ok": true,
+      "file": "data/cybra_it_department/meta_evolution_binary_committee/LAST-TASK-DISPATCH-20260608_130313-bb82d5199a_binary.json"
+    }
+  },
+  "files": {
+    "parliament": "parliament/inbox/LAST-TASK-DISPATCH-20260608_130313-bb82d5199a_parliament.json",
+    "it": "data/cybra_finance/it_department/tasks/LAST-TASK-DISPATCH-20260608_130313-bb82d5199a_it.json",
+    "mgs": "data/cybra_mgs/tasks/LAST-TASK-DISPATCH-20260608_130313-bb82d5199a_mgs.json",
+    "oracle": "data/cybra_oracle/tasks/LAST-TASK-DISPATCH-20260608_130313-bb82d5199a_oracle.json",
+    "meta": "data/cybra_meta_evolution/tasks/LAST-TASK-DISPATCH-20260608_130313-bb82d5199a_meta.json",
+    "proof": "data/cybra_proof_department/reports/LAST-TASK-DISPATCH-20260608_130313-bb82d5199a_proof.json",
+    "binary": "data/cybra_it_department/meta_evolution_binary_committee/LAST-TASK-DISPATCH-20260608_130313-bb82d5199a_binary.json"
+  },
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "manual_OWNER_approval_required": true,
+    "cyber_parliament_approval_required": true,
+    "dispatcher_actions_are_internal_only": true
+  }
+}

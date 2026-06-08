@@ -1,0 +1,114 @@
+{
+  "timestamp": "2026-06-08T13:03:12",
+  "status": "LAST_TASK_RETURNED_TO_DEPARTMENT",
+  "department": {
+    "name": "Cyber Parliament",
+    "queue": "parliament_inbox",
+    "path": "parliament/inbox"
+  },
+  "packet_file": "parliament/inbox/LAST-TASK-DISPATCH-20260608_130311-a7683c786a.json",
+  "redis_queue": "parliament_inbox",
+  "redis_ok": true,
+  "packet": {
+    "packet_id": "LAST-TASK-DISPATCH-20260608_130311-a7683c786a",
+    "timestamp": "2026-06-08T13:03:11",
+    "status": "LAST_TASK_DISPATCH_CREATED",
+    "action": "RETURN_TO_PARLIAMENT",
+    "target": "Cyber Parliament",
+    "source_task": {
+      "task_id": "AI-META-EVO-BLOCK-20260608_115048-b50591ad1b",
+      "title": "AI_META_EVOLUTION_BLOCK_CREATED",
+      "status": "AI_META_EVOLUTION_BLOCK_CREATED",
+      "source": "data/cybra_meta_evolution/blocks/AI-META-EVO-BLOCK-20260608_115048-b50591ad1b.json",
+      "sha256": "7819604b9f7ee195d4984a9a20faa250c5922f686ca4280161d6d9b907bcc8e7"
+    },
+    "payload": {
+      "block_id": "AI-META-EVO-BLOCK-20260608_115048-b50591ad1b",
+      "timestamp": "2026-06-08T11:50:48",
+      "status": "AI_META_EVOLUTION_BLOCK_CREATED",
+      "action_type": "EVOLUTION_CREATE_AI_TASK_BLOCK",
+      "source_layer_id": "META-EVO-LAYER-20260608_115048-71ee8d90e2",
+      "source_layer_sha256": "b50591ad1b0a2746578e2ed682e2a53cb7eb5648c7409c96cdc6495795d760e7",
+      "parent_task_id": "task_block_00ef8fbccbd38b5a",
+      "parent_task_sha256": "f491ba77577471fb28666fafa51af7f170f88908fae58babe67b608d9683c1e0",
+      "ecosystem_id": "ECO-f0940ac03f25",
+      "layer_number": 1,
+      "pool_policy": {
+        "route_to_kibra_pool": true,
+        "route_through_usha_tunnel": true,
+        "if_broken_peel_last_layer_and_return": true,
+        "if_owner_pass_mark_completed": true,
+        "if_not_pass_return_to_rework_pool": true
+      },
+      "payload": {
+        "analytics_scope": "evolution_only_finance_only",
+        "task_solution_strategy": "add_module_layer_until_solution",
+        "module_layer": {
+          "layer_id": "META-EVO-LAYER-20260608_115048-71ee8d90e2",
+          "timestamp": "2026-06-08T11:50:48",
+          "status": "EVOLUTION_LAYER_CREATED",
+          "action_type": "EVOLUTION_ADD_MODULE_LAYER",
+          "parent_task_id": "task_block_00ef8fbccbd38b5a",
+          "parent_task_sha256": "f491ba77577471fb28666fafa51af7f170f88908fae58babe67b608d9683c1e0",
+          "ecosystem_id": "ECO-f0940ac03f25",
+          "layer_number": 1,
+          "module_policy": {
+            "add_module_around_task": true,
+            "do_not_mutate_original_task": true,
+            "scale_analytics_until_task_solution": true,
+            "next_layer_allowed_if_task_not_solved": true,
+            "finance_scope_only": true
+          },
+          "evolution_goal": {
+            "task_title": "NO_TITLE",
+            "solution_path": "module_by_module_until_solved",
+            "analytics_scope": "evolutionary_actions_only"
+          },
+          "safety": {
+            "real_payment_now": false,
+            "real_trading_now": false,
+            "automatic_external_tx": false,
+            "automatic_withdrawals": false,
+            "automatic_SWIFT": false,
+            "automatic_real_rewards": false,
+            "external_bridge_enabled": false,
+            "finance_scope_only": true,
+            "meta_evolution_only": true,
+            "analytics_may_only_create_evolution_tasks": true,
+            "broken_blocks_repaired_by_peeling_last_layer": true,
+            "owner_final_pass_required": true
+          },
+          "sha256": "b50591ad1b0a2746578e2ed682e2a53cb7eb5648c7409c96cdc6495795d760e7"
+        }
+      },
+      "safety": {
+        "real_payment_now": false,
+        "real_trading_now": false,
+        "automatic_external_tx": false,
+        "automatic_withdrawals": false,
+        "automatic_SWIFT": false,
+        "automatic_real_rewards": false,
+        "external_bridge_enabled": false,
+        "finance_scope_only": true,
+        "meta_evolution_only": true,
+        "analytics_may_only_create_evolution_tasks": true,
+        "broken_blocks_repaired_by_peeling_last_layer": true,
+        "owner_final_pass_required": true
+      },
+      "sha256": "c4bd564b88430df49ef694348c4fa6f11ea5717925c276d2ca21db1eb94e92c0"
+    },
+    "extra": {},
+    "safety": {
+      "real_payment_now": false,
+      "real_trading_now": false,
+      "automatic_external_tx": false,
+      "automatic_withdrawals": false,
+      "automatic_SWIFT": false,
+      "automatic_real_rewards": false,
+      "external_bridge_enabled": false,
+      "manual_OWNER_approval_required": true,
+      "cyber_parliament_approval_required": true,
+      "dispatcher_actions_are_internal_only": true
+    }
+  }
+}
