@@ -64,3 +64,6 @@ recovery_unpack/
 *.tmp
 
 # CYBRA DEX pool private signer
+.cybra_local_secret/
+data/cybra_bot_supervisor/logs/
+data/cybra_bot_supervisor/pids/

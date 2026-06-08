@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CYBRA Bot Bar Menu</title>
+<style>
+body { font-family: system-ui, sans-serif; max-width: 1200px; margin: 28px auto; padding: 20px; }
+.card { border:1px solid #ddd; border-radius:14px; padding:16px; margin:14px 0; }
+.red { color:#c40000; font-weight:800; }
+.green { color:#008a2e; font-weight:800; }
+.yellow { color:#a36b00; font-weight:800; }
+.neutral { color:#555; font-weight:800; }
+.btn { display:inline-block; padding:10px 12px; margin:5px; border:1px solid #999; border-radius:9px; text-decoration:none; }
+input, textarea, select { width: 100%; padding: 8px; margin: 4px 0 10px 0; }
+button { padding: 10px 12px; }
+table { border-collapse: collapse; width:100%; }
+td, th { border:1px solid #ddd; padding:8px; }
+code { word-break: break-all; }
+</style>
+</head>
+<body>
+<h1>CYBRA Bot Bar Menu</h1>
+
+<div class="card">
+<h2>Статус</h2>
+<p>Bot працює: <span class='green'>True</span></p>
+<p>IT-нагляд активний: <span class='green'>True</span></p>
+<p>CyberParliament-нагляд активний: <span class='green'>True</span></p>
+<p>Audit: <span class='green'>ACTIVE</span></p>
+<p>Bot file: <code>trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs</code></p>
+<p>Risk: <code>HIGH_TRADING_RISK</code></p>
+</div>
+
+<div class="card">
+<h2>Кнопки</h2>
+<a class="btn green" href="/action?do=start">Start</a>
+<a class="btn red" href="/action?do=stop">Stop</a>
+<a class="btn yellow" href="/action?do=watchdog">Watchdog</a>
+<a class="btn yellow" href="/action?do=audit">Audit</a>
+<a class="btn green" href="/action?do=pip_on">PIP ON</a>
+<a class="btn neutral" href="/action?do=pip_off">PIP OFF</a>
+<a class="btn yellow" href="/action?do=live_request">Live-order request</a>
+<a class="btn red" href="/action?do=live_block">Block live-order</a>
+<a class="btn" href="/json">JSON</a>
+</div>
+
+<div class="card">
+<h2>Перемикачі</h2>
+<p>PIP mode: <b>False</b></p>
+<p>PIP value: <b>10</b></p>
+<p>Live-order gate: <b>BLOCKED</b></p>
+<p class="red">Live orders enabled: false</p>
+</div>
+
+<div class="card">
+<h2>Додати завдання щодо цього бота</h2>
+<form method="post" action="/task">
+<input name="title" placeholder="Назва завдання">
+<textarea name="body" placeholder="Опис завдання"></textarea>
+<button type="submit">Додати task в IT + Parliament + Audit</button>
+</form>
+</div>
+
+<div class="card">
+<h2>Bybit API local-only</h2>
+<p>Configured: <b>True</b>, Key: <code>cybr...vEiy</code></p>
+<form method="post" action="/exchange">
+<input type="hidden" name="exchange" value="bybit">
+<input name="api_key" placeholder="Bybit API Key">
+<input name="api_secret" type="password" placeholder="Bybit API Secret">
+<select name="testnet"><option value="true">Testnet / Paper</option><option value="false">Live keys stored, live orders still blocked</option></select>
+<button type="submit">Save Bybit локально</button>
+</form>
+</div>
+
+<div class="card">
+<h2>Binance API local-only</h2>
+<p>Configured: <b>True</b>, Key: <code>None</code></p>
+<form method="post" action="/exchange">
+<input type="hidden" name="exchange" value="binance">
+<input name="api_key" placeholder="Binance API Key">
+<input name="api_secret" type="password" placeholder="Binance API Secret">
+<select name="testnet"><option value="true">Testnet / Paper</option><option value="false">Live keys stored, live orders still blocked</option></select>
+<button type="submit">Save Binance локально</button>
+</form>
+</div>
+
+<div class="card">
+<h2>Audit recommendations</h2>
+<ul><li>Супервізор працює. Paper/testnet harness активний.</li><li>Знайдено trading-risk слова. Прямий live запуск заблокований.</li><li>IT Department і CyberParliament отримали supervision task.</li><li>Реальні ордери, withdrawals, SWIFT, external tx заблоковані.</li></ul>
+</div>
+
+<div class="card">
+<h2>Redis queues</h2>
+<table><tr><th>Queue</th><th>Load</th></tr><tr><td><code>it_department</code></td><td>(3)</td></tr><tr><td><code>parliament_inbox</code></td><td>(11)</td></tr><tr><td><code>cybra:audit:finance</code></td><td>(11)</td></tr><tr><td><code>cybra:bot:supervised</code></td><td>(9)</td></tr><tr><td><code>cybra:finance:evolution:pool</code></td><td>(3)</td></tr><tr><td><code>cybra:meta:evolution:pool</code></td><td>(3)</td></tr></table>
+</div>
+
+</body>
+</html>
