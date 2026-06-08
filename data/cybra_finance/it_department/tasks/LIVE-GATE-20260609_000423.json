@@ -1,0 +1,11 @@
+{
+  "task_id": "LIVE-GATE-20260609_000423",
+  "status": "LIVE_GATE_TASK",
+  "title": "LIVE: Cyberbot gate checkpoint",
+  "body": "live_orders_enabled=false, real_trading_now=false. Audit required before any live enable.",
+  "routes": {
+    "it_department": true,
+    "cyber_parliament": true,
+    "finance_audit": true
+  }
+}
