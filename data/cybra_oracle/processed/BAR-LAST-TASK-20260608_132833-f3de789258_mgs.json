@@ -1,10 +1,10 @@
 {
-  "task_id": "ORACLE-MGS-1780661179-ea6d58c2",
+  "task_id": "BAR-LAST-TASK-20260608_132833-f3de789258_mgs",
   "timestamp": "2026-06-08T14:16:49",
-  "source_file": "data/cybra_oracle/tasks/ORACLE-MGS-1780661179-ea6d58c2.json",
+  "source_file": "data/cybra_mgs/tasks/BAR-LAST-TASK-20260608_132833-f3de789258_mgs.json",
   "status": "ORACLE_ACCEPTED",
   "runner": "Oracle VPS CYBRA Agent",
-  "title": "Upgrade v64 real-safe runner",
+  "title": "no-title",
   "target": "all",
   "committees": [
     "mgs_analytics",
@@ -15,11 +15,15 @@
   ],
   "action": "Task accepted by Oracle VPS. Heavy work stays on VPS/Codespace. Termux only controls.",
   "safety": {
+    "real_payment_now": false,
     "real_trading_now": false,
-    "live_force_trading_disabled": true,
     "automatic_external_tx": false,
+    "automatic_withdrawals": false,
     "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "last_task_only": true,
     "manual_OWNER_approval_required": true,
-    "mainnet_deploy_allowed": false
+    "dashboard_actions_are_internal_only": true
   }
 }

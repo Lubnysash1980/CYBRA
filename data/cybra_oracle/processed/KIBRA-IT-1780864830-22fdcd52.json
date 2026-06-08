@@ -1,25 +1,23 @@
 {
-  "task_id": "BAR-MGS-1780777981-938f6f28",
+  "task_id": "KIBRA-IT-1780864830-22fdcd52",
   "timestamp": "2026-06-08T14:16:49",
-  "source_file": "data/cybra_oracle/tasks/BAR-MGS-1780777981-938f6f28.json",
+  "source_file": "data/cybra_oracle/tasks/KIBRA-IT-1780864830-22fdcd52.json",
   "status": "ORACLE_ACCEPTED",
   "runner": "Oracle VPS CYBRA Agent",
-  "title": "Daily evolution safe upgrade",
+  "title": "integrathion",
   "target": "all",
   "committees": [
-    "MGS Analytics",
-    "MGS Workers",
-    "MGS IT Department",
-    "MGS Restart Watchdog",
-    "MGS Integration"
+    "mgs_analytics",
+    "mgs_workers",
+    "mgs_it_department",
+    "mgs_restart_watchdog",
+    "mgs_integration"
   ],
   "action": "Task accepted by Oracle VPS. Heavy work stays on VPS/Codespace. Termux only controls.",
   "safety": {
     "real_trading_now": false,
     "live_force_trading_disabled": true,
     "automatic_external_tx": false,
-    "automatic_SWIFT": false,
-    "mainnet_deploy_allowed": false,
     "manual_OWNER_approval_required": true
   }
 }
