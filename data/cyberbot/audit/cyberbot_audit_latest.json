@@ -1,0 +1,157 @@
+{
+  "timestamp": "2026-06-08T22:03:08",
+  "status": "CYBERBOT_AUDIT_DONE",
+  "status_report": {
+    "timestamp": "2026-06-08T22:03:07",
+    "status": "CYBERBOT_STATUS_OK",
+    "bot": {
+      "alive": true,
+      "supervisor_status": "CYBRA_BOT_BAR_MENU_OK",
+      "bot_file": "trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs",
+      "risk_scan": {
+        "risk": "HIGH_TRADING_RISK",
+        "risk_words": [
+          "force_trade",
+          "ultimate_force",
+          "no_window",
+          "active",
+          "placeorder"
+        ],
+        "secrets_markers_detected": [],
+        "file": "trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs",
+        "file_sha256": "4ff0c91c8321efba4f8bd2c15101eb5216cfb32ea1afa41687fc9742b7f7ba8f",
+        "file_size": 2664,
+        "must_run_paper_only": true
+      }
+    },
+    "supervision": {
+      "it_active": true,
+      "cyber_parliament_active": true,
+      "finance_audit_active": true,
+      "redis_monitoring_active": true
+    },
+    "exchanges": {
+      "bybit": {
+        "exchange": "bybit",
+        "configured": true,
+        "api_key_masked": "Xnii...vEiy",
+        "api_secret_masked": "SEDn...YXU0",
+        "testnet": true,
+        "live_orders_enabled": false,
+        "file": ".cybra_local_secret/exchanges/bybit.json",
+        "status": "CONFIGURED_LOCAL_ONLY"
+      },
+      "binance": {
+        "exchange": "binance",
+        "configured": true,
+        "api_key_masked": null,
+        "api_secret_masked": null,
+        "testnet": true,
+        "live_orders_enabled": false,
+        "file": ".cybra_local_secret/exchanges/binance.json",
+        "status": "CONFIGURED_LOCAL_ONLY"
+      }
+    },
+    "config": {
+      "pip_mode_enabled": true,
+      "pip_value": 10,
+      "timestamp": "2026-06-08T20:59:36",
+      "safety": {
+        "real_payment_now": false,
+        "real_trading_now": false,
+        "live_orders_enabled": false,
+        "live_order_button_creates_request_only": true,
+        "paper_trading": true,
+        "testnet_mode": true,
+        "automatic_external_tx": false,
+        "automatic_withdrawals": false,
+        "automatic_SWIFT": false,
+        "automatic_real_rewards": false,
+        "manual_OWNER_approval_required": true,
+        "it_supervision_required": true,
+        "cyber_parliament_supervision_required": true,
+        "api_keys_stored_local_only": true,
+        "do_not_store_secrets_in_git": true,
+        "github_import_safe": true
+      },
+      "live_orders_enabled": false,
+      "live_order_gate": "REQUESTED_AUDIT_AND_OWNER_APPROVAL_REQUIRED"
+    },
+    "queues": {
+      "it": {
+        "redis_key": "it_department",
+        "load": 3
+      },
+      "parliament": {
+        "redis_key": "parliament_inbox",
+        "load": 5
+      },
+      "finance_audit": {
+        "redis_key": "cybra:audit:finance",
+        "load": 5
+      },
+      "bot": {
+        "redis_key": "cybra:bot:supervised",
+        "load": 5
+      },
+      "finance": {
+        "redis_key": "cybra:finance:evolution:pool",
+        "load": 1
+      },
+      "meta": {
+        "redis_key": "cybra:meta:evolution:pool",
+        "load": 2
+      },
+      "bybit": {
+        "redis_key": "cyberbot:bybit",
+        "load": 2
+      },
+      "binance": {
+        "redis_key": "cyberbot:binance",
+        "load": 1
+      }
+    },
+    "safety": {
+      "real_payment_now": false,
+      "real_trading_now": false,
+      "live_orders_enabled": false,
+      "live_order_button_creates_request_only": true,
+      "paper_trading": true,
+      "testnet_mode": true,
+      "automatic_external_tx": false,
+      "automatic_withdrawals": false,
+      "automatic_SWIFT": false,
+      "automatic_real_rewards": false,
+      "manual_OWNER_approval_required": true,
+      "it_supervision_required": true,
+      "cyber_parliament_supervision_required": true,
+      "api_keys_stored_local_only": true,
+      "do_not_store_secrets_in_git": true,
+      "github_import_safe": true
+    }
+  },
+  "advice": [
+    "Supervisor працює під IT + CyberParliament.",
+    "Live orders залишаються blocked. Для live потрібен окремий OWNER approval.",
+    "API ключі зберігаються тільки локально в .cybra_local_secret і не йдуть у GitHub.",
+    "AI-задачі можна відправляти в IT, Parliament, audit і committees командою cyberbot task."
+  ],
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "live_orders_enabled": false,
+    "live_order_button_creates_request_only": true,
+    "paper_trading": true,
+    "testnet_mode": true,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "manual_OWNER_approval_required": true,
+    "it_supervision_required": true,
+    "cyber_parliament_supervision_required": true,
+    "api_keys_stored_local_only": true,
+    "do_not_store_secrets_in_git": true,
+    "github_import_safe": true
+  }
+}

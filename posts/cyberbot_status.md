@@ -4,7 +4,7 @@ Status: **CYBERBOT_STATUS_OK**
 
 ## Bot
 
-- Alive: `False`
+- Alive: `True`
 - Supervisor: `CYBRA_BOT_BAR_MENU_OK`
 - Bot file: `trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs`
 
@@ -21,9 +21,9 @@ Status: **CYBERBOT_STATUS_OK**
 
 ## Switches
 
-- PIP mode: `None`
-- PIP value: `None`
-- Live-order gate: `None`
+- PIP mode: `True`
+- PIP value: `10`
+- Live-order gate: `REQUESTED_AUDIT_AND_OWNER_APPROVAL_REQUIRED`
 - Live orders enabled: false
 
 ## Safety

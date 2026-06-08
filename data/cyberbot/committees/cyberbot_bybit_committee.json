@@ -1,0 +1,24 @@
+{
+  "timestamp": "2026-06-08T22:03:31",
+  "status": "CYBERBOT_COMMITTEE_CREATED",
+  "committee": "cyberbot_bybit_committee",
+  "scope": "Cyberbot Bybit Binance IT Parliament",
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "live_orders_enabled": false,
+    "live_order_button_creates_request_only": true,
+    "paper_trading": true,
+    "testnet_mode": true,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "manual_OWNER_approval_required": true,
+    "it_supervision_required": true,
+    "cyber_parliament_supervision_required": true,
+    "api_keys_stored_local_only": true,
+    "do_not_store_secrets_in_git": true,
+    "github_import_safe": true
+  }
+}
