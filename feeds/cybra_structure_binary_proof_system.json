@@ -1,32 +1,32 @@
 {
-  "timestamp": "2026-06-08T10:34:35",
+  "timestamp": "2026-06-08T11:27:33",
   "status": "CYBRA_STRUCTURE_BINARY_PROOF_SYSTEM_FIXED",
   "wallet": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
   "structure_scan": {
     "files_count": 12000,
-    "dirs_count": 1651
+    "dirs_count": 1021
   },
   "binary_safe": {
-    "python_bytecode_count": 167,
-    "binary_blob_count": 6069,
+    "python_bytecode_count": 164,
+    "binary_blob_count": 4434,
     "library_manifest_count": 3
   },
   "ai_block": {
-    "timestamp": "2026-06-08T10:34:35",
+    "timestamp": "2026-06-08T11:27:33",
     "status": "AI_BLOCK_CREATED_AND_ROUTED",
-    "task_id": "AI-STRUCT-BINARY-PROOF-20260608_103435",
-    "task_file": "data/cybra_ai_blocks/AI-STRUCT-BINARY-PROOF-20260608_103435.json",
-    "kibra_task_block": "blockchain/kibra_chain/task_blocks/AI-STRUCT-BINARY-PROOF-20260608_103435.json",
+    "task_id": "AI-STRUCT-BINARY-PROOF-20260608_112733",
+    "task_file": "data/cybra_ai_blocks/AI-STRUCT-BINARY-PROOF-20260608_112733.json",
+    "kibra_task_block": "blockchain/kibra_chain/task_blocks/AI-STRUCT-BINARY-PROOF-20260608_112733.json",
     "usha_seal": {
       "mode": "openssl_aes_256_cbc_pbkdf2",
-      "raw": "data/cybra_usha_tunnel/outbox/AI-STRUCT-BINARY-PROOF-20260608_103435.json",
-      "sealed": "data/cybra_usha_tunnel/outbox/AI-STRUCT-BINARY-PROOF-20260608_103435.enc",
-      "sha256": "653759836c1bb49f2ec7cd9c1d4f8555fd0fbcc0567b722eb796570b1729f3e8",
+      "raw": "data/cybra_usha_tunnel/outbox/AI-STRUCT-BINARY-PROOF-20260608_112733.json",
+      "sealed": "data/cybra_usha_tunnel/outbox/AI-STRUCT-BINARY-PROOF-20260608_112733.enc",
+      "sha256": "e864469e338d36d4c8865a4c38839119a34424d0fdd848a1b9a5bea28bbec0d1",
       "key_location": ".cybra_local_secret/usha.key",
       "git_safe": true
     },
     "redis_routes": {
-      "cybra_mgs_all": false,
+      "cybra_mgs_all": true,
       "cybra_oracle_tasks": true,
       "ai_block_inbox": true,
       "it_department": true,
@@ -50,7 +50,7 @@
     }
   },
   "proof_department": {
-    "timestamp": "2026-06-08T10:34:35",
+    "timestamp": "2026-06-08T11:27:33",
     "status": "PROOF_DEPARTMENT_FULL_CREATED",
     "multicurrency_proof": "data/cybra_proof_department/multicurrency/proof_account_latest.json",
     "token_proof": "data/cybra_proof_department/tokens/kibra_token_proof_latest.json",

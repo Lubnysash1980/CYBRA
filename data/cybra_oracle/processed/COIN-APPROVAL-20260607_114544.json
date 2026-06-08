@@ -1,0 +1,38 @@
+{
+  "task_id": "COIN-APPROVAL-20260607_114544",
+  "timestamp": "2026-06-07T23:14:59",
+  "source_file": "data/cybra_oracle/tasks/COIN-APPROVAL-20260607_114544.json",
+  "status": "ORACLE_ACCEPTED",
+  "runner": "Oracle VPS CYBRA Agent",
+  "title": "Доробити монету до approval",
+  "target": "all",
+  "committees": [
+    "coin_approval_committee",
+    "finance_risk_committee",
+    "finance_it_committee",
+    "mgs_integration",
+    "mgs_analytics",
+    "cyber_parliament_approval",
+    "oracle_runner_committee",
+    "codespace_worker_committee"
+  ],
+  "action": "Task accepted by Oracle VPS. Heavy work stays on VPS/Codespace. Termux only controls.",
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "live_orders_enabled": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_mainnet_mint": false,
+    "automatic_liquidity_creation": false,
+    "automatic_listing_submission": false,
+    "bank_live_mode": false,
+    "psp_live_mode": false,
+    "manual_OWNER_approval_required": true,
+    "cyber_parliament_approval_required": true,
+    "mainnet_deploy_allowed": false,
+    "approval_gate_required": true,
+    "do_not_store_secrets_in_git": true
+  }
+}

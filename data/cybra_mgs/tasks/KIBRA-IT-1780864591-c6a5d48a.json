@@ -1,0 +1,22 @@
+{
+  "task_id": "KIBRA-IT-1780864591-c6a5d48a",
+  "timestamp": "2026-06-07T23:36:31",
+  "source": "kibra-it-menu",
+  "department": "KIBRA_IT_DEPARTMENT",
+  "title": "захист",
+  "body": "TASK_ID: PROTECT-USER-ALL-TIME-01",
+  "priority": "normal",
+  "routes": [
+    "it_department",
+    "mgs_restart_watchdog",
+    "oracle",
+    "codespace"
+  ],
+  "evolution_rule": "patch_as_layer; do_not_break_existing; preserve_module64; preserve_original_6000_lines",
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  }
+}

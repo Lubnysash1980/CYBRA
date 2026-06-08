@@ -1,0 +1,21 @@
+{
+  "task_id": "KIBRA-MENU-1780917064-f6904bdc",
+  "timestamp": "2026-06-08T14:11:04",
+  "source": "kibra-menu",
+  "title": "коміті",
+  "body": "дрдати до кожного комітета binary-safe layer, Binary Code Committee та аі завдання",
+  "routes": [
+    "ai",
+    "it",
+    "parliament",
+    "oracle",
+    "codespace",
+    "mgs"
+  ],
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "task_id": "KIBRA-IT-1780778317-f4a41a38",
+  "timestamp": "2026-06-06T23:38:37",
+  "source": "kibra-it-menu",
+  "department": "KIBRA_IT_DEPARTMENT",
+  "title": "Repair v64 module64 runner",
+  "body": "IT: перевірити 6000-line bot syntax, зробити safe runner для module64, не ламати original source, не включати live trading без OWNER approval.",
+  "priority": "high",
+  "routes": [
+    "it_department",
+    "mgs_restart_watchdog",
+    "oracle",
+    "codespace"
+  ],
+  "evolution_rule": "patch_as_layer; do_not_break_existing; preserve_module64; preserve_original_6000_lines",
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  }
+}

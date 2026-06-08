@@ -1,0 +1,22 @@
+{
+  "task_id": "KIBRA-IT-1780863790-9eedfe5a",
+  "timestamp": "2026-06-07T23:23:10",
+  "source": "kibra-it-menu",
+  "department": "KIBRA_IT_DEPARTMENT",
+  "title": "finance",
+  "body": "довести фінансовий модуль до пруф , реального стану ...щоб був мультівалютний рахунок з можливістью нфт розрахунків та qr коду",
+  "priority": "normal",
+  "routes": [
+    "it_department",
+    "mgs_restart_watchdog",
+    "oracle",
+    "codespace"
+  ],
+  "evolution_rule": "patch_as_layer; do_not_break_existing; preserve_module64; preserve_original_6000_lines",
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  }
+}

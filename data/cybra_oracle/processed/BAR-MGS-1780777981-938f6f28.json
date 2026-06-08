@@ -1,6 +1,6 @@
 {
   "task_id": "BAR-MGS-1780777981-938f6f28",
-  "timestamp": "2026-06-06T23:34:46",
+  "timestamp": "2026-06-07T23:14:59",
   "source_file": "data/cybra_oracle/tasks/BAR-MGS-1780777981-938f6f28.json",
   "status": "ORACLE_ACCEPTED",
   "runner": "Oracle VPS CYBRA Agent",

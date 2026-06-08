@@ -9,12 +9,12 @@ Status: **CYBRA_STRUCTURE_BINARY_PROOF_SYSTEM_FIXED**
 ## Structure
 
 - Files scanned: `12000`
-- Dirs scanned: `1651`
+- Dirs scanned: `1021`
 
 ## Binary-safe rewrite
 
-- Python bytecode files: `167`
-- Binary-safe blobs: `6069`
+- Python bytecode files: `164`
+- Binary-safe blobs: `4434`
 - GitHub/library manifests: `3`
 
 ## IT Departments
@@ -25,9 +25,9 @@ Status: **CYBRA_STRUCTURE_BINARY_PROOF_SYSTEM_FIXED**
 
 ## AI block / pools
 
-- AI block created: `AI-STRUCT-BINARY-PROOF-20260608_103435`
+- AI block created: `AI-STRUCT-BINARY-PROOF-20260608_112733`
 - USHA tunnel mode: `openssl_aes_256_cbc_pbkdf2`
-- KIBRA task block: `blockchain/kibra_chain/task_blocks/AI-STRUCT-BINARY-PROOF-20260608_103435.json`
+- KIBRA task block: `blockchain/kibra_chain/task_blocks/AI-STRUCT-BINARY-PROOF-20260608_112733.json`
 
 ## Proof
 

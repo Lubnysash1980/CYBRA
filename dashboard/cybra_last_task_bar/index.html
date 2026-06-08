@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CYBRA Last Task Bar</title>
+<style>
+body { font-family: system-ui, sans-serif; max-width: 1250px; margin: 28px auto; padding: 20px; }
+.card { border:1px solid #ddd; border-radius:14px; padding:16px; margin:14px 0; }
+.red { color:#c40000; font-weight:800; }
+.green { color:#008a2e; font-weight:800; }
+.yellow { color:#a36b00; font-weight:800; }
+.neutral { color:#555; font-weight:800; }
+.btn { display:inline-block; padding:10px 12px; margin:5px; border:1px solid #999; border-radius:9px; text-decoration:none; }
+.btn.red { border-color:#c40000; }
+.btn.green { border-color:#008a2e; }
+.btn.yellow { border-color:#a36b00; }
+.btn.neutral { border-color:#555; }
+table { border-collapse: collapse; width:100%; }
+td, th { border:1px solid #ddd; padding:8px; vertical-align:top; }
+code { word-break: break-all; }
+</style>
+</head>
+<body>
+<h1>CYBRA Last Task Bar</h1>
+
+<div class="card">
+<p><b>Працюємо тільки з останнім/locked task.</b></p>
+<p>Lock: <b>YES</b></p>
+<p>Task ID: <code>BAR-LAST-TASK-20260608_132833-f3de789258_meta</code></p>
+<p>Title: <code>LAST_TASK_MERGE_ALL_DEPARTMENTS</code></p>
+<p>Status: <code>LAST_TASK_MERGE_ALL_DEPARTMENTS</code></p>
+<p>Source: <code>data/cybra_meta_evolution/tasks/BAR-LAST-TASK-20260608_132833-f3de789258_meta.json</code></p>
+<p>SHA256: <code>e5c458b892f698bb27771594a10a51c874e13bfaca517aa62e00f9e54e46ca75</code></p>
+</div>
+
+<div class="card">
+<p class="red">Червоне / невиконане: (23)</p>
+<p class="green">Зелене / виконується процесів: (3)</p>
+<p class="neutral">Нейтральне / виконане: (0)</p>
+<p class="yellow">Аудит: (15)</p>
+<p>Навантаження: <b>(100%)</b></p>
+</div>
+
+<div class="card">
+<h2>Кнопки перемикання</h2>
+<a class="btn yellow" href="/action?do=lock">Lock last task</a>
+<a class="btn neutral" href="/action?do=unlock">Unlock</a>
+<a class="btn yellow" href="/action?do=audit">Аудит</a>
+<a class="btn green" href="/action?do=parliament">У парламент</a>
+<a class="btn green" href="/action?do=it">В IT-відділ</a>
+<a class="btn green" href="/action?do=merge">Об'єднати всі відділи</a>
+<a class="btn green" href="/action?do=committees">Стандартні комітети</a>
+<a class="btn yellow" href="/action?do=auto">Auto-route</a>
+<a class="btn red" href="/action?do=return">На доопрацювання</a>
+<a class="btn neutral" href="/action?do=done">Виконано</a>
+
+<form action="/action" method="get" style="margin-top:12px;">
+<input type="hidden" name="do" value="committee">
+<input name="name" placeholder="new_committee_name">
+<button type="submit">Додати свій комітет</button>
+</form>
+</div>
+
+<div class="card">
+<h2>Аудит: проблеми</h2>
+<ul><li>Не видно комітетів навколо задачі.</li><li>Не видно binary-safe layer.</li></ul>
+<h2>Аудит: що далі</h2>
+<ul><li>Натиснути Standard Committees або додати свої комітети.</li><li>Підключити Binary Code Committee.</li><li>Ознаки незавершеності знайдені: краще Return або Auto-route.</li></ul>
+<p>Аудит перевіряє, чи задача має парламент, IT-модулі, комітети, proof, Redis/pool, USHA tunnel, binary-safe layer і safety. Якщо чогось нема — радить, куди перемкнути задачу.</p>
+</div>
+
+<h2>Відділи / процеси / черги</h2>
+<table>
+<tr><th>Відділ</th><th>Queue</th><th>Навантаження</th><th>Процеси йдуть</th><th>Не йдуть</th><th>Статус</th></tr>
+
+<tr>
+<td>Cyber Parliament</td>
+<td><code>parliament_inbox</code></td>
+<td class="red">(34)</td>
+<td class="green">(0)</td>
+<td class="red">(1)</td>
+<td>NO_PROCESS</td>
+</tr>
+
+<tr>
+<td>IT Department</td>
+<td><code>it_department</code></td>
+<td class="red">(12)</td>
+<td class="green">(3)</td>
+<td class="red">(0)</td>
+<td>RUNNING</td>
+</tr>
+
+<tr>
+<td>MGS</td>
+<td><code>cybra_mgs_all</code></td>
+<td class="red">(9)</td>
+<td class="green">(0)</td>
+<td class="red">(1)</td>
+<td>NO_PROCESS</td>
+</tr>
+
+<tr>
+<td>Oracle</td>
+<td><code>cybra_oracle_tasks</code></td>
+<td class="red">(9)</td>
+<td class="green">(0)</td>
+<td class="red">(1)</td>
+<td>NO_PROCESS</td>
+</tr>
+
+<tr>
+<td>Meta Evolution</td>
+<td><code>cybra:meta:evolution:pool</code></td>
+<td class="red">(12)</td>
+<td class="green">(0)</td>
+<td class="red">(1)</td>
+<td>NO_PROCESS</td>
+</tr>
+
+<tr>
+<td>Proof Department</td>
+<td><code>cybra:audit:proof</code></td>
+<td class="red">(16)</td>
+<td class="green">(0)</td>
+<td class="red">(1)</td>
+<td>NO_PROCESS</td>
+</tr>
+
+<tr>
+<td>Binary Code Committee</td>
+<td><code>cybra:binary:tasks</code></td>
+<td class="red">(9)</td>
+<td class="green">(0)</td>
+<td class="red">(1)</td>
+<td>NO_PROCESS</td>
+</tr>
+
+</table>
+
+<p><a href="/">Refresh</a> | <a href="/json">JSON</a></p>
+</body>
+</html>

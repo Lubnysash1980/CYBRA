@@ -1,0 +1,21 @@
+{
+  "task_id": "KIBRA-MENU-1780915156-69398a8b",
+  "timestamp": "2026-06-08T13:39:16",
+  "source": "kibra-menu",
+  "title": "KIBRA daily evolution",
+  "body": "AI + IT + Cyber Parliament + Oracle + Codespace: safe evolutionary upgrade, preserve 6000-line bot and module64.",
+  "routes": [
+    "ai",
+    "it",
+    "parliament",
+    "oracle",
+    "codespace",
+    "mgs"
+  ],
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  }
+}

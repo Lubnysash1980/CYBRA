@@ -1,0 +1,29 @@
+{
+  "task_id": "MAINNET-CANDIDATE-APPROVAL-20260607_120454",
+  "timestamp": "2026-06-07T23:14:59",
+  "source_file": "data/cybra_oracle/tasks/MAINNET-CANDIDATE-APPROVAL-20260607_120454.json",
+  "status": "ORACLE_ACCEPTED",
+  "runner": "Oracle VPS CYBRA Agent",
+  "title": "OWNER + Cyber Parliament approval for KIBRA mainnet candidate stage",
+  "target": "all",
+  "committees": [
+    "mgs_analytics",
+    "mgs_workers",
+    "mgs_it_department",
+    "mgs_restart_watchdog",
+    "mgs_integration"
+  ],
+  "action": "Task accepted by Oracle VPS. Heavy work stays on VPS/Codespace. Termux only controls.",
+  "safety": {
+    "mainnet_live_now": false,
+    "automatic_mainnet_launch": false,
+    "automatic_real_rewards": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_liquidity_creation": false,
+    "real_payment_now": false,
+    "manual_OWNER_approval_required": true,
+    "cyber_parliament_approval_required": true,
+    "anti_sybil_review_required": true
+  }
+}

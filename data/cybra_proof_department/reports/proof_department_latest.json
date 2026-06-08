@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-08T10:34:35",
+  "timestamp": "2026-06-08T11:27:33",
   "status": "PROOF_DEPARTMENT_FULL_CREATED",
   "multicurrency_proof": "data/cybra_proof_department/multicurrency/proof_account_latest.json",
   "token_proof": "data/cybra_proof_department/tokens/kibra_token_proof_latest.json",

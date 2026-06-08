@@ -1,0 +1,10 @@
+{
+  "timestamp": "2026-06-08T13:34:35",
+  "locked": true,
+  "task_id": "BAR-LAST-TASK-20260608_132833-f3de789258_meta",
+  "title": "LAST_TASK_MERGE_ALL_DEPARTMENTS",
+  "status": "LAST_TASK_MERGE_ALL_DEPARTMENTS",
+  "source": "data/cybra_meta_evolution/tasks/BAR-LAST-TASK-20260608_132833-f3de789258_meta.json",
+  "sha256": "e5c458b892f698bb27771594a10a51c874e13bfaca517aa62e00f9e54e46ca75",
+  "rule": "all bar actions work only with this locked last task"
+}

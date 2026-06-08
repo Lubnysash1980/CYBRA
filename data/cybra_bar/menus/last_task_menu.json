@@ -1,0 +1,32 @@
+{
+  "title": "CYBRA Last Task Bar Menu",
+  "scope": "locked last task only",
+  "commands": [
+    "cybra-last-task-bar status",
+    "cybra-last-task-bar lock",
+    "cybra-last-task-bar audit",
+    "cybra-last-task-bar parliament",
+    "cybra-last-task-bar it",
+    "cybra-last-task-bar merge",
+    "cybra-last-task-bar committees",
+    "cybra-last-task-bar committee NAME",
+    "cybra-last-task-bar auto",
+    "cybra-last-task-bar return",
+    "cybra-last-task-bar done",
+    "cybra-last-task-bar menu",
+    "cybra-last-task-bar serve 8797"
+  ],
+  "dashboard": "http://127.0.0.1:8797/",
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "last_task_only": true,
+    "manual_OWNER_approval_required": true,
+    "dashboard_actions_are_internal_only": true
+  }
+}

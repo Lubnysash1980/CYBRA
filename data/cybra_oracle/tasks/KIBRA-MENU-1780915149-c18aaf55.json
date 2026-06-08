@@ -1,0 +1,21 @@
+{
+  "task_id": "KIBRA-MENU-1780915149-c18aaf55",
+  "timestamp": "2026-06-08T13:39:09",
+  "source": "kibra-menu",
+  "title": "плдключить",
+  "body": "подключить binary-safe layer Binary Code Committee к таску задачи app",
+  "routes": [
+    "ai",
+    "it",
+    "parliament",
+    "oracle",
+    "codespace",
+    "mgs"
+  ],
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  }
+}

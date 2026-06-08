@@ -1,0 +1,22 @@
+{
+  "task_id": "KIBRA-IT-1780864830-22fdcd52",
+  "timestamp": "2026-06-07T23:40:30",
+  "source": "kibra-it-menu",
+  "department": "KIBRA_IT_DEPARTMENT",
+  "title": "integrathion",
+  "body": "import WebSocket from \"ws\";",
+  "priority": "normal",
+  "routes": [
+    "it_department",
+    "mgs_restart_watchdog",
+    "oracle",
+    "codespace"
+  ],
+  "evolution_rule": "patch_as_layer; do_not_break_existing; preserve_module64; preserve_original_6000_lines",
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  }
+}

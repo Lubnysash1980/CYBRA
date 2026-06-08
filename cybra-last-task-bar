@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+cd "$HOME/CYBRA" || exit 1
+python3 scripts/task_dispatch/cybra_last_task_bar.py "$@"

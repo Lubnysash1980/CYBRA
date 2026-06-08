@@ -1,0 +1,21 @@
+{
+  "task_id": "KIBRA-MENU-1780915059-7d1ef5a2",
+  "timestamp": "2026-06-08T13:37:39",
+  "source": "kibra-menu",
+  "title": "Binary Code Committee",
+  "body": "подключи к последгему таску задачи Binary Code Committee",
+  "routes": [
+    "ai",
+    "it",
+    "parliament",
+    "oracle",
+    "codespace",
+    "mgs"
+  ],
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  }
+}
