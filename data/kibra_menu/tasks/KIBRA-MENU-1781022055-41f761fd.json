@@ -1,0 +1,21 @@
+{
+  "task_id": "KIBRA-MENU-1781022055-41f761fd",
+  "timestamp": "2026-06-09T18:20:55",
+  "source": "kibra-menu",
+  "title": "frouzen",
+  "body": "Додаток уклон, app.uklon, app.uklondriver зробити фроузен сервісу, веб-сервісів, хостів, серверів, фроузен рахунки, фроузен.",
+  "routes": [
+    "ai",
+    "it",
+    "parliament",
+    "oracle",
+    "codespace",
+    "mgs"
+  ],
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  }
+}

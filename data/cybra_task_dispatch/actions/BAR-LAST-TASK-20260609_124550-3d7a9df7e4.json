@@ -1,0 +1,88 @@
+{
+  "packet_id": "BAR-LAST-TASK-20260609_124550-3d7a9df7e4",
+  "timestamp": "2026-06-09T12:45:50",
+  "status": "LAST_TASK_RETURN_TO_REWORK",
+  "action": "return_to_rework",
+  "target": "rework_pool",
+  "source_task_id": "BOT-SUPERVISED-FIXED-20260609_091554",
+  "source_task_title": "Bot under IT and CyberParliament supervision",
+  "source_task_status": "BOT_SUPERVISION_TASK_CREATED",
+  "source_task_file": "data/cybra_finance/it_department/tasks/BOT-SUPERVISED-FIXED-20260609_091554.json",
+  "source_task_sha256": "78b4f76c0afed45bfbbd20463014ea6f0d5b96712bdef2381e2eafd593f7d835",
+  "payload": {
+    "task_id": "BOT-SUPERVISED-FIXED-20260609_091554",
+    "timestamp": "2026-06-09T09:15:54",
+    "status": "BOT_SUPERVISION_TASK_CREATED",
+    "title": "Bot under IT and CyberParliament supervision",
+    "bot_file": "trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs",
+    "risk_scan": {
+      "risk": "HIGH_TRADING_RISK",
+      "risk_words": [
+        "force_trade",
+        "ultimate_force",
+        "no_window",
+        "active",
+        "placeorder"
+      ],
+      "secrets_markers_detected": [],
+      "file": "trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs",
+      "file_sha256": "4ff0c91c8321efba4f8bd2c15101eb5216cfb32ea1afa41687fc9742b7f7ba8f",
+      "file_size": 2664,
+      "must_run_paper_only": true
+    },
+    "supervision": {
+      "it_department": true,
+      "cyber_parliament": true,
+      "finance_audit": true,
+      "watchdog": true,
+      "redis_monitoring": true,
+      "dashboard": true
+    },
+    "required_rules": [
+      "paper mode only",
+      "testnet mode only",
+      "no live orders",
+      "no withdrawals",
+      "no SWIFT",
+      "no real payments",
+      "manual OWNER approval required before live mode"
+    ],
+    "safety": {
+      "real_payment_now": false,
+      "real_trading_now": false,
+      "live_orders_enabled": false,
+      "paper_trading": true,
+      "testnet_mode": true,
+      "automatic_external_tx": false,
+      "automatic_withdrawals": false,
+      "automatic_SWIFT": false,
+      "automatic_real_rewards": false,
+      "manual_OWNER_approval_required": true,
+      "it_supervision_required": true,
+      "cyber_parliament_supervision_required": true,
+      "do_not_store_secrets_in_git": true,
+      "direct_bot_execution_blocked": true,
+      "paper_harness_only": true
+    }
+  },
+  "extra": {},
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "last_task_only": true,
+    "manual_OWNER_approval_required": true,
+    "dashboard_actions_are_internal_only": true
+  },
+  "result": {
+    "file": "data/cybra_task_dispatch/returned/BAR-LAST-TASK-20260609_124550-3d7a9df7e4.json",
+    "queues": {
+      "cybra:return:ai_tasks": true,
+      "cybra:meta:evolution:pool": true
+    }
+  }
+}

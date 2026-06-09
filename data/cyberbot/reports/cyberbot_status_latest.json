@@ -1,23 +1,19 @@
 {
-  "timestamp": "2026-06-08T22:04:42",
+  "timestamp": "2026-06-09T15:01:07",
   "status": "CYBERBOT_STATUS_OK",
   "bot": {
     "alive": true,
     "supervisor_status": "CYBRA_BOT_BAR_MENU_OK",
-    "bot_file": "trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs",
+    "bot_file": "trading_bot/v70/index.mjs",
     "risk_scan": {
       "risk": "HIGH_TRADING_RISK",
       "risk_words": [
-        "force_trade",
-        "ultimate_force",
-        "no_window",
-        "active",
-        "placeorder"
+        "bybit"
       ],
       "secrets_markers_detected": [],
-      "file": "trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs",
-      "file_sha256": "4ff0c91c8321efba4f8bd2c15101eb5216cfb32ea1afa41687fc9742b7f7ba8f",
-      "file_size": 2664,
+      "file": "trading_bot/v70/index.mjs",
+      "file_sha256": "9b69994ef902c330a6a8b08a17d72632e392b04d0b780115ff736ebbd0adb452",
+      "file_size": 5888,
       "must_run_paper_only": true
     }
   },
@@ -33,7 +29,7 @@
       "configured": true,
       "api_key_masked": "Xnii...vEiy",
       "api_secret_masked": "SEDn...YXU0",
-      "testnet": true,
+      "testnet": false,
       "live_orders_enabled": false,
       "file": ".cybra_local_secret/exchanges/bybit.json",
       "status": "CONFIGURED_LOCAL_ONLY"
@@ -50,9 +46,6 @@
     }
   },
   "config": {
-    "pip_mode_enabled": true,
-    "pip_value": 10,
-    "timestamp": "2026-06-08T20:59:36",
     "safety": {
       "real_payment_now": false,
       "real_trading_now": false,
@@ -71,17 +64,19 @@
       "do_not_store_secrets_in_git": true,
       "github_import_safe": true
     },
-    "live_orders_enabled": false,
-    "live_order_gate": "REQUESTED_AUDIT_AND_OWNER_APPROVAL_REQUIRED"
+    "pip_mode_enabled": true,
+    "pip_value": 10,
+    "timestamp": "2026-06-09T09:15:32",
+    "live_orders_enabled": false
   },
   "queues": {
     "it": {
       "redis_key": "it_department",
-      "load": 4
+      "load": 14
     },
     "parliament": {
       "redis_key": "parliament_inbox",
-      "load": 14
+      "load": 19
     },
     "finance_audit": {
       "redis_key": "cybra:audit:finance",
@@ -97,15 +92,15 @@
     },
     "meta": {
       "redis_key": "cybra:meta:evolution:pool",
-      "load": 3
+      "load": 7
     },
     "bybit": {
       "redis_key": "cyberbot:bybit",
-      "load": 3
+      "load": 4
     },
     "binance": {
       "redis_key": "cyberbot:binance",
-      "load": 2
+      "load": 4
     }
   },
   "safety": {

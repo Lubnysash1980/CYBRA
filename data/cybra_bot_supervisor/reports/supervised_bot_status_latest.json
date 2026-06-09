@@ -1,23 +1,19 @@
 {
-  "timestamp": "2026-06-08T15:46:06",
-  "status": "BOT_SUPERVISED_NOT_RUNNING",
-  "pid": 4104,
-  "alive": false,
-  "bot_file_under_supervision": "trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs",
+  "timestamp": "2026-06-09T15:01:07",
+  "status": "BOT_SUPERVISED_RUNNING",
+  "pid": 31238,
+  "alive": true,
+  "bot_file_under_supervision": "trading_bot/v70/index.mjs",
   "harness_file": "data/cybra_bot_supervisor/harness/cybra_bot_paper_harness.mjs",
   "risk_scan": {
     "risk": "HIGH_TRADING_RISK",
     "risk_words": [
-      "force_trade",
-      "ultimate_force",
-      "no_window",
-      "active",
-      "placeorder"
+      "bybit"
     ],
     "secrets_markers_detected": [],
-    "file": "trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs",
-    "file_sha256": "4ff0c91c8321efba4f8bd2c15101eb5216cfb32ea1afa41687fc9742b7f7ba8f",
-    "file_size": 2664,
+    "file": "trading_bot/v70/index.mjs",
+    "file_sha256": "9b69994ef902c330a6a8b08a17d72632e392b04d0b780115ff736ebbd0adb452",
+    "file_size": 5888,
     "must_run_paper_only": true
   },
   "supervision": {
@@ -28,12 +24,12 @@
     "watchdog": true
   },
   "queues": {
-    "it_department": 0,
-    "parliament_inbox": 0,
-    "cybra:audit:finance": 0,
-    "cybra:bot:supervised": 0,
-    "cybra:finance:evolution:pool": 0,
-    "cybra:meta:evolution:pool": 0
+    "it_department": 14,
+    "parliament_inbox": 19,
+    "cybra:audit:finance": 7,
+    "cybra:bot:supervised": 6,
+    "cybra:finance:evolution:pool": 1,
+    "cybra:meta:evolution:pool": 7
   },
   "log_file": "data/cybra_bot_supervisor/logs/bot_supervised.log",
   "extra": {},

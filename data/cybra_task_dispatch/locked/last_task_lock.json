@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-06-08T14:33:53",
+  "timestamp": "2026-06-09T18:20:04",
   "locked": true,
-  "task_id": "MODULE-64-FINANCE-AUDIT-20260608_143353",
-  "title": "Аудит Module 64 — примусова торгівля без вікна",
-  "status": "MODULE_64_REGISTERED_AS_LAST_TASK_FOR_AUDIT",
-  "source": "data/cybra_finance/it_department/tasks/MODULE-64-FINANCE-AUDIT-20260608_143353.json",
-  "sha256": "316330086dc40a73c88e4647b7620b930034284264469259a5251d062a3658c1",
-  "rule": "Module 64 — заблоковане останнє завдання"
+  "task_id": "BAR-MGS-1781010246-f40ebda7",
+  "title": "Daily evolution safe upgrade",
+  "status": "UNKNOWN",
+  "source": "data/cybra_oracle/tasks/BAR-MGS-1781010246-f40ebda7.json",
+  "sha256": "cb8f5f2f0a13b6f274f3fdedc793474b2ff085a71a4fc5dbce6f9c157e8b7937",
+  "rule": "all bar actions work only with this locked last task"
 }

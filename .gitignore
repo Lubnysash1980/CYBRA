@@ -68,3 +68,4 @@ recovery_unpack/
 data/cybra_bot_supervisor/logs/
 data/cybra_bot_supervisor/pids/
 data/cyberbot/patches/*.tar.gz
+data/cybra_oracle_bridge/patches/*.tar.gz

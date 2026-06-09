@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-06-08T23:24:42",
+  "status": "EXCHANGE_API_CONFIG_SAVED_LOCAL_ONLY",
+  "exchange": "binance",
+  "api_key_masked": null,
+  "api_secret_masked": null,
+  "testnet": true,
+  "secret_file": ".cybra_local_secret/exchanges/binance.json",
+  "git_safe": true,
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "live_orders_enabled": false,
+    "live_order_button_creates_request_only": true,
+    "paper_trading": true,
+    "testnet_mode": true,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "manual_OWNER_approval_required": true,
+    "it_supervision_required": true,
+    "cyber_parliament_supervision_required": true,
+    "api_keys_stored_local_only": true,
+    "do_not_store_secrets_in_git": true,
+    "github_import_safe": true
+  }
+}

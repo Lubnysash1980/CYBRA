@@ -1,0 +1,14 @@
+{
+  "step": 6,
+  "name": "Paper/testnet logs check",
+  "status": "COMPLETED",
+  "log_file": "logs/cyberbot_paper_test.log",
+  "total_orders": 2,
+  "errors": 0
+0,
+  "paper_trading_verified": true,
+  "testnet_verified": true,
+  "no_live_orders_detected": true,
+  "analysis": "Paper торгівля працює коректно, live-ордери відсутні",
+  "timestamp": "2026-06-08T23:28:05+02:00"
+}

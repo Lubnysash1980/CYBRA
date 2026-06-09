@@ -1,18 +1,18 @@
 {
-  "timestamp": "2026-06-08T12:56:30",
+  "timestamp": "2026-06-08T15:46:10",
   "status": "CYBRA_BRANCH_LOAD_MONITOR_OK",
   "redis_ok": true,
   "git": {
     "repo": true,
     "branch": "main",
-    "dirty_files": 3310
+    "dirty_files": 25
   },
   "totals": {
-    "pending": 3,
+    "pending": 1,
     "running": 1,
-    "done": 5,
-    "returned": 5,
-    "audit": 4,
+    "done": 0,
+    "returned": 0,
+    "audit": 1,
     "process_running": 1,
     "process_missing": 5
   },
@@ -21,13 +21,13 @@
       "slug": "finance",
       "name": "FINANCE / фінансові задачі",
       "description": "банк, PSP, токени, proof, KIBRA finance",
-      "status": "НЕВИКОНАНЕ",
-      "pending": 3,
+      "status": "НЕЙТРАЛЬНО",
+      "pending": 0,
       "running": 0,
       "running_queue": 0,
-      "done": 3,
-      "returned": 3,
-      "audit": 4,
+      "done": 0,
+      "returned": 0,
+      "audit": 1,
       "process_running": 0,
       "process_missing": 1,
       "process_expected": 1,
@@ -36,43 +36,43 @@
         "cybra_finance": 0,
         "kibra": 0
       },
-      "load_percent": 100,
+      "load_percent": 20,
       "pending_queues": {
-        "cybra:finance:evolution:pool": 3,
+        "cybra:finance:evolution:pool": 0,
         "cybra_finance_evolution": 0
       },
       "running_queues": {
         "cybra:branch:finance:running": 0
       },
       "done_queues": {
-        "cybra:branch:finance:done": 1,
-        "cybra:completed:ai_tasks": 2
+        "cybra:branch:finance:done": 0,
+        "cybra:completed:ai_tasks": 0
       },
       "returned_queues": {
-        "cybra:branch:finance:return": 1,
-        "cybra:return:ai_tasks": 2
+        "cybra:branch:finance:return": 0,
+        "cybra:return:ai_tasks": 0
       },
       "audit_queues": {
-        "cybra:branch:finance:audit": 2,
-        "cybra:audit:finance": 2
+        "cybra:branch:finance:audit": 0,
+        "cybra:audit:finance": 1
       },
-      "storage_total": 5,
+      "storage_total": 34,
       "storage_counts": {
-        "data/cybra_finance/it_department/tasks": 1,
+        "data/cybra_finance/it_department/tasks": 19,
         "data/cybra_finance/reports": 1,
-        "data/cybra_proof_department": 3
+        "data/cybra_proof_department": 14
       }
     },
     "meta": {
       "slug": "meta",
       "name": "META EVOLUTION / еволюція",
       "description": "екосистема задач, layers, AI-blocks, committees",
-      "status": "НЕВИКОНАНЕ",
+      "status": "НЕЙТРАЛЬНО",
       "pending": 0,
       "running": 0,
       "running_queue": 0,
-      "done": 2,
-      "returned": 2,
+      "done": 0,
+      "returned": 0,
       "audit": 0,
       "process_running": 0,
       "process_missing": 1,
@@ -81,7 +81,7 @@
         "meta_evolution": 0,
         "cybra-meta-evo": 0
       },
-      "load_percent": 50,
+      "load_percent": 20,
       "pending_queues": {
         "cybra:meta:evolution:pool": 0
       },
@@ -90,11 +90,11 @@
       },
       "done_queues": {
         "cybra:branch:meta:done": 0,
-        "cybra:completed:ai_tasks": 2
+        "cybra:completed:ai_tasks": 0
       },
       "returned_queues": {
         "cybra:branch:meta:return": 0,
-        "cybra:return:ai_tasks": 2
+        "cybra:return:ai_tasks": 0
       },
       "audit_queues": {
         "cybra:branch:meta:audit": 0,
@@ -233,9 +233,9 @@
         "cybra:branch:oracle:audit": 0,
         "cybra:audit:oracle": 0
       },
-      "storage_total": 35,
+      "storage_total": 50,
       "storage_counts": {
-        "data/cybra_oracle/tasks": 35,
+        "data/cybra_oracle/tasks": 50,
         "scripts/oracle": 0,
         ".github/workflows": 0
       }
@@ -244,8 +244,8 @@
       "slug": "parliament",
       "name": "CYBER PARLIAMENT / парламент",
       "description": "комітети, голосування, review, approval",
-      "status": "НЕЙТРАЛЬНО",
-      "pending": 0,
+      "status": "НЕВИКОНАНЕ",
+      "pending": 1,
       "running": 0,
       "running_queue": 0,
       "done": 0,
@@ -258,9 +258,9 @@
         "parliament": 0,
         "uvicorn": 0
       },
-      "load_percent": 20,
+      "load_percent": 32,
       "pending_queues": {
-        "parliament_inbox": 0
+        "parliament_inbox": 1
       },
       "running_queues": {
         "cybra:branch:parliament:running": 0
@@ -275,11 +275,11 @@
         "cybra:branch:parliament:audit": 0,
         "cybra:audit:parliament": 0
       },
-      "storage_total": 306,
+      "storage_total": 490,
       "storage_counts": {
-        "parliament": 186,
+        "parliament": 343,
         "posts": 0,
-        "feeds": 120
+        "feeds": 147
       }
     }
   },

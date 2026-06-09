@@ -1,3 +1,6 @@
+chmod +x install_supervised_bot_runner.sh
+bash install_supervised_bot_runner.sh
+
 #!/usr/bin/env bash
 set +e
 

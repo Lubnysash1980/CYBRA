@@ -1,245 +1,79 @@
 {
-  "timestamp": "2026-06-08T13:41:36",
+  "timestamp": "2026-06-09T18:20:07",
   "status": "CYBRA_LAST_TASK_BAR_REPORT",
   "task": {
-    "task_id": "BAR-LAST-TASK-20260608_132833-f3de789258_meta",
-    "title": "LAST_TASK_MERGE_ALL_DEPARTMENTS",
-    "status": "LAST_TASK_MERGE_ALL_DEPARTMENTS",
-    "source": "data/cybra_meta_evolution/tasks/BAR-LAST-TASK-20260608_132833-f3de789258_meta.json",
-    "sha256": "e5c458b892f698bb27771594a10a51c874e13bfaca517aa62e00f9e54e46ca75",
+    "task_id": "BAR-MGS-1781010246-f40ebda7",
+    "title": "Daily evolution safe upgrade",
+    "status": "UNKNOWN",
+    "source": "data/cybra_oracle/tasks/BAR-MGS-1781010246-f40ebda7.json",
+    "sha256": "cb8f5f2f0a13b6f274f3fdedc793474b2ff085a71a4fc5dbce6f9c157e8b7937",
     "locked": true,
     "task": {
-      "packet_id": "BAR-LAST-TASK-20260608_132833-f3de789258",
-      "timestamp": "2026-06-08T13:28:33",
-      "status": "LAST_TASK_MERGE_ALL_DEPARTMENTS",
-      "action": "merge_all_departments",
+      "task_id": "BAR-MGS-1781010246-f40ebda7",
+      "timestamp": "2026-06-09T15:04:06",
+      "title": "Daily evolution safe upgrade",
+      "body": "AI + IT + Cyber Parliament + Oracle + Codespace: перевірити еволюційний прогрес бота, не ламати 6000-line source, зберегти module 64, зробити safe patch, dashboard metrics, Binance/Bybit тільки safe-mode без live trading.",
       "target": "all",
-      "source_task_id": "BAR-LAST-TASK-20260608_131736-4ee816a83f_meta",
-      "source_task_title": "LAST_TASK_MERGE_ALL_DEPARTMENTS",
-      "source_task_status": "LAST_TASK_MERGE_ALL_DEPARTMENTS",
-      "source_task_file": "data/cybra_meta_evolution/tasks/BAR-LAST-TASK-20260608_131736-4ee816a83f_meta.json",
-      "source_task_sha256": "8d680d48aacfb4a3249a7f8793ddcb6ec645a76b159e44e547a9afa68cee6f88",
-      "payload": {
-        "packet_id": "BAR-LAST-TASK-20260608_131736-4ee816a83f",
-        "timestamp": "2026-06-08T13:17:36",
-        "status": "LAST_TASK_MERGE_ALL_DEPARTMENTS",
-        "action": "merge_all_departments",
-        "target": "all",
-        "source_task_id": "LAST-TASK-DISPATCH-20260608_130316-201877b7d7_meta",
-        "source_task_title": "LAST_TASK_DISPATCH_CREATED",
-        "source_task_status": "LAST_TASK_DISPATCH_CREATED",
-        "source_task_file": "data/cybra_meta_evolution/tasks/LAST-TASK-DISPATCH-20260608_130316-201877b7d7_meta.json",
-        "source_task_sha256": "b3534c31559b69ee9d33e765b5e4d430c5d64d3d1d145d16ac3efb01677cbdc3",
-        "payload": {
-          "packet_id": "LAST-TASK-DISPATCH-20260608_130316-201877b7d7",
-          "timestamp": "2026-06-08T13:03:16",
-          "status": "LAST_TASK_DISPATCH_CREATED",
-          "action": "MERGE_ALL_DEPARTMENTS_AROUND_TASK",
-          "target": "all_departments",
-          "source_task": {
-            "task_id": "LAST-TASK-DISPATCH-20260608_130313-bb82d5199a_meta",
-            "title": "LAST_TASK_DISPATCH_CREATED",
-            "status": "LAST_TASK_DISPATCH_CREATED",
-            "source": "data/cybra_meta_evolution/tasks/LAST-TASK-DISPATCH-20260608_130313-bb82d5199a_meta.json",
-            "sha256": "b4f9d14db6e8d02d471a957844100139733ea36f5d8c4b5128aef1c71510b418"
-          },
-          "payload": {
-            "packet_id": "LAST-TASK-DISPATCH-20260608_130313-bb82d5199a",
-            "timestamp": "2026-06-08T13:03:13",
-            "status": "LAST_TASK_DISPATCH_CREATED",
-            "action": "MERGE_ALL_DEPARTMENTS_AROUND_TASK",
-            "target": "all_departments",
-            "source_task": {
-              "task_id": "LAST-TASK-DISPATCH-20260608_130312-dbfe9b781c",
-              "title": "LAST_TASK_DISPATCH_CREATED",
-              "status": "LAST_TASK_DISPATCH_CREATED",
-              "source": "data/cybra_finance/it_department/tasks/LAST-TASK-DISPATCH-20260608_130312-dbfe9b781c.json",
-              "sha256": "533466582a2e4dbf6a3ad05257459dd57c4d2cd28536e49db60a58071409fe10"
-            },
-            "payload": {
-              "packet_id": "LAST-TASK-DISPATCH-20260608_130312-dbfe9b781c",
-              "timestamp": "2026-06-08T13:03:12",
-              "status": "LAST_TASK_DISPATCH_CREATED",
-              "action": "RETURN_TO_IT",
-              "target": "IT Department",
-              "source_task": {
-                "task_id": "AI-META-EVO-BLOCK-20260608_115048-b50591ad1b",
-                "title": "AI_META_EVOLUTION_BLOCK_CREATED",
-                "status": "AI_META_EVOLUTION_BLOCK_CREATED",
-                "source": "data/cybra_meta_evolution/blocks/AI-META-EVO-BLOCK-20260608_115048-b50591ad1b.json",
-                "sha256": "7819604b9f7ee195d4984a9a20faa250c5922f686ca4280161d6d9b907bcc8e7"
-              },
-              "payload": {
-                "block_id": "AI-META-EVO-BLOCK-20260608_115048-b50591ad1b",
-                "timestamp": "2026-06-08T11:50:48",
-                "status": "AI_META_EVOLUTION_BLOCK_CREATED",
-                "action_type": "EVOLUTION_CREATE_AI_TASK_BLOCK",
-                "source_layer_id": "META-EVO-LAYER-20260608_115048-71ee8d90e2",
-                "source_layer_sha256": "b50591ad1b0a2746578e2ed682e2a53cb7eb5648c7409c96cdc6495795d760e7",
-                "parent_task_id": "task_block_00ef8fbccbd38b5a",
-                "parent_task_sha256": "f491ba77577471fb28666fafa51af7f170f88908fae58babe67b608d9683c1e0",
-                "ecosystem_id": "ECO-f0940ac03f25",
-                "layer_number": 1,
-                "pool_policy": {
-                  "route_to_kibra_pool": true,
-                  "route_through_usha_tunnel": true,
-                  "if_broken_peel_last_layer_and_return": true,
-                  "if_owner_pass_mark_completed": true,
-                  "if_not_pass_return_to_rework_pool": true
-                },
-                "payload": {
-                  "analytics_scope": "evolution_only_finance_only",
-                  "task_solution_strategy": "add_module_layer_until_solution",
-                  "module_layer": {
-                    "layer_id": "META-EVO-LAYER-20260608_115048-71ee8d90e2",
-                    "timestamp": "2026-06-08T11:50:48",
-                    "status": "EVOLUTION_LAYER_CREATED",
-                    "action_type": "EVOLUTION_ADD_MODULE_LAYER",
-                    "parent_task_id": "task_block_00ef8fbccbd38b5a",
-                    "parent_task_sha256": "f491ba77577471fb28666fafa51af7f170f88908fae58babe67b608d9683c1e0",
-                    "ecosystem_id": "ECO-f0940ac03f25",
-                    "layer_number": 1,
-                    "module_policy": {
-                      "add_module_around_task": true,
-                      "do_not_mutate_original_task": true,
-                      "scale_analytics_until_task_solution": true,
-                      "next_layer_allowed_if_task_not_solved": true,
-                      "finance_scope_only": true
-                    },
-                    "evolution_goal": {
-                      "task_title": "NO_TITLE",
-                      "solution_path": "module_by_module_until_solved",
-                      "analytics_scope": "evolutionary_actions_only"
-                    },
-                    "safety": {
-                      "real_payment_now": false,
-                      "real_trading_now": false,
-                      "automatic_external_tx": false,
-                      "automatic_withdrawals": false,
-                      "automatic_SWIFT": false,
-                      "automatic_real_rewards": false,
-                      "external_bridge_enabled": false,
-                      "finance_scope_only": true,
-                      "meta_evolution_only": true,
-                      "analytics_may_only_create_evolution_tasks": true,
-                      "broken_blocks_repaired_by_peeling_last_layer": true,
-                      "owner_final_pass_required": true
-                    },
-                    "sha256": "b50591ad1b0a2746578e2ed682e2a53cb7eb5648c7409c96cdc6495795d760e7"
-                  }
-                },
-                "safety": {
-                  "real_payment_now": false,
-                  "real_trading_now": false,
-                  "automatic_external_tx": false,
-                  "automatic_withdrawals": false,
-                  "automatic_SWIFT": false,
-                  "automatic_real_rewards": false,
-                  "external_bridge_enabled": false,
-                  "finance_scope_only": true,
-                  "meta_evolution_only": true,
-                  "analytics_may_only_create_evolution_tasks": true,
-                  "broken_blocks_repaired_by_peeling_last_layer": true,
-                  "owner_final_pass_required": true
-                },
-                "sha256": "c4bd564b88430df49ef694348c4fa6f11ea5717925c276d2ca21db1eb94e92c0"
-              },
-              "extra": {},
-              "safety": {
-                "real_payment_now": false,
-                "real_trading_now": false,
-                "automatic_external_tx": false,
-                "automatic_withdrawals": false,
-                "automatic_SWIFT": false,
-                "automatic_real_rewards": false,
-                "external_bridge_enabled": false,
-                "manual_OWNER_approval_required": true,
-                "cyber_parliament_approval_required": true,
-                "dispatcher_actions_are_internal_only": true
-              }
-            },
-            "extra": {},
-            "safety": {
-              "real_payment_now": false,
-              "real_trading_now": false,
-              "automatic_external_tx": false,
-              "automatic_withdrawals": false,
-              "automatic_SWIFT": false,
-              "automatic_real_rewards": false,
-              "external_bridge_enabled": false,
-              "manual_OWNER_approval_required": true,
-              "cyber_parliament_approval_required": true,
-              "dispatcher_actions_are_internal_only": true
-            }
-          },
-          "extra": {},
-          "safety": {
-            "real_payment_now": false,
-            "real_trading_now": false,
-            "automatic_external_tx": false,
-            "automatic_withdrawals": false,
-            "automatic_SWIFT": false,
-            "automatic_real_rewards": false,
-            "external_bridge_enabled": false,
-            "manual_OWNER_approval_required": true,
-            "cyber_parliament_approval_required": true,
-            "dispatcher_actions_are_internal_only": true
-          }
-        },
-        "extra": {},
-        "safety": {
-          "real_payment_now": false,
-          "real_trading_now": false,
-          "automatic_external_tx": false,
-          "automatic_withdrawals": false,
-          "automatic_SWIFT": false,
-          "automatic_real_rewards": false,
-          "external_bridge_enabled": false,
-          "last_task_only": true,
-          "manual_OWNER_approval_required": true,
-          "dashboard_actions_are_internal_only": true
-        }
+      "routes": [
+        "oracle",
+        "codespace",
+        "github",
+        "ai",
+        "it",
+        "parliament",
+        "mgs"
+      ],
+      "committees": [
+        "MGS Analytics",
+        "MGS Workers",
+        "MGS IT Department",
+        "MGS Restart Watchdog",
+        "MGS Integration"
+      ],
+      "preserve": {
+        "original_6000_lines": true,
+        "module64": true,
+        "do_not_break_existing_system": true,
+        "evolutionary_upgrade_only": true
       },
-      "extra": {},
       "safety": {
-        "real_payment_now": false,
         "real_trading_now": false,
+        "live_force_trading_disabled": true,
         "automatic_external_tx": false,
-        "automatic_withdrawals": false,
         "automatic_SWIFT": false,
-        "automatic_real_rewards": false,
-        "external_bridge_enabled": false,
-        "last_task_only": true,
-        "manual_OWNER_approval_required": true,
-        "dashboard_actions_are_internal_only": true
+        "mainnet_deploy_allowed": false,
+        "manual_OWNER_approval_required": true
       }
     }
   },
   "analysis": {
-    "timestamp": "2026-06-08T13:41:35",
+    "timestamp": "2026-06-09T18:20:07",
     "status": "LAST_TASK_AUDIT_ANALYSIS",
     "checks": {
       "has_task_id": true,
       "has_title": true,
-      "has_status": true,
+      "has_status": false,
       "has_safety": true,
-      "has_proof_or_hash": true,
+      "has_proof_or_hash": false,
       "has_parliament_route": true,
       "has_it_route": true,
-      "has_committees": false,
-      "has_redis_or_pool": true,
-      "has_usha_or_encryption": true,
+      "has_committees": true,
+      "has_redis_or_pool": false,
+      "has_usha_or_encryption": false,
       "has_binary_layer": false,
-      "finance_scope": true
+      "finance_scope": false
     },
     "problems": [
-      "Не видно комітетів навколо задачі.",
+      "Не видно proof/hash.",
+      "Не видно Redis/pool маршруту.",
+      "Не видно USHA/sealed/encrypted tunnel.",
       "Не видно binary-safe layer."
     ],
     "advice": [
-      "Натиснути Standard Committees або додати свої комітети.",
-      "Підключити Binary Code Committee.",
-      "Ознаки незавершеності знайдені: краще Return або Auto-route."
+      "Відправити на аудит proof department.",
+      "Повернути задачу в meta evolution pool або KIBRA pool.",
+      "Додати sealed routing через USHA tunnel.",
+      "Підключити Binary Code Committee."
     ],
     "explanation": "Аудит перевіряє, чи задача має парламент, IT-модулі, комітети, proof, Redis/pool, USHA tunnel, binary-safe layer і safety. Якщо чогось нема — радить, куди перемкнути задачу.",
     "safety": {
@@ -256,20 +90,20 @@
     }
   },
   "action_counts_for_this_task": {
-    "audit": 4,
-    "route": 8,
-    "merge": 2,
-    "committees": 3,
-    "return": 4,
+    "audit": 0,
+    "route": 0,
+    "merge": 0,
+    "committees": 0,
+    "return": 0,
     "done": 0,
-    "auto": 2,
-    "all": 21
+    "auto": 0,
+    "all": 0
   },
   "department_state": {
     "parliament": {
       "department": "Cyber Parliament",
       "queue": "parliament_inbox",
-      "queue_load": 34,
+      "queue_load": 0,
       "processes_running": 0,
       "processes_missing": 1,
       "status": "NO_PROCESS"
@@ -277,15 +111,15 @@
     "it": {
       "department": "IT Department",
       "queue": "it_department",
-      "queue_load": 12,
-      "processes_running": 3,
+      "queue_load": 0,
+      "processes_running": 1,
       "processes_missing": 0,
       "status": "RUNNING"
     },
     "mgs": {
       "department": "MGS",
       "queue": "cybra_mgs_all",
-      "queue_load": 9,
+      "queue_load": 0,
       "processes_running": 0,
       "processes_missing": 1,
       "status": "NO_PROCESS"
@@ -293,7 +127,7 @@
     "oracle": {
       "department": "Oracle",
       "queue": "cybra_oracle_tasks",
-      "queue_load": 9,
+      "queue_load": 0,
       "processes_running": 0,
       "processes_missing": 1,
       "status": "NO_PROCESS"
@@ -301,7 +135,7 @@
     "meta": {
       "department": "Meta Evolution",
       "queue": "cybra:meta:evolution:pool",
-      "queue_load": 12,
+      "queue_load": 0,
       "processes_running": 0,
       "processes_missing": 1,
       "status": "NO_PROCESS"
@@ -309,7 +143,7 @@
     "proof": {
       "department": "Proof Department",
       "queue": "cybra:audit:proof",
-      "queue_load": 16,
+      "queue_load": 0,
       "processes_running": 0,
       "processes_missing": 1,
       "status": "NO_PROCESS"
@@ -317,18 +151,18 @@
     "binary": {
       "department": "Binary Code Committee",
       "queue": "cybra:binary:tasks",
-      "queue_load": 9,
+      "queue_load": 0,
       "processes_running": 0,
       "processes_missing": 1,
       "status": "NO_PROCESS"
     }
   },
   "summary": {
-    "red_unfinished": 23,
-    "green_running_processes": 3,
+    "red_unfinished": 0,
+    "green_running_processes": 1,
     "neutral_done": 0,
-    "yellow_audit": 15,
-    "load_percent": 100
+    "yellow_audit": 0,
+    "load_percent": 36
   },
   "commands": [
     "cybra-last-task-bar status",

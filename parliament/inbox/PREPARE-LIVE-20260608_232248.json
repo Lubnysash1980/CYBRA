@@ -1,0 +1,8 @@
+{
+  "task_id": "PREPARE-LIVE-20260608_232248",
+  "title": "ПІДГОТУВАТИ БОТ ДЛЯ LIVE",
+  "current": {"live_orders_enabled": false, "paper_trading": true},
+  "required_approvals": ["IT", "CyberParliament", "FinanceAudit", "OWNER"],
+  "risk_limits": {"max_position_usdt": 100, "max_daily_usdt": 1000},
+  "status": "PENDING_AUDIT"
+}

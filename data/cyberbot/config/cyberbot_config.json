@@ -1,7 +1,4 @@
 {
-  "pip_mode_enabled": true,
-  "pip_value": 10,
-  "timestamp": "2026-06-08T20:59:36",
   "safety": {
     "real_payment_now": false,
     "real_trading_now": false,
@@ -20,6 +17,8 @@
     "do_not_store_secrets_in_git": true,
     "github_import_safe": true
   },
-  "live_orders_enabled": false,
-  "live_order_gate": "REQUESTED_AUDIT_AND_OWNER_APPROVAL_REQUIRED"
+  "pip_mode_enabled": true,
+  "pip_value": 10,
+  "timestamp": "2026-06-09T09:15:32",
+  "live_orders_enabled": false
 }

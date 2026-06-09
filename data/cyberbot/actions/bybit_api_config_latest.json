@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-06-08T18:09:03",
+  "timestamp": "2026-06-09T08:33:39",
   "status": "EXCHANGE_API_CONFIG_SAVED_LOCAL_ONLY",
   "exchange": "bybit",
   "api_key_masked": "Xnii...vEiy",
   "api_secret_masked": "SEDn...YXU0",
-  "testnet": true,
+  "testnet": false,
   "secret_file": ".cybra_local_secret/exchanges/bybit.json",
   "git_safe": true,
   "safety": {

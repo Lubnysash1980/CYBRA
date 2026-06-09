@@ -1,0 +1,167 @@
+{
+  "packet_id": "BAR-LAST-TASK-20260608_143404-98289a29c9",
+  "timestamp": "2026-06-08T14:34:04",
+  "status": "LAST_TASK_AUTO_ROUTE",
+  "action": "auto_route",
+  "target": "auto",
+  "source_task_id": "MODULE-64-FINANCE-AUDIT-20260608_143353",
+  "source_task_title": "Аудит Module 64 — примусова торгівля без вікна",
+  "source_task_status": "MODULE_64_REGISTERED_AS_LAST_TASK_FOR_AUDIT",
+  "source_task_file": "data/cybra_finance/it_department/tasks/MODULE-64-FINANCE-AUDIT-20260608_143353.json",
+  "source_task_sha256": "17d7242b3af9354bc9f322b4e238ff24c5ee22ee56f0402f01102b651d68b182",
+  "payload": {
+    "task_id": "MODULE-64-FINANCE-AUDIT-20260608_143353",
+    "timestamp": "2026-06-08T14:33:53",
+    "status": "MODULE_64_REGISTERED_AS_LAST_TASK_FOR_AUDIT",
+    "title": "Аудит Module 64 — примусова торгівля без вікна",
+    "scope": "FINANCE_TRADING_MODULE_AUDIT_ONLY",
+    "module": {
+      "module_number": 64,
+      "name": "ULTIMATE_FORCE_TRADE_NO_WINDOW",
+      "files_count": 4,
+      "files": [
+        {
+          "path": "/data/data/com.termux/files/home/CYBRA/trading_bot/v64/modules/64/module_64_part_01_ULTIMATE_FORCE_TRADE_NO_WINDOW.mjs",
+          "relative_to_home": "CYBRA/trading_bot/v64/modules/64/module_64_part_01_ULTIMATE_FORCE_TRADE_NO_WINDOW.mjs",
+          "size_bytes": 505,
+          "sha256": "9467923f43d38d8536687b6b540d151e40da30c96a1c42f7514a08d548b3ef67",
+          "lines": 13,
+          "danger_words": [
+            "FORCE_TRADE",
+            "NO_WINDOW",
+            "trade"
+          ]
+        },
+        {
+          "path": "/data/data/com.termux/files/home/CYBRA/trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs",
+          "relative_to_home": "CYBRA/trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs",
+          "size_bytes": 2664,
+          "sha256": "4ff0c91c8321efba4f8bd2c15101eb5216cfb32ea1afa41687fc9742b7f7ba8f",
+          "lines": 79,
+          "danger_words": [
+            "FORCE_TRADE",
+            "ACTIVE",
+            "NO_WINDOW",
+            "order",
+            "trade"
+          ]
+        },
+        {
+          "path": "/data/data/com.termux/files/home/CYBRA/trading_bot/v64/models/extracted_modules/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs",
+          "relative_to_home": "CYBRA/trading_bot/v64/models/extracted_modules/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs",
+          "size_bytes": 2664,
+          "sha256": "4ff0c91c8321efba4f8bd2c15101eb5216cfb32ea1afa41687fc9742b7f7ba8f",
+          "lines": 79,
+          "danger_words": [
+            "FORCE_TRADE",
+            "ACTIVE",
+            "NO_WINDOW",
+            "order",
+            "trade"
+          ]
+        },
+        {
+          "path": "/data/data/com.termux/files/home/CYBRA/trading_bot/v64/models/extracted_modules/module_64_part_01_ULTIMATE_FORCE_TRADE_NO_WINDOW.mjs",
+          "relative_to_home": "CYBRA/trading_bot/v64/models/extracted_modules/module_64_part_01_ULTIMATE_FORCE_TRADE_NO_WINDOW.mjs",
+          "size_bytes": 505,
+          "sha256": "9467923f43d38d8536687b6b540d151e40da30c96a1c42f7514a08d548b3ef67",
+          "lines": 13,
+          "danger_words": [
+            "FORCE_TRADE",
+            "NO_WINDOW",
+            "trade"
+          ]
+        }
+      ]
+    },
+    "required_actions": [
+      "Надіслати фінансовому комітету",
+      "Надіслати комітету бінарного коду",
+      "Надіслати кіберпарламенту",
+      "Перевірити ризик живих ордерів",
+      "Перевірити ризик примусової торгівлі без вікна",
+      "Переписати в безпечний paper/testnet режим",
+      "Блокувати живі ордери до ручного схвалення власником"
+    ],
+    "routing": {
+      "finance": "cybra:finance:evolution:pool",
+      "audit": "cybra:audit:finance",
+      "parliament": "parliament_inbox",
+      "binary": "cybra:binary:tasks",
+      "return_rework": "cybra:return:ai_tasks"
+    },
+    "safety": {
+      "real_payment_now": false,
+      "real_trading_now": false,
+      "live_orders_enabled": false,
+      "automatic_external_tx": false,
+      "automatic_withdrawals": false,
+      "automatic_SWIFT": false,
+      "automatic_real_rewards": false,
+      "force_trade_blocked_until_audit": true,
+      "manual_OWNER_approval_required": true,
+      "do_not_store_secrets_in_git": true
+    },
+    "sha256": "316330086dc40a73c88e4647b7620b930034284264469259a5251d062a3658c1"
+  },
+  "extra": {
+    "analysis": {
+      "timestamp": "2026-06-08T14:34:03",
+      "status": "LAST_TASK_AUDIT_ANALYSIS",
+      "checks": {
+        "has_task_id": true,
+        "has_title": true,
+        "has_status": true,
+        "has_safety": true,
+        "has_proof_or_hash": true,
+        "has_parliament_route": true,
+        "has_it_route": true,
+        "has_committees": true,
+        "has_redis_or_pool": true,
+        "has_usha_or_encryption": false,
+        "has_binary_layer": true,
+        "finance_scope": true
+      },
+      "problems": [
+        "Не видно USHA/sealed/encrypted tunnel."
+      ],
+      "advice": [
+        "Додати sealed routing через USHA tunnel.",
+        "Ознаки незавершеності знайдені: краще Return або Auto-route."
+      ],
+      "explanation": "Аудит перевіряє, чи задача має парламент, IT-модулі, комітети, proof, Redis/pool, USHA tunnel, binary-safe layer і safety. Якщо чогось нема — радить, куди перемкнути задачу.",
+      "safety": {
+        "real_payment_now": false,
+        "real_trading_now": false,
+        "automatic_external_tx": false,
+        "automatic_withdrawals": false,
+        "automatic_SWIFT": false,
+        "automatic_real_rewards": false,
+        "external_bridge_enabled": false,
+        "last_task_only": true,
+        "manual_OWNER_approval_required": true,
+        "dashboard_actions_are_internal_only": true
+      }
+    },
+    "results_count": 2
+  },
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "last_task_only": true,
+    "manual_OWNER_approval_required": true,
+    "dashboard_actions_are_internal_only": true
+  },
+  "result": {
+    "results_count": 2,
+    "results": [
+      "BAR-LAST-TASK-20260608_143403-67c453efb4",
+      "BAR-LAST-TASK-20260608_143404-89c36c5490"
+    ]
+  }
+}

@@ -1,12 +1,14 @@
 {
   "pip_mode_enabled": false,
   "pip_value": 10,
-  "timestamp": "2026-06-08T17:05:32",
+  "timestamp": "2026-06-09T00:00:03",
   "safety": {
     "real_payment_now": false,
     "real_trading_now": false,
     "live_orders_enabled": false,
-    "live_order_button_creates_request_only": true,
+    "allow_live_orders": false,
+    "live_order_requested": true,
+    "live_order_gate": "REQUESTED_AUDIT_AND_OWNER_APPROVAL_REQUIRED",
     "paper_trading": true,
     "testnet_mode": true,
     "automatic_external_tx": false,
@@ -20,6 +22,13 @@
     "do_not_store_secrets_in_git": true
   },
   "live_orders_enabled": false,
-  "live_order_gate": "BLOCKED",
-  "live_order_requested": false
+  "live_order_gate": "REQUESTED_AUDIT_AND_OWNER_APPROVAL_REQUIRED",
+  "live_order_requested": true,
+  "selected_exchange": "bybit",
+  "paper_trading": true,
+  "testnet_mode": true,
+  "real_trading_now": false,
+  "allow_live_orders": false,
+  "bybit_live_enabled": false,
+  "manual_OWNER_approval_required": true
 }

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-08T17:50:23",
+  "timestamp": "2026-06-08T23:34:43",
   "status": "CYBERBOT_LIVE_ORDER_REQUEST_CREATED_BUT_NOT_ENABLED",
   "live_orders_enabled": false,
   "message": "Live-order request routed to IT + CyberParliament + audit. Real orders remain blocked.",

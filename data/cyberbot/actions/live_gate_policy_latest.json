@@ -1,0 +1,40 @@
+{
+  "timestamp": "2026-06-09T00:00:03",
+  "status": "LIVE_GATE_POLICY_NORMALIZED",
+  "who_can_enable_live_orders": "OWNER_ONLY_AFTER_IT_PARLIAMENT_FINANCE_AUDIT",
+  "current_state": {
+    "live_order_requested": true,
+    "live_order_gate": "REQUESTED_AUDIT_AND_OWNER_APPROVAL_REQUIRED",
+    "live_orders_enabled": false,
+    "allow_live_orders": false,
+    "real_trading_now": false
+  },
+  "required_before_live": [
+    "IT audit",
+    "CyberParliament review",
+    "Finance/Risk audit",
+    "API trade permissions check",
+    "Withdrawals disabled on exchange API",
+    "Paper/testnet logs checked",
+    "Separate manual OWNER approval"
+  ],
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "live_orders_enabled": false,
+    "allow_live_orders": false,
+    "live_order_requested": true,
+    "live_order_gate": "REQUESTED_AUDIT_AND_OWNER_APPROVAL_REQUIRED",
+    "paper_trading": true,
+    "testnet_mode": true,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "manual_OWNER_approval_required": true,
+    "it_supervision_required": true,
+    "cyber_parliament_supervision_required": true,
+    "api_keys_stored_local_only": true,
+    "do_not_store_secrets_in_git": true
+  }
+}

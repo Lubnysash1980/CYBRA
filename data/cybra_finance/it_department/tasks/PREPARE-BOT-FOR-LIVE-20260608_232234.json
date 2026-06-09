@@ -1,0 +1,69 @@
+{
+  "task_id": "PREPARE-BOT-FOR-LIVE-20260608_232234",
+  "status": "PENDING",
+  "title": "Підготувати Cyberbot для live-торгівлі",
+  "current_state": {
+    "live_orders_enabled": false,
+    "real_trading_now": false,
+    "paper_trading": true,
+    "testnet_mode": true,
+    "live_order_gate": "REQUESTED_AUDIT_AND_OWNER_APPROVAL_REQUIRED"
+  },
+  "required_steps": [
+    {
+      "step": 1,
+      "name": "IT аудит",
+      "description": "Перевірити код бота на безпеку, відсутність шкідливих функцій",
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "name": "CyberParliament review",
+      "description": "Затвердження стратегії та лімітів live-торгівлі",
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "name": "Finance/Risk audit",
+      "description": "Оцінка ризиків, встановлення максимальних сум",
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "name": "API permissions check",
+      "description": "Перевірка прав API ключів (тільки торгівля, без виведення)",
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "name": "Withdrawals disabled",
+      "description": "Підтвердження що виведення вимкнені на біржі",
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "name": "Paper/testnet logs check",
+      "description": "Аналіз логів paper-торгівлі за останній період",
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "name": "OWNER manual approval",
+      "description": "Фінальний ручний дозвіл власника",
+      "status": "pending"
+    }
+  ],
+  "live_config_after_approval": {
+    "live_orders_enabled": true,
+    "real_trading_now": true,
+    "allow_live_orders": true,
+    "paper_trading": false,
+    "testnet_mode": false,
+    "max_position_size_usdt": 100,
+    "max_daily_volume_usdt": 1000,
+    "max_loss_percent": 1.0,
+    "emergency_stop_enabled": true
+  },
+  "created_by": "OWNER_TERMUX",
+  "timestamp": "2026-06-08T23:22:34+02:00"
+}

@@ -1,0 +1,10 @@
+{
+  "step": 3,
+  "name": "Finance/Risk audit",
+  "risk_level": "MEDIUM",
+  "max_loss_limit_usdt": 50,
+  "stop_loss_enabled": true,
+  "status": "COMPLETED",
+  "approved": true,
+  "timestamp": "2026-06-08T23:26:06+02:00"
+}

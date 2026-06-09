@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-06-08T14:33:53",
+  "timestamp": "2026-06-08T14:36:23",
   "status": "MODULE_64_AUDIT_CREATED",
-  "task_id": "MODULE-64-FINANCE-AUDIT-20260608_143353",
+  "task_id": "MODULE-64-FINANCE-AUDIT-20260608_143623",
   "risk": "force trade / no window / active trading module",
   "audit_advice": [
     "❌ Не запускати live-торгівлю",
@@ -11,7 +11,7 @@
     "✅ Додати ручне підтвердження OWNER",
     "📦 Підключити binary committee"
   ],
-  "task_file": "data/cybra_finance/it_department/tasks/MODULE-64-FINANCE-AUDIT-20260608_143353.json",
+  "task_file": "data/cybra_finance/it_department/tasks/MODULE-64-FINANCE-AUDIT-20260608_143623.json",
   "safety": {
     "real_payment_now": false,
     "real_trading_now": false,

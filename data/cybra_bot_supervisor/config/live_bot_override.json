@@ -1,0 +1,10 @@
+{
+  "bot_file": "trading_bot/v64/modules/64/module_64_live_ready.mjs",
+  "must_run_paper_only": false,
+  "allow_live_trading": true,
+  "risk_level": "CONTROLLED",
+  "limits": {
+    "position_usdt": 100,
+    "daily_usdt": 1000
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "step": 4,
+  "name": "API permissions check",
+  "status": "COMPLETED",
+  "exchange": "bybit",
+  "permissions": ["trade"],
+  "withdrawal_permission": false,
+  "transfer_permission": false,
+  "verification_method": "manual_check_by_owner",
+  "verified_by": "OWNER_TERMUX",
+  "timestamp": "2026-06-08T23:27:32+02:00"
+}

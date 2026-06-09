@@ -1,0 +1,29 @@
+{
+  "task_id": "BAR-LAST-TASK-20260608_142642-a717b90738_oracle",
+  "timestamp": "2026-06-09T15:03:56",
+  "source_file": "data/cybra_oracle/tasks/BAR-LAST-TASK-20260608_142642-a717b90738_oracle.json",
+  "status": "ORACLE_ACCEPTED",
+  "runner": "Oracle VPS CYBRA Agent",
+  "title": "no-title",
+  "target": "all",
+  "committees": [
+    "mgs_analytics",
+    "mgs_workers",
+    "mgs_it_department",
+    "mgs_restart_watchdog",
+    "mgs_integration"
+  ],
+  "action": "Task accepted by Oracle VPS. Heavy work stays on VPS/Codespace. Termux only controls.",
+  "safety": {
+    "real_payment_now": false,
+    "real_trading_now": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_real_rewards": false,
+    "external_bridge_enabled": false,
+    "last_task_only": true,
+    "manual_OWNER_approval_required": true,
+    "dashboard_actions_are_internal_only": true
+  }
+}

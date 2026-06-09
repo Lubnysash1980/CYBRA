@@ -1,0 +1,12 @@
+{
+  "step": 2,
+  "name": "CyberParliament review",
+  "status": "COMPLETED",
+  "strategy_limits": {
+    "max_daily_trades": 10,
+    "max_position_usdt": 100,
+    "allowed_pairs": ["BTC/USDT", "ETH/USDT"]
+  },
+  "approved": true,
+  "timestamp": "2026-06-08T23:26:05+02:00"
+}

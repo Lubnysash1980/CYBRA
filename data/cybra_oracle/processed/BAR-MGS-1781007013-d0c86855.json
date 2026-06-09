@@ -1,0 +1,25 @@
+{
+  "task_id": "BAR-MGS-1781007013-d0c86855",
+  "timestamp": "2026-06-09T15:03:56",
+  "source_file": "data/cybra_oracle/tasks/BAR-MGS-1781007013-d0c86855.json",
+  "status": "ORACLE_ACCEPTED",
+  "runner": "Oracle VPS CYBRA Agent",
+  "title": "evo",
+  "target": "all",
+  "committees": [
+    "MGS Analytics",
+    "MGS Workers",
+    "MGS IT Department",
+    "MGS Restart Watchdog",
+    "MGS Integration"
+  ],
+  "action": "Task accepted by Oracle VPS. Heavy work stays on VPS/Codespace. Termux only controls.",
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "automatic_SWIFT": false,
+    "mainnet_deploy_allowed": false,
+    "manual_OWNER_approval_required": true
+  }
+}

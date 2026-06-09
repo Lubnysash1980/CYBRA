@@ -1,0 +1,11 @@
+{
+  "step": 5,
+  "name": "Withdrawals disabled",
+  "status": "COMPLETED",
+  "exchange": "bybit",
+  "withdrawals_enabled": false,
+  "withdrawal_limit_usdt": 0,
+  "verification": "manual_confirmed_via_web",
+  "confirmed_by": "OWNER_TERMUX",
+  "timestamp": "2026-06-08T23:27:32+02:00"
+}

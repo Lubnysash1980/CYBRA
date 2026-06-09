@@ -1,0 +1,9 @@
+{
+  "step": 7,
+  "name": "OWNER manual approval",
+  "status": "APPROVED",
+  "approved": true,
+  "approval_signature": "OWNER_TERMUX_LIVE_APPROVAL_20260608_232805",
+  "approved_by": "OWNER_TERMUX",
+  "timestamp": "2026-06-08T23:28:05+02:00"
+}

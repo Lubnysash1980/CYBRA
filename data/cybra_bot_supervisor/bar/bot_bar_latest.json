@@ -1,25 +1,21 @@
 {
-  "timestamp": "2026-06-08T17:10:34",
+  "timestamp": "2026-06-09T15:01:07",
   "status": "CYBRA_BOT_BAR_MENU_OK",
   "bot": {
     "alive": true,
     "status": "BOT_SUPERVISED_RUNNING",
-    "pid": 29598,
-    "bot_file": "trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs",
+    "pid": 31238,
+    "bot_file": "trading_bot/v70/index.mjs",
     "harness_file": "data/cybra_bot_supervisor/harness/cybra_bot_paper_harness.mjs",
     "risk_scan": {
       "risk": "HIGH_TRADING_RISK",
       "risk_words": [
-        "force_trade",
-        "ultimate_force",
-        "no_window",
-        "active",
-        "placeorder"
+        "bybit"
       ],
       "secrets_markers_detected": [],
-      "file": "trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs",
-      "file_sha256": "4ff0c91c8321efba4f8bd2c15101eb5216cfb32ea1afa41687fc9742b7f7ba8f",
-      "file_size": 2664,
+      "file": "trading_bot/v70/index.mjs",
+      "file_sha256": "9b69994ef902c330a6a8b08a17d72632e392b04d0b780115ff736ebbd0adb452",
+      "file_size": 5888,
       "must_run_paper_only": true
     }
   },
@@ -32,12 +28,14 @@
   "config": {
     "pip_mode_enabled": false,
     "pip_value": 10,
-    "timestamp": "2026-06-08T17:05:32",
+    "timestamp": "2026-06-09T00:00:03",
     "safety": {
       "real_payment_now": false,
       "real_trading_now": false,
       "live_orders_enabled": false,
-      "live_order_button_creates_request_only": true,
+      "allow_live_orders": false,
+      "live_order_requested": true,
+      "live_order_gate": "REQUESTED_AUDIT_AND_OWNER_APPROVAL_REQUIRED",
       "paper_trading": true,
       "testnet_mode": true,
       "automatic_external_tx": false,
@@ -51,14 +49,21 @@
       "do_not_store_secrets_in_git": true
     },
     "live_orders_enabled": false,
-    "live_order_gate": "BLOCKED",
-    "live_order_requested": false
+    "live_order_gate": "REQUESTED_AUDIT_AND_OWNER_APPROVAL_REQUIRED",
+    "live_order_requested": true,
+    "selected_exchange": "bybit",
+    "paper_trading": true,
+    "testnet_mode": true,
+    "real_trading_now": false,
+    "allow_live_orders": false,
+    "bybit_live_enabled": false,
+    "manual_OWNER_approval_required": true
   },
   "exchanges": {
     "bybit": {
       "configured": true,
       "exchange": "bybit",
-      "api_key_masked": "cybr...vEiy",
+      "api_key_masked": "Xnii...vEiy",
       "api_secret_masked": "SEDn...YXU0",
       "testnet": false,
       "file": ".cybra_local_secret/exchanges/bybit.json"
@@ -73,12 +78,12 @@
     }
   },
   "queues": {
-    "it_department": 3,
-    "parliament_inbox": 11,
-    "cybra:audit:finance": 11,
-    "cybra:bot:supervised": 9,
-    "cybra:finance:evolution:pool": 3,
-    "cybra:meta:evolution:pool": 3
+    "it_department": 14,
+    "parliament_inbox": 19,
+    "cybra:audit:finance": 7,
+    "cybra:bot:supervised": 6,
+    "cybra:finance:evolution:pool": 1,
+    "cybra:meta:evolution:pool": 7
   },
   "audit_recommendations": [
     "Супервізор працює. Paper/testnet harness активний.",
