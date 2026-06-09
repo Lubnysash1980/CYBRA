@@ -1,16 +1,23 @@
 {
   "task_id": "KIBRA-MENU-1780751007-acc83fba",
-  "timestamp": "2026-06-09T07:18:36",
-  "status": "CODESPACE_EXECUTOR_ACCEPTED",
-  "executor": "MGS Codespace Worker",
-  "committees": [],
+  "timestamp": "2026-06-06T16:03:27",
+  "source": "kibra-menu",
   "title": "4",
-  "evolution_rule": null,
-  "result": "Task accepted. Patch/report should be produced as separate evolution layer. Existing v64/module64 preserved.",
+  "body": "4",
+  "routes": [
+    "ai",
+    "it",
+    "parliament",
+    "oracle",
+    "codespace",
+    "mgs"
+  ],
   "safety": {
     "real_trading_now": false,
-    "binance_real_orders": false,
-    "bybit_real_orders": false,
-    "automatic_external_tx": false
-  }
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  },
+  "codespace_status": "ACCEPTED",
+  "codespace_timestamp": "2026-06-09T16:22:06"
 }

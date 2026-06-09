@@ -1,8 +1,8 @@
 {
-  "task_id": "BAR-MGS-1780777684-50b737de",
-  "timestamp": "2026-06-06T23:28:04",
-  "title": "Daily evolution safe upgrade",
-  "body": "AI + IT + Cyber Parliament + Oracle + Codespace: перевірити еволюційний прогрес бота, не ламати 6000-line source, зберегти module 64, зробити safe patch, dashboard metrics, Binance/Bybit тільки safe-mode без live trading.",
+  "task_id": "BAR-MGS-1781001875-af78b01d",
+  "timestamp": "2026-06-09T12:44:35",
+  "title": "cd ~/CYBRA && cat > deploy_70_modules_config.sh <<'DEPLOY'",
+  "body": "#!/bin/bash",
   "target": "all",
   "routes": [
     "oracle",

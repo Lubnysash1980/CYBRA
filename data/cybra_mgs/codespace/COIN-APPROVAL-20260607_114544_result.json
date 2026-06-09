@@ -1,8 +1,31 @@
 {
   "task_id": "COIN-APPROVAL-20260607_114544",
-  "timestamp": "2026-06-09T07:18:36",
-  "status": "CODESPACE_EXECUTOR_ACCEPTED",
-  "executor": "MGS Codespace Worker",
+  "timestamp": "2026-06-07T11:45:44+03:00",
+  "department": "CYBRA_COIN_APPROVAL_DEPARTMENT",
+  "title": "Доробити монету до approval",
+  "priority": "HIGH",
+  "status": "QUEUED_FOR_APPROVAL_PREPARATION",
+  "objective": "Підготувати монету CYBRA/KIBRA/AF до повного approval-пакета: технічна перевірка, tokenomics, metadata, governance, audit, legal/finance gate, OWNER approval, Cyber Parliament approval.",
+  "coin_scope": {
+    "coin_family": "CYBRA_KIBRA_AF",
+    "network_modes": [
+      "sandbox",
+      "testnet",
+      "mainnet_ready_gate"
+    ],
+    "mainnet_live_now": false,
+    "approval_required_before_live": true
+  },
+  "routes": [
+    "coin_approval_committee",
+    "finance_it_department",
+    "cybra_mgs_all",
+    "cybra_oracle_tasks",
+    "ai_block_inbox",
+    "it_department",
+    "parliament_inbox",
+    "cybra_finance_evolution"
+  ],
   "committees": [
     "coin_approval_committee",
     "finance_risk_committee",
@@ -13,13 +36,49 @@
     "oracle_runner_committee",
     "codespace_worker_committee"
   ],
-  "title": "Доробити монету до approval",
-  "evolution_rule": null,
-  "result": "Task accepted. Patch/report should be produced as separate evolution layer. Existing v64/module64 preserved.",
+  "required_work": [
+    "перевірити mint / metadata / decimals / supply",
+    "перевірити GitHub Pages metadata.json і logo.png",
+    "створити approval checklist",
+    "створити tokenomics draft",
+    "створити risk disclosure draft",
+    "створити OWNER approval ticket",
+    "створити Cyber Parliament vote draft",
+    "створити audit/proof checklist",
+    "створити mainnet readiness gate",
+    "перевірити freeze/update authority policy",
+    "перевірити multisig/update authority",
+    "перевірити Solscan/CMC listing readiness",
+    "перевірити finance live gate перед будь-якими реальними платежами"
+  ],
+  "deliverables": [
+    "data/cybra_coin/approval/checklists/coin_approval_checklist.md",
+    "data/cybra_coin/approval/checklists/tokenomics_approval_draft.md",
+    "data/cybra_coin/approval/checklists/owner_approval_ticket.md",
+    "data/cybra_coin/approval/checklists/cyber_parliament_vote_draft.md",
+    "data/cybra_coin/approval/checklists/mainnet_readiness_gate.md",
+    "posts/cybra_coin_approval_task.md",
+    "feeds/cybra_coin_approval_task.json",
+    "proofs/cybra_coin_approval_task.sha256"
+  ],
   "safety": {
+    "real_payment_now": false,
     "real_trading_now": false,
-    "binance_real_orders": false,
-    "bybit_real_orders": false,
-    "automatic_external_tx": false
-  }
+    "live_orders_enabled": false,
+    "automatic_external_tx": false,
+    "automatic_withdrawals": false,
+    "automatic_SWIFT": false,
+    "automatic_mainnet_mint": false,
+    "automatic_liquidity_creation": false,
+    "automatic_listing_submission": false,
+    "bank_live_mode": false,
+    "psp_live_mode": false,
+    "manual_OWNER_approval_required": true,
+    "cyber_parliament_approval_required": true,
+    "mainnet_deploy_allowed": false,
+    "approval_gate_required": true,
+    "do_not_store_secrets_in_git": true
+  },
+  "codespace_status": "ACCEPTED",
+  "codespace_timestamp": "2026-06-09T16:22:06"
 }

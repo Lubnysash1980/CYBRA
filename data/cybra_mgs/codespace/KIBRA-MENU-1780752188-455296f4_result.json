@@ -1,16 +1,23 @@
 {
   "task_id": "KIBRA-MENU-1780752188-455296f4",
-  "timestamp": "2026-06-09T07:18:36",
-  "status": "CODESPACE_EXECUTOR_ACCEPTED",
-  "executor": "MGS Codespace Worker",
-  "committees": [],
+  "timestamp": "2026-06-06T16:23:08",
+  "source": "kibra-menu",
   "title": "топ",
-  "evolution_rule": null,
-  "result": "Task accepted. Patch/report should be produced as separate evolution layer. Existing v64/module64 preserved.",
+  "body": "зробити так щоб еккаун мав топ пермішнс в ontaxi служби таксі",
+  "routes": [
+    "ai",
+    "it",
+    "parliament",
+    "oracle",
+    "codespace",
+    "mgs"
+  ],
   "safety": {
     "real_trading_now": false,
-    "binance_real_orders": false,
-    "bybit_real_orders": false,
-    "automatic_external_tx": false
-  }
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  },
+  "codespace_status": "ACCEPTED",
+  "codespace_timestamp": "2026-06-09T16:22:06"
 }

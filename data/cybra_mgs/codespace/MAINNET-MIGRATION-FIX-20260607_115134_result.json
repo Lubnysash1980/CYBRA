@@ -1,16 +1,37 @@
 {
   "task_id": "MAINNET-MIGRATION-FIX-20260607_115134",
-  "timestamp": "2026-06-09T07:18:36",
-  "status": "CODESPACE_EXECUTOR_ACCEPTED",
-  "executor": "MGS Codespace Worker",
-  "committees": [],
+  "timestamp": "2026-06-07T11:51:34",
   "title": "Fix test blocks and prepare KIBRA coin for mainnet migration",
-  "evolution_rule": null,
-  "result": "Task accepted. Patch/report should be produced as separate evolution layer. Existing v64/module64 preserved.",
+  "priority": "HIGH",
+  "status": "QUEUED_FOR_MAINNET_APPROVAL",
+  "objective": "Виправити ситуацію, де майнери отримали тестові блоки: зберегти їх як snapshot/claim, підготувати mainnet candidate, створити approval gate.",
+  "routes": [
+    "mainnet_migration_committee",
+    "coin_approval_committee",
+    "finance_it_department",
+    "cybra_mgs_all",
+    "cybra_oracle_tasks",
+    "ai_block_inbox",
+    "it_department",
+    "parliament_inbox"
+  ],
+  "required_work": [
+    "розділити TESTNET/MAINNET статуси",
+    "зробити snapshot тестових блоків",
+    "створити pre-mainnet miner claims",
+    "створити mainnet genesis candidate",
+    "заборонити автоматичне перетворення test rewards у real rewards",
+    "підготувати OWNER approval ticket",
+    "підготувати Cyber Parliament vote",
+    "підготувати anti-sybil/miner audit",
+    "підготувати mainnet readiness checklist"
+  ],
   "safety": {
-    "real_trading_now": false,
-    "binance_real_orders": false,
-    "bybit_real_orders": false,
-    "automatic_external_tx": false
-  }
+    "automatic_mainnet_launch": false,
+    "automatic_real_rewards": false,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  },
+  "codespace_status": "ACCEPTED",
+  "codespace_timestamp": "2026-06-09T16:22:06"
 }

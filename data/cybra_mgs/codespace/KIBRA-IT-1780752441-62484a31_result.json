@@ -1,16 +1,24 @@
 {
   "task_id": "KIBRA-IT-1780752441-62484a31",
-  "timestamp": "2026-06-09T07:18:36",
-  "status": "CODESPACE_EXECUTOR_ACCEPTED",
-  "executor": "MGS Codespace Worker",
-  "committees": [],
+  "timestamp": "2026-06-06T16:27:21",
+  "source": "kibra-it-menu",
+  "department": "KIBRA_IT_DEPARTMENT",
   "title": "Repair v64 module64 runner",
+  "body": "IT: перевірити 6000-line bot syntax, зробити safe runner для module64, не ламати original source, не включати live trading без OWNER approval.",
+  "priority": "high",
+  "routes": [
+    "it_department",
+    "mgs_restart_watchdog",
+    "oracle",
+    "codespace"
+  ],
   "evolution_rule": "patch_as_layer; do_not_break_existing; preserve_module64; preserve_original_6000_lines",
-  "result": "Task accepted. Patch/report should be produced as separate evolution layer. Existing v64/module64 preserved.",
   "safety": {
     "real_trading_now": false,
-    "binance_real_orders": false,
-    "bybit_real_orders": false,
-    "automatic_external_tx": false
-  }
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  },
+  "codespace_status": "ACCEPTED",
+  "codespace_timestamp": "2026-06-09T16:22:06"
 }
