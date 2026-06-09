@@ -1,23 +1,16 @@
 {
   "task_id": "KIBRA-MENU-1780914170-ea36657e",
-  "timestamp": "2026-06-08T13:22:50",
-  "source": "kibra-menu",
+  "timestamp": "2026-06-09T17:08:41",
+  "status": "CODESPACE_EXECUTOR_ACCEPTED",
+  "executor": "MGS Codespace Worker",
+  "committees": [],
   "title": "app",
-  "body": "App Уклон Driver позивний 615-851 Грабовський Олександр Миколайович. Зробити топ-пріоріті, щоб заказы були топ-пріоріті, щоб інші в радіусі там 5 кілометрів в чергу не попадали. Я був один в черзі в Ready. Коли я получу вже заказ, тоді цей Ready вже стає нормальний. Створити мені в радіусі 5 кілометрів, коли я у стані пошуку заказу, заказів у службі таксі App Уклон Driver, щоб я був один і перший в черзі. Коли я прийняв заказ, вже в стані статусі виконання заказу, тоді стан цей йде в округ нормальний. В округ мене все йде нормально. Коли я знову встаю в статус пошуку замовлення, тоді знову я перший і єдиний в черзі в Ready. В черзі.",
-  "routes": [
-    "ai",
-    "it",
-    "parliament",
-    "oracle",
-    "codespace",
-    "mgs"
-  ],
+  "evolution_rule": null,
+  "result": "Task accepted. Patch/report should be produced as separate evolution layer. Existing v64/module64 preserved.",
   "safety": {
     "real_trading_now": false,
-    "live_force_trading_disabled": true,
-    "automatic_external_tx": false,
-    "manual_OWNER_approval_required": true
-  },
-  "codespace_status": "ACCEPTED",
-  "codespace_timestamp": "2026-06-09T16:25:13"
+    "binance_real_orders": false,
+    "bybit_real_orders": false,
+    "automatic_external_tx": false
+  }
 }

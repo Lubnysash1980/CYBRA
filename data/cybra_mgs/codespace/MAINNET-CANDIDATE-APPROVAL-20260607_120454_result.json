@@ -1,151 +1,16 @@
 {
   "task_id": "MAINNET-CANDIDATE-APPROVAL-20260607_120454",
-  "timestamp": "2026-06-07T12:04:55",
+  "timestamp": "2026-06-09T17:08:41",
+  "status": "CODESPACE_EXECUTOR_ACCEPTED",
+  "executor": "MGS Codespace Worker",
+  "committees": [],
   "title": "OWNER + Cyber Parliament approval for KIBRA mainnet candidate stage",
-  "priority": "HIGH",
-  "status": "QUEUED_FOR_APPROVAL",
-  "routes": [
-    "mainnet_approval_committee",
-    "mainnet_migration_committee",
-    "coin_approval_committee",
-    "cybra_mgs_all",
-    "cybra_oracle_tasks",
-    "ai_block_inbox",
-    "it_department",
-    "parliament_inbox"
-  ],
-  "owner_ticket": {
-    "ticket_id": "MAINNET-CANDIDATE-APPROVAL-20260607_120454-OWNER",
-    "timestamp": "2026-06-07T12:04:55",
-    "type": "OWNER_APPROVAL_TICKET",
-    "status": "WAITING_OWNER_APPROVAL",
-    "title": "OWNER approval for moving test-block snapshot/claims into mainnet candidate stage",
-    "decision_requested": "Approve preparation of KIBRA mainnet candidate stage from preserved test block snapshot and pre-mainnet miner claims.",
-    "not_approved_automatically": [
-      "mainnet live launch",
-      "real rewards",
-      "external transfers",
-      "withdrawals",
-      "liquidity creation",
-      "exchange listing"
-    ],
-    "source_snapshot": "data/cybra_mainnet/snapshots/latest_test_blocks_snapshot.json",
-    "source_claims": "data/cybra_mainnet/claims/latest_pre_mainnet_claims.json",
-    "source_genesis_candidate": "data/cybra_mainnet/genesis/latest_mainnet_genesis_candidate.json",
-    "detected": {
-      "test_blocks_count": 60,
-      "miners_count": 1,
-      "migration_test_status": "MAINNET_MIGRATION_TEST_PASS",
-      "migration_test_score": 100.0
-    },
-    "owner_manual_action_required": true,
-    "owner_approval_value": "PENDING",
-    "safety": {
-      "mainnet_live_now": false,
-      "automatic_mainnet_launch": false,
-      "automatic_real_rewards": false,
-      "automatic_external_tx": false,
-      "automatic_withdrawals": false,
-      "automatic_liquidity_creation": false,
-      "real_payment_now": false,
-      "manual_OWNER_approval_required": true,
-      "cyber_parliament_approval_required": true,
-      "anti_sybil_review_required": true
-    }
-  },
-  "parliament_ticket": {
-    "ticket_id": "MAINNET-CANDIDATE-APPROVAL-20260607_120454-PARLIAMENT",
-    "timestamp": "2026-06-07T12:04:55",
-    "type": "CYBER_PARLIAMENT_APPROVAL_TICKET",
-    "status": "WAITING_CYBER_PARLIAMENT_VOTE",
-    "title": "Cyber Parliament vote for KIBRA mainnet candidate stage",
-    "vote_subject": "Move preserved test-block snapshot and pre-mainnet miner claims into KIBRA mainnet candidate stage.",
-    "vote_options": [
-      "APPROVE_MAINNET_CANDIDATE_STAGE_ONLY",
-      "REJECT_AND_KEEP_TESTNET_ONLY",
-      "REQUEST_ADDITIONAL_AUDIT"
-    ],
-    "recommended_vote": "APPROVE_MAINNET_CANDIDATE_STAGE_ONLY",
-    "vote_does_not_enable": [
-      "mainnet live launch",
-      "real rewards",
-      "external transfers",
-      "withdrawals",
-      "liquidity creation"
-    ],
-    "required_before_live": [
-      "OWNER approval",
-      "Cyber Parliament approval",
-      "anti-sybil miner audit",
-      "mainnet readiness gate",
-      "finance live gate review"
-    ],
-    "detected": {
-      "test_blocks_count": 60,
-      "miners_count": 1,
-      "migration_test_status": "MAINNET_MIGRATION_TEST_PASS",
-      "migration_test_score": 100.0
-    },
-    "safety": {
-      "mainnet_live_now": false,
-      "automatic_mainnet_launch": false,
-      "automatic_real_rewards": false,
-      "automatic_external_tx": false,
-      "automatic_withdrawals": false,
-      "automatic_liquidity_creation": false,
-      "real_payment_now": false,
-      "manual_OWNER_approval_required": true,
-      "cyber_parliament_approval_required": true,
-      "anti_sybil_review_required": true
-    }
-  },
-  "combined_approval_gate": {
-    "ticket_id": "MAINNET-CANDIDATE-APPROVAL-20260607_120454",
-    "timestamp": "2026-06-07T12:04:55",
-    "status": "MAINNET_CANDIDATE_APPROVAL_GATE_CREATED",
-    "stage_requested": "MAINNET_CANDIDATE_STAGE",
-    "mainnet_live_now": false,
-    "owner_ticket": "MAINNET-CANDIDATE-APPROVAL-20260607_120454-OWNER",
-    "parliament_ticket": "MAINNET-CANDIDATE-APPROVAL-20260607_120454-PARLIAMENT",
-    "requirements": {
-      "owner_approval": "PENDING",
-      "cyber_parliament_approval": "PENDING",
-      "anti_sybil_review": "PENDING",
-      "mainnet_readiness_gate": "LOCKED",
-      "finance_live_gate": "LOCKED"
-    },
-    "detected": {
-      "test_blocks_count": 60,
-      "miners_count": 1,
-      "migration_test_status": "MAINNET_MIGRATION_TEST_PASS",
-      "migration_test_score": 100.0
-    },
-    "decision": "Approval tickets created. Snapshot/claims can move to mainnet candidate stage only after manual approvals.",
-    "safety": {
-      "mainnet_live_now": false,
-      "automatic_mainnet_launch": false,
-      "automatic_real_rewards": false,
-      "automatic_external_tx": false,
-      "automatic_withdrawals": false,
-      "automatic_liquidity_creation": false,
-      "real_payment_now": false,
-      "manual_OWNER_approval_required": true,
-      "cyber_parliament_approval_required": true,
-      "anti_sybil_review_required": true
-    }
-  },
+  "evolution_rule": null,
+  "result": "Task accepted. Patch/report should be produced as separate evolution layer. Existing v64/module64 preserved.",
   "safety": {
-    "mainnet_live_now": false,
-    "automatic_mainnet_launch": false,
-    "automatic_real_rewards": false,
-    "automatic_external_tx": false,
-    "automatic_withdrawals": false,
-    "automatic_liquidity_creation": false,
-    "real_payment_now": false,
-    "manual_OWNER_approval_required": true,
-    "cyber_parliament_approval_required": true,
-    "anti_sybil_review_required": true
-  },
-  "codespace_status": "ACCEPTED",
-  "codespace_timestamp": "2026-06-09T16:25:13"
+    "real_trading_now": false,
+    "binance_real_orders": false,
+    "bybit_real_orders": false,
+    "automatic_external_tx": false
+  }
 }

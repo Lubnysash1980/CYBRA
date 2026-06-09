@@ -1,18 +1,8 @@
 {
   "task_id": "BAR-MGS-1781001932-cefcce82",
-  "timestamp": "2026-06-09T12:45:32",
-  "title": "bot",
-  "body": "cd ~/CYBRA && cat > deploy_70_modules_config.sh <<'DEPLOY'",
-  "target": "all",
-  "routes": [
-    "oracle",
-    "codespace",
-    "github",
-    "ai",
-    "it",
-    "parliament",
-    "mgs"
-  ],
+  "timestamp": "2026-06-09T17:08:41",
+  "status": "CODESPACE_EXECUTOR_ACCEPTED",
+  "executor": "MGS Codespace Worker",
   "committees": [
     "MGS Analytics",
     "MGS Workers",
@@ -20,20 +10,13 @@
     "MGS Restart Watchdog",
     "MGS Integration"
   ],
-  "preserve": {
-    "original_6000_lines": true,
-    "module64": true,
-    "do_not_break_existing_system": true,
-    "evolutionary_upgrade_only": true
-  },
+  "title": "bot",
+  "evolution_rule": null,
+  "result": "Task accepted. Patch/report should be produced as separate evolution layer. Existing v64/module64 preserved.",
   "safety": {
     "real_trading_now": false,
-    "live_force_trading_disabled": true,
-    "automatic_external_tx": false,
-    "automatic_SWIFT": false,
-    "mainnet_deploy_allowed": false,
-    "manual_OWNER_approval_required": true
-  },
-  "codespace_status": "ACCEPTED",
-  "codespace_timestamp": "2026-06-09T16:25:13"
+    "binance_real_orders": false,
+    "bybit_real_orders": false,
+    "automatic_external_tx": false
+  }
 }

@@ -1,23 +1,16 @@
 {
   "task_id": "KIBRA-MENU-1781022099-683867a9",
-  "timestamp": "2026-06-09T18:21:39",
-  "source": "kibra-menu",
+  "timestamp": "2026-06-09T17:08:41",
+  "status": "CODESPACE_EXECUTOR_ACCEPTED",
+  "executor": "MGS Codespace Worker",
+  "committees": [],
   "title": "KIBRA daily evolution",
-  "body": "AI + IT + Cyber Parliament + Oracle + Codespace: safe evolutionary upgrade, preserve 6000-line bot and module64.",
-  "routes": [
-    "ai",
-    "it",
-    "parliament",
-    "oracle",
-    "codespace",
-    "mgs"
-  ],
+  "evolution_rule": null,
+  "result": "Task accepted. Patch/report should be produced as separate evolution layer. Existing v64/module64 preserved.",
   "safety": {
     "real_trading_now": false,
-    "live_force_trading_disabled": true,
-    "automatic_external_tx": false,
-    "manual_OWNER_approval_required": true
-  },
-  "codespace_status": "ACCEPTED",
-  "codespace_timestamp": "2026-06-09T16:25:13"
+    "binance_real_orders": false,
+    "bybit_real_orders": false,
+    "automatic_external_tx": false
+  }
 }
