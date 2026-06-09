@@ -1,11 +1,11 @@
 {
-  "task_id": "KIBRA-IT-1780752454-758d2281",
+  "task_id": "KIBRA-MENU-1780915059-7d1ef5a2",
   "timestamp": "2026-06-09T07:18:36",
   "status": "CODESPACE_EXECUTOR_ACCEPTED",
   "executor": "MGS Codespace Worker",
   "committees": [],
-  "title": "Restart watchdog patch",
-  "evolution_rule": "patch_as_layer; do_not_break_existing; preserve_module64; preserve_original_6000_lines",
+  "title": "Binary Code Committee",
+  "evolution_rule": null,
   "result": "Task accepted. Patch/report should be produced as separate evolution layer. Existing v64/module64 preserved.",
   "safety": {
     "real_trading_now": false,
