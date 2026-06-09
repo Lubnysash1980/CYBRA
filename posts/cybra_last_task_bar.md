@@ -1,35 +1,36 @@
 [1m=== CYBRA LAST TASK BAR ===[0m
 Task lock: YES
-Task ID: BAR-LAST-TASK-20260608_132833-f3de789258_meta
-Title: LAST_TASK_MERGE_ALL_DEPARTMENTS
-Status: LAST_TASK_MERGE_ALL_DEPARTMENTS
-Source: data/cybra_meta_evolution/tasks/BAR-LAST-TASK-20260608_132833-f3de789258_meta.json
-SHA256: e5c458b892f698bb27771594a10a51c874e13bfaca517aa62e00f9e54e46ca75
+Task ID: BOT-SUPERVISED-FIXED-20260609_091554
+Title: Bot under IT and CyberParliament supervision
+Status: BOT_SUPERVISION_TASK_CREATED
+Source: data/cybra_finance/it_department/tasks/BOT-SUPERVISED-FIXED-20260609_091554.json
+SHA256: 78b4f76c0afed45bfbbd20463014ea6f0d5b96712bdef2381e2eafd593f7d835
 
 [1mCOLORS[0m
-[91mчервоне / невиконане: (23)[0m
-[92mзелене / виконується процесів: (3)[0m
+[91mчервоне / невиконане: (8)[0m
+[92mзелене / виконується процесів: (2)[0m
 [90mнейтральне / виконане: (0)[0m
-[93mаудит: (15)[0m
+[93mаудит: (2)[0m
 навантаження: (100%)
 
 [1mAUDIT PROBLEMS[0m
 - Не видно комітетів навколо задачі.
+- Не видно USHA/sealed/encrypted tunnel.
 - Не видно binary-safe layer.
 
 [1mAUDIT ADVICE[0m
 - Натиснути Standard Committees або додати свої комітети.
+- Додати sealed routing через USHA tunnel.
 - Підключити Binary Code Committee.
-- Ознаки незавершеності знайдені: краще Return або Auto-route.
 
 [1mDEPARTMENTS / ПРОЦЕСИ Й ЧЕРГИ[0m
-Cyber Parliament: queue [91m(34)[0m, processes [91m(0)[0m, missing [91m(1)[0m
-IT Department: queue [91m(12)[0m, processes [92m(3)[0m, missing [91m(0)[0m
-MGS: queue [91m(9)[0m, processes [91m(0)[0m, missing [91m(1)[0m
-Oracle: queue [91m(9)[0m, processes [91m(0)[0m, missing [91m(1)[0m
-Meta Evolution: queue [91m(12)[0m, processes [91m(0)[0m, missing [91m(1)[0m
-Proof Department: queue [91m(16)[0m, processes [91m(0)[0m, missing [91m(1)[0m
-Binary Code Committee: queue [91m(9)[0m, processes [91m(0)[0m, missing [91m(1)[0m
+Cyber Parliament: queue [91m(7)[0m, processes [91m(0)[0m, missing [91m(1)[0m
+IT Department: queue [91m(5)[0m, processes [92m(2)[0m, missing [91m(0)[0m
+MGS: queue [90m(0)[0m, processes [91m(0)[0m, missing [91m(1)[0m
+Oracle: queue [90m(0)[0m, processes [91m(0)[0m, missing [91m(1)[0m
+Meta Evolution: queue [91m(6)[0m, processes [91m(0)[0m, missing [91m(1)[0m
+Proof Department: queue [91m(1)[0m, processes [91m(0)[0m, missing [91m(1)[0m
+Binary Code Committee: queue [91m(1)[0m, processes [91m(0)[0m, missing [91m(1)[0m
 
 [1mCOMMANDS[0m
   cybra-last-task-bar status

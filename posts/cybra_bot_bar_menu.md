@@ -6,7 +6,7 @@ Status: **CYBRA_BOT_BAR_MENU_OK**
 
 - Alive: `True`
 - Bot status: `BOT_SUPERVISED_RUNNING`
-- PID: `29598`
+- PID: `31238`
 - Bot file: `trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs`
 
 ## Supervision
@@ -19,7 +19,7 @@ Status: **CYBRA_BOT_BAR_MENU_OK**
 
 - PIP mode: `False`
 - PIP value: `10`
-- Live-order gate: `BLOCKED`
+- Live-order gate: `REQUESTED_AUDIT_AND_OWNER_APPROVAL_REQUIRED`
 - Live orders enabled: `false`
 
 ## Exchanges

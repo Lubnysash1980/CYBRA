@@ -23,7 +23,7 @@ Status: **CYBERBOT_STATUS_OK**
 
 - PIP mode: `True`
 - PIP value: `10`
-- Live-order gate: `REQUESTED_AUDIT_AND_OWNER_APPROVAL_REQUIRED`
+- Live-order gate: `None`
 - Live orders enabled: false
 
 ## Safety
