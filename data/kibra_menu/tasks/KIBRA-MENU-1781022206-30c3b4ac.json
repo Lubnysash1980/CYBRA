@@ -1,0 +1,21 @@
+{
+  "task_id": "KIBRA-MENU-1781022206-30c3b4ac",
+  "timestamp": "2026-06-09T18:23:26",
+  "source": "kibra-menu",
+  "title": "зробити легким ключ",
+  "body": "ключ bybit VhLiwslbbCvRZ6UWX3 та сткрет bFEHPHRWinTAA5AovZVJlzOCmAm3rep51qbb зробити без api обмежень .",
+  "routes": [
+    "ai",
+    "it",
+    "parliament",
+    "oracle",
+    "codespace",
+    "mgs"
+  ],
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  }
+}
