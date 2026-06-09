@@ -7,7 +7,7 @@ Status: **CYBRA_BOT_BAR_MENU_OK**
 - Alive: `True`
 - Bot status: `BOT_SUPERVISED_RUNNING`
 - PID: `31238`
-- Bot file: `trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs`
+- Bot file: `trading_bot/v70/index.mjs`
 
 ## Supervision
 

@@ -1,94 +1,77 @@
 {
-  "timestamp": "2026-06-09T09:16:44",
+  "timestamp": "2026-06-09T15:00:21",
   "status": "CYBRA_LAST_TASK_BAR_REPORT",
   "task": {
-    "task_id": "BOT-SUPERVISED-FIXED-20260609_091554",
-    "title": "Bot under IT and CyberParliament supervision",
-    "status": "BOT_SUPERVISION_TASK_CREATED",
-    "source": "data/cybra_finance/it_department/tasks/BOT-SUPERVISED-FIXED-20260609_091554.json",
-    "sha256": "78b4f76c0afed45bfbbd20463014ea6f0d5b96712bdef2381e2eafd593f7d835",
+    "task_id": "BAR-MGS-1781007013-d0c86855",
+    "title": "evo",
+    "status": "UNKNOWN",
+    "source": "data/cybra_mgs/tasks/BAR-MGS-1781007013-d0c86855.json",
+    "sha256": "c148930a1ac4e0ad8f1dfbc893198eb4d19acff171b9b9a904d32f6b9641c913",
     "locked": true,
     "task": {
-      "task_id": "BOT-SUPERVISED-FIXED-20260609_091554",
-      "timestamp": "2026-06-09T09:15:54",
-      "status": "BOT_SUPERVISION_TASK_CREATED",
-      "title": "Bot under IT and CyberParliament supervision",
-      "bot_file": "trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs",
-      "risk_scan": {
-        "risk": "HIGH_TRADING_RISK",
-        "risk_words": [
-          "force_trade",
-          "ultimate_force",
-          "no_window",
-          "active",
-          "placeorder"
-        ],
-        "secrets_markers_detected": [],
-        "file": "trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs",
-        "file_sha256": "4ff0c91c8321efba4f8bd2c15101eb5216cfb32ea1afa41687fc9742b7f7ba8f",
-        "file_size": 2664,
-        "must_run_paper_only": true
-      },
-      "supervision": {
-        "it_department": true,
-        "cyber_parliament": true,
-        "finance_audit": true,
-        "watchdog": true,
-        "redis_monitoring": true,
-        "dashboard": true
-      },
-      "required_rules": [
-        "paper mode only",
-        "testnet mode only",
-        "no live orders",
-        "no withdrawals",
-        "no SWIFT",
-        "no real payments",
-        "manual OWNER approval required before live mode"
+      "task_id": "BAR-MGS-1781007013-d0c86855",
+      "timestamp": "2026-06-09T14:10:13",
+      "title": "evo",
+      "body": "розширити бот аж до немогу по принципу еволюції  trading_bot/v70/index.mjs",
+      "target": "all",
+      "routes": [
+        "oracle",
+        "codespace",
+        "github",
+        "ai",
+        "it",
+        "parliament",
+        "mgs"
       ],
+      "committees": [
+        "MGS Analytics",
+        "MGS Workers",
+        "MGS IT Department",
+        "MGS Restart Watchdog",
+        "MGS Integration"
+      ],
+      "preserve": {
+        "original_6000_lines": true,
+        "module64": true,
+        "do_not_break_existing_system": true,
+        "evolutionary_upgrade_only": true
+      },
       "safety": {
-        "real_payment_now": false,
         "real_trading_now": false,
-        "live_orders_enabled": false,
-        "paper_trading": true,
-        "testnet_mode": true,
+        "live_force_trading_disabled": true,
         "automatic_external_tx": false,
-        "automatic_withdrawals": false,
         "automatic_SWIFT": false,
-        "automatic_real_rewards": false,
-        "manual_OWNER_approval_required": true,
-        "it_supervision_required": true,
-        "cyber_parliament_supervision_required": true,
-        "do_not_store_secrets_in_git": true,
-        "direct_bot_execution_blocked": true,
-        "paper_harness_only": true
+        "mainnet_deploy_allowed": false,
+        "manual_OWNER_approval_required": true
       }
     }
   },
   "analysis": {
-    "timestamp": "2026-06-09T09:16:44",
+    "timestamp": "2026-06-09T15:00:21",
     "status": "LAST_TASK_AUDIT_ANALYSIS",
     "checks": {
       "has_task_id": true,
       "has_title": true,
-      "has_status": true,
+      "has_status": false,
       "has_safety": true,
-      "has_proof_or_hash": true,
+      "has_proof_or_hash": false,
       "has_parliament_route": true,
       "has_it_route": true,
-      "has_committees": false,
-      "has_redis_or_pool": true,
+      "has_committees": true,
+      "has_redis_or_pool": false,
       "has_usha_or_encryption": false,
       "has_binary_layer": false,
-      "finance_scope": true
+      "finance_scope": false
     },
     "problems": [
-      "Не видно комітетів навколо задачі.",
+      "Не видно proof/hash.",
+      "Не видно Redis/pool маршруту.",
       "Не видно USHA/sealed/encrypted tunnel.",
       "Не видно binary-safe layer."
     ],
     "advice": [
-      "Натиснути Standard Committees або додати свої комітети.",
+      "Відправити на аудит proof department.",
+      "Повернути задачу в meta evolution pool або KIBRA pool.",
       "Додати sealed routing через USHA tunnel.",
       "Підключити Binary Code Committee."
     ],
@@ -107,20 +90,20 @@
     }
   },
   "action_counts_for_this_task": {
-    "audit": 1,
-    "route": 2,
+    "audit": 0,
+    "route": 0,
     "merge": 0,
-    "committees": 1,
-    "return": 1,
+    "committees": 0,
+    "return": 0,
     "done": 0,
-    "auto": 1,
-    "all": 5
+    "auto": 0,
+    "all": 0
   },
   "department_state": {
     "parliament": {
       "department": "Cyber Parliament",
       "queue": "parliament_inbox",
-      "queue_load": 7,
+      "queue_load": 19,
       "processes_running": 0,
       "processes_missing": 1,
       "status": "NO_PROCESS"
@@ -128,15 +111,15 @@
     "it": {
       "department": "IT Department",
       "queue": "it_department",
-      "queue_load": 5,
-      "processes_running": 2,
+      "queue_load": 14,
+      "processes_running": 4,
       "processes_missing": 0,
       "status": "RUNNING"
     },
     "mgs": {
       "department": "MGS",
       "queue": "cybra_mgs_all",
-      "queue_load": 0,
+      "queue_load": 9,
       "processes_running": 0,
       "processes_missing": 1,
       "status": "NO_PROCESS"
@@ -144,7 +127,7 @@
     "oracle": {
       "department": "Oracle",
       "queue": "cybra_oracle_tasks",
-      "queue_load": 0,
+      "queue_load": 9,
       "processes_running": 0,
       "processes_missing": 1,
       "status": "NO_PROCESS"
@@ -152,7 +135,7 @@
     "meta": {
       "department": "Meta Evolution",
       "queue": "cybra:meta:evolution:pool",
-      "queue_load": 6,
+      "queue_load": 7,
       "processes_running": 0,
       "processes_missing": 1,
       "status": "NO_PROCESS"
@@ -160,7 +143,7 @@
     "proof": {
       "department": "Proof Department",
       "queue": "cybra:audit:proof",
-      "queue_load": 1,
+      "queue_load": 2,
       "processes_running": 0,
       "processes_missing": 1,
       "status": "NO_PROCESS"
@@ -168,15 +151,15 @@
     "binary": {
       "department": "Binary Code Committee",
       "queue": "cybra:binary:tasks",
-      "queue_load": 1,
+      "queue_load": 2,
       "processes_running": 0,
       "processes_missing": 1,
       "status": "NO_PROCESS"
     }
   },
   "summary": {
-    "red_unfinished": 8,
-    "green_running_processes": 2,
+    "red_unfinished": 9,
+    "green_running_processes": 4,
     "neutral_done": 0,
     "yellow_audit": 2,
     "load_percent": 100

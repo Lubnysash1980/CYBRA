@@ -1,0 +1,37 @@
+{
+  "task_id": "BAR-MGS-1781001443-eb32da7f",
+  "timestamp": "2026-06-09T12:37:23",
+  "title": "bot",
+  "body": "cd ~/CYBRA",
+  "target": "all",
+  "routes": [
+    "oracle",
+    "codespace",
+    "github",
+    "ai",
+    "it",
+    "parliament",
+    "mgs"
+  ],
+  "committees": [
+    "MGS Analytics",
+    "MGS Workers",
+    "MGS IT Department",
+    "MGS Restart Watchdog",
+    "MGS Integration"
+  ],
+  "preserve": {
+    "original_6000_lines": true,
+    "module64": true,
+    "do_not_break_existing_system": true,
+    "evolutionary_upgrade_only": true
+  },
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "automatic_SWIFT": false,
+    "mainnet_deploy_allowed": false,
+    "manual_OWNER_approval_required": true
+  }
+}

@@ -6,7 +6,7 @@ Status: **CYBERBOT_STATUS_OK**
 
 - Alive: `True`
 - Supervisor: `CYBRA_BOT_BAR_MENU_OK`
-- Bot file: `trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs`
+- Bot file: `trading_bot/v70/index.mjs`
 
 ## Exchanges
 

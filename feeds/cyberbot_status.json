@@ -1,23 +1,19 @@
 {
-  "timestamp": "2026-06-09T09:16:12",
+  "timestamp": "2026-06-09T15:01:07",
   "status": "CYBERBOT_STATUS_OK",
   "bot": {
     "alive": true,
     "supervisor_status": "CYBRA_BOT_BAR_MENU_OK",
-    "bot_file": "trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs",
+    "bot_file": "trading_bot/v70/index.mjs",
     "risk_scan": {
       "risk": "HIGH_TRADING_RISK",
       "risk_words": [
-        "force_trade",
-        "ultimate_force",
-        "no_window",
-        "active",
-        "placeorder"
+        "bybit"
       ],
       "secrets_markers_detected": [],
-      "file": "trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs",
-      "file_sha256": "4ff0c91c8321efba4f8bd2c15101eb5216cfb32ea1afa41687fc9742b7f7ba8f",
-      "file_size": 2664,
+      "file": "trading_bot/v70/index.mjs",
+      "file_sha256": "9b69994ef902c330a6a8b08a17d72632e392b04d0b780115ff736ebbd0adb452",
+      "file_size": 5888,
       "must_run_paper_only": true
     }
   },
@@ -76,15 +72,15 @@
   "queues": {
     "it": {
       "redis_key": "it_department",
-      "load": 5
+      "load": 14
     },
     "parliament": {
       "redis_key": "parliament_inbox",
-      "load": 5
+      "load": 19
     },
     "finance_audit": {
       "redis_key": "cybra:audit:finance",
-      "load": 5
+      "load": 7
     },
     "bot": {
       "redis_key": "cybra:bot:supervised",
@@ -96,7 +92,7 @@
     },
     "meta": {
       "redis_key": "cybra:meta:evolution:pool",
-      "load": 5
+      "load": 7
     },
     "bybit": {
       "redis_key": "cyberbot:bybit",
