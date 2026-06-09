@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-08T14:18:05",
+  "timestamp": "2026-06-09T10:00:39",
   "status": "ORACLE_VPS_OK",
   "role": "MAIN_REMOTE_RUNNER",
   "termux_role": "CONTROL_BAR_ONLY",
@@ -13,12 +13,12 @@
     "mgs_restart_watchdog",
     "mgs_integration"
   ],
-  "tasks_total": 98,
-  "processed_total": 58,
+  "tasks_total": 106,
+  "processed_total": 64,
   "last_processed": [
     {
       "task_id": "KIBRA-MENU-1780914170-ea36657e",
-      "timestamp": "2026-06-08T14:18:05",
+      "timestamp": "2026-06-09T10:00:39",
       "source_file": "data/cybra_oracle/tasks/KIBRA-MENU-1780914170-ea36657e.json",
       "status": "ORACLE_ACCEPTED",
       "runner": "Oracle VPS CYBRA Agent",
@@ -41,7 +41,7 @@
     },
     {
       "task_id": "KIBRA-MENU-1780915059-7d1ef5a2",
-      "timestamp": "2026-06-08T14:18:05",
+      "timestamp": "2026-06-09T10:00:39",
       "source_file": "data/cybra_oracle/tasks/KIBRA-MENU-1780915059-7d1ef5a2.json",
       "status": "ORACLE_ACCEPTED",
       "runner": "Oracle VPS CYBRA Agent",
@@ -64,7 +64,7 @@
     },
     {
       "task_id": "KIBRA-MENU-1780915149-c18aaf55",
-      "timestamp": "2026-06-08T14:18:05",
+      "timestamp": "2026-06-09T10:00:39",
       "source_file": "data/cybra_oracle/tasks/KIBRA-MENU-1780915149-c18aaf55.json",
       "status": "ORACLE_ACCEPTED",
       "runner": "Oracle VPS CYBRA Agent",
@@ -87,7 +87,7 @@
     },
     {
       "task_id": "KIBRA-MENU-1780915156-69398a8b",
-      "timestamp": "2026-06-08T14:18:05",
+      "timestamp": "2026-06-09T10:00:39",
       "source_file": "data/cybra_oracle/tasks/KIBRA-MENU-1780915156-69398a8b.json",
       "status": "ORACLE_ACCEPTED",
       "runner": "Oracle VPS CYBRA Agent",
@@ -110,7 +110,7 @@
     },
     {
       "task_id": "KIBRA-MENU-1780917064-f6904bdc",
-      "timestamp": "2026-06-08T14:18:05",
+      "timestamp": "2026-06-09T10:00:39",
       "source_file": "data/cybra_oracle/tasks/KIBRA-MENU-1780917064-f6904bdc.json",
       "status": "ORACLE_ACCEPTED",
       "runner": "Oracle VPS CYBRA Agent",
@@ -133,7 +133,7 @@
     },
     {
       "task_id": "LAST-TASK-DISPATCH-20260608_130313-bb82d5199a_oracle",
-      "timestamp": "2026-06-08T14:18:05",
+      "timestamp": "2026-06-09T10:00:39",
       "source_file": "data/cybra_oracle/tasks/LAST-TASK-DISPATCH-20260608_130313-bb82d5199a_oracle.json",
       "status": "ORACLE_ACCEPTED",
       "runner": "Oracle VPS CYBRA Agent",
@@ -162,7 +162,7 @@
     },
     {
       "task_id": "LAST-TASK-DISPATCH-20260608_130316-201877b7d7_oracle",
-      "timestamp": "2026-06-08T14:18:05",
+      "timestamp": "2026-06-09T10:00:39",
       "source_file": "data/cybra_oracle/tasks/LAST-TASK-DISPATCH-20260608_130316-201877b7d7_oracle.json",
       "status": "ORACLE_ACCEPTED",
       "runner": "Oracle VPS CYBRA Agent",
@@ -191,7 +191,7 @@
     },
     {
       "task_id": "MAINNET-CANDIDATE-APPROVAL-20260607_120454",
-      "timestamp": "2026-06-08T14:18:05",
+      "timestamp": "2026-06-09T10:00:39",
       "source_file": "data/cybra_oracle/tasks/MAINNET-CANDIDATE-APPROVAL-20260607_120454.json",
       "status": "ORACLE_ACCEPTED",
       "runner": "Oracle VPS CYBRA Agent",
@@ -220,7 +220,7 @@
     },
     {
       "task_id": "MAINNET-MIGRATION-FIX-20260607_115134",
-      "timestamp": "2026-06-08T14:18:05",
+      "timestamp": "2026-06-09T10:00:39",
       "source_file": "data/cybra_oracle/tasks/MAINNET-MIGRATION-FIX-20260607_115134.json",
       "status": "ORACLE_ACCEPTED",
       "runner": "Oracle VPS CYBRA Agent",
@@ -243,7 +243,7 @@
     },
     {
       "task_id": "ORACLE-MGS-1780661179-ea6d58c2",
-      "timestamp": "2026-06-08T14:18:05",
+      "timestamp": "2026-06-09T10:00:39",
       "source_file": "data/cybra_oracle/tasks/ORACLE-MGS-1780661179-ea6d58c2.json",
       "status": "ORACLE_ACCEPTED",
       "runner": "Oracle VPS CYBRA Agent",
@@ -270,7 +270,7 @@
   "evolution_percent": 100.0,
   "git": {
     "branch": "main",
-    "head": "a66b7f2c2"
+    "head": "cff2d0fe8"
   },
   "module64": {
     "original_6000_file": "trading_bot/v64/models/original_full_bot_6000_latest.mjs",
@@ -279,7 +279,12 @@
     "module64_files": [
       "trading_bot/v64/modules/64/INDEX.md",
       "trading_bot/v64/modules/64/module_64_part_01_ULTIMATE_FORCE_TRADE_NO_WINDOW.mjs",
-      "trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs"
+      "trading_bot/v64/modules/64/module_64_part_02_Ultimate_Force_Trade_no_window_ACTIVE.mjs",
+      "trading_bot/v64/modules/64/module_64_live_safe.mjs",
+      "trading_bot/v64/modules/64/module_64_live_ready.mjs",
+      "trading_bot/v64/modules/64/module_64_live_trader.mjs",
+      "trading_bot/v64/modules/64/module_64_live_bybit.mjs",
+      "trading_bot/v64/modules/64/live_trader_paper.mjs"
     ],
     "modules_total_dirs": 66,
     "module64_preserved": true
