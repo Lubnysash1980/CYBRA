@@ -1,7 +1,7 @@
 {
   "kind": "MIHAILKA_LAUNCHER_PATCH",
   "title": "Mihailka extra launcher patch",
-  "timestamp": "2026-06-09T15:04:19",
+  "timestamp": "2026-06-09T20:00:05",
   "target_file": "patches/mihailka/MIHAILKA_LAUNCHER_PATCH.json",
   "body": "Standalone launcher для іншого Android Termux/додатку: clone CYBRA, install deps, start Redis, activate cybra-bar.",
   "safety": {
@@ -12,7 +12,7 @@
     "mainnet_deploy_allowed": false,
     "manual_OWNER_approval_required": true
   },
-  "sha256": "639a2c974c19f528d9b88d6551e3665079dfd254cd97ff1340425eded3edfd0f",
-  "double_sha256": "8e744cc0ad6704f472f04412460defca9c3e7138c066098670b43192737d5295",
+  "sha256": "ec4b86c44f1715f0503c884f884c7c903c2f761db6e939e2e38b5a9f3b4aec10",
+  "double_sha256": "226a8c0ecf1ec37175747d3cc94b6e58dca8c954d82b609fb235f573123bbc8a",
   "signature_type": "CYBRA_DOUBLE_SHA256_LOCAL_SIGNATURE"
 }
