@@ -1,0 +1,36 @@
+{
+  "task_id": "CYBRA-LIVE-20260609_224024",
+  "status": "PENDING",
+  "priority": "HIGH",
+  "title": "АКТИВАЦІЯ LIVE ТОРГІВЛІ НА ORACLE GERMANY",
+  "description": "Запуск CYBRA бота на Oracle Frankfurt з реальними API ключами Bybit",
+  "created_by": "OWNER_TERMUX",
+  "timestamp": "2026-06-09T22:40:24+02:00",
+  "departments": ["IT", "CyberParliament", "FinanceAudit"],
+  
+  "requirements": {
+    "api_keys": "налаштовано (read+trade)",
+    "balance": "10.146 USDT",
+    "ip_restriction": "знято",
+    "oracle_region": "eu-frankfurt-1",
+    "timezone": "Europe/Berlin"
+  },
+  
+  "strategy": {
+    "symbol": "BTCUSDT",
+    "position_size": "0.001 BTC",
+    "long_entry": "< 63000",
+    "short_entry": "> 64500",
+    "stop_loss": "1%",
+    "take_profit": "1.5%"
+  },
+  
+  "actions": [
+    "Перевірити API ключі на права read/trade",
+    "Верифікувати баланс на ф'ючерсах",
+    "Запустити бота на Oracle Frankfurt",
+    "Моніторити перші 10 угод"
+  ],
+  
+  "status_report": "pending"
+}

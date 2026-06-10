@@ -1,0 +1,22 @@
+{
+  "task_id": "KIBRA-IT-1781125447-7360789d",
+  "timestamp": "2026-06-10T23:04:07",
+  "source": "kibra-it-menu",
+  "department": "KIBRA_IT_DEPARTMENT",
+  "title": "dagirous",
+  "body": "над світом виникла ядерна рекатна небезпека : фроузен.",
+  "priority": "normal",
+  "routes": [
+    "it_department",
+    "mgs_restart_watchdog",
+    "oracle",
+    "codespace"
+  ],
+  "evolution_rule": "patch_as_layer; do_not_break_existing; preserve_module64; preserve_original_6000_lines",
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  }
+}
