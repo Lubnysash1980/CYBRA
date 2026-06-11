@@ -1,11 +1,11 @@
 {
-  "task_id": "KIBRA-MENU-1780751508-29e1731a",
+  "task_id": "KIBRA-IT-1781168562-5eea54b8",
   "timestamp": "2026-06-11T09:03:50",
   "status": "CODESPACE_EXECUTOR_ACCEPTED",
   "executor": "MGS Codespace Worker",
   "committees": [],
-  "title": "токен",
-  "evolution_rule": null,
+  "title": "Oracle runner upgrade",
+  "evolution_rule": "patch_as_layer; do_not_break_existing; preserve_module64; preserve_original_6000_lines",
   "result": "Task accepted. Patch/report should be produced as separate evolution layer. Existing v64/module64 preserved.",
   "safety": {
     "real_trading_now": false,

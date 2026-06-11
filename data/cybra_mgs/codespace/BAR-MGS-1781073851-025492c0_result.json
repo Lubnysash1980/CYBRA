@@ -1,10 +1,16 @@
 {
-  "task_id": "KIBRA-MENU-1780751508-29e1731a",
+  "task_id": "BAR-MGS-1781073851-025492c0",
   "timestamp": "2026-06-11T09:03:50",
   "status": "CODESPACE_EXECUTOR_ACCEPTED",
   "executor": "MGS Codespace Worker",
-  "committees": [],
-  "title": "токен",
+  "committees": [
+    "MGS Analytics",
+    "MGS Workers",
+    "MGS IT Department",
+    "MGS Restart Watchdog",
+    "MGS Integration"
+  ],
+  "title": "app.uklon",
   "evolution_rule": null,
   "result": "Task accepted. Patch/report should be produced as separate evolution layer. Existing v64/module64 preserved.",
   "safety": {
