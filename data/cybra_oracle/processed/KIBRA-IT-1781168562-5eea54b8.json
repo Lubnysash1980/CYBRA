@@ -1,0 +1,23 @@
+{
+  "task_id": "KIBRA-IT-1781168562-5eea54b8",
+  "timestamp": "2026-06-11T11:02:56",
+  "source_file": "data/cybra_oracle/tasks/KIBRA-IT-1781168562-5eea54b8.json",
+  "status": "ORACLE_ACCEPTED",
+  "runner": "Oracle VPS CYBRA Agent",
+  "title": "Oracle runner upgrade",
+  "target": "all",
+  "committees": [
+    "mgs_analytics",
+    "mgs_workers",
+    "mgs_it_department",
+    "mgs_restart_watchdog",
+    "mgs_integration"
+  ],
+  "action": "Task accepted by Oracle VPS. Heavy work stays on VPS/Codespace. Termux only controls.",
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  }
+}

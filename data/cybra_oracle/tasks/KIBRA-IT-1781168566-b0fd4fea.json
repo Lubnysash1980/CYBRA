@@ -1,0 +1,22 @@
+{
+  "task_id": "KIBRA-IT-1781168566-b0fd4fea",
+  "timestamp": "2026-06-11T11:02:46",
+  "source": "kibra-it-menu",
+  "department": "KIBRA_IT_DEPARTMENT",
+  "title": "Codespace worker upgrade",
+  "body": "IT: перевірити Codespace worker, tasks, reports, proofs, dashboard feeds. Не втрачати module64 і original 6000 lines.",
+  "priority": "normal",
+  "routes": [
+    "it_department",
+    "mgs_restart_watchdog",
+    "oracle",
+    "codespace"
+  ],
+  "evolution_rule": "patch_as_layer; do_not_break_existing; preserve_module64; preserve_original_6000_lines",
+  "safety": {
+    "real_trading_now": false,
+    "live_force_trading_disabled": true,
+    "automatic_external_tx": false,
+    "manual_OWNER_approval_required": true
+  }
+}

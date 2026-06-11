@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-10T08:45:12",
+  "updated": "2026-06-11T11:02:56",
   "status": {
-    "timestamp": "2026-06-10T08:45:12",
+    "timestamp": "2026-06-11T11:02:56",
     "status": "ORACLE_VPS_OK",
     "role": "MAIN_REMOTE_RUNNER",
     "termux_role": "CONTROL_BAR_ONLY",
@@ -15,12 +15,12 @@
       "mgs_restart_watchdog",
       "mgs_integration"
     ],
-    "tasks_total": 142,
-    "processed_total": 82,
+    "tasks_total": 154,
+    "processed_total": 88,
     "last_processed": [
       {
         "task_id": "KIBRA-MENU-1780917064-f6904bdc",
-        "timestamp": "2026-06-10T08:45:12",
+        "timestamp": "2026-06-11T11:02:56",
         "source_file": "data/cybra_oracle/tasks/KIBRA-MENU-1780917064-f6904bdc.json",
         "status": "ORACLE_ACCEPTED",
         "runner": "Oracle VPS CYBRA Agent",
@@ -43,7 +43,7 @@
       },
       {
         "task_id": "KIBRA-MENU-1781022055-41f761fd",
-        "timestamp": "2026-06-10T08:45:12",
+        "timestamp": "2026-06-11T11:02:56",
         "source_file": "data/cybra_oracle/tasks/KIBRA-MENU-1781022055-41f761fd.json",
         "status": "ORACLE_ACCEPTED",
         "runner": "Oracle VPS CYBRA Agent",
@@ -66,7 +66,7 @@
       },
       {
         "task_id": "KIBRA-MENU-1781022099-683867a9",
-        "timestamp": "2026-06-10T08:45:12",
+        "timestamp": "2026-06-11T11:02:56",
         "source_file": "data/cybra_oracle/tasks/KIBRA-MENU-1781022099-683867a9.json",
         "status": "ORACLE_ACCEPTED",
         "runner": "Oracle VPS CYBRA Agent",
@@ -89,7 +89,7 @@
       },
       {
         "task_id": "KIBRA-MENU-1781022101-511c5bc5",
-        "timestamp": "2026-06-10T08:45:12",
+        "timestamp": "2026-06-11T11:02:56",
         "source_file": "data/cybra_oracle/tasks/KIBRA-MENU-1781022101-511c5bc5.json",
         "status": "ORACLE_ACCEPTED",
         "runner": "Oracle VPS CYBRA Agent",
@@ -112,7 +112,7 @@
       },
       {
         "task_id": "KIBRA-MENU-1781022206-30c3b4ac",
-        "timestamp": "2026-06-10T08:45:12",
+        "timestamp": "2026-06-11T11:02:56",
         "source_file": "data/cybra_oracle/tasks/KIBRA-MENU-1781022206-30c3b4ac.json",
         "status": "ORACLE_ACCEPTED",
         "runner": "Oracle VPS CYBRA Agent",
@@ -135,7 +135,7 @@
       },
       {
         "task_id": "LAST-TASK-DISPATCH-20260608_130313-bb82d5199a_oracle",
-        "timestamp": "2026-06-10T08:45:12",
+        "timestamp": "2026-06-11T11:02:56",
         "source_file": "data/cybra_oracle/tasks/LAST-TASK-DISPATCH-20260608_130313-bb82d5199a_oracle.json",
         "status": "ORACLE_ACCEPTED",
         "runner": "Oracle VPS CYBRA Agent",
@@ -164,7 +164,7 @@
       },
       {
         "task_id": "LAST-TASK-DISPATCH-20260608_130316-201877b7d7_oracle",
-        "timestamp": "2026-06-10T08:45:12",
+        "timestamp": "2026-06-11T11:02:56",
         "source_file": "data/cybra_oracle/tasks/LAST-TASK-DISPATCH-20260608_130316-201877b7d7_oracle.json",
         "status": "ORACLE_ACCEPTED",
         "runner": "Oracle VPS CYBRA Agent",
@@ -193,7 +193,7 @@
       },
       {
         "task_id": "MAINNET-CANDIDATE-APPROVAL-20260607_120454",
-        "timestamp": "2026-06-10T08:45:12",
+        "timestamp": "2026-06-11T11:02:56",
         "source_file": "data/cybra_oracle/tasks/MAINNET-CANDIDATE-APPROVAL-20260607_120454.json",
         "status": "ORACLE_ACCEPTED",
         "runner": "Oracle VPS CYBRA Agent",
@@ -222,7 +222,7 @@
       },
       {
         "task_id": "MAINNET-MIGRATION-FIX-20260607_115134",
-        "timestamp": "2026-06-10T08:45:12",
+        "timestamp": "2026-06-11T11:02:56",
         "source_file": "data/cybra_oracle/tasks/MAINNET-MIGRATION-FIX-20260607_115134.json",
         "status": "ORACLE_ACCEPTED",
         "runner": "Oracle VPS CYBRA Agent",
@@ -245,7 +245,7 @@
       },
       {
         "task_id": "ORACLE-MGS-1780661179-ea6d58c2",
-        "timestamp": "2026-06-10T08:45:12",
+        "timestamp": "2026-06-11T11:02:56",
         "source_file": "data/cybra_oracle/tasks/ORACLE-MGS-1780661179-ea6d58c2.json",
         "status": "ORACLE_ACCEPTED",
         "runner": "Oracle VPS CYBRA Agent",
@@ -272,7 +272,7 @@
     "evolution_percent": 100.0,
     "git": {
       "branch": "main",
-      "head": "d095e29b7"
+      "head": "b4a996411"
     },
     "module64": {
       "original_6000_file": "trading_bot/v64/models/original_full_bot_6000_latest.mjs",
@@ -305,30 +305,6 @@
     }
   },
   "history": [
-    {
-      "ts": "2026-06-05T15:21:43",
-      "tasks": 4,
-      "processed": 3,
-      "evolution_percent": 100.0,
-      "module64": 1,
-      "oracle_alive": 1
-    },
-    {
-      "ts": "2026-06-05T18:38:32",
-      "tasks": 4,
-      "processed": 3,
-      "evolution_percent": 100.0,
-      "module64": 1,
-      "oracle_alive": 1
-    },
-    {
-      "ts": "2026-06-05T19:31:01",
-      "tasks": 6,
-      "processed": 4,
-      "evolution_percent": 100.0,
-      "module64": 1,
-      "oracle_alive": 1
-    },
     {
       "ts": "2026-06-06T16:27:52",
       "tasks": 22,
@@ -2605,6 +2581,30 @@
       "ts": "2026-06-10T08:45:12",
       "tasks": 142,
       "processed": 82,
+      "evolution_percent": 100.0,
+      "module64": 1,
+      "oracle_alive": 1
+    },
+    {
+      "ts": "2026-06-11T11:02:51",
+      "tasks": 154,
+      "processed": 88,
+      "evolution_percent": 100.0,
+      "module64": 1,
+      "oracle_alive": 1
+    },
+    {
+      "ts": "2026-06-11T11:02:56",
+      "tasks": 154,
+      "processed": 88,
+      "evolution_percent": 100.0,
+      "module64": 1,
+      "oracle_alive": 1
+    },
+    {
+      "ts": "2026-06-11T11:02:56",
+      "tasks": 154,
+      "processed": 88,
       "evolution_percent": 100.0,
       "module64": 1,
       "oracle_alive": 1
