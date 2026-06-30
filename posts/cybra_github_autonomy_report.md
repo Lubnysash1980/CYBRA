@@ -23,16 +23,16 @@ bin/cybra-finance-bin: True
 
 ## Blocks
 main_blocks: 10
-task_blocks: 59
-estimated_kibra_default_reward_100: 6900
+task_blocks: 150
+estimated_kibra_default_reward_100: 16000
 
 ## Queues
 ai_block_inbox: 1
 task_block_mempool: 0
-pool_mining_blocks: 9
+pool_mining_blocks: 31
 parliament_queue: 0
 parliament_failed: 0
-parliament_results: 15
+parliament_results: 0
 github_autonomy_audit: 0
 
 ## Finance
@@ -60,4 +60,4 @@ automatic_external_tx: False
 manual_OWNER_approval_required: True
 
 ## Double SHA
-1387ee0f8fdcbe9d0d0a36b8de8c3351444b0e60e033a02919fa24e11eadab5d
+27af921555fe2d3839106afa96dcd0b53b6d307359155bba7059be48693ddc58
