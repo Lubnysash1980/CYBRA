@@ -1,0 +1,36 @@
+MEDICAL,Philips,EPIQ Elite,Netherlands,130000,1,35,24,,https://www.philips.com,2026-08-15,80,25
+MECHANICAL_PROCESSING,Okuma,MB-4000H,Japan,100000,1,45,24,,https://www.okuma.com,2026-08-15,83,35
+COMPOSITES_PLASTICS,KraussMaffei,MX 1000,Germany,90000,1,45,24,,https://www.kraussmaffei.com,2026-08-15,83,30
+COMPOSITES_PLASTICS,Husky,HyPET 500,Canada,120000,1,50,24,,https://www.husky.co,2026-08-15,86,30
+ELECTRONICS,Mycronic,MY300DX,Sweden,200000,1,65,24,,https://www.mycronic.com,2026-08-15,86,30
+SENSORS,Sick,LMS4000,Germany,4000,1,14,24,,https://www.sick.com,2026-08-15,88,35
+SENSORS,Keyence,LJ-X8000,Japan,3500,1,10,24,,https://www.keyence.com,2026-08-15,90,30
+SENSORS,ifm,O2D500,Germany,2800,1,12,24,,https://www.ifm.com,2026-08-15,86,25
+ACTUATORS,Festo,ESBF-BS-63,Germany,1500,1,20,24,,https://www.festo.com,2026-08-15,87,40
+ACTUATORS,Bosch Rexroth,MKR-145,Germany,2000,1,25,24,,https://www.boschrexroth.com,2026-08-15,83,40
+ACTUATORS,Parker,ETH080,USA,1800,1,22,24,,https://www.parker.com,2026-08-15,81,30
+BATTERIES,Panasonic,LJ-SK84A,Japan,3500,4,35,24,,https://www.panasonic.com,2026-08-15,80,20
+CABLE_SYSTEMS,Lapp,ÖLFLEX Classic 110,Germany,150,10,14,24,,https://www.lapp.com,2026-08-15,87,40
+CABLE_SYSTEMS,Belden,8770,USA,180,10,16,24,,https://www.belden.com,2026-08-15,84,30
+COATING,Dürr,EcoPaint,Germany,200000,1,60,24,,https://www.durr.com,2026-08-15,88,35
+COATING,Eisenmann,E-Coat,Germany,150000,1,55,24,,https://www.eisenmann.com,2026-08-15,86,30
+ROBOTIC_ASSEMBLY,ABB Robotics,IRB 1200,Switzerland,35000,1,28,24,,https://www.abb.com,2026-08-15,86,35
+ROBOTIC_ASSEMBLY,Universal Robots,UR10e,Denmark,35000,1,15,24,,https://www.universal-robots.com,2026-08-15,82,15
+QUALITY_CONTROL,Zeiss,Contura G2,Germany,150000,1,45,24,,https://www.zeiss.com,2026-08-15,88,40
+QUALITY_CONTROL,Hexagon,Global S,Sweden,130000,1,40,24,,https://www.hexagonmi.com,2026-08-15,86,35
+QUALITY_CONTROL,Mitutoyo,Crystal Apex,Japan,120000,1,38,24,,https://www.mitutoyo.com,2026-08-15,84,40
+MATERIALS_RND,Thermo Fisher,Nicolet iS50,USA,80000,1,30,24,,https://www.thermofisher.com,2026-08-15,86,40
+MATERIALS_RND,Malvern Panalytical,Zetasizer Ultra,UK,90000,1,35,24,,https://www.malvernpanalytical.com,2026-08-15,87,30
+MATERIALS_RND,Bruker,D8 Advance,Germany,120000,1,40,24,,https://www.bruker.com,2026-08-15,88,35
+SENSORS,Banner,Q5X,USA,900,1,10,24,,https://www.bannerengineering.com,2026-08-15,82,20
+CABLE_SYSTEMS,Nexans,N-CAB,France,110,10,11,24,,https://www.nexans.com,2026-08-15,85,25
+CABLE_SYSTEMS,Prysmian,P-Line,Italy,100,10,10,24,,https://www.prysmian.com,2026-08-15,83,30
+SENSORS,Banner,Q5X,USA,900,1,10,24,,https://www.bannerengineering.com,2026-08-15,82,20
+CABLE_SYSTEMS,Nexans,N-CAB,France,110,10,11,24,,https://www.nexans.com,2026-08-15,85,25
+CABLE_SYSTEMS,Prysmian,P-Line,Italy,100,10,10,24,,https://www.prysmian.com,2026-08-15,83,30
+SENSORS,Banner,Q5X,USA,900,1,10,24,,https://www.bannerengineering.com,2026-08-15,82,20
+CABLE_SYSTEMS,Nexans,N-CAB,France,110,10,11,24,,https://www.nexans.com,2026-08-15,85,25
+CABLE_SYSTEMS,Prysmian,P-Line,Italy,100,10,10,24,,https://www.prysmian.com,2026-08-15,83,30
+SENSORS,Banner,Q5X,USA,900,1,10,24,,https://www.bannerengineering.com,2026-08-15,82,20
+CABLE_SYSTEMS,Nexans,N-CAB,France,110,10,11,24,,https://www.nexans.com,2026-08-15,85,25
+CABLE_SYSTEMS,Prysmian,P-Line,Italy,100,10,10,24,,https://www.prysmian.com,2026-08-15,83,30

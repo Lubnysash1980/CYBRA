@@ -1,0 +1,41 @@
+MEDICAL,GE Healthcare,Voluson E10,USA,120000,1,30,24,,https://www.gehealthcare.com,2026-08-15,75,30
+MEDICAL,Siemens Healthineers,Acuson Sequoia,Germany,110000,1,28,24,,https://www.siemens-healthineers.com,2026-08-15,78,30
+MEDICAL,Canon Medical,Aplio i800,Japan,105000,1,25,24,,https://global.medical.canon,2026-08-15,75,20
+MEDICAL,Mindray,Resona 7,China,50000,1,40,24,,https://www.mindray.com,2026-08-15,70,15
+SOLAR,Jinko Solar,Tiger Neo 550W,China,125,40,21,25,,https://www.jinkosolar.com,2026-08-15,85,10
+SOLAR,Trina Solar,Vertex S+ 550W,China,120,40,20,25,,https://www.trinasolar.com,2026-08-15,83,10
+SOLAR,Canadian Solar,HiKu6 550W,Canada,130,40,25,25,,https://www.canadiansolar.com,2026-08-15,80,12
+SOLAR,LONGi,Hi-MO 5 550W,China,125,40,22,25,,https://www.longi.com,2026-08-15,82,10
+SOLAR,JA Solar,DeepBlue 4.0 550W,China,118,40,18,25,,https://www.jasolar.com,2026-08-15,84,10
+MECHANICAL_PROCESSING,Haas Automation,VF-2,USA,60000,1,35,24,,https://www.haascnc.com,2026-08-15,80,30
+MECHANICAL_PROCESSING,DMG Mori,CMX 1100 V,Germany,95000,1,42,24,,https://www.dmgmori.com,2026-08-15,85,35
+MECHANICAL_PROCESSING,Mazak,VCN-530C,Japan,85000,1,40,24,,https://www.mazak.com,2026-08-15,82,40
+MECHANICAL_PROCESSING,Doosan,DNM 4500,South Korea,55000,1,30,24,,https://www.doosanmachinetools.com,2026-08-15,78,25
+COMPOSITES_PLASTICS,Arburg,Allrounder 470 A,Germany,80000,1,40,24,,https://www.arburg.com,2026-08-15,84,30
+COMPOSITES_PLASTICS,Engel,Victory 330/80,Austria,75000,1,35,24,,https://www.engelglobal.com,2026-08-15,81,28
+COMPOSITES_PLASTICS,Sumitomo Demag,IntElect 130,Germany,65000,1,32,24,,https://www.sumitomo-demag.com,2026-08-15,79,25
+ELECTRONICS,ASMPT,SIPLACE X4i,Singapore,180000,1,60,24,,https://www.asmpt.com,2026-08-15,85,35
+ELECTRONICS,Panasonic,NPM-D3A,Japan,160000,1,55,24,,https://www.panasonic.com,2026-08-15,82,40
+ELECTRONICS,Fuji,NXT III,Japan,170000,1,58,24,,https://www.fujimachine.com,2026-08-15,84,35
+ELECTRONICS,Yamaha,YSM20R,Japan,120000,1,45,24,,https://www.yamaha-motor-robotics.com,2026-08-15,80,25
+SENSORS,Turck,RU50U,Germany,1200,1,15,24,,https://www.turck.com,2026-08-15,84,20
+SENSORS,Banner,Q5X,USA,900,1,10,24,,https://www.bannerengineering.com,2026-08-15,82,20
+ACTUATORS,SMC,LEFS25,Japan,1200,1,15,24,,https://www.smcworld.com,2026-08-15,85,35
+ACTUATORS,THK,KR45,Japan,1000,1,18,24,,https://www.thk.com,2026-08-15,86,35
+BATTERIES,CATL,EnerOne,China,3000,4,30,24,,https://www.catl.com,2026-08-15,85,10
+BATTERIES,LG Energy Solution,RESU10H,South Korea,3200,4,28,24,,https://www.lgensol.com,2026-08-15,83,15
+BATTERIES,Samsung SDI,ESS 10kWh,South Korea,3100,4,32,24,,https://www.samsungsdi.com,2026-08-15,82,15
+BATTERIES,BYD,Battery-Box Premium HVS 10.2,China,2800,4,25,24,,https://www.byd.com,2026-08-15,84,12
+CABLE_SYSTEMS,Helukabel,JZ-500,Germany,120,10,12,24,,https://www.helukabel.com,2026-08-15,86,35
+CABLE_SYSTEMS,Nexans,N-CAB,France,110,10,11,24,,https://www.nexans.com,2026-08-15,85,25
+CABLE_SYSTEMS,Prysmian,P-Line,Italy,100,10,10,24,,https://www.prysmian.com,2026-08-15,83,30
+COATING,Graco,Pro Xp 85,USA,12000,1,25,24,,https://www.graco.com,2026-08-15,85,35
+COATING,Nordson,Encore HD,USA,25000,1,30,24,,https://www.nordson.com,2026-08-15,84,40
+COATING,Wagner,GM 5000E,Germany,15000,1,28,24,,https://www.wagner-group.com,2026-08-15,82,30
+ROBOTIC_ASSEMBLY,KUKA,KR 6 R900,Germany,30000,1,25,24,,https://www.kuka.com,2026-08-15,87,40
+ROBOTIC_ASSEMBLY,Fanuc,LR Mate 200iD,Japan,28000,1,22,24,,https://www.fanuc.com,2026-08-15,85,40
+ROBOTIC_ASSEMBLY,Yaskawa,GP7,Japan,25000,1,20,24,,https://www.yaskawa.com,2026-08-15,84,35
+QUALITY_CONTROL,Keyence,IM-8000,Japan,60000,1,20,24,,https://www.keyence.com,2026-08-15,89,30
+QUALITY_CONTROL,FARO,Quantum Max,USA,80000,1,30,24,,https://www.faro.com,2026-08-15,85,25
+MATERIALS_RND,Shimadzu,AGS-X,Japan,50000,1,25,24,,https://www.shimadzu.com,2026-08-15,85,45
+MATERIALS_RND,PerkinElmer,Spectrum 3,USA,60000,1,28,24,,https://www.perkinelmer.com,2026-08-15,84,30

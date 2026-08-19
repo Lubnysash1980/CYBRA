@@ -1,48 +1,34 @@
 {
-  "timestamp": "2026-06-09T15:01:07",
+  "timestamp": "2026-08-19T00:18:33",
   "status": "CYBERBOT_STATUS_OK",
   "bot": {
-    "alive": true,
-    "supervisor_status": "CYBRA_BOT_BAR_MENU_OK",
-    "bot_file": "trading_bot/v70/index.mjs",
-    "risk_scan": {
-      "risk": "HIGH_TRADING_RISK",
-      "risk_words": [
-        "bybit"
-      ],
-      "secrets_markers_detected": [],
-      "file": "trading_bot/v70/index.mjs",
-      "file_sha256": "9b69994ef902c330a6a8b08a17d72632e392b04d0b780115ff736ebbd0adb452",
-      "file_size": 5888,
-      "must_run_paper_only": true
-    }
+    "alive": false,
+    "supervisor_status": "SUPERVISOR_NOT_FOUND",
+    "bot_file": null,
+    "risk_scan": {}
   },
   "supervision": {
     "it_active": true,
     "cyber_parliament_active": true,
     "finance_audit_active": true,
-    "redis_monitoring_active": true
+    "redis_monitoring_active": false
   },
   "exchanges": {
     "bybit": {
       "exchange": "bybit",
-      "configured": true,
-      "api_key_masked": "Xnii...vEiy",
-      "api_secret_masked": "SEDn...YXU0",
-      "testnet": false,
-      "live_orders_enabled": false,
-      "file": ".cybra_local_secret/exchanges/bybit.json",
-      "status": "CONFIGURED_LOCAL_ONLY"
-    },
-    "binance": {
-      "exchange": "binance",
-      "configured": true,
+      "configured": false,
       "api_key_masked": null,
       "api_secret_masked": null,
       "testnet": true,
-      "live_orders_enabled": false,
-      "file": ".cybra_local_secret/exchanges/binance.json",
-      "status": "CONFIGURED_LOCAL_ONLY"
+      "status": "NOT_CONFIGURED"
+    },
+    "binance": {
+      "exchange": "binance",
+      "configured": false,
+      "api_key_masked": null,
+      "api_secret_masked": null,
+      "testnet": true,
+      "status": "NOT_CONFIGURED"
     }
   },
   "config": {
@@ -72,35 +58,35 @@
   "queues": {
     "it": {
       "redis_key": "it_department",
-      "load": 14
+      "load": 0
     },
     "parliament": {
       "redis_key": "parliament_inbox",
-      "load": 19
+      "load": 0
     },
     "finance_audit": {
       "redis_key": "cybra:audit:finance",
-      "load": 7
+      "load": 0
     },
     "bot": {
       "redis_key": "cybra:bot:supervised",
-      "load": 6
+      "load": 0
     },
     "finance": {
       "redis_key": "cybra:finance:evolution:pool",
-      "load": 1
+      "load": 0
     },
     "meta": {
       "redis_key": "cybra:meta:evolution:pool",
-      "load": 7
+      "load": 0
     },
     "bybit": {
       "redis_key": "cyberbot:bybit",
-      "load": 4
+      "load": 0
     },
     "binance": {
       "redis_key": "cyberbot:binance",
-      "load": 4
+      "load": 0
     }
   },
   "safety": {

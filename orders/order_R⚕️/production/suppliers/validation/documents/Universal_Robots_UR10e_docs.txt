@@ -1,0 +1,10 @@
+Підтверджуючі документи для Universal Robots UR10e
+Категорія: ROBOTIC_ASSEMBLY
+Країна: Denmark
+Сертифікати: https://www.universal-robots.com/quality
+Технічна документація: https://www.universal-robots.com/ur10e
+Кількість референцій: 5
+Контакт: 
+Дата перевірки: 2026-08-15
+Перевірено: CYBRA_PROCUREMENT
+Примітка: реальні посилання на відкриті джерела, потребують офіційного підтвердження.

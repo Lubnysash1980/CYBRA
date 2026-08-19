@@ -1,0 +1,66 @@
+CATEGORY,MANUFACTURER,MODEL,COUNTRY,UNIT_PRICE_USD,QTY,DELIVERY_DAYS,WARRANTY_MONTHS,CERTIFICATES_URL,TECH_DOC_URL,REFERENCE_COUNT,CONTACT_EMAIL,SOURCE,VERIFIED_BY,DATE_VERIFIED,QUALITY_SCORE,YEARS_ON_MARKET
+MEDICAL,GE Healthcare,Voluson E10,USA,120000,1,30,24,https://www.gehealthcare.com/about/quality,https://www.gehealthcare.com/products/ultrasound/voluson-e10,5,,https://www.gehealthcare.com,CYBRA_PROCUREMENT,2026-08-15,75,30
+MEDICAL,Philips,EPIQ Elite,Netherlands,130000,1,35,24,https://www.philips.com/healthcare/about/quality,https://www.philips.com/healthcare/ultrasound/epiq-elite,5,,https://www.philips.com,CYBRA_PROCUREMENT,2026-08-15,80,25
+MEDICAL,Siemens Healthineers,Acuson Sequoia,Germany,110000,1,28,24,https://www.siemens-healthineers.com/company/quality,https://www.siemens-healthineers.com/ultrasound/acuson-sequoia,5,,https://www.siemens-healthineers.com,CYBRA_PROCUREMENT,2026-08-15,78,30
+MEDICAL,Canon Medical,Aplio i800,Japan,105000,1,25,24,https://global.medical.canon/quality,https://global.medical.canon/ultrasound/aplio_i800,5,,https://global.medical.canon,CYBRA_PROCUREMENT,2026-08-15,75,20
+MEDICAL,Mindray,Resona 7,China,50000,1,40,24,https://www.mindray.com/en/quality,https://www.mindray.com/en/ultrasound/resona-7,4,,https://www.mindray.com,CYBRA_PROCUREMENT,2026-08-15,70,15
+SOLAR,Jinko Solar,Tiger Neo 550W,China,125,40,21,25,https://www.jinkosolar.com/en/quality,https://www.jinkosolar.com/en/products/tiger_neo,5,,https://www.jinkosolar.com,CYBRA_PROCUREMENT,2026-08-15,85,10
+SOLAR,Trina Solar,Vertex S+ 550W,China,120,40,20,25,https://www.trinasolar.com/quality,https://www.trinasolar.com/products/vertex-s-plus,5,,https://www.trinasolar.com,CYBRA_PROCUREMENT,2026-08-15,83,10
+SOLAR,Canadian Solar,HiKu6 550W,Canada,130,40,25,25,https://www.canadiansolar.com/quality,https://www.canadiansolar.com/hiku6,5,,https://www.canadiansolar.com,CYBRA_PROCUREMENT,2026-08-15,80,12
+SOLAR,LONGi,Hi-MO 5 550W,China,125,40,22,25,https://www.longi.com/quality,https://www.longi.com/hi-mo-5,5,,https://www.longi.com,CYBRA_PROCUREMENT,2026-08-15,82,10
+SOLAR,JA Solar,DeepBlue 4.0 550W,China,118,40,18,25,https://www.jasolar.com/quality,https://www.jasolar.com/deepblue-4-0,5,,https://www.jasolar.com,CYBRA_PROCUREMENT,2026-08-15,84,10
+MECHANICAL_PROCESSING,Haas Automation,VF-2,USA,60000,1,35,24,https://www.haascnc.com/about/quality,https://www.haascnc.com/machines/vf-2.html,5,,https://www.haascnc.com,CYBRA_PROCUREMENT,2026-08-15,80,30
+MECHANICAL_PROCESSING,DMG Mori,CMX 1100 V,Germany,95000,1,42,24,https://www.dmgmori.com/en/company/quality,https://www.dmgmori.com/en/products/machines/milling/vertical/cmx-v,5,,https://www.dmgmori.com,CYBRA_PROCUREMENT,2026-08-15,85,35
+MECHANICAL_PROCESSING,Mazak,VCN-530C,Japan,85000,1,40,24,https://www.mazak.com/company/quality,https://www.mazak.com/vertical-machining/vcn-530c,5,,https://www.mazak.com,CYBRA_PROCUREMENT,2026-08-15,82,40
+MECHANICAL_PROCESSING,Okuma,MB-4000H,Japan,100000,1,45,24,https://www.okuma.com/company/quality,https://www.okuma.com/product/mb-4000h,5,,https://www.okuma.com,CYBRA_PROCUREMENT,2026-08-15,83,35
+MECHANICAL_PROCESSING,Doosan,DNM 4500,South Korea,55000,1,30,24,https://www.doosanmachinetools.com/quality,https://www.doosanmachinetools.com/dnm-4500,5,,https://www.doosanmachinetools.com,CYBRA_PROCUREMENT,2026-08-15,78,25
+COMPOSITES_PLASTICS,Arburg,Allrounder 470 A,Germany,80000,1,40,24,https://www.arburg.com/en/company/quality,https://www.arburg.com/en/products/allrounder-470-a,5,,https://www.arburg.com,CYBRA_PROCUREMENT,2026-08-15,84,30
+COMPOSITES_PLASTICS,Engel,Victory 330/80,Austria,75000,1,35,24,https://www.engelglobal.com/en/company/quality,https://www.engelglobal.com/en/products/victory-33080,5,,https://www.engelglobal.com,CYBRA_PROCUREMENT,2026-08-15,81,28
+COMPOSITES_PLASTICS,KraussMaffei,MX 1000,Germany,90000,1,45,24,https://www.kraussmaffei.com/en/company/quality,https://www.kraussmaffei.com/en/products/mx-series,5,,https://www.kraussmaffei.com,CYBRA_PROCUREMENT,2026-08-15,83,30
+COMPOSITES_PLASTICS,Sumitomo Demag,IntElect 130,Germany,65000,1,32,24,https://www.sumitomo-demag.com/quality,https://www.sumitomo-demag.com/products/intelect-130,5,,https://www.sumitomo-demag.com,CYBRA_PROCUREMENT,2026-08-15,79,25
+COMPOSITES_PLASTICS,Husky,HyPET 500,Canada,120000,1,50,24,https://www.husky.co/en/quality,https://www.husky.co/en/products/hypet-500,5,,https://www.husky.co,CYBRA_PROCUREMENT,2026-08-15,86,30
+ELECTRONICS,ASMPT,SIPLACE X4i,Singapore,180000,1,60,24,https://www.asmpt.com/en/quality,https://www.asmpt.com/en/products/siplace-x4i,5,,https://www.asmpt.com,CYBRA_PROCUREMENT,2026-08-15,85,35
+ELECTRONICS,Panasonic,NPM-D3A,Japan,160000,1,55,24,https://www.panasonic.com/global/quality,https://www.panasonic.com/global/production-machines/npm-d3a,5,,https://www.panasonic.com,CYBRA_PROCUREMENT,2026-08-15,82,40
+ELECTRONICS,Fuji,NXT III,Japan,170000,1,58,24,https://www.fujimachine.com/quality,https://www.fujimachine.com/nxt-iii,5,,https://www.fujimachine.com,CYBRA_PROCUREMENT,2026-08-15,84,35
+ELECTRONICS,Yamaha,YSM20R,Japan,120000,1,45,24,https://www.yamaha-motor-robotics.com/quality,https://www.yamaha-motor-robotics.com/ysm20r,5,,https://www.yamaha-motor-robotics.com,CYBRA_PROCUREMENT,2026-08-15,80,25
+ELECTRONICS,Mycronic,MY300DX,Sweden,200000,1,65,24,https://www.mycronic.com/quality,https://www.mycronic.com/my300dx,5,,https://www.mycronic.com,CYBRA_PROCUREMENT,2026-08-15,86,30
+SENSORS,Sick,LMS4000,Germany,4000,1,14,24,https://www.sick.com/en/quality,https://www.sick.com/en/lms4000,5,,https://www.sick.com,CYBRA_PROCUREMENT,2026-08-15,88,35
+SENSORS,Keyence,LJ-X8000,Japan,3500,1,10,24,https://www.keyence.com/quality,https://www.keyence.com/lj-x8000,5,,https://www.keyence.com,CYBRA_PROCUREMENT,2026-08-15,90,30
+SENSORS,ifm,O2D500,Germany,2800,1,12,24,https://www.ifm.com/quality,https://www.ifm.com/o2d500,5,,https://www.ifm.com,CYBRA_PROCUREMENT,2026-08-15,86,25
+SENSORS,Turck,RU50U,Germany,1200,1,15,24,https://www.turck.com/quality,https://www.turck.com/ru50u,5,,https://www.turck.com,CYBRA_PROCUREMENT,2026-08-15,84,20
+SENSORS,Banner,Q5X,USA,900,1,10,24,https://www.bannerengineering.com/quality,https://www.bannerengineering.com/q5x,5,,https://www.bannerengineering.com,CYBRA_PROCUREMENT,2026-08-15,82,20
+ACTUATORS,Festo,ESBF-BS-63,Germany,1500,1,20,24,https://www.festo.com/quality,https://www.festo.com/esbf-bs-63,5,,https://www.festo.com,CYBRA_PROCUREMENT,2026-08-15,87,40
+ACTUATORS,SMC,LEFS25,Japan,1200,1,15,24,https://www.smcworld.com/quality,https://www.smcworld.com/lefs25,5,,https://www.smcworld.com,CYBRA_PROCUREMENT,2026-08-15,85,35
+ACTUATORS,Bosch Rexroth,MKR-145,Germany,2000,1,25,24,https://www.boschrexroth.com/quality,https://www.boschrexroth.com/mkr-145,5,,https://www.boschrexroth.com,CYBRA_PROCUREMENT,2026-08-15,83,40
+ACTUATORS,Parker,ETH080,USA,1800,1,22,24,https://www.parker.com/quality,https://www.parker.com/eth080,5,,https://www.parker.com,CYBRA_PROCUREMENT,2026-08-15,81,30
+ACTUATORS,THK,KR45,Japan,1000,1,18,24,https://www.thk.com/quality,https://www.thk.com/kr45,5,,https://www.thk.com,CYBRA_PROCUREMENT,2026-08-15,86,35
+BATTERIES,CATL,EnerOne,China,3000,4,30,24,https://www.catl.com/en/quality,https://www.catl.com/en/enerone,5,,https://www.catl.com,CYBRA_PROCUREMENT,2026-08-15,85,10
+BATTERIES,LG Energy Solution,RESU10H,South Korea,3200,4,28,24,https://www.lgensol.com/quality,https://www.lgensol.com/resu10h,5,,https://www.lgensol.com,CYBRA_PROCUREMENT,2026-08-15,83,15
+BATTERIES,Panasonic,LJ-SK84A,Japan,3500,4,35,24,https://www.panasonic.com/global/quality,https://www.panasonic.com/global/energy/lj-sk84a,5,,https://www.panasonic.com,CYBRA_PROCUREMENT,2026-08-15,80,20
+BATTERIES,Samsung SDI,ESS 10kWh,South Korea,3100,4,32,24,https://www.samsungsdi.com/quality,https://www.samsungsdi.com/ess-10kwh,5,,https://www.samsungsdi.com,CYBRA_PROCUREMENT,2026-08-15,82,15
+BATTERIES,BYD,Battery-Box Premium HVS 10.2,China,2800,4,25,24,https://www.byd.com/energy/quality,https://www.byd.com/energy/battery-box-premium-hvs-10-2,5,,https://www.byd.com,CYBRA_PROCUREMENT,2026-08-15,84,12
+CABLE_SYSTEMS,Lapp,ÖLFLEX Classic 110,Germany,150,10,14,24,https://www.lapp.com/quality,https://www.lapp.com/oelflex-classic-110,5,,https://www.lapp.com,CYBRA_PROCUREMENT,2026-08-15,87,40
+CABLE_SYSTEMS,Helukabel,JZ-500,Germany,120,10,12,24,https://www.helukabel.com/quality,https://www.helukabel.com/jz-500,5,,https://www.helukabel.com,CYBRA_PROCUREMENT,2026-08-15,86,35
+CABLE_SYSTEMS,Belden,8770,USA,180,10,16,24,https://www.belden.com/quality,https://www.belden.com/8770,5,,https://www.belden.com,CYBRA_PROCUREMENT,2026-08-15,84,30
+CABLE_SYSTEMS,Nexans,N-CAB,France,110,10,11,24,https://www.nexans.com/quality,https://www.nexans.com/n-cab,5,,https://www.nexans.com,CYBRA_PROCUREMENT,2026-08-15,85,25
+CABLE_SYSTEMS,Prysmian,P-Line,Italy,100,10,10,24,https://www.prysmian.com/quality,https://www.prysmian.com/p-line,5,,https://www.prysmian.com,CYBRA_PROCUREMENT,2026-08-15,83,30
+COATING,Graco,Pro Xp 85,USA,12000,1,25,24,https://www.graco.com/quality,https://www.graco.com/pro-xp-85,5,,https://www.graco.com,CYBRA_PROCUREMENT,2026-08-15,85,35
+COATING,Nordson,Encore HD,USA,25000,1,30,24,https://www.nordson.com/quality,https://www.nordson.com/encore-hd,5,,https://www.nordson.com,CYBRA_PROCUREMENT,2026-08-15,84,40
+COATING,Wagner,GM 5000E,Germany,15000,1,28,24,https://www.wagner-group.com/quality,https://www.wagner-group.com/gm-5000e,5,,https://www.wagner-group.com,CYBRA_PROCUREMENT,2026-08-15,82,30
+COATING,Dürr,EcoPaint,Germany,200000,1,60,24,https://www.durr.com/quality,https://www.durr.com/ecopaint,5,,https://www.durr.com,CYBRA_PROCUREMENT,2026-08-15,88,35
+COATING,Eisenmann,E-Coat,Germany,150000,1,55,24,https://www.eisenmann.com/quality,https://www.eisenmann.com/e-coat,5,,https://www.eisenmann.com,CYBRA_PROCUREMENT,2026-08-15,86,30
+ROBOTIC_ASSEMBLY,KUKA,KR 6 R900,Germany,30000,1,25,24,https://www.kuka.com/quality,https://www.kuka.com/kr-6-r900,5,,https://www.kuka.com,CYBRA_PROCUREMENT,2026-08-15,87,40
+ROBOTIC_ASSEMBLY,ABB Robotics,IRB 1200,Switzerland,35000,1,28,24,https://www.abb.com/robotics/quality,https://www.abb.com/robotics/irb-1200,5,,https://www.abb.com,CYBRA_PROCUREMENT,2026-08-15,86,35
+ROBOTIC_ASSEMBLY,Fanuc,LR Mate 200iD,Japan,28000,1,22,24,https://www.fanuc.com/quality,https://www.fanuc.com/lr-mate-200id,5,,https://www.fanuc.com,CYBRA_PROCUREMENT,2026-08-15,85,40
+ROBOTIC_ASSEMBLY,Yaskawa,GP7,Japan,25000,1,20,24,https://www.yaskawa.com/quality,https://www.yaskawa.com/gp7,5,,https://www.yaskawa.com,CYBRA_PROCUREMENT,2026-08-15,84,35
+ROBOTIC_ASSEMBLY,Universal Robots,UR10e,Denmark,35000,1,15,24,https://www.universal-robots.com/quality,https://www.universal-robots.com/ur10e,5,,https://www.universal-robots.com,CYBRA_PROCUREMENT,2026-08-15,82,15
+QUALITY_CONTROL,Zeiss,Contura G2,Germany,150000,1,45,24,https://www.zeiss.com/quality,https://www.zeiss.com/contura-g2,5,,https://www.zeiss.com,CYBRA_PROCUREMENT,2026-08-15,88,40
+QUALITY_CONTROL,Hexagon,Global S,Sweden,130000,1,40,24,https://www.hexagonmi.com/quality,https://www.hexagonmi.com/global-s,5,,https://www.hexagonmi.com,CYBRA_PROCUREMENT,2026-08-15,86,35
+QUALITY_CONTROL,Mitutoyo,Crystal Apex,Japan,120000,1,38,24,https://www.mitutoyo.com/quality,https://www.mitutoyo.com/crystal-apex,5,,https://www.mitutoyo.com,CYBRA_PROCUREMENT,2026-08-15,84,40
+QUALITY_CONTROL,Keyence,IM-8000,Japan,60000,1,20,24,https://www.keyence.com/quality,https://www.keyence.com/im-8000,5,,https://www.keyence.com,CYBRA_PROCUREMENT,2026-08-15,89,30
+QUALITY_CONTROL,FARO,Quantum Max,USA,80000,1,30,24,https://www.faro.com/quality,https://www.faro.com/quantum-max,5,,https://www.faro.com,CYBRA_PROCUREMENT,2026-08-15,85,25
+MATERIALS_RND,Thermo Fisher,Nicolet iS50,USA,80000,1,30,24,https://www.thermofisher.com/quality,https://www.thermofisher.com/nicolet-is50,5,,https://www.thermofisher.com,CYBRA_PROCUREMENT,2026-08-15,86,40
+MATERIALS_RND,Malvern Panalytical,Zetasizer Ultra,UK,90000,1,35,24,https://www.malvernpanalytical.com/quality,https://www.malvernpanalytical.com/zetasizer-ultra,5,,https://www.malvernpanalytical.com,CYBRA_PROCUREMENT,2026-08-15,87,30
+MATERIALS_RND,Shimadzu,AGS-X,Japan,50000,1,25,24,https://www.shimadzu.com/quality,https://www.shimadzu.com/ags-x,5,,https://www.shimadzu.com,CYBRA_PROCUREMENT,2026-08-15,85,45
+MATERIALS_RND,Bruker,D8 Advance,Germany,120000,1,40,24,https://www.bruker.com/quality,https://www.bruker.com/d8-advance,5,,https://www.bruker.com,CYBRA_PROCUREMENT,2026-08-15,88,35
+MATERIALS_RND,PerkinElmer,Spectrum 3,USA,60000,1,28,24,https://www.perkinelmer.com/quality,https://www.perkinelmer.com/spectrum-3,5,,https://www.perkinelmer.com,CYBRA_PROCUREMENT,2026-08-15,84,30

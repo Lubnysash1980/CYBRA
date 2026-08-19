@@ -4,14 +4,14 @@ Status: **CYBERBOT_STATUS_OK**
 
 ## Bot
 
-- Alive: `True`
-- Supervisor: `CYBRA_BOT_BAR_MENU_OK`
-- Bot file: `trading_bot/v70/index.mjs`
+- Alive: `False`
+- Supervisor: `SUPERVISOR_NOT_FOUND`
+- Bot file: `None`
 
 ## Exchanges
 
-- Bybit configured: `True`
-- Binance configured: `True`
+- Bybit configured: `False`
+- Binance configured: `False`
 
 ## Supervision
 
