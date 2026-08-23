@@ -1,8 +1,8 @@
 {
   "status": "evolution_snapshot",
-  "date": "2026-08-22",
-  "time": 1787382560.749581,
-  "time_iso": "2026-08-22T07:09:20+0000",
+  "date": "2026-08-23",
+  "time": 1787469028.339199,
+  "time_iso": "2026-08-23T07:10:28+0000",
   "score_percent": 74.46,
   "score_parts": {
     "module_readiness": 92.86,
@@ -75,7 +75,7 @@
     "automatic_external_tx": false,
     "manual_OWNER_approval_required": true
   },
-  "double_sha": "9128a3b75c195928e24ac7a2df6ac329d488b1e7173425fc2f8bf39990dfcdee",
+  "double_sha": "59eeab218e01209481febf8ed7fae4f74baf7a4a172dfcd08231002a9a4a1597",
   "previous_score_percent": 74.46,
   "daily_delta_percent": 0.0,
   "movement": "standing_still"
