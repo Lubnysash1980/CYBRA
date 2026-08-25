@@ -1,33 +1,42 @@
 <!doctype html>
-<html>
+<html lang="uk">
 <head>
-<meta charset="utf-8">
-<title>CYBRA Token Dashboard</title>
-<style>
-body{background:#050510;color:#fff;font-family:Arial;padding:40px}
-.card{border:1px solid #333;border-radius:16px;padding:20px;margin:12px 0;background:#111827}
-code{color:#7dd3fc}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CYBRA Token Official</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 800px; margin: 2em auto; padding: 0 1em; }
+    .card { border:1px solid #ccc; border-radius:8px; padding:16px; margin:16px 0; }
+    .card h2 { margin-top:0; }
+    code { background:#f4f4f4; padding:2px 4px; border-radius:4px; }
+  </style>
 </head>
 <body>
-<h1>CYBRA Token Dashboard</h1>
-<div class="card">
-<p><b>Token:</b> CYBRA</p>
-<p><b>Network:</b> Solana Devnet</p>
-<p><b>Mint:</b> <code id="mint">loading...</code></p>
-<p><b>Wallet:</b> Phantom-ready</p>
-<p><b>Mainnet:</b> LOCKED</p>
-</div>
-<div class="card">
-<p>Watchdog: enabled</p>
-<p>AutoHeal: enabled</p>
-<p>AutoFix: enabled</p>
-<p>Double-SHA Backend: enabled</p>
-</div>
-<script>
-fetch('./../feeds/token_dashboard.json').then(r=>r.json()).then(d=>{
- document.getElementById('mint').textContent=d.mint_address || 'pending';
-}).catch(()=>{document.getElementById('mint').textContent='pending';});
-</script>
+  <h1>CYBRA Token (Офіційний сайт)</h1>
+
+  <div class="card">
+    <h2>Основна інформація</h2>
+    <p><strong>Назва:</strong> </p>
+    <p><strong>Символ:</strong> </p>
+    <p><strong>Мережа:</strong> Binance Smart Chain (BSC)</p>
+    <p><strong>Контракт (BEP-20):</strong> <code></code></p>
+    <p><strong>Де купити (Swap):</strong> <a href="https://exchange.pancakeswap.finance/#/swap?outputCurrency=" target="_blank">PancakeSwap</a></p>
+    <p><strong>Explorer:</strong> <a href="https://bscscan.com/token/" target="_blank">BscScan</a></p>
+  </div>
+
+  <div class="card">
+    <h2>Емісія та токеноміка</h2>
+    <p><strong>Десяткових знаків (decimals):</strong> 0</p>
+    <p><strong>Загальна емісія:</strong> 0 (без врахування дробовості)</p>
+    
+    <p>Перед публічним розгортанням токен перевірено. Контракт підтверджено на BscScan.</p>
+  </div>
+
+  <div class="card">
+    <h2>Контакти та підтримка</h2>
+    <p>Офіційна пошта проекту: <a href="mailto:official@cybroncybra.com">official@cybroncybra.com</a></p>
+    <p>Підтримка: <a href="mailto:support@cybroncybra.com">support@cybroncybra.com</a></p>
+    <p>Адміністратор: <a href="mailto:admin@cybroncybra.com">admin@cybroncybra.com</a></p>
+  </div>
 </body>
 </html>
