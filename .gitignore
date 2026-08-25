@@ -311,3 +311,6 @@ proofs/private/
 owner_identity*
 payer_identity*
 data/cybra_dashboard/dashboard_token.local
+
+# Node dependencies
+node_modules/
