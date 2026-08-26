@@ -1,0 +1,74 @@
+name: CYBRONCYBRA Pages
+
+on:
+  push:
+    branches:
+      - main
+      - 'autopilot/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare site
+        run: |
+          mkdir -p _site
+          if [ -f index.html ]; then
+            cp index.html _site/index.html
+          else
+            printf '%s\n' '<!doctype html><html><head><meta charset="utf-8"><title>CYBRA</title></head><body><a href="token.html">CYBRA Token</a></body></html>' > _site/index.html
+          fi
+
+          if [ -f docs/token.html ]; then
+            cp docs/token.html _site/token.html
+          fi
+
+          if [ -d assets ]; then
+            cp -r assets _site/
+          fi
+
+          if [ -f robots.txt ]; then
+            cp robots.txt _site/
+          fi
+
+          if [ -f sitemap.xml ]; then
+            cp sitemap.xml _site/
+          fi
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

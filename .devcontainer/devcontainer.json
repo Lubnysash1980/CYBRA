@@ -1,26 +1,12 @@
 {
-  "name": "CYBRA Codespace Runtime",
-  "build": {
-    "dockerfile": "Dockerfile"
+  "name": "CYBRONCYBRA",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {}
   },
-  "workspaceFolder": "/workspaces/CYBRA",
-  "postCreateCommand": "bash .devcontainer/post-create.sh && sudo apt-get update && sudo apt-get install -y redis-server redis-tools jq curl git || true && sudo apt-get update && sudo apt-get install -y redis-server redis-tools jq curl git gh || true",
-  "forwardPorts": [
-    8099
-  ],
-  "portsAttributes": {
-    "8099": {
-      "label": "CYBRA Dashboard",
-      "onAutoForward": "notify"
-    }
-  },
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "ms-python.python"
-      ]
-    }
-  },
-  "image": "mcr.microsoft.com/devcontainers/python:3.12",
-  "postStartCommand": "bash .devcontainer/cybra-codespace-start.sh"
+  "postCreateCommand": "git --version && echo CYBRONCYBRA_CODESPACE_READY=1",
+  "remoteEnv": {
+    "CYBRONCYBRA_DOMAIN": "cybroncybra.com",
+    "CYBRONCYBRA_TOKEN_PAGE": "https://cybroncybra.com/token.html"
+  }
 }
