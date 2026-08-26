@@ -1,8 +1,4 @@
 CYBRONCYBRA_DOMAIN=cybroncybra.com
 CYBRONCYBRA_URL=https://cybroncybra.com
 CYBRONCYBRA_TOKEN_PAGE=https://cybroncybra.com/token.html
-CYBRONCYBRA_TOKEN_NETWORK=BSC
-CYBRONCYBRA_TOKEN_CONTRACT=0x74dA52028E42A37bc89E05c2fD5c52daBE4CB48f
-CYBRONCYBRA_OFFICIAL_EMAIL=official@cybroncybra.com
-CYBRONCYBRA_SUPPORT_EMAIL=support@cybroncybra.com
-CYBRONCYBRA_ADMIN_EMAIL=admin@cybroncybra.com
+CYBRONCYBRA_LOGO=https://cybroncybra.com/assets/cybra-logo.png
