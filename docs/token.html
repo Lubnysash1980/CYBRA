@@ -3,229 +3,85 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CYBRON — Token</title>
-<meta name="description" content="CYBRON token on BNB Smart Chain">
-<style>
-body{font-family:system-ui;background:#090d12;color:#fff;max-width:900px;margin:auto;padding:40px}
-.card{background:#121923;border:1px solid #263242;border-radius:18px;padding:24px;margin:16px 0}
-a{color:#66b3ff}
-.mono{font-family:monospace;word-break:break-all}
-</style>
-</head>
-<body>
+<title>Cybra (CYBRA) — Token</title>
+<meta name="description" content="Official Cybra (CYBRA) token information.">
+<link rel="canonical" href="https://cybroncybra.com/token.html">
 
-<h1>CYBRON Token</h1>
+<meta property="og:title" content="Cybra (CYBRA)">
+<meta property="og:description" content="Official Cybra token page.">
+<meta property="og:url" content="https://cybroncybra.com/token.html">
+<meta property="og:image" content="https://cybroncybra.com/assets/cybra-logo.png">
 
-<div class="card">
-<h2>Token</h2>
-<p><b>Network:</b> BNB Smart Chain</p>
-<p><b>Chain ID:</b> 56</p>
-<p><b>Contract:</b></p>
-<p class="mono">0x74dA52028E42A37bc89E05c2fD5c52daBE4CB48f</p>
-</div>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cybra (CYBRA)">
+<meta name="twitter:description" content="Official Cybra token page.">
+<meta name="twitter:image" content="https://cybroncybra.com/assets/cybra-logo.png">
 
-<div class="card">
-<h2>On-chain metadata</h2>
-<p id="metadata">Loading from BNB Smart Chain...</p>
-</div>
-
-<div class="card">
-<h2>Buy / Trade</h2>
-<a id="jupiter" href="https://jup.ag/" target="_blank" rel="noopener">
-Jupiter
-</a>
-<p>Jupiter is not a BNB Smart Chain exchange route. A BSC-compatible DEX route must be configured separately.</p>
-</div>
-
-<div class="card">
-<h2>Official contact</h2>
-<p>official@cybroncybra.com</p>
-<p>support@cybroncybra.com</p>
-<p>admin@cybroncybra.com</p>
-</div>
-
-<div class="card">
-<a href="https://bscscan.com/address/0x74dA52028E42A37bc89E05c2fD5c52daBE4CB48f" target="_blank" rel="noopener">
-View contract on BscScan
-</a>
-</div>
-
-<script>
-const RPC="https://bsc-dataseed.binance.org/";
-
-const selector = {
- name: "0x06fdde03",
- symbol: "0x95d89b41",
- decimals: "0x313ce567",
- totalSupply: "0x18160ddd"
-};
-
-async function call(data){
- const r=await fetch(RPC,{
-   method:"POST",
-   headers:{"content-type":"application/json"},
-   body:JSON.stringify({
-     jsonrpc:"2.0",
-     id:1,
-     method:"eth_call",
-     params:[{to:"0x74dA52028E42A37bc89E05c2fD5c52daBE4CB48f",data:data},"latest"]
-   })
- });
- const j=await r.json();
- if(j.error) throw new Error(j.error.message);
- return j.result;
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebPage",
+  "name":"Cybra (CYBRA)",
+  "url":"https://cybroncybra.com/token.html",
+  "image":"https://cybroncybra.com/assets/cybra-logo.png",
+  "description":"Official Cybra token information."
 }
-
-function hexNumber(x){
- return BigInt(x).toString();
-}
-
-function decodeString(x){
- const h=x.slice(2);
- if(h.length<128) return null;
- const offset=parseInt(h.slice(0,64),16)*2;
- const len=parseInt(h.slice(offset,offset+64),16);
- const data=h.slice(offset+64,offset+64+len*2);
- let out="";
- for(let i=0;i<data.length;i+=2)
-   out+=String.fromCharCode(parseInt(data.slice(i,i+2),16));
- return out;
-}
-
-(async()=>{
- try{
-   const name=decodeString(await call(selector.name));
-   const symbol=decodeString(await call(selector.symbol));
-   const decimals=Number(hexNumber(await call(selector.decimals)));
-   const supply=hexNumber(await call(selector.totalSupply));
-
-   document.getElementById("metadata").innerHTML=
-     "<b>Name:</b> "+(name||"Unavailable")+"<br>"+
-     "<b>Symbol:</b> "+(symbol||"Unavailable")+"<br>"+
-     "<b>Decimals:</b> "+decimals+"<br>"+
-     "<b>Total Supply:</b> "+supply;
-
- }catch(e){
-   document.getElementById("metadata").textContent=
-     "On-chain metadata unavailable: "+e.message;
- }
-})();
 </script>
+</head>
 
+<body>
+<main>
+<img src="/assets/cybra-logo.png"
+     alt="Cybra logo"
+     width="256"
+     height="256">
 
+<h1>Cybra (CYBRA)</h1>
 
-<!-- CYBRONCYBRA OFFICIAL TOKEN INFORMATION -->
-<section id="cybroncybra-contact">
-<h2>CYBRONCYBRA</h2>
-
-<p><strong>Official</strong><br>
-<a href="mailto:official@cybroncybra.com">official@cybroncybra.com</a></p>
-
-<p><strong>Support</strong><br>
-<a href="mailto:support@cybroncybra.com">support@cybroncybra.com</a></p>
-
-<p><strong>Admin</strong><br>
-<a href="mailto:admin@cybroncybra.com">admin@cybroncybra.com</a></p>
-
-<p><strong>Website</strong><br>
+<p><strong>Official website:</strong>
 <a href="https://cybroncybra.com">https://cybroncybra.com</a></p>
 
-<p><strong>Token Page</strong><br>
+<p><strong>Token page:</strong>
 <a href="https://cybroncybra.com/token.html">https://cybroncybra.com/token.html</a></p>
 
-<p><strong>BSC Contract</strong><br>
-<code>0x74dA52028E42A37bc89E05c2fD5c52daBE4CB48f</code></p>
-</section>
-<!-- /CYBRONCYBRA OFFICIAL TOKEN INFORMATION -->
+<h2>Token information</h2>
 
+<p><strong>Name:</strong> Cybra</p>
+<p><strong>Symbol:</strong> CYBRA</p>
+<p><strong>Decimals:</strong> 18</p>
+<p><strong>Total supply:</strong> 1,000,000 CYBRA</p>
 
+<h2>BSC Contract</h2>
 
+<p>
+<a href="https://bscscan.com/token/0x74dA52028E42A37bc89E05c2fD5c52daBE4CB48f">
+0x74dA52028E42A37bc89E05c2fD5c52daBE4CB48f
+</a>
+</p>
 
+<h2>Official contacts</h2>
 
-<!-- CYBRONCYBRA-AUTO-TOKEN-BEGIN -->
-<section id="cybroncybra-token-info" data-generated="cybroncybra-autofix">
+<p>
+Official:
+<a href="mailto:official@cybroncybra.com">official@cybroncybra.com</a>
+</p>
 
-  <div class="token-logo">
-    <img
-      src="https://cybroncybra.com/assets/cybra-logo.png"
-      alt="Cybra (CYBRA) logo"
-      width="160"
-      height="160"
-      loading="eager"
-    >
-  </div>
+<p>
+Support:
+<a href="mailto:support@cybroncybra.com">support@cybroncybra.com</a>
+</p>
 
-  <h1>Cybra (CYBRA)</h1>
+<p>
+Admin:
+<a href="mailto:admin@cybroncybra.com">admin@cybroncybra.com</a>
+</p>
 
-  <p>Official CYBRA token information.</p>
+<h2>Verification</h2>
 
-  <dl>
-    <dt>Token Name</dt>
-    <dd>Cybra</dd>
+<p>
+Official Cybra information is published on this domain.
+</p>
 
-    <dt>Symbol</dt>
-    <dd>CYBRA</dd>
-
-    <dt>Decimals</dt>
-    <dd>18</dd>
-
-    <dt>Total Supply</dt>
-    <dd>1000000 CYBRA</dd>
-
-    <dt>Network</dt>
-    <dd>BNB Smart Chain (BSC)</dd>
-
-    <dt>Contract</dt>
-    <dd><code>0x74dA52028E42A37bc89E05c2fD5c52daBE4CB48f</code></dd>
-  </dl>
-
-  <p>
-    <a
-      href="https://bscscan.com/token/0x74dA52028E42A37bc89E05c2fD5c52daBE4CB48f"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      View CYBRA on BscScan
-    </a>
-  </p>
-
-  <p>
-    <a
-      href="https://jup.ag/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Jupiter
-    </a>
-  </p>
-
-  <h2>Official Contacts</h2>
-
-  <ul>
-    <li>
-      Official:
-      <a href="mailto:official@cybroncybra.com">official@cybroncybra.com</a>
-    </li>
-
-    <li>
-      Support:
-      <a href="mailto:support@cybroncybra.com">support@cybroncybra.com</a>
-    </li>
-
-    <li>
-      Admin:
-      <a href="mailto:admin@cybroncybra.com">admin@cybroncybra.com</a>
-    </li>
-  </ul>
-
-  <p>
-    <a href="https://cybroncybra.com/token.html">
-      CYBRA Token Page
-    </a>
-  </p>
-
-</section>
-<!-- CYBRONCYBRA-AUTO-TOKEN-END -->
-
+</main>
 </body>
 </html>
