@@ -1,0 +1,67 @@
+name: CYBRA Remote Oracle
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  remote-oracle:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout CYBRA
+        uses: actions/checkout@v4
+
+      - name: Run remote DNS HTTPS Oracle
+        id: oracle
+        shell: bash
+        run: |
+          mkdir -p runtime/remote_oracle
+          set +e
+          .github/cybra/remote_oracle.sh \
+            runtime/remote_oracle/remote_oracle.env
+          RC=$?
+          echo "rc=$RC" >> "$GITHUB_OUTPUT"
+
+          cat runtime/remote_oracle/remote_oracle.env
+
+          # Evidence is always preserved.
+          exit 0
+
+      - name: Commit remote evidence
+        shell: bash
+        run: |
+          git config user.name "CYBRA Remote Oracle"
+          git config user.email "actions@users.noreply.github.com"
+
+          git add runtime/remote_oracle/remote_oracle.env
+
+          if git diff --cached --quiet; then
+            echo "[EVIDENCE] No changes."
+          else
+            git commit -m "CYBRA remote oracle evidence"
+            git push
+          fi
+
+      - name: Enforce remote 100 percent
+        shell: bash
+        run: |
+          source runtime/remote_oracle/remote_oracle.env
+
+          echo "DNS_OK=$DNS_OK"
+          echo "HTTPS_DOMAIN_OK=$HTTPS_DOMAIN_OK"
+          echo "HTTPS_PAGE_OK=$HTTPS_PAGE_OK"
+          echo "HTTPS_LOGO_OK=$HTTPS_LOGO_OK"
+          echo "FINAL_REMOTE=$FINAL_REMOTE"
+
+          if [ "$FINAL_REMOTE" != "TRUE" ]; then
+            echo "[REMOTE ORACLE] 100% FALSE"
+            exit 1
+          fi
+
+          echo "[REMOTE ORACLE] 100% TRUE"
