@@ -1,0 +1,307 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+set -u
+
+ROOT="$HOME/CYBRA"
+DOMAIN="cybroncybra.com"
+REMOTE="origin"
+BRANCH="main"
+
+BASE="$ROOT/runtime/cybroncybra_oracle"
+CONFIG="$BASE/domain.env"
+STATE="$BASE/state"
+LOG="$BASE/logs"
+INTEGRATION="$ROOT/runtime/cybroncybra_integration"
+
+mkdir -p "$BASE" "$STATE" "$LOG" "$INTEGRATION"
+
+cd "$ROOT" || exit 1
+
+TS="$(date -u +%Y%m%dT%H%M%SZ)"
+RUN="$INTEGRATION/$TS"
+mkdir -p "$RUN"
+
+LOGFILE="$LOG/integrator_$TS.log"
+
+exec > >(tee -a "$LOGFILE") 2>&1
+
+echo "================================================"
+echo " CYBRONCYBRA.COM — AUTO INTEGRATOR"
+echo "================================================"
+echo "TIME:   $TS"
+echo "ROOT:   $ROOT"
+echo "DOMAIN: $DOMAIN"
+echo
+
+# ------------------------------------------------
+# 1. DOMAIN ENVIRONMENT
+# ------------------------------------------------
+
+echo "[1] Creating domain environment"
+
+cat > "$CONFIG" <<ENV
+CYBRON_DOMAIN=$DOMAIN
+CYBRA_DOMAIN=$DOMAIN
+DOMAIN=$DOMAIN
+CYBRONCYBRA_DOMAIN=$DOMAIN
+CYBRONCYBRA_ROOT=$ROOT
+CYBRONCYBRA_GIT_REMOTE=$REMOTE
+CYBRONCYBRA_GIT_BRANCH=$BRANCH
+ENV
+
+cp "$CONFIG" "$RUN/domain.env"
+
+# ------------------------------------------------
+# 2. DOMAIN REGISTRY
+# ------------------------------------------------
+
+echo "[2] Creating domain registry"
+
+cat > "$INTEGRATION/domain_registry.json" <<JSON
+{
+  "project": "CYBRA",
+  "domain": "$DOMAIN",
+  "status": "ACTIVE",
+  "git_remote": "$REMOTE",
+  "git_branch": "$BRANCH",
+  "root": "$ROOT",
+  "updated_at": "$TS"
+}
+JSON
+
+# ------------------------------------------------
+# 3. GIT CHECK
+# ------------------------------------------------
+
+echo "[3] Git verification"
+
+if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    echo "FALSE" > "$STATE/status"
+    echo "0" > "$STATE/percent"
+    exit 10
+fi
+
+LOCAL_COMMIT="$(git rev-parse HEAD 2>/dev/null || echo UNKNOWN)"
+
+REMOTE_URL="$(git remote get-url "$REMOTE" 2>/dev/null || echo UNKNOWN)"
+
+echo "LOCAL : $LOCAL_COMMIT"
+echo "REMOTE: $REMOTE_URL"
+
+echo "$LOCAL_COMMIT" > "$RUN/local_commit"
+echo "$REMOTE_URL" > "$RUN/remote_url"
+
+# ------------------------------------------------
+# 4. LOAD DOMAIN INTO ENV
+# ------------------------------------------------
+
+echo "[4] Exporting domain"
+
+export DOMAIN
+export CYBRA_DOMAIN="$DOMAIN"
+export CYBRON_DOMAIN="$DOMAIN"
+export CYBRONCYBRA_DOMAIN="$DOMAIN"
+export CYBRONCYBRA_ROOT="$ROOT"
+
+# ------------------------------------------------
+# 5. FIND SCRIPTS THAT USE DOMAIN
+# ------------------------------------------------
+
+echo "[5] Scanning CYBRA for domain-aware scripts"
+
+grep -RIl \
+    --exclude-dir=.git \
+    --exclude-dir=node_modules \
+    --exclude-dir=runtime \
+    --exclude='*.log' \
+    -E 'DOMAIN|domain|CYBRON|CYBRA_DOMAIN' \
+    "$ROOT" 2>/dev/null \
+    | sort > "$RUN/domain_aware_scripts.txt" || true
+
+DOMAIN_SCRIPT_COUNT="$(wc -l < "$RUN/domain_aware_scripts.txt" 2>/dev/null || echo 0)"
+
+echo "Domain-aware files: $DOMAIN_SCRIPT_COUNT"
+
+# ------------------------------------------------
+# 6. EXISTING ORACLE
+# ------------------------------------------------
+
+echo "[6] Running Git Oracle"
+
+ORACLE="$ROOT/cybroncybra_git_oracle_guard.sh"
+
+if [ -x "$ORACLE" ]; then
+
+    "$ORACLE" || ORACLE_RC=$?
+
+    ORACLE_RC="${ORACLE_RC:-0}"
+
+else
+
+    echo "[ORACLE] Guard not executable/missing"
+    ORACLE_RC=20
+
+fi
+
+echo "$ORACLE_RC" > "$RUN/oracle_exit_code"
+
+# ------------------------------------------------
+# 7. AUTO EVOLUTION
+# ------------------------------------------------
+
+echo "[7] Auto-Evolution integration"
+
+EVO_FOUND=0
+
+for EVO in \
+    "$ROOT/cybra_evolution.sh" \
+    "$ROOT/cybra_evo.sh" \
+    "$ROOT/cybra_evolution_deploy.sh" \
+    "$ROOT/cybra_it_evolution.sh" \
+    "$ROOT/evolution_engine_v1.sh"
+do
+
+    if [ -f "$EVO" ]; then
+
+        EVO_FOUND=1
+
+        echo "Found: $EVO"
+
+        chmod +x "$EVO" 2>/dev/null || true
+
+        {
+            echo "DOMAIN=$DOMAIN"
+            echo "CYBRA_DOMAIN=$DOMAIN"
+            echo "CYBRON_DOMAIN=$DOMAIN"
+            echo "CYBRONCYBRA_DOMAIN=$DOMAIN"
+        } > "$RUN/$(basename "$EVO").env"
+
+    fi
+
+done
+
+echo "$EVO_FOUND" > "$RUN/evolution_found"
+
+# ------------------------------------------------
+# 8. GLOBAL DOMAIN BOOTSTRAP
+# ------------------------------------------------
+
+echo "[8] Creating domain bootstrap"
+
+cat > "$ROOT/cybroncybra_domain.env" <<ENV
+# CYBRONCYBRA DOMAIN
+# Generated automatically
+
+export DOMAIN="$DOMAIN"
+export CYBRA_DOMAIN="$DOMAIN"
+export CYBRON_DOMAIN="$DOMAIN"
+export CYBRONCYBRA_DOMAIN="$DOMAIN"
+export CYBRONCYBRA_ROOT="$ROOT"
+ENV
+
+chmod 600 "$ROOT/cybroncybra_domain.env"
+
+# ------------------------------------------------
+# 9. DOMAIN LOADER
+# ------------------------------------------------
+
+echo "[9] Creating domain loader"
+
+cat > "$ROOT/cybroncybra_domain_loader.sh" <<'LOADER'
+#!/data/data/com.termux/files/usr/bin/bash
+
+ROOT="$HOME/CYBRA"
+ENV_FILE="$ROOT/cybroncybra_domain.env"
+
+if [ -f "$ENV_FILE" ]; then
+    . "$ENV_FILE"
+fi
+
+export DOMAIN
+export CYBRA_DOMAIN
+export CYBRON_DOMAIN
+export CYBRONCYBRA_DOMAIN
+export CYBRONCYBRA_ROOT
+
+echo "CYBRON DOMAIN: $CYBRONCYBRA_DOMAIN"
+LOADER
+
+chmod +x "$ROOT/cybroncybra_domain_loader.sh"
+
+# ------------------------------------------------
+# 10. FINAL STATE
+# ------------------------------------------------
+
+echo "[10] Writing integration state"
+
+if [ "$ORACLE_RC" -eq 0 ]; then
+
+    STATUS="TRUE"
+
+    cat > "$STATE/integration.env" <<ENV
+DOMAIN=$DOMAIN
+GIT=TRUE
+ORACLE=TRUE
+AUTO_EVOLUTION=$EVO_FOUND
+SNAPSHOT=AVAILABLE
+BACKUP=AVAILABLE
+STATUS=TRUE
+TIME=$TS
+ENV
+
+    echo "TRUE" > "$STATE/status"
+    echo "100" > "$STATE/percent"
+
+else
+
+    STATUS="PENDING"
+
+    cat > "$STATE/integration.env" <<ENV
+DOMAIN=$DOMAIN
+GIT=TRUE
+ORACLE=PENDING
+AUTO_EVOLUTION=$EVO_FOUND
+SNAPSHOT=AVAILABLE
+BACKUP=AVAILABLE
+STATUS=PENDING
+TIME=$TS
+ENV
+
+    echo "PENDING" > "$STATE/status"
+    echo "0" > "$STATE/percent"
+
+fi
+
+cat > "$RUN/result.env" <<ENV
+DOMAIN=$DOMAIN
+LOCAL_COMMIT=$LOCAL_COMMIT
+REMOTE_URL=$REMOTE_URL
+ORACLE_EXIT=$ORACLE_RC
+AUTO_EVOLUTION=$EVO_FOUND
+STATUS=$STATUS
+TIME=$TS
+ENV
+
+ln -sfn "$RUN" "$INTEGRATION/latest"
+
+echo
+echo "================================================"
+echo " CYBRONCYBRA INTEGRATION COMPLETE"
+echo "================================================"
+echo "DOMAIN:        $DOMAIN"
+echo "GIT REMOTE:    $REMOTE_URL"
+echo "LOCAL COMMIT:  $LOCAL_COMMIT"
+echo "AUTO-EVO:      $EVO_FOUND"
+echo "ORACLE:        $ORACLE_RC"
+echo "STATUS:        $STATUS"
+echo
+echo "DOMAIN ENV:"
+echo "$ROOT/cybroncybra_domain.env"
+echo
+echo "DOMAIN LOADER:"
+echo "$ROOT/cybroncybra_domain_loader.sh"
+echo
+echo "LATEST:"
+echo "$INTEGRATION/latest"
+echo
+

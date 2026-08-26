@@ -1,8 +1,0 @@
-{
-  "symbol": "CYBRA",
-  "supply": 1000000,
-  "balances": {
-    "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y": 999900,
-    "test_wallet_001": 100
-  }
-}

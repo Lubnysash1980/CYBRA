@@ -1,7 +1,0 @@
-{
-  "topic": "CYBRA Self-Expanding Execution Engine",
-  "type": "self_expanding_execution_engine_task",
-  "status": "no_executor_mapping",
-  "double_sha": "1acd9e2986856526abe474c9315dcce4c821b8c8521b0db38e09fa33c958e476",
-  "retries": 3
-}

@@ -1,9 +1,0 @@
-{
-  "patch_id": "1780167685_SHA_Core_Manager_Init",
-  "topic": "SHA Core Manager Init",
-  "type": "sha_core_task",
-  "status": "created",
-  "conclusion": "SHA Core Manager initialized",
-  "created_at": 1780167685.4900234,
-  "double_sha": "75bd9aa37624630f2bece1ae23ebee7cc3192c463544ceb9e82a742843ad4bdf"
-}

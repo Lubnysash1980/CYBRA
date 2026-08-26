@@ -1,3 +1,0 @@
-3390b0f5c688651513edee3d544ff8990ce6c10c490dcc37b6722ef30496c738  /data/data/com.termux/files/home/CYBRA/mainnet/CYBRA/chain/genesis.json
-67663a6f7c90f2ebe3b6646eede39d0bce89b2795bbc8227af32392cb5761499  /data/data/com.termux/files/home/CYBRA/mainnet/CYBRA/pools/pools.json
-cc0f6a80bcce2c2bf50a0d5418cf9f2e5ca80d4d965a16b13e2c5adb703fa426  /data/data/com.termux/files/home/CYBRA/mainnet/CYBRA/metadata/token.json

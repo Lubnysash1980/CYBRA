@@ -1,8 +1,0 @@
-{
-  "token_type": "Image",
-  "name": "Кібра",
-  "symbol": "KIBRA",
-  "image_file": "token/kibra/image/logo.png",
-  "status": "placeholder_until_logo_file_added",
-  "note": "Поклади logo.png у token/kibra/image/logo.png, потім перезапусти bash cybra_kibra_chain.sh report"
-}

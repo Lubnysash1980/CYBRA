@@ -1,0 +1,15 @@
+# CYBRONCYBRA.COM runtime environment
+# Generated automatically.
+
+export CYBRA_DOMAIN="cybroncybra.com"
+export DOMAIN="cybroncybra.com"
+export CYBRONCYBRA_DOMAIN="cybroncybra.com"
+
+export CYBRA_GIT_REMOTE="origin"
+export CYBRA_GIT_BRANCH="main"
+export CYBRA_GIT_REPOSITORY="git@github.com:Lubnysash1980/CYBRA.git"
+
+export CYBRA_DOMAIN_URL="https://cybroncybra.com"
+export CYBRA_WWW_URL="https://www.cybroncybra.com"
+export CYBRA_API_URL="https://api.cybroncybra.com"
+export CYBRA_NODE_URL="https://node.cybroncybra.com"
