@@ -1,9 +1,0 @@
-{
-  "symbol": "CYBRA",
-  "name": "CYBRA Native Coin",
-  "model": "native_chain_no_mint_account",
-  "owner_wallet": "FesrWxqM67HrjFqsCoCHsUkRocZZBgWeg4P3T4b9FD9Y",
-  "genesis_supply": 1000000,
-  "proof": "sha256",
-  "status": "created"
-}

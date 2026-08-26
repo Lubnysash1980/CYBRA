@@ -1,9 +1,0 @@
-{
-  "status": "reviewed",
-  "time": 1780388893.4926472,
-  "raw_double_sha": "e34c15f16b940351365b5ac77224a7a853897bdfefe4fa79635c86419ed1606d",
-  "decision": "rejected",
-  "reason": "invalid_json: Expecting value: line 1 column 1 (char 0)",
-  "topic": null,
-  "type": null
-}

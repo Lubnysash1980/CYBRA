@@ -1,7 +1,0 @@
-{
-  "topic": "Ракетна небезпека",
-  "type": "emergency_alert_test_task",
-  "status": "no_executor_mapping",
-  "message": "No mapping yet. AutoHeal should create mapping in next executor generation.",
-  "double_sha": "e0e47642b0ffa6bcf3666b320b862a2a4778630fcb27382825fd3468bee89304"
-}

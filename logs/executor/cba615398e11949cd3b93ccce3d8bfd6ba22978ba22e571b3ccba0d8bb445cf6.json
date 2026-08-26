@@ -1,7 +1,0 @@
-{
-  "topic": "CYBRA Native Token Mainnet Launch Package",
-  "type": "native_token_mainnet_task",
-  "status": "no_executor_mapping",
-  "message": "Задача прийнята, але для цього type ще немає дозволеного executor mapping.",
-  "hash": "cba615398e11949cd3b93ccce3d8bfd6ba22978ba22e571b3ccba0d8bb445cf6"
-}

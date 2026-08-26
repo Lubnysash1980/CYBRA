@@ -1,7 +1,0 @@
-{
-  "topic": "CYBRA PMZ Historical Metadata Registry",
-  "type": "pmz_historical_metadata_task",
-  "status": "no_executor_mapping",
-  "message": "Задача прийнята, але для цього type ще немає дозволеного executor mapping.",
-  "hash": "7245cce3d153a427d962254fef90084daaf8749b66cc09a1d95f5b10f4d9f80d"
-}

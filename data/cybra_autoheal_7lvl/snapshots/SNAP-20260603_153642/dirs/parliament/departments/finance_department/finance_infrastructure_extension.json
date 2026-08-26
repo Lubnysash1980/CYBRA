@@ -1,7 +1,0 @@
-{
-  "extension": "token_mint_multipayment_gold",
-  "status": "active",
-  "description": "Розширення фінансового департаменту: монетний двір токенів, мультиплатіжна система, IBAN/card-token rails, золота казна, мультивалютні розрахунки.",
-  "principle": "Calculate automatically, propose automatically, execute only manually after OWNER approval and licensed provider/legal review.",
-  "owner_final_approval": true
-}

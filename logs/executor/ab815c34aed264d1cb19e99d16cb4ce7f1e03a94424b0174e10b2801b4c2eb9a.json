@@ -1,7 +1,0 @@
-{
-  "topic": "Створити універсальну команду CYBRA Binary Import Runner",
-  "type": "universal_cybra_binary_import_runner_task",
-  "status": "no_executor_mapping",
-  "message": "No mapping yet. AutoHeal should create mapping in next executor generation.",
-  "double_sha": "ab815c34aed264d1cb19e99d16cb4ce7f1e03a94424b0174e10b2801b4c2eb9a"
-}

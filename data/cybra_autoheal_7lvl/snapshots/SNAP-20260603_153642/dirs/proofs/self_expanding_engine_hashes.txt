@@ -1,8 +1,0 @@
-{
-  "time": 1779832772.4699192,
-  "topic": "self test",
-  "type": "unknown",
-  "classified_as": "generic",
-  "generated_script": "/data/data/com.termux/files/home/CYBRA/generated_scripts/generated_a090fdb04064.sh",
-  "double_sha": "bfbd4b62a563a0a066b0eea2af795ed5faa63ac907aff408638a3cf751642135"
-}
