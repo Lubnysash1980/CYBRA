@@ -29,7 +29,7 @@ estimated_kibra_default_reward_100: 15900
 ## Queues
 ai_block_inbox: 1
 task_block_mempool: 0
-pool_mining_blocks: 23
+pool_mining_blocks: 22
 parliament_queue: 0
 parliament_failed: 0
 parliament_results: 0
@@ -51,8 +51,8 @@ real_payment_now: False
 - Provide real pool/orderbook/provider/reserve proof for KIBRA market price.
 
 ## Safety
-risk_level: MEDIUM
-risk_score: 29
+risk_level: LOW
+risk_score: 24
 private_keys_collected: False
 seed_phrase_collected: False
 automatic_SWIFT: False
@@ -60,4 +60,4 @@ automatic_external_tx: False
 manual_OWNER_approval_required: True
 
 ## Double SHA
-89830bbb77f2da50cb3c043b75bed93f5fa4cbe4b6b499bfa0e953dd13343f61
+c8533be903f56c434b55ba9357b513f304b587e5081f03ae0bb4c37458d47ac6
