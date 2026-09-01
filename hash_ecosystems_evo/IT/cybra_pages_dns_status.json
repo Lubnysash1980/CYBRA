@@ -1,0 +1,24 @@
+{
+  "project": "CYBRA",
+  "department": "IT",
+  "ecosystem": "HASH ECOSYSTEMS EVO",
+  "repository": "https://github.com/Lubnysash1980/CYBRA",
+  "github_pages": "https://lubnysash1980.github.io/CYBRA/",
+  "custom_domain": "https://cybroncybra.com/",
+  "token_page": "https://cybroncybra.com/token.html",
+  "logo": "https://cybroncybra.com/assets/cybra-logo.png",
+  "dns_required": [
+    "185.199.108.153",
+    "185.199.109.153",
+    "185.199.110.153",
+    "185.199.111.153"
+  ],
+  "verification": {
+    "github_pages_root_http": "301",
+    "github_pages_token_http": "301",
+    "github_pages_logo_http": "301",
+    "custom_root_http": "000",
+    "custom_token_http": "000",
+    "custom_logo_http": "000"
+  }
+}
