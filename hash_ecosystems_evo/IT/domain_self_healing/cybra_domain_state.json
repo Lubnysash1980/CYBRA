@@ -1,0 +1,23 @@
+{
+  "ecosystem": "HASH ECOSYSTEMS EVO",
+  "department": "IT",
+  "module": "DOMAIN_SELF_HEALING",
+  "resource": "CYBRA_DOMAIN",
+  "domain": "cybroncybra.com",
+  "status": "PARTIAL",
+  "self_healing": true,
+  "safe_mode": true,
+  "last_check": "2026-09-01T20:17:25.328633+00:00",
+  "endpoints": {
+    "root": "https://cybroncybra.com/",
+    "token": "https://cybroncybra.com/token.html",
+    "logo": "https://cybroncybra.com/assets/cybra-logo.png"
+  },
+  "checks": {
+    "dns": false,
+    "github_pages": false,
+    "token_page": false,
+    "logo": false,
+    "custom_domain": false
+  }
+}

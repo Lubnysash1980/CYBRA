@@ -1,0 +1,26 @@
+{
+  "ecosystem": "HASH ECOSYSTEMS EVO",
+  "department": "IT",
+  "module": "DOMAIN_SELF_HEALING",
+  "resource": "CYBRA_DOMAIN",
+  "domain": "cybroncybra.com",
+  "github_pages": "https://lubnysash1980.github.io/CYBRA",
+  "managed_paths": [
+    "/",
+    "/token.html",
+    "/assets/cybra-logo.png"
+  ],
+  "self_healing": {
+    "enabled": true,
+    "safe_mode": true,
+    "automatic_dns_mutation": false,
+    "automatic_git_mutation": false
+  },
+  "verification": {
+    "dns": true,
+    "github_pages": true,
+    "https": true,
+    "token_page": true,
+    "logo": true
+  }
+}
