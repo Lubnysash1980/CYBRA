@@ -4,20 +4,24 @@
   "module": "DOMAIN_SELF_HEALING",
   "resource": "CYBRA_DOMAIN",
   "domain": "cybroncybra.com",
-  "status": "PARTIAL",
-  "self_healing": true,
-  "safe_mode": true,
-  "last_check": "2026-09-01T20:17:25.328633+00:00",
+  "github_pages": "https://lubnysash1980.github.io/CYBRA/",
   "endpoints": {
     "root": "https://cybroncybra.com/",
     "token": "https://cybroncybra.com/token.html",
     "logo": "https://cybroncybra.com/assets/cybra-logo.png"
   },
   "checks": {
-    "dns": false,
-    "github_pages": false,
-    "token_page": false,
-    "logo": false,
-    "custom_domain": false
+    "github_root": "301000",
+    "github_token": "301000",
+    "github_logo": "301000",
+    "custom_root": "000000",
+    "custom_token": "000000",
+    "custom_logo": "000000"
+  },
+  "self_healing": {
+    "enabled": true,
+    "safe_mode": true,
+    "automatic_dns_mutation": false,
+    "automatic_destructive_git_mutation": false
   }
 }
