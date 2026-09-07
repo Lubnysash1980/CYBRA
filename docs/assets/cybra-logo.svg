@@ -1,6 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
-  <rect width="256" height="256" rx="40" fill="#0A0A0A"/>
-  <circle cx="128" cy="128" r="80" fill="none" stroke="#00FFCC" stroke-width="8"/>
-  <text x="128" y="142" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#00FFCC" text-anchor="middle">CY</text>
-  <text x="128" y="182" font-family="Arial, sans-serif" font-size="20" fill="#FFFFFF" text-anchor="middle">BRA</text>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="256" height="256" viewBox="0 0 256 256">
+  <image href="https://cybroncybra.com/assets/cybra-logo.png" x="0" y="0" width="256" height="256" preserveAspectRatio="xMidYMid slice"/>
 </svg>
