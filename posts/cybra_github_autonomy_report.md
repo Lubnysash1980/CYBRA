@@ -27,9 +27,9 @@ task_blocks: 149
 estimated_kibra_default_reward_100: 15900
 
 ## Queues
-ai_block_inbox: 1
-task_block_mempool: 0
-pool_mining_blocks: 16
+ai_block_inbox: 0
+task_block_mempool: 1
+pool_mining_blocks: 21
 parliament_queue: 0
 parliament_failed: 0
 parliament_results: 0
@@ -60,4 +60,4 @@ automatic_external_tx: False
 manual_OWNER_approval_required: True
 
 ## Double SHA
-b79c683e7ce97b75518adb0fc5c333ebc188e8117beb6572312ced6fc798d0b6
+b986c56f1f6cc0b0275ca9ae960c7ece45dddd8664fa2df6d010073b65ec83b6
