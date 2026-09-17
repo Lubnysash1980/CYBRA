@@ -1,0 +1,18 @@
+{
+  "global_runtime_hash": {
+    "order": "ROBOTICS-UA-0001",
+    "rule": "TRUE_ONLY_AT_100_PERCENT_REQUIRED_CONFIRMATION",
+    "snapshot_file_sha256": "3d8799b2722763522b5c2cc4a3a1367192a471ad12f3786943c6d4fe63ee7526",
+    "snapshot_path": "orders/ROBOTICS-UA-0001/runtime_snapshot/latest.json",
+    "snapshot_sha256": "c68297ee31db18b67d4c72f89744588878b513dc20a6d1e36e57ad54061f7be2",
+    "snapshot_timestamp": "2026-09-17T11:59:12.196472+00:00",
+    "status": "CONFIRMED"
+  },
+  "safety_invariant": {
+    "manufacturing_execution_enabled": false,
+    "physical_equipment_attached": false,
+    "physical_manufacturing_completed": false
+  },
+  "system": "CYBRA",
+  "updated_at": "2026-09-17T12:04:42.446131+00:00"
+}
