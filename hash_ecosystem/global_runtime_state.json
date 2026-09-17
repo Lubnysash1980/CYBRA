@@ -14,5 +14,17 @@
     "physical_manufacturing_completed": false
   },
   "system": "CYBRA",
-  "updated_at": "2026-09-17T12:04:42.446131+00:00"
+  "updated_at": "2026-09-17T12:04:42.446131+00:00",
+  "disaster_recovery_baseline": {
+    "task_id": "AI-CYBRA-DISASTER-RECOVERY-100-001",
+    "timestamp": "2026-09-17T12:16:31Z",
+    "status": "TRUE_100",
+    "percent": 100.0,
+    "levels_tested": 6,
+    "levels_passed": 6,
+    "source_report_sha256": "695e4072c5a206a4f252ce463ddaca92748ffb703c69643e484b30078253a85f",
+    "source_report_double_sha256": "172f546e43ffb5d6844fda0cdde7985933adac317dc706553a08fea718382edf",
+    "production_modified": false,
+    "physical_manufacturing": false
+  }
 }
