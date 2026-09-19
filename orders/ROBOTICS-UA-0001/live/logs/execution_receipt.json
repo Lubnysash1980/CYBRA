@@ -1,0 +1,41 @@
+{
+  "order": "ROBOTICS-UA-0001",
+  "execution_id": "813008b78eb568b2cba239abf1f0c14300397692f94365b0870cf5297b29c04f",
+  "execution_type": "LOCAL_SOFTWARE_RUNTIME_TEST",
+  "execution_completed": true,
+  "physical_manufacturing_completed": false,
+  "physical_equipment_attached": false,
+  "started_at": "2026-09-17T11:31:57.488267+00:00",
+  "finished_at": "2026-09-17T11:31:57.809712+00:00",
+  "tasks": [
+    {
+      "task": "update",
+      "status": "SUCCESS",
+      "returncode": 0,
+      "stdout_sha256": "e0a7e8854545dd54738cc4acb99b10bc248afcfacc5069dbc1f40910426016d2",
+      "stderr": ""
+    },
+    {
+      "task": "equipment",
+      "status": "SUCCESS",
+      "returncode": 0,
+      "stdout_sha256": "bfc959c6ba11af5c4969e42add4788531a3eaa72dfde4387922fe4e7ec75d743",
+      "stderr": ""
+    },
+    {
+      "task": "problem",
+      "status": "SUCCESS",
+      "returncode": 0,
+      "stdout_sha256": "03957aa9460b77371f59203853b48e24ab87c33a9971fd232d0fa3f9e764257d",
+      "stderr": ""
+    },
+    {
+      "task": "dashboard",
+      "status": "SUCCESS",
+      "returncode": 0,
+      "stdout_sha256": "be6776fb0522a21decb7dcefed1df7afe5ae3330d592fb5ec9aa22e868f6ec46",
+      "stderr": ""
+    }
+  ],
+  "receipt_sha256": "59c518df48312f15f3137feadc924953570f665464baa3ab693efce04b1e71b3"
+}
