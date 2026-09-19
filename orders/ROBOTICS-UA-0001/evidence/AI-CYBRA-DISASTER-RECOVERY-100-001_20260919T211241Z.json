@@ -1,17 +1,30 @@
 {
+  "registry_type": "CYBRA_DISASTER_RECOVERY_TRUE_100",
   "task_id": "AI-CYBRA-DISASTER-RECOVERY-100-001",
   "timestamp": "2026-09-19T21:12:41Z",
+  "order": "ROBOTICS-UA-0001",
   "status": "TRUE_100",
   "percent": 100.0,
-  "test": "CYBRA_DISASTER_RECOVERY",
-  "levels_tested": 6,
-  "levels_passed": 6,
-  "cause": "ALL_SIMULATED_DATA_LOSS_LEVELS_RECOVERED",
+  "levels": {
+    "tested": 6,
+    "passed": 6
+  },
   "source_report": "/data/data/com.termux/files/home/CYBRA/hash_ecosystem/disaster_recovery_tests/test_20260917T121440Z.json",
   "source_report_sha256": "695e4072c5a206a4f252ce463ddaca92748ffb703c69643e484b30078253a85f",
   "source_report_double_sha256": "172f546e43ffb5d6844fda0cdde7985933adac317dc706553a08fea718382edf",
-  "production_modified": false,
-  "physical_manufacturing": false,
-  "physical_equipment_attached": false,
+  "recovery": {
+    "level_1": "PASS",
+    "level_2": "PASS",
+    "level_3": "PASS",
+    "level_4": "PASS",
+    "level_5": "PASS",
+    "level_6": "PASS"
+  },
+  "safety": {
+    "production_modified": false,
+    "physical_manufacturing": false,
+    "physical_equipment_attached": false,
+    "manufacturing_execution_enabled": false
+  },
   "rule": "TRUE_ONLY_AT_100_PERCENT_REQUIRED_CONFIRMATION"
 }
