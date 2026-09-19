@@ -489,4 +489,3 @@ hash_ecosystem/disaster_recovery_tests/test_2026*.json
 hash_ecosystem/disaster_recovery_tests/AI-CYBRA-DISASTER-RECOVERY-100-001_2026*.json
 orders/ROBOTICS-UA-0001/evidence/AI-CYBRA-DISASTER-RECOVERY-100-001_2026*.json
 runtime/disaster_recovery_test/
-!/data/data/com.termux/files/home/CYBRA/hash_ecosystem/disaster_recovery_tests/test_20260919T213148Z.json
