@@ -1,0 +1,12 @@
+{
+  "component": "CYBRA_SELF_RECOVERY_WATCHDOG",
+  "timestamp": "2026-09-18T00:15:32+03:00",
+  "watchdog": "ONLINE",
+  "node": "ONLINE",
+  "redis": "ONLINE",
+  "it_analysis_worker": "ONLINE",
+  "recovery": "ONLINE",
+  "physical_manufacturing": false,
+  "manufacturing_execution_enabled": false,
+  "rule": "TRUE_ONLY_AT_100_PERCENT_REQUIRED_CONFIRMATION"
+}

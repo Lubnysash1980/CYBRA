@@ -1,0 +1,23 @@
+{
+  "dna_id": "CYBRA-DNA-SELF-RECOVERY-001",
+  "task_id": "AI-CYBRA-SELF-REGENERATING-DNA-001",
+  "created_utc": "2026-09-17T12:13:04Z",
+  "root": "/data/data/com.termux/files/home/CYBRA",
+  "order": "ROBOTICS-UA-0001",
+  "recovery": {
+    "double_sha256": true,
+    "timestamp_snapshots": true,
+    "git_recovery": true,
+    "watchdog": true,
+    "backend_ab": true,
+    "redis_recovery": true,
+    "oracle_detection": true,
+    "parliament_detection": true
+  },
+  "secret_policy": {
+    "token_embedded": false,
+    "token_web_exposed": false,
+    "token_git_committed": false,
+    "token_sha256": "26bbde0312c651ef7f4705ab90fd59bc72be6f95c1dd4d6d0ba258a2a77fb592"
+  }
+}

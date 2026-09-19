@@ -474,3 +474,12 @@ orders/ROBOTICS-UA-0001/evidence/AI-CYBRA-DISASTER-RECOVERY-100-001_20260917T*.j
 orders/ROBOTICS-UA-0001/control/*.lock
 orders/ROBOTICS-UA-0001/control/self_healing_state.json
 
+
+# CYBRA DNA — local secret + runtime
+hash_ecosystem/self_recovery_dna/.recovery_token
+hash_ecosystem/self_recovery_dna/*.lock
+
+
+# CYBRA — global state backups
+hash_ecosystem/global_runtime_state.json.bak_*
+
