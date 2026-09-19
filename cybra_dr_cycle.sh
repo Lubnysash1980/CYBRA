@@ -5,7 +5,6 @@ ROOT="$HOME/CYBRA"; cd "$ROOT"
 
 GEN="cybra_disaster_recovery_test.sh"
 REG="cybra_register_disaster_recovery_100.sh"
-UPD="cybra_dr_update_global.sh"
 APPLY="cybra_dr_apply.sh"
 CYCLE="cybra_dr_cycle.sh"
 
@@ -23,22 +22,17 @@ latest_report()   { ls -t "$REPORT_DIR"/test_*.json 2>/dev/null | head -1 || tru
 latest_registry() { ls -t "$REPORT_DIR"/AI-CYBRA-DISASTER-RECOVERY-100-001_*.json 2>/dev/null | head -1 || true; }
 latest_evidence() { ls -t "$EVIDENCE_DIR"/AI-CYBRA-DISASTER-RECOVERY-100-001_*.json 2>/dev/null | head -1 || true; }
 
-# ==================================================================
-# CHECK — read only
-# ==================================================================
 do_check() {
     echo "============================================================"
     echo " CHECK"
     echo "============================================================"
     local fail=0
 
-    # scripts present + executable
     for f in "$GEN" "$REG"; do
         if [ ! -f "$f" ]; then echo "MISSING: $f"; fail=1; continue; fi
         if [ ! -x "$f" ]; then echo "NOT-EXEC: $f"; fail=1; else echo "OK script: $f"; fi
     done
 
-    # latest report healthy
     local report
     report="$(latest_report)"
     if [ -z "$report" ]; then
@@ -61,15 +55,11 @@ PY
         then :; else echo "REPORT INVALID"; fail=1; fi
     fi
 
-    # manifest
     if [ -f "$MANIFEST" ]; then echo "OK manifest"; else echo "MISSING manifest"; fail=1; fi
-
-    # task / registry / evidence
     [ -f "$TASK_JSON" ] && echo "OK task" || { echo "MISSING task"; fail=1; }
     [ -n "$(latest_registry)" ] && echo "OK registry" || { echo "MISSING registry"; fail=1; }
     [ -n "$(latest_evidence)" ] && echo "OK evidence" || { echo "MISSING evidence"; fail=1; }
 
-    # global state — must exist and match latest report reference_sha256
     if [ -n "$report" ]; then
         if python3 - "$GLOBAL" "$report" <<'PY'
 import json,sys,os
@@ -91,7 +81,6 @@ PY
         then :; else fail=1; fi
     fi
 
-    # stray .hardened_* left after apply — flag them
     local stray
     stray="$(find . -maxdepth 1 \( -name '*.hardened' -o -name '*.hardened_*' \) -type f 2>/dev/null | wc -l)"
     if [ "$stray" -gt 0 ]; then
@@ -103,18 +92,9 @@ PY
     fi
 
     echo "---"
-    if [ "$fail" -eq 0 ]; then
-        echo "CHECK=OK"
-        return 0
-    else
-        echo "CHECK=FAIL"
-        return 1
-    fi
+    if [ "$fail" -eq 0 ]; then echo "CHECK=OK"; return 0; else echo "CHECK=FAIL"; return 1; fi
 }
 
-# ==================================================================
-# FIX — local repairs, no git
-# ==================================================================
 do_fix() {
     echo "============================================================"
     echo " FIX"
@@ -123,21 +103,17 @@ do_fix() {
     chmod +x "$GEN" "$REG" 2>/dev/null || true
     echo "exec bits ensured"
 
-    # remove consumed .hardened artifacts (apply already mv'd them in)
-    local removed
-    removed=0
+    local removed=0 f
     while IFS= read -r f; do
         [ -n "$f" ] || continue
         rm -f "$f"; removed=$((removed+1))
     done < <(find . -maxdepth 1 \( -name '*.hardened' -o -name '*.hardened_*' \) -type f 2>/dev/null)
     echo "removed $removed stale .hardened file(s)"
 
-    # refresh global_runtime_state.json from latest report
     local report
     report="$(latest_report)"
     [ -n "$report" ] || { echo "FATAL: no report"; return 1; }
 
-    # safety gate before touching global state
     python3 - "$report" <<'PY'
 import json,sys
 x=json.load(open(sys.argv[1]))
@@ -169,7 +145,6 @@ import json,sys,os
 rep,glob,sha,dsha,iso=sys.argv[1:]
 r=json.load(open(rep))
 g=json.load(open(glob)) if os.path.exists(glob) else {}
-
 g["disaster_recovery_baseline"]={
   "task_id":"AI-CYBRA-DISASTER-RECOVERY-100-001",
   "timestamp":iso,
@@ -197,9 +172,6 @@ PY
     echo "FIX=DONE"
 }
 
-# ==================================================================
-# ADD — surgical git add + commit
-# ==================================================================
 do_add() {
     echo "============================================================"
     echo " ADD"
@@ -214,7 +186,6 @@ do_add() {
         "$GEN"
         "$REG"
         "$APPLY"
-        "$UPD"
         "$CYCLE"
         "$TASK_JSON"
         "$report"
@@ -225,6 +196,7 @@ do_add() {
     )
 
     local to_add=()
+    local f
     for f in "${files[@]}"; do
         [ -n "$f" ] && [ -f "$f" ] && to_add+=("$f")
     done
@@ -239,7 +211,6 @@ do_add() {
     git diff --cached --stat
     echo
 
-    # refuse if nothing staged
     if git diff --cached --quiet; then
         echo "NOTHING STAGED"
         return 0
@@ -260,9 +231,6 @@ do_add() {
     fi
 }
 
-# ==================================================================
-# dispatch
-# ==================================================================
 case "$MODE" in
     check) do_check ;;
     fix)   do_fix ;;
@@ -272,8 +240,5 @@ case "$MODE" in
         echo
         do_add
         ;;
-    *)
-        echo "usage: $0 {check|fix|add|all} [--yes]"
-        exit 2
-        ;;
+    *) echo "usage: $0 {check|fix|add|all} [--yes]"; exit 2 ;;
 esac
