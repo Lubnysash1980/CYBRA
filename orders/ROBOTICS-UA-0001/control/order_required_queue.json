@@ -1,0 +1,30 @@
+{
+  "timestamp": "2026-09-17T11:17:36.747146+00:00",
+  "order": "ROBOTICS-UA-0001",
+  "automation": true,
+  "items": [
+    {
+      "task_id": "R03",
+      "type": "ORDER_REQUIRED",
+      "reason": "REDIS_127001_6379_UNAVAILABLE",
+      "action": "START_OR_REPAIR_REDIS",
+      "verification": "redis-cli -h 127.0.0.1 -p 6379 PING == PONG"
+    },
+    {
+      "task_id": "R05",
+      "type": "ORDER_REQUIRED",
+      "reason": "REQUIRED_TASKS_NOT_COMPLETED",
+      "action": "EXECUTE_ALL_REQUIRED_TASKS",
+      "completed_required": 0,
+      "required_total": 6,
+      "verification": "EVERY_REQUIRED_TASK_HAS_SUCCESS_AND_EVIDENCE"
+    },
+    {
+      "task_id": "R06",
+      "type": "ORDER_REQUIRED",
+      "reason": "REAL_EXECUTION_EVIDENCE_MISSING",
+      "action": "EXECUTE_REQUIRED_WORK_THEN_COLLECT_EVIDENCE",
+      "verification": "REAL_EXECUTION_RESULT_AND_HASH_REQUIRED"
+    }
+  ]
+}

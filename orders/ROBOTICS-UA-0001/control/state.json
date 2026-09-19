@@ -1,0 +1,12 @@
+{
+  "order": "ROBOTICS-UA-0001",
+  "status": "TRUE_100",
+  "cause": "ALL_REQUIRED_TASKS_CONFIRMED_WITH_REAL_EVIDENCE",
+  "percent": 100.0,
+  "true_100": true,
+  "runtime_confirmed": true,
+  "manufacturing_execution_enabled": false,
+  "updated_at": "2026-09-17T11:52:57.706698+00:00",
+  "physical_manufacturing_completed": false,
+  "physical_equipment_attached": false
+}

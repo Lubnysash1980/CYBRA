@@ -1,0 +1,101 @@
+{
+  "order": "ROBOTICS-UA-0001",
+  "timestamp": "2026-09-17T11:52:57.701026+00:00",
+  "status": "TRUE_100",
+  "percent": 100.0,
+  "true_100": true,
+  "required_total": 6,
+  "completed_required": 6,
+  "real_execution_evidence": 1,
+  "cause": "ALL_REQUIRED_TASKS_CONFIRMED_WITH_REAL_EVIDENCE",
+  "rule": "TRUE_ONLY_AT_100_PERCENT_REQUIRED_CONFIRMATION",
+  "tasks": {
+    "R03": {
+      "status": "SUCCESS",
+      "detail": "PONG"
+    },
+    "R01": {
+      "status": "SUCCESS",
+      "missing": [],
+      "runtime_discovery_file": "/data/data/com.termux/files/home/CYBRA/orders/ROBOTICS-UA-0001/control/runtime_discovery.json",
+      "runtime_confirmed": true,
+      "software_execution_receipt_confirmed": true
+    },
+    "R02": {
+      "status": "SUCCESS",
+      "executor": "/data/data/com.termux/files/home/CYBRA/real_executor.py",
+      "sha256": "f1b099bde4d345fe86277449d80fa6c53772bfca3cc0c9b1bef5c0d2f373cade"
+    },
+    "R04": {
+      "status": "SUCCESS",
+      "files": [
+        "/data/data/com.termux/files/home/CYBRA/cybra_executor_loop.sh",
+        "/data/data/com.termux/files/home/CYBRA/cybra_redis_executor_mapping.sh",
+        "/data/data/com.termux/files/home/CYBRA/executor_autoheal_double_sha.sh",
+        "/data/data/com.termux/files/home/CYBRA/executor_quality_autofix.sh",
+        "/data/data/com.termux/files/home/CYBRA/executor_v5_retry_double_backend.sh",
+        "/data/data/com.termux/files/home/CYBRA/executor_checker.sh",
+        "/data/data/com.termux/files/home/CYBRA/parliament_executor_v5.py",
+        "/data/data/com.termux/files/home/CYBRA/robotics_manufacturing_watchdog.sh",
+        "/data/data/com.termux/files/home/CYBRA/parliament_executor_v2.py",
+        "/data/data/com.termux/files/home/CYBRA/cybra_executor_isolation_guard.py",
+        "/data/data/com.termux/files/home/CYBRA/parliament_executor_v3.py",
+        "/data/data/com.termux/files/home/CYBRA/real_executor.py",
+        "/data/data/com.termux/files/home/CYBRA/patch_cybra_trade_source_executor.sh",
+        "/data/data/com.termux/files/home/CYBRA/parliament_executor_v4.py",
+        "/data/data/com.termux/files/home/CYBRA/parliament_executor_v6.py",
+        "/data/data/com.termux/files/home/CYBRA/executor_trace_auditor.sh",
+        "/data/data/com.termux/files/home/CYBRA/robotics_runtime_supervisor.sh",
+        "/data/data/com.termux/files/home/CYBRA/robotics_runtime_discovery.sh",
+        "/data/data/com.termux/files/home/CYBRA/robotics_ai_runner.sh",
+        "/data/data/com.termux/files/home/CYBRA/robotics_ai_automation_patch.sh",
+        "/data/data/com.termux/files/home/CYBRA/robotics_ai_task_execution_patch.sh",
+        "/data/data/com.termux/files/home/CYBRA/robotics_verify_now.sh",
+        "/data/data/com.termux/files/home/CYBRA/executor_check_fix.sh",
+        "/data/data/com.termux/files/home/CYBRA/robotics_ai_self_healing_loop.sh",
+        "/data/data/com.termux/files/home/CYBRA/robotics_ai_execute_verify_patch.sh",
+        "/data/data/com.termux/files/home/CYBRA/CYBRA/venv/lib/python3.12/site-packages/redis/asyncio/multidb/command_executor.py",
+        "/data/data/com.termux/files/home/CYBRA/CYBRA/venv/lib/python3.12/site-packages/redis/multidb/command_executor.py",
+        "/data/data/com.termux/files/home/CYBRA/backup_levels/level_1/parliament_executor_v2.py",
+        "/data/data/com.termux/files/home/CYBRA/backup_levels/level_1/parliament_executor_v3.py",
+        "/data/data/com.termux/files/home/CYBRA/backup_levels/level_1/parliament_executor_v4.py",
+        "/data/data/com.termux/files/home/CYBRA/backup_levels/level_1/parliament_executor_v5.py",
+        "/data/data/com.termux/files/home/CYBRA/backup_levels/level_2/parliament_executor_v2.py",
+        "/data/data/com.termux/files/home/CYBRA/backup_levels/level_2/parliament_executor_v3.py",
+        "/data/data/com.termux/files/home/CYBRA/backup_levels/level_2/parliament_executor_v4.py",
+        "/data/data/com.termux/files/home/CYBRA/backup_levels/level_2/parliament_executor_v5.py",
+        "/data/data/com.termux/files/home/CYBRA/backup_levels/level_3/parliament_executor_v2.py",
+        "/data/data/com.termux/files/home/CYBRA/backup_levels/level_3/parliament_executor_v3.py",
+        "/data/data/com.termux/files/home/CYBRA/backup_levels/level_3/parliament_executor_v4.py",
+        "/data/data/com.termux/files/home/CYBRA/backup_levels/level_3/parliament_executor_v5.py",
+        "/data/data/com.termux/files/home/CYBRA/backup_levels/level_4/parliament_executor_v2.py",
+        "/data/data/com.termux/files/home/CYBRA/backup_levels/level_4/parliament_executor_v3.py",
+        "/data/data/com.termux/files/home/CYBRA/backup_levels/level_4/parliament_executor_v4.py",
+        "/data/data/com.termux/files/home/CYBRA/backup_levels/level_4/parliament_executor_v5.py",
+        "/data/data/com.termux/files/home/CYBRA/backup_levels/level_5/parliament_executor_v2.py",
+        "/data/data/com.termux/files/home/CYBRA/backup_levels/level_5/parliament_executor_v3.py",
+        "/data/data/com.termux/files/home/CYBRA/backup_levels/level_5/parliament_executor_v4.py",
+        "/data/data/com.termux/files/home/CYBRA/backup_levels/level_5/parliament_executor_v5.py",
+        "/data/data/com.termux/files/home/CYBRA/backups/@cybra_connect/20260910_215121/CYBRA_BEFORE_CONNECT/CYBRA/venv/lib/python3.12/site-packages/redis/asyncio/multidb/command_executor.py",
+        "/data/data/com.termux/files/home/CYBRA/backups/@cybra_connect/20260910_215121/CYBRA_BEFORE_CONNECT/CYBRA/venv/lib/python3.12/site-packages/redis/multidb/command_executor.py",
+        "/data/data/com.termux/files/home/CYBRA/backups/@cybra_connect/20260910_215121/CYBRA_BEFORE_CONNECT/backup_levels/level_1/parliament_executor_v2.py"
+      ],
+      "count": 157
+    },
+    "R06": {
+      "status": "SUCCESS",
+      "real_execution_evidence": 1,
+      "evidence": [
+        {
+          "path": "/data/data/com.termux/files/home/CYBRA/orders/ROBOTICS-UA-0001/live/logs/execution_receipt.json",
+          "sha256": "e4a5b59b9f4a34c836a8c0f5dc519ffc18df348d115e1cffb3ff557d1799cf58"
+        }
+      ]
+    },
+    "R05": {
+      "status": "SUCCESS",
+      "completed_required_before_r05": 5,
+      "required_dependencies": 5
+    }
+  }
+}

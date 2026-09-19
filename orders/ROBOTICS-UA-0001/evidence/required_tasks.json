@@ -1,0 +1,37 @@
+{
+  "order": "ROBOTICS-UA-0001",
+  "generated_at": "2026-09-17T11:52:46.118905+00:00",
+  "true_rule": "TRUE_ONLY_AT_100_PERCENT_REQUIRED_CONFIRMATION",
+  "tasks": [
+    {
+      "task_id": "R01",
+      "name": "runtime_discovery",
+      "required": true
+    },
+    {
+      "task_id": "R02",
+      "name": "executor_health_check",
+      "required": true
+    },
+    {
+      "task_id": "R03",
+      "name": "redis_health_check",
+      "required": true
+    },
+    {
+      "task_id": "R04",
+      "name": "task_dispatch_readiness",
+      "required": true
+    },
+    {
+      "task_id": "R05",
+      "name": "required_task_completion_proof",
+      "required": true
+    },
+    {
+      "task_id": "R06",
+      "name": "execution_evidence_confirmation",
+      "required": true
+    }
+  ]
+}

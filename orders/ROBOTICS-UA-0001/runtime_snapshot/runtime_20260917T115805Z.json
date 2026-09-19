@@ -1,0 +1,74 @@
+{
+  "system": "CYBRA",
+  "order": "ROBOTICS-UA-0001",
+  "snapshot_type": "RUNTIME_STATE_HASH",
+  "timestamp": "2026-09-17T11:58:05.427994+00:00",
+  "rule": "TRUE_ONLY_AT_100_PERCENT_REQUIRED_CONFIRMATION",
+  "state": {
+    "status": "TRUE_100",
+    "percent": 100.0,
+    "true_100": true,
+    "runtime_confirmed": true,
+    "manufacturing_execution_enabled": false,
+    "physical_manufacturing_completed": false,
+    "physical_equipment_attached": false,
+    "cause": "ALL_REQUIRED_TASKS_CONFIRMED_WITH_REAL_EVIDENCE"
+  },
+  "files": {
+    "orders/ROBOTICS-UA-0001/control/state.json": {
+      "exists": true,
+      "size": 370,
+      "sha256": "398b4b95c4553a79fd133d938bad379b6f4ec4f14af0833d5aa8cc0fc6ecdc29"
+    },
+    "orders/ROBOTICS-UA-0001/control/runtime_discovery.json": {
+      "exists": true,
+      "size": 777,
+      "sha256": "35edacef662ab9420fe64d9c112a1db810c704d6cf1cb22ecdfe53781b9b5ce2"
+    },
+    "orders/ROBOTICS-UA-0001/control/required_tasks.json": {
+      "exists": true,
+      "size": 777,
+      "sha256": "35a27cd10c2e076957412ebfc633dd752a5ce5df4862319ada7b2fc5e9506f89"
+    },
+    "orders/ROBOTICS-UA-0001/evidence/final_proof.json": {
+      "exists": true,
+      "size": 6190,
+      "sha256": "ebff8f0d504adbd04fe515973ebd59736045b1762460cae40e8f34c93198cc59"
+    },
+    "orders/ROBOTICS-UA-0001/evidence/ai_master_final_gate.json": {
+      "exists": true,
+      "size": 412,
+      "sha256": "c95215bcf25914f47bced716eef87ac5e8ef48a950ac4c3a18cf0652eca6bc5a"
+    },
+    "orders/ROBOTICS-UA-0001/evidence/ai_master_evidence.json": {
+      "exists": false,
+      "sha256": null
+    },
+    "orders/ROBOTICS-UA-0001/live/controller.py": {
+      "exists": true,
+      "size": 2342,
+      "sha256": "f216e5bb2855da184e3868e266bd29c9a93410631f7fedf27f60f88161226436"
+    },
+    "orders/ROBOTICS-UA-0001/live/logs/execution_receipt.json": {
+      "exists": true,
+      "size": 1291,
+      "sha256": "e4a5b59b9f4a34c836a8c0f5dc519ffc18df348d115e1cffb3ff557d1799cf58"
+    },
+    "cybra_ai_master_orchestrator.py": {
+      "exists": true,
+      "size": 15858,
+      "sha256": "9dead1ef4ed747ec0dfd38b2fe82bfe2545880ba233c913a967f6b56d1047ecf"
+    },
+    "robotics_ai_execute_verify_patch.sh": {
+      "exists": true,
+      "size": 10589,
+      "sha256": "9034de04a14c282add073c1c1f9ac4c7ec8e952f91ae367b0f060d3e9a4bc43f"
+    }
+  },
+  "safety_invariant": {
+    "manufacturing_execution_enabled": false,
+    "physical_manufacturing_completed": false,
+    "physical_equipment_attached": false
+  },
+  "snapshot_sha256": "afb1d9311fd610d84999d8c4e42871f949a495cf150d7670ca218607c37b59f7"
+}

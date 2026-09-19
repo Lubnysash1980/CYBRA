@@ -1,0 +1,13 @@
+{
+  "order": "ROBOTICS-UA-0001",
+  "timestamp": "2026-09-17T11:56:37.053752+00:00",
+  "status": "TRUE_100",
+  "percent": 100.0,
+  "true_100": true,
+  "rule": "TRUE_ONLY_AT_100_PERCENT_REQUIRED_CONFIRMATION",
+  "software_proof_only": true,
+  "manufacturing_execution_enabled": false,
+  "physical_manufacturing_completed": false,
+  "physical_equipment_attached": false,
+  "cause": "ALL_REQUIRED_TASKS_CONFIRMED"
+}

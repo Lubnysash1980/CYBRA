@@ -1,0 +1,21 @@
+{
+  "order": "ROBOTICS-UA-0001",
+  "component": "robotics_runtime_discovery",
+  "status": "SUCCESS",
+  "runtime_confirmed": true,
+  "manufacturing_execution_enabled": false,
+  "true_100": false,
+  "percent": 100,
+  "cause": "LOCAL_SOFTWARE_RUNTIME_CONFIRMED",
+  "evidence": {
+    "controller": "/data/data/com.termux/files/home/CYBRA/orders/ROBOTICS-UA-0001/live/controller.py",
+    "execution_receipt": "/data/data/com.termux/files/home/CYBRA/orders/ROBOTICS-UA-0001/live/logs/execution_receipt.json",
+    "receipt_confirmed": true,
+    "task_success_count": 4,
+    "task_total": 4
+  },
+  "execution_type": "LOCAL_SOFTWARE_RUNTIME_TEST",
+  "physical_manufacturing_completed": false,
+  "physical_equipment_attached": false,
+  "updated_at": "2026-09-17T11:52:45.704108+00:00"
+}

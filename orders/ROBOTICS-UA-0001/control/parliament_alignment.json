@@ -1,0 +1,10 @@
+{
+  "aligned": true,
+  "parliament_components_found": [
+    "/data/data/com.termux/files/home/CYBRA/parliament_executor_v6.py",
+    "/data/data/com.termux/files/home/CYBRA/CYBRA/core/committee.py",
+    "/data/data/com.termux/files/home/CYBRA/CYBRA/app/main.py"
+  ],
+  "queue_detected": false,
+  "queue_file": null
+}

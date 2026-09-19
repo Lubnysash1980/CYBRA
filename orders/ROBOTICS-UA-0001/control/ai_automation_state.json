@@ -1,0 +1,57 @@
+{
+  "timestamp": "2026-09-17T09:18:14.993319+00:00",
+  "order": "ROBOTICS-UA-0001",
+  "automation": true,
+  "percent": 50.0,
+  "completed_required": 3,
+  "required_total": 6,
+  "execution_evidence_confirmed": false,
+  "true_100": false,
+  "final_status": "PENDING",
+  "cause": "EXECUTION_EVIDENCE_NOT_CONFIRMED",
+  "tasks": [
+    {
+      "id": "R01",
+      "status": "SUCCESS",
+      "evidence": [
+        "/data/data/com.termux/files/home/CYBRA/orders/ROBOTICS-UA-0001/control/runtime_discovery.json",
+        "/data/data/com.termux/files/home/CYBRA/orders/ROBOTICS-UA-0001/control/state.json"
+      ]
+    },
+    {
+      "id": "R02",
+      "status": "SUCCESS",
+      "evidence": [
+        "/data/data/com.termux/files/home/CYBRA/real_executor.py"
+      ],
+      "hashes": {
+        "/data/data/com.termux/files/home/CYBRA/real_executor.py": "f1b099bde4d345fe86277449d80fa6c53772bfca3cc0c9b1bef5c0d2f373cade"
+      }
+    },
+    {
+      "id": "R03",
+      "status": "PENDING",
+      "evidence": "redis://127.0.0.1:6379"
+    },
+    {
+      "id": "R04",
+      "status": "SUCCESS",
+      "evidence": [
+        "/data/data/com.termux/files/home/CYBRA/cybra_executor_loop.sh",
+        "/data/data/com.termux/files/home/CYBRA/scripts/task_dispatch/cybra_last_task_dispatcher.py",
+        "/data/data/com.termux/files/home/CYBRA/parliament_executor_v6.py"
+      ]
+    },
+    {
+      "id": "R05",
+      "status": "PENDING",
+      "completed_required": 0,
+      "required_total": 6
+    },
+    {
+      "id": "R06",
+      "status": "PENDING",
+      "evidence": []
+    }
+  ]
+}
