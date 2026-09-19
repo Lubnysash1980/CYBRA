@@ -1,0 +1,71 @@
+{
+  "test": "CYBRA_DISASTER_RECOVERY",
+  "version": "HARDENED_V2",
+  "reference_sha256": "0aa710e7f65be9b0131c5e40c3dd6089083d185e1c79ee6d5fc79db9266f6231",
+  "dna_hash_before": "0ce1fd5ee05a26b917d5ba77ca354c9c87e66ec981e55638818aed958be31253",
+  "rule": "TRUE_ONLY_AT_100_PERCENT_REQUIRED_CONFIRMATION",
+  "production_modified": false,
+  "recovery_source": "orders/ROBOTICS-UA-0001 + hash_ecosystem/self_recovery_dna",
+  "levels": [
+    {
+      "level": 1,
+      "damage_hash": "bf4b0756765318e2fde751f5d7f8f736964d29c4d84a1d98508dc04554c338a4",
+      "recovered_hash": "0aa710e7f65be9b0131c5e40c3dd6089083d185e1c79ee6d5fc79db9266f6231",
+      "baseline_match": true,
+      "result": "PASS",
+      "production_modified": false
+    },
+    {
+      "level": 2,
+      "damage_hash": "f859fb6ee033097ba71a65a8661e159fc3247301082c87a680ea83bac1a57e50",
+      "recovered_hash": "0aa710e7f65be9b0131c5e40c3dd6089083d185e1c79ee6d5fc79db9266f6231",
+      "baseline_match": true,
+      "result": "PASS",
+      "production_modified": false
+    },
+    {
+      "level": 3,
+      "damage_hash": "8b5cde1d2dc7750fe2ac40f84a6e62d3d765d941461f5d8e661a980618316dcd",
+      "recovered_hash": "0aa710e7f65be9b0131c5e40c3dd6089083d185e1c79ee6d5fc79db9266f6231",
+      "baseline_match": true,
+      "result": "PASS",
+      "production_modified": false
+    },
+    {
+      "level": 4,
+      "damage_hash": "e6192bcadc8c382201bbb4bb520010169313540ff0df28008bb5de0e5033d8e3",
+      "recovered_hash": "0aa710e7f65be9b0131c5e40c3dd6089083d185e1c79ee6d5fc79db9266f6231",
+      "baseline_match": true,
+      "result": "PASS",
+      "production_modified": false
+    },
+    {
+      "level": 5,
+      "damage_hash": "6d253c8ccbb30b390a1cc940219c4a45b0f91a61b7bfb141e938065d33919010",
+      "recovered_hash": "0aa710e7f65be9b0131c5e40c3dd6089083d185e1c79ee6d5fc79db9266f6231",
+      "baseline_match": true,
+      "result": "PASS",
+      "production_modified": false
+    },
+    {
+      "level": 6,
+      "damage_hash": "8de2d71f2f706e7d8a62d82ba06d17bf14e7388647eacb3322d2c7a2da8c1adc",
+      "recovered_hash": "0aa710e7f65be9b0131c5e40c3dd6089083d185e1c79ee6d5fc79db9266f6231",
+      "baseline_match": true,
+      "result": "PASS",
+      "production_modified": false
+    }
+  ],
+  "dna_hash_after": "0ce1fd5ee05a26b917d5ba77ca354c9c87e66ec981e55638818aed958be31253",
+  "dna_stable": true,
+  "passed": 6,
+  "total": 6,
+  "percent": 100.0,
+  "status": "TRUE_100",
+  "cause": "ALL_SIMULATED_DATA_LOSS_LEVELS_RECOVERED_AND_BASELINE_VERIFIED",
+  "safety": {
+    "production_modified": false,
+    "physical_manufacturing": false,
+    "physical_equipment_attached": false
+  }
+}
