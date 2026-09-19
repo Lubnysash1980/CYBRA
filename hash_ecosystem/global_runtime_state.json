@@ -17,13 +17,20 @@
   "updated_at": "2026-09-17T12:04:42.446131+00:00",
   "disaster_recovery_baseline": {
     "task_id": "AI-CYBRA-DISASTER-RECOVERY-100-001",
-    "timestamp": "2026-09-19T21:12:41Z",
+    "timestamp": "2026-09-19T21:21:09Z",
+    "version": "HARDENED_V2",
     "status": "TRUE_100",
     "percent": 100.0,
     "levels_tested": 6,
     "levels_passed": 6,
-    "source_report_sha256": "695e4072c5a206a4f252ce463ddaca92748ffb703c69643e484b30078253a85f",
-    "source_report_double_sha256": "172f546e43ffb5d6844fda0cdde7985933adac317dc706553a08fea718382edf",
+    "baseline_match_all": true,
+    "dna_stable": true,
+    "reference_sha256": "175c89d2a7ee6a16b0a8aed588b1c6c26340a3f50969ddbc6bfa556cb69a3501",
+    "dna_hash_before": "852d8245571895e7760c4a90097763924bab50e8689cf337e86d5ad908bb2ca4",
+    "dna_hash_after": "852d8245571895e7760c4a90097763924bab50e8689cf337e86d5ad908bb2ca4",
+    "source_report": "hash_ecosystem/disaster_recovery_tests/test_20260919T211509Z.json",
+    "source_report_sha256": "4fa97dfb49c973c6704395b030a7994f6fb4288853e1ac0d59c40e9d17f30075",
+    "source_report_double_sha256": "674929af11f73b64eb0fbc186f0313786b4e04c6c744dca787320284afabf8f0",
     "production_modified": false,
     "physical_manufacturing": false
   }
