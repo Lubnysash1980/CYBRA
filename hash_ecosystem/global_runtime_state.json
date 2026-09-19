@@ -17,7 +17,7 @@
   "updated_at": "2026-09-17T12:04:42.446131+00:00",
   "disaster_recovery_baseline": {
     "task_id": "AI-CYBRA-DISASTER-RECOVERY-100-001",
-    "timestamp": "2026-09-19T21:22:49Z",
+    "timestamp": "2026-09-19T21:31:56Z",
     "version": "HARDENED_V2",
     "status": "TRUE_100",
     "percent": 100.0,
@@ -25,12 +25,12 @@
     "levels_passed": 6,
     "baseline_match_all": true,
     "dna_stable": true,
-    "reference_sha256": "175c89d2a7ee6a16b0a8aed588b1c6c26340a3f50969ddbc6bfa556cb69a3501",
-    "dna_hash_before": "852d8245571895e7760c4a90097763924bab50e8689cf337e86d5ad908bb2ca4",
-    "dna_hash_after": "852d8245571895e7760c4a90097763924bab50e8689cf337e86d5ad908bb2ca4",
-    "source_report": "hash_ecosystem/disaster_recovery_tests/test_20260919T211509Z.json",
-    "source_report_sha256": "4fa97dfb49c973c6704395b030a7994f6fb4288853e1ac0d59c40e9d17f30075",
-    "source_report_double_sha256": "674929af11f73b64eb0fbc186f0313786b4e04c6c744dca787320284afabf8f0",
+    "reference_sha256": "243f657c55ca9079fec1e3cab6ba9a4ec97e1fc13a18899af188d756568bde85",
+    "dna_hash_before": "1f01b85b7eb31c52ab982e7f4f03296a49858342e55ee6d5738b174ce244a018",
+    "dna_hash_after": "1f01b85b7eb31c52ab982e7f4f03296a49858342e55ee6d5738b174ce244a018",
+    "source_report": "hash_ecosystem/disaster_recovery_tests/test_20260919T213148Z.json",
+    "source_report_sha256": "8d93868c6f6a7197c0ffb0bbad5c1fa5abdb709cabce964eeb45f96ed4698967",
+    "source_report_double_sha256": "86cb50335128aedf94db252f3ad7949a2b0a0ac5fe3edc753ad26e10708a7415",
     "production_modified": false,
     "physical_manufacturing": false
   }

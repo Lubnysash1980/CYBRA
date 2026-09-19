@@ -1,23 +1,34 @@
 {
+  "registry_type": "CYBRA_DISASTER_RECOVERY_TRUE_100",
   "task_id": "AI-CYBRA-DISASTER-RECOVERY-100-001",
   "timestamp": "2026-09-19T21:31:57Z",
+  "order": "ROBOTICS-UA-0001",
   "status": "TRUE_100",
   "percent": 100.0,
-  "test": "CYBRA_DISASTER_RECOVERY",
   "version": "HARDENED_V2",
-  "levels_tested": 6,
-  "levels_passed": 6,
-  "cause": "ALL_SIMULATED_DATA_LOSS_LEVELS_RECOVERED_AND_BASELINE_VERIFIED",
+  "levels": {
+    "tested": 6,
+    "passed": 6
+  },
   "source_report": "/data/data/com.termux/files/home/CYBRA/hash_ecosystem/disaster_recovery_tests/test_20260919T213148Z.json",
   "source_report_sha256": "8d93868c6f6a7197c0ffb0bbad5c1fa5abdb709cabce964eeb45f96ed4698967",
   "source_report_double_sha256": "86cb50335128aedf94db252f3ad7949a2b0a0ac5fe3edc753ad26e10708a7415",
   "reference_sha256": "243f657c55ca9079fec1e3cab6ba9a4ec97e1fc13a18899af188d756568bde85",
-  "dna_hash_before": "1f01b85b7eb31c52ab982e7f4f03296a49858342e55ee6d5738b174ce244a018",
-  "dna_hash_after": "1f01b85b7eb31c52ab982e7f4f03296a49858342e55ee6d5738b174ce244a018",
   "dna_stable": true,
-  "recovery_source": "orders/ROBOTICS-UA-0001 + hash_ecosystem/self_recovery_dna",
-  "production_modified": false,
-  "physical_manufacturing": false,
-  "physical_equipment_attached": false,
+  "recovery": {
+    "level_1": "PASS",
+    "level_2": "PASS",
+    "level_3": "PASS",
+    "level_4": "PASS",
+    "level_5": "PASS",
+    "level_6": "PASS"
+  },
+  "baseline_match_all": true,
+  "safety": {
+    "production_modified": false,
+    "physical_manufacturing": false,
+    "physical_equipment_attached": false,
+    "manufacturing_execution_enabled": false
+  },
   "rule": "TRUE_ONLY_AT_100_PERCENT_REQUIRED_CONFIRMATION"
 }
