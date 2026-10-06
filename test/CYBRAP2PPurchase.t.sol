@@ -582,7 +582,7 @@ contract P2PPurchaseSafeTransferTest is Test {
 
     address buyer      = address(0xB0B);
     address seller     = address(0x5E11E4);
-    address parliament = address(0xPA12);
+    address parliament = address(0x000000000000000000000000000000000000A12);
 
     uint256 constant AMOUNT = 1000e18;
 
