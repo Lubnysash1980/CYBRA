@@ -73,13 +73,13 @@ contract CYBRAP2PPurchaseTest is Test {
     CYBRAP2PPurchase escrow;
 
     address parliament =
-        address(0x100);
+        address(0xA12);
 
     address buyer =
-        address(0x200);
+        address(0xA12);
 
     address seller =
-        address(0x300);
+        address(0xA12);
 
     uint256 constant AMOUNT =
         10_000 ether;
@@ -487,7 +487,7 @@ contract CYBRAP2PPurchaseTest is Test {
     {
         uint256 id = _create();
 
-        vm.prank(address(0x999));
+        vm.prank(address(0xA12));
 
         vm.expectRevert(
             "ONLY_BUYER"
@@ -505,7 +505,7 @@ contract CYBRAP2PPurchaseTest is Test {
     {
         uint256 id = _create();
 
-        vm.prank(address(0x999));
+        vm.prank(address(0xA12));
 
         vm.expectRevert(
             "ONLY_SELLER"
@@ -580,9 +580,9 @@ contract P2PPurchaseSafeTransferTest is Test {
     CYBRAP2PPurchase p;
     USDTStyleToken usdt;
 
-    address buyer      = address(0xB0B);
-    address seller     = address(0x5E11E4);
-    address parliament = address(0x000000000000000000000000000000000000A12);
+    address buyer      = address(0xA12);
+    address seller     = address(0xA12);
+    address parliament = address(0xA12);
 
     uint256 constant AMOUNT = 1000e18;
 
