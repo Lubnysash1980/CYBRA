@@ -631,6 +631,7 @@ contract P2PPurchaseSafeTransferTest is Test {
         // status = TRUE_100
 
         uint256 before = usdt.balanceOf(seller);
+        vm.prank(seller);
         p.releaseToSeller(id);
         assertEq(usdt.balanceOf(seller) - before, AMOUNT);
     }
