@@ -538,3 +538,119 @@ contract CYBRAP2PPurchaseTest is Test {
         );
     }
 }
+
+// ============================================================
+// USDT-style compatibility tests
+// ============================================================
+
+contract USDTStyleToken {
+    // Returns NOTHING from transfer/transferFrom — like real USDT on Ethereum.
+    mapping(address => uint256) public balanceOf;
+    mapping(address => mapping(address => uint256)) public allowance;
+
+    function mint(address to, uint256 amount) external {
+        balanceOf[to] += amount;
+    }
+    function approve(address spender, uint256 amount) external returns (bool) {
+        allowance[msg.sender][spender] = amount;
+        return true;
+    }
+    function transfer(address to, uint256 amount) external {
+        require(balanceOf[msg.sender] >= amount, "NO_BAL");
+        balanceOf[msg.sender] -= amount;
+        balanceOf[to] += amount;
+    }
+    function transferFrom(address from, address to, uint256 amount) external {
+        require(balanceOf[from] >= amount, "NO_BAL");
+        require(allowance[from][msg.sender] >= amount, "NO_ALLOW");
+        allowance[from][msg.sender] -= amount;
+        balanceOf[from] -= amount;
+        balanceOf[to] += amount;
+    }
+}
+
+contract FalseReturningToken {
+    // Returns false instead of transferring — malicious / broken token.
+    function balanceOf(address) external pure returns (uint256) { return 0; }
+    function transfer(address, uint256) external pure returns (bool) { return false; }
+    function transferFrom(address, address, uint256) external pure returns (bool) { return false; }
+}
+
+contract P2PPurchaseSafeTransferTest is Test {
+    CYBRAP2PPurchase p;
+    USDTStyleToken usdt;
+
+    address buyer      = address(0xB0B);
+    address seller     = address(0x5E11E4);
+    address parliament = address(0xPA12);
+
+    uint256 constant AMOUNT = 1000e18;
+
+    function setUp() public {
+        usdt = new USDTStyleToken();
+        p = new CYBRAP2PPurchase(address(usdt), parliament);
+
+        usdt.mint(buyer, AMOUNT * 10);
+
+        vm.prank(buyer);
+        usdt.approve(address(p), type(uint256).max);
+    }
+
+    function _createAgreement() internal returns (uint256 id) {
+        vm.prank(parliament);
+        id = p.createAgreement(
+            buyer, seller, AMOUNT,
+            keccak256("order"), keccak256("terms"),
+            block.timestamp + 1 days, 1
+        );
+    }
+
+    function test_usdtStyle_fundSucceeds() public {
+        uint256 id = _createAgreement();
+
+        vm.prank(buyer); p.buyerSign(id);
+        vm.prank(seller); p.sellerSign(id);
+
+        uint256 before = usdt.balanceOf(address(p));
+        vm.prank(buyer); p.fund(id);
+        uint256 afterBal = usdt.balanceOf(address(p));
+
+        assertEq(afterBal - before, AMOUNT);
+    }
+
+    function test_usdtStyle_releaseToSellerSucceeds() public {
+        uint256 id = _createAgreement();
+        vm.prank(buyer); p.buyerSign(id);
+        vm.prank(seller); p.sellerSign(id);
+        vm.prank(buyer); p.fund(id);
+
+        vm.prank(seller);
+        p.submitEvidence(id, keccak256("ev"));
+        vm.prank(buyer);
+        p.confirmEvidence(id, 0);
+        // status = TRUE_100
+
+        uint256 before = usdt.balanceOf(seller);
+        p.releaseToSeller(id);
+        assertEq(usdt.balanceOf(seller) - before, AMOUNT);
+    }
+
+    function test_falseReturningToken_revertsOnFund() public {
+        FalseReturningToken bad = new FalseReturningToken();
+        CYBRAP2PPurchase p2 = new CYBRAP2PPurchase(address(bad), parliament);
+
+        vm.prank(parliament);
+        uint256 id = p2.createAgreement(
+            buyer, seller, AMOUNT,
+            keccak256("order"), keccak256("terms"),
+            block.timestamp + 1 days, 1
+        );
+
+        vm.prank(buyer); p2.buyerSign(id);
+        vm.prank(seller); p2.sellerSign(id);
+
+        vm.prank(buyer);
+        vm.expectRevert();
+        p2.fund(id);
+    }
+}

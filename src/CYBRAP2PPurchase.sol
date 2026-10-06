@@ -58,6 +58,8 @@ contract CYBRAP2PPurchase {
     mapping(uint256 => mapping(bytes32 => bool))
         private evidenceUsed;
 
+    uint256 private _lock = 1;
+
     event AgreementCreated(
         uint256 indexed id,
         address indexed buyer,
@@ -119,6 +121,13 @@ contract CYBRAP2PPurchase {
         _;
     }
 
+    modifier nonReentrant() {
+        require(_lock == 1, "REENTRANT");
+        _lock = 2;
+        _;
+        _lock = 1;
+    }
+
     modifier exists(uint256 id) {
         require(
             agreements[id].status != Status.NONE,
@@ -134,6 +143,11 @@ contract CYBRAP2PPurchase {
         require(
             cybraToken != address(0),
             "ZERO_CYBRA"
+        );
+
+        require(
+            cybraToken.code.length > 0,
+            "CYBRA_NOT_CONTRACT"
         );
 
         require(
@@ -306,6 +320,7 @@ contract CYBRAP2PPurchase {
     )
         external
         exists(id)
+        nonReentrant
     {
         Agreement storage a = agreements[id];
 
@@ -337,14 +352,7 @@ contract CYBRAP2PPurchase {
         uint256 beforeBalance =
             cybra.balanceOf(address(this));
 
-        require(
-            cybra.transferFrom(
-                msg.sender,
-                address(this),
-                a.amount
-            ),
-            "TRANSFER_FROM_FAILED"
-        );
+        _safeTransferFrom(address(cybra), msg.sender, address(this), a.amount);
 
         uint256 afterBalance =
             cybra.balanceOf(address(this));
@@ -507,6 +515,7 @@ contract CYBRAP2PPurchase {
     )
         external
         exists(id)
+        nonReentrant
     {
         Agreement storage a = agreements[id];
 
@@ -523,13 +532,7 @@ contract CYBRAP2PPurchase {
 
         a.status = Status.PAID;
 
-        require(
-            cybra.transfer(
-                a.seller,
-                a.amount
-            ),
-            "SELLER_PAYMENT_FAILED"
-        );
+        _safeTransfer(address(cybra), a.seller, a.amount);
 
         emit SellerPaid(
             id,
@@ -546,6 +549,7 @@ contract CYBRAP2PPurchase {
     )
         external
         exists(id)
+        nonReentrant
     {
         Agreement storage a = agreements[id];
 
@@ -574,13 +578,7 @@ contract CYBRAP2PPurchase {
         a.status =
             Status.REFUNDED;
 
-        require(
-            cybra.transfer(
-                a.buyer,
-                a.amount
-            ),
-            "REFUND_FAILED"
-        );
+        _safeTransfer(address(cybra), a.buyer, a.amount);
 
         emit Refunded(
             id,
@@ -656,4 +654,28 @@ contract CYBRAP2PPurchase {
                 address(this)
             );
     }
+    // ============================================================
+    // SAFE TRANSFER (USDT-compatible)
+    // ============================================================
+
+    function _safeTransferFrom(address token, address from, address to, uint256 amount) internal {
+        (bool ok, bytes memory data) = token.call(
+            abi.encodeWithSelector(IERC20CYBRA.transferFrom.selector, from, to, amount)
+        );
+        require(ok, "SAFE_TRANSFER_FROM_REVERT");
+        if (data.length > 0) {
+            require(abi.decode(data, (bool)), "SAFE_TRANSFER_FROM_FALSE");
+        }
+    }
+
+    function _safeTransfer(address token, address to, uint256 amount) internal {
+        (bool ok, bytes memory data) = token.call(
+            abi.encodeWithSelector(IERC20CYBRA.transfer.selector, to, amount)
+        );
+        require(ok, "SAFE_TRANSFER_REVERT");
+        if (data.length > 0) {
+            require(abi.decode(data, (bool)), "SAFE_TRANSFER_FALSE");
+        }
+    }
+
 }
