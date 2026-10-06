@@ -1,22 +1,23 @@
-
 #!/usr/bin/env bash
 # CYBRA git recovery helper.
 # Usage:
-#   bash scripts/git-recover.sh status     — поточний стан
-#   bash scripts/git-recover.sh backup     — бекап .git + робочих файлів
-#   bash scripts/git-recover.sh rollback <ref>   — повернути main до ref
-#   bash scripts/git-recover.sh restore <backup-dir>  — відновити з бекапу
-#   bash scripts/git-recover.sh list-backups      — список бекапів
+#   bash scripts/git-recover.sh status
+#   bash scripts/git-recover.sh backup
+#   bash scripts/git-recover.sh list-backups
+#   bash scripts/git-recover.sh rollback HEAD~1
+#   bash scripts/git-recover.sh restore .backup/git-recover/20261006-120000
 
-set -uo pipefail
+set -u
 cd "$(dirname "$0")/.."
 BK_ROOT=".backup/git-recover"
 mkdir -p "$BK_ROOT"
 
-case "${1:-status}" in
+CMD="${1:-status}"
+
+case "$CMD" in
   status)
-    echo "=== current state ==="
-    git status --short
+    echo "=== git status (short) ==="
+    git status --short | head -40
     echo
     echo "=== last 5 commits ==="
     git log --oneline -5
@@ -34,9 +35,9 @@ case "${1:-status}" in
     mkdir -p "$D"
     cp -r .git "$D/git-dir"
     cp -r src test "$D/" 2>/dev/null || true
-    [ -f foundry.toml ]   && cp foundry.toml   "$D/"
-    [ -f remappings.txt ] && cp remappings.txt "$D/"
-    [ -f README.md ]      && cp README.md      "$D/"
+    [ -f foundry.toml ]    && cp foundry.toml    "$D/"
+    [ -f remappings.txt ]  && cp remappings.txt  "$D/"
+    [ -f README.md ]       && cp README.md       "$D/"
     [ -f THREAT_MODEL.md ] && cp THREAT_MODEL.md "$D/"
     echo "backup -> $D"
     du -sh "$D"
@@ -48,35 +49,44 @@ case "${1:-status}" in
 
   rollback)
     REF="${2:-}"
-    [ -z "$REF" ] && { echo "usage: $0 rollback <ref>"; exit 1; }
-    echo "backup before rollback"
+    if [ -z "$REF" ]; then
+      echo "usage: bash scripts/git-recover.sh rollback HEAD~1"
+      exit 1
+    fi
     bash scripts/git-recover.sh backup
-    echo "hard reset main to $REF"
+    echo "resetting main to $REF"
     git reset --hard "$REF"
-    echo "current HEAD:"
     git log --oneline -1
     ;;
 
   restore)
     D="${2:-}"
-    [ -z "$D" ] && { echo "usage: $0 restore <backup-dir>"; exit 1; }
-    [ -d "$D" ] || { echo "not found: $D"; exit 1; }
+    if [ -z "$D" ]; then
+      echo "usage: bash scripts/git-recover.sh restore .backup/git-recover/<timestamp>"
+      echo "available:"
+      ls -1 "$BK_ROOT" 2>/dev/null | tail -5
+      exit 1
+    fi
+    if [ ! -d "$D" ]; then
+      echo "not found: $D"
+      exit 1
+    fi
     echo "restoring .git from $D/git-dir"
     rm -rf .git
     cp -r "$D/git-dir" .git
     [ -d "$D/src" ]  && rm -rf src  && cp -r "$D/src"  src
     [ -d "$D/test" ] && rm -rf test && cp -r "$D/test" test
-    [ -f "$D/foundry.toml" ]   && cp "$D/foundry.toml"   foundry.toml
-    [ -f "$D/remappings.txt" ] && cp "$D/remappings.txt" remappings.txt
-    [ -f "$D/README.md" ]      && cp "$D/README.md"      README.md
+    [ -f "$D/foundry.toml" ]    && cp "$D/foundry.toml"    foundry.toml
+    [ -f "$D/remappings.txt" ]  && cp "$D/remappings.txt"  remappings.txt
+    [ -f "$D/README.md" ]       && cp "$D/README.md"       README.md
     [ -f "$D/THREAT_MODEL.md" ] && cp "$D/THREAT_MODEL.md" THREAT_MODEL.md
     echo "restored from $D"
     git log --oneline -3
     ;;
 
   *)
-    echo "unknown command: $1"
-    echo "usage: $0 {status|backup|list-backups|rollback <ref>|restore <dir>}"
+    echo "unknown command: $CMD"
+    echo "usage: bash scripts/git-recover.sh {status|backup|list-backups|rollback <ref>|restore <dir>}"
     exit 1
     ;;
 esac

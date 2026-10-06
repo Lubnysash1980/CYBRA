@@ -116,3 +116,64 @@ falseReturningToken_revert.
 Відмова покупця підтвердити або відхилити (Responsibility):
     Стан CONFIRMATION_REQUIRED назавжди. Escrow залишається
     FUNDED. Це свідомо.
+
+---
+
+## Controller trust notes (v1.0.1)
+
+### CYBRALevelController
+
+Модель: authority (immutable) + precondition-цепочка на всіх переходах.
+
+Переходи захищені:
+    confirmTRUE100  → require(requiredChecks > 0, passedChecks == requiredChecks, percent == 100)
+    createSnapshot  → require(true100)
+    enableLive      → require(true100, snapshotCreated)
+    openMainnetGate → require(true100, snapshotCreated, liveEnabled)
+    advanceLevel    → require(true100, snapshotCreated, liveEnabled)
+
+Відомі нюанси:
+- updateEvidence при percent==100 не скидає флаги. Тобто після
+  confirmTRUE100 можна скоротити requiredChecks без втрати true100.
+  Це audit-trail anomaly, не дірка (власник і так міг змінити
+  requiredChecks до confirm).
+- Всі переходи — onlyAuthority. Один ключ.
+
+### CYBRAExoskeletonAIParliament
+
+Модель: owner (фіксований, без transferOwnership) + parliamentVerifier
+(замінюється owner одним викликом).
+
+Цепочка стадій:
+    TESTNET → LIVE      require(isTRUE100(TESTNET))
+    LIVE    → MAINNET   require(isTRUE100(LIVE))
+
+isTRUE100(stage) перевіряє всі 4 рівні:
+- requiredTotal[s][level] > 0 для кожного рівня
+- requiredVerified[s][level] == requiredTotal[s][level]
+
+Відомі нюанси:
+- owner не transferable. Втрата ключа = контракт замерзає назавжди.
+- recordEvidence не блокується після verified. evidenceHash можна
+  замінити після approveTask. verified і requiredVerified не змінюються.
+- setParliamentVerifier — довірена дія owner. Компроміс owner = компроміс
+  verifier.
+
+### CYBRABinaryMixerLicense
+
+Модель: authority (immutable) + immutable посилання на LevelController.
+
+activate(moduleId) — precondition:
+    require(moduleHash != 0, evidenceHash != 0)
+    require(!blocked)
+    require(levelController.true100())
+
+isLicensed(moduleId) перевіряє levelController.true100() динамічно —
+при advanceLevel модулі стають неліцензованими автоматично.
+
+Відомі нюанси:
+- blockLicense — назавжди. Немає функції тимчасової деактивації.
+- registerModule може перезаписати існуючий moduleId (скидає active).
+  Корисно для апгрейду, несподівано для аудиту.
+- recordEvidence не має anti-duplicate: той самий evidenceHash можна
+  записати повторно.
