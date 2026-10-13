@@ -158,9 +158,9 @@ phase_backup() {
 
     step "архівування $ROOT..."
 
-    # tar --exclude=backups --exclude=logs --exclude=out --exclude=.cybra_src --exclude=.git --exclude='*.tar.gz' --exclude='*.log' --exclude='__pycache__' може скаржитись "file changed as we read it" для активних
+    # tar може скаржитись "file changed as we read it" для активних
     # логів/pidfile — це OK, ігноруємо exit code 1
-    tar -czf --exclude=backups --exclude=logs --exclude=out --exclude=.cybra_src --exclude=.git --exclude='*.tar.gz' --exclude='*.log' --exclude='__pycache__' "$bk_file" \
+    tar -czf "$bk_file" \
         -C "$HOME" \
         --exclude='CYBRA/backups' \
         --exclude='CYBRA/hashes' \
@@ -190,10 +190,10 @@ phase_backup() {
         # Показати warnings якщо є
         if [ -s "$tar_log" ]; then
             local warns="$(grep -c 'file changed' "$tar_log" 2>/dev/null || echo 0)"
-            [ "$warns" -gt 0 ] && warn "  tar --exclude=backups --exclude=logs --exclude=out --exclude=.cybra_src --exclude=.git --exclude='*.tar.gz' --exclude='*.log' --exclude='__pycache__' warnings: $warns (file changed — OK)"
+            [ "$warns" -gt 0 ] && warn "  tar warnings: $warns (file changed — OK)"
         fi
     else
-        err "backup failed (tar --exclude=backups --exclude=logs --exclude=out --exclude=.cybra_src --exclude=.git --exclude='*.tar.gz' --exclude='*.log' --exclude='__pycache__' rc=$tar_rc)"
+        err "backup failed (tar rc=$tar_rc)"
         tail -5 "$tar_log" 2>/dev/null | sed 's/^/    /'
         FAIL=$((FAIL+1))
     fi
