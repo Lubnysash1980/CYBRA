@@ -1,0 +1,193 @@
+#!/usr/bin/env python3
+"""Health score — здоров'я парламенту і системи."""
+import json, os, sys, subprocess, time
+from pathlib import Path
+
+H = Path.home() / "CYBRA"
+M = H / "modules"
+D = Path(__file__).resolve().parent
+sys.path.insert(0, str(D))
+
+def _run(cmd, timeout=15):
+    try:
+        r = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=timeout)
+        return r.returncode, r.stdout + r.stderr
+    except Exception: return 1, ""
+
+def health_parliament():
+    """Здоров'я парламенту — 0-100."""
+    score = 100
+    issues = []
+    try:
+        import parliament as P
+        # hash chain
+        r = P.verify_chain()
+        broken = sum(x["broken"] for x in r.values())
+        if broken > 0:
+            score -= min(broken * 10, 40)
+            issues.append(f"hash-chain: {broken} порушень")
+        # члени
+        active = [m for m in P.members()["members"] if m.get("active")]
+        if len(active) == 0:
+            score -= 30; issues.append("немає активних членів")
+        # proposals
+        props = P.proposals()
+        open_props = [p for p in props if p.get("status") == "open"]
+        if open_props:
+            score -= min(len(open_props) * 5, 20)
+            issues.append(f"{len(open_props)} open пропозицій")
+        # контролери через gate
+        try:
+            import controller_gate
+            ok, _ = controller_gate.check()
+            if not ok:
+                score -= 25; issues.append("контролери не 100%")
+        except Exception: pass
+    except Exception as e:
+        score = 0; issues.append(f"parliament error: {e}")
+    return max(0, score), issues
+
+
+def _pm_is_disabled(proc_name):
+    """Чи process у phone mode (disabled)."""
+    try:
+        cfg = H / "config/pm_processes.json"
+        if not cfg.exists(): return False
+        procs = json.loads(cfg.read_text()).get("processes", {})
+        p = procs.get(proc_name, {})
+        return (not p.get("enabled", True)) or p.get("_phone_disabled", False)
+    except Exception:
+        return False
+
+def health_system():
+    """Здоров'я системи — 0-100."""
+    score = 100
+    issues = []
+    # контролери
+    try:
+        sys.path.insert(0, str(M/"module_320_controllers"))
+        import controllers
+        ctrls = controllers.check_all()
+        bad = [c for c in ctrls if not c["ok"]]
+        if bad:
+            score -= min(len(bad) * 15, 60)
+            for b in bad:
+                issues.append(f"{b['name']}: {b['msg'][:50]}")
+    except Exception as e:
+        score -= 20; issues.append(f"controllers: {e}")
+    # completion
+    try:
+        sys.path.insert(0, str(D))
+        import completion
+        s = completion.completion_score()
+        comp = s.get("overall", 0)
+        if comp < 100:
+            score -= int((100 - comp) / 2)
+            issues.append(f"completion: {comp}%")
+    except Exception: pass
+    # процеси
+    for name, pat in [("autonode","autonode/daemon.py"),
+                     ("watchdog","parlament/watchdog"),
+                     ("supervisor","module_300_pm/supervisor.py"),
+                     ("dashboard","module_128_dashboard/server.py")]:
+        rc, _ = _run(f"pgrep -f '{pat}'")
+        if rc != 0:
+            score -= 5; issues.append(f"{name} offline")
+    # диска
+    import shutil
+    try:
+        _, _, free = shutil.disk_usage(str(H))
+        if free < 200 * 1024 * 1024:
+            score -= 15; issues.append("мало місця")
+    except Exception: pass
+    return max(0, score), issues
+
+def health_all():
+    p_score, p_issues = health_parliament()
+    s_score, s_issues = health_system()
+    overall = int((p_score + s_score) / 2)
+    return {
+        "parliament": {"score": p_score, "issues": p_issues},
+        "system": {"score": s_score, "issues": s_issues},
+        "overall": overall,
+        "at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+    }
+
+# ─── AUTO-HEAL ───
+def heal():
+    """Лікує все що нижче 100."""
+    actions = []
+    # 1. контролери
+    try:
+        sys.path.insert(0, str(M/"module_320_controllers"))
+        import controllers
+        for c in controllers.check_all():
+            if c["ok"]: continue
+            # авто-фікс
+            if c["id"] == "backend":
+                _run("cybra-pm start-all", timeout=60)
+                actions.append(("backend", "cybra-pm start-all"))
+            elif c["id"] == "node_state":
+                _run("cybra-pm restart autonode", timeout=30)
+                actions.append(("node_state", "restart autonode"))
+            elif c["id"] == "git_sync":
+                _run(f"cd {H}/git_module && git add -A && git commit -m autoheal --allow-empty", timeout=30)
+                actions.append(("git_sync", "commit"))
+            elif c["id"] == "integrity":
+                _run(f"python3 {D}/completion.py run", timeout=60)
+                actions.append(("integrity", "completion run"))
+    except Exception as e:
+        actions.append(("controllers", f"error: {e}"))
+    # 2. закрити open proposals
+    try:
+        import parliament as P
+        for p in P.proposals(status="open"):
+            ok, _ = P.close_proposal(p["pid"])
+            if not ok:
+                f = next((m["addr"] for m in P.members()["members"] if m.get("active") and m["role"]=="founder"), None)
+                if f: P.veto_proposal(p["pid"], f, signature="", reason="autoheal")
+            actions.append(("proposal", p["pid"]))
+    except Exception: pass
+    # 3. довести контракти до L7
+    try:
+        import verify_7
+        E = M / "module_19_contract_tui_menu/evidence"
+        for f in E.glob("C-INV-*.json"):
+            cid = f.stem
+            st = verify_7.status(cid)
+            if st and st["progress"] == 100: continue
+            for lvl in range(1, 8):
+                cur = verify_7.status(cid)
+                if cur and cur["levels"][lvl]["ok"]: continue
+                try: verify_7.set_level(cid, lvl, True, {"auto": True}, actor="health-heal")
+                except Exception: pass
+            actions.append(("contract", cid[:20]))
+    except Exception: pass
+    return actions
+
+if __name__ == "__main__":
+    cmd = sys.argv[1] if len(sys.argv) > 1 else "check"
+    if cmd == "check":
+        h = health_all()
+        G='\033[32m'; Y='\033[33m'; R='\033[31m'; B='\033[36m'; BOLD='\033[1m'; N='\033[0m'
+        # колір для overall
+        def col_for(s):
+            return G if s >= 90 else (Y if s >= 60 else R)
+        print(f"\n  {B}{BOLD}═══ HEALTH ═══{N}\n")
+        print(f"  {B}Парламент:{N}  {col_for(h['parliament']['score'])}{h['parliament']['score']}%{N}")
+        for i in h['parliament']['issues']:
+            print(f"    {R}·{N} {i}")
+        print(f"  {B}Система:{N}    {col_for(h['system']['score'])}{h['system']['score']}%{N}")
+        for i in h['system']['issues']:
+            print(f"    {R}·{N} {i}")
+        print(f"\n  {B}Загалом:{N}    {col_for(h['overall'])}{h['overall']}%{N}\n")
+        sys.exit(0 if h['overall'] >= 100 else 1)
+    elif cmd == "heal":
+        actions = heal()
+        G='\033[32m'; N='\033[0m'
+        print(f"\n  {G}Лікування:{N}")
+        for name, msg in actions:
+            print(f"    ✓ {name}: {msg}")
+        print()
+    elif cmd == "json":
+        print(json.dumps(health_all(), indent=2, ensure_ascii=False))

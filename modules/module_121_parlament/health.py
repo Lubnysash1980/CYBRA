@@ -47,6 +47,18 @@ def health_parliament():
         score = 0; issues.append(f"parliament error: {e}")
     return max(0, score), issues
 
+
+def _pm_is_disabled(proc_name):
+    """Чи process у phone mode (disabled)."""
+    try:
+        cfg = H / "config/pm_processes.json"
+        if not cfg.exists(): return False
+        procs = json.loads(cfg.read_text()).get("processes", {})
+        p = procs.get(proc_name, {})
+        return (not p.get("enabled", True)) or p.get("_phone_disabled", False)
+    except Exception:
+        return False
+
 def health_system():
     """Здоров'я системи — 0-100."""
     score = 100
@@ -78,6 +90,8 @@ def health_system():
                      ("watchdog","parlament/watchdog"),
                      ("supervisor","module_300_pm/supervisor.py"),
                      ("dashboard","module_128_dashboard/server.py")]:
+        if _pm_is_disabled(name):
+            continue
         rc, _ = _run(f"pgrep -f '{pat}'")
         if rc != 0:
             score -= 5; issues.append(f"{name} offline")

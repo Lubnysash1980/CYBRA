@@ -1,10 +1,15 @@
 # CYBRA service files
 __pycache__/
+**/__pycache__/
 *.pyc
 *.pyo
+*.pyd
 *.pid
 *.tmp
 *.swp
+*.swo
+*~
+.bak.*
 *.bak.*
 *.key
 *.pem
@@ -18,10 +23,14 @@ backups/
 *.broken.*
 public/sign/*.log
 public/sign/*.pid
+public/sign/tunnel_*
 modules/*/data/*.log
 modules/*/data/*.jsonl
 modules/*/data/worker.log
 modules/*/data/*.tmp
+modules/*/data/completion/
+modules/*/data/evolve/
+modules/*/data/metrics_git/
 modules/module_396_diffrecover/data/*.broken.*
 modules/module_398_webui/data/*.tmp
 .android/
@@ -30,17 +39,3 @@ modules/module_398_webui/data/*.tmp
 &1
 [y/n]
 [Y/n]
-
-# runtime state (BLOCKED list)
-.parawatch.state
-.cybra_*
-auto.sh
-config/networks.json
-config/pm_metrics.jsonl
-config/pm_processes.json
-config/pm_state.json
-config/roadmap.json.tmp
-cybra_mega_hardening.sh
-modules/*/data/completion/
-modules/*/data/evolve/
-modules/*/data/*.jsonl

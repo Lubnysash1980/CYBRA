@@ -1,6 +1,6 @@
 {
-  "count": 18,
-  "last_heal": "2026-10-13T09:09:12Z",
+  "count": 19,
+  "last_heal": "2026-10-13T09:10:58Z",
   "recent": [
     {
       "at": "2026-10-13T09:01:34Z",
@@ -145,6 +145,14 @@
       "healed": 2,
       "failed": 0,
       "duration_ms": 5743
+    },
+    {
+      "at": "2026-10-13T09:10:58Z",
+      "before": 1,
+      "after": 1,
+      "healed": 1,
+      "failed": 0,
+      "duration_ms": 5524
     }
   ]
 }
