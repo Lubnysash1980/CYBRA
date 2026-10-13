@@ -1,6 +1,6 @@
 {
   "ok": false,
-  "at": "2026-10-13T08:16:53Z",
+  "at": "2026-10-13T08:19:31Z",
   "tui_hash": "61a8d959c2c7d82c",
   "case_count": 156,
   "menu_count": 163,
@@ -119,8 +119,8 @@
     },
     {
       "type": "menu_no_case",
-      "id": "5",
-      "detail": "пункт [5] без case"
+      "id": "1",
+      "detail": "пункт [1] без case"
     },
     {
       "type": "menu_no_case",
@@ -139,13 +139,13 @@
     },
     {
       "type": "menu_no_case",
-      "id": "1",
-      "detail": "пункт [1] без case"
+      "id": "2",
+      "detail": "пункт [2] без case"
     },
     {
       "type": "menu_no_case",
-      "id": "2",
-      "detail": "пункт [2] без case"
+      "id": "5",
+      "detail": "пункт [5] без case"
     }
   ]
 }

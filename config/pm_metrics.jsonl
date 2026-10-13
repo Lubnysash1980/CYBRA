@@ -616,3 +616,45 @@
 {"name": "load", "action": "check", "ok": true, "pid": 3755, "ts": "2026-10-13T08:17:05Z"}
 {"name": "webui", "action": "check", "ok": true, "pid": 3825, "ts": "2026-10-13T08:17:05Z"}
 {"name": "tui_guard", "action": "check", "ok": true, "pid": 3843, "ts": "2026-10-13T08:17:05Z"}
+{"name": "autonode", "action": "check", "ok": true, "pid": 13315, "ts": "2026-10-13T08:17:36Z"}
+{"name": "watchdog", "action": "check", "ok": true, "pid": 13327, "ts": "2026-10-13T08:17:36Z"}
+{"name": "orchestrator", "action": "check", "ok": true, "pid": 13344, "ts": "2026-10-13T08:17:36Z"}
+{"name": "dashboard", "action": "check", "ok": true, "pid": 7844, "ts": "2026-10-13T08:17:36Z"}
+{"name": "selfheal", "action": "restart", "ok": true, "ts": "2026-10-13T08:17:47Z"}
+{"name": "controller_worker", "action": "check", "ok": true, "pid": 9798, "ts": "2026-10-13T08:17:47Z"}
+{"name": "runtime", "action": "check", "ok": true, "pid": 13974, "ts": "2026-10-13T08:17:47Z"}
+{"name": "job_controller", "action": "check", "ok": true, "pid": 14340, "ts": "2026-10-13T08:17:47Z"}
+{"name": "src", "action": "check", "ok": true, "pid": 20843, "ts": "2026-10-13T08:17:47Z"}
+{"name": "structure", "action": "check", "ok": true, "pid": 23083, "ts": "2026-10-13T08:17:47Z"}
+{"name": "diffrecover", "action": "restart", "ok": true, "ts": "2026-10-13T08:17:58Z"}
+{"name": "load", "action": "restart", "ok": true, "ts": "2026-10-13T08:18:09Z"}
+{"name": "webui", "action": "restart", "ok": true, "ts": "2026-10-13T08:18:20Z"}
+{"name": "tui_guard", "action": "restart", "ok": true, "ts": "2026-10-13T08:18:31Z"}
+{"name": "autonode", "action": "check", "ok": true, "pid": 13315, "ts": "2026-10-13T08:19:02Z"}
+{"name": "watchdog", "action": "check", "ok": true, "pid": 13327, "ts": "2026-10-13T08:19:02Z"}
+{"name": "orchestrator", "action": "check", "ok": true, "pid": 13344, "ts": "2026-10-13T08:19:02Z"}
+{"name": "dashboard", "action": "check", "ok": true, "pid": 7844, "ts": "2026-10-13T08:19:02Z"}
+{"name": "selfheal", "action": "restart", "ok": false, "err": "1", "ts": "2026-10-13T08:19:13Z"}
+{"name": "controller_worker", "action": "check", "ok": true, "pid": 9798, "ts": "2026-10-13T08:19:13Z"}
+{"name": "runtime", "action": "check", "ok": true, "pid": 13974, "ts": "2026-10-13T08:19:13Z"}
+{"name": "job_controller", "action": "check", "ok": true, "pid": 14340, "ts": "2026-10-13T08:19:13Z"}
+{"name": "src", "action": "check", "ok": true, "pid": 20843, "ts": "2026-10-13T08:19:13Z"}
+{"name": "structure", "action": "check", "ok": true, "pid": 23083, "ts": "2026-10-13T08:19:13Z"}
+{"name": "diffrecover", "action": "check", "ok": true, "pid": 31944, "ts": "2026-10-13T08:19:13Z"}
+{"name": "load", "action": "check", "ok": true, "pid": 32205, "ts": "2026-10-13T08:19:13Z"}
+{"name": "webui", "action": "check", "ok": true, "pid": 32493, "ts": "2026-10-13T08:19:13Z"}
+{"name": "tui_guard", "action": "check", "ok": true, "pid": 32611, "ts": "2026-10-13T08:19:13Z"}
+{"name": "autonode", "action": "check", "ok": true, "pid": 13315, "ts": "2026-10-13T08:19:43Z"}
+{"name": "watchdog", "action": "check", "ok": true, "pid": 13327, "ts": "2026-10-13T08:19:43Z"}
+{"name": "orchestrator", "action": "check", "ok": true, "pid": 13344, "ts": "2026-10-13T08:19:43Z"}
+{"name": "dashboard", "action": "check", "ok": true, "pid": 7844, "ts": "2026-10-13T08:19:43Z"}
+{"name": "selfheal", "action": "restart", "ok": false, "err": "1", "ts": "2026-10-13T08:19:54Z"}
+{"name": "controller_worker", "action": "check", "ok": true, "pid": 9798, "ts": "2026-10-13T08:19:54Z"}
+{"name": "runtime", "action": "check", "ok": true, "pid": 13974, "ts": "2026-10-13T08:19:54Z"}
+{"name": "job_controller", "action": "check", "ok": true, "pid": 14340, "ts": "2026-10-13T08:19:54Z"}
+{"name": "src", "action": "check", "ok": true, "pid": 20843, "ts": "2026-10-13T08:19:54Z"}
+{"name": "structure", "action": "check", "ok": true, "pid": 23083, "ts": "2026-10-13T08:19:54Z"}
+{"name": "diffrecover", "action": "check", "ok": true, "pid": 31944, "ts": "2026-10-13T08:19:54Z"}
+{"name": "load", "action": "check", "ok": true, "pid": 32205, "ts": "2026-10-13T08:19:54Z"}
+{"name": "webui", "action": "check", "ok": true, "pid": 32493, "ts": "2026-10-13T08:19:54Z"}
+{"name": "tui_guard", "action": "check", "ok": true, "pid": 32611, "ts": "2026-10-13T08:19:54Z"}

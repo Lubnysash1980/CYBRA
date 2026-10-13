@@ -50,3 +50,20 @@ Thumbs.db
 *.old
 *.orig
 tash list
+
+*.bak.*
+*.bak
+*.broken.*
+__pycache__/
+*.pyc
+run/
+out/
+*.pid
+*.lock
+*.sha256
+tash list
+config/pm_metrics.jsonl
+config/pm_state.json
+modules/*/data/*.json
+modules/*/data/**/*.json
+*.jsonl
