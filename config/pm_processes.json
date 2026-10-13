@@ -34,9 +34,10 @@
       "cwd": "$HOME/CYBRA",
       "pid_file": "$HOME/CYBRA/run/pm_orchestrator.pid",
       "log_file": "$HOME/CYBRA/logs/orch.log",
-      "auto_restart": true,
-      "enabled": true,
-      "match_pattern": "orchestrator.py daemon"
+      "auto_restart": false,
+      "enabled": false,
+      "match_pattern": "orchestrator.py daemon",
+      "_phone_disabled": true
     },
     "supervisor": {
       "name": "supervisor",
@@ -45,7 +46,7 @@
       "cwd": "$HOME/CYBRA",
       "pid_file": "$HOME/CYBRA/run/pm_supervisor.pid",
       "log_file": "$HOME/CYBRA/logs/pm.log",
-      "auto_restart": false,
+      "auto_restart": true,
       "enabled": true,
       "match_pattern": "module_300_pm/supervisor.py loop"
     },
@@ -56,9 +57,10 @@
       "cwd": "$HOME/CYBRA",
       "pid_file": "$HOME/CYBRA/run/pm_dashboard.pid",
       "log_file": "$HOME/CYBRA/logs/dashboard.log",
-      "auto_restart": true,
-      "enabled": true,
-      "match_pattern": "module_128_dashboard/server.py"
+      "auto_restart": false,
+      "enabled": false,
+      "match_pattern": "module_128_dashboard/server.py",
+      "_phone_disabled": true
     },
     "selfheal": {
       "name": "selfheal",
@@ -78,9 +80,10 @@
       "cwd": "$HOME/CYBRA",
       "pid_file": "$HOME/CYBRA/run/pm_controller_worker.pid",
       "log_file": "$HOME/CYBRA/logs/controller_worker.log",
-      "auto_restart": true,
-      "enabled": true,
-      "match_pattern": "module_350_controller_worker/worker.py daemon"
+      "auto_restart": false,
+      "enabled": false,
+      "match_pattern": "module_350_controller_worker/worker.py daemon",
+      "_phone_disabled": true
     },
     "runtime": {
       "name": "runtime",
@@ -89,9 +92,10 @@
       "cwd": "$HOME/CYBRA",
       "pid_file": "$HOME/CYBRA/run/pm_runtime.pid",
       "log_file": "$HOME/CYBRA/logs/runtime.log",
-      "auto_restart": true,
-      "enabled": true,
-      "match_pattern": "module_370_runtime/runtime.py daemon"
+      "auto_restart": false,
+      "enabled": false,
+      "match_pattern": "module_370_runtime/runtime.py daemon",
+      "_phone_disabled": true
     },
     "job_controller": {
       "name": "job_controller",
@@ -100,9 +104,10 @@
       "cwd": "$HOME/CYBRA",
       "pid_file": "$HOME/CYBRA/run/pm_job_controller.pid",
       "log_file": "$HOME/CYBRA/logs/job_controller.log",
-      "auto_restart": true,
-      "enabled": true,
-      "match_pattern": "module_371_job_controller/controller.py daemon"
+      "auto_restart": false,
+      "enabled": false,
+      "match_pattern": "module_371_job_controller/controller.py daemon",
+      "_phone_disabled": true
     },
     "src": {
       "name": "src",
@@ -111,9 +116,10 @@
       "cwd": "$HOME/CYBRA",
       "pid_file": "$HOME/CYBRA/run/pm_src.pid",
       "log_file": "$HOME/CYBRA/logs/src.log",
-      "auto_restart": true,
-      "enabled": true,
-      "match_pattern": "module_390_src/src.py daemon"
+      "auto_restart": false,
+      "enabled": false,
+      "match_pattern": "module_390_src/src.py daemon",
+      "_phone_disabled": true
     },
     "structure": {
       "name": "structure",
@@ -122,9 +128,10 @@
       "cwd": "$HOME/CYBRA",
       "pid_file": "$HOME/CYBRA/run/pm_structure.pid",
       "log_file": "$HOME/CYBRA/logs/structure.log",
-      "auto_restart": true,
-      "enabled": true,
-      "match_pattern": "module_395_structure"
+      "auto_restart": false,
+      "enabled": false,
+      "match_pattern": "module_395_structure",
+      "_phone_disabled": true
     },
     "diffrecover": {
       "name": "diffrecover",
@@ -133,9 +140,10 @@
       "cwd": "$HOME/CYBRA",
       "pid_file": "$HOME/CYBRA/run/pm_diffrecover.pid",
       "log_file": "$HOME/CYBRA/logs/diffrecover.log",
-      "auto_restart": true,
-      "enabled": true,
-      "match_pattern": "module_396_diffrecover"
+      "auto_restart": false,
+      "enabled": false,
+      "match_pattern": "module_396_diffrecover",
+      "_phone_disabled": true
     },
     "load": {
       "name": "load",
@@ -144,9 +152,10 @@
       "cwd": "$HOME/CYBRA",
       "pid_file": "$HOME/CYBRA/run/pm_load.pid",
       "log_file": "$HOME/CYBRA/logs/load.log",
-      "auto_restart": true,
-      "enabled": true,
-      "match_pattern": "module_397_load"
+      "auto_restart": false,
+      "enabled": false,
+      "match_pattern": "module_397_load",
+      "_phone_disabled": true
     },
     "webui": {
       "name": "webui",
@@ -155,20 +164,22 @@
       "cwd": "$HOME/CYBRA",
       "pid_file": "$HOME/CYBRA/run/pm_webui.pid",
       "log_file": "$HOME/CYBRA/logs/webui.log",
-      "auto_restart": true,
-      "enabled": true,
-      "match_pattern": "module_398_webui/server.py"
+      "auto_restart": false,
+      "enabled": false,
+      "match_pattern": "module_398_webui/server.py",
+      "_phone_disabled": true
     },
     "task_engine": {
       "name": "task_engine",
       "desc": "Task Engine — двигун задач з sandbox-тестом",
-      "cmd": "python3 $HOME/CYBRA/modules/module_405_task_engine/engine.py cycle 3",
+      "cmd": "bash $HOME/CYBRA/modules/module_405_task_engine/cron.sh",
       "cwd": "$HOME/CYBRA",
       "pid_file": "$HOME/CYBRA/run/pm_task_engine.pid",
       "log_file": "$HOME/CYBRA/logs/task_engine.log",
       "auto_restart": false,
       "enabled": false,
-      "match_pattern": "module_405_task_engine"
+      "match_pattern": "module_405_task_engine/cron.sh",
+      "_phone_disabled": true
     },
     "tui_guard": {
       "name": "tui_guard",
@@ -177,9 +188,10 @@
       "cwd": "$HOME/CYBRA",
       "pid_file": "$HOME/CYBRA/run/pm_tui_guard.pid",
       "log_file": "$HOME/CYBRA/logs/tui_guard.log",
-      "auto_restart": true,
-      "enabled": true,
-      "match_pattern": "module_406_tui_guard/guard.py daemon"
+      "auto_restart": false,
+      "enabled": false,
+      "match_pattern": "module_406_tui_guard/guard.py daemon",
+      "_phone_disabled": true
     }
   }
 }

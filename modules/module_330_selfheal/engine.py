@@ -32,6 +32,9 @@ def _run(cmd, timeout=60):
         return 1, str(e)[:200]
 
 def _log(entry):
+    try:
+        LOG.parent.mkdir(parents=True, exist_ok=True)
+    except Exception: pass
     entry["ts"] = _now()
     with open(LOG, "a") as f: f.write(json.dumps(entry, ensure_ascii=False) + "\n")
     try:
@@ -53,6 +56,25 @@ def _save_state(s):
 # ═══════════════════════════════════════════════════════════════
 # DETECT + CLASSIFY
 # ═══════════════════════════════════════════════════════════════
+
+def _pm_is_disabled(proc_name):
+    """Чи process вимкнено у PM конфізі (phone mode)."""
+    try:
+        cfg = H / "config/pm_processes.json"
+        if not cfg.exists(): return False
+        procs = json.loads(cfg.read_text()).get("processes", {})
+        p = procs.get(proc_name, {})
+        return not p.get("enabled", True) or p.get("_phone_disabled", False)
+    except Exception: return False
+
+def _is_heavy_proc(proc_name):
+    """Список важких які не тримаємо на телефоні."""
+    return proc_name in {
+        "dashboard", "webui", "runtime", "job_controller", "controller_worker",
+        "structure", "diffrecover", "load", "orchestrator", "task_engine",
+        "tui_guard", "schedule", "http", "src",
+    }
+
 def detect_issues():
     """Повертає список проблем зі всіх джерел."""
     issues = []
@@ -146,7 +168,7 @@ def detect_issues():
                      ("dashboard","module_128_dashboard/server.py")]:
         rc, _ = _run(f"pgrep -f '{pat}'")
         if rc != 0:
-            issues.append({"source":"process", "level":"safe",
+            if not _pm_is_disabled(locals().get("name","")) and not _is_heavy_proc(locals().get("name","")): issues.append({"source":"process", "level":"safe",
                           "process": name, "detail": f"{name} не працює"})
 
     # 7. Disk

@@ -1,9 +1,9 @@
 {
-  "at": "2026-10-12T22:48:21Z",
+  "at": "2026-10-13T08:58:37Z",
   "files": {
     "modules/module_19_contract_tui_menu/bin/cybra_menu.sh": {
-      "hash": "f8fdcfb894383eadd1f68ff7964c0d63b58a9c7ae6605a5ac3795cb98d879f65",
-      "size": 46987
+      "hash": "61a8d959c2c7d82c90afbf946160d493f62d0d4674982ce8187080104cd9c0dd",
+      "size": 46779
     },
     "modules/module_108_metamask_sign/main.sh": {
       "hash": "a2a2df0d7763c89e1912a90d3d96eb74e59996811d078f3ff366e61d824a9acd",
@@ -26,8 +26,8 @@
       "size": 2332
     },
     "modules/module_320_controllers/controllers.py": {
-      "hash": "e6aa9960dd2db45520a91645f8cbf1ce7f29ce78bd232b4279b739edb5e26b80",
-      "size": 9345
+      "hash": "2d6ea7b2a97e4444c43fa905adf951aaa02ffb2b389a80007e7d335afe5c3b54",
+      "size": 8477
     },
     "modules/module_330_selfheal/engine.py": {
       "hash": "22402d3d885bbed590fd6d06b1f41dfce6ba92bb123b8d3c0b82b0dc9248eb13",
@@ -50,16 +50,16 @@
       "size": 15388
     },
     "config/networks.json": {
-      "hash": "8160703ad2c81c65ab7b4fc94a8a189ad478ce146455d8d987d0608f69681b17",
-      "size": 2552
+      "hash": "b7af874e85c70cc7ca784c0fbb46b920cdf415a35de5a599e3459a96fc7c62d1",
+      "size": 2497
     },
     "config/metamask.env": {
       "hash": "13c1dba2fa3f4d97db1e51fa42c32521e4589f61c674457df91f51c1e1912512",
       "size": 133
     },
     "config/pm_processes.json": {
-      "hash": "9c1726fa5f888d1cf234e9f7ecd1878a6857359efe3020023419bba101ab2e7f",
-      "size": 2424
+      "hash": "ec8834472590430c67c1f08d418bec63c8cb59c3de4f8326c06742d7ceb2f71b",
+      "size": 7290
     },
     "../.cybra_src/bootstrap_seed.sh": {
       "hash": "8c51e6f25a8d6eab11b1d8dc8fe534f458a10f7b3d3d208ad6ab42401c99f88d",

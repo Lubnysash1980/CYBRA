@@ -1,90 +1,79 @@
 {
-  "at": "2026-10-13T08:16:51Z",
-  "duration_ms": 34054,
+  "at": "2026-10-13T09:04:33Z",
+  "duration_ms": 31037,
   "rounds": [
     {
       "round": 1,
       "ok": false,
       "actions": [
-        "heal_controllers",
-        "heal_health",
         "heal_completion",
         "heal_processes"
       ],
       "devs": 1,
-      "health": 62,
+      "health": 100,
       "completion": 98.3,
-      "controllers_ok": 0,
-      "controllers_total": 1
+      "controllers_ok": 8,
+      "controllers_total": 8
     },
     {
       "round": 2,
       "ok": false,
       "actions": [
-        "heal_controllers",
-        "heal_health",
-        "heal_completion",
-        "heal_processes"
+        "heal_completion"
       ],
-      "devs": 1,
-      "health": 62,
+      "devs": 0,
+      "health": 100,
       "completion": 98.3,
-      "controllers_ok": 0,
-      "controllers_total": 1
+      "controllers_ok": 8,
+      "controllers_total": 8
     },
     {
       "round": 3,
       "ok": false,
       "actions": [
-        "heal_controllers",
-        "heal_health",
-        "heal_completion",
-        "heal_processes"
+        "heal_completion"
       ],
-      "devs": 1,
-      "health": 62,
+      "devs": 0,
+      "health": 100,
       "completion": 98.3,
-      "controllers_ok": 0,
-      "controllers_total": 1
+      "controllers_ok": 8,
+      "controllers_total": 8
     },
     {
       "round": 4,
       "ok": false,
       "actions": [
-        "heal_controllers",
-        "heal_health",
-        "heal_completion",
-        "heal_processes"
+        "heal_completion"
       ],
-      "devs": 1,
-      "health": 62,
+      "devs": 0,
+      "health": 100,
       "completion": 98.3,
-      "controllers_ok": 0,
-      "controllers_total": 1
+      "controllers_ok": 8,
+      "controllers_total": 8
     },
     {
       "round": 5,
       "ok": false,
       "actions": [
-        "heal_controllers",
-        "heal_health",
-        "heal_completion",
-        "heal_processes"
+        "heal_completion"
       ],
-      "devs": 1,
-      "health": 62,
+      "devs": 0,
+      "health": 100,
       "completion": 98.3,
-      "controllers_ok": 0,
-      "controllers_total": 1
+      "controllers_ok": 8,
+      "controllers_total": 8
     }
   ],
   "final": {
-    "ts": "2026-10-13T08:16:51Z",
-    "ts_unix": 1791879411,
-    "health": 62,
+    "ts": "2026-10-13T09:04:32Z",
+    "ts_unix": 1791882272,
+    "controllers_ok": 7,
+    "controllers_total": 8,
+    "health": 77,
     "completion": 98.3,
+    "signatures_ok": true,
     "processes_offline": 2,
-    "disk_free_mb": 48399
+    "disk_free_mb": 48825
   },
   "all_ok": false
 }

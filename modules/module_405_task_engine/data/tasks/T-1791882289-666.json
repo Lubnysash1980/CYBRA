@@ -1,0 +1,17 @@
+{
+  "id": "T-1791882289-666",
+  "at": "2026-10-13T09:04:49Z",
+  "status": "created",
+  "issue": {
+    "type": "menu_item",
+    "target": "77",
+    "severity": "warn",
+    "detail": "action_check_payment: заглушка",
+    "source": "402"
+  },
+  "action": null,
+  "sandbox_path": null,
+  "test_result": null,
+  "apply_result": null,
+  "verify_result": null
+}

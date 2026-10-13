@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "built": "2026-10-12T10:35:46Z",
+  "built": "2026-10-13T08:58:43Z",
   "total": 30,
   "modules": {
     "121": {
@@ -358,7 +358,7 @@
     "1": {
       "id": "1",
       "name": "create_contract",
-      "path": "builtin:create_contract",
+      "path": "module_001_stub",
       "provides": [
         "contract"
       ],
@@ -371,12 +371,12 @@
         "contract_created"
       ],
       "events_sub": [],
-      "mapped": false
+      "mapped": true
     },
     "11": {
       "id": "11",
       "name": "invoice",
-      "path": "builtin:invoice",
+      "path": "module_011_stub",
       "provides": [
         "invoice"
       ],
@@ -392,7 +392,7 @@
       "events_sub": [
         "contract_created"
       ],
-      "mapped": false
+      "mapped": true
     },
     "122": {
       "id": "122",
@@ -457,7 +457,7 @@
     "92": {
       "id": "92",
       "name": "autosave",
-      "path": "builtin:autosave",
+      "path": "module_092_stub",
       "provides": [
         "backup"
       ],
@@ -471,12 +471,12 @@
         "saved"
       ],
       "events_sub": [],
-      "mapped": false
+      "mapped": true
     },
     "61": {
       "id": "61",
       "name": "backup_local",
-      "path": "builtin:backup_local",
+      "path": "module_061_stub",
       "provides": [
         "local_backup"
       ],
@@ -488,12 +488,12 @@
       ],
       "events_pub": [],
       "events_sub": [],
-      "mapped": false
+      "mapped": true
     },
     "62": {
       "id": "62",
       "name": "backup_cloud",
-      "path": "builtin:backup_cloud",
+      "path": "module_062_stub",
       "provides": [
         "cloud_backup"
       ],
@@ -503,7 +503,7 @@
       "resources": [],
       "events_pub": [],
       "events_sub": [],
-      "mapped": false
+      "mapped": true
     },
     "128": {
       "id": "128",

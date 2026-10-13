@@ -1,0 +1,46 @@
+{
+  "version": "1.0",
+  "created": "2026-10-13",
+  "members": [
+    {
+      "id": "core",
+      "name": "Core",
+      "role": "founder",
+      "active": true,
+      "weight": 3,
+      "added": "2026-10-13"
+    },
+    {
+      "id": "buyer",
+      "name": "Buyer",
+      "role": "buyer",
+      "active": true,
+      "weight": 2,
+      "added": "2026-10-13"
+    },
+    {
+      "id": "seller",
+      "name": "Seller",
+      "role": "seller",
+      "active": true,
+      "weight": 2,
+      "added": "2026-10-13"
+    },
+    {
+      "id": "arbitrator",
+      "name": "Arbitrator",
+      "role": "arbiter",
+      "active": true,
+      "weight": 2,
+      "added": "2026-10-13"
+    },
+    {
+      "id": "auditor",
+      "name": "Auditor",
+      "role": "auditor",
+      "active": true,
+      "weight": 1,
+      "added": "2026-10-13"
+    }
+  ]
+}

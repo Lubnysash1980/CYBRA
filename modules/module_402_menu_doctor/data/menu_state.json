@@ -1,11 +1,11 @@
 {
-  "at": "2026-10-12T18:34:45Z",
-  "total": 165,
+  "at": "2026-10-13T09:04:42Z",
+  "total": 162,
   "counts": {
     "ok": 130,
     "warn": 6,
     "stub": 4,
-    "fail": 25
+    "fail": 22
   },
   "items": {
     "1": {
@@ -817,21 +817,6 @@
       "status": "fail",
       "reason": "немає: main.sh",
       "action": "bash \"$HOME/CYBRA/modules/module_409_pipeline/main.sh\""
-    },
-    "411": {
-      "status": "fail",
-      "reason": "немає: main.sh",
-      "action": "bash \"$HOME/CYBRA/modules/module_411_tiers/main.sh\""
-    },
-    "413": {
-      "status": "fail",
-      "reason": "немає: main.sh",
-      "action": "bash \"$HOME/CYBRA/modules/module_413_migrator/main.sh\""
-    },
-    "414": {
-      "status": "fail",
-      "reason": "немає: main.sh",
-      "action": "bash \"$HOME/CYBRA/modules/module_414_keeper/main.sh\""
     }
   }
 }

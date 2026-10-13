@@ -1,0 +1,55 @@
+{
+  "id": "T-1791882210-623",
+  "at": "2026-10-13T09:03:30Z",
+  "status": "done",
+  "issue": {
+    "type": "menu_item",
+    "target": "74",
+    "severity": "warn",
+    "detail": "action_search_contract: заглушка",
+    "source": "402"
+  },
+  "action": null,
+  "sandbox_path": "/data/data/com.termux/files/home/CYBRA/modules/module_405_task_engine/data/sandbox/T-1791882210-623/cybra_menu.sh",
+  "test_result": {
+    "ok": true,
+    "tests": [
+      [
+        "bash_syntax",
+        true,
+        ""
+      ],
+      [
+        "bash_run_head",
+        true,
+        "\u001b[H\u001b[2J\u001b[3J════════════════════════════════════════════════════════════\n        "
+      ],
+      [
+        "not_empty",
+        true,
+        "46779 B"
+      ]
+    ]
+  },
+  "apply_result": {
+    "ok": true,
+    "info": "/data/data/com.termux/files/home/CYBRA/modules/module_19_contract_tui_menu/bin/cybra_menu.sh.bak.engine.1791882212"
+  },
+  "verify_result": {
+    "ok": true,
+    "tests": [
+      [
+        "tui_syntax",
+        true
+      ],
+      [
+        "controllers_ok",
+        true
+      ],
+      [
+        "health_100",
+        true
+      ]
+    ]
+  }
+}

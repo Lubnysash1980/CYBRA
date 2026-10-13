@@ -28,7 +28,7 @@ def extract_to_temp(snap):
     tmp = Path(tempfile.mkdtemp(prefix="cybra_recover_"))
     try:
         with tarfile.open(snap, "r:gz") as tar:
-            tar.extractall(tmp)
+            tar.extractall(tmp, filter='data')
         return tmp
     except Exception as e:
         shutil.rmtree(tmp, ignore_errors=True)
@@ -93,7 +93,7 @@ def scan_and_fix(dry_run=False):
         return {"ok": False, "reason": "немає snapshot"}
     snap_dir = extract_to_temp(snap)
     if not snap_dir:
-        return {"ok": False, "reason": "extract failed"}
+        return {"ok": False, "reason": "extract failed", "snapshot": snap.name}
 
     result = {"snapshot": snap.name, "scanned": [], "broken": [], "fixed": [], "at": _now()}
 

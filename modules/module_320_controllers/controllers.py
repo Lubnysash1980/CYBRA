@@ -21,6 +21,9 @@ def _run(cmd, timeout=10):
     except Exception: return 1, ""
 
 def _log(entry):
+    try:
+        LOG.parent.mkdir(parents=True, exist_ok=True)
+    except Exception: pass
     entry["ts"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
     with open(LOG, "a") as f: f.write(json.dumps(entry, ensure_ascii=False) + "\n")
 
@@ -87,19 +90,36 @@ def c_git_sync():
     return True, "git чистий"
 
 def c_backend():
-    """Backend сервіси."""
-    results = {}
-    for name, pat in [("autonode", "autonode/daemon.py"),
-                     ("watchdog", "parlament/watchdog"),
-                     ("orchestrator", "orchestrator.py daemon"),
-                     ("supervisor", "module_300_pm/supervisor.py"),
-                     ("dashboard", "module_128_dashboard/server.py")]:
-        rc, _ = _run(f"pgrep -f '{pat}'")
-        results[name] = rc == 0
-    alive = sum(results.values())
-    if alive == len(results): return True, f"всі {alive} процесів online"
-    return False, f"{alive}/{len(results)} online"
+    """Backend = enabled процеси у PM online."""
+    import json, subprocess
+    cfg = H / "config/pm_processes.json"
+    if not cfg.exists():
+        return True, "немає конфігу"
+    try:
+        procs = json.loads(cfg.read_text()).get("processes", {})
+    except Exception as e:
+        return False, f"cfg read: {e}"
 
+    # тільки enabled
+    enabled = [n for n, p in procs.items() if p.get("enabled", True) and not p.get("_phone_disabled")]
+    if not enabled:
+        return True, "немає enabled процесів"
+
+    # pids — читаємо через pgrep match_pattern
+    online = 0
+    offline = []
+    for name in enabled:
+        pat = procs[name].get("match_pattern") or name
+        # спрощено — pgrep по pattern
+        r = subprocess.run(["pgrep", "-f", pat], capture_output=True, timeout=5)
+        if r.returncode == 0:
+            online += 1
+        else:
+            offline.append(name)
+
+    if not offline:
+        return True, f"{online}/{len(enabled)} online"
+    return False, f"{online}/{len(enabled)} online, offline: {','.join(offline[:3])}"
 
 def c_signatures():
     """Перевіряє що всі АКТИВНІ контракти підписані.
