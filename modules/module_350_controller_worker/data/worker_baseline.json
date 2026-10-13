@@ -1,14 +1,14 @@
 {
   "metrics": {
-    "ts": "2026-10-13T09:04:32Z",
-    "ts_unix": 1791882272,
-    "controllers_ok": 7,
+    "ts": "2026-10-13T09:25:29Z",
+    "ts_unix": 1791883529,
+    "controllers_ok": 8,
     "controllers_total": 8,
-    "health": 77,
-    "completion": 98.3,
+    "health": 100,
+    "completion": 100.0,
     "signatures_ok": true,
-    "processes_offline": 2,
-    "disk_free_mb": 48825
+    "processes_offline": 0,
+    "disk_free_mb": 46953
   },
-  "at": "2026-10-13T09:04:33Z"
+  "at": "2026-10-13T09:25:30Z"
 }

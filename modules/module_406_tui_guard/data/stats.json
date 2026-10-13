@@ -1,151 +1,286 @@
 {
   "ok": false,
-  "at": "2026-10-13T09:05:17Z",
-  "tui_hash": "61a8d959c2c7d82c",
-  "case_count": 156,
-  "menu_count": 163,
-  "action_def": 100,
-  "issues_count": 28,
+  "at": "2026-10-13T09:26:18Z",
+  "tui_hash": "0299b75f4002310f",
+  "case_count": 136,
+  "menu_count": 138,
+  "action_def": 96,
+  "issues_count": 55,
   "issues": [
     {
+      "type": "missing_action",
+      "id": "74",
+      "detail": "action_search_contract не визначена"
+    },
+    {
+      "type": "missing_action",
+      "id": "75",
+      "detail": "action_autofill_contract не визначена"
+    },
+    {
+      "type": "missing_action",
+      "id": "77",
+      "detail": "action_check_payment не визначена"
+    },
+    {
+      "type": "missing_action",
+      "id": "78",
+      "detail": "action_custom_terms не визначена"
+    },
+    {
+      "type": "dup_case",
+      "id": "88",
+      "detail": "case 88 зустрічається двічі"
+    },
+    {
+      "type": "dup_case",
+      "id": "89",
+      "detail": "case 89 зустрічається двічі"
+    },
+    {
+      "type": "dup_case",
+      "id": "90",
+      "detail": "case 90 зустрічається двічі"
+    },
+    {
+      "type": "dup_case",
+      "id": "87",
+      "detail": "case 87 зустрічається двічі"
+    },
+    {
       "type": "double_cybra",
-      "id": "320",
+      "id": "108",
       "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
     },
     {
       "type": "double_cybra",
-      "id": "330",
+      "id": "109",
       "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
     },
     {
       "type": "double_cybra",
-      "id": "340",
+      "id": "110",
       "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
     },
     {
       "type": "double_cybra",
-      "id": "341",
+      "id": "111",
       "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
     },
     {
       "type": "double_cybra",
-      "id": "350",
+      "id": "112",
       "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
     },
     {
       "type": "double_cybra",
-      "id": "360",
+      "id": "113",
       "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
     },
     {
       "type": "double_cybra",
-      "id": "370",
+      "id": "114",
       "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
     },
     {
       "type": "double_cybra",
-      "id": "371",
+      "id": "115",
       "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
     },
     {
       "type": "double_cybra",
-      "id": "380",
+      "id": "116",
       "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
     },
     {
       "type": "double_cybra",
-      "id": "390",
+      "id": "117",
       "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
     },
     {
       "type": "double_cybra",
-      "id": "395",
+      "id": "118",
       "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
     },
     {
       "type": "double_cybra",
-      "id": "396",
+      "id": "119",
       "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
     },
     {
       "type": "double_cybra",
-      "id": "397",
+      "id": "120",
       "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
     },
     {
       "type": "double_cybra",
-      "id": "398",
+      "id": "121",
       "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
     },
     {
       "type": "double_cybra",
-      "id": "399",
+      "id": "122",
       "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
     },
     {
       "type": "double_cybra",
-      "id": "401",
+      "id": "123",
       "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
     },
     {
       "type": "double_cybra",
-      "id": "402",
+      "id": "124",
       "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
     },
     {
       "type": "double_cybra",
-      "id": "405",
+      "id": "125",
       "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
     },
     {
       "type": "double_cybra",
-      "id": "406",
+      "id": "126",
       "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
     },
     {
       "type": "double_cybra",
-      "id": "407",
+      "id": "128",
       "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
     },
     {
       "type": "double_cybra",
-      "id": "408",
+      "id": "129",
       "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
     },
     {
       "type": "double_cybra",
-      "id": "409",
+      "id": "130",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "131",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "132",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "133",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "134",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "135",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "136",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "137",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "138",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "139",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "140",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "141",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "142",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "143",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "144",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "145",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "146",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "147",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "148",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "149",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "150",
       "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
     },
     {
       "type": "menu_no_case",
-      "id": "1",
-      "detail": "пункт [1] без case"
+      "id": "79",
+      "detail": "пункт [79] без case"
     },
     {
-      "type": "menu_no_case",
-      "id": "3",
-      "detail": "пункт [3] без case"
+      "type": "missing_action_call",
+      "id": "?",
+      "detail": "action_autofill_contract викликана але не визначена"
     },
     {
-      "type": "menu_no_case",
-      "id": "4",
-      "detail": "пункт [4] без case"
+      "type": "missing_action_call",
+      "id": "?",
+      "detail": "action_check_payment викликана але не визначена"
     },
     {
-      "type": "menu_no_case",
-      "id": "2",
-      "detail": "пункт [2] без case"
+      "type": "missing_action_call",
+      "id": "?",
+      "detail": "action_custom_terms викликана але не визначена"
     },
     {
-      "type": "menu_no_case",
-      "id": "6",
-      "detail": "пункт [6] без case"
-    },
-    {
-      "type": "menu_no_case",
-      "id": "5",
-      "detail": "пункт [5] без case"
+      "type": "missing_action_call",
+      "id": "?",
+      "detail": "action_search_contract викликана але не визначена"
     }
   ]
 }

@@ -1,0 +1,41 @@
+# CYBRA MODULE 19 — OWNERSHIP MANIFEST
+# Файли що належать цьому модулю (авто-детект)
+
+# Бінарні скрипти
+bin/cybra_tui_lib.sh
+bin/cybra_menu.sh
+bin/cybra_preflight.sh
+bin/cybra_self_heal.sh
+
+# State
+state/config.env
+state/rates.env
+state/ownership.manifest
+
+# Rules
+rules/*.canonical
+
+# Tests
+tests/run_tests.sh
+
+# Snapshot
+snapshot/*
+
+# Evidence (ledgers)
+evidence/license_ledger.txt
+evidence/license_ledger_b.txt
+evidence/creation_license_ledger.txt
+evidence/refund_ledger.txt
+evidence/tui_rules.txt
+evidence/rules.sha256
+evidence/debug.log
+
+# Contracts (user data)
+contracts/*.env
+contracts/*.lines
+contracts/*.terms
+contracts/*.parties
+contracts/*.input
+
+# Links (user data)
+links/*.link

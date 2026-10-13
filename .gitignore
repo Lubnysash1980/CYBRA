@@ -39,3 +39,5 @@ modules/module_398_webui/data/*.tmp
 &1
 [y/n]
 [Y/n]
+/out/
+/backups/

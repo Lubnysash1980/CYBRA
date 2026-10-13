@@ -2,3 +2,4 @@
 {"action": "rm_dead_pid", "target": "/data/data/com.termux/files/home/CYBRA/run/autonode.pid", "kind": "absent", "ts": "2026-10-13T07:32:38Z"}
 {"action": "rm_dead_pid", "target": "/data/data/com.termux/files/home/CYBRA/run/autonode.pid", "kind": "absent", "ts": "2026-10-13T07:42:16Z"}
 {"action": "rm_dead_pid", "target": "/data/data/com.termux/files/home/CYBRA/run/autonode.pid", "kind": "absent", "ts": "2026-10-13T08:25:21Z"}
+{"action": "rm_dead_pid", "target": "/data/data/com.termux/files/home/CYBRA/run/autonode.pid", "kind": "file", "mode": 384, "size": 4, "backup": "/data/data/com.termux/files/home/CYBRA/modules/module_121_parlament/undo/rm_dead_pid_1791883022.bak", "ts": "2026-10-13T09:17:02Z"}

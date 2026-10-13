@@ -46,9 +46,10 @@
       "cwd": "$HOME/CYBRA",
       "pid_file": "$HOME/CYBRA/run/pm_supervisor.pid",
       "log_file": "$HOME/CYBRA/logs/pm.log",
-      "auto_restart": true,
-      "enabled": true,
-      "match_pattern": "module_300_pm/supervisor.py loop"
+      "auto_restart": false,
+      "enabled": false,
+      "match_pattern": "module_300_pm/supervisor.py loop",
+      "_phone_disabled": true
     },
     "dashboard": {
       "name": "dashboard",

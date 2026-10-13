@@ -1,0 +1,2 @@
+#!/data/data/com.termux/files/usr/bin/bash
+exec "$HOME/CYBRA/modules/module_19_contract_tui_menu/bin/cybra_menu.sh" "$@"

@@ -1,11 +1,11 @@
 {
-  "at": "2026-10-13T09:05:15Z",
+  "at": "2026-10-13T09:26:17Z",
   "load": {
     "cpu_count": 8,
     "ram_total_mb": 3611,
-    "ram_avail_mb": 731,
-    "ram_pct": 79.8,
-    "disk_free_mb": 48811
+    "ram_avail_mb": 851,
+    "ram_pct": 76.4,
+    "disk_free_mb": 46953
   },
   "mode": "idle",
   "reason": "Час для важких задач (evolve, autopilot, snapshot)",

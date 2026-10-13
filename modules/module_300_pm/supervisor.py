@@ -13,6 +13,13 @@ METRICS = H / "config" / "pm_metrics.jsonl"
 PM_LOG = H / "logs" / "pm.log"
 
 RUN = True
+
+def _is_disabled(name, cfg):
+    """Чи процес вимкнено (phone mode)."""
+    if not cfg.get("enabled", True): return True
+    if cfg.get("_phone_disabled", False): return True
+    return False
+
 def stop(*a):
     global RUN
     RUN = False
