@@ -1,0 +1,600 @@
+#!/data/data/com.termux/files/usr/bin/bash
+set -uo pipefail
+H="$HOME/CYBRA"; D="$H/modules/module_121_parlament"
+P="$H/public/sign"; CFG="$H/config/metamask.env"
+mkdir -p "$P"; [ -f "$CFG" ] && . "$CFG"
+MY_ADDR="${BUYER_ADDR:-0x29fA26FC5768Fe1E62160E021Fd3f88d92257A1F}"
+PORT_PRL="${PRL_PORT:-8770}"
+G=$'\e[32m'; Y=$'\e[33m'; R=$'\e[31m'; B=$'\e[36m'; DIM=$'\e[2m'; N=$'\e[0m'
+
+PY="$D/parliament.py"
+
+menu(){
+  while :; do
+    clear
+    echo "${B}═══ Parliament · governance CYBRA ═══${N}"
+    echo
+    echo "  ${G}1${N}) Члени парламенту (список / додати / видалити)"
+    echo "  ${G}2${N}) Створити пропозицію"
+    echo "  ${G}3${N}) Голосувати (MetaMask через браузер)"
+    echo "  ${G}4${N}) Результат пропозиції"
+    echo "  ${G}5${N}) Закрити / Veto"
+    echo "  ${G}6${N}) Усі пропозиції"
+    echo "  ${G}7${N}) Репутація учасників"
+    echo "  ${G}8${N}) Правила"
+    echo "  ${G}9${N}) Перевірити hash-chain (tamper detection)"
+    echo "  ${G}10${N}) Інтеграція: створити proposal на контракт з 108"
+    echo
+    echo "  ${B}─── АВТО-РЕЖИМ ───${N}"
+    echo "  ${G}11${N}) ${B}ЩО РОБИТИ${N} — план дій (аналіз + рекомендації)"
+    echo "  ${G}12${N}) Виконати авто-фікси (safe)"
+    echo "  ${G}13${N}) Повний цикл: аналіз → auto → пропозиції → виконання"
+    echo "  ${G}14${N}) Виконати схвалені пропозиції"
+    echo "  ${G}15${N}) Історія виконаних дій"
+    echo "  ${G}16${N}) UNDO — відкотити останні N дій"
+    echo "  ${G}17${N}) Пріоритезація (Agenda)"
+    echo "  ${G}18${N}) Watchdog — auto-цикл (start/stop/status)"
+    echo "  ${G}19${N}) Telegram-звіт зараз"
+    echo
+    echo "  ${B}─── СИНХРОНІЗАЦІЯ / PROTOCOL ───${N}"
+    echo "  ${G}20${N}) PDF/HTML протокол пропозиції"
+    echo "  ${G}21${N}) Git-sync (віддалений парламент)"
+    echo "  ${G}22${N}) WebDAV backup (хмара)"
+    echo "  ${G}23${N}) Відновити з WebDAV"
+    echo
+    echo "  ${B}─── САМОСПОСТЕРЕЖЕННЯ ───${N}"
+    echo "  ${G}24${N}) Stream — стрім подій (tail)"
+    echo "  ${G}25${N}) Stream — статистика"
+    echo "  ${G}26${N}) Deep audit (spec vs actual)"
+    echo "  ${G}27${N}) Gap analysis (що треба додати)"
+    echo "  ${G}28${N}) Roadmap (JSON + MD)"
+    echo "  ${G}29${N}) Self-audit цикл (все разом)"
+    echo
+    echo "  ${B}─── ВИКОНАННЯ КОНТРАКТУ (7 рівнів) ───${N}"
+    echo "  ${G}30${N}) Карта виконання (auto-mapping)"
+    echo "  ${G}31${N}) Прогрес + блокування"
+    echo "  ${G}32${N}) Виконати поточний рівень"
+    echo "  ${G}33${N}) Позначити рівень (вручну)"
+    echo "  ${G}34${N}) Відхилення 3% — перевірка/статистика"
+    echo "  ${G}35${N}) Auto-advance всіх контрактів"
+    echo "  ${G}36${N}) Хуки (список/fire)"
+    echo "  ${G}37${N}) Екзекутори (доступні дії)"
+    echo "  ${G}38${N}) Deviations — конфіг"
+    echo "  ${G}39${N}) Список контрактів у виконанні"
+    echo
+    echo "  ${B}─── CONTRACT DOSSIER ───${N}"
+    echo "  ${G}40${N}) ${C_BOLD}Натисни контракт → повне дос'є${N}"
+    echo "  ${G}41${N}) Дос'є за CID (швидко)"
+    echo "  ${G}42${N}) JSON-експорт дос'є"
+    echo
+    echo "  ${B}─── ORCHESTRATOR (автономний) ───${N}"
+    echo "  ${G}43${N}) ${C_BOLD}Повний цикл оркестратора${N}"
+    echo "  ${G}44${N}) Демон (start/stop/status)"
+    echo "  ${G}45${N}) Каталог модулів"
+    echo "  ${G}46${N}) Що не встановлено"
+    echo "  ${G}47${N}) Авто-інсталяція (dry-run)"
+    echo "  ${G}48${N}) Авто-інсталяція (реально)"
+    echo "  ${G}49${N}) Моніторинг (snapshot)"
+    echo "  ${G}50${N}) Тренд (24 год)"
+    echo "  ${G}51${N}) Алерти"
+    echo "  ${G}52${N}) Задачі (scheduler)"
+    echo "  ${G}53${N}) Перевірка інтеграції (TUI)"
+    echo "  ${G}54${N}) Список звітів циклу"
+    echo
+    echo "  ${B}─── EVOLVE (метрики + 3%) ───${N}"
+    echo "  ${G}55${N}) ${C_BOLD}Evolve цикл${N} (метрики → 3% → авто-дія)"
+    echo "  ${G}56${N}) Dry-run (без дій)"
+    echo "  ${G}57${N}) Baseline + тренд"
+    echo "  ${G}58${N}) Evolve лог"
+    echo "  ${G}59${N}) Метрики (snapshot)"
+    echo "  ${G}60${N}) Скинути baseline"
+    echo
+    echo "  ${G}0${N}) Назад"
+    echo
+    read -rp "  Вибір: " c
+    case "$c" in
+      1) members_menu ;;
+      2) create_flow ;;
+      3) vote_flow ;;
+      4) read -rp "PID: " pid; result_flow "$pid" ;;
+      5) close_menu ;;
+      6) list_props ;;
+      7) rep_flow ;;
+      8) rules_menu ;;
+      9) python3 "$PY" chain; echo; read -rp "Enter…" _ ;;
+      10) int_contract ;;
+      11) python3 "$D/todo.py" ;;
+      12)
+        python3 "$D/executor.py" auto
+        ;;
+      13)
+        python3 "$D/executor.py" run
+        ;;
+      14)
+        python3 "$D/executor.py" apply
+        ;;
+      15)
+        python3 - <<'PYH'
+import sys, os
+sys.path.insert(0, os.path.expanduser("~/CYBRA/modules/module_121_parlament"))
+import actions
+for e in actions.recent(30):
+    mark = "✓" if e.get("ok") else "✗"
+    print(f"  {e.get('ts','?')}  {mark}  [{e.get('level'):5s}]  {e.get('action')}  {e.get('msg','')[:50]}")
+PYH
+        ;;
+      16)
+        read -rp "  Скільки останніх дій відкотити? [1]: " n; n="${n:-1}"
+        python3 "$D/undo.py" last "$n"
+        ;;
+      17)
+        python3 "$D/prioritize.py" show
+        echo
+        read -rp "  Створити пропозицію для голосування? (y/N): " a
+        [ "$a" = "y" ] && python3 "$D/prioritize.py" propose
+        ;;
+      18)
+        echo "  1) start  2) stop  3) status  4) log"
+        read -rp "  Вибір: " wc
+        case "$wc" in
+          1) bash "$D/watchdog.sh" start ;;
+          2) bash "$D/watchdog.sh" stop ;;
+          3) bash "$D/watchdog.sh" status ;;
+          4) bash "$D/watchdog.sh" log 40 ;;
+        esac
+        ;;
+      19)
+        python3 "$D/telegram_report.py"
+        ;;
+      20)
+        read -rp "  PID: " pid
+        python3 "$D/protocol.py" "$pid"
+        ;;
+      21)
+        echo "  1) setup remote  2) sync  3) status  4) push  5) pull  6) disable"
+        read -rp "  Вибір: " gc
+        case "$gc" in
+          1) read -rp "  git remote URL: " rm; python3 "$D/git_sync.py" setup "$rm" ;;
+          2) python3 "$D/git_sync.py" sync ;;
+          3) python3 "$D/git_sync.py" status ;;
+          4) python3 "$D/git_sync.py" push ;;
+          5) python3 "$D/git_sync.py" pull ;;
+          6) python3 "$D/git_sync.py" disable ;;
+        esac
+        ;;
+      22)
+        echo "  Приклади URL:"
+        echo "    Nextcloud: https://cloud.X.com/remote.php/dav/files/USER/CYBRA"
+        echo "    Yandex:    https://webdav.yandex.ru/CYBRA"
+        echo "    Box.com:   https://dav.box.com/dav/CYBRA"
+        echo
+        read -rp "  WebDAV URL: " wu
+        read -rp "  User: " wuser
+        read -rsp "  Password: " wpass; echo
+        read -rp "  Keep days [30]: " wk; wk="${wk:-30}"
+        python3 "$D/webdav.py" setup "$wu" "$wuser" "$wpass" "$wk"
+        echo
+        read -rp "  Зробити бекап зараз? (y/N): " b
+        [ "$b" = "y" ] && python3 "$D/webdav.py" backup
+        ;;
+      23)
+        read -rp "  URL (Enter = останній): " ru
+        python3 "$D/webdav.py" restore "$ru"
+        ;;
+      24)
+        read -rp "  Скільки рядків [30]: " n; n="${n:-30}"
+        python3 "$D/stream.py" tail "$n"
+        ;;
+      25)
+        python3 "$D/stream.py" stats
+        ;;
+      26)
+        python3 "$D/deep_audit.py"
+        ;;
+      27)
+        python3 "$D/gap.py"
+        ;;
+      28)
+        python3 "$D/roadmap.py" refresh
+        echo
+        head -60 "$HOME/CYBRA/docs/ROADMAP.md"
+        ;;
+      29)
+        python3 "$D/self_audit.py" -v
+        ;;
+      30)
+        read -rp "  CID: " cid
+        python3 "$D/mapper.py" "$cid"
+        ;;
+      31)
+        read -rp "  CID: " cid
+        python3 "$D/verify_7.py" "$cid"
+        python3 "$D/progress.py" blockers "$cid"
+        ;;
+      32)
+        read -rp "  CID: " cid
+        read -rp "  Рівень (Enter=auto): " lv
+        python3 "$D/progress.py" exec "$cid" ${lv:+"$lv"}
+        ;;
+      33)
+        read -rp "  CID: " cid
+        read -rp "  Рівень 1-7: " lv
+        read -rp "  ok? (y/N): " ok_
+        [ "$ok_" = "y" ] && okflag=1 || okflag=0
+        python3 - "$cid" "$lv" "$okflag" <<'PYE'
+import sys, os
+sys.path.insert(0, os.path.expanduser("~/CYBRA/modules/module_121_parlament"))
+import verify_7
+ok, msg = verify_7.set_level(sys.argv[1], int(sys.argv[2]),
+                             bool(int(sys.argv[3])), actor="manual")
+print(("✓ " if ok else "✗ ")+msg)
+PYE
+        ;;
+      34)
+        read -rp "  CID (Enter=усі): " cid
+        python3 "$D/deviation.py" stats ${cid:+"$cid"}
+        echo
+        python3 "$D/deviation.py" cfg
+        ;;
+      35)
+        python3 "$D/progress.py" tick
+        ;;
+      36)
+        echo "  1) список  2) fire подію"
+        read -rp "  Вибір: " hc
+        if [ "$hc" = "1" ]; then
+          python3 "$D/hooks.py" list
+        else
+          read -rp "  подія (level_up/deviation/contract_closed): " ev
+          python3 - "$ev" <<'PYH'
+import sys, os
+sys.path.insert(0, os.path.expanduser("~/CYBRA/modules/module_121_parlament"))
+import hooks
+r = hooks.fire(sys.argv[1], cid="MANUAL-TEST", level=1)
+print(f"  викликано хуків: {len(r)}")
+PYH
+        fi
+        ;;
+      37)
+        python3 - <<'PYE'
+import sys, os
+sys.path.insert(0, os.path.expanduser("~/CYBRA/modules/module_121_parlament"))
+import executors
+for eid, e in executors.EXECUTORS.items():
+    print(f"  L{e.level}  {eid:12s}  {e.name}")
+PYE
+        ;;
+      38)
+        python3 "$D/deviation.py" cfg
+        echo
+        read -rp "  Змінити (key=value key2=value2): " kv
+        [ -n "$kv" ] && python3 "$D/deviation.py" set $kv
+        ;;
+      39)
+        python3 - <<'PYE'
+import os, sys, json
+from pathlib import Path
+sys.path.insert(0, os.path.expanduser("~/CYBRA/modules/module_121_parlament"))
+import verify_7
+EX = Path(os.path.expanduser("~/CYBRA/modules/module_121_parlament/data/executions"))
+if not EX.exists(): print("  (порожньо)"); raise SystemExit
+for f in sorted(EX.glob("C-*.json")):
+    s = verify_7.status(f.stem)
+    if s: print(f"  {s['progress']:5.1f}%  L{s['blocked_at'] or 7}  {s['cid']}")
+PYE
+        ;;
+      40)
+        bash "$D/dossier_tui.sh"
+        ;;
+      41)
+        read -rp "  CID: " cid
+        [ -n "$cid" ] && python3 "$D/dossier.py" "$cid"
+        ;;
+      42)
+        read -rp "  CID: " cid
+        [ -n "$cid" ] && python3 "$D/dossier.py" json "$cid"
+        ;;
+      43)
+        python3 "$D/orchestrator.py" run
+        read -rp "Enter…" _
+        ;;
+      44)
+        echo "  1) start  2) stop  3) status  4) log  5) once"
+        read -rp "  Вибір: " oc
+        case "$oc" in
+          1) bash "$D/orch.sh" start ;;
+          2) bash "$D/orch.sh" stop ;;
+          3) bash "$D/orch.sh" status ;;
+          4) bash "$D/orch.sh" log 40 ;;
+          5) bash "$D/orch.sh" once ;;
+        esac
+        read -rp "Enter…" _
+        ;;
+      45) python3 "$D/orchestrator.py" catalog; read -rp "Enter…" _ ;;
+      46) python3 "$D/orchestrator.py" missing; read -rp "Enter…" _ ;;
+      47) python3 "$D/orchestrator.py" install --dry; read -rp "Enter…" _ ;;
+      48) python3 "$D/orchestrator.py" install; read -rp "Enter…" _ ;;
+      49) python3 "$D/orchestrator.py" monitor; read -rp "Enter…" _ ;;
+      50) python3 "$D/orchestrator.py" trend --hours 24; read -rp "Enter…" _ ;;
+      51) python3 "$D/orchestrator.py" alerts; read -rp "Enter…" _ ;;
+      52) python3 "$D/orchestrator.py" tasks; read -rp "Enter…" _ ;;
+      53) python3 "$D/orchestrator.py" verify; read -rp "Enter…" _ ;;
+      54) ls -1t "$D/data/orch_reports"/*.json 2>/dev/null | head -10 | sed 's/^/  /'; read -rp "Enter…" _ ;;
+      55) python3 "$D/evolve.py" run; read -rp "Enter…" _ ;;
+      56) python3 "$D/evolve.py" dry; read -rp "Enter…" _ ;;
+      57) python3 "$D/evolve.py" status; read -rp "Enter…" _ ;;
+      58) python3 "$D/evolve.py" log 30; read -rp "Enter…" _ ;;
+      59) python3 "$D/metrics.py" collect; read -rp "Enter…" _ ;;
+      60) read -rp "  Точно скинути baseline? (yes): " a
+          [ "$a" = "yes" ] && python3 "$D/evolve.py" reset-baseline; read -rp "Enter…" _ ;;
+      0) return ;;
+    esac
+    echo; read -rp "Enter…" _ 2>/dev/null || true
+  done
+}
+
+members_menu(){
+  while :; do
+    clear
+    echo "${B}═══ Члени парламенту ═══${N}"
+    python3 - "$D/data/members.json" <<'PY'
+import json, sys, os
+p = sys.argv[1]
+d = json.load(open(p)) if os.path.exists(p) else {"members": []}
+if not d["members"]: print("  (порожньо)")
+for m in d["members"]:
+    st = "●" if m.get("active",True) else "○"
+    print(f"  {st} {m['label']:20s} {m['addr'][:10]}…  {m['role']:9s}  w={m['weight']}")
+PY
+    echo
+    echo "  ${G}a${N}) Додати  ${G}r${N}) Видалити  ${G}0${N}) Назад"
+    read -rp "  Вибір: " c
+    case "$c" in
+      a)
+        read -rp "  Адреса: " a
+        read -rp "  Мітка: " l
+        echo "  Ролі: founder arbiter auditor buyer seller observer"
+        read -rp "  Роль [observer]: " role; role="${role:-observer}"
+        read -rp "  Вага [1]: " w; w="${w:-1}"
+        python3 - "$a" "$l" "$role" "$w" <<'PY'
+import sys, os
+sys.path.insert(0, os.path.expanduser("~/CYBRA/modules/module_121_parlament"))
+import parliament as P
+ok, why = P.add_member(sys.argv[1], sys.argv[2], sys.argv[3], int(sys.argv[4]))
+print(("✓ " if ok else "✗ ")+why)
+PY
+        sleep 1
+        ;;
+      r)
+        read -rp "  Адреса: " a
+        python3 - "$a" <<'PY'
+import sys, os
+sys.path.insert(0, os.path.expanduser("~/CYBRA/modules/module_121_parlament"))
+import parliament as P
+ok, why = P.remove_member(sys.argv[1])
+print(("✓ " if ok else "✗ ")+why)
+PY
+        sleep 1
+        ;;
+      0) return ;;
+    esac
+  done
+}
+
+create_flow(){
+  echo
+  echo "  Типи:"
+  echo "    1) contract_sign   2) dispute"
+  echo "    3) upgrade         4) rule_change   5) custom"
+  read -rp "  Тип [custom]: " t
+  case "$t" in
+    1) type="contract_sign" ;; 2) type="dispute" ;;
+    3) type="upgrade" ;; 4) type="rule_change" ;;
+    *) type="custom" ;;
+  esac
+  read -rp "  Заголовок: " title
+  [ -z "$title" ] && { echo "порожній заголовок"; return; }
+
+  # payload: опційний CID/URL/значення
+  payload_json="{}"
+  if [ "$type" = "contract_sign" ]; then
+    read -rp "  CID контракту (напр. C-INV-…): " cid
+    read -rp "  Сума BNB (опц., порожнє=0): " amt
+    payload_json=$(python3 -c "import json,sys;print(json.dumps({'cid':sys.argv[1],'amount_bnb':float(sys.argv[2] or 0)}))" "$cid" "$amt")
+  fi
+
+  python3 - "$type" "$title" "$MY_ADDR" "$payload_json" <<'PY'
+import sys, os, json
+sys.path.insert(0, os.path.expanduser("~/CYBRA/modules/module_121_parlament"))
+import parliament as P
+ok, why, pid = P.create_proposal(sys.argv[1], sys.argv[2], json.loads(sys.argv[4]), sys.argv[3])
+print(("✓ " if ok else "✗ ")+why+(f" · {pid}" if pid else ""))
+PY
+  echo
+  read -rp "Enter…" _
+}
+
+vote_flow(){
+  echo
+  echo "Відкриті пропозиції:"
+  python3 - "$PY" <<'PY'
+import sys, os
+sys.path.insert(0, os.path.dirname(sys.argv[1]))
+import parliament as P
+for p in P.proposals(status="open"):
+    t = P.tally(p["pid"])
+    hint = P.next_step_hint(p["pid"])
+    print(f"  {p['pid']}  {p['title'][:40]:42s}  {hint}")
+PY
+  read -rp "  PID: " pid
+  [ -z "$pid" ] && return
+  # підняти сервер
+  kill $(cat "$H/run/prl_server.pid" 2>/dev/null) 2>/dev/null
+  python3 "$D/server.py" "$PORT_PRL" >"$P/prl_server.log" 2>&1 &
+  echo $! > "$H/run/prl_server.pid"
+  sleep 1
+
+  : > "$P/tunnel_prl.log"
+  cloudflared tunnel --url "http://127.0.0.1:$PORT_PRL" --protocol http2 \
+    --no-autoupdate >"$P/tunnel_prl.log" 2>&1 &
+  TPID=$!
+  URL=""
+  for i in $(seq 1 25); do
+    URL=$(grep -oE 'https://[a-z0-9][a-z0-9-]+\.trycloudflare\.com' "$P/tunnel_prl.log" 2>/dev/null|grep -v '^https://api\.'|head -1||true)
+    [ -n "$URL" ] && break; sleep 1
+  done
+  [ -z "$URL" ] && URL="http://127.0.0.1:$PORT_PRL"
+
+  FULL="$URL/?pid=$pid"
+  DL="https://metamask.app.link/dapp/${FULL#https://}"
+  echo
+  echo "${B}═══ Голосування ═══${N}"
+  echo "  PID:  $pid"
+  echo "  URL:  $FULL"
+  echo "  Deep: $DL"
+  echo
+  echo "  ${DIM}відкриваю MetaMask…${N}"
+  if command -v termux-open-url >/dev/null; then
+    termux-open-url "$DL" && echo "  ${G}✓${N} MetaMask відкрито"
+  fi
+  echo
+  echo "  ${DIM}очікую голоси… (Ctrl+C щоб вийти, або Enter для оновлення)${N}"
+  while :; do
+    printf '.'
+    if ! kill -0 $(cat "$H/run/prl_server.pid" 2>/dev/null) 2>/dev/null; then
+      echo; echo "${R}сервер впав${N}"; break
+    fi
+    # refresh кожні 3с
+    read -t 3 -n 1 -s && break
+  done
+  kill $TPID 2>/dev/null
+  pkill -f "cloudflared.*$PORT_PRL" 2>/dev/null
+  kill $(cat "$H/run/prl_server.pid" 2>/dev/null) 2>/dev/null
+  echo
+  result_flow "$pid"
+}
+
+result_flow(){
+  pid="$1"
+  python3 - "$PY" "$pid" <<'PY'
+import sys, os, json
+sys.path.insert(0, os.path.dirname(sys.argv[1]))
+import parliament as P
+p = P.get_proposal(sys.argv[2])
+if not p: print("  ✗ не знайдено"); sys.exit(1)
+t = P.tally(sys.argv[2])
+print(f"  PID:      {p['pid']}")
+print(f"  Title:    {p['title']}")
+print(f"  Type:     {p['type']}   Status: {p['status']}")
+print(f"  Author:   {p['author_label']} ({p['author'][:10]}…)")
+print(f"  Expires:  {p['expires']}")
+print()
+print(f"  Кворум:     {t['participated_weight']} / {t['quorum_needed']}  {'✅' if t['quorum_ok'] else '⏳'}")
+print(f"  Схвалення:  {t['approval_percent']}% (треба {p['approval_percent']}%)  {'✅' if t['approval_ok'] else '⏳'}")
+print(f"  За:         {t['yes']['count']} голосів / {t['yes']['weight']} ваги")
+print(f"  Проти:      {t['no']['count']} / {t['no']['weight']}")
+print(f"  Утрим:      {t['abstain']['count']} / {t['abstain']['weight']}")
+print(f"  Далі:       {P.next_step_hint(sys.argv[2])}")
+PY
+  echo
+  read -rp "Enter…" _
+}
+
+close_menu(){
+  read -rp "PID: " pid
+  echo "  ${G}c${N}) Закрити (approve)   ${G}v${N}) Veto"
+  read -rp "  Вибір: " a
+  if [ "$a" = "c" ]; then
+    python3 - "$PY" "$pid" <<'PY'
+import sys, os
+sys.path.insert(0, os.path.dirname(sys.argv[1]))
+import parliament as P
+ok, why = P.close_proposal(sys.argv[2])
+print(("✓ " if ok else "✗ ")+why)
+PY
+  elif [ "$a" = "v" ]; then
+    read -rp "  Ваша адреса: " who; who="${who:-$MY_ADDR}"
+    read -rp "  Причина: " reason
+    python3 - "$PY" "$pid" "$who" "$reason" <<'PY'
+import sys, os
+sys.path.insert(0, os.path.dirname(sys.argv[1]))
+import parliament as P
+ok, why = P.veto_proposal(sys.argv[2], sys.argv[3], signature="", reason=sys.argv[4])
+print(("✓ " if ok else "✗ ")+why)
+PY
+  fi
+}
+
+list_props(){
+  python3 - "$PY" <<'PY'
+import sys, os
+sys.path.insert(0, os.path.dirname(sys.argv[1]))
+import parliament as P
+for p in P.proposals():
+    print(f"  [{p['status']:8s}] {p['pid']}  {p['type']:14s}  {p['title'][:40]}")
+PY
+}
+
+rep_flow(){
+  python3 - "$PY" <<'PY'
+import sys, os
+sys.path.insert(0, os.path.dirname(sys.argv[1]))
+import parliament as P
+r = P.reputation()
+for a, d in r.items():
+    print(f"  {d['label']:20s} {a[:10]}…  {d['role']:9s}  "
+          f"votes={d['votes']:3d}  prop={d['proposals']}  approved={d['approved']}")
+PY
+}
+
+rules_menu(){
+  echo "${B}Поточні правила:${N}"
+  python3 -c "
+import sys, os, json
+sys.path.insert(0, os.path.expanduser('~/CYBRA/modules/module_121_parlament'))
+import parliament as P
+print(json.dumps(P.rules(), indent=2, ensure_ascii=False))
+"
+  echo
+  read -rp "  Змінити (key=value) або Enter: " kv
+  if [ -n "$kv" ]; then
+    k="${kv%%=*}"; v="${kv#*=}"
+    python3 - "$k" "$v" <<'PY'
+import sys, os
+sys.path.insert(0, os.path.expanduser('~/CYBRA/modules/module_121_parlament'))
+import parliament as P
+try:
+    val = int(sys.argv[2])
+except ValueError:
+    try: val = float(sys.argv[2])
+    except ValueError: val = sys.argv[2]
+ok = P.set_rule(sys.argv[1], val)
+print("✓" if ok else "✗")
+PY
+  fi
+}
+
+int_contract(){
+  echo
+  read -rp "  CID контракту (з 108): " cid
+  read -rp "  Сума BNB: " amt
+  read -rp "  Заголовок [Підпис контракту $cid]: " title
+  title="${title:-Підпис контракту $cid}"
+  python3 - "$PY" "$cid" "$amt" "$title" "$MY_ADDR" <<'PY'
+import sys, os, json
+sys.path.insert(0, os.path.dirname(sys.argv[1]))
+import parliament as P
+payload = {"cid": sys.argv[2], "amount_bnb": float(sys.argv[3] or 0)}
+ok, why, pid = P.create_proposal("contract_sign", sys.argv[4], payload, sys.argv[5])
+print(("✓ " if ok else "✗ ")+why+(f" · {pid}" if pid else ""))
+print(f"\nТепер голосуй:  TUI → 121 → 3 → PID {pid}")
+PY
+  echo
+  read -rp "Enter…" _
+}
+
+case "${1:-menu}" in
+  menu|"") menu ;;
+  chain) python3 "$PY" chain ;;
+  *) echo "usage: $0 {menu|chain}" ;;
+esac

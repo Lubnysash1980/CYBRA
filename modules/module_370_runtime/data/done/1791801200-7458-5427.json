@@ -1,0 +1,17 @@
+{
+  "id": "1791801200-7458-5427",
+  "name": "test-3",
+  "cmd": "echo hello-3",
+  "priority": 1,
+  "timeout": 300,
+  "retry": 2,
+  "retries": 0,
+  "submitted": "2026-10-12T10:33:20Z",
+  "state": "done",
+  "owner": "runtime",
+  "started": "2026-10-12T10:33:25Z",
+  "rc": 0,
+  "duration_ms": 14,
+  "finished": "2026-10-12T10:33:25Z",
+  "output": "hello-3\n"
+}

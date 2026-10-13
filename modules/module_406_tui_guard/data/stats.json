@@ -1,0 +1,151 @@
+{
+  "ok": false,
+  "at": "2026-10-13T08:16:53Z",
+  "tui_hash": "61a8d959c2c7d82c",
+  "case_count": 156,
+  "menu_count": 163,
+  "action_def": 100,
+  "issues_count": 28,
+  "issues": [
+    {
+      "type": "double_cybra",
+      "id": "320",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "330",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "340",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "341",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "350",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "360",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "370",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "371",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "380",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "390",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "395",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "396",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "397",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "398",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "399",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "401",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "402",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "405",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "406",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "407",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "408",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "double_cybra",
+      "id": "409",
+      "detail": "подвійний CYBRA: /data/data/com.termux/files/home/CYBRA/CYBRA/modules/module_"
+    },
+    {
+      "type": "menu_no_case",
+      "id": "5",
+      "detail": "пункт [5] без case"
+    },
+    {
+      "type": "menu_no_case",
+      "id": "6",
+      "detail": "пункт [6] без case"
+    },
+    {
+      "type": "menu_no_case",
+      "id": "3",
+      "detail": "пункт [3] без case"
+    },
+    {
+      "type": "menu_no_case",
+      "id": "4",
+      "detail": "пункт [4] без case"
+    },
+    {
+      "type": "menu_no_case",
+      "id": "1",
+      "detail": "пункт [1] без case"
+    },
+    {
+      "type": "menu_no_case",
+      "id": "2",
+      "detail": "пункт [2] без case"
+    }
+  ]
+}

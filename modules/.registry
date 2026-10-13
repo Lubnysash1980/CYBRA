@@ -1,0 +1,5 @@
+108|MetaMask Sign|module_108_metamask_sign/main.sh|Підписати контракт (auto deep-link у MetaMask)
+109|MetaMask Verify|module_109_metamask_verify/main.sh|Перевірити .sig файл
+110|MetaMask History|module_110_metamask_history/main.sh|Історія всіх підписів
+111|MetaMask Settings|module_111_metamask_settings/main.sh|Налаштування (адреса/порт/таймаут)
+112|MetaMask DeepLink|module_112_metamask_deeplink/main.sh|Перевідкрити останній URL у MetaMask

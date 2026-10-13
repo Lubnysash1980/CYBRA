@@ -1,0 +1,50 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# CYBRA ALERT — надсилання повідомлення в Telegram (якщо налаштовано)
+# Usage: cybra_alert "повідомлення" [level]
+# levels: info, warn, error
+
+ROOT="$HOME/CYBRA"
+TG="$ROOT/modules/module_27_telegram_bot/bin/tg.sh"
+
+MSG="$1"
+LEVEL="${2:-info}"
+
+[ -z "$MSG" ] && { echo "Usage: cybra_alert <message> [info|warn|error]"; exit 1; }
+
+# Емодзі по рівню
+case "$LEVEL" in
+    info)  ICON="ℹ️" ;;
+    warn)  ICON="⚠️" ;;
+    error) ICON="🔴" ;;
+    ok)    ICON="✅" ;;
+    attack) ICON="🚨" ;;
+    reward) ICON="🎁" ;;
+    *)     ICON="ℹ️" ;;
+esac
+
+FULL="$ICON CYBRA [$LEVEL]\n$MSG"
+
+# Fallback якщо module_27 недоступний
+if [ ! -f "$TG" ]; then
+    printf '[alert:%s] %s\n' "$LEVEL" "$MSG" >> "$ROOT/logs/alerts.log"
+    exit 0
+fi
+
+source "$TG" 2>/dev/null || {
+    printf '[alert:%s] %s\n' "$LEVEL" "$MSG" >> "$ROOT/logs/alerts.log"
+    exit 0
+}
+
+# Перевірка чи TG увімкнений
+if [ "$TG_ENABLED" != "TRUE" ]; then
+    printf '[alert:%s] %s\n' "$LEVEL" "$MSG" >> "$ROOT/logs/alerts.log"
+    exit 0
+fi
+
+tg_send "$(printf '%b' "$FULL")" >/dev/null 2>&1 || true
+
+# Дублюємо в локальний лог
+mkdir -p "$ROOT/logs"
+printf '%s | %s | %s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$LEVEL" "$MSG" >> "$ROOT/logs/alerts.log"
+
+exit 0

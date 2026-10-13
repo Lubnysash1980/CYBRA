@@ -1,0 +1,201 @@
+#!/usr/bin/env python3
+"""Controller Worker — daemon що постійно перевіряє контролери і лікує.
+
+Цикл кожні N секунд:
+  1. Запустити 7 контролерів (320)
+  2. Якщо якийсь не ok → викликати heal через 330 (self-heal engine)
+  3. Якщо health < 100% → викликати health.heal
+  4. Якщо completion < 100% → completion.run
+  5. Логувати все
+"""
+import json, os, subprocess, sys, time, signal
+from pathlib import Path
+
+H = Path.home() / "CYBRA"
+M = H / "modules"
+D = Path(__file__).resolve().parent
+LOG = D / "data" / "worker.log"
+STATE = D / "data" / "worker_state.json"
+
+RUN = True
+def stop(*a):
+    global RUN; RUN = False
+    _log("worker stop signal")
+signal.signal(signal.SIGTERM, stop)
+signal.signal(signal.SIGINT, stop)
+
+def _now(): return time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+
+def _log(msg):
+    line = f"[{_now()}] {msg}"
+    print(line, flush=True)
+    try:
+        with open(LOG, "a") as f: f.write(line + "\n")
+        if LOG.stat().st_size > 500_000:
+            lines = LOG.read_text().splitlines()
+            LOG.write_text("\n".join(lines[-500:]) + "\n")
+    except Exception: pass
+
+def _run(cmd, timeout=60):
+    try:
+        r = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=timeout)
+        return r.returncode, (r.stdout + r.stderr).strip()
+    except Exception as e:
+        return 1, str(e)[:200]
+
+def check_controllers():
+    """Повертає (all_ok, list)."""
+    try:
+        sys.path.insert(0, str(M/"module_320_controllers"))
+        import controllers
+        results = controllers.check_all()
+        return all(c["ok"] for c in results), results
+    except Exception as e:
+        return False, [{"ok": False, "name": "loader", "msg": str(e)[:100]}]
+
+def heal_controllers():
+    """Лікує через 330 self-heal."""
+    rc, out = _run(f"python3 {M}/module_330_selfheal/engine.py cycle", timeout=120)
+    return rc == 0, out[-200:]
+
+def check_health():
+    try:
+        sys.path.insert(0, str(M/"module_121_parlament"))
+        import health
+        return health.health_all()
+    except Exception as e:
+        return {"overall": 0, "error": str(e)[:100]}
+
+def heal_health():
+    rc, out = _run(f"python3 {M}/module_121_parlament/health.py heal", timeout=90)
+    return rc == 0, out[-200:]
+
+def check_completion():
+    try:
+        sys.path.insert(0, str(M/"module_121_parlament"))
+        import completion
+        return completion.completion_score().get("overall", 0)
+    except Exception: return 0
+
+def heal_completion():
+    rc, out = _run(f"python3 {M}/module_121_parlament/completion.py run", timeout=120)
+    return rc == 0, out[-200:]
+
+def check_processes():
+    """Перевіряє PM процеси."""
+    procs = ["autonode", "watchdog", "orchestrator", "supervisor", "dashboard", "selfheal"]
+    missing = []
+    for p in procs:
+        rc, _ = _run(f"pgrep -f 'module_121_parlament/watchdog' >/dev/null" if p=="watchdog" else f"pgrep -f '{p}'")
+        # простіше — через cybra-pm
+    rc, out = _run("cybra-pm list", timeout=15)
+    for p in procs:
+        if p not in out:
+            missing.append(p)
+        elif "offline" in out.split(p)[-1][:50] if p in out else False:
+            missing.append(p)
+    return missing
+
+def cycle():
+    """Один повний цикл перевірки + лікування."""
+    t0 = time.time()
+    actions = []
+
+    # 1. Контролери
+    ok, ctrls = check_controllers()
+    bad = [c for c in ctrls if not c["ok"]]
+    if bad:
+        _log(f"controllers: {len(bad)}/{len(ctrls)} поганих → heal")
+        h_ok, h_out = heal_controllers()
+        actions.append(("controllers_heal", h_ok))
+        # повторна перевірка
+        time.sleep(2)
+        ok, ctrls = check_controllers()
+        bad = [c for c in ctrls if not c["ok"]]
+        if bad:
+            for c in bad:
+                _log(f"  ✗ залишилось: {c['name']} — {c['msg'][:60]}")
+    else:
+        _log(f"controllers: 7/7 ✓")
+
+    # 2. Health
+    h = check_health()
+    if h.get("overall", 0) < 100:
+        _log(f"health: {h['overall']}% → heal")
+        h_ok, _ = heal_health()
+        actions.append(("health_heal", h_ok))
+    else:
+        _log(f"health: 100% ✓")
+
+    # 3. Completion
+    comp = check_completion()
+    if comp < 100:
+        _log(f"completion: {comp}% → run")
+        c_ok, _ = heal_completion()
+        actions.append(("completion_run", c_ok))
+    else:
+        _log(f"completion: 100% ✓")
+
+    # 4. Процеси
+    missing = check_processes()
+    if missing:
+        _log(f"missing procs: {missing} → start")
+        _run("cybra-pm start-all", timeout=60)
+        actions.append(("process_start_all", True))
+
+    duration = int((time.time()-t0)*1000)
+    _log(f"cycle done: {len(actions)} actions ({duration}ms)")
+
+    # зберегти стан
+    state = {
+        "at": _now(),
+        "duration_ms": duration,
+        "controllers_ok": sum(1 for c in ctrls if c["ok"]),
+        "controllers_total": len(ctrls),
+        "health": h.get("overall", 0),
+        "completion": comp,
+        "actions": actions,
+    }
+    STATE.write_text(json.dumps(state, indent=2))
+
+    return state
+
+def daemon(interval=300):
+    """Цикл кожні interval секунд (default 5 хв)."""
+    _log(f"═══ Controller Worker START · interval={interval}s ═══")
+    while RUN:
+        try:
+            cycle()
+        except Exception as e:
+            _log(f"cycle error: {e}")
+        # sleep with early exit
+        for _ in range(interval):
+            if not RUN: break
+            time.sleep(1)
+    _log(f"═══ Controller Worker STOP ═══")
+
+if __name__ == "__main__":
+    import sys
+    cmd = sys.argv[1] if len(sys.argv) > 1 else "cycle"
+    if cmd == "cycle":
+        s = cycle()
+        G='\033[32m'; Y='\033[33m'; R='\033[31m'; B='\033[36m'; N='\033[0m'
+        print(f"\n  {B}Результат:{N}")
+        print(f"    контролери: {s['controllers_ok']}/{s['controllers_total']}")
+        print(f"    health:     {s['health']}%")
+        print(f"    completion: {s['completion']}%")
+        print(f"    час:        {s['duration_ms']}ms")
+    elif cmd == "daemon":
+        iv = int(sys.argv[2]) if len(sys.argv) > 2 else 300
+        daemon(iv)
+    elif cmd == "status":
+        if STATE.exists():
+            print(STATE.read_text())
+        else:
+            print("(ще не запускався)")
+    elif cmd == "log":
+        n = int(sys.argv[2]) if len(sys.argv) > 2 else 30
+        if LOG.exists():
+            print("\n".join(LOG.read_text().splitlines()[-n:]))
+        else:
+            print("(немає логу)")

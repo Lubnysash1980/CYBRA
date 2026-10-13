@@ -1,0 +1,809 @@
+{
+  "at": "2026-10-12T22:54:56Z",
+  "total": 159,
+  "counts": {
+    "OK": 155,
+    "STUB": 4,
+    "FAIL": 0,
+    "MISS": 0,
+    "INTER": 0,
+    "WARN": 0
+  },
+  "items": {
+    "7": {
+      "status": "OK",
+      "detail": "action_dual_license_ledger",
+      "action": "action_dual_license_ledger"
+    },
+    "8": {
+      "status": "OK",
+      "detail": "action_creation_license",
+      "action": "action_creation_license"
+    },
+    "9": {
+      "status": "OK",
+      "detail": "action_hardening",
+      "action": "action_hardening"
+    },
+    "11": {
+      "status": "OK",
+      "detail": "action_create_invoice",
+      "action": "action_create_invoice"
+    },
+    "12": {
+      "status": "OK",
+      "detail": "action_add_line",
+      "action": "action_add_line"
+    },
+    "13": {
+      "status": "OK",
+      "detail": "action_show_invoice",
+      "action": "action_show_invoice"
+    },
+    "14": {
+      "status": "OK",
+      "detail": "action_finalize_invoice",
+      "action": "action_finalize_invoice"
+    },
+    "15": {
+      "status": "OK",
+      "detail": "action_export_masked",
+      "action": "action_export_masked"
+    },
+    "16": {
+      "status": "OK",
+      "detail": "action_export_all_masked",
+      "action": "action_export_all_masked"
+    },
+    "17": {
+      "status": "OK",
+      "detail": "action_verify_pii",
+      "action": "action_verify_pii"
+    },
+    "18": {
+      "status": "OK",
+      "detail": "action_buyer_final_decision",
+      "action": "action_buyer_final_decision"
+    },
+    "19": {
+      "status": "OK",
+      "detail": "action_check_timeouts",
+      "action": "action_check_timeouts"
+    },
+    "20": {
+      "status": "OK",
+      "detail": "action_refund_status",
+      "action": "action_refund_status"
+    },
+    "21": {
+      "status": "OK",
+      "detail": "action_add_term",
+      "action": "action_add_term"
+    },
+    "22": {
+      "status": "OK",
+      "detail": "action_show_rates",
+      "action": "action_show_rates"
+    },
+    "23": {
+      "status": "OK",
+      "detail": "action_update_rate",
+      "action": "action_update_rate"
+    },
+    "24": {
+      "status": "OK",
+      "detail": "action_convert",
+      "action": "action_convert"
+    },
+    "30": {
+      "status": "OK",
+      "detail": "action_preflight",
+      "action": "action_preflight"
+    },
+    "31": {
+      "status": "OK",
+      "detail": "action_self_heal",
+      "action": "action_self_heal"
+    },
+    "32": {
+      "status": "OK",
+      "detail": "action_dual_verify",
+      "action": "action_dual_verify"
+    },
+    "33": {
+      "status": "OK",
+      "detail": "action_ownership",
+      "action": "action_ownership"
+    },
+    "40": {
+      "status": "OK",
+      "detail": "action_ai_review",
+      "action": "action_ai_review"
+    },
+    "41": {
+      "status": "OK",
+      "detail": "action_ai_parse",
+      "action": "action_ai_parse"
+    },
+    "42": {
+      "status": "OK",
+      "detail": "action_ai_terms",
+      "action": "action_ai_terms"
+    },
+    "43": {
+      "status": "OK",
+      "detail": "action_ai_help",
+      "action": "action_ai_help"
+    },
+    "44": {
+      "status": "OK",
+      "detail": "action_ai_ask",
+      "action": "action_ai_ask"
+    },
+    "45": {
+      "status": "OK",
+      "detail": "action_ai_taskbar",
+      "action": "action_ai_taskbar"
+    },
+    "46": {
+      "status": "OK",
+      "detail": "action_ai_exec_full",
+      "action": "action_ai_exec_full"
+    },
+    "47": {
+      "status": "OK",
+      "detail": "action_ai_exec_scan",
+      "action": "action_ai_exec_scan"
+    },
+    "48": {
+      "status": "OK",
+      "detail": "action_ai_exec_apply",
+      "action": "action_ai_exec_apply"
+    },
+    "49": {
+      "status": "OK",
+      "detail": "action_ai_exec_list",
+      "action": "action_ai_exec_list"
+    },
+    "50": {
+      "status": "OK",
+      "detail": "action_addr_add",
+      "action": "action_addr_add"
+    },
+    "51": {
+      "status": "OK",
+      "detail": "action_addr_list",
+      "action": "action_addr_list"
+    },
+    "52": {
+      "status": "OK",
+      "detail": "action_addr_history",
+      "action": "action_addr_history"
+    },
+    "53": {
+      "status": "OK",
+      "detail": "action_qr",
+      "action": "action_qr"
+    },
+    "54": {
+      "status": "OK",
+      "detail": "action_tg_setup",
+      "action": "action_tg_setup"
+    },
+    "55": {
+      "status": "OK",
+      "detail": "action_tg_test",
+      "action": "action_tg_test"
+    },
+    "56": {
+      "status": "OK",
+      "detail": "action_wh_list",
+      "action": "action_wh_list"
+    },
+    "57": {
+      "status": "OK",
+      "detail": "action_wh_add",
+      "action": "action_wh_add"
+    },
+    "58": {
+      "status": "OK",
+      "detail": "action_exp_csv",
+      "action": "action_exp_csv"
+    },
+    "59": {
+      "status": "OK",
+      "detail": "action_exp_ledger",
+      "action": "action_exp_ledger"
+    },
+    "60": {
+      "status": "OK",
+      "detail": "action_exp_report",
+      "action": "action_exp_report"
+    },
+    "61": {
+      "status": "OK",
+      "detail": "action_bk_local",
+      "action": "action_bk_local"
+    },
+    "62": {
+      "status": "OK",
+      "detail": "action_bk_cloud",
+      "action": "action_bk_cloud"
+    },
+    "63": {
+      "status": "OK",
+      "detail": "action_chains",
+      "action": "action_chains"
+    },
+    "64": {
+      "status": "OK",
+      "detail": "action_scan_tx",
+      "action": "action_scan_tx"
+    },
+    "65": {
+      "status": "OK",
+      "detail": "action_dp_open",
+      "action": "action_dp_open"
+    },
+    "66": {
+      "status": "OK",
+      "detail": "action_dp_list",
+      "action": "action_dp_list"
+    },
+    "67": {
+      "status": "OK",
+      "detail": "action_dp_vote",
+      "action": "action_dp_vote"
+    },
+    "68": {
+      "status": "OK",
+      "detail": "action_audit_show",
+      "action": "action_audit_show"
+    },
+    "69": {
+      "status": "OK",
+      "detail": "action_audit_verify",
+      "action": "action_audit_verify"
+    },
+    "70": {
+      "status": "OK",
+      "detail": "action_scan_photo",
+      "action": "action_scan_photo"
+    },
+    "71": {
+      "status": "OK",
+      "detail": "action_scan_ocr",
+      "action": "action_scan_ocr"
+    },
+    "72": {
+      "status": "OK",
+      "detail": "action_scan_pdf",
+      "action": "action_scan_pdf"
+    },
+    "73": {
+      "status": "OK",
+      "detail": "action_scan_full",
+      "action": "action_scan_full"
+    },
+    "74": {
+      "status": "STUB",
+      "detail": "action_search_contract: заглушка",
+      "action": "action_search_contract"
+    },
+    "75": {
+      "status": "STUB",
+      "detail": "action_autofill_contract: заглушка",
+      "action": "action_autofill_contract"
+    },
+    "76": {
+      "status": "OK",
+      "detail": "action_ai_terms",
+      "action": "action_ai_terms"
+    },
+    "77": {
+      "status": "STUB",
+      "detail": "action_check_payment: заглушка",
+      "action": "action_check_payment"
+    },
+    "78": {
+      "status": "STUB",
+      "detail": "action_custom_terms: заглушка",
+      "action": "action_custom_terms"
+    },
+    "80": {
+      "status": "OK",
+      "detail": "action_gd_state",
+      "action": "action_gd_state"
+    },
+    "81": {
+      "status": "OK",
+      "detail": "action_gd_100",
+      "action": "action_gd_100"
+    },
+    "82": {
+      "status": "OK",
+      "detail": "action_gd_register",
+      "action": "action_gd_register"
+    },
+    "83": {
+      "status": "OK",
+      "detail": "action_gd_show",
+      "action": "action_gd_show"
+    },
+    "84": {
+      "status": "OK",
+      "detail": "action_gd_verify",
+      "action": "action_gd_verify"
+    },
+    "85": {
+      "status": "OK",
+      "detail": "action_gd_device",
+      "action": "action_gd_device"
+    },
+    "86": {
+      "status": "OK",
+      "detail": "action_gd_snapshot",
+      "action": "action_gd_snapshot"
+    },
+    "87": {
+      "status": "OK",
+      "detail": "action_cleanup",
+      "action": "action_cleanup"
+    },
+    "88": {
+      "status": "OK",
+      "detail": "action_metrics",
+      "action": "action_metrics"
+    },
+    "89": {
+      "status": "OK",
+      "detail": "action_http",
+      "action": "action_http"
+    },
+    "90": {
+      "status": "OK",
+      "detail": "action_schedule",
+      "action": "action_schedule"
+    },
+    "91": {
+      "status": "OK",
+      "detail": "action_gd_log_verify",
+      "action": "action_gd_log_verify"
+    },
+    "92": {
+      "status": "OK",
+      "detail": "action_as_save",
+      "action": "action_as_save"
+    },
+    "93": {
+      "status": "OK",
+      "detail": "action_as_status",
+      "action": "action_as_status"
+    },
+    "94": {
+      "status": "OK",
+      "detail": "action_as_recent",
+      "action": "action_as_recent"
+    },
+    "95": {
+      "status": "OK",
+      "detail": "action_as_restore",
+      "action": "action_as_restore"
+    },
+    "96": {
+      "status": "OK",
+      "detail": "action_evo7",
+      "action": "action_evo7"
+    },
+    "97": {
+      "status": "OK",
+      "detail": "action_evo_ctl",
+      "action": "action_evo_ctl"
+    },
+    "98": {
+      "status": "OK",
+      "detail": "action_parawatch",
+      "action": "action_parawatch"
+    },
+    "99": {
+      "status": "OK",
+      "detail": "action_autopatch_menu",
+      "action": "action_autopatch_menu"
+    },
+    "100": {
+      "status": "OK",
+      "detail": "action_node",
+      "action": "action_node"
+    },
+    "101": {
+      "status": "OK",
+      "detail": "action_hash_eco",
+      "action": "action_hash_eco"
+    },
+    "102": {
+      "status": "OK",
+      "detail": "action_binmix",
+      "action": "action_binmix"
+    },
+    "103": {
+      "status": "OK",
+      "detail": "action_metrics",
+      "action": "action_metrics"
+    },
+    "104": {
+      "status": "OK",
+      "detail": "action_http",
+      "action": "action_http"
+    },
+    "105": {
+      "status": "OK",
+      "detail": "action_schedule",
+      "action": "action_schedule"
+    },
+    "106": {
+      "status": "OK",
+      "detail": "action_cleanup",
+      "action": "action_cleanup"
+    },
+    "107": {
+      "status": "OK",
+      "detail": "action_autopilot",
+      "action": "action_autopilot"
+    },
+    "108": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_108_metamask_sign/main.sh\""
+    },
+    "109": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_109_metamask_verify/main.sh\""
+    },
+    "110": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_110_metamask_history/main.sh\""
+    },
+    "111": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_111_metamask_settings/main.sh\""
+    },
+    "112": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_112_metamask_deeplink/main.sh\""
+    },
+    "113": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_113_metamask_batch/main.sh\""
+    },
+    "114": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_114_autonode/main.sh\""
+    },
+    "115": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_115_rpc_bench/main.sh\""
+    },
+    "116": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_116_gas_monitor/main.sh\""
+    },
+    "117": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_117_tx_lookup/main.sh\""
+    },
+    "118": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_118_net_health/main.sh\""
+    },
+    "119": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_119_qr_sign/main.sh\""
+    },
+    "120": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_120_ai_guardian/main.sh\""
+    },
+    "121": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_121_parlament/main.sh\""
+    },
+    "122": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_122_contract_validator/main.sh\""
+    },
+    "123": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_123_multisig/main.sh\""
+    },
+    "124": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_124_timelock/main.sh\""
+    },
+    "125": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_125_anchor/main.sh\""
+    },
+    "126": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_126_zk/main.sh\""
+    },
+    "128": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_128_dashboard/main.sh\""
+    },
+    "129": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_129_voice/main.sh\""
+    },
+    "130": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_130_test_suite/main.sh\""
+    },
+    "131": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_131_kyc/main.sh\""
+    },
+    "132": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_132_compliance/main.sh\""
+    },
+    "133": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_133_tokens/main.sh\""
+    },
+    "134": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_134_discord/main.sh\""
+    },
+    "135": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_135_walletconnect/main.sh\""
+    },
+    "136": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_136_templates/main.sh\""
+    },
+    "137": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_137_escrow/main.sh\""
+    },
+    "138": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_138_arbitration/main.sh\""
+    },
+    "139": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_139_reputation/main.sh\""
+    },
+    "140": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_140_analytics/main.sh\""
+    },
+    "141": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_141_portfolio/main.sh\""
+    },
+    "142": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_142_invoice_pdf/main.sh\""
+    },
+    "143": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_143_email/main.sh\""
+    },
+    "144": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_144_lightning/main.sh\""
+    },
+    "145": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_145_ipfs/main.sh\""
+    },
+    "146": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_146_merkle/main.sh\""
+    },
+    "147": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_147_reputation_v2/main.sh\""
+    },
+    "148": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_148_multisig_ui/main.sh\""
+    },
+    "149": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_149_analytics/main.sh\""
+    },
+    "150": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_150_scripts/main.sh\""
+    },
+    "151": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_151_wizard/main.sh\""
+    },
+    "152": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_152_doctor/main.sh\""
+    },
+    "200": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_200_network/main.sh\""
+    },
+    "310": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$H/modules/module_310_sign_existing/main.sh\""
+    },
+    "320": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$HOME/CYBRA/modules/module_320_controllers/main.sh\""
+    },
+    "330": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$HOME/CYBRA/modules/module_330_selfheal/main.sh\""
+    },
+    "340": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$HOME/CYBRA/modules/module_340_payment_confirm/main.sh"
+    },
+    "341": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$HOME/CYBRA/modules/module_341_dual_confirm/main.sh\""
+    },
+    "350": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$HOME/CYBRA/modules/module_350_controller_worker/main."
+    },
+    "360": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$HOME/CYBRA/modules/module_360_mapping/main.sh\""
+    },
+    "370": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$HOME/CYBRA/modules/module_370_runtime/main.sh\""
+    },
+    "371": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$HOME/CYBRA/modules/module_371_job_controller/main.sh\""
+    },
+    "380": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$HOME/CYBRA/modules/module_380_sic/main.sh\""
+    },
+    "390": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$HOME/CYBRA/modules/module_390_src/main.sh\""
+    },
+    "395": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$HOME/CYBRA/modules/module_395_structure/main.sh\""
+    },
+    "396": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$HOME/CYBRA/modules/module_396_diffrecover/main.sh\""
+    },
+    "397": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$HOME/CYBRA/modules/module_397_load/main.sh\""
+    },
+    "398": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$HOME/CYBRA/modules/module_398_webui/main.sh\""
+    },
+    "399": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$HOME/CYBRA/modules/module_399_gate/main.sh\""
+    },
+    "401": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$HOME/CYBRA/modules/module_401_cascade_verify/main.sh\""
+    },
+    "402": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$HOME/CYBRA/modules/module_402_menu_doctor/main.sh\""
+    },
+    "405": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$HOME/CYBRA/modules/module_405_task_engine/main.sh\""
+    },
+    "406": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$HOME/CYBRA/modules/module_406_tui_guard/main.sh\""
+    },
+    "407": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$HOME/CYBRA/modules/module_407_intent/main.sh\""
+    },
+    "408": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$HOME/CYBRA/modules/module_408_menu_tester/main.sh\""
+    },
+    "409": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$HOME/CYBRA/modules/module_409_pipeline/main.sh\""
+    },
+    "411": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$HOME/CYBRA/modules/module_411_tiers/main.sh\""
+    },
+    "413": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$HOME/CYBRA/modules/module_413_migrator/main.sh\""
+    },
+    "414": {
+      "status": "OK",
+      "detail": "main.sh",
+      "action": "bash \"$HOME/CYBRA/modules/module_414_keeper/main.sh\""
+    }
+  }
+}

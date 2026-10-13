@@ -1,0 +1,231 @@
+#!/usr/bin/env python3
+"""Contract Validator — перевіряє контракт ПЕРЕД підписом.
+Шукає типові проблеми: суми, умови, строки, адреси, дублікати."""
+import sys, os, json, re, time
+from pathlib import Path
+
+H = Path.home() / "CYBRA"
+D = Path(__file__).resolve().parent
+
+CHECKS = []
+
+def _add(id, name, level):
+    def deco(fn):
+        CHECKS.append({"id":id, "name":name, "level":level, "fn":fn})
+        return fn
+    return deco
+
+# ── 1. СУМИ ────────────────────────────────────────────────
+@_add("amount.positive", "Сума > 0", "critical")
+def chk_amount(contract):
+    amt = (contract.get("payload") or {}).get("amount_bnb", 0)
+    if not amt or float(amt) <= 0:
+        return False, f"сума {amt} — не вказана або ≤ 0"
+    return True, f"{amt} BNB"
+
+@_add("amount.reasonable", "Сума < 10 000 BNB", "warn")
+def chk_amount_max(contract):
+    amt = float((contract.get("payload") or {}).get("amount_bnb", 0) or 0)
+    if amt > 10000:
+        return False, f"{amt} BNB — завелика, перевір чи не помилка"
+    return True, f"{amt} BNB"
+
+# ── 2. АДРЕСИ ──────────────────────────────────────────────
+_ADDR_RE = re.compile(r'^0x[a-fA-F0-9]{40}$')
+
+@_add("addr.buyer", "Адреса покупця валідна", "critical")
+def chk_buyer(contract):
+    b = contract.get("buyer", "")
+    if not _ADDR_RE.match(b):
+        return False, f"невалідна: {b[:20]}"
+    return True, b[:14] + "…"
+
+@_add("addr.seller", "Адреса продавця валідна", "warn")
+def chk_seller(contract):
+    s = (contract.get("payload") or {}).get("seller") or contract.get("seller")
+    if not s:
+        return True, "не вказана (може бути нормально)"
+    if not _ADDR_RE.match(s):
+        return False, f"невалідна: {s[:20]}"
+    return True, s[:14] + "…"
+
+@_add("addr.same", "Buyer ≠ Seller", "critical")
+def chk_distinct(contract):
+    b = contract.get("buyer","").lower()
+    s = ((contract.get("payload") or {}).get("seller") or "").lower()
+    if b and s and b == s:
+        return False, "buyer = seller — самозділка?"
+    return True, "різні"
+
+# ── 3. СТРОКИ ──────────────────────────────────────────────
+@_add("time.deadline", "Є строк виконання", "warn")
+def chk_deadline(contract):
+    d = (contract.get("payload") or {}).get("deadline")
+    if not d:
+        return False, "немає deadline — виконання може тривати вічно"
+    return True, str(d)
+
+# ── 4. ОПИС ────────────────────────────────────────────────
+@_add("desc.terms", "Є опис предмету", "warn")
+def chk_terms(contract):
+    t = (contract.get("payload") or {}).get("terms") or contract.get("terms")
+    if not t or len(str(t)) < 20:
+        return False, "опис < 20 символів"
+    return True, f"{len(str(t))} символів"
+
+# ── 5. ДУБЛІКАТИ ───────────────────────────────────────────
+@_add("dup.cid", "CID унікальний", "critical")
+def chk_dup(contract):
+    cid = contract.get("cid")
+    ev = H / "modules/module_19_contract_tui_menu/evidence"
+    if not ev.exists(): return True, "не перевірено"
+    for f in ev.glob("*_buyer.sig"):
+        if f.stem.replace("_buyer","") == cid:
+            return False, f"CID {cid} вже підписано: {f.name}"
+    return True, "унікальний"
+
+# ── 6. ЧАС ─────────────────────────────────────────────────
+@_add("time.fresh", "Контракт створено нещодавно", "warn")
+def chk_fresh(contract):
+    ts = contract.get("created_at","")
+    if not ts: return True, "немає timestamp"
+    try:
+        t = time.mktime(time.strptime(ts, "%Y-%m-%dT%H:%M:%SZ"))
+        age_h = (time.time() - t) / 3600
+        if age_h > 24*7:
+            return False, f"створено {age_h:.0f} год тому"
+        return True, f"{age_h:.1f} год"
+    except Exception:
+        return True, "не розпарсив timestamp"
+
+# ── 7. ПАРЛАМЕНТ ───────────────────────────────────────────
+@_add("parliament.threshold", "Перевірка порогу парламенту", "warn")
+def chk_parliament(contract):
+    cid = contract.get("cid","")
+    amt = float((contract.get("payload") or {}).get("amount_bnb", 0) or 0)
+    try:
+        sys.path.insert(0, str(H / "modules/module_121_parlament"))
+        import parliament as P
+        r = P.rules()
+        threshold = r.get("contract_value_threshold_bnb", 1.0)
+        if amt >= threshold:
+            # чи є approved proposal?
+            for p in P.proposals(status="approved"):
+                if (p.get("payload") or {}).get("cid") == cid:
+                    return True, f"парламент схвалив ({p['pid']})"
+            return False, f"{amt} ≥ {threshold} BNB — потрібне схвалення"
+    except Exception:
+        return True, "парламент недоступний"
+    return True, f"{amt} < {threshold} — не потрібно"
+
+# ── 8. ВІДХИЛЕННЯ ──────────────────────────────────────────
+@_add("deviation.history", "Покупець/продавець без історії відхилень", "warn")
+def chk_deviation(contract):
+    seller = ((contract.get("payload") or {}).get("seller") or "").lower()
+    if not seller: return True, "немає продавця"
+    dev_dir = H / "modules/module_121_parlament/data/executions"
+    if not dev_dir.exists(): return True, "немає історії"
+    bad = 0
+    for f in dev_dir.glob("*_deviations.jsonl"):
+        for line in f.read_text().splitlines():
+            try:
+                e = json.loads(line)
+                if e.get("action") in ("reject","auto_reject"):
+                    bad += 1
+            except Exception: pass
+    if bad > 5:
+        return False, f"{bad} відхилень у системі — обережно"
+    return True, f"{bad} відхилень (ок)"
+
+
+# ── 9. KYC (реальний sanctions check) ──────────────────────
+@_add("kyc.sanctions", "Адреси не у санкційних списках", "critical")
+def chk_kyc(contract):
+    import importlib.util
+    kyc_path = H / "modules/module_131_kyc/kyc.py"
+    if not kyc_path.exists():
+        return True, "модуль KYC не встановлено"
+    spec = importlib.util.spec_from_file_location("kyc", kyc_path)
+    kyc = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(kyc)
+    addrs = []
+    b = contract.get("buyer")
+    if b: addrs.append(("buyer", b))
+    s_ = (contract.get("payload") or {}).get("seller")
+    if s_: addrs.append(("seller", s_))
+    if not addrs: return True, "немає адрес для перевірки"
+    bad = []
+    for role, a in addrs:
+        try:
+            r = kyc.check(a)
+            if r.get("sanctions"):
+                bad.append(f"{role}: {a[:12]}… → SANCTIONED")
+            elif r.get("error"):
+                # списки не завантажено — не блокуємо, але попереджаємо
+                return True, f"{role}: списки не завантажено"
+        except Exception as e:
+            pass
+    if bad:
+        return False, " | ".join(bad)
+    return True, "всі адреси clean"
+
+# ── оцінка ─────────────────────────────────────────────────
+def score(results):
+    critical_fail = sum(1 for r in results if not r["ok"] and r["level"]=="critical")
+    warn_fail = sum(1 for r in results if not r["ok"] and r["level"]=="warn")
+    # 100 - 30×crit - 5×warn, мінімум 0
+    s = max(0, 100 - 30*critical_fail - 5*warn_fail)
+    return s, critical_fail, warn_fail
+
+def validate(contract):
+    results = []
+    for c in CHECKS:
+        try:
+            ok, msg = c["fn"](contract)
+        except Exception as e:
+            ok, msg = False, f"exception: {e}"
+        results.append({"id": c["id"], "name": c["name"],
+                        "level": c["level"], "ok": ok, "detail": msg})
+    s, cr, wn = score(results)
+    verdict = "OK" if cr == 0 else "REJECT"
+    return {"cid": contract.get("cid"), "score": s, "verdict": verdict,
+            "critical_fail": cr, "warn_fail": wn, "results": results}
+
+def print_report(v):
+    G='\033[32m'; Y='\033[33m'; R='\033[31m'; B='\033[36m'; D='\033[2m'; N='\033[0m'
+    verdict_col = G if v["verdict"]=="OK" else R
+    print(f"\n  {B}═══ Contract Validator ═══{N}")
+    print(f"  CID:       {v['cid']}")
+    print(f"  Вердикт:   {verdict_col}{v['verdict']}{N}")
+    print(f"  Score:     {v['score']}/100  "
+          f"(critical fails: {v['critical_fail']}, warns: {v['warn_fail']})\n")
+    for r in v["results"]:
+        mark = f"{G}✓{N}" if r["ok"] else (f"{R}✗{N}" if r["level"]=="critical" else f"{Y}!{N}")
+        col = D if r["ok"] else ""
+        print(f"  {mark} [{r['level']:8s}] {r['name']:38s} {col}{r['detail']}{N}")
+
+if __name__ == "__main__":
+    cid = sys.argv[1] if len(sys.argv) > 1 else None
+    if not cid:
+        print("usage: validator.py <cid>"); sys.exit(1)
+    # шукаємо контракт
+    contract = {"cid": cid}
+    for p in [H/f"public/sign/{cid}.json",
+              H/f"modules/module_19_contract_tui_menu/evidence/{cid}.json"]:
+        if p.exists():
+            try: contract = json.loads(p.read_text()); break
+            except Exception: pass
+    else:
+        # з .sig
+        p = H/f"modules/module_19_contract_tui_menu/evidence/{cid}_buyer.sig"
+        if p.exists():
+            try:
+                d = json.loads(p.read_text())
+                contract = {"cid": cid, "buyer": d.get("address")}
+            except Exception: pass
+    v = validate(contract)
+    print_report(v)
+    # save
+    out = D / "data" / f"{cid}_validation.json"
+    out.write_text(json.dumps(v, indent=2, ensure_ascii=False))
+    sys.exit(0 if v["verdict"]=="OK" else 2)

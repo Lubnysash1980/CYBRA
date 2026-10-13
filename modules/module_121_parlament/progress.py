@@ -1,0 +1,120 @@
+#!/usr/bin/env python3
+"""Прогрес + deep analysis: що блокує виконання і що треба для розблокування."""
+import json, sys, time
+from pathlib import Path
+
+D = Path(__file__).resolve().parent
+sys.path.insert(0, str(D))
+import verify_7, mapper, executors
+
+def blockers(cid):
+    """Повертає список перешкод для поточного рівня + що треба зробити."""
+    s = verify_7.status(cid)
+    if not s: return {"error": "немає стану"}
+    lvl = s.get("blocked_at")
+    if not lvl:
+        return {"status": "done", "msg": "всі 7 рівнів пройдено"}
+
+    # знайти крок у плані
+    plan = mapper.map_contract(cid)
+    step = next((x for x in plan["steps"] if x["level"] == lvl), None)
+    needs = []
+    if step:
+        e = executors.EXECUTORS.get(step["executor"])
+        if e:
+            ok, why = e.can(cid, step["payload"] or {})
+            needs.append({"executor": step["executor"], "name": e.name,
+                          "can": ok, "reason": why,
+                          "payload": step["payload"]})
+    # додаткові перевірки за рівнем
+    extras = {
+        1: [("файл .sig", "перевір підпис через 109")],
+        2: [("TX на ескроу", "підпиши через 108"), ("баланс покупця", "перевір через 114")],
+        3: [("proof від продавця", "фото/документ/hash")],
+        4: [("expected_hash", "отримай від продавця"),
+            ("proof", "завантаж у 119")],
+        5: [("expected", "вкажи очікуване"), ("actual", "вкажи фактичне")],
+        6: [("час", "вікно спорів автоматично через verify_7.advance")],
+        7: [("release_tx", "підпиши підтвердження")],
+    }
+    return {"cid": cid, "blocked_at": lvl, "next_action": s["next_action"],
+            "steps": needs, "manual_needs": extras.get(lvl, [])}
+
+def print_blockers(cid):
+    b = blockers(cid)
+    G='\033[32m'; Y='\033[33m'; R='\033[31m'; B='\033[36m'; DIM='\033[2m'; N='\033[0m'
+    if b.get("status") == "done":
+        print(f"\n  {G}✅ Контракт закрито — всі 7 рівнів пройдено{N}\n")
+        return
+    if b.get("error"):
+        print(f"  ✗ {b['error']}"); return
+    print(f"\n  {B}═══ Блокування: {cid} · рівень L{b['blocked_at']} ═══{N}")
+    print(f"  {DIM}Далі: {b['next_action']}{N}\n")
+
+    if b["steps"]:
+        print(f"  {B}▸ Екзекутори:{N}")
+        for s in b["steps"]:
+            mark = f"{G}✓{N}" if s["can"] else f"{Y}?{N}"
+            print(f"    {mark} {s['name']:24s}  {s['reason']}")
+    if b["manual_needs"]:
+        print(f"\n  {B}▸ Що потрібно вручну:{N}")
+        for name, hint in b["manual_needs"]:
+            print(f"    · {name:24s}  {DIM}{hint}{N}")
+    print()
+
+def execute_level(cid, level=None, actor="auto"):
+    """Виконує поточний рівень через відповідний екзекутор."""
+    s = verify_7.status(cid)
+    if not s: return False, "немає стану"
+    lvl = level or s.get("blocked_at")
+    if not lvl: return True, "вже все"
+    plan = mapper.map_contract(cid)
+    step = next((x for x in plan["steps"] if x["level"] == lvl), None)
+    if not step: return False, f"немає кроку для L{lvl}"
+    eid = step["executor"]
+    ok, msg, out = executors.run(eid, cid, step["payload"] or {})
+    if ok:
+        # позначаємо рівень ok (для 6 — окремо через wait)
+        if lvl == 6:
+            verify_7.advance(cid)
+        else:
+            verify_7.set_level(cid, lvl, True,
+                               {"executor": eid, "msg": msg, "out": out}, actor=actor)
+    return ok, msg
+
+def tick_all():
+    """Прогнати auto-advance для всіх контрактів (з watchdog)."""
+    EX = D / "data" / "executions"
+    moved = []
+    for f in EX.glob("C-*.json"):
+        name = f.name
+        # пропускаємо не-стани
+        if name.endswith("_plan.json"): continue
+        if name.endswith("_dossier.json"): continue
+        if "_deviations" in name: continue
+        if "_validation" in name: continue
+        if "_escrow" in name: continue
+        if "_fund_tx" in name: continue
+        if "_release_tx" in name: continue
+        if "_pending_tx" in name: continue
+        cid = f.stem
+        try:
+            ok, r = verify_7.advance(cid)
+            if ok and isinstance(r, dict) and r.get("moved"):
+                moved.append({"cid": cid, "moved": r["moved"]})
+        except Exception as e:
+            # тихо ігноруємо — щоб не валити весь watchdog
+            continue
+    return moved
+
+if __name__ == "__main__":
+    cmd = sys.argv[1] if len(sys.argv) > 1 else "blockers"
+    if cmd == "blockers":
+        print_blockers(sys.argv[2])
+    elif cmd == "exec":
+        cid = sys.argv[2]
+        lvl = int(sys.argv[3]) if len(sys.argv) > 3 else None
+        ok, msg = execute_level(cid, lvl)
+        print(("✓ " if ok else "✗ ") + msg)
+    elif cmd == "tick":
+        print(json.dumps(tick_all(), indent=2))

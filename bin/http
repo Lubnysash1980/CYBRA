@@ -1,0 +1,196 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# CYBRA HTTP — health endpoint на localhost:8765
+# Ендпоінти:
+#   GET /            → простий статус
+#   GET /status      → JSON
+#   GET /metrics     → Prometheus
+#   GET /healthz     → OK/FAIL
+
+ROOT="$HOME/CYBRA"
+PORT="${PORT:-8765}"
+PIDFILE="$ROOT/.cybra_http.pid"
+LOGFILE="$ROOT/logs/http.log"
+
+mkdir -p "$ROOT/logs"
+
+if [ -t 1 ]; then
+    G=$'\033[32m'; Y=$'\033[33m'; R=$'\033[31m'
+    B=$'\033[1m'; C=$'\033[36m'; Z=$'\033[0m'
+else
+    G=""; Y=""; R=""; B=""; C=""; Z=""
+fi
+
+# ─── HTTP request handler ───
+handle_request() {
+    local path="$1"
+
+    case "$path" in
+        /|/index.html)
+            echo "HTTP/1.1 200 OK"
+            echo "Content-Type: text/plain"
+            echo ""
+            echo "CYBRA runtime — $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo ""
+            echo "Endpoints:"
+            echo "  /status   — JSON status"
+            echo "  /healthz  — health check"
+            echo "  /metrics  — Prometheus metrics"
+            ;;
+
+        /healthz)
+            # Викликати evo_ctl approve? Ні, тільки перевірка
+            local status="OK"
+            [ -f "$ROOT/.watchdog.pid" ] && kill -0 "$(cat "$ROOT/.watchdog.pid")" 2>/dev/null || status="FAIL"
+
+            echo "HTTP/1.1 200 OK"
+            echo "Content-Type: text/plain"
+            echo ""
+            echo "$status"
+            ;;
+
+        /status)
+            # JSON зі станом
+            local mods=0
+            for d in "$ROOT/modules"/*/; do
+                [ -d "$d" ] || continue
+                local m="$(basename "$d")"
+                case "$m" in @*|.*|_disabled*|evolution|answer_engine|node_modules) continue ;; esac
+                mods=$((mods+1))
+            done
+
+            local cons=0
+            for f in "$ROOT/modules/module_19_contract_tui_menu/contracts"/*.env; do
+                [ -f "$f" ] && cons=$((cons+1))
+            done
+
+            local lnk=0
+            for f in "$ROOT/modules/module_19_contract_tui_menu/links"/*.link; do
+                [ -f "$f" ] && lnk=$((lnk+1))
+            done
+
+            local wd=0 ec=0 pw=0
+            [ -f "$ROOT/.watchdog.pid" ] && kill -0 "$(cat "$ROOT/.watchdog.pid")" 2>/dev/null && wd=1
+            [ -f "$ROOT/.evo_ctl.pid" ] && kill -0 "$(cat "$ROOT/.evo_ctl.pid")" 2>/dev/null && ec=1
+            [ -f "$ROOT/.parawatch.pid" ] && kill -0 "$(cat "$ROOT/.parawatch.pid")" 2>/dev/null && pw=1
+
+            echo "HTTP/1.1 200 OK"
+            echo "Content-Type: application/json"
+            echo ""
+            cat <<JSON
+{
+  "ts": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+  "modules": $mods,
+  "contracts": $cons,
+  "links": $lnk,
+  "processes": {
+    "watchdog": $wd,
+    "evo_ctl": $ec,
+    "parawatch": $pw
+  },
+  "license": "0x66434c5501242ccC71b5a39C765892921624B66c"
+}
+JSON
+            ;;
+
+        /metrics)
+            # Prometheus metrics (inline, без файлу)
+            echo "HTTP/1.1 200 OK"
+            echo "Content-Type: text/plain; version=0.0.4"
+            echo ""
+
+            # Модулі
+            for d in "$ROOT/modules"/*/; do
+                [ -d "$d" ] || continue
+                local m="$(basename "$d")"
+                case "$m" in @*|.*|_disabled*|evolution|answer_engine|node_modules) continue ;; esac
+
+                local t="$(ls -t "$ROOT/audit"/*_"${m}".test.log 2>/dev/null | head -1)"
+                local p=0 f=0
+                if [ -f "$t" ]; then
+                    p="$(grep -c '\[PASS\]' "$t" 2>/dev/null | head -1 | tr -dc '0-9')"
+                    f="$(grep -c '\[FAIL\]' "$t" 2>/dev/null | head -1 | tr -dc '0-9')"
+                    [ -z "$p" ] && p=0
+                    [ -z "$f" ] && f=0
+                fi
+                echo "cybra_module_pass{module=\"$m\"} $p"
+                echo "cybra_module_fail{module=\"$m\"} $f"
+            done
+            ;;
+
+        *)
+            echo "HTTP/1.1 404 Not Found"
+            echo "Content-Type: text/plain"
+            echo ""
+            echo "404 — not found"
+            ;;
+    esac
+}
+
+# ─── Запуск сервера (nc-based) ───
+server_loop() {
+    while true; do
+        # nc -l -p PORT — слухаємо один запит
+        REQ="$(echo -e "HTTP/1.0 200 OK\r\n\r\n" | nc -l -p "$PORT" 2>/dev/null | head -1)"
+        [ -z "$REQ" ] && continue
+
+        PATH_REQ="$(echo "$REQ" | awk '{print $2}')"
+
+        # Відправити відповідь
+        handle_request "$PATH_REQ" | nc -l -p "$PORT" 2>/dev/null &
+    done
+}
+
+# ─── Команди ───
+case "${1:-status}" in
+    start|s)
+        if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
+            printf '  %s[!]%s вже запущено (PID %s)\n' "$Y" "$Z" "$(cat "$PIDFILE")"
+            exit 1
+        fi
+
+        # Перевірка nc
+        if ! command -v nc >/dev/null 2>&1; then
+            printf '  %s[FAIL]%s nc не встановлено\n' "$R" "$Z"
+            printf '  pkg install netcat-openbsd\n'
+            exit 1
+        fi
+
+        printf '  %s→%s запуск HTTP на порту %s...\n' "$C" "$Z" "$PORT"
+        nohup bash -c "source '$0'; server_loop" >> "$LOGFILE" 2>&1 &
+        echo $! > "$PIDFILE"
+        printf '  %s[✓]%s HTTP PID=%s\n' "$G" "$Z" "$(cat "$PIDFILE")"
+        printf '  http://localhost:%s/\n' "$PORT"
+        ;;
+
+    stop|S)
+        [ ! -f "$PIDFILE" ] && { printf '  %s[!]%s не запущено\n' "$Y" "$Z"; exit 1; }
+        _pid="$(cat "$PIDFILE")"
+        kill "$_pid" 2>/dev/null
+        rm -f "$PIDFILE"
+        printf '  %s[✓]%s зупинено\n' "$G" "$Z"
+        ;;
+
+    status|st)
+        printf '%s═══ CYBRA HTTP ═══%s\n\n' "$B$C" "$Z"
+        if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
+            printf '  %s[✓]%s RUNNING (PID %s)\n' "$G" "$Z" "$(cat "$PIDFILE")"
+            printf '  http://localhost:%s/\n' "$PORT"
+        else
+            printf '  %s[·]%s STOPPED\n' "$Y" "$Z"
+        fi
+        printf '\n'
+        ;;
+
+    test|t)
+        # Тест: локально викликати handler
+        printf '── /healthz ──\n'
+        handle_request "/healthz" | tail -1
+        printf '\n── /status ──\n'
+        handle_request "/status" | tail -20
+        ;;
+
+    *)
+        printf 'Usage: cybra_http [start|stop|status|test]\n'
+        printf '  PORT=8765 (env)\n'
+        ;;
+esac

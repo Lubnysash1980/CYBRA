@@ -1,0 +1,617 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# ═══════════════════════════════════════════════════════════
+# CYBRA AUTOPATCH v2 — дописує УМОВИ та КОНФІГ
+# Smart: аналізує модуль → створює config.env + terms
+# ═══════════════════════════════════════════════════════════
+
+ROOT="$HOME/CYBRA"
+MODULES="$ROOT/modules"
+M19="$MODULES/module_19_contract_tui_menu"
+CONTRACTS="$M19/contracts"
+LOGS="$ROOT/logs"
+STAMP="$(date -u +%Y%m%dT%H%M%SZ)"
+LOG="$LOGS/autopatch_${STAMP}.log"
+
+mkdir -p "$LOGS" "$CONTRACTS"
+
+if [ -t 1 ]; then
+    R=$'\033[31m'; G=$'\033[32m'; Y=$'\033[33m'
+    B=$'\033[1m'; C=$'\033[36m'; M=$'\033[35m'
+    Z=$'\033[0m'; GR=$'\033[90m'
+else
+    R=""; G=""; Y=""; B=""; C=""; M=""; Z=""; GR=""
+fi
+
+hr()  { printf -- '────────────────────────────────────────────────────────────\n' | tee -a "$LOG"; }
+hdr() { printf '\n%s%s═══ %s ═══%s\n' "$B" "$C" "$*" "$Z" | tee -a "$LOG"; }
+ok()   { printf '  %s[✓]%s %s\n' "$G" "$Z" "$*" | tee -a "$LOG"; }
+warn() { printf '  %s[!]%s %s\n' "$Y" "$Z" "$*" | tee -a "$LOG"; }
+err()  { printf '  %s[✗]%s %s\n' "$R" "$Z" "$*" | tee -a "$LOG"; }
+fix()  { printf '  %s[+FIX]%s %s\n' "$C" "$Z" "$*" | tee -a "$LOG"; }
+wr()   { printf '  %s[+WRITE]%s %s\n' "$M" "$Z" "$*" | tee -a "$LOG"; }
+
+PATCHED=0
+SKIPPED=0
+WRITTEN=0
+
+# ═══════════════════════════════════════════════════════════
+# 1. CONFIG — шаблон по типу модуля
+# ═══════════════════════════════════════════════════════════
+write_config() {
+    local m="$1"
+    local mod="$MODULES/$m"
+    local cfg="$mod/state/config.env"
+
+    # Вже є — не чіпаємо
+    [ -f "$cfg" ] && return 1
+
+    mkdir -p "$mod/state"
+
+    local num="$(printf '%s' "$m" | grep -oE '[0-9]+' | head -1)"
+    [ -z "$num" ] && num=0
+
+    # Визначаємо тип модуля по імені
+    local type="generic"
+    case "$m" in
+        *contract*)         type="contract" ;;
+        *license*)          type="license" ;;
+        *payment*)          type="payment" ;;
+        *escrow*)           type="escrow" ;;
+        *watchdog*|*guard*) type="security" ;;
+        *notification*)     type="notify" ;;
+        *export*)           type="export" ;;
+        *backup*)           type="backup" ;;
+        *chain*)            type="network" ;;
+        *dispute*)          type="dispute" ;;
+        *webhook*)          type="webhook" ;;
+        *audit*)            type="audit" ;;
+        *scanner*)          type="scan" ;;
+        *qr*)               type="qr" ;;
+        *address*)          type="storage" ;;
+        *telegram*|*tg*)    type="notify" ;;
+        *analytics*)        type="analytics" ;;
+    esac
+
+    # Пишемо config з підстановкою типу
+    cat > "$cfg" <<CFG
+# ═══════════════════════════════════════════════════════════
+# MODULE $num — $m
+# Type: $type
+# Autopatch: $STAMP
+# ═══════════════════════════════════════════════════════════
+
+MODULE_ID=$num
+MODULE_NAME=$m
+MODULE_TYPE=$type
+MODULE_VERSION=1.0.0
+PATCH_ID=CYBRA-M${num}-PATCH-0001
+
+MODE=TEST
+CHAIN_ID=56
+NETWORK=BSC_MAINNET
+
+# ─── License ───
+LICENSE_RECIPIENT=0x66434c5501242ccC71b5a39C765892921624B66c
+LICENSE_A_PERCENT=1
+LICENSE_A_BPS=100
+LICENSE_B_PERCENT=1
+LICENSE_B_BPS=100
+CREATION_FEE_PERCENT=1
+CREATION_FEE_BPS=100
+DUAL_LICENSE_ENABLED=TRUE
+
+# ─── Security (must remain FALSE) ───
+AUTO_TRANSACTION=FALSE
+REAL_TRANSACTION_SENT=FALSE
+GLOBAL_TRUE_100=FALSE
+AUTO_RELEASE=FALSE
+AUTO_PAYMENT=FALSE
+LIVE_AUTHORIZATION=FALSE
+
+# ─── Module-specific ───
+CFG
+
+    # Специфічні параметри по типу
+    case "$type" in
+        contract)
+            cat >> "$cfg" <<CFG
+DEFAULT_REFUND_HOURS=72
+DEFAULT_TIMEOUT_HOURS=72
+REQUIRE_DUAL_CONFIRM=TRUE
+REQUIRE_RECEIPT=TRUE
+CFG
+            ;;
+        license)
+            cat >> "$cfg" <<CFG
+LICENSE_LEDGER=license_ledger.txt
+LICENSE_LEDGER_B=license_ledger_b.txt
+CREATION_LEDGER=creation_license_ledger.txt
+IMMUTABLE_RECIPIENT=TRUE
+CFG
+            ;;
+        payment)
+            cat >> "$cfg" <<CFG
+PAYMENT_TIMEOUT=3600
+RETRY_MAX=3
+BACKEND_A_ENABLED=TRUE
+BACKEND_B_ENABLED=TRUE
+CFG
+            ;;
+        escrow)
+            cat >> "$cfg" <<CFG
+ESCROW_TIMEOUT=72
+RELEASE_REQUIRE_BUYER=TRUE
+RELEASE_REQUIRE_SELLER=TRUE
+REFUND_ON_TIMEOUT=TRUE
+CFG
+            ;;
+        security)
+            cat >> "$cfg" <<CFG
+CHECK_INTERVAL=300
+TOLERANCE_PERCENT=3
+AUTO_RESTORE=TRUE
+FREEZE_ON_DEGRADATION=TRUE
+CFG
+            ;;
+        notify)
+            cat >> "$cfg" <<CFG
+NOTIFY_ON_CREATE=TRUE
+NOTIFY_ON_CONFIRM=TRUE
+NOTIFY_ON_REFUND=TRUE
+NOTIFY_ON_COMPLETE=TRUE
+CFG
+            ;;
+        export)
+            cat >> "$cfg" <<CFG
+FORMATS=csv,txt,json
+EXPORT_DIR=public
+MASK_PII=TRUE
+CFG
+            ;;
+        backup)
+            cat >> "$cfg" <<CFG
+BACKUP_DIR=backups
+MAX_BACKUPS=30
+COMPRESS=TRUE
+CLOUD_ENABLED=FALSE
+CFG
+            ;;
+        network)
+            cat >> "$cfg" <<CFG
+SUPPORTED_CHAINS=BSC,ETH,POLYGON,ARBITRUM
+DEFAULT_CHAIN=BSC
+CFG
+            ;;
+        dispute)
+            cat >> "$cfg" <<CFG
+CONSENSUS_NEEDED=2
+ARBITER_REQUIRED=TRUE
+AUTO_REFUND_ON_DISPUTE=TRUE
+CFG
+            ;;
+        webhook)
+            cat >> "$cfg" <<CFG
+WEBHOOK_ENABLED=TRUE
+RETRY_MAX=3
+TIMEOUT=10
+CFG
+            ;;
+        audit)
+            cat >> "$cfg" <<CFG
+AUDIT_LOG=audit.log
+HASH_CHAIN=TRUE
+APPEND_ONLY=TRUE
+CFG
+            ;;
+        scan)
+            cat >> "$cfg" <<CFG
+CAMERA_INDEX=0
+OCR_LANGS=ukr,eng
+OUTPUT_FORMAT=txt
+CFG
+            ;;
+        qr)
+            cat >> "$cfg" <<CFG
+QR_SIZE=300
+QR_FORMAT=png
+OUTPUT_DIR=data
+CFG
+            ;;
+        storage)
+            cat >> "$cfg" <<CFG
+DB_FILE=addresses.db
+HISTORY_FILE=history.db
+MAX_RECORDS=1000
+CFG
+            ;;
+        analytics)
+            cat >> "$cfg" <<CFG
+ANALYTICS_ENABLED=TRUE
+PERIOD_DAYS=30
+CFG
+            ;;
+        *)
+            cat >> "$cfg" <<CFG
+# Generic module
+STATUS=ACTIVE
+CFG
+            ;;
+    esac
+
+    wr "$m/state/config.env ($type)"
+    WRITTEN=$((WRITTEN+1))
+    return 0
+}
+
+# ═══════════════════════════════════════════════════════════
+# 2. TERMS — для контрактів без умов
+# ═══════════════════════════════════════════════════════════
+write_terms() {
+    local cid="$1"
+    local env="$CONTRACTS/$cid.env"
+    local terms="$CONTRACTS/$cid.terms"
+
+    [ ! -f "$env" ] && return 1
+    [ -f "$terms" ] && [ -s "$terms" ] && return 1  # вже є
+
+    # Читаємо контракт
+    local amount="$(grep -m1 '^AMOUNT_WEI=' "$env" | cut -d= -f2-)"
+    local token="$(grep -m1 '^TOKEN=' "$env" | cut -d= -f2-)"
+    local buyer="$(grep -m1 '^BUYER=' "$env" | cut -d= -f2-)"
+    local seller="$(grep -m1 '^SELLER=' "$env" | cut -d= -f2-)"
+    local deadline="$(grep -m1 '^REFUND_DEADLINE=' "$env" | cut -d= -f2-)"
+    [ -z "$deadline" ] && deadline="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
+    cat > "$terms" <<EOF
+# ═══════════════════════════════════════════════════════════
+# CYBRA CONTRACT TERMS
+# Contract: $cid
+# Generated: $(date -u +%FT%TZ)
+# Autopatch: $STAMP
+# ═══════════════════════════════════════════════════════════
+
+1. ОПЛАТА
+   Покупець зобов'язується сплатити $amount $token протягом 24 годин
+   з моменту підтвердження контракту.
+   Мережа: BSC (56)
+
+2. ДОСТАВКА
+   Продавець зобов'язується передати товар/послугу протягом 72 годин
+   після підтвердження оплати.
+
+3. ГАРАНТІЯ
+   Гарантійний термін — 14 календарних днів з моменту отримання.
+
+4. ПОВЕРНЕННЯ
+   Покупець має право на повернення протягом 72 годин (auto-refund).
+   Ліцензії (3% = 1%+1%+1%) не повертаються.
+   Deadline: $deadline
+
+5. ШТРАФИ
+   За кожен день прострочення — 0.1% від суми контракту.
+
+6. ЛІЦЕНЗІЙНА ВИНАГОРОДА
+   Платформа CYBRA отримує:
+   - 1% (LICENSE_A) — $buyer → платформа
+   - 1% (LICENSE_B) — платформа → продавець
+   - 1% (CREATION_FEE) — за створення контракту
+   Отримувач: 0x66434c5501242ccC71b5a39C765892921624B66c
+
+7. АРБІТРАЖ
+   Спори вирішуються через Module 31 (Dispute Resolver)
+   консенсусом 2 з 3 (BUYER + SELLER + ARBITER).
+
+8. ФОРС-МАЖОР
+   Сторони звільняються від відповідальності при обставинах
+   непереборної сили.
+
+9. PII ЗАХИСТ
+   Персональні дані (ПІБ, ІПН, ЄДРПОУ) при експорті хешуються
+   SHA-256 із salt. Оригінали зберігаються тільки локально.
+
+10. ПІДПИС
+    Договір набуває чинності після підтвердження обома сторонами
+    через унікальні QR-коди (BUYER / SELLER / RECEIPT).
+
+---
+BUYER:  $buyer
+SELLER: $seller
+TOKEN:  $token
+AMOUNT: $amount
+
+═══════════════════════════════════════════════════════════
+END OF TERMS
+EOF
+
+    # Оновлюємо TERMS_HASH у .env
+    local th="$(sha256sum "$terms" | awk '{print $1}')"
+    if grep -q '^TERMS_HASH=' "$env" 2>/dev/null; then
+        sed -i "s|^TERMS_HASH=.*|TERMS_HASH=$th|" "$env"
+    else
+        printf 'TERMS_HASH=%s\n' "$th" >> "$env"
+    fi
+
+    wr "contracts/$cid.terms (10 умов, hash=${th:0:16})"
+    WRITTEN=$((WRITTEN+1))
+    return 0
+}
+
+# ═══════════════════════════════════════════════════════════
+# 3. STRUCTURE (папки)
+# ═══════════════════════════════════════════════════════════
+patch_structure() {
+    local m="$1"
+    local mod="$MODULES/$m"
+    local changed=0
+
+    # Стандартні папки
+    for d in bin state evidence tests snapshot; do
+        if [ ! -d "$mod/$d" ]; then
+            mkdir -p "$mod/$d"
+            fix "$m/$d/ — створено"
+            changed=1
+        fi
+    done
+
+    # Додаткові для contract-модулів
+    case "$m" in
+        *contract*|*license*|*payment*)
+            for d in contracts links; do
+                if [ ! -d "$mod/$d" ]; then
+                    mkdir -p "$mod/$d"
+                    fix "$m/$d/ — створено"
+                    changed=1
+                fi
+            done
+            ;;
+    esac
+
+    [ "$changed" -eq 1 ] && return 0 || return 1
+}
+
+# ═══════════════════════════════════════════════════════════
+# 4. TESTS (мінімальний)
+# ═══════════════════════════════════════════════════════════
+write_tests() {
+    local m="$1"
+    local mod="$MODULES/$m"
+    local t="$mod/tests/run_tests.sh"
+
+    [ -f "$t" ] && return 1
+
+    local num="$(printf '%s' "$m" | grep -oE '[0-9]+' | head -1)"
+
+    cat > "$t" <<'TEST'
+#!/data/data/com.termux/files/usr/bin/bash
+MOD="$(cd "$(dirname "$0")/.." && pwd)"
+P=0; F=0
+ok()   { echo "[PASS] $1"; P=$((P+1)); }
+fail() { echo "[FAIL] $1"; F=$((F+1)); }
+
+echo "============================================================"
+echo " $MOD"
+echo "============================================================"
+
+[ -d "$MOD" ]           && ok "module dir"    || fail "module dir"
+[ -d "$MOD/state" ]     && ok "state dir"     || fail "state dir"
+[ -d "$MOD/evidence" ]  && ok "evidence dir"  || fail "evidence dir"
+[ -d "$MOD/tests" ]     && ok "tests dir"     || fail "tests dir"
+
+[ -f "$MOD/state/config.env" ] && ok "config.env" || fail "config.env missing"
+[ -f "$MOD/state/config.env" ] && bash -n "$MOD/state/config.env" 2>/dev/null || true
+
+if grep -rqE '^AUTO_TRANSACTION=TRUE$|^REAL_TRANSACTION_SENT=TRUE$' "$MOD" 2>/dev/null; then
+    fail "auto transaction detected"
+else
+    ok "no auto transaction"
+fi
+
+if grep -q '0x66434c5501242ccC71b5a39C765892921624B66c' "$MOD/state/config.env" 2>/dev/null; then
+    ok "license recipient correct"
+else
+    fail "license recipient wrong"
+fi
+
+echo ""
+echo "PASS=$P  FAIL=$F"
+[ "$F" -eq 0 ] && echo "MODULE_TEST=PASS" || echo "MODULE_TEST=FAIL"
+[ "$F" -eq 0 ] && exit 0 || exit 1
+TEST
+
+    chmod +x "$t"
+    wr "$m/tests/run_tests.sh"
+    WRITTEN=$((WRITTEN+1))
+    return 0
+}
+
+# ═══════════════════════════════════════════════════════════
+# 5. SNAPSHOT + BASELINE
+# ═══════════════════════════════════════════════════════════
+resync_snapshot() {
+    local m="$1"
+    local mod="$MODULES/$m"
+    local snap="$mod/snapshot"
+
+    [ ! -d "$snap" ] && return 1
+
+    # Копіюємо ключові файли
+    for f in "$mod"/*.sh "$mod/bin"/*.sh "$mod/state"/*.env "$mod/tests"/*.sh; do
+        [ -f "$f" ] || continue
+        cp "$f" "$snap/$(basename "$f")" 2>/dev/null
+    done
+
+    rm -f "$snap/final_manifest.sha256"
+    (
+        cd "$snap" 2>/dev/null || exit 0
+        find . -type f \
+            ! -name 'final_manifest.sha256' \
+            ! -name '*.log' \
+            -print0 2>/dev/null |
+        sort -z | xargs -0 -r sha256sum 2>/dev/null
+    ) > "$snap/final_manifest.sha256" 2>/dev/null
+
+    return 0
+}
+
+resync_baseline() {
+    local m="$1"
+    local mod="$MODULES/$m"
+    local base="$ROOT/baseline/${m}.tree"
+
+    local h="$(
+        cd "$mod" 2>/dev/null || exit 0
+        find . -type f \
+            ! -name '*.log' ! -name '*.test.log' \
+            ! -name 'test_output.txt' ! -name 'test_output.sha256' \
+            ! -name 'SNAPSHOT_SHA256.txt' ! -name '*.bak.*' \
+            -print0 2>/dev/null |
+        sort -z | xargs -0 -r sha256sum 2>/dev/null |
+        sha256sum | awk '{print $1}'
+    )"
+
+    [ -z "$h" ] && return 1
+
+    local old="$(cat "$base" 2>/dev/null)"
+    if [ "$old" = "$h" ]; then
+        return 1   # не змінилось
+    fi
+
+    printf '%s' "$h" > "$base"
+    printf '%s' "$h" > "$ROOT/evolution/${m}.approved"
+    return 0
+}
+
+# ═══════════════════════════════════════════════════════════
+# AUTOPATCH ONE MODULE
+# ═══════════════════════════════════════════════════════════
+autopatch_module() {
+    local m="$1"
+    local touched=0
+
+    printf '\n%s── %s ──%s\n' "$B" "$m" "$Z" | tee -a "$LOG"
+
+    patch_structure "$m" && touched=1
+    write_config    "$m" && touched=1
+    write_tests     "$m" && touched=1
+    resync_snapshot "$m" && touched=1
+    resync_baseline "$m" && touched=1
+
+    if [ "$touched" -eq 1 ]; then
+        PATCHED=$((PATCHED+1))
+    else
+        printf '  %s[=] OK — нічого не потребує%s\n' "$GR" "$Z" | tee -a "$LOG"
+        SKIPPED=$((SKIPPED+1))
+    fi
+}
+
+# ═══════════════════════════════════════════════════════════
+# AUTOPATCH CONTRACTS (умови)
+# ═══════════════════════════════════════════════════════════
+autopatch_contracts() {
+    hdr "AUTOPATCH — CONTRACTS (допис умов)"
+
+    local total=0 written=0
+    for f in "$CONTRACTS"/*.env; do
+        [ -f "$f" ] || continue
+        total=$((total+1))
+        local cid="$(basename "$f" .env)"
+        write_terms "$cid" && written=$((written+1))
+    done
+
+    printf '\n'
+    printf '  Contracts: %s\n' "$total"
+    printf '  %sTerms written: %s%s\n' "$M" "$written" "$Z"
+    printf '\n'
+}
+
+# ═══════════════════════════════════════════════════════════
+# MAIN
+# ═══════════════════════════════════════════════════════════
+autopatch_all() {
+    hdr "CYBRA AUTOPATCH v2 — CONFIG + TERMS"
+    printf '  LOG: %s\n' "$LOG" | tee -a "$LOG"
+    hr
+
+    local total=0
+    for d in "$MODULES"/*/; do
+        [ -d "$d" ] || continue
+        local m="$(basename "$d")"
+        case "$m" in @*|.*|_disabled*|evolution|answer_engine|node_modules) continue ;; esac
+        total=$((total+1))
+        autopatch_module "$m"
+    done
+
+    autopatch_contracts
+
+    hr
+    printf '\n'
+    printf '  %s╔══════════════════════════════════════════════════╗%s\n' "$B" "$Z" | tee -a "$LOG"
+    printf '  %s║  AUTOPATCH RESULT                                ║%s\n' "$B" "$Z" | tee -a "$LOG"
+    printf '  %s╚══════════════════════════════════════════════════╝%s\n' "$B" "$Z" | tee -a "$LOG"
+    printf '\n' | tee -a "$LOG"
+    printf '  Модулів:       %s\n' "$total" | tee -a "$LOG"
+    printf '  %sPATCHED:      %s%s\n' "$C" "$PATCHED" "$Z" | tee -a "$LOG"
+    printf '  %sOK:           %s%s\n' "$G" "$SKIPPED" "$Z" | tee -a "$LOG"
+    printf '  %sFiles written: %s%s\n' "$M" "$WRITTEN" "$Z" | tee -a "$LOG"
+    printf '\n' | tee -a "$LOG"
+    printf '  LOG: %s\n' "$LOG" | tee -a "$LOG"
+    printf '\n' | tee -a "$LOG"
+}
+
+# ═══════════════════════════════════════════════════════════
+# DRY RUN
+# ═══════════════════════════════════════════════════════════
+autopatch_check() {
+    hdr "AUTOPATCH v2 — DRY RUN"
+
+    printf '\n%s── MODULES ──%s\n' "$C" "$Z"
+    for d in "$MODULES"/*/; do
+        [ -d "$d" ] || continue
+        local m="$(basename "$d")"
+        case "$m" in @*|.*|_disabled*|evolution|answer_engine|node_modules) continue ;; esac
+
+        local need=""
+        [ ! -f "$d/state/config.env" ] && need="$need config"
+        [ ! -x "$d/tests/run_tests.sh" ] && need="$need tests"
+        [ ! -d "$d/snapshot" ] && need="$need snapshot"
+        [ ! -d "$d/bin" ] && need="$need bin"
+
+        if [ -n "$need" ]; then
+            printf '  %s[!]%s %-45s → %s\n' "$Y" "$Z" "$m" "$need"
+        else
+            printf '  %s[✓]%s %s\n' "$G" "$Z" "$m"
+        fi
+    done
+
+    printf '\n%s── CONTRACTS (terms) ──%s\n' "$C" "$Z"
+    local total=0 need=0
+    for f in "$CONTRACTS"/*.env; do
+        [ -f "$f" ] || continue
+        total=$((total+1))
+        local cid="$(basename "$f" .env)"
+        local terms="$CONTRACTS/$cid.terms"
+        if [ ! -f "$terms" ] || [ ! -s "$terms" ]; then
+            printf '  %s[!]%s %-45s → terms відсутні\n' "$Y" "$Z" "$cid"
+            need=$((need+1))
+        fi
+    done
+    if [ "$total" -gt 0 ] && [ "$need" -eq 0 ]; then
+        printf '  %s[✓]%s всі %s контрактів мають умови\n' "$G" "$Z" "$total"
+    elif [ "$total" -eq 0 ]; then
+        printf '  %s[·]%s контрактів немає\n' "$GR" "$Z"
+    else
+        printf '\n  → %s/%s контрактів без умов\n' "$need" "$total"
+    fi
+    printf '\n'
+}
+
+case "${1:-all}" in
+    all|a)          autopatch_all ;;
+    one|o)          [ -z "$2" ] && { err "Usage: cybra_autopatch one <module>"; exit 1; }; autopatch_module "$2" ;;
+    contracts|c)    autopatch_contracts ;;
+    check|k)        autopatch_check ;;
+    *)
+        printf 'Usage: cybra_autopatch [all|one <mod>|contracts|check]\n'
+        exit 1
+        ;;
+esac

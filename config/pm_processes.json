@@ -1,0 +1,185 @@
+{
+  "supervisor": {
+    "check_interval_sec": 30,
+    "max_restart_per_hour": 20,
+    "restart_delay_sec": 10
+  },
+  "processes": {
+    "autonode": {
+      "name": "autonode",
+      "desc": "AutoNode — multi-chain RPC watcher",
+      "cmd": "python3 $HOME/CYBRA/modules/module_114_autonode/daemon.py",
+      "cwd": "$HOME/CYBRA",
+      "pid_file": "$HOME/CYBRA/run/autonode.pid",
+      "log_file": "$HOME/CYBRA/logs/autonode.log",
+      "auto_restart": true,
+      "enabled": true,
+      "match_pattern": "module_114_autonode/daemon.py"
+    },
+    "watchdog": {
+      "name": "watchdog",
+      "desc": "Parliament watchdog — evolve + completion + sync",
+      "cmd": "bash $HOME/CYBRA/modules/module_121_parlament/watchdog.sh daemon",
+      "cwd": "$HOME/CYBRA",
+      "pid_file": "$HOME/CYBRA/run/pm_watchdog.pid",
+      "log_file": "$HOME/CYBRA/logs/parlament.log",
+      "auto_restart": true,
+      "enabled": true,
+      "match_pattern": "parlament/watchdog.sh daemon"
+    },
+    "orchestrator": {
+      "name": "orchestrator",
+      "desc": "Orchestrator — auto-install + integrate + monitor",
+      "cmd": "python3 $HOME/CYBRA/modules/module_121_parlament/orchestrator.py daemon --interval 600",
+      "cwd": "$HOME/CYBRA",
+      "pid_file": "$HOME/CYBRA/run/pm_orchestrator.pid",
+      "log_file": "$HOME/CYBRA/logs/orch.log",
+      "auto_restart": true,
+      "enabled": true,
+      "match_pattern": "orchestrator.py daemon"
+    },
+    "supervisor": {
+      "name": "supervisor",
+      "desc": "PM supervisor — сам стежить за всіма процесами",
+      "cmd": "python3 $HOME/CYBRA/modules/module_300_pm/supervisor.py loop",
+      "cwd": "$HOME/CYBRA",
+      "pid_file": "$HOME/CYBRA/run/pm_supervisor.pid",
+      "log_file": "$HOME/CYBRA/logs/pm.log",
+      "auto_restart": false,
+      "enabled": true,
+      "match_pattern": "module_300_pm/supervisor.py loop"
+    },
+    "dashboard": {
+      "name": "dashboard",
+      "desc": "Web Dashboard — HTTP panel (SSE)",
+      "cmd": "python3 $HOME/CYBRA/modules/module_128_dashboard/server.py 8790",
+      "cwd": "$HOME/CYBRA",
+      "pid_file": "$HOME/CYBRA/run/pm_dashboard.pid",
+      "log_file": "$HOME/CYBRA/logs/dashboard.log",
+      "auto_restart": true,
+      "enabled": true,
+      "match_pattern": "module_128_dashboard/server.py"
+    },
+    "selfheal": {
+      "name": "selfheal",
+      "desc": "Self-Heal Engine — авто-відновлення системи",
+      "cmd": "python3 $HOME/CYBRA/modules/module_330_selfheal/engine.py daemon 900",
+      "cwd": "$HOME/CYBRA",
+      "pid_file": "$HOME/CYBRA/run/pm_selfheal.pid",
+      "log_file": "$HOME/CYBRA/logs/selfheal.log",
+      "auto_restart": true,
+      "enabled": true,
+      "match_pattern": "module_330_selfheal/engine.py daemon"
+    },
+    "controller_worker": {
+      "name": "controller_worker",
+      "desc": "Controller Worker — цикл контролерів + автолікування",
+      "cmd": "python3 $HOME/CYBRA/modules/module_350_controller_worker/worker.py daemon 300",
+      "cwd": "$HOME/CYBRA",
+      "pid_file": "$HOME/CYBRA/run/pm_controller_worker.pid",
+      "log_file": "$HOME/CYBRA/logs/controller_worker.log",
+      "auto_restart": true,
+      "enabled": true,
+      "match_pattern": "module_350_controller_worker/worker.py daemon"
+    },
+    "runtime": {
+      "name": "runtime",
+      "desc": "Runtime — паралельні задачі",
+      "cmd": "python3 $HOME/CYBRA/modules/module_370_runtime/runtime.py daemon 3",
+      "cwd": "$HOME/CYBRA",
+      "pid_file": "$HOME/CYBRA/run/pm_runtime.pid",
+      "log_file": "$HOME/CYBRA/logs/runtime.log",
+      "auto_restart": true,
+      "enabled": true,
+      "match_pattern": "module_370_runtime/runtime.py daemon"
+    },
+    "job_controller": {
+      "name": "job_controller",
+      "desc": "Job Controller — failover runtime→binmixer",
+      "cmd": "python3 $HOME/CYBRA/modules/module_371_job_controller/controller.py daemon 30",
+      "cwd": "$HOME/CYBRA",
+      "pid_file": "$HOME/CYBRA/run/pm_job_controller.pid",
+      "log_file": "$HOME/CYBRA/logs/job_controller.log",
+      "auto_restart": true,
+      "enabled": true,
+      "match_pattern": "module_371_job_controller/controller.py daemon"
+    },
+    "src": {
+      "name": "src",
+      "desc": "Self-Recovery Controller — 100% state + snapshot + resurrect",
+      "cmd": "python3 $HOME/CYBRA/modules/module_390_src/src.py daemon 600",
+      "cwd": "$HOME/CYBRA",
+      "pid_file": "$HOME/CYBRA/run/pm_src.pid",
+      "log_file": "$HOME/CYBRA/logs/src.log",
+      "auto_restart": true,
+      "enabled": true,
+      "match_pattern": "module_390_src/src.py daemon"
+    },
+    "structure": {
+      "name": "structure",
+      "desc": "Structure Guardian — карта структури",
+      "cmd": "python3 $HOME/CYBRA/modules/module_395_structure/daemon.py",
+      "cwd": "$HOME/CYBRA",
+      "pid_file": "$HOME/CYBRA/run/pm_structure.pid",
+      "log_file": "$HOME/CYBRA/logs/structure.log",
+      "auto_restart": true,
+      "enabled": true,
+      "match_pattern": "module_395_structure"
+    },
+    "diffrecover": {
+      "name": "diffrecover",
+      "desc": "Snapshot Diff Recovery — посимвольне",
+      "cmd": "python3 $HOME/CYBRA/modules/module_396_diffrecover/daemon.py",
+      "cwd": "$HOME/CYBRA",
+      "pid_file": "$HOME/CYBRA/run/pm_diffrecover.pid",
+      "log_file": "$HOME/CYBRA/logs/diffrecover.log",
+      "auto_restart": true,
+      "enabled": true,
+      "match_pattern": "module_396_diffrecover"
+    },
+    "load": {
+      "name": "load",
+      "desc": "Load Controller — балансування",
+      "cmd": "python3 $HOME/CYBRA/modules/module_397_load/load.py daemon 60",
+      "cwd": "$HOME/CYBRA",
+      "pid_file": "$HOME/CYBRA/run/pm_load.pid",
+      "log_file": "$HOME/CYBRA/logs/load.log",
+      "auto_restart": true,
+      "enabled": true,
+      "match_pattern": "module_397_load"
+    },
+    "webui": {
+      "name": "webui",
+      "desc": "Web UI — простий стан",
+      "cmd": "python3 $HOME/CYBRA/modules/module_398_webui/server.py 8791",
+      "cwd": "$HOME/CYBRA",
+      "pid_file": "$HOME/CYBRA/run/pm_webui.pid",
+      "log_file": "$HOME/CYBRA/logs/webui.log",
+      "auto_restart": true,
+      "enabled": true,
+      "match_pattern": "module_398_webui/server.py"
+    },
+    "task_engine": {
+      "name": "task_engine",
+      "desc": "Task Engine — двигун задач з sandbox-тестом",
+      "cmd": "python3 $HOME/CYBRA/modules/module_405_task_engine/engine.py cycle 3",
+      "cwd": "$HOME/CYBRA",
+      "pid_file": "$HOME/CYBRA/run/pm_task_engine.pid",
+      "log_file": "$HOME/CYBRA/logs/task_engine.log",
+      "auto_restart": false,
+      "enabled": false,
+      "match_pattern": "module_405_task_engine"
+    },
+    "tui_guard": {
+      "name": "tui_guard",
+      "desc": "TUI Integrity Guard — тримає TUI синхронізованим",
+      "cmd": "python3 $HOME/CYBRA/modules/module_406_tui_guard/guard.py daemon",
+      "cwd": "$HOME/CYBRA",
+      "pid_file": "$HOME/CYBRA/run/pm_tui_guard.pid",
+      "log_file": "$HOME/CYBRA/logs/tui_guard.log",
+      "auto_restart": true,
+      "enabled": true,
+      "match_pattern": "module_406_tui_guard/guard.py daemon"
+    }
+  }
+}

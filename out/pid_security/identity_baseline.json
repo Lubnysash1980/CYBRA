@@ -1,0 +1,50 @@
+{
+  "run/autonode.pid": {
+    "cmdline": "python3 /data/data/com.termux/files/usr/bin/python3 /data/data/com.termux/files/home/CYBRA/modules/module_114_autonode/daemon.py",
+    "cmdline_sha256": "353179142c150c05775f2c21d1b3c44b7aa37a9d7f6acaea73fe4bfc12f9cd60",
+    "pid": 21121,
+    "start_ticks": "959376"
+  },
+  "run/orch.pid": {
+    "cmdline": "python3 /data/data/com.termux/files/usr/bin/python3 /data/data/com.termux/files/home/CYBRA/modules/module_121_parlament/orchestrator.py daemon --interval 600",
+    "cmdline_sha256": "07e2f80046cb5e065336afcd8546fc6f506db5212ad2991ce72493849f606b3f",
+    "pid": 21134,
+    "start_ticks": "959385"
+  },
+  "run/parlament.pid": {
+    "cmdline": "bash /data/data/com.termux/files/usr/bin/bash /data/data/com.termux/files/home/CYBRA/modules/module_121_parlament/watchdog.sh daemon",
+    "cmdline_sha256": "cdfcdfb1654ffee4f3217c4b5490478c4eb4e82ac90332bb5372ce986b15461c",
+    "pid": 21136,
+    "start_ticks": "959386"
+  },
+  "run/pid_security_controller.pid": {
+    "cmdline": "/data/data/com.termux/files/usr/bin/python /data/data/com.termux/files/usr/bin/python /data/data/com.termux/files/home/CYBRA/modules/module_412_pid_security/pid_security_controller.py daemon",
+    "cmdline_sha256": "daa888961559ce813be5a906b80ccda1b02ddcc7034e377fde21a42248803e59",
+    "pid": 21280,
+    "start_ticks": "959774"
+  },
+  "run/pm_heavy_tiers.pid": {
+    "cmdline": "python3 /data/data/com.termux/files/usr/bin/python3 /data/data/com.termux/files/home/CYBRA/modules/module_121_parlament/orchestrator.py daemon --interval 600",
+    "cmdline_sha256": "07e2f80046cb5e065336afcd8546fc6f506db5212ad2991ce72493849f606b3f",
+    "pid": 20059,
+    "start_ticks": "1397329"
+  },
+  "run/pm_selfheal.pid": {
+    "cmdline": "python3 /data/data/com.termux/files/usr/bin/python3 /data/data/com.termux/files/home/CYBRA/modules/module_330_selfheal/engine.py daemon 900",
+    "cmdline_sha256": "5a549e81b213d55edc961490bf26d2665120e456f227d400a62d9b0e905297ba",
+    "pid": 30812,
+    "start_ticks": "1245350"
+  },
+  "run/pm_supervisor.pid": {
+    "cmdline": "python3 /data/data/com.termux/files/usr/bin/python3 /data/data/com.termux/files/home/CYBRA/modules/module_300_pm/supervisor.py loop",
+    "cmdline_sha256": "d4c59f91614039b2b3779e247118a8e8e7b04c3f58c908a8e9eebfaf32da406f",
+    "pid": 21129,
+    "start_ticks": "959382"
+  },
+  "run/pm_watchdog.pid": {
+    "cmdline": "bash /data/data/com.termux/files/usr/bin/bash /data/data/com.termux/files/home/CYBRA/modules/module_121_parlament/watchdog.sh daemon",
+    "cmdline_sha256": "cdfcdfb1654ffee4f3217c4b5490478c4eb4e82ac90332bb5372ce986b15461c",
+    "pid": 7606,
+    "start_ticks": "1445690"
+  }
+}

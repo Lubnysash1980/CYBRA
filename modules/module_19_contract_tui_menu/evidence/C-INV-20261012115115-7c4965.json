@@ -1,0 +1,74 @@
+{
+  "cid": "C-INV-20261012115115-7c4965",
+  "type": "invoice_payment",
+  "created_at": "2026-10-12T08:51:15Z",
+  "buyer": "0x29fA26FC5768Fe1E62160e021fD3f88d92257A1F",
+  "pay_to": "0x74dA52028E42A37bc89E05c2fD5c52daBE4CB48f",
+  "currency": "UAH",
+  "total_uah": 137475.0,
+  "invoice": {
+    "no": "РБ0518-00742",
+    "date": "06.10.2026",
+    "valid_until": "07.10.2026",
+    "supplier": {
+      "name": "КОМФІ ТРЕЙД",
+      "full_name": "ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ КОМФІ ТРЕЙД",
+      "edrpou": "36962487",
+      "ipn": "369624804639",
+      "iban": "UA893052990000026002050009988",
+      "mfo": "305299",
+      "bank": "АТ КБ ПРИВАТБАНК",
+      "address": "49100, м. Дніпро, бул. Слави, 6 Б, кімната 413",
+      "phone": "0800 303 505"
+    },
+    "buyer_name": "Грабовський Олександр Миколайович",
+    "buyer_ipn": "2937002115",
+    "items": [
+      {
+        "no": 1,
+        "code": "3984343",
+        "name": "Смартфон Samsung Galaxy Fold 8 16/1Tb Graphite (SM-F971BZKNSEK)",
+        "qty": 1,
+        "price_uah": 81748.33,
+        "sum_uah": 81748.33
+      },
+      {
+        "no": 2,
+        "code": "3909742",
+        "name": "Послуга «Comfy Upgrade 2 роки»",
+        "qty": 1,
+        "price_uah": 24525.0,
+        "sum_uah": 24525.0
+      },
+      {
+        "no": 3,
+        "code": "2908219",
+        "name": "Мережевий зарядний пристрій Samsung Trio 65W 2 Type-C+USB Black (EP-T6530NBEGEU)",
+        "qty": 1,
+        "price_uah": 2040.83,
+        "sum_uah": 2040.83
+      },
+      {
+        "no": 4,
+        "code": "3799926",
+        "name": "Батарея мобільна Pitaka Aramid Fiber Magnetic Qi2 5 000mAh Sunset (PBQ2402)",
+        "qty": 1,
+        "price_uah": 3332.5,
+        "sum_uah": 3332.5
+      },
+      {
+        "no": 5,
+        "code": "4061288",
+        "name": "Чохол для смартфону Pitaka Edge Ultra-Slim Case Twill Black/Grey для Samsung Galaxy Z Fold 8 (FBWFOLD8)",
+        "qty": 1,
+        "price_uah": 2915.83,
+        "sum_uah": 2915.83
+      }
+    ],
+    "items_count": 5,
+    "subtotal_uah": 114562.49,
+    "vat_uah": 22912.51
+  },
+  "terms": "Оплата рахунку №РБ0518-00742 від 06.10.2026 через CYBRA. Отримувач: 0x74dA52028E42A37bc89E05c2fD5c52daBE4CB48f. Сума: 137475.0 UAH. 5 позицій: Samsung Galaxy Fold 8 + аксесуари. УВАГА: рахунок дійсний до 07.10.2026 — прострочений!",
+  "status": "draft"
+}

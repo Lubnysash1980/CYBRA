@@ -1,0 +1,53 @@
+{
+  "at": "2026-10-12T17:52:47Z",
+  "results": {
+    "test_1": {
+      "ok": true,
+      "counts": {
+        "OK": 158,
+        "STUB": 4,
+        "FAIL": 0,
+        "MISS": 0,
+        "INTER": 0,
+        "WARN": 0
+      },
+      "fails": []
+    },
+    "fix": {
+      "ok": true,
+      "fixed": 6,
+      "total": 8
+    },
+    "restart": {
+      "ok": true,
+      "online": 15,
+      "total": 7
+    },
+    "git": {
+      "ok": true,
+      "has_remote": true,
+      "repo": "/data/data/com.termux/files/home/CYBRA/git_module"
+    },
+    "health": {
+      "ok": false,
+      "health": 80,
+      "gate": false
+    },
+    "wait": {
+      "ok": true
+    },
+    "test_2": {
+      "ok": true,
+      "counts": {
+        "OK": 152,
+        "STUB": 4,
+        "FAIL": 0,
+        "MISS": 0,
+        "INTER": 0,
+        "WARN": 0
+      },
+      "fails": []
+    }
+  },
+  "all_ok": false
+}

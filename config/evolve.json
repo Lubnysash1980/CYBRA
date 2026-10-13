@@ -1,0 +1,45 @@
+{
+  "threshold_pct": 3.0,
+  "critical_pct": 15.0,
+  "baseline_window": 10,
+  "auto_act": true,
+  "cooldown_sec": 300,
+  "metrics": {
+    "tests_success_rate": {
+      "dir": "up_good",
+      "weight": 1.0
+    },
+    "stream_error_rate": {
+      "dir": "down_good",
+      "weight": 1.0
+    },
+    "actions_fail_rate": {
+      "dir": "down_good",
+      "weight": 0.8
+    },
+    "rpc_latency_avg_ms": {
+      "dir": "down_good",
+      "weight": 0.6
+    },
+    "disk_free_mb": {
+      "dir": "up_good",
+      "weight": 0.5
+    },
+    "modules_count": {
+      "dir": "stable",
+      "weight": 0.0
+    },
+    "chain_broken": {
+      "dir": "down_good",
+      "weight": 2.0
+    },
+    "signatures_invalid": {
+      "dir": "down_good",
+      "weight": 2.0
+    },
+    "executions_corrupted": {
+      "dir": "down_good",
+      "weight": 2.0
+    }
+  }
+}

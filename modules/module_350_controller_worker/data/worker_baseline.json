@@ -1,0 +1,11 @@
+{
+  "metrics": {
+    "ts": "2026-10-13T08:16:51Z",
+    "ts_unix": 1791879411,
+    "health": 62,
+    "completion": 98.3,
+    "processes_offline": 2,
+    "disk_free_mb": 48399
+  },
+  "at": "2026-10-13T08:16:51Z"
+}

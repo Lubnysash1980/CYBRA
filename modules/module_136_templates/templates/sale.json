@@ -1,0 +1,13 @@
+{
+  "type": "sale",
+  "name": "Продаж",
+  "fields": [
+    {"id":"seller","label":"Адреса продавця","required":true,"type":"address"},
+    {"id":"buyer","label":"Адреса покупця","required":true,"type":"address"},
+    {"id":"amount_bnb","label":"Сума (BNB)","required":true,"type":"number"},
+    {"id":"item","label":"Предмет","required":true,"type":"text"},
+    {"id":"deadline","label":"Строк (ISO)","required":false,"type":"date"},
+    {"id":"delivery_hash","label":"Hash доставки","required":false,"type":"text"}
+  ],
+  "default_terms": "Продавець передає предмет покупцю, покупець сплачує BNB. Ризик переходить у момент отримання."
+}

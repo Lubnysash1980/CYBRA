@@ -1,0 +1,421 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# ═══════════════════════════════════════════════════════════
+# CYBRA IMPORT v2 — ПОВНА АВТОМАТИЗАЦІЯ
+#
+# Usage:
+#   cybra_import <file.tar.gz>           # авто: backup + restore + init
+#   cybra_import <file.tar.gz> --force   # без backup (швидко)
+#   cybra_import <file.tar.gz> --side    # паралельно (не чіпає ~/CYBRA)
+#   cybra_import <file.tar.gz> --no-boot # без cybra_boot
+# ═══════════════════════════════════════════════════════════
+
+ROOT="$HOME/CYBRA"
+STAMP="$(date -u +%Y%m%dT%H%M%SZ)"
+
+# ─── Colors ───
+if [ -t 1 ]; then
+    G=$'\033[32m'; Y=$'\033[33m'; R=$'\033[31m'
+    B=$'\033[1m'; C=$'\033[36m'; M=$'\033[35m'; Z=$'\033[0m'; GR=$'\033[90m'
+else
+    G=""; Y=""; R=""; B=""; C=""; M=""; Z=""; GR=""
+fi
+
+hr()  { printf -- '────────────────────────────────────────────────────────────\n'; }
+hdr() { printf '\n%s%s═══ %s ═══%s\n' "$B" "$C" "$*" "$Z"; }
+ok()   { printf '  %s[✓]%s %s\n' "$G" "$Z" "$*"; }
+warn() { printf '  %s[!]%s %s\n' "$Y" "$Z" "$*"; }
+err()  { printf '  %s[✗]%s %s\n' "$R" "$Z" "$*"; }
+info() { printf '  %s[·]%s %s\n' "$GR" "$Z" "$*"; }
+step() { printf '  %s→%s %s\n' "$C" "$Z" "$*"; }
+
+# ─── Парсинг аргументів ───
+ARCHIVE=""
+MODE="auto"       # auto | force | side
+RUN_BOOT=1
+
+for arg in "$@"; do
+    case "$arg" in
+        --force)    MODE="force" ;;
+        --side)     MODE="side" ;;
+        --no-boot)  RUN_BOOT=0 ;;
+        -h|--help)
+            cat <<USAGE
+Usage: cybra_import <file.tar.gz> [options]
+
+Options:
+  --force     без backup існуючої системи (швидко, ризиковано)
+  --side      розпакувати у ~/CYBRA_IMPORTED_<stamp>/ (не чіпає ~/CYBRA)
+  --no-boot   без автозапуску cybra_boot
+  -h, --help  ця довідка
+
+Приклади:
+  cybra_import ~/cybra_export.tar.gz              # авто
+  cybra_import /sdcard/Download/cybra.tar.gz      # авто з sdcard
+  cybra_import cybra.tar.gz --force               # швидко, без backup
+  cybra_import cybra.tar.gz --side                # в паралельну папку
+USAGE
+            exit 0 ;;
+        -*)         echo "Невідомий флаг: $arg"; exit 1 ;;
+        *)          ARCHIVE="$arg" ;;
+    esac
+done
+
+hdr "CYBRA IMPORT v2"
+printf '  Режим: %s\n' "$MODE"
+printf '  Час:   %s\n' "$STAMP"
+hr
+
+# ═══════════════════════════════════════════════════════════
+# 1. Перевірка архіву
+# ═══════════════════════════════════════════════════════════
+hdr "[1/7] Перевірка архіву"
+
+if [ -z "$ARCHIVE" ]; then
+    err "Usage: cybra_import <file.tar.gz>"
+    echo ""
+    info "Спробуй: cybra_import ~/cybra_export.tar.gz"
+    exit 1
+fi
+
+# Розширення
+case "$ARCHIVE" in
+    *.tar.gz|*.tgz) ;;
+    *) warn "Файл не .tar.gz/.tgz — продовжую, але перевіряй" ;;
+esac
+
+if [ ! -f "$ARCHIVE" ]; then
+    err "Файл не знайдено: $ARCHIVE"
+    exit 1
+fi
+
+ok "Файл: $(basename "$ARCHIVE") ($(du -h "$ARCHIVE" | cut -f1))"
+
+# SHA256
+if [ -f "${ARCHIVE}.sha256" ]; then
+    step "Перевірка SHA256..."
+    if (cd "$(dirname "$ARCHIVE")" && sha256sum -c "$(basename "$ARCHIVE").sha256" >/dev/null 2>&1); then
+        ok "SHA256 OK"
+    else
+        err "SHA256 MISMATCH — архів пошкоджено"
+        info "Продовжити небезпечно. Скасування."
+        exit 1
+    fi
+else
+    warn "Немає .sha256 (не критично)"
+fi
+
+# Швидка перевірка структури
+step "Перевірка структури архіву..."
+if ! tar -tzf "$ARCHIVE" >/dev/null 2>&1; then
+    err "Архів пошкоджено або не tar.gz"
+    exit 1
+fi
+ok "Структура OK"
+
+# ═══════════════════════════════════════════════════════════
+# 2. Backup існуючої CYBRA (якщо є)
+# ═══════════════════════════════════════════════════════════
+hdr "[2/7] Backup існуючої системи"
+
+BACKUP_DIR=""
+
+if [ -d "$ROOT" ]; then
+    if [ "$MODE" = "side" ]; then
+        info "side-mode: ~/CYBRA не чіпаємо"
+    elif [ "$MODE" = "force" ]; then
+        warn "force-mode: backup СКАСОВАНО — існуюча система буде видалена"
+    else
+        # Авто-backup
+        BACKUP_DIR="$HOME/CYBRA_BEFORE_IMPORT_$STAMP"
+
+        step "Backup $ROOT → $BACKUP_DIR..."
+        mkdir -p "$BACKUP_DIR"
+
+        # Легкий backup без логів/hashes/audit
+        tar -czf "${BACKUP_DIR}/backup.tar.gz" \
+            -C "$HOME" \
+            --exclude='CYBRA/logs' \
+            --exclude='CYBRA/backups' \
+            --exclude='CYBRA/hashes' \
+            --exclude='CYBRA/audit' \
+            --exclude='CYBRA/git_module/.git' \
+            --exclude='CYBRA/**/node_modules' \
+            CYBRA 2>/dev/null
+
+        if [ -f "${BACKUP_DIR}/backup.tar.gz" ] && [ -s "${BACKUP_DIR}/backup.tar.gz" ]; then
+            sha256sum "${BACKUP_DIR}/backup.tar.gz" > "${BACKUP_DIR}/backup.tar.gz.sha256"
+            ok "Backup: $(du -h "${BACKUP_DIR}/backup.tar.gz" | cut -f1)"
+            ok "Path:   $BACKUP_DIR"
+        else
+            err "Backup не вдався"
+            exit 1
+        fi
+    fi
+else
+    info "~/CYBRA не існує — backup не потрібен"
+fi
+
+# ═══════════════════════════════════════════════════════════
+# 3. Зупинка активних демонів
+# ═══════════════════════════════════════════════════════════
+hdr "[3/7] Зупинка активних демонів"
+
+if [ -d "$ROOT" ] && [ "$MODE" != "side" ]; then
+    for daemon in watchdog schedule web evo_ctl parawatch; do
+        bin="$ROOT/bin/cybra_$daemon"
+        [ "$daemon" = "web" ] && bin="$ROOT/bin/cybra_web"
+        [ -x "$bin" ] && {
+            "$bin" stop >/dev/null 2>&1 && ok "$daemon stopped" || info "$daemon not running"
+        }
+    done
+
+    # На всякий випадок
+    pkill -f "cybra_web_server.py" 2>/dev/null
+    pkill -f "cybra_watchdog" 2>/dev/null
+    pkill -f "cybra_evo_ctl" 2>/dev/null
+    pkill -f "cybra_parawatch" 2>/dev/null
+    pkill -f "cybra_schedule" 2>/dev/null
+
+    sleep 1
+
+    # Видалити PID-файли
+    rm -f "$ROOT"/.watchdog.pid "$ROOT"/.evo_ctl.pid "$ROOT"/.parawatch.pid \
+          "$ROOT"/.schedule.pid "$ROOT"/.cybra_http.pid "$ROOT"/.cybra_web.pid 2>/dev/null
+
+    ok "Всі демони зупинено"
+else
+    info "side-mode або CYBRA відсутня — skip"
+fi
+
+# ═══════════════════════════════════════════════════════════
+# 4. Розпакування
+# ═══════════════════════════════════════════════════════════
+hdr "[4/7] Розпакування"
+
+if [ "$MODE" = "side" ]; then
+    DEST="$HOME/CYBRA_IMPORTED_$STAMP"
+    step "Розпакування → $DEST"
+    mkdir -p "$DEST"
+
+    if tar -xzf "$ARCHIVE" -C "$DEST" --strip-components=1; then
+        ok "Готово: $DEST"
+    else
+        err "Розпакування не вдалось"
+        exit 1
+    fi
+
+    # Shortcut — використовувати нову
+    cat <<INFO
+
+  %sSide-by-side готовий!%s
+
+    Нова система: $DEST
+
+    Щоб активувати:
+      mv ~/CYBRA ~/CYBRA.old
+      mv $DEST ~/CYBRA
+      ~/CYBRA/bin/cybra_boot
+
+INFO
+    exit 0
+else
+    # Auto/force — видаляємо стару і розпаковуємо на її місце
+    if [ -d "$ROOT" ]; then
+        step "Видалення $ROOT..."
+        rm -rf "$ROOT"
+        ok "Видалено"
+    fi
+
+    step "Розпакування $ARCHIVE → $HOME..."
+    if tar -xzf "$ARCHIVE" -C "$HOME"; then
+        ok "Розпаковано"
+    else
+        err "Розпакування не вдалось"
+        if [ -n "$BACKUP_DIR" ]; then
+            warn "Відкат з backup..."
+            tar -xzf "${BACKUP_DIR}/backup.tar.gz" -C "$HOME"
+            ok "Відкат виконано"
+        fi
+        exit 1
+    fi
+fi
+
+# ─── Перевірка що розпакувалось правильно ───
+if [ ! -d "$ROOT" ]; then
+    err "Після розпакування немає $ROOT"
+    exit 1
+fi
+
+if [ ! -f "$ROOT/cybra" ] && [ ! -d "$ROOT/modules" ]; then
+    err "Структура архіву не CYBRA"
+    exit 1
+fi
+
+ok "Структура CYBRA виявлена"
+
+# ═══════════════════════════════════════════════════════════
+# 5. Post-import cleanup + fix
+# ═══════════════════════════════════════════════════════════
+hdr "[5/7] Post-import фікс"
+
+# ─── Дозволи ───
+step "Fix дозволів..."
+find "$ROOT/bin" -type f \( -name "*.sh" -o -name "cybra_*" \) -exec chmod +x {} \; 2>/dev/null
+find "$ROOT/modules" -name "*.sh" -exec chmod +x {} \; 2>/dev/null
+find "$ROOT/modules" -name "*.py" -exec chmod +x {} \; 2>/dev/null
+chmod +x "$ROOT/cybra" 2>/dev/null
+chmod +x "$ROOT/cybra_mega_hardening.sh" 2>/dev/null
+chmod +x "$ROOT/bin"/* 2>/dev/null
+chmod +x "$ROOT/ai"/*.sh 2>/dev/null
+ok "Дозволи OK"
+
+# ─── Директорії ───
+step "Створення директорій..."
+for d in logs audit baseline evolution hashes public backups \
+         git_module @cybra web; do
+    mkdir -p "$ROOT/$d"
+done
+ok "Директорії OK"
+
+# ─── Видалити PID файли ───
+step "Видалення старих PID-файлів..."
+rm -f "$ROOT"/.watchdog.pid "$ROOT"/.evo_ctl.pid "$ROOT"/.parawatch.pid \
+      "$ROOT"/.schedule.pid "$ROOT"/.cybra_http.pid "$ROOT"/.cybra_web.pid 2>/dev/null
+rm -f "$ROOT"/.parawatch.state 2>/dev/null
+ok "PID файли видалено"
+
+# ─── Owner marker ───
+step "Owner marker..."
+if [ ! -f "$ROOT/.owner" ]; then
+    printf 'CYBRA_OWNER_%s\n' "$STAMP" > "$ROOT/.owner"
+    chmod 600 "$ROOT/.owner"
+    ok "Створено: $(cat "$ROOT/.owner")"
+else
+    ok "Вже є: $(cat "$ROOT/.owner")"
+fi
+
+# ─── Manual manifest ───
+if [ -f "$ROOT/.export_manifest" ]; then
+    step "Import manifest:"
+    cat "$ROOT/.export_manifest" | sed 's/^/      /'
+fi
+
+# ═══════════════════════════════════════════════════════════
+# 6. Re-init система (baseline + approve + git)
+# ═══════════════════════════════════════════════════════════
+hdr "[6/7] Re-initialize"
+
+# ─── Re-seal baseline для всіх модулів ───
+step "Re-seal baseline..."
+COUNT=0
+for d in "$ROOT/modules"/*/; do
+    [ -d "$d" ] || continue
+    m="$(basename "$d")"
+    case "$m" in @*|.*|_disabled*|evolution|answer_engine|node_modules) continue ;; esac
+
+    h="$(
+        cd "$d" 2>/dev/null || exit 0
+        find . -type f \
+            ! -name '*.log' ! -name '*.test.log' \
+            ! -name 'test_output.txt' ! -name 'test_output.sha256' \
+            ! -name 'SNAPSHOT_SHA256.txt' ! -name '*.bak.*' \
+            -print0 2>/dev/null |
+        sort -z | xargs -0 -r sha256sum 2>/dev/null |
+        sha256sum | awk '{print $1}'
+    )"
+
+    [ -n "$h" ] && {
+        printf '%s' "$h" > "$ROOT/baseline/${m}.tree"
+        printf '%s' "$h" > "$ROOT/evolution/${m}.approved"
+        COUNT=$((COUNT+1))
+    }
+done
+ok "Baseline: $COUNT модулів"
+
+# ─── Git init якщо треба ───
+if [ -d "$ROOT/git_module" ]; then
+    if [ ! -d "$ROOT/git_module/.git" ]; then
+        step "Git init..."
+        cd "$ROOT/git_module" || exit 1
+
+        git init -q 2>/dev/null
+        git config user.email "cybra@local" 2>/dev/null
+        git config user.name "CYBRA" 2>/dev/null
+
+        # Remote з manifest
+        if [ -f "$ROOT/.export_manifest" ]; then
+            REMOTE="$(grep '^GIT_REMOTE=' "$ROOT/.export_manifest" 2>/dev/null | cut -d= -f2-)"
+            if [ -n "$REMOTE" ] && [ "$REMOTE" != "NONE" ]; then
+                git remote add origin "$REMOTE" 2>/dev/null
+                ok "Git remote: $REMOTE"
+            fi
+        fi
+
+        git add -A 2>/dev/null
+        git commit -q -m "CYBRA import $STAMP" 2>/dev/null || true
+        ok "Git initialized"
+        cd "$ROOT" || true
+    else
+        info "Git вже існує"
+    fi
+fi
+
+# ─── Symlinks для зручності ───
+step "Symlinks у ~/CYBRA/bin/..."
+for cmd in cybra_evo_ctl evoctl cybra_evo7 evo7 cybra_watchdog wd \
+           cybra_parawatch pwatch cybra_metrics metrics cybra_web web \
+           cybra_schedule sched cybra_cleanup cleanup cybra_boot boot \
+           cybra_alert alert cybra_export export cybra_import import; do
+    [ -f "$ROOT/bin/$cmd" ] && chmod +x "$ROOT/bin/$cmd" 2>/dev/null
+done
+ok "OK"
+
+# ═══════════════════════════════════════════════════════════
+# 7. Автозапуск системи
+# ═══════════════════════════════════════════════════════════
+hdr "[7/7] Запуск системи"
+
+if [ "$RUN_BOOT" = "1" ] && [ -x "$ROOT/bin/cybra_boot" ]; then
+    step "cybra_boot..."
+    "$ROOT/bin/cybra_boot" 2>&1 | tail -15 | sed 's/^/    /'
+else
+    info "cybra_boot пропущено"
+fi
+
+# ═══════════════════════════════════════════════════════════
+# SUMMARY
+# ═══════════════════════════════════════════════════════════
+hr
+printf '\n'
+printf '  %s╔══════════════════════════════════════════════════╗%s\n' "$B" "$Z"
+printf '  %s║  IMPORT SUCCESSFUL                              ║%s\n' "$G" "$Z"
+printf '  %s╚══════════════════════════════════════════════════╝%s\n' "$B" "$Z"
+printf '\n'
+printf '  %sRoot:%s        %s\n' "$B" "$Z" "$ROOT"
+printf '  %sStamp:%s       %s\n' "$B" "$Z" "$STAMP"
+printf '  %sMode:%s        %s\n' "$B" "$Z" "$MODE"
+if [ -n "$BACKUP_DIR" ]; then
+    printf '  %sBackup:%s      %s\n' "$B" "$Z" "$BACKUP_DIR"
+fi
+printf '\n'
+printf '  %sНаступні кроки:%s\n' "$C" "$Z"
+printf '    cybra                    # TUI\n'
+printf '    cybra_boot               # запустити всі демони\n'
+printf '    cybra_web start          # web panel\n'
+printf '    cybra_evo_ctl run        # evo check\n'
+printf '    cybra_evo7 all           # 7 рівнів\n'
+printf '    cybra_enterprise full    # повна автоматизація\n'
+printf '\n'
+if [ -n "$BACKUP_DIR" ]; then
+    printf '  %sВідкат (якщо щось):%s\n' "$Y" "$Z"
+    printf '    rm -rf ~/CYBRA\n'
+    printf '    tar -xzf %s/backup.tar.gz -C ~\n' "$BACKUP_DIR"
+    printf '\n'
+fi
+
+# Автозапуск TUI
+if [ "${SHOW_TUI:-0}" = "1" ]; then
+    exec "$ROOT/cybra"
+fi
+
+exit 0

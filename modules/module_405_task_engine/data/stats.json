@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-12T11:58:32Z",
+  "duration_ms": 13256,
+  "issues_total": 23,
+  "results": {
+    "created": 3,
+    "tested": 3,
+    "applied": 3,
+    "failed": 0,
+    "skipped": 0
+  }
+}

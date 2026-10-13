@@ -1,0 +1,184 @@
+{
+  "controller": "CYBRA_PID_SECURITY_CONTROLLER",
+  "double_sha256": "computed_for_report",
+  "entries": [
+    {
+      "pid": 8310,
+      "pid_file": "run/autonode.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 4393,
+      "pid_file": "run/guardian.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 8325,
+      "pid_file": "run/orch.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 8323,
+      "pid_file": "run/parlament.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "cmdline_sha256": "1c9e92087086943ea178668cc0ac569e5c3fe1e8f9eb0da9b21ea7c4f37b85a4",
+      "pid": 9052,
+      "pid_file": "run/pid_security_controller.pid",
+      "start_ticks": "4523320",
+      "status": "FALSE_IDENTITY_CHANGED_REVIEW_REQUIRED"
+    },
+    {
+      "pid": 20080,
+      "pid_file": "run/pm_auto_module_130_test_suite.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 20203,
+      "pid_file": "run/pm_auto_module_401_cascade_verify.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 20318,
+      "pid_file": "run/pm_auto_module_408_menu_tester.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 20430,
+      "pid_file": "run/pm_auto_module_409_pipeline.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 20552,
+      "pid_file": "run/pm_auto_module_411_tiers.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 18504,
+      "pid_file": "run/pm_controller_worker.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 19951,
+      "pid_file": "run/pm_cron_migrate.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 30314,
+      "pid_file": "run/pm_cw.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 30245,
+      "pid_file": "run/pm_dashboard.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 30531,
+      "pid_file": "run/pm_diff.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 19118,
+      "pid_file": "run/pm_diffrecover.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 19799,
+      "pid_file": "run/pm_heavy_cascade.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 19689,
+      "pid_file": "run/pm_heavy_pipeline.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 20059,
+      "pid_file": "run/pm_heavy_tiers.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 18793,
+      "pid_file": "run/pm_job_controller.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 20813,
+      "pid_file": "run/pm_keeper.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 30773,
+      "pid_file": "run/pm_load.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 7830,
+      "pid_file": "run/pm_orchestrator.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 2401,
+      "pid_file": "run/pm_selfheal.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 30671,
+      "pid_file": "run/pm_src.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 30429,
+      "pid_file": "run/pm_struct.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 18995,
+      "pid_file": "run/pm_structure.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 8317,
+      "pid_file": "run/pm_supervisor.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 19437,
+      "pid_file": "run/pm_task_engine.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 30929,
+      "pid_file": "run/pm_te.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 30207,
+      "pid_file": "run/pm_tui_guard.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 27231,
+      "pid_file": "run/pm_watchdog.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    },
+    {
+      "pid": 20232,
+      "pid_file": "run/pm_webui.pid",
+      "status": "FALSE_STALE_OR_UNREADABLE"
+    }
+  ],
+  "mode": "OBSERVE_VERIFY_NO_KILL",
+  "note": "Initial observations are not proof of historical ownership. Changed identities require review. No process was terminated.",
+  "pid_files_found": 33,
+  "results": {
+    "FALSE_IDENTITY_CHANGED_REVIEW_REQUIRED": 1,
+    "FALSE_STALE_OR_UNREADABLE": 32
+  },
+  "sha256": "computed_for_report",
+  "timestamp_utc": "2026-10-13T07:24:05.589039+00:00",
+  "true_100": false,
+  "version": 1
+}

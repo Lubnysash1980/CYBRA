@@ -1,0 +1,392 @@
+#!/usr/bin/env python3
+"""Mapping Controller — карта всіх пунктів → контролери → дії.
+
+Кожен пункт меню має:
+  · id, slug, path      — де знаходиться
+  · controllers[]        — які контролери його перевіряють
+  · priority             — критичність (1=critical, 5=low)
+  · heal_action          — як лікувати
+  · parliament_role      — як парламент впливає (vote/veto/auto)
+  · deps[]               — залежності
+"""
+import json, os, sys, time
+from pathlib import Path
+
+H = Path.home() / "CYBRA"
+M = H / "modules"
+D = Path(__file__).resolve().parent
+MAP_FILE = D / "data" / "mapping.json"
+
+def _now(): return time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+
+# ═══════════════════════════════════════════════════════════════
+# БАЗОВА КАРТА (auto-generated + manual overrides)
+# ═══════════════════════════════════════════════════════════════
+# priority: 1=critical, 2=high, 3=medium, 4=low, 5=info
+# parliament_role: auto | vote | veto | manual
+
+CORE_MAPPING = {
+    # ── ОСНОВНЕ (1-9) ──
+    "1":  {"slug":"create_contract",       "priority":1, "ctrl":["integrity","signatures"], "heal":"completion", "parl":"veto"},
+    "2":  {"slug":"list_contracts",        "priority":2, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "3":  {"slug":"contract_status",       "priority":2, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "4":  {"slug":"gen_links",             "priority":3, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "5":  {"slug":"confirm_link",          "priority":3, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "6":  {"slug":"debug",                 "priority":4, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "7":  {"slug":"dual_license_ledger",   "priority":2, "ctrl":["integrity"],              "heal":"completion", "parl":"vote"},
+    "8":  {"slug":"creation_license",      "priority":2, "ctrl":["integrity"],              "heal":"completion", "parl":"vote"},
+    "9":  {"slug":"hardening",             "priority":1, "ctrl":["exoskeleton"],            "heal":"controllers", "parl":"veto"},
+
+    # ── INVOICE (11-14) ──
+    "11": {"slug":"invoice_create",        "priority":1, "ctrl":["integrity"],              "heal":"completion", "parl":"vote"},
+    "12": {"slug":"invoice_add_item",      "priority":2, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "13": {"slug":"invoice_show",          "priority":2, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "14": {"slug":"invoice_finalize",      "priority":1, "ctrl":["integrity","signatures"], "heal":"completion", "parl":"veto"},
+
+    # ── PII MASK (15-17) ──
+    "15": {"slug":"pii_export_masked",     "priority":3, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "16": {"slug":"pii_export_all_git",    "priority":3, "ctrl":["git_sync"],               "heal":"git",        "parl":"auto"},
+    "17": {"slug":"pii_check_hash",        "priority":3, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+
+    # ── REFUND (18-21) ──
+    "18": {"slug":"refund_buyer_decision", "priority":1, "ctrl":["signatures","integrity"], "heal":"completion", "parl":"veto"},
+    "19": {"slug":"refund_timeout_check",  "priority":2, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "20": {"slug":"refund_status",         "priority":2, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "21": {"slug":"refund_add_condition",  "priority":3, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+
+    # ── ВАЛЮТИ (22-24) ──
+    "22": {"slug":"rates_show",            "priority":4, "ctrl":["node_state"],             "heal":"autonode",   "parl":"auto"},
+    "23": {"slug":"rates_update",          "priority":3, "ctrl":["node_state"],             "heal":"autonode",   "parl":"auto"},
+    "24": {"slug":"converter",             "priority":4, "ctrl":["node_state"],             "heal":"autonode",   "parl":"auto"},
+
+    # ── СИСТЕМА (30-33) ──
+    "30": {"slug":"preflight",             "priority":1, "ctrl":["backend","node_state"],   "heal":"backend",    "parl":"auto"},
+    "31": {"slug":"self_heal",             "priority":1, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "32": {"slug":"dual_backend_verify",   "priority":1, "ctrl":["node_state"],             "heal":"autonode",   "parl":"auto"},
+    "33": {"slug":"ownership_scan",        "priority":2, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+
+    # ── AI (40-49) ──
+    "40": {"slug":"ai_analyze",            "priority":3, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "41": {"slug":"ai_parse_invoice",      "priority":2, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "42": {"slug":"ai_gen_terms",          "priority":3, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "43": {"slug":"ai_help",               "priority":4, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "44": {"slug":"ai_free_question",      "priority":4, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "45": {"slug":"ai_task_bar",           "priority":3, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "46": {"slug":"executor_full",         "priority":2, "ctrl":["integrity"],              "heal":"completion", "parl":"vote"},
+    "47": {"slug":"executor_scan",         "priority":3, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "48": {"slug":"executor_apply",        "priority":2, "ctrl":["integrity"],              "heal":"completion", "parl":"vote"},
+    "49": {"slug":"executor_list",         "priority":4, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+
+    # ── ADDRESS BOOK (50-52) ──
+    "50": {"slug":"addr_add",              "priority":3, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "51": {"slug":"addr_list",             "priority":4, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "52": {"slug":"addr_history",          "priority":4, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+
+    # ── INTEGRATIONS (53-57) ──
+    "53": {"slug":"qr_code",               "priority":2, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "54": {"slug":"telegram_setup",        "priority":3, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "55": {"slug":"telegram_test",         "priority":4, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "56": {"slug":"webhook_list",          "priority":4, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "57": {"slug":"webhook_add",           "priority":3, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+
+    # ── EXPORT (58-62) ──
+    "58": {"slug":"csv_contracts",         "priority":4, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "59": {"slug":"csv_ledger",            "priority":4, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "60": {"slug":"txt_report",            "priority":4, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "61": {"slug":"backup_local",          "priority":2, "ctrl":["git_sync"],               "heal":"git",        "parl":"auto"},
+    "62": {"slug":"backup_cloud",          "priority":2, "ctrl":["git_sync"],               "heal":"git",        "parl":"auto"},
+
+    # ── MULTI-CHAIN (63-64) ──
+    "63": {"slug":"chains_list",           "priority":3, "ctrl":["node_state"],             "heal":"autonode",   "parl":"auto"},
+    "64": {"slug":"tx_scanner",            "priority":2, "ctrl":["node_state"],             "heal":"autonode",   "parl":"auto"},
+
+    # ── DISPUTE (65-69) ──
+    "65": {"slug":"dispute_open",          "priority":1, "ctrl":["integrity","signatures"], "heal":"completion", "parl":"veto"},
+    "66": {"slug":"dispute_list",          "priority":2, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "67": {"slug":"dispute_vote",          "priority":1, "ctrl":["integrity","signatures"], "heal":"completion", "parl":"veto"},
+    "68": {"slug":"audit_log",             "priority":2, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "69": {"slug":"audit_check",           "priority":1, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+
+    # ── DOCUMENT SCANNER (70-73) ──
+    "70": {"slug":"doc_photo",             "priority":3, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "71": {"slug":"doc_ocr",               "priority":3, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "72": {"slug":"pdf_to_text",           "priority":3, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "73": {"slug":"doc_pipeline",          "priority":3, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+
+    # ── РОЗШИРЕНІ (74-79) ──
+    "74": {"slug":"search_contract",       "priority":3, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "75": {"slug":"autofill_contract",     "priority":3, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "76": {"slug":"ai_terms_check",        "priority":3, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "77": {"slug":"payment_check",         "priority":2, "ctrl":["node_state"],             "heal":"autonode",   "parl":"auto"},
+    "78": {"slug":"additional_terms",      "priority":3, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "79": {"slug":"watchdog_supervisor",   "priority":1, "ctrl":["backend"],                "heal":"backend",    "parl":"veto"},
+
+    # ── GUARDIAN (80-91) ──
+    "80": {"slug":"system_state",          "priority":1, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "81": {"slug":"verify_100",            "priority":1, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "82": {"slug":"register_person",       "priority":2, "ctrl":["integrity"],              "heal":"completion", "parl":"vote"},
+    "83": {"slug":"show_person",           "priority":3, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "84": {"slug":"verify_person",         "priority":2, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "85": {"slug":"device",                "priority":3, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "86": {"slug":"snapshot",              "priority":2, "ctrl":["git_sync"],               "heal":"git",        "parl":"auto"},
+    "87": {"slug":"restore_git",           "priority":2, "ctrl":["git_sync"],               "heal":"git",        "parl":"vote"},
+    "88": {"slug":"restore_snapshot",      "priority":2, "ctrl":["git_sync"],               "heal":"git",        "parl":"vote"},
+    "89": {"slug":"auto_recovery",         "priority":1, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "90": {"slug":"action_log",            "priority":3, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "91": {"slug":"log_verify",            "priority":2, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+
+    # ── AUTOSAVE (92-95) ──
+    "92": {"slug":"autosave_contract",     "priority":2, "ctrl":["git_sync"],               "heal":"git",        "parl":"auto"},
+    "93": {"slug":"autosave_status",       "priority":3, "ctrl":["git_sync"],               "heal":"git",        "parl":"auto"},
+    "94": {"slug":"autosave_archives",     "priority":3, "ctrl":["git_sync"],               "heal":"git",        "parl":"auto"},
+    "95": {"slug":"autosave_restore",      "priority":2, "ctrl":["git_sync"],               "heal":"git",        "parl":"vote"},
+
+    # ── EVO (96-99) ──
+    "96": {"slug":"evo7_levels",           "priority":2, "ctrl":["level"],                  "heal":"controllers", "parl":"auto"},
+    "97": {"slug":"evo_controller",        "priority":1, "ctrl":["exoskeleton"],            "heal":"controllers", "parl":"veto"},
+    "98": {"slug":"parawatch",             "priority":3, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "99": {"slug":"autopatch",             "priority":2, "ctrl":["exoskeleton"],            "heal":"controllers", "parl":"vote"},
+
+    # ── NODE/HASH (100-107) ──
+    "100":{"slug":"node_manager",          "priority":1, "ctrl":["node_state"],             "heal":"autonode",   "parl":"auto"},
+    "101":{"slug":"hash_ecosystem",        "priority":2, "ctrl":["binmix"],                 "heal":"controllers", "parl":"auto"},
+    "102":{"slug":"binmix_daemon",         "priority":2, "ctrl":["binmix"],                 "heal":"controllers", "parl":"auto"},
+    "103":{"slug":"metrics_prometheus",    "priority":3, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "104":{"slug":"http_panel",            "priority":2, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "105":{"slug":"schedule_cron",         "priority":3, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "106":{"slug":"cleanup",               "priority":3, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "107":{"slug":"autopilot",             "priority":2, "ctrl":["backend"],                "heal":"backend",    "parl":"vote"},
+
+    # ── METAMASK (108-113) ──
+    "108":{"slug":"metamask_sign",         "priority":1, "ctrl":["signatures","backend"],   "heal":"backend",    "parl":"veto"},
+    "109":{"slug":"metamask_verify",       "priority":1, "ctrl":["signatures"],             "heal":"completion", "parl":"auto"},
+    "110":{"slug":"metamask_history",      "priority":3, "ctrl":["signatures"],             "heal":"completion", "parl":"auto"},
+    "111":{"slug":"metamask_settings",     "priority":3, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "112":{"slug":"metamask_deeplink",     "priority":3, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "113":{"slug":"metamask_batch",        "priority":2, "ctrl":["signatures"],             "heal":"completion", "parl":"vote"},
+
+    # ── AUTONODE (114-118) ──
+    "114":{"slug":"autonode",              "priority":1, "ctrl":["node_state"],             "heal":"autonode",   "parl":"auto"},
+    "115":{"slug":"rpc_bench",             "priority":3, "ctrl":["node_state"],             "heal":"autonode",   "parl":"auto"},
+    "116":{"slug":"gas_monitor",           "priority":3, "ctrl":["node_state"],             "heal":"autonode",   "parl":"auto"},
+    "117":{"slug":"tx_lookup",             "priority":3, "ctrl":["node_state"],             "heal":"autonode",   "parl":"auto"},
+    "118":{"slug":"net_health",            "priority":3, "ctrl":["node_state"],             "heal":"autonode",   "parl":"auto"},
+
+    # ── QR SIGN (119) ──
+    "119":{"slug":"qr_sign",               "priority":2, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+
+    # ── AI GUARDIAN (120) ──
+    "120":{"slug":"ai_guardian",           "priority":1, "ctrl":["backend","integrity"],    "heal":"backend",    "parl":"auto"},
+
+    # ── PARLIAMENT (121) ──
+    "121":{"slug":"parliament",            "priority":1, "ctrl":["integrity","signatures"], "heal":"completion", "parl":"veto"},
+    "122":{"slug":"contract_validator",    "priority":1, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "123":{"slug":"multisig",              "priority":1, "ctrl":["signatures"],             "heal":"completion", "parl":"vote"},
+
+    # ── CRYPTO (124-126) ──
+    "124":{"slug":"timelock",              "priority":2, "ctrl":["integrity"],              "heal":"completion", "parl":"vote"},
+    "125":{"slug":"anchor",                "priority":2, "ctrl":["node_state"],             "heal":"autonode",   "parl":"auto"},
+    "126":{"slug":"zk",                    "priority":3, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+
+    # ── UI/TOOLS (128-130) ──
+    "128":{"slug":"dashboard",             "priority":2, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "129":{"slug":"voice",                 "priority":4, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "130":{"slug":"test_suite",            "priority":2, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+
+    # ── INTEGRATIONS+ (131-135) ──
+    "131":{"slug":"kyc",                   "priority":1, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "132":{"slug":"compliance",            "priority":2, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "133":{"slug":"tokens",                "priority":3, "ctrl":["node_state"],             "heal":"autonode",   "parl":"auto"},
+    "134":{"slug":"discord",               "priority":4, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "135":{"slug":"walletconnect",         "priority":3, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+
+    # ── ESCROW (136-138) ──
+    "136":{"slug":"templates",             "priority":3, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "137":{"slug":"escrow",                "priority":1, "ctrl":["integrity","signatures"], "heal":"completion", "parl":"veto"},
+    "138":{"slug":"arbitration",           "priority":1, "ctrl":["integrity"],              "heal":"completion", "parl":"veto"},
+
+    # ── REPUTATION/ANALYTICS (139-140) ──
+    "139":{"slug":"reputation",            "priority":3, "ctrl":["node_state"],             "heal":"autonode",   "parl":"auto"},
+    "140":{"slug":"analytics",             "priority":4, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+
+    # ── ADVANCED (141-150) ──
+    "141":{"slug":"portfolio",             "priority":2, "ctrl":["node_state"],             "heal":"autonode",   "parl":"auto"},
+    "142":{"slug":"invoice_pdf",           "priority":3, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "143":{"slug":"email",                 "priority":3, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "144":{"slug":"lightning",             "priority":3, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "145":{"slug":"ipfs",                  "priority":3, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "146":{"slug":"merkle",                "priority":3, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "147":{"slug":"reputation_v2",         "priority":3, "ctrl":["node_state"],             "heal":"autonode",   "parl":"auto"},
+    "148":{"slug":"multisig_ui",           "priority":2, "ctrl":["signatures"],             "heal":"completion", "parl":"auto"},
+    "149":{"slug":"analytics",             "priority":4, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "150":{"slug":"scripts",               "priority":4, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+
+    # ── ONBOARDING (151-152) ──
+    "151":{"slug":"wizard",                "priority":2, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "152":{"slug":"doctor",                "priority":1, "ctrl":["backend","integrity"],    "heal":"backend",    "parl":"auto"},
+
+    # ── NETWORK (200) ──
+    "200":{"slug":"network",               "priority":1, "ctrl":["node_state"],             "heal":"autonode",   "parl":"auto"},
+
+    # ── SIGN EXISTING (310) ──
+    "310":{"slug":"sign_existing",         "priority":2, "ctrl":["signatures"],             "heal":"completion", "parl":"vote"},
+
+    # ── CONTROLLERS (320) ──
+    "320":{"slug":"controllers",           "priority":1, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "330":{"slug":"selfheal",              "priority":1, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "340":{"slug":"payment_confirm",       "priority":2, "ctrl":["backend","signatures"],   "heal":"backend",    "parl":"vote"},
+    "341":{"slug":"dual_confirm",          "priority":2, "ctrl":["signatures","integrity"], "heal":"completion", "parl":"vote"},
+    "350":{"slug":"controller_worker",     "priority":1, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "360":{"slug":"mapping",               "priority":1, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "390":{"slug":"src",              "priority":1, "ctrl":["backend","signatures"], "heal":"backend",    "parl":"auto"},
+    "395":{"slug":"structure",        "priority":1, "ctrl":["integrity"],              "heal":"completion", "parl":"auto"},
+    "396":{"slug":"diffrecover",      "priority":1, "ctrl":["integrity","signatures"], "heal":"completion", "parl":"auto"},
+    "397":{"slug":"load",             "priority":2, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "398":{"slug":"webui",            "priority":3, "ctrl":["backend"],                "heal":"backend",    "parl":"auto"},
+    "399":{"slug":"100gate",          "priority":1, "ctrl":["integrity"],              "heal":"completion", "parl":"veto"},
+    "401":{"slug":"cascade_verify",   "priority":1, "ctrl":["integrity","git_sync"],   "heal":"completion", "parl":"auto"},
+}
+
+# ═══════════════════════════════════════════════════════════════
+# BUILD + SAVE
+# ═══════════════════════════════════════════════════════════════
+def build():
+    """Генерує mapping.json з базової карти + сканує диску."""
+    mapping = {}
+    for item_id, cfg in CORE_MAPPING.items():
+        path = None
+        # знайти модуль на диску
+        for d in M.glob(f"module_{item_id.zfill(3)}_*") + M.glob(f"module_{item_id}_*"):
+            path = d.name
+            break
+        mapping[item_id] = {
+            "id": item_id,
+            "slug": cfg["slug"],
+            "path": path or f"builtin:{cfg['slug']}",
+            "priority": cfg["priority"],
+            "controllers": cfg["ctrl"],
+            "heal_action": cfg["heal"],
+            "parliament_role": cfg["parl"],
+            "builtin": path is None,
+            "mapped_at": _now(),
+        }
+    # версія
+    out = {"version": "1.0", "built": _now(),
+           "total": len(mapping), "items": mapping}
+    MAP_FILE.write_text(json.dumps(out, indent=2, ensure_ascii=False))
+    return out
+
+def load():
+    if not MAP_FILE.exists(): return build()
+    try: return json.loads(MAP_FILE.read_text())
+    except Exception: return build()
+
+# ═══════════════════════════════════════════════════════════════
+# API для Worker / Parliament
+# ═══════════════════════════════════════════════════════════════
+def get(item_id):
+    return load()["items"].get(str(item_id))
+
+def by_controller(ctrl_name):
+    """Всі пункти що прив'язані до контролера."""
+    items = load()["items"]
+    return [it for it in items.values() if ctrl_name in it["controllers"]]
+
+def by_priority(p):
+    """Пункти з пріоритетом p."""
+    items = load()["items"]
+    return [it for it in items.values() if it["priority"] == p]
+
+def critical():
+    """Критичні пункти (p=1)."""
+    return by_priority(1)
+
+def heal_plan(item_id):
+    """План лікування для пункту."""
+    it = get(item_id)
+    if not it: return None
+    return {
+        "item": item_id,
+        "slug": it["slug"],
+        "priority": it["priority"],
+        "controllers": it["controllers"],
+        "heal": it["heal_action"],
+        "parliament": it["parliament_role"],
+    }
+
+def worker_report():
+    """Звіт для worker — які контролери що перевіряють + пріоритети."""
+    items = load()["items"]
+    by_ctrl = {}
+    for it in items.values():
+        for c in it["controllers"]:
+            by_ctrl.setdefault(c, []).append({
+                "id": it["id"], "slug": it["slug"],
+                "priority": it["priority"], "heal": it["heal_action"]
+            })
+    return {"by_controller": by_ctrl, "total_items": len(items)}
+
+def parliament_report():
+    """Звіт для парламенту — що голосувати."""
+    items = load()["items"]
+    by_role = {"auto": [], "vote": [], "veto": [], "manual": []}
+    for it in items.values():
+        by_role.setdefault(it["parliament_role"], []).append({
+            "id": it["id"], "slug": it["slug"], "priority": it["priority"],
+            "controllers": it["controllers"]
+        })
+    return by_role
+
+# ═══════════════════════════════════════════════════════════════
+# CLI
+# ═══════════════════════════════════════════════════════════════
+if __name__ == "__main__":
+    import sys
+    G='\033[32m'; Y='\033[33m'; R='\033[31m'; B='\033[36m'; D='\033[2m'; BOLD='\033[1m'; N='\033[0m'
+    cmd = sys.argv[1] if len(sys.argv) > 1 else "list"
+
+    if cmd == "build":
+        out = build()
+        print(f"  {G}✓{N} mapping: {out['total']} пунктів")
+
+    elif cmd == "list":
+        items = load()["items"]
+        for p in [1, 2, 3, 4, 5]:
+            group = [it for it in items.values() if it["priority"] == p]
+            if not group: continue
+            col = [R, Y, B, D, D][p-1]
+            print(f"\n  {col}P{p}{N} ({len(group)}):")
+            for it in sorted(group, key=lambda x: int(x["id"])):
+                ctrls = ",".join(it["controllers"][:3])
+                print(f"    [{it['id']:>3}] {it['slug']:22s} {D}{ctrls:30s} heal={it['heal_action']}{N}")
+
+    elif cmd == "show":
+        item = get(sys.argv[2])
+        if item: print(json.dumps(item, indent=2, ensure_ascii=False))
+        else: print(f"  ✗ немає пункту {sys.argv[2]}")
+
+    elif cmd == "ctrl":
+        c = sys.argv[2]
+        items = by_controller(c)
+        print(f"\n  {B}Контролер {c}: {len(items)} пунктів{N}")
+        for it in items:
+            print(f"    [{it['id']:>3}] P{it['priority']} {it['slug']}")
+
+    elif cmd == "worker":
+        print(json.dumps(worker_report(), indent=2, ensure_ascii=False))
+
+    elif cmd == "parliament":
+        r = parliament_report()
+        for role in ["veto", "vote", "auto", "manual"]:
+            if r.get(role):
+                col = {"veto":R, "vote":Y, "auto":G, "manual":D}[role]
+                print(f"\n  {col}{role.upper()}{N} ({len(r[role])}):")
+                for it in r[role][:10]:
+                    print(f"    [{it['id']:>3}] P{it['priority']} {it['slug']}")
+
+    elif cmd == "heal":
+        plan = heal_plan(sys.argv[2])
+        if plan: print(json.dumps(plan, indent=2, ensure_ascii=False))
+
+    elif cmd == "json":
+        print(json.dumps(load(), indent=2, ensure_ascii=False))

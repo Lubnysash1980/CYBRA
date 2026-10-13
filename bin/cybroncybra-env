@@ -1,0 +1,28 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+ROOT="$HOME/CYBRA"
+
+if [ ! -f "$ROOT/config/cybroncybra.env" ]; then
+    echo "[CYBRONCYBRA][FAIL] Domain config missing."
+    exit 1
+fi
+
+set -a
+. "$ROOT/config/cybroncybra.env"
+set +a
+
+export DOMAIN
+export CYBRA_DOMAIN
+export CYBRONCYBRA_DOMAIN
+
+export CYBRA_DOMAIN_URL="https://${DOMAIN}"
+export CYBRA_WWW_URL="https://www.${DOMAIN}"
+export CYBRA_API_URL="https://api.${DOMAIN}"
+export CYBRA_NODE_URL="https://node.${DOMAIN}"
+
+echo "CYBRA_DOMAIN=$CYBRA_DOMAIN"
+echo "DOMAIN=$DOMAIN"
+echo "CYBRA_DOMAIN_URL=$CYBRA_DOMAIN_URL"
+echo "CYBRA_WWW_URL=$CYBRA_WWW_URL"
+echo "CYBRA_API_URL=$CYBRA_API_URL"
+echo "CYBRA_NODE_URL=$CYBRA_NODE_URL"

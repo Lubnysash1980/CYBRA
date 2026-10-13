@@ -1,0 +1,103 @@
+{
+  "current": "bsc_testnet",
+  "networks": {
+    "bsc_mainnet": {
+      "name": "BSC Mainnet",
+      "chain_id": 56,
+      "symbol": "BNB",
+      "explorer": "https://bscscan.com",
+      "faucet": null,
+      "rpc_http": [
+        "https://bsc-dataseed.binance.org",
+        "https://bsc-dataseed1.defibit.io",
+        "https://bsc-dataseed1.ninicoin.io",
+        "https://bsc.publicnode.com",
+        "https://rpc.ankr.com/bsc"
+      ],
+      "rpc_ws": [
+        "wss://bsc-ws-node.nariox.org:443"
+      ],
+      "type": "mainnet",
+      "is_paid": true
+    },
+    "bsc_testnet": {
+      "name": "BSC Testnet",
+      "chain_id": 97,
+      "symbol": "tBNB",
+      "explorer": "https://testnet.bscscan.com",
+      "faucet": "https://testnet.bnbchain.org/faucet-smart",
+      "rpc_http": [
+        "https://data-seed-prebsc-1-s1.binance.org:8545",
+        "https://data-seed-prebsc-2-s1.binance.org:8545",
+        "https://data-seed-prebsc-1-s2.binance.org:8545",
+        "https://bsc-testnet.publicnode.com"
+      ],
+      "rpc_ws": [
+        "wss://bsc-testnet.publicnode.com"
+      ],
+      "type": "testnet",
+      "is_paid": false
+    },
+    "eth_mainnet": {
+      "name": "Ethereum Mainnet",
+      "chain_id": 1,
+      "symbol": "ETH",
+      "explorer": "https://etherscan.io",
+      "faucet": null,
+      "rpc_http": [
+        "https://eth.llamarpc.com",
+        "https://rpc.ankr.com/eth",
+        "https://cloudflare-eth.com",
+        "https://ethereum.publicnode.com"
+      ],
+      "rpc_ws": [],
+      "type": "mainnet",
+      "is_paid": true
+    },
+    "eth_sepolia": {
+      "name": "Ethereum Sepolia",
+      "chain_id": 11155111,
+      "symbol": "SepoliaETH",
+      "explorer": "https://sepolia.etherscan.io",
+      "faucet": "https://sepoliafaucet.com",
+      "rpc_http": [
+        "https://rpc.sepolia.org",
+        "https://ethereum-sepolia.publicnode.com"
+      ],
+      "rpc_ws": [
+        "wss://ethereum-sepolia.publicnode.com"
+      ],
+      "type": "testnet",
+      "is_paid": false
+    },
+    "polygon_mainnet": {
+      "name": "Polygon Mainnet",
+      "chain_id": 137,
+      "symbol": "MATIC",
+      "explorer": "https://polygonscan.com",
+      "faucet": null,
+      "rpc_http": [
+        "https://polygon-rpc.com",
+        "https://rpc.ankr.com/polygon",
+        "https://polygon.publicnode.com"
+      ],
+      "rpc_ws": [],
+      "type": "mainnet",
+      "is_paid": true
+    },
+    "polygon_amoy": {
+      "name": "Polygon Amoy",
+      "chain_id": 80002,
+      "symbol": "MATIC",
+      "explorer": "https://amoy.polygonscan.com",
+      "faucet": "https://faucet.polygon.technology",
+      "rpc_http": [
+        "https://rpc-amoy.polygon.technology",
+        "https://polygon-amoy.publicnode.com"
+      ],
+      "rpc_ws": [],
+      "type": "testnet",
+      "is_paid": false
+    }
+  }
+}

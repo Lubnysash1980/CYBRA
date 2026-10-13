@@ -1,0 +1,280 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+CYBRA_MOD19_ROOT="$HOME/CYBRA/modules/module_19_contract_tui_menu"
+source "$CYBRA_MOD19_ROOT/bin/cybra_tui_lib.sh"
+
+print_header() {
+    clear 2>/dev/null || printf '\033[2J\033[H'
+    printf '%s\n' "${C_BOLD}${C_CYAN}============================================================${C_RESET}"
+    printf '%s\n' "${C_BOLD}${C_CYAN}        CYBRA CONTRACT MANAGER — TUI v1.0${C_RESET}"
+    printf '%s\n' "${C_BOLD}${C_CYAN}============================================================${C_RESET}"
+    printf '%s\n' "${C_GREY}  CHAIN: BSC (56)   LICENSE: 1%   RECIPIENT: ${LICENSE_RECIPIENT:0:10}...${C_RESET}"
+    printf '\n'
+}
+
+print_menu() {
+    printf '%s\n' "  ${C_BOLD}[4]${C_RESET} Згенерувати лінки (BUYER / SELLER / RECEIPT)"
+    printf '%s\n' "  ${C_BOLD}[5]${C_RESET} Підтвердити лінк"
+    printf '%s\n' "  ${C_BOLD}[6]${C_RESET} Debug — повний лог контракту"
+    printf '%s\n' "  ${C_BOLD}[7]${C_RESET} Ліцензійний реєстр (1% з усіх контрактів)"
+    printf '%s\n' "  ${C_BOLD}[8]${C_RESET} Hardening — перевірка системи"
+    printf '%s\n' "  ─── METAMASK ───"
+    printf '%s\n' "  🟢 [108] MetaMask Sign        🟢 [109] Verify .sig"
+    printf '%s\n' "  🟢 [110] Історія підписів     🟢 [111] Налаштування"
+    printf '%s\n' "  🟢 [112] DeepLink останнього  🟢 [113] Пакетний підпис"
+
+    printf '%s\n' "  ${C_BOLD}[0]${C_RESET} Вихід"
+    printf '\n'
+}
+
+action_create_contract() {
+    printf '%s\n' "${C_BOLD}--- Створити контракт ---${C_RESET}"
+
+    printf 'BUYER wallet:  '; read -r BUYER
+    printf 'SELLER wallet: '; read -r SELLER
+    printf 'AMOUNT (wei):  '; read -r AMOUNT
+    printf 'TOKEN (адреса або BNB): '; read -r TOKEN
+    TOKEN="${TOKEN:-BNB}"
+
+    if [ -z "$BUYER" ] || [ -z "$SELLER" ] || [ -z "$AMOUNT" ]; then
+        printf '%s\n' "${C_RED}Помилка: BUYER, SELLER, AMOUNT обов'\''язкові${C_RESET}"
+        return 1
+    fi
+
+    local cid
+    cid="$(cybra_contract_create "$BUYER" "$SELLER" "$AMOUNT" "$TOKEN")"
+
+    if [ -z "$cid" ]; then
+        printf '%s\n' "${C_RED}Помилка створення контракту${C_RESET}"
+        return 1
+    fi
+
+    printf '%s\n' "${C_GREEN}OK: контракт створено${C_RESET}"
+    printf 'ID: %s\n' "$cid"
+    printf 'Ліцензія: %s wei (%s%%)\n' \
+        "$(cybra_calc_license "$AMOUNT")" "$LICENSE_PERCENT"
+    printf 'Отримувач ліцензії: %s\n' "$LICENSE_RECIPIENT"
+}
+
+action_list_contracts() {
+    printf '%s\n' "${C_BOLD}--- Список контрактів ---${C_RESET}"
+    printf '\n'
+
+    local found=0
+    for f in "$CYBRA_CONTRACTS"/*.env; do
+        [ -f "$f" ] || continue
+        found=1
+        local cid="$(grep '^CONTRACT_ID=' "$f" | cut -d= -f2)"
+        local stage="$(grep '^STAGE=' "$f" | cut -d= -f2)"
+        local amount="$(grep '^AMOUNT_WEI=' "$f" | cut -d= -f2)"
+        local lic="$(grep '^LICENSE_WEI=' "$f" | cut -d= -f2)"
+        printf '  %s %s  amount=%s  license=%s\n' \
+            "$(printf '%-32s' "$cid")" \
+            "$(printf '%-12s' "[$stage]")" \
+            "$amount" "$lic"
+    done
+
+    if [ "$found" -eq 0 ]; then
+        printf '%s\n' "${C_YELLOW}(порожньо)${C_RESET}"
+    fi
+}
+
+action_show_status() {
+    printf 'CONTRACT_ID: '; read -r CID
+
+    if ! cybra_contract_exists "$CID"; then
+        printf '%s\n' "${C_RED}Контракт не знайдено${C_RESET}"
+        return 1
+    fi
+
+    local f="$(cybra_contract_path "$CID")"
+
+    printf '\n%s\n' "${C_BOLD}--- Контракт: $CID ---${C_RESET}"
+    printf '\n'
+    printf '  %-24s %s\n' "STAGE:"        "$(grep '^STAGE=' "$f" | cut -d= -f2)"
+    printf '  %-24s %s\n' "STATUS:"       "$(grep '^STATUS=' "$f" | cut -d= -f2)"
+    printf '  %-24s %s\n' "BUYER:"        "$(grep '^BUYER=' "$f" | cut -d= -f2)"
+    printf '  %-24s %s\n' "SELLER:"       "$(grep '^SELLER=' "$f" | cut -d= -f2)"
+    printf '  %-24s %s\n' "AMOUNT_WEI:"   "$(grep '^AMOUNT_WEI=' "$f" | cut -d= -f2)"
+    printf '  %-24s %s\n' "LICENSE_WEI:"  "$(grep '^LICENSE_WEI=' "$f" | cut -d= -f2)"
+    printf '  %-24s %s\n' "NET_WEI:"      "$(grep '^NET_WEI=' "$f" | cut -d= -f2)"
+    printf '\n'
+    printf '  %-24s %s\n' "BUYER_CONFIRMED:"   "$(grep '^BUYER_CONFIRMED=' "$f" | cut -d= -f2)"
+    printf '  %-24s %s\n' "SELLER_CONFIRMED:"  "$(grep '^SELLER_CONFIRMED=' "$f" | cut -d= -f2)"
+    printf '  %-24s %s\n' "RECEIPT_CONFIRMED:" "$(grep '^RECEIPT_CONFIRMED=' "$f" | cut -d= -f2)"
+    printf '\n'
+    printf '  %-24s %s\n' "BUYER_LINK:"   "$(grep '^BUYER_LINK_ID=' "$f" | cut -d= -f2)"
+    printf '  %-24s %s\n' "SELLER_LINK:"  "$(grep '^SELLER_LINK_ID=' "$f" | cut -d= -f2)"
+    printf '  %-24s %s\n' "RECEIPT_LINK:" "$(grep '^RECEIPT_LINK_ID=' "$f" | cut -d= -f2)"
+}
+
+action_generate_links() {
+    printf 'CONTRACT_ID: '; read -r CID
+
+    if ! cybra_contract_exists "$CID"; then
+        printf '%s\n' "${C_RED}Контракт не знайдено${C_RESET}"
+        return 1
+    fi
+
+    printf '%s\n' "${C_BOLD}Генерую 3 лінки...${C_RESET}"
+
+    local bl sl rl
+    bl="$(cybra_link_generate "$CID" BUYER)"
+    sl="$(cybra_link_generate "$CID" SELLER)"
+    rl="$(cybra_link_generate "$CID" RECEIPT)"
+
+    printf '\n'
+    printf '%s\n' "${C_GREEN}--- Лінк покупця (підтвердження транзакції) ---${C_RESET}"
+    printf '  ID:   %s\n' "$bl"
+    printf '  Шлях: %s\n' "$(cybra_link_path "$bl")"
+
+    printf '\n'
+    printf '%s\n' "${C_GREEN}--- Лінк продавця (отримання оплати) ---${C_RESET}"
+    printf '  ID:   %s\n' "$sl"
+    printf '  Шлях: %s\n' "$(cybra_link_path "$sl")"
+
+    printf '\n'
+    printf '%s\n' "${C_GREEN}--- Лінк отримання товару (покупець) ---${C_RESET}"
+    printf '  ID:   %s\n' "$rl"
+    printf '  Шлях: %s\n' "$(cybra_link_path "$rl")"
+
+    printf '\n%s\n' "${C_YELLOW}Надішли кожен лінк відповідній стороні.${C_RESET}"
+}
+
+action_confirm_link() {
+    printf 'LINK_ID: '; read -r LID
+    printf 'CONFIRMED_BY (wallet): '; read -r WHO
+
+    if [ -z "$LID" ] || [ -z "$WHO" ]; then
+        printf '%s\n' "${C_RED}Помилка: LINK_ID і CONFIRMED_BY обов'\''язкові${C_RESET}"
+        return 1
+    fi
+
+    local out
+    out="$(cybra_link_confirm "$LID" "$WHO")"
+
+    if [ "$?" -ne 0 ]; then
+        printf '%s\n' "${C_RED}$out${C_RESET}"
+        return 1
+    fi
+
+    printf '%s\n' "${C_GREEN}$out${C_RESET}"
+}
+
+action_debug() {
+    printf 'CONTRACT_ID: '; read -r CID
+
+    if ! cybra_contract_exists "$CID"; then
+        printf '%s\n' "${C_RED}Контракт не знайдено${C_RESET}"
+        return 1
+    fi
+
+    printf '\n%s\n' "${C_BOLD}--- DEBUG LOG (останні 30) ---${C_RESET}"
+    grep "$CID" "$CYBRA_DEBUG" 2>/dev/null | tail -30
+
+    printf '\n%s\n' "${C_BOLD}--- Всі лінки цього контракту ---${C_RESET}"
+    for lf in "$CYBRA_LINKS"/*.link; do
+        [ -f "$lf" ] || continue
+        local c="$(grep '^CONTRACT_ID=' "$lf" | cut -d= -f2)"
+        [ "$c" = "$CID" ] || continue
+        printf '  %s  role=%s  status=%s\n' \
+            "$(basename "$lf" .link)" \
+            "$(grep '^ROLE=' "$lf" | cut -d= -f2)" \
+            "$(grep '^STATUS=' "$lf" | cut -d= -f2)"
+    done
+}
+
+action_license_ledger() {
+    printf '%s\n' "${C_BOLD}--- Ліцензійний реєстр (1% з кожного контракту) ---${C_RESET}"
+    printf '%s\n' "${C_GREY}Формат: TIMESTAMP | CONTRACT | AMOUNT | LICENSE | RECIPIENT${C_RESET}"
+    printf '\n'
+
+    if [ -f "$CYBRA_LICENSE_LEDGER" ]; then
+        cat "$CYBRA_LICENSE_LEDGER"
+        printf '\n%s\n' "${C_BOLD}Всього контрактів:${C_RESET} $(wc -l < "$CYBRA_LICENSE_LEDGER")"
+    else
+        printf '%s\n' "${C_YELLOW}(порожньо)${C_RESET}"
+    fi
+}
+
+action_hardening() {
+    printf '%s\n' "${C_BOLD}--- Запуск hardening ---${C_RESET}"
+    if [ -x "$HOME/CYBRA/cybra_mega_hardening.sh" ]; then
+        "$HOME/CYBRA/cybra_mega_hardening.sh"
+    else
+        printf '%s\n' "${C_RED}cybra_mega_hardening.sh не знайдено${C_RESET}"
+    fi
+}
+
+# ------------------------------------------------------------
+# Main loop
+# ------------------------------------------------------------
+
+while true; do
+    print_header
+    print_menu
+
+    printf '%s' "  Вибір: "
+    read -r CHOICE
+
+    printf '\n'
+
+    case "$CHOICE" in
+        1) action_create_contract ;;
+        2) action_list_contracts ;;
+        3) action_show_status ;;
+        4) action_generate_links ;;
+        5) action_confirm_link ;;
+        6) action_debug ;;
+        7) action_license_ledger ;;
+        8) action_hardening ;;
+        108) bash "$HOME/CYBRA/modules/module_108_metamask_sign/main.sh" ;;
+        109) bash "$HOME/CYBRA/modules/module_109_metamask_verify/main.sh" ;;
+        110) bash "$HOME/CYBRA/modules/module_110_metamask_history/main.sh" ;;
+        111) bash "$HOME/CYBRA/modules/module_111_metamask_settings/main.sh" ;;
+        112) bash "$HOME/CYBRA/modules/module_112_metamask_deeplink/main.sh" ;;
+        113) bash "$HOME/CYBRA/modules/module_113_metamask_batch/main.sh" ;;
+        114) bash "$HOME/CYBRA/modules/module_114_autonode/main.sh" status ;;
+        114) bash "$HOME/CYBRA/modules/module_114_autonode/main.sh" status ;;
+        115) bash "$HOME/CYBRA/modules/module_115_rpc_bench/main.sh" ;;
+        116) bash "$HOME/CYBRA/modules/module_116_gas_monitor/main.sh" ;;
+        117) bash "$HOME/CYBRA/modules/module_117_tx_lookup/main.sh" ;;
+        118) bash "$HOME/CYBRA/modules/module_118_net_health/main.sh" ;;
+        119) bash "$HOME/CYBRA/modules/module_119_qr_sign/main.sh" menu ;;
+        120) bash "$HOME/CYBRA/modules/module_120_ai_guardian/main.sh" menu ;;
+        121) bash "$HOME/CYBRA/modules/module_121_parlament/main.sh" menu ;;
+        122) bash "$HOME/CYBRA/modules/module_122_contract_validator/main.sh" ;;
+        123) bash "$HOME/CYBRA/modules/module_123_multisig/main.sh" ;;
+        124) bash "$HOME/CYBRA/modules/module_124_timelock/main.sh" ;;
+        125) bash "$HOME/CYBRA/modules/module_125_anchor/main.sh" ;;
+        128) bash "$HOME/CYBRA/modules/module_128_dashboard/main.sh" ;;
+        130) bash "$HOME/CYBRA/modules/module_130_test_suite/main.sh" ;;
+        131) bash "$HOME/CYBRA/modules/module_131_kyc/main.sh" ;;
+        135) bash "$HOME/CYBRA/modules/module_135_walletconnect/main.sh" ;;
+        136) bash "$HOME/CYBRA/modules/module_136_templates/main.sh" ;;
+        137) bash "$HOME/CYBRA/modules/module_137_escrow/main.sh" ;;
+        138) bash "$HOME/CYBRA/modules/module_138_arbitration/main.sh" ;;
+        126) bash "$HOME/CYBRA/modules/module_126_zk/main.sh" ;;
+        129) bash "$HOME/CYBRA/modules/module_129_voice/main.sh" ;;
+        132) bash "$HOME/CYBRA/modules/module_132_compliance/main.sh" ;;
+        133) bash "$HOME/CYBRA/modules/module_133_tokens/main.sh" ;;
+        134) bash "$HOME/CYBRA/modules/module_134_discord/main.sh" ;;
+        139) bash "$HOME/CYBRA/modules/module_139_reputation/main.sh" ;;
+        140) bash "$HOME/CYBRA/modules/module_140_analytics/main.sh" ;;
+        148) bash "$HOME/CYBRA/modules/module_148_multisig_ui/main.sh" ;;
+        200) bash "$HOME/CYBRA/modules/module_200_network/main.sh" ;;
+        151) bash "$HOME/CYBRA/modules/module_151_wizard/main.sh" ;;
+        152) bash "$HOME/CYBRA/modules/module_152_doctor/main.sh" ;;
+        0|q|Q|exit|quit)
+            printf '%s\n' "${C_GREEN}До побачення.${C_RESET}"
+            exit 0
+            ;;
+        *)
+            printf '%s\n' "${C_RED}Невідома опція.${C_RESET}"
+            ;;
+    esac
+
+    printf '\n'
+    printf '%s' "${C_GREY}Enter для продовження...${C_RESET}"
+    read -r _
+done

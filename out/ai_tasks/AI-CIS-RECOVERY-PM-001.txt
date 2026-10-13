@@ -1,0 +1,45 @@
+ID=AI-CIS-RECOVERY-PM-001
+PRIORITY=HIGH
+MODE=DIAGNOSE_REPAIR_VERIFY
+STATUS=PENDING
+
+OBJECTIVE:
+Відновити надійну роботу Supervisor, Self-Heal і PID Security Controller.
+
+FACTS:
+1. Раніше Self-Heal і PID Security Controller були OFFLINE.
+2. Supervisor повідомляв про ліміт 5 рестартів за годину.
+3. Ручний запуск обох процесів був успішний.
+4. PID Security Controller повідомив 5 IDENTITY_CHANGED_REVIEW_REQUIRED.
+5. PID Security Controller повідомив 28 STALE_OR_UNREADABLE.
+6. Причина попереднього завершення процесів не встановлена.
+
+REQUIRED_ACTIONS:
+1. Перевірити Supervisor, pm_processes.json і pm_state.json.
+2. Встановити причину завершення Self-Heal і PID Security Controller.
+3. Перевірити restart limit, дубльовані процеси та PID identity.
+4. Класифікувати всі 33 результати PID-аудиту з доказами.
+5. Підготувати мінімальні виправлення.
+6. Перед змінами створити backup і записати SHA256.
+7. Перевірити diff, синтаксис і локальні тести.
+8. Перевірити автоматичне відновлення на окремому тестовому процесі.
+9. Не використовувати масовий pkill або killall.
+10. Не видаляти PID-файли масово і не скидати restart counters без доказів.
+11. Не запускати фінансові операції або mainnet-транзакції.
+
+REPORT_REQUIRED:
+ROOT_CAUSE
+EVIDENCE
+FILES_CHANGED
+BACKUPS_SHA256
+PATCH_DIFF
+TESTS_PASSED
+TESTS_FAILED
+PROCESSES_BEFORE_AFTER
+RESTART_POLICY_RESULT
+REMAINING_BLOCKERS
+ROLLBACK
+TRUE_100
+
+GATE: TRUE_100=TRUE лише після підтвердження всіх обов’язкових вимог.
+До цього STATUS=PENDING або RETRY.

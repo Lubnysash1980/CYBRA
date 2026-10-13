@@ -1,0 +1,17 @@
+{
+  "remote": "",
+  "branch": "sync",
+  "enabled": false,
+  "auto_push": true,
+  "auto_pull": true,
+  "auto_interval_sec": 1800,
+  "sign_commits": true,
+  "exclude_globs": [
+    "logs/*",
+    "run/*.pid",
+    "backups/*",
+    "public/sign/tunnel_*.log",
+    "public/sign/server.log",
+    "modules/*/data/*.log"
+  ]
+}

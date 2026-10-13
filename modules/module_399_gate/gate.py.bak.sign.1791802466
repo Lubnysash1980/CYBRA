@@ -1,0 +1,162 @@
+#!/usr/bin/env python3
+"""100% Gate — жорсткий пропускний контролер.
+
+Правило: тільки 100% стан дозволяє дії.
+  ✓ Дозволено завжди: heal, snapshot, recovery, controllers, src
+  ✗ Заблоковано якщо <100%: git push, parliament vote, new contract,
+                             invoice, sign, deploy, transfer
+
+Кожен модуль питає gate.allow("action_name") → (bool, reason).
+"""
+import json, os, subprocess, sys, time
+from pathlib import Path
+
+H = Path.home() / "CYBRA"
+M = H / "modules"
+D = Path(__file__).resolve().parent
+LOG = D / "data" / "gate.log"
+
+# Дії які ДОЗВОЛЕНІ навіть при < 100%
+ALLOW_ALWAYS = {
+    "heal", "health", "selfheal", "controllers", "structure", "diffrecover",
+    "src", "snapshot", "recovery", "resurrect", "load", "sic", "mapping",
+    "worker", "job_controller", "runtime", "watchdog", "supervisor",
+    "list", "status", "read", "debug",
+}
+
+# Дії які ЗАБЛОКОВАНІ при < 100%
+BLOCKED_UNDER_100 = {
+    "git_push", "git_commit", "parliament_vote", "parliament_propose",
+    "contract_create", "contract_sign", "invoice_create", "invoice_finalize",
+    "payment_send", "transfer", "deploy", "escrow_fund", "escrow_release",
+    "timelock_create", "signature_add", "multisig_finalize",
+}
+
+def _now(): return time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+def _log(entry):
+    entry["ts"] = _now()
+    try:
+        with open(LOG, "a") as f: f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+        if LOG.stat().st_size > 500_000:
+            lines = LOG.read_text().splitlines()
+            LOG.write_text("\n".join(lines[-500:]) + "\n")
+    except Exception: pass
+
+def get_state():
+    """Повний стан системи."""
+    out = {"at": _now()}
+    # health
+    try:
+        sys.path.insert(0, str(M/"module_121_parlament"))
+        import health
+        h = health.health_all()
+        out["health"] = h.get("overall", 0)
+        out["parliament_health"] = h.get("parliament", {}).get("score", 0)
+        out["system_health"] = h.get("system", {}).get("score", 0)
+    except Exception as e:
+        out["health"] = 0
+        out["error"] = str(e)[:100]
+    # controllers
+    try:
+        sys.path.insert(0, str(M/"module_320_controllers"))
+        import controllers
+        ctrls = controllers.check_all()
+        out["controllers_ok"] = sum(1 for c in ctrls if c["ok"])
+        out["controllers_total"] = len(ctrls)
+    except Exception:
+        out["controllers_ok"] = 0
+        out["controllers_total"] = 0
+    # completion
+    try:
+        import completion
+        out["completion"] = completion.completion_score().get("overall", 0)
+    except Exception:
+        out["completion"] = 0
+    return out
+
+def is_100():
+    """Чи все 100%."""
+    s = get_state()
+    return (s.get("health", 0) >= 100 and
+            s.get("controllers_ok", 0) == s.get("controllers_total", 1) and
+            s.get("completion", 0) >= 100), s
+
+def allow(action):
+    """Головний метод — чи дозволено дію."""
+    action = action.lower()
+
+    # завжди дозволені
+    if any(a in action for a in ALLOW_ALWAYS):
+        _log({"action": action, "allowed": True, "reason": "always"})
+        return True, "allowed (always)"
+
+    # перевірка 100%
+    ok, state = is_100()
+    if ok:
+        _log({"action": action, "allowed": True, "reason": "100%"})
+        return True, "100% ok"
+
+    # блокуємо якщо у blacklist
+    if any(b in action for b in BLOCKED_UNDER_100):
+        reason = f"health={state.get('health',0)}% ctrl={state.get('controllers_ok',0)}/{state.get('controllers_total',0)} comp={state.get('completion',0)}%"
+        _log({"action": action, "allowed": False, "reason": reason})
+        return False, f"🚫 заблоковано (не 100%): {reason}"
+
+    # невідома дія — дозволяємо
+    _log({"action": action, "allowed": True, "reason": "unknown"})
+    return True, "allowed (unknown action)"
+
+def require_100(action="generic"):
+    """Кидає RuntimeError якщо не 100%."""
+    ok, reason = allow(action)
+    if not ok: raise RuntimeError(reason)
+    return True
+
+def print_status():
+    ok, s = is_100()
+    G='\033[32m'; R='\033[31m'; Y='\033[33m'; B='\033[36m'; BOLD='\033[1m'; N='\033[0m'
+    col = G if ok else R
+    print(f"\n  {B}{BOLD}═══ 100% Gate ═══{N}\n")
+    print(f"  {col}{'✓ ВІДКРИТО' if ok else '🚫 ЗАБЛОКОВАНО'}{N}\n")
+    print(f"  Health:       {s.get('health',0)}%")
+    print(f"    парламент:  {s.get('parliament_health',0)}%")
+    print(f"    система:    {s.get('system_health',0)}%")
+    print(f"  Controllers:  {s.get('controllers_ok',0)}/{s.get('controllers_total',0)}")
+    print(f"  Completion:   {s.get('completion',0)}%")
+    print()
+    if not ok:
+        print(f"  {Y}Заблоковано:{N}")
+        print(f"    · git push/commit")
+        print(f"    · parliament vote/propose")
+        print(f"    · contract create/sign")
+        print(f"    · invoice/payment/deploy")
+    else:
+        print(f"  {G}Всі дії дозволені{N}")
+
+def last_checks(n=10):
+    if not LOG.exists(): return []
+    out = []
+    for line in LOG.read_text().splitlines()[-n:]:
+        try: out.append(json.loads(line))
+        except Exception: pass
+    return out
+
+if __name__ == "__main__":
+    import sys
+    G='\033[32m'; R='\033[31m'; N='\033[0m'
+    cmd = sys.argv[1] if len(sys.argv) > 1 else "status"
+    if cmd == "status":
+        print_status()
+    elif cmd == "check":
+        ok, s = is_100()
+        print(json.dumps({"ok": ok, "state": s}, indent=2, ensure_ascii=False))
+        sys.exit(0 if ok else 1)
+    elif cmd == "allow":
+        action = sys.argv[2] if len(sys.argv) > 2 else "generic"
+        ok, reason = allow(action)
+        print(f"  {'✓' if ok else '🚫'} {action}: {reason}")
+        sys.exit(0 if ok else 1)
+    elif cmd == "log":
+        for e in last_checks(20):
+            mark = G+"✓"+N if e.get("allowed") else R+"✗"+N
+            print(f"  {e.get('ts','?')[:19]} {mark} {e.get('action','?'):24s} {e.get('reason','')[:50]}")

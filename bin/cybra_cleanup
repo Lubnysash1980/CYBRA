@@ -1,0 +1,46 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# CYBRA CLEANUP — ротація логів + видалення старих бекапів
+
+ROOT="$HOME/CYBRA"
+LOGS="$ROOT/logs"
+
+# 1. Логи старше 7 днів
+logs_removed=$(find "$LOGS" -name '*.log' -type f -mtime +7 2>/dev/null | wc -l)
+find "$LOGS" -name '*.log' -type f -mtime +7 -delete 2>/dev/null
+
+# 2. Audit старше 30 днів
+audit_removed=$(find "$ROOT/audit" -type f -mtime +30 2>/dev/null | wc -l)
+find "$ROOT/audit" -type f -mtime +30 -delete 2>/dev/null
+
+# 3. Backup старше 3 днів
+bk_removed=$(find "$ROOT/backups" -name 'enterprise_*.tar.gz*' -type f -mtime +3 2>/dev/null | wc -l)
+find "$ROOT/backups" -name 'enterprise_*.tar.gz*' -type f -mtime +3 -delete 2>/dev/null
+
+# 4. PRE_PATCH старше 3 днів
+patch_removed=0
+for d in "$HOME"/CYBRA_PRE_PATCH_*; do
+    [ -d "$d" ] || continue
+    [ "$(find "$d" -maxdepth 0 -mtime +3 2>/dev/null)" ] && {
+        rm -rf "$d"
+        patch_removed=$((patch_removed+1))
+    }
+done
+
+# 5. .bak.* >14 днів
+bak_removed=$(find "$ROOT" -name '*.bak.*' -type f -mtime +14 2>/dev/null | wc -l)
+find "$ROOT" -name '*.bak.*' -type f -mtime +14 -delete 2>/dev/null
+
+# 6. hashes/*/ >14 днів (крім dual)
+hash_removed=0
+for d in "$ROOT"/hashes/*/; do
+    [ -d "$d" ] || continue
+    case "$d" in */dual/) continue ;; esac
+    [ "$(find "$d" -maxdepth 0 -mtime +14 2>/dev/null)" ] && {
+        rm -rf "$d"
+        hash_removed=$((hash_removed+1))
+    }
+done
+
+# Вивід (компактний)
+printf 'logs:%s audit:%s backup:%s patch:%s bak:%s hashes:%s\n' \
+    "$logs_removed" "$audit_removed" "$bk_removed" "$patch_removed" "$bak_removed" "$hash_removed"

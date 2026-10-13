@@ -1,0 +1,12 @@
+{
+  "type": "service",
+  "name": "Послуга",
+  "fields": [
+    {"id":"seller","label":"Виконавець","required":true,"type":"address"},
+    {"id":"buyer","label":"Замовник","required":true,"type":"address"},
+    {"id":"amount_bnb","label":"Оплата (BNB)","required":true,"type":"number"},
+    {"id":"hours_expected","label":"Очікувані години","required":true,"type":"number"},
+    {"id":"deliverable","label":"Опис результату","required":true,"type":"text"}
+  ],
+  "default_terms": "Виконавець надає послугу, замовник оплачує після приймання."
+}

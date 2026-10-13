@@ -1,0 +1,22 @@
+{
+  "at": "2026-10-12T22:48:21Z",
+  "description": "Мінімум для роботи CYBRA",
+  "required": [
+    "modules/module_19_contract_tui_menu/bin/cybra_menu.sh",
+    "modules/module_121_parlament/parliament.py",
+    "modules/module_121_parlament/health.py",
+    "modules/module_320_controllers/controllers.py",
+    "modules/module_330_selfheal/engine.py",
+    "modules/module_390_src/src.py",
+    "config/networks.json",
+    "config/pm_processes.json",
+    "bin/cybra"
+  ],
+  "processes": [
+    "watchdog",
+    "supervisor",
+    "selfheal",
+    "src"
+  ],
+  "fallback": "Якщо < 3 модулі з required — викликати 396 recovery"
+}

@@ -1,0 +1,246 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# ═══════════════════════════════════════════════════════════
+# CYBRA AUTOPILOT — авто-оновлення ноди
+# Кожні N секунд: pull → sync → commit → push
+# ═══════════════════════════════════════════════════════════
+ROOT="$HOME/CYBRA"
+GITMOD="$ROOT/git_module"
+NODE="$ROOT/@cybra"
+LOGS="$ROOT/logs"
+PIDFILE="$ROOT/.autopilot.pid"
+LOG="$LOGS/autopilot.log"
+INTERVAL="${INTERVAL:-300}"   # 5 хв за замовчуванням
+
+mkdir -p "$LOGS"
+
+G=$'\033[32m'; Y=$'\033[33m'; R=$'\033[31m'
+B=$'\033[1m'; C=$'\033[36m'; Z=$'\033[0m'
+ok(){ printf '  %s[✓]%s %s\n' "$G" "$Z" "$*"; }
+warn(){ printf '  %s[!]%s %s\n' "$Y" "$Z" "$*"; }
+err(){ printf '  %s[✗]%s %s\n' "$R" "$Z" "$*"; }
+hdr(){ printf '\n%s═══ %s ═══%s\n' "$B$C" "$*" "$Z"; }
+
+log() {
+    printf '%s | %s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$*" >> "$LOG"
+    # Ротація 100KB
+    [ "$(wc -c < "$LOG" 2>/dev/null || echo 0)" -gt 100000 ] && {
+        mv "$LOG" "$LOG.1" 2>/dev/null
+        rm -f "$LOG.2" 2>/dev/null
+        mv "$LOG.1" "$LOG.2" 2>/dev/null
+    }
+}
+
+# ═══════════════════════════════════════════════════════════
+# 1. Перевірити GitHub на нові commits
+# ═══════════════════════════════════════════════════════════
+check_remote() {
+    cd "$GITMOD" 2>/dev/null || return 1
+    git fetch origin 2>&1 | grep -v '^$' | head -1
+
+    local local_rev="$(git rev-parse HEAD 2>/dev/null)"
+    local remote_rev="$(git rev-parse origin/main 2>/dev/null)"
+
+    if [ "$local_rev" != "$remote_rev" ]; then
+        log "REMOTE_NEW local=${local_rev:0:12} remote=${remote_rev:0:12}"
+        return 2  # є нове на GitHub
+    fi
+    return 0  # все синхронізовано
+}
+
+# ═══════════════════════════════════════════════════════════
+# 2. Pull з GitHub (якщо є нове)
+# ═══════════════════════════════════════════════════════════
+do_pull() {
+    cd "$GITMOD" || return 1
+    log "PULL start"
+
+    if git pull --rebase origin main 2>&1 | tail -3 | grep -qE 'Already up-to-date|Fast-forward|files changed'; then
+        log "PULL ok"
+        return 0
+    fi
+
+    # Конфлікти?
+    if [ -n "$(git status --porcelain 2>/dev/null | grep '^UU\|^AA\|^DD')" ]; then
+        log "PULL conflict → reset --hard origin/main"
+        git reset --hard origin/main 2>&1 | tail -1
+    fi
+    log "PULL done"
+    return 0
+}
+
+# ═══════════════════════════════════════════════════════════
+# 3. Sync @cybra index + modules
+# ═══════════════════════════════════════════════════════════
+do_sync() {
+    log "SYNC start"
+    cd "$GITMOD" || return 1
+
+    mkdir -p meta modules hashes/snapshots
+
+    # @cybra index
+    cp "$NODE/index.json" meta/index.json 2>/dev/null
+    cp "$NODE/index.txt"  meta/index.txt 2>/dev/null
+
+    # Modules
+    for d in "$ROOT/modules"/*/; do
+        [ -d "$d" ] || continue
+        m="$(basename "$d")"
+        case "$m" in @*|.*|_disabled*|evolution|answer_engine|node_modules) continue;; esac
+
+        target="modules/$m"
+        mkdir -p "$target"
+        for sub in bin state tests snapshot contracts links evidence rules templates data; do
+            [ ! -d "$d/$sub" ] && continue
+            mkdir -p "$target/$sub"
+            cp -r "$d/$sub"/* "$target/$sub/" 2>/dev/null || true
+        done
+    done
+
+    # Snapshots
+    cp "$ROOT"/hashes/snapshots/bm_*.env hashes/snapshots/ 2>/dev/null
+
+    # @cybra node index
+    cp "$ROOT/cybra_hash.sh" . 2>/dev/null
+    cp "$ROOT/cybra_node.sh" . 2>/dev/null
+    cp "$ROOT/CYBRA_AI_TASK_BAR.sh" . 2>/dev/null
+    [ -d "$ROOT/ai" ] && { mkdir -p ai; cp -r "$ROOT/ai"/* ai/ 2>/dev/null; }
+
+    log "SYNC done"
+}
+
+# ═══════════════════════════════════════════════════════════
+# 4. Commit + push (якщо є зміни)
+# ═══════════════════════════════════════════════════════════
+do_push() {
+    cd "$GITMOD" || return 1
+    git add -A 2>/dev/null
+
+    local changes="$(git status --porcelain 2>/dev/null | wc -l)"
+    [ "$changes" -eq 0 ] && {
+        log "PUSH skip (no changes)"
+        return 0
+    }
+
+    log "PUSH $changes files"
+    git commit -m "autopilot $(date -u +%Y%m%dT%H%M%SZ) [$changes]" 2>&1 | tail -1
+
+    local out="$(git push origin main 2>&1)"
+    if printf '%s' "$out" | grep -qE 'main -> main|Everything up-to-date'; then
+        log "PUSH ok"
+        return 0
+    else
+        log "PUSH fail: $(printf '%s' "$out" | tail -1)"
+        return 1
+    fi
+}
+
+# ═══════════════════════════════════════════════════════════
+# Один цикл
+# ═══════════════════════════════════════════════════════════
+one_cycle() {
+    log "CYCLE start"
+
+    # 1. Pull якщо є нове
+    check_remote
+    local rc=$?
+    if [ "$rc" = "2" ]; then
+        do_pull
+    fi
+
+    # 2. Sync локальне
+    do_sync
+
+    # 3. Push якщо є зміни
+    do_push
+
+    log "CYCLE end"
+}
+
+# ═══════════════════════════════════════════════════════════
+# Daemon
+# ═══════════════════════════════════════════════════════════
+daemon() {
+    trap 'rm -f "$PIDFILE"; log "DAEMON stop"; exit 0' TERM INT
+    echo $$ > "$PIDFILE"
+    log "DAEMON start pid=$$ interval=${INTERVAL}s"
+
+    while true; do
+        one_cycle
+        sleep "$INTERVAL"
+    done
+}
+
+# ═══════════════════════════════════════════════════════════
+# CLI
+# ═══════════════════════════════════════════════════════════
+case "${1:-status}" in
+    start)
+        [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null && {
+            warn "already running PID=$(cat "$PIDFILE")"; exit 1; }
+        nohup bash -c "source '$0'; daemon" >/dev/null 2>&1 &
+        sleep 1
+        ok "autopilot PID=$(cat "$PIDFILE") (interval=${INTERVAL}s)"
+        ;;
+    stop)
+        [ ! -f "$PIDFILE" ] && { warn "not running"; exit 1; }
+        kill "$(cat "$PIDFILE")" 2>/dev/null
+        rm -f "$PIDFILE"
+        ok "stopped"
+        ;;
+    restart)
+        "$0" stop 2>/dev/null
+        sleep 1
+        "$0" start
+        ;;
+    status)
+        hdr "AUTOPILOT STATUS"
+        if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
+            ok "RUNNING PID=$(cat "$PIDFILE") interval=${INTERVAL}s"
+        else
+            printf '  [·] STOPPED\n'
+        fi
+        printf '\n  Останні 15 подій:\n'
+        tail -15 "$LOG" 2>/dev/null | sed 's/^/    /' || printf '    (порожньо)\n'
+        ;;
+    once)
+        hdr "AUTOPILOT ONE CYCLE"
+        one_cycle
+        ok "cycle done"
+        ;;
+    log)
+        tail -30 "$LOG" 2>/dev/null
+        ;;
+    pull)
+        hdr "MANUAL PULL"
+        do_pull
+        ;;
+    push)
+        hdr "MANUAL PUSH"
+        do_sync
+        do_push
+        ;;
+    *)
+        cat <<USAGE
+CYBRA AUTOPILOT — авто-оновлення ноди
+
+  start    — запустити у фоні
+  stop     — зупинити
+  restart  — перезапустити
+  status   — стан + логи
+  once     — один цикл зараз
+  log      — останні 30 подій
+  pull     — pull з GitHub
+  push     — sync + push зараз
+
+  INTERVAL=600 cybra_autopilot start   # 10 хв замість 5
+
+Цикл:
+  1. Перевірка GitHub на нові commits
+  2. Pull (якщо є)
+  3. Sync @cybra + modules
+  4. Commit + Push (якщо є зміни)
+
+Лог: $LOG
+USAGE
+        ;;
+esac

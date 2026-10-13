@@ -1,0 +1,125 @@
+{
+  "version": "1.0",
+  "intents": [
+    {
+      "id": "create_contract",
+      "keywords": [
+        "створити контракт",
+        "создать контракт",
+        "create contract",
+        "צור חוזה"
+      ],
+      "action": "cybra_open 1"
+    },
+    {
+      "id": "sign",
+      "keywords": [
+        "підписати",
+        "подписать",
+        "sign",
+        "חתום"
+      ],
+      "action": "cybra_open 108"
+    },
+    {
+      "id": "status",
+      "keywords": [
+        "статус",
+        "состояние",
+        "status",
+        "מצב"
+      ],
+      "action": "show_status"
+    },
+    {
+      "id": "heal",
+      "keywords": [
+        "вилікуй",
+        "вылечи",
+        "heal",
+        "רפא"
+      ],
+      "action": "cybra_open 330"
+    },
+    {
+      "id": "verify",
+      "keywords": [
+        "перевір",
+        "проверь",
+        "check",
+        "בדוק"
+      ],
+      "action": "cybra_open 152"
+    },
+    {
+      "id": "invoice",
+      "keywords": [
+        "рахунок",
+        "счёт",
+        "invoice",
+        "חשבונית"
+      ],
+      "action": "cybra_open 11"
+    },
+    {
+      "id": "pay",
+      "keywords": [
+        "оплати",
+        "оплати",
+        "pay",
+        "שלם"
+      ],
+      "action": "cybra_open 340"
+    },
+    {
+      "id": "map",
+      "keywords": [
+        "карта",
+        "карта",
+        "map",
+        "מפה"
+      ],
+      "action": "cybra_open 360"
+    },
+    {
+      "id": "help",
+      "keywords": [
+        "допомога",
+        "помощь",
+        "help",
+        "עזרה"
+      ],
+      "action": "show_help"
+    }
+  ],
+  "learned": [
+    {
+      "id": "custom_1791817788",
+      "keywords": [
+        "контрактпо Comfy Fold 8зробити виконуванимі лінк створити надіслатиComfy Department paymentз циклом щоб вони могли підтвердити цей контракт"
+      ],
+      "action": "зробити все в ідеалі за контрактомпо Fold 8Comfy",
+      "learned_at": "2026-10-12T15:09:48Z"
+    },
+    {
+      "id": "custom_1791844508",
+      "keywords": [
+        "відновити сіс від падіння"
+      ],
+      "action": "відновити сіс від падіння",
+      "learned_at": "2026-10-12T22:35:08Z"
+    }
+  ],
+  "unknown": [
+    {
+      "text": "щось невідоме",
+      "at": "2026-10-12T12:36:06Z",
+      "count": 1
+    },
+    {
+      "text": "зробити там де ноль там де назад щоб воно працювало щоб був вихід у систему",
+      "at": "2026-10-12T15:16:40Z",
+      "count": 1
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "networks": {
+    "bsc": {
+      "name": "BSC", "chain_id": 56, "symbol": "BNB", "block_time": 3,
+      "rpc_http": [
+        "https://bsc-dataseed.binance.org",
+        "https://bsc-dataseed1.defibit.io",
+        "https://bsc-dataseed1.ninicoin.io",
+        "https://bsc.publicnode.com",
+        "https://rpc.ankr.com/bsc"
+      ]
+    },
+    "eth": {
+      "name": "Ethereum", "chain_id": 1, "symbol": "ETH", "block_time": 12,
+      "rpc_http": [
+        "https://eth.llamarpc.com",
+        "https://rpc.ankr.com/eth",
+        "https://cloudflare-eth.com",
+        "https://ethereum.publicnode.com"
+      ]
+    },
+    "polygon": {
+      "name": "Polygon", "chain_id": 137, "symbol": "MATIC", "block_time": 2,
+      "rpc_http": [
+        "https://polygon-rpc.com",
+        "https://rpc.ankr.com/polygon",
+        "https://polygon.publicnode.com"
+      ]
+    },
+    "arbitrum": {
+      "name": "Arbitrum", "chain_id": 42161, "symbol": "ETH", "block_time": 1,
+      "rpc_http": [
+        "https://arb1.arbitrum.io/rpc",
+        "https://rpc.ankr.com/arbitrum"
+      ]
+    }
+  },
+  "poll_active_sec": 3,
+  "poll_idle_sec": 30,
+  "health_sec": 60,
+  "reconnect_backoff_max": 300
+}

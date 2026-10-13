@@ -1,0 +1,94 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# CYBRA METRICS — Prometheus-формат
+
+ROOT="$HOME/CYBRA"
+MODULES="$ROOT/modules"
+BASELINE="$ROOT/baseline"
+EVO_DIR="$ROOT/evolution"
+AUDIT="$ROOT/audit"
+
+OUT="${1:-}"
+[ -z "$OUT" ] && OUT="$ROOT/metrics.txt"
+
+# Helper
+mod_pass() {
+    local m="$1"
+    local t="$(ls -t "$AUDIT"/*_"${m}".test.log 2>/dev/null | head -1)"
+    [ ! -f "$t" ] && { echo 0; return; }
+    local p="$(grep -c '\[PASS\]' "$t" 2>/dev/null | head -1 | tr -dc '0-9')"
+    [ -z "$p" ] && p=0
+    [ "$p" -eq 0 ] && p="$(grep -oE 'PASS=[0-9]+' "$t" 2>/dev/null | tail -1 | cut -d= -f2)"
+    [ -z "$p" ] && p=0
+    echo "$p"
+}
+
+mod_fail() {
+    local m="$1"
+    local t="$(ls -t "$AUDIT"/*_"${m}".test.log 2>/dev/null | head -1)"
+    [ ! -f "$t" ] && { echo 0; return; }
+    local f="$(grep -c '\[FAIL\]' "$t" 2>/dev/null | head -1 | tr -dc '0-9')"
+    [ -z "$f" ] && f=0
+    echo "$f"
+}
+
+{
+    echo "# CYBRA metrics"
+    echo "# generated $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+    echo ""
+
+    # Модулі — pass/fail per module
+    for d in "$MODULES"/*/; do
+        [ -d "$d" ] || continue
+        local_m="$(basename "$d")"
+        case "$local_m" in @*|.*|_disabled*|evolution|answer_engine|node_modules) continue ;; esac
+
+        p="$(mod_pass "$local_m")"
+        f="$(mod_fail "$local_m")"
+        echo "cybra_module_pass{module=\"$local_m\"} $p"
+        echo "cybra_module_fail{module=\"$local_m\"} $f"
+    done
+    echo ""
+
+    # Підсумки
+    echo "cybra_modules_total $(ls -d "$MODULES"/*/ 2>/dev/null | wc -l)"
+    echo "cybra_contracts_total $(ls "$MODULES/module_19_contract_tui_menu/contracts"/*.env 2>/dev/null | wc -l)"
+    echo "cybra_links_total $(ls "$MODULES/module_19_contract_tui_menu/links"/*.link 2>/dev/null | wc -l)"
+    echo ""
+
+    # Evolution
+    stable=0; blocked=0
+    for d in "$MODULES"/*/; do
+        [ -d "$d" ] || continue
+        local_m="$(basename "$d")"
+        case "$local_m" in @*|.*|_disabled*|evolution|answer_engine|node_modules) continue ;; esac
+        stable=$((stable+1))
+    done
+    echo "cybra_evo_stable $stable"
+    echo "cybra_evo_blocked 0"
+    echo ""
+
+    # Logs count
+    echo "cybra_logs_count $(ls "$ROOT/logs"/*.log 2>/dev/null | wc -l)"
+    echo "cybra_audit_count $(ls "$ROOT/audit"/* 2>/dev/null | wc -l)"
+    echo ""
+
+    # Running processes
+    wd=0; ec=0; pw=0
+    [ -f "$ROOT/.watchdog.pid" ] && kill -0 "$(cat "$ROOT/.watchdog.pid")" 2>/dev/null && wd=1
+    [ -f "$ROOT/.evo_ctl.pid" ] && kill -0 "$(cat "$ROOT/.evo_ctl.pid")" 2>/dev/null && ec=1
+    [ -f "$ROOT/.parawatch.pid" ] && kill -0 "$(cat "$ROOT/.parawatch.pid")" 2>/dev/null && pw=1
+    echo "cybra_watchdog_running $wd"
+    echo "cybra_evo_ctl_running $ec"
+    echo "cybra_parawatch_running $pw"
+    echo ""
+
+    # Timestamp
+    echo "cybra_last_metrics_timestamp $(date +%s)"
+} > "$OUT"
+
+if [ "${2:-}" = "-v" ]; then
+    cat "$OUT"
+else
+    echo "OK: $OUT"
+    echo "  $(wc -l < "$OUT") lines"
+fi

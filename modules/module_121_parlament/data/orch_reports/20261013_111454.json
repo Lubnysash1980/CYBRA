@@ -1,0 +1,13 @@
+{
+  "auto_fixed": 0,
+  "alerts": 0,
+  "scheduled_run": 3,
+  "duration_ms": 546,
+  "integration_fixed": 0,
+  "integration_bad": 0,
+  "deploy": {
+    "compiled": 0,
+    "deployed": 0,
+    "errors": 4
+  }
+}

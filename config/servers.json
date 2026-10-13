@@ -1,0 +1,44 @@
+{
+  "servers": [
+    {
+      "name": "local",
+      "type": "local",
+      "enabled": true
+    },
+    {
+      "name": "oracle",
+      "type": "ssh",
+      "host": "",
+      "user": "ubuntu",
+      "enabled": false
+    },
+    {
+      "name": "timeweb",
+      "type": "ssh",
+      "host": "",
+      "user": "root",
+      "enabled": false
+    },
+    {
+      "name": "namecheap",
+      "type": "ssh",
+      "host": "",
+      "user": "",
+      "enabled": false
+    },
+    {
+      "name": "codespaces",
+      "type": "ssh",
+      "host": "",
+      "user": "",
+      "enabled": false
+    },
+    {
+      "name": "vps",
+      "type": "ssh",
+      "host": "",
+      "user": "root",
+      "enabled": false
+    }
+  ]
+}

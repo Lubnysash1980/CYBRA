@@ -1,0 +1,180 @@
+{
+  "procs": {
+    "autonode": {
+      "restarts": [
+        1791830118.3185482,
+        1791830374.8304734,
+        1791830516.9527276
+      ],
+      "last_check": "2026-10-13T08:16:54Z"
+    },
+    "watchdog": {
+      "restarts": [],
+      "last_check": "2026-10-13T08:16:54Z"
+    },
+    "orchestrator": {
+      "restarts": [],
+      "last_check": "2026-10-13T08:16:54Z"
+    },
+    "supervisor": {
+      "restarts": [],
+      "last_check": null
+    },
+    "dashboard": {
+      "restarts": [
+        1791876804.9749606,
+        1791879014.0565639
+      ],
+      "last_check": "2026-10-13T08:16:54Z"
+    },
+    "selfheal": {
+      "restarts": [
+        1791875879.6435325,
+        1791875920.416813,
+        1791875958.3525257,
+        1791876036.5536525,
+        1791878159.1358948,
+        1791878355.338247,
+        1791878426.7754095,
+        1791878498.985029,
+        1791878942.9391537,
+        1791879025.0989957,
+        1791879189.7330415
+      ],
+      "last_check": "2026-10-13T08:16:54Z"
+    },
+    "controller_worker": {
+      "restarts": [
+        1791876821.051072
+      ],
+      "last_check": "2026-10-13T08:17:05Z"
+    },
+    "runtime": {
+      "restarts": [
+        1791876837.0881639
+      ],
+      "last_check": "2026-10-13T08:17:05Z"
+    },
+    "job_controller": {
+      "restarts": [
+        1791879148.6450403
+      ],
+      "last_check": "2026-10-13T08:17:05Z"
+    },
+    "src": {
+      "restarts": [
+        1791879291.416455
+      ],
+      "last_check": "2026-10-13T08:17:05Z"
+    },
+    "structure": {
+      "restarts": [
+        1791879343.628387
+      ],
+      "last_check": "2026-10-13T08:17:05Z"
+    },
+    "diffrecover": {
+      "restarts": [],
+      "last_check": "2026-10-13T08:17:05Z"
+    },
+    "load": {
+      "restarts": [],
+      "last_check": "2026-10-13T08:17:05Z"
+    },
+    "webui": {
+      "restarts": [],
+      "last_check": "2026-10-13T08:17:05Z"
+    },
+    "tui_guard": {
+      "restarts": [
+        1791830390.8689795
+      ],
+      "last_check": "2026-10-13T08:17:05Z"
+    },
+    "task_engine": {
+      "restarts": [],
+      "last_check": "2026-10-13T07:45:03Z"
+    },
+    "heavy_tiers": {
+      "restarts": [],
+      "last_check": null
+    },
+    "heavy_pipeline": {
+      "restarts": [],
+      "last_check": null
+    },
+    "heavy_cascade": {
+      "restarts": [],
+      "last_check": null
+    },
+    "cron_migrate": {
+      "restarts": [],
+      "last_check": null
+    },
+    "auto_module_130_test_suite": {
+      "restarts": [],
+      "last_check": null
+    },
+    "auto_module_401_cascade_verify": {
+      "restarts": [],
+      "last_check": null
+    },
+    "auto_module_408_menu_tester": {
+      "restarts": [],
+      "last_check": null
+    },
+    "auto_module_409_pipeline": {
+      "restarts": [],
+      "last_check": null
+    },
+    "auto_module_411_tiers": {
+      "restarts": [],
+      "last_check": null
+    },
+    "scheduler": {
+      "restarts": [
+        1791829950.1607046,
+        1791830097.4357085
+      ],
+      "last_check": "2026-10-12T18:39:50Z"
+    },
+    "auto_auto_module_130_test_suite": {
+      "restarts": [],
+      "last_check": "2026-10-12T18:34:57Z"
+    },
+    "auto_auto_module_401_cascade_verify": {
+      "restarts": [],
+      "last_check": "2026-10-12T18:34:58Z"
+    },
+    "auto_auto_module_409_pipeline": {
+      "restarts": [],
+      "last_check": "2026-10-12T18:34:58Z"
+    },
+    "keeper": {
+      "restarts": [],
+      "last_check": "2026-10-12T18:34:58Z"
+    },
+    "auto_auto_auto_module_130_test_suite": {
+      "restarts": [],
+      "last_check": "2026-10-12T18:34:58Z"
+    },
+    "auto_auto_auto_module_401_cascade_verify": {
+      "restarts": [],
+      "last_check": "2026-10-12T18:34:59Z"
+    },
+    "auto_auto_auto_module_409_pipeline": {
+      "restarts": [],
+      "last_check": "2026-10-12T18:34:59Z"
+    },
+    "pid_security_controller": {
+      "restarts": [
+        1791875821.469729,
+        1791875895.6701186,
+        1791875974.3875325,
+        1791876052.589259,
+        1791876141.3361998
+      ],
+      "last_check": "2026-10-13T07:32:08Z"
+    }
+  }
+}

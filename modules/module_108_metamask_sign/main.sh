@@ -1,0 +1,170 @@
+#!/data/data/com.termux/files/usr/bin/bash
+bash -c 'python3 "$HOME/CYBRA/modules/module_399_gate/gate.py" allow contract_sign >/dev/null 2>&1' || { echo "🚫 399 gate: не 100%"; exit 1; }
+set -uo pipefail
+H="$HOME/CYBRA"
+M="$H/modules/module_108_metamask_sign"
+P="$H/public/sign"
+E="$H/modules/module_19_contract_tui_menu/evidence"
+CFG="$H/config/metamask.env"
+LOGS="$H/logs"
+mkdir -p "$P" "$E" "$LOGS" "$(dirname "$CFG")"
+[ -f "$CFG" ] && . "$CFG"
+BUYER="${BUYER_ADDR:-0x29fA26FC5768Fe1E62160E021Fd3f88d92257A1F}"
+PORT="${CYBRA_PORT:-8765}"; WAIT_TIMEOUT="${WAIT_TIMEOUT:-900}"
+G=$'\e[32m'; Y=$'\e[33m'; R=$'\e[31m'; B=$'\e[36m'; D=$'\e[2m'; N=$'\e[0m'
+ok(){ echo "  ${G}✓${N} $*"; }; warn(){ echo "  ${Y}!${N} $*"; }; err(){ echo "  ${R}✗${N} $*" >&2; }
+hdr(){ echo; echo "${B}═══ $* ═══${N}"; }
+
+LOG="$LOGS/mm_$(date +%Y%m%d_%H%M%S).log"
+exec > >(tee -a "$LOG") 2>&1
+
+SPID=""; TPID=""
+cleanup(){ kill "$SPID" "$TPID" 2>/dev/null||true
+  pkill -f "cloudflared.*$PORT" 2>/dev/null||true
+  pkill -f "ssh.*serveo" 2>/dev/null||true; }
+trap cleanup EXIT INT TERM
+
+hdr "[1/6] Контракт"
+TS=$(date +%Y%m%d%H%M%S); RND=$(head -c4 /dev/urandom|od -An -tx1|tr -d ' \n')
+CID="C-INV-${TS}-${RND}"
+TIME=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+MSG=$(printf 'CYBRA Contract\nCID: %s\nBuyer: %s\nTime: %s' "$CID" "$BUYER" "$TIME")
+MSG_B64=$(printf '%s' "$MSG" | base64 -w0)
+ok "CID: $CID"
+
+# ── PRE-VALIDATE (122) ──────────────────────────────────────
+VALIDATOR="$HOME/CYBRA/modules/module_122_contract_validator/validator.py"
+if [ -f "$VALIDATOR" ] && [ "${SKIP_VALIDATE:-0}" != "1" ]; then
+  echo
+  echo "  ${B}→ pre-validate через 122...${N}"
+  # створюємо тимчасовий контракт-json для валідації
+  TMP_C=$(mktemp)
+  cat > "$TMP_C" <<JSONC
+{"cid":"$CID","buyer":"$BUYER","created_at":"$(date -u +%Y-%m-%dT%H:%M:%SZ)","payload":{}}
+JSONC
+  VR=$(python3 "$VALIDATOR" "$CID" 2>&1)
+  echo "$VR" | sed 's/^/    /'
+  # перевіряємо вердикт
+  if echo "$VR" | grep -q "REJECT"; then
+    echo
+    echo "  ${R}✗ Контракт не пройшов валідацію — підпис заблоковано${N}"
+    echo "  ${D}Переглянь 122 вручну: cybra → 122 → 1${N}"
+    read -rp "  Все одно продовжити? (yes/no): " force
+    if [ "$force" != "yes" ]; then
+      rm -f "$TMP_C"
+      err "підпис скасовано"
+      exit 3
+    fi
+  fi
+  rm -f "$TMP_C"
+fi
+# ──────────────────────────────────────────────────────────
+
+
+hdr "[2/6] HTML"
+sed -e "s|{{CID}}|$CID|g" -e "s|{{BUYER}}|$BUYER|g" -e "s|{{MSG_B64}}|$MSG_B64|g" \
+  "$M/index.html" > "$P/index.html"
+ok "index.html"
+
+hdr "[3/6] Сервер"
+python3 "$M/server.py" "$E" "$PORT" >"$P/server.log" 2>&1 & SPID=$!
+sleep 1
+kill -0 $SPID 2>/dev/null || { err "сервер впав"; cat "$P/server.log"; exit 1; }
+curl -sf "http://127.0.0.1:$PORT/" -o /dev/null || { err "сервер не відповідає"; exit 1; }
+ok "PID $SPID :$PORT"
+
+hdr "[4/6] Тунель"
+PUBLIC_URL=""
+try_cf(){
+  local n="$1"; shift; local t="$P/tunnel_$n.log"; : > "$t"
+  warn "cloudflared [$n]"
+  cloudflared tunnel --url "http://127.0.0.1:$PORT" "$@" --no-autoupdate >"$t" 2>&1 & TPID=$!
+  local u=""
+  for i in $(seq 1 20); do
+    u=$(grep -oE 'https://[a-z0-9][a-z0-9-]+\.trycloudflare\.com' "$t" 2>/dev/null|grep -v '^https://api\.'|head -1||true)
+    [ -n "$u" ] && { PUBLIC_URL="$u"; ok "URL: $u"; return 0; }
+    kill -0 $TPID 2>/dev/null || break; sleep 1
+  done
+  kill $TPID 2>/dev/null; return 1
+}
+try_ssh(){
+  local h="$1"; local t="$P/tunnel_ssh.log"; : > "$t"
+  warn "ssh $h"
+  ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=30 \
+      -R 80:127.0.0.1:$PORT "$h" >"$t" 2>&1 & TPID=$!
+  local u=""
+  for i in $(seq 1 25); do
+    u=$(grep -oE 'https://[a-z0-9-]+\.(lhr\.life|serveo\.net)' "$t" 2>/dev/null|grep -v console|head -1||true)
+    [ -n "$u" ] && { PUBLIC_URL="$u"; ok "URL: $u"; return 0; }
+    kill -0 $TPID 2>/dev/null || break; sleep 1
+  done
+  kill $TPID 2>/dev/null; return 1
+}
+try_cf default || try_cf http2 --protocol http2 || \
+try_cf http2v4 --protocol http2 --edge-ip-version 4 || \
+try_ssh "nokey@localhost.run" || try_ssh "nokey@serveo.net" || \
+{ err "тунель не піднявся"; exit 1; }
+
+hdr "[5/6] Відкриваю MetaMask"
+DEEPLINK="https://metamask.app.link/dapp/${PUBLIC_URL#https://}"
+echo "  URL:       ${B}${PUBLIC_URL}${N}"
+echo "  Deep link: ${B}${DEEPLINK}${N}"
+echo
+opened=0
+if command -v termux-open-url >/dev/null; then
+  termux-open-url "$DEEPLINK" && opened=1 && ok "MetaMask відкрито"
+elif command -v am >/dev/null; then
+  am start -a android.intent.action.VIEW -d "$DEEPLINK" >/dev/null 2>&1 && opened=1 && ok "MetaMask відкрито"
+fi
+[ $opened -eq 0 ] && warn "не вдалось — відкрий URL вручну"
+
+hdr "[6/6] Очікую підпис"
+SIG="$E/${CID}_buyer.sig"
+START=$(date +%s)
+while [ ! -f "$SIG" ]; do
+  [ -n "$TPID" ] && ! kill -0 $TPID 2>/dev/null && { echo; err "тунель впав"; exit 1; }
+  kill -0 $SPID 2>/dev/null || { echo; err "сервер впав"; exit 1; }
+  NOW=$(date +%s); (( NOW-START > WAIT_TIMEOUT )) && { echo; err "таймаут"; exit 1; }
+  printf '.'; sleep 1
+done
+echo
+ok "ПІДПИС: $SIG"
+
+python3 - "$SIG" <<'PYVER'
+import json, sys
+d = json.load(open(sys.argv[1]))
+try:
+    from eth_account import Account
+    from eth_account.messages import encode_defunct
+    r = Account.recover_message(encode_defunct(text=d["message"]), signature=d["signature"])
+    if r.lower() == d["address"].lower():
+        print(f"  \033[32m✓\033[0m верифікація OK: {r}")
+    else:
+        print(f"  \033[31m✗\033[0m MISMATCH: {r} != {d['address']}")
+except ImportError:
+    print("  \033[33m!\033[0m eth_account відсутній")
+PYVER
+
+B="$H/backups/run_$(date +%Y%m%d_%H%M%S)"
+mkdir -p "$B"; cp "$SIG" "$LOG" "$B/" 2>/dev/null||true
+ln -sfn "$B" "$H/backups/latest"
+ok "бекап: $B"
+
+# ── інтеграція з 121: парламентська пропозиція для великих контрактів ──
+HOOK121="$HOME/CYBRA/modules/module_121_parlament/hook_108.py"
+if [ -x "$HOOK121" ]; then
+  read -rp "  Сума контракту в BNB (Enter=0): " amt
+  amt="${amt:-0}"
+  if python3 -c "exit(0 if float('$amt')>0 else 1)" 2>/dev/null; then
+    echo
+    echo "  ${B}→ перевіряю чи потрібне схвалення парламенту...${N}"
+    python3 "$HOOK121" "$CID" "$amt" "$BUYER" 2>&1 | sed 's/^/    /'
+    echo "  ${D}(якщо required=true — парламент має схвалити перед виконанням)${N}"
+  fi
+fi
+
+
+echo
+echo "${G}════════════════════════════════════════${N}"
+echo "${G}  ✅ ГОТОВО · $CID${N}"
+echo "${G}════════════════════════════════════════${N}"

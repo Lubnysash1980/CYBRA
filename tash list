@@ -1,0 +1,9 @@
+[33m343518d13[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;33mtag: [m[1;33mv1.0.2[m[33m, [m[1;33mtag: [m[1;33mv1.0.1-archive[m[33m, [m[1;31morigin/main[m[33m, [m[1;31mgithub/main[m[33m, [m[1;32mbackup/pre-github-restore-20261013_102848[m[33m)[m P2PPurchase: deadline guards on buyerSign, sellerSign, confirmEvidence
+[33m3bee284ee[m Document controller trust model (LevelController, Exoskeleton, BinaryMixer)
+[33m22a18c05a[m Add README, THREAT_MODEL, git-recover helper
+[33m07daa8add[m[33m ([m[1;33mtag: [m[1;33mv1.0.1[m[33m)[m Fix missing prank in usdtStyle_releaseToSellerSucceeds test
+[33m62d55300f[m Restore P2PPurchase tests, fix one address literal
+[33me829c7212[m Fix invalid address literal in P2PPurchase tests
+[33mf1c16f265[m Fix invalid hex literal in P2PPurchase tests
+[33m96e23d82d[m P2PPurchase: nonReentrant + USDT-compatible safe transfers
+[33m8cca98525[m[33m ([m[1;33mtag: [m[1;33mv1.0[m[33m)[m CYBRA v1.0

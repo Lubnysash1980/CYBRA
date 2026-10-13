@@ -1,0 +1,142 @@
+{
+  "cid": "C-INV-20261012115115-7c4965",
+  "created": "2026-10-13T07:32:35Z",
+  "levels": {
+    "1": {
+      "level": 1,
+      "id": "signed",
+      "ok": true,
+      "at": "2026-10-13T07:32:35Z",
+      "by": "health-heal",
+      "payload": {
+        "auto": true
+      },
+      "prev_ok": false
+    },
+    "2": {
+      "level": 2,
+      "id": "escrow_funded",
+      "ok": true,
+      "at": "2026-10-13T07:32:35Z",
+      "by": "health-heal",
+      "payload": {
+        "auto": true
+      },
+      "prev_ok": false
+    },
+    "3": {
+      "level": 3,
+      "id": "deliverable_declared",
+      "ok": true,
+      "at": "2026-10-13T07:32:35Z",
+      "by": "health-heal",
+      "payload": {
+        "auto": true
+      },
+      "prev_ok": false
+    },
+    "4": {
+      "level": 4,
+      "id": "deliverable_verified",
+      "ok": true,
+      "at": "2026-10-13T07:32:35Z",
+      "by": "health-heal",
+      "payload": {
+        "auto": true
+      },
+      "prev_ok": false
+    },
+    "5": {
+      "level": 5,
+      "id": "quality_ok",
+      "ok": true,
+      "at": "2026-10-13T07:32:35Z",
+      "by": "health-heal",
+      "payload": {
+        "auto": true
+      },
+      "prev_ok": false
+    },
+    "6": {
+      "level": 6,
+      "id": "dispute_window",
+      "ok": true,
+      "at": "2026-10-13T07:32:35Z",
+      "by": "health-heal",
+      "payload": {
+        "auto": true
+      },
+      "prev_ok": false
+    },
+    "7": {
+      "level": 7,
+      "id": "released",
+      "ok": true,
+      "at": "2026-10-13T07:32:35Z",
+      "by": "health-heal",
+      "payload": {
+        "auto": true
+      },
+      "prev_ok": false
+    }
+  },
+  "history": [
+    {
+      "prev": "0000000000000000000000000000000000000000000000000000000000000000",
+      "level": 1,
+      "ok": true,
+      "at": "2026-10-13T07:32:35Z",
+      "by": "health-heal",
+      "_hash": "65e2bcc248fa9047fc0bfe237adf95a829dee1ae038f4ef8a5b9135476bed85d"
+    },
+    {
+      "prev": "65e2bcc248fa9047fc0bfe237adf95a829dee1ae038f4ef8a5b9135476bed85d",
+      "level": 2,
+      "ok": true,
+      "at": "2026-10-13T07:32:35Z",
+      "by": "health-heal",
+      "_hash": "58ab6d1932ad3838cd9e3cd456b88f3d7f3ece5b942039b23463d4d7e48fe70e"
+    },
+    {
+      "prev": "58ab6d1932ad3838cd9e3cd456b88f3d7f3ece5b942039b23463d4d7e48fe70e",
+      "level": 3,
+      "ok": true,
+      "at": "2026-10-13T07:32:35Z",
+      "by": "health-heal",
+      "_hash": "936666920e306ef01918a636b6869ca67d9522643b62cd780129a5d138a24396"
+    },
+    {
+      "prev": "936666920e306ef01918a636b6869ca67d9522643b62cd780129a5d138a24396",
+      "level": 4,
+      "ok": true,
+      "at": "2026-10-13T07:32:35Z",
+      "by": "health-heal",
+      "_hash": "1667789f21b83b269dde73b300f3a1491bdb95a8258696f8cbb0f374c20f6233"
+    },
+    {
+      "prev": "1667789f21b83b269dde73b300f3a1491bdb95a8258696f8cbb0f374c20f6233",
+      "level": 5,
+      "ok": true,
+      "at": "2026-10-13T07:32:35Z",
+      "by": "health-heal",
+      "_hash": "541344cfe79a4e9040f1c22a66a00b952cae77d0433eb83aad4bfd264a61b790"
+    },
+    {
+      "prev": "541344cfe79a4e9040f1c22a66a00b952cae77d0433eb83aad4bfd264a61b790",
+      "level": 6,
+      "ok": true,
+      "at": "2026-10-13T07:32:35Z",
+      "by": "health-heal",
+      "_hash": "dfec77e5fb8cad4e3e9978f76bf8dcc3b7c99952998bc40307a55b6d3125fed2"
+    },
+    {
+      "prev": "dfec77e5fb8cad4e3e9978f76bf8dcc3b7c99952998bc40307a55b6d3125fed2",
+      "level": 7,
+      "ok": true,
+      "at": "2026-10-13T07:32:35Z",
+      "by": "health-heal",
+      "_hash": "fbf398249ce7417084861e7056681b5fce2b3be11822bb01b5530204ae625819"
+    }
+  ],
+  "deviation_log": []
+}

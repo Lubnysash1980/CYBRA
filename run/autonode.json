@@ -1,0 +1,64 @@
+{
+  "state": "ok",
+  "networks": {
+    "bsc_mainnet": {
+      "name": "BSC Mainnet",
+      "chain_id": 56,
+      "endpoint": "https://bsc-dataseed.binance.org",
+      "block": 127369332,
+      "latency_ms": 643,
+      "fails": 0,
+      "state": "ok"
+    },
+    "bsc_testnet": {
+      "name": "BSC Testnet",
+      "chain_id": 97,
+      "endpoint": "https://bsc-testnet.bnbchain.org",
+      "block": 136516595,
+      "latency_ms": 747,
+      "fails": 0,
+      "state": "ok"
+    },
+    "eth_mainnet": {
+      "name": "Ethereum Mainnet",
+      "chain_id": 1,
+      "endpoint": "https://rpc.flashbots.net",
+      "block": 26182318,
+      "latency_ms": 878,
+      "fails": 0,
+      "state": "ok"
+    },
+    "eth_sepolia": {
+      "name": "Ethereum Sepolia",
+      "chain_id": 11155111,
+      "endpoint": "https://sepolia.drpc.org",
+      "block": 11904822,
+      "latency_ms": 786,
+      "fails": 0,
+      "state": "ok"
+    },
+    "polygon_mainnet": {
+      "name": "Polygon Mainnet",
+      "chain_id": 137,
+      "endpoint": "https://polygon-bor-rpc.publicnode.com",
+      "block": 95449436,
+      "latency_ms": 396,
+      "fails": 0,
+      "state": "ok"
+    },
+    "polygon_amoy": {
+      "name": "Polygon Amoy",
+      "chain_id": 80002,
+      "endpoint": "https://polygon-amoy-bor-rpc.publicnode.com",
+      "block": 50056929,
+      "latency_ms": 126,
+      "fails": 0,
+      "state": "ok"
+    }
+  },
+  "watch_count": 0,
+  "nets_ok": 6,
+  "nets_total": 6,
+  "uptime_sec": 1920,
+  "ts": "2026-10-13T08:17:29Z"
+}

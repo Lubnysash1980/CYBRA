@@ -1,0 +1,96 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# CYBRA SCHEDULE — простий task runner
+
+ROOT="$HOME/CYBRA"
+CONF="$ROOT/schedule.conf"
+PIDFILE="$ROOT/.schedule.pid"
+SCH_LOG="$ROOT/logs/schedule.log"
+
+mkdir -p "$ROOT/logs"
+
+if [ -t 1 ]; then
+    G=$'\033[32m'; Y=$'\033[33m'; R=$'\033[31m'
+    B=$'\033[1m'; C=$'\033[36m'; Z=$'\033[0m'
+else
+    G=""; Y=""; R=""; B=""; C=""; Z=""
+fi
+
+log() { printf '%s | %s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$*" >> "$SCH_LOG"; }
+
+# ─── Default config ───
+if [ ! -f "$CONF" ]; then
+    cat > "$CONF" <<'DEFAULT'
+# CYBRA SCHEDULE — правила
+# формат: <інтервал_сек> | <команда>
+# інтервал: 300 (5хв), 3600 (1год), 86400 (1добу)
+#
+# За замовчуванням:
+3600|$HOME/CYBRA/bin/cybra_cleanup
+7200|$HOME/CYBRA/bin/cybra_evo_ctl quiet
+86400|$HOME/CYBRA/bin/cybra_metrics
+DEFAULT
+    echo "[OK] створено $CONF"
+fi
+
+# ─── Loop ───
+loop() {
+    while true; do
+        while IFS='|' read -r interval cmd; do
+            [ -z "$interval" ] && continue
+            [ "${interval:0:1}" = "#" ] && continue
+
+            # Виконати якщо (now % interval) < 60
+            now=$(date +%s)
+            if [ $((now % interval)) -lt 60 ]; then
+                log "RUN: $cmd"
+                bash -c "$cmd" >/dev/null 2>&1 || true
+            fi
+        done < "$CONF"
+
+        sleep 60
+    done
+}
+
+case "${1:-status}" in
+    start|s)
+        if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
+            printf '  %s[!]%s вже запущено\n' "$Y" "$Z"
+            exit 1
+        fi
+        printf '  %s→%s запуск scheduler...\n' "$C" "$Z"
+        nohup bash -c "source '$0'; loop" >/dev/null 2>&1 &
+        echo $! > "$PIDFILE"
+        printf '  %s[✓]%s scheduler PID=%s\n' "$G" "$Z" "$(cat "$PIDFILE")"
+        log "SCHEDULER_STARTED pid=$(cat "$PIDFILE")"
+        ;;
+
+    stop|S)
+        [ ! -f "$PIDFILE" ] && { printf '  %s[!]%s не запущено\n' "$Y" "$Z"; exit 1; }
+        _pid="$(cat "$PIDFILE")"
+        kill "$_pid" 2>/dev/null
+        rm -f "$PIDFILE"
+        printf '  %s[✓]%s зупинено\n' "$G" "$Z"
+        ;;
+
+    status|st)
+        printf '%s═══ SCHEDULER ═══%s\n\n' "$B$C" "$Z"
+        if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
+            printf '  %s[✓]%s RUNNING (PID %s)\n' "$G" "$Z" "$(cat "$PIDFILE")"
+        else
+            printf '  %s[·]%s STOPPED\n' "$Y" "$Z"
+        fi
+        printf '\n  Правила (%s):\n' "$CONF"
+        cat "$CONF" | sed 's/^/    /'
+        printf '\n  Останні 10 подій:\n'
+        tail -10 "$SCH_LOG" 2>/dev/null | sed 's/^/    /'
+        printf '\n'
+        ;;
+
+    list|l)
+        cat "$CONF"
+        ;;
+
+    *)
+        printf 'Usage: cybra_schedule [start|stop|status|list]\n'
+        ;;
+esac

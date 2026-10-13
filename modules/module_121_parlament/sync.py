@@ -1,0 +1,267 @@
+#!/usr/bin/env python3
+"""CYBRA Sync — git як канал синхронізації + авторизації + оновлень.
+  · commit: локальний стан → git (з підписом founder)
+  · push:   → remote
+  · pull:   ← remote + merge (union для jsonl)
+  · verify: перевірка підписів у комітах
+  · mirror: розповсюдження на інші пристрої
+"""
+import json, os, subprocess, sys, time, hashlib
+from pathlib import Path
+
+H = Path.home() / "CYBRA"
+D = Path(__file__).resolve().parent
+M = H / "modules"
+CFG = H / "config" / "sync.json"
+KEY = H / "config" / "sync.key"  # ed25519 signing key парламенту
+
+DEFAULT_CFG = {
+    "remote": "",
+    "branch": "sync",
+    "enabled": False,
+    "auto_push": True,
+    "auto_pull": True,
+    "auto_interval_sec": 1800,
+    "sign_commits": True,
+    "exclude_globs": [
+        "logs/*", "run/*.pid", "backups/*", "public/sign/tunnel_*.log",
+        "public/sign/server.log", "modules/*/data/*.log",
+    ],
+}
+
+C_G='\033[32m'; C_R='\033[31m'; C_Y='\033[33m'; C_B='\033[36m'
+C_D='\033[2m'; C_N='\033[0m'
+
+def _run(cmd, cwd=None, timeout=120):
+    try:
+        r = subprocess.run(cmd, shell=True, cwd=cwd, capture_output=True,
+                           text=True, timeout=timeout)
+        return r.returncode, (r.stdout + r.stderr).strip()
+    except Exception as e:
+        return 1, str(e)
+
+def cfg():
+    if not CFG.exists():
+        CFG.write_text(json.dumps(DEFAULT_CFG, indent=2))
+        return dict(DEFAULT_CFG)
+    try:
+        c = json.loads(CFG.read_text())
+        base = dict(DEFAULT_CFG); base.update(c)
+        return base
+    except Exception: return dict(DEFAULT_CFG)
+
+def _save_cfg(c): CFG.write_text(json.dumps(c, indent=2))
+
+def _ensure_repo():
+    if (H/".git").exists(): return True, "ok"
+    rc, out = _run("git init -q", cwd=H)
+    if rc != 0: return False, out
+    _run("git config user.email sync@cybra.local", cwd=H)
+    _run("git config user.name 'CYBRA Sync'", cwd=H)
+    _write_gitignore()
+    _run("git add -A", cwd=H)
+    rc, out = _run('git commit -q -m "init: CYBRA" --allow-empty', cwd=H)
+    return True, "created"
+
+def _write_gitignore():
+    c = cfg()
+    lines = ["# CYBRA sync exclusions"]
+    for pat in c["exclude_globs"]:
+        lines.append(pat)
+    (H/".gitignore").write_text("\n".join(lines) + "\n")
+
+# ─── ed25519 keys для підпису комітів ─────────────────────
+def _ensure_keys():
+    try:
+        from nacl.signing import SigningKey
+    except ImportError: return None
+    KEY.parent.mkdir(exist_ok=True)
+    if not KEY.exists():
+        sk = SigningKey.generate()
+        KEY.write_bytes(bytes(sk))
+        os.chmod(KEY, 0o600)
+        # публічний
+        (KEY.parent / "sync.pub").write_bytes(bytes(sk.verify_key))
+    return KEY
+
+def _sign(data: bytes) -> str:
+    try:
+        from nacl.signing import SigningKey
+        import base64
+        sk = SigningKey(KEY.read_bytes())
+        return base64.b64encode(sk.sign(data).signature).decode()
+    except Exception: return ""
+
+# ─── commit ──────────────────────────────────────────────
+def _gate_ok(action="git_commit"):
+    try:
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "module_399_gate"))
+        import gate
+        ok, reason = gate.allow(action)
+        return ok, reason
+    except Exception:
+        return True, "gate unavailable"
+
+def commit(msg=None, sign=None):
+    ok, reason = _gate_ok("git_commit")
+    if not ok:
+        return False, f"gate: {reason}"
+    ok, info = _ensure_repo()
+    if not ok: return False, info
+    _write_gitignore()
+    ts = time.strftime("%Y-%m-%d %H:%M:%S")
+    m = msg or f"sync: {ts}"
+
+    # signature header
+    if sign is None:
+        sign = cfg()["sign_commits"]
+    sig_hdr = ""
+    if sign:
+        _ensure_keys()
+        # підписуємо хеш від diff
+        rc, diff = _run("git diff --stat", cwd=H)
+        payload = f"{m}|{ts}|{diff}".encode()
+        sig = _sign(payload)
+        if sig:
+            sig_hdr = f"\n\nCYBRA-Sig: {sig[:48]}…"
+
+    _run("git add -A", cwd=H)
+    full_msg = m + sig_hdr
+    # escape для shell
+    import shlex
+    rc, out = _run(f"git commit -q -m {shlex.quote(full_msg)} --allow-empty", cwd=H)
+    # отримати hash
+    rc2, hash_ = _run("git rev-parse HEAD", cwd=H)
+    return True, hash_.strip()
+
+def push():
+    c = cfg()
+    if not c["remote"]: return False, "remote не налаштовано"
+    _run(f"git checkout -q -B {c['branch']}", cwd=H)
+    rc, out = _run(f"git push -q origin {c['branch']}", cwd=H, timeout=180)
+    return rc == 0, out[:200] or "pushed"
+
+def pull():
+    c = cfg()
+    if not c["remote"]: return False, "remote не налаштовано"
+    rc, out = _run(f"git fetch -q origin {c['branch']}", cwd=H, timeout=180)
+    if rc != 0: return False, out[:200]
+    # union merge для jsonl
+    rc, out = _run(f"git merge -q origin/{c['branch']} -X ours --no-edit", cwd=H, timeout=60)
+    _union_jsonl()
+    return True, "pulled+merged"
+
+def _union_jsonl():
+    """Злити jsonl файли: об'єднати унікальні рядки."""
+    c = cfg()
+    for f in list(M.glob("module_*/data/*.jsonl")) + list(M.glob("module_*/logs/*.jsonl")):
+        try:
+            rc, other = _run(f"git show origin/{c['branch']}:{f.relative_to(H)}", cwd=H, timeout=20)
+            if rc != 0 or not other.strip(): continue
+            cur = f.read_text().splitlines()
+            added = other.splitlines()
+            seen = set(); merged = []
+            for line in cur + added:
+                if not line.strip(): continue
+                try:
+                    h = json.loads(line).get("_hash", line[:48])
+                except Exception:
+                    h = line[:48]
+                if h in seen: continue
+                seen.add(h); merged.append(line)
+            def _ts(l):
+                try: return json.loads(l).get("ts","")
+                except Exception: return ""
+            merged.sort(key=_ts)
+            f.write_text("\n".join(merged) + "\n")
+        except Exception: pass
+
+def sync():
+    c = cfg()
+    if not c["enabled"]: return {"ok": False, "reason": "sync не активовано"}
+    out = {}
+    if c.get("auto_pull", True):
+        ok, m = pull(); out["pull"] = m
+    ok, h = commit(); out["commit"] = h
+    if c.get("auto_push", True):
+        ok, m = push(); out["push"] = m
+    return {"ok": True, **out}
+
+def verify_history(n=20):
+    """Перевіряє що останні N комітів мають підпис."""
+    rc, out = _run(f"git log -{n} --format='%H|%s|%b'", cwd=H)
+    if rc != 0: return []
+    verified = []
+    for line in out.split("\n\n"):
+        if not line.strip(): continue
+        parts = line.split("|", 2)
+        if len(parts) < 3: continue
+        h, subj, body = parts
+        has_sig = "CYBRA-Sig:" in body
+        verified.append({"hash": h[:10], "subject": subj[:60],
+                         "signed": has_sig})
+    return verified
+
+# ─── setup ───────────────────────────────────────────────
+def setup(remote, branch="sync"):
+    c = cfg()
+    c["remote"] = remote; c["branch"] = branch; c["enabled"] = True
+    _save_cfg(c)
+    ok, info = _ensure_repo()
+    if not ok: return False, info
+    _run("git remote remove origin 2>/dev/null", cwd=H)
+    rc, out = _run(f"git remote add origin {remote}", cwd=H)
+    if rc != 0: return False, out
+    # initial push
+    commit("init: enable sync")
+    push()
+    return True, f"remote: {remote}"
+
+def info():
+    if not (H/".git").exists():
+        return {"repo": False, "enabled": cfg()["enabled"]}
+    rc, br = _run("git rev-parse --abbrev-ref HEAD", cwd=H)
+    rc2, rem = _run("git remote -v | head -1", cwd=H)
+    rc3, log = _run("git log --oneline -5", cwd=H)
+    rc4, st = _run("git status --porcelain | wc -l", cwd=H)
+    return {"repo": True, "enabled": cfg()["enabled"],
+            "branch": br.strip(), "remote": rem.strip(),
+            "uncommitted": int(st.strip() or 0),
+            "recent": log.splitlines()}
+
+def print_info(d):
+    print(f"\n{C_B}═══ CYBRA Sync ═══{C_N}\n")
+    if not d.get("repo"):
+        print(f"  {C_Y}repo не ініціалізовано{C_N}")
+        return
+    col = C_G if d["enabled"] else C_Y
+    print(f"  Status:      {col}{'активно' if d['enabled'] else 'вимкнено'}{C_N}")
+    print(f"  Branch:      {d.get('branch','?')}")
+    print(f"  Remote:      {d.get('remote','—')}")
+    print(f"  Uncommitted: {d.get('uncommitted',0)}")
+    print(f"\n  {C_B}Recent commits:{C_N}")
+    for l in d.get("recent", []): print(f"    {l}")
+    print()
+
+# ─── CLI ─────────────────────────────────────────────────
+if __name__ == "__main__":
+    cmd = sys.argv[1] if len(sys.argv) > 1 else "info"
+    if cmd == "info": print_info(info())
+    elif cmd == "setup":
+        ok, m = setup(sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else "sync")
+        print(("✓ " if ok else "✗ ")+m)
+    elif cmd == "commit":
+        ok, h = commit(sys.argv[2] if len(sys.argv) > 2 else None)
+        print(("✓ " if ok else "✗ ")+h)
+    elif cmd == "push":
+        ok, m = push(); print(("✓ " if ok else "✗ ")+m)
+    elif cmd == "pull":
+        ok, m = pull(); print(("✓ " if ok else "✗ ")+m)
+    elif cmd == "sync":
+        print(json.dumps(sync(), indent=2, ensure_ascii=False))
+    elif cmd == "verify":
+        for v in verify_history(20):
+            mark = f"{C_G}✓{C_N}" if v["signed"] else f"{C_R}✗{C_N}"
+            print(f"  {mark} {v['hash']}  {v['subject']}")
+    elif cmd == "disable":
+        c = cfg(); c["enabled"] = False; _save_cfg(c); print("вимкнено")

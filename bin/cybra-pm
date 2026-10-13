@@ -1,0 +1,114 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# CYBRA PM — process manager (PM2-like)
+S="$HOME/CYBRA/modules/module_300_pm/supervisor.py"
+G=$'\e[32m'; Y=$'\e[33m'; R=$'\e[31m'; B=$'\e[36m'; D=$'\e[2m'; N=$'\e[0m'
+
+case "${1:-list}" in
+  list|ls|status)
+    python3 "$S" list
+    ;;
+  start-all)
+    python3 "$S" start-all
+    ;;
+  start|stop|restart)
+    if [ -z "${2:-}" ]; then
+      echo "usage: cybra-pm $1 <name|all>"
+      echo
+      echo "Процеси:"
+      python3 "$S" list
+      exit 1
+    fi
+    if [ "$2" = "all" ]; then
+      python3 - <<PY
+import json, os
+from pathlib import Path
+cfg = json.loads((Path.home()/"CYBRA/config/pm_processes.json").read_text())
+for name in cfg["processes"]:
+    if name == "supervisor": continue
+    os.system(f"python3 $S $1 {name}")
+PY
+    else
+      python3 "$S" "$1" "$2"
+    fi
+    ;;
+  restart-all)
+    python3 - <<PY
+import json, os
+from pathlib import Path
+cfg = json.loads((Path.home()/"CYBRA/config/pm_processes.json").read_text())
+for name in cfg["processes"]:
+    if name == "supervisor": continue
+    os.system(f"python3 $S restart {name}")
+PY
+    ;;
+  logs)
+    NAME="${2:-watchdog}"
+    LOG=$(python3 -c "
+import json, os
+from pathlib import Path
+cfg = json.loads((Path.home()/'CYBRA/config/pm_processes.json').read_text())
+p = cfg['processes'].get('$NAME', {})
+print(os.path.expandvars(p.get('log_file','')))
+")
+    if [ -z "$LOG" ] || [ ! -f "$LOG" ]; then
+      echo "немає логу для $NAME"
+      exit 1
+    fi
+    echo "${B}=== $NAME · $LOG ===${N}"
+    tail -${3:-40} "$LOG"
+    ;;
+  logs-follow|tail)
+    NAME="${2:-watchdog}"
+    LOG=$(python3 -c "
+import json, os
+from pathlib import Path
+cfg = json.loads((Path.home()/'CYBRA/config/pm_processes.json').read_text())
+p = cfg['processes'].get('$NAME', {})
+print(os.path.expandvars(p.get('log_file','')))
+")
+    echo "${B}=== $NAME · follow (Ctrl+C щоб вийти) ===${N}"
+    tail -f "$LOG"
+    ;;
+  info)
+    NAME="${2:-}"
+    if [ -z "$NAME" ]; then echo "usage: cybra-pm info <name>"; exit 1; fi
+    python3 "$S" status "$NAME"
+    ;;
+  metrics)
+    echo "${B}Останні 30 записів метрик${N}"
+    tail -30 "$HOME/CYBRA/config/pm_metrics.jsonl" 2>/dev/null | python3 -c "
+import sys, json
+for line in sys.stdin:
+    try: e = json.loads(line)
+    except: continue
+    mark = '✓' if e.get('ok') else '✗'
+    print(f\"  {e.get('ts','?')[:19]}  {mark} {e.get('name','?'):15s} {e.get('action','?'):8s}\")
+"
+    ;;
+  supervisor)
+    # особлива команда для самої себе
+    cd "$HOME/CYBRA"
+    exec python3 "$S" loop
+    ;;
+  help|"")
+    echo "${B}CYBRA PM${N}"
+    echo
+    echo "  cybra-pm list                — список усіх процесів"
+    echo "  cybra-pm start <name|all>    — запустити"
+    echo "  cybra-pm stop <name|all>     — зупинити"
+    echo "  cybra-pm restart <name|all>  — перезапустити"
+    echo "  cybra-pm restart-all         — перезапустити всі"
+    echo "  cybra-pm start-all           — запустити всі вимкнені"
+    echo "  cybra-pm logs <name> [n]     — останні N рядків логу"
+    echo "  cybra-pm logs-follow <name>  — живий хвіст логу"
+    echo "  cybra-pm info <name>         — деталі процесу"
+    echo "  cybra-pm metrics             — метрики перезапусків"
+    echo
+    echo "  Процеси: autonode, watchdog, orchestrator, supervisor"
+    ;;
+  *)
+    echo "невідома команда: $1"
+    echo "cybra-pm help"
+    exit 1
+    ;;
+esac

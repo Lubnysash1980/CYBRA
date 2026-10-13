@@ -1,0 +1,18 @@
+{
+  "auto_fixed": 4,
+  "alerts": 0,
+  "integration_fixed": 0,
+  "integration_bad": 0,
+  "install": 0,
+  "deploy": {
+    "compiled": 0,
+    "deployed": 0,
+    "errors": 4
+  },
+  "tests": {
+    "pass": 63,
+    "fail": 7,
+    "skip": 2
+  },
+  "duration_ms": 9922
+}

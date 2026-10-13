@@ -1,0 +1,465 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# ═══════════════════════════════════════════════════════════
+# CYBRA EVO CONTROLLER — єдиний контролер еволюції
+#
+# 4 SHA backends → consensus → 3% policy → auto-restore
+# Runtime + on-demand. Один источник правди.
+# ═══════════════════════════════════════════════════════════
+
+ROOT="$HOME/CYBRA"
+MODULES="$ROOT/modules"
+BASELINE="$ROOT/baseline"
+EVO_DIR="$ROOT/evolution"
+AUDIT="$ROOT/audit"
+LOGS="$ROOT/logs"
+HASHES="$ROOT/hashes"
+GITMOD="$ROOT/git_module"
+PIDFILE="$ROOT/.evo_ctl.pid"
+RT_LOG="$LOGS/evo_runtime.log"
+EVO_LOG="$EVO_DIR/evolution_ledger.txt"
+BLOCK_LOG="$EVO_DIR/blocked.log"
+REW_LOG="$EVO_DIR/reward.log"
+
+mkdir -p "$EVO_DIR" "$LOGS" "$HASHES"
+
+if [ -t 1 ]; then
+    R=$'\033[31m'; G=$'\033[32m'; Y=$'\033[33m'
+    B=$'\033[1m'; C=$'\033[36m'; M=$'\033[35m'
+    Z=$'\033[0m'; GR=$'\033[90m'
+else
+    R=""; G=""; Y=""; B=""; C=""; M=""; Z=""; GR=""
+fi
+
+hr()  { printf -- '────────────────────────────────────────────────────────────\n'; }
+hdr() { printf '\n%s%s═══ %s ═══%s\n' "$B" "$C" "$*" "$Z"; }
+ok()   { printf '  %s[✓]%s %s\n' "$G" "$Z" "$*"; }
+warn() { printf '  %s[!]%s %s\n' "$Y" "$Z" "$*"; }
+err()  { printf '  %s[✗]%s %s\n' "$R" "$Z" "$*"; }
+rew()  { printf '  %s[🎁]%s %s\n' "$M" "$Z" "$*"; }
+log_evo()  { printf '%s | %s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$*" >> "$EVO_LOG"; }
+log_blk()  { printf '%s | %s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$*" >> "$BLOCK_LOG"; }
+log_rew()  { printf '%s | %s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$*" >> "$REW_LOG"; }
+log_rt()   { printf '%s | %s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$*" >> "$RT_LOG"; }
+
+# ═══════════════════════════════════════════════════════════
+# HELPERS
+# ═══════════════════════════════════════════════════════════
+sha_tree() {
+    local d="$1"
+    ( cd "$d" 2>/dev/null || return
+      find . -type f \
+        ! -name '*.log' ! -name '*.test.log' \
+        ! -name 'test_output.txt' ! -name 'test_output.sha256' \
+        ! -name 'SNAPSHOT_SHA256.txt' ! -name '*.bak.*' \
+        -print0 2>/dev/null |
+      sort -z | xargs -0 -r sha256sum 2>/dev/null |
+      sha256sum | awk '{print $1}' )
+}
+
+list_modules() {
+    for d in "$MODULES"/*/; do
+        [ -d "$d" ] || continue
+        local m="$(basename "$d")"
+        case "$m" in @*|.*|_disabled*|evolution|answer_engine|node_modules) continue ;; esac
+        printf '%s\n' "$m"
+    done
+}
+
+# 4 SHA backends
+be_A() { cat "$BASELINE/${1}.tree" 2>/dev/null || echo MISSING; }
+be_B() { sha_tree "$MODULES/$1"; }
+be_C() { [ -d "$GITMOD/modules/$1" ] && sha_tree "$GITMOD/modules/$1" || echo NOGIT; }
+be_D() {
+    local s=""
+    for s in "$MODULES/$1/snapshot" "$MODULES/$1/snapshots"; do
+        [ -d "$s" ] && { sha_tree "$s"; return; }
+    done
+    echo NOSNAP
+}
+
+consensus() {
+    local a="$1" b="$2" c="$3" d="$4"
+    local valid=()
+    for h in "$a" "$b" "$c" "$d"; do
+        case "$h" in MISSING|NOGIT|NOSNAP|"") ;; *) valid+=("$h") ;; esac
+    done
+    [ "${#valid[@]}" -eq 0 ] && { echo NONE; return; }
+
+    local best="${valid[0]}" best_count=0
+    for h1 in "${valid[@]}"; do
+        local cnt=0
+        for h2 in "${valid[@]}"; do
+            [ "$h1" = "$h2" ] && cnt=$((cnt+1))
+        done
+        if [ "$cnt" -gt "$best_count" ]; then
+            best_count=$cnt
+            best="$h1"
+        fi
+    done
+    [ "$best_count" -ge 2 ] && echo "$best" || echo SPLIT
+}
+
+# PASS метрики (3 формати)
+mod_pass() {
+    local m="$1"
+    local t="$(ls -t "$AUDIT"/*_"${m}".test.log 2>/dev/null | head -1)"
+    [ ! -f "$t" ] && { echo 0; return; }
+    local p="$(grep -c '\[PASS\]' "$t" 2>/dev/null | head -1 | tr -dc '0-9')"
+    [ -z "$p" ] && p=0
+    [ "$p" -eq 0 ] && p="$(grep -oE 'PASS=[0-9]+' "$t" 2>/dev/null | tail -1 | cut -d= -f2)"
+    [ -z "$p" ] && p=0
+    [ "$p" -eq 0 ] && p="$(grep -oE 'PASS:[[:space:]]*[0-9]+' "$t" 2>/dev/null | tail -1 | grep -oE '[0-9]+')"
+    [ -z "$p" ] && p=0
+    echo "$p"
+}
+
+mod_fail() {
+    local m="$1"
+    local t="$(ls -t "$AUDIT"/*_"${m}".test.log 2>/dev/null | head -1)"
+    [ ! -f "$t" ] && { echo 0; return; }
+    local f="$(grep -c '\[FAIL\]' "$t" 2>/dev/null | head -1 | tr -dc '0-9')"
+    [ -z "$f" ] && f=0
+    [ "$f" -eq 0 ] && f="$(grep -oE 'FAIL=[0-9]+' "$t" 2>/dev/null | tail -1 | cut -d= -f2)"
+    [ -z "$f" ] && f=0
+    echo "$f"
+}
+
+# 3% формула
+pct_status() {
+    local old="$1" new="$2" tol="${3:-3}"
+    old="$(printf '%s' "$old" | head -1 | tr -dc '0-9')"
+    new="$(printf '%s' "$new" | head -1 | tr -dc '0-9')"
+    [ -z "$old" ] && old=0
+    [ -z "$new" ] && new=0
+
+    [ "$old" -eq 0 ] && [ "$new" -eq 0 ] && { echo OK; return; }
+    [ "$old" -eq 0 ] && { echo BLOCKED; return; }
+    [ "$new" -eq "$old" ] && { echo OK; return; }
+    [ "$new" -gt "$old" ] && { echo IMPROVE; return; }
+
+    local lost=$(( old - new ))
+    local allowed=$(( old * tol / 100 ))
+    [ "$lost" -le "$allowed" ] && { echo TOLERANCE; return; }
+    echo BLOCKED
+}
+
+# Restore з snapshot/git
+restore_mod() {
+    local m="$1"
+    local mod="$MODULES/$m"
+
+    [ ! -x "$mod/tests/run_tests.sh" ] && {
+        printf '      %s[skip]%s немає тесту\n' "$Y" "$Z"
+        return 1
+    }
+
+    # Видаляємо FROZEN маркери
+    rm -f "$mod/tests/FROZEN.env" "$mod/tests/FROZEN" 2>/dev/null
+
+    # Snapshot → bin/state/rules
+    local snap=""
+    for s in "$mod/snapshot" "$mod/snapshots"; do
+        [ -d "$s" ] && { snap="$s"; break; }
+    done
+
+    if [ -n "$snap" ]; then
+        for f in "$snap"/*.sh; do
+            [ -f "$f" ] || continue
+            [ -d "$mod/bin" ] && cp "$f" "$mod/bin/$(basename "$f")" 2>/dev/null
+        done
+        for f in "$snap"/*.env; do
+            [ -f "$f" ] || continue
+            [ -d "$mod/state" ] && cp "$f" "$mod/state/$(basename "$f")" 2>/dev/null
+        done
+        printf '      → restored from snapshot\n'
+    fi
+
+    # Git → bin/state/rules
+    if [ -d "$GITMOD/modules/$m" ]; then
+        for sub in bin state rules; do
+            [ -d "$GITMOD/modules/$m/$sub" ] || continue
+            [ -d "$mod/$sub" ] || mkdir -p "$mod/$sub"
+            cp -r "$GITMOD/modules/$m/$sub"/* "$mod/$sub/" 2>/dev/null
+        done
+        printf '      → restored from git\n'
+    fi
+
+    # Re-run
+    if (cd "$mod" && ./tests/run_tests.sh > "$LOGS/restore_${m}.log" 2>&1); then
+        printf '      %s✓ restored (test PASS)%s\n' "$G" "$Z"
+        return 0
+    else
+        printf '      %s✗ test still fails%s\n' "$R" "$Z"
+        return 1
+    fi
+}
+
+# ═══════════════════════════════════════════════════════════
+# ГЛАВНИЙ ПРОГІН
+# ═══════════════════════════════════════════════════════════
+run_evo() {
+    local quiet="${1:-0}"
+
+    [ "$quiet" = "0" ] && {
+        hdr "CYBRA EVO CONTROLLER"
+        printf '  4 SHA backends → consensus → 3%% policy → restore\n'
+        hr
+    }
+
+    local total=0 stable=0 improve=0 rewarded=0 blocked=0 restored=0
+
+    for m in $(list_modules); do
+        total=$((total+1))
+
+        # 4 SHA
+        local A="$(be_A "$m")"
+        local B="$(be_B "$m")"
+        local C="$(be_C "$m")"
+        local D="$(be_D "$m")"
+        local cons="$(consensus "$A" "$B" "$C" "$D")"
+
+        # Pass/fail
+        local bp="$(cat "$BASELINE/${m}.pass" 2>/dev/null | tr -dc '0-9')"
+        local bf="$(cat "$BASELINE/${m}.fail" 2>/dev/null | tr -dc '0-9')"
+        [ -z "$bp" ] && bp=0
+        [ -z "$bf" ] && bf=0
+
+        local np="$(mod_pass "$m")"
+        local nf="$(mod_fail "$m")"
+
+        local st="$(pct_status "$bp" "$np" 3)"
+
+        # No test
+        if [ ! -x "$MODULES/$m/tests/run_tests.sh" ]; then
+            [ "$quiet" = "0" ] && printf '  %s[⚪ NO-TEST]%s %-42s\n' "$GR" "$Z" "$m"
+            continue
+        fi
+
+        # Hash drift
+        local hdrift=0
+        if [ "$cons" = "SPLIT" ] || [ "$cons" = "NONE" ]; then
+            hdrift=2   # SPLIT
+        elif [ "$B" != "$cons" ] && [ "$B" != "MISSING" ]; then
+            hdrift=1   # drift
+        fi
+
+        # ─── OK ───
+        if [ "$hdrift" -eq 0 ] && [ "$st" = "OK" ] && [ "$nf" -le "$bf" ]; then
+            [ "$quiet" = "0" ] && printf '  %s[OK]%s %-42s p=%s f=%s cons=%s\n' \
+                "$GR" "$Z" "$m" "$np" "$nf" "${cons:0:8}"
+            stable=$((stable+1))
+            continue
+        fi
+
+        # ─── IMPROVE ───
+        if [ "$hdrift" -eq 0 ] && [ "$st" = "IMPROVE" ] && [ "$nf" -le "$bf" ]; then
+            printf '  %s[🟢 IMPROVE]%s %-42s p=%s→%s (+%s)\n' \
+                "$G" "$Z" "$m" "$bp" "$np" "$(( np - bp ))"
+            log_evo "IMPROVE: $m pass $bp→$np"
+            printf '%s' "$np" > "$BASELINE/${m}.pass"
+            printf '%s' "$nf" > "$BASELINE/${m}.fail"
+            improve=$((improve+1))
+            continue
+        fi
+
+        # ─── TOLERANCE → REWARD ───
+        if [ "$hdrift" -eq 0 ] && [ "$st" = "TOLERANCE" ] && [ "$nf" -le "$bf" ]; then
+            local lost=$(( bp - np ))
+            printf '  %s[🎁 REWARD]%s %-42s p=%s→%s (lost %s ≤ 3%%)\n' \
+                "$M" "$Z" "$m" "$bp" "$np" "$lost"
+            log_rew "TOLERANCE: $m lost $lost"
+            log_evo "OK_TOLERANCE: $m pass $bp→$np"
+            printf '%s' "$np" > "$BASELINE/${m}.pass"
+            printf '%s' "$nf" > "$BASELINE/${m}.fail"
+            rewarded=$((rewarded+1))
+            continue
+        fi
+
+        # ─── BLOCKED ───
+        printf '  %s[🔴 BLOCKED]%s %-42s' "$R" "$Z" "$m"
+        if [ "$hdrift" -eq 1 ]; then printf ' HASH_DRIFT'; fi
+        if [ "$hdrift" -eq 2 ]; then printf ' SPLIT'; fi
+        if [ "$st" = "BLOCKED" ]; then
+            printf ' p=%s→%s (lost %s > %s)' "$bp" "$np" "$(( bp - np ))" "$(( bp * 3 / 100 ))"
+        fi
+        [ "$nf" -gt "$bf" ] && printf ' FAIL_UP(%s→%s)' "$bf" "$nf"
+        printf '\n'
+
+        log_blk "BLOCKED: $m p=$bp→$np f=$bf→$nf drift=$hdrift cons=$cons"
+
+        # ─── Telegram alert ───
+        if [ -x "$HOME/CYBRA/bin/cybra_alert" ]; then
+            "$HOME/CYBRA/bin/cybra_alert" "BLOCKED: $m (pass $bp→$np, drift=$hdrift)" "error" 2>/dev/null || true
+        fi
+
+        # ─── RESTORE ───
+        printf '      %sRestore...%s\n' "$Y" "$Z"
+        if restore_mod "$m"; then
+            # Re-seal baseline
+            local h="$(sha_tree "$MODULES/$m")"
+            printf '%s' "$h" > "$BASELINE/${m}.tree"
+            printf '%s' "$h" > "$EVO_DIR/${m}.approved"
+            printf '%s' "$(mod_pass "$m")" > "$BASELINE/${m}.pass"
+            printf '%s' "$(mod_fail "$m")" > "$BASELINE/${m}.fail"
+            printf '      %s✓ baseline re-sealed%s\n' "$G" "$Z"
+            restored=$((restored+1))
+        fi
+
+        blocked=$((blocked+1))
+    done
+
+    if [ "$quiet" = "0" ]; then
+        hr
+        printf '\n'
+        printf '%s\n' "${B}  ╔══════════════════════════════════════════════╗${Z}"
+        printf '%s\n' "${B}  ║  EVO RESULT                                  ║${Z}"
+        printf '%s\n' "${B}  ╚══════════════════════════════════════════════╝${Z}"
+        printf '\n'
+        printf '  Модулів:      %s\n' "$total"
+        printf '  %sStable:       %s%s\n' "$GR" "$stable" "$Z"
+        printf '  %sImprove:      %s%s\n' "$G" "$improve" "$Z"
+        printf '  %sReward ≤3%%:    %s%s\n' "$M" "$rewarded" "$Z"
+        printf '  %sBlocked:      %s%s\n' "$R" "$blocked" "$Z"
+        printf '  %sRestored:     %s%s\n' "$C" "$restored" "$Z"
+        printf '\n'
+        if [ "$blocked" -eq 0 ]; then
+            printf '  %s✓ 100%% — всі модулі OK%s\n' "$G" "$Z"
+        else
+            printf '  %s! Blocked: %s, restored: %s%s\n' "$Y" "$blocked" "$restored" "$Z"
+        fi
+        printf '\n'
+    fi
+
+    [ "$blocked" -eq 0 ] && return 0 || return 1
+}
+
+# ═══════════════════════════════════════════════════════════
+# APPROVE (owner action)
+# ═══════════════════════════════════════════════════════════
+do_approve() {
+    hdr "APPROVE BASELINE (owner)"
+    [ ! -f "$ROOT/.owner" ] && { err "owner marker missing"; return 1; }
+    ok "owner: $(cat "$ROOT/.owner")"
+
+    local count=0
+    for m in $(list_modules); do
+        local h="$(sha_tree "$MODULES/$m")"
+        printf '%s' "$h" > "$BASELINE/${m}.tree"
+        printf '%s' "$h" > "$EVO_DIR/${m}.approved"
+        printf '%s' "$(mod_pass "$m")" > "$BASELINE/${m}.pass"
+        printf '%s' "$(mod_fail "$m")" > "$BASELINE/${m}.fail"
+        count=$((count+1))
+    done
+    ok "approved $count модулів"
+
+    # ─── Auto-push у git ───
+    local gitmod="$ROOT/git_module"
+    if [ -d "$gitmod/.git" ]; then
+        # Sync модулів у git
+        for d in "$MODULES"/*/; do
+            [ -d "$d" ] || continue
+            local m="$(basename "$d")"
+            case "$m" in @*|.*|_disabled*|evolution|answer_engine|node_modules) continue ;; esac
+
+            local target="$gitmod/modules/$m"
+            mkdir -p "$target"
+            for sub in bin state tests snapshot contracts links evidence; do
+                [ ! -d "$d/$sub" ] && continue
+                mkdir -p "$target/$sub"
+                cp -r "$d/$sub"/* "$target/$sub/" 2>/dev/null || true
+            done
+        done
+
+        cd "$gitmod" || return 1
+        git add -A 2>/dev/null
+        if [ -n "$(git status --porcelain 2>/dev/null)" ]; then
+            git commit -m "CYBRA approve $STAMP [mod=$count]" 2>&1 | tail -1 || true
+            if git push 2>&1 | tail -1; then
+                ok "auto-push OK"
+            else
+                warn "auto-push failed"
+            fi
+        fi
+        cd "$ROOT" || true
+    fi
+}
+
+# ═══════════════════════════════════════════════════════════
+# RUNTIME (фон)
+# ═══════════════════════════════════════════════════════════
+do_start() {
+    if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
+        warn "вже запущено (PID $(cat "$PIDFILE"))"
+        return 1
+    fi
+
+    printf '  %s→%s запуск evo runtime у фоні...\n' "$C" "$Z"
+
+    nohup bash -c '
+        while true; do
+            bash "'"$0"'" quiet 2>> "'"$RT_LOG"'"
+            sleep 60
+        done
+    ' >/dev/null 2>&1 &
+
+    echo $! > "$PIDFILE"
+    ok "PID=$(cat "$PIDFILE")"
+    log_rt "STARTED pid=$(cat "$PIDFILE")"
+}
+
+do_stop() {
+    [ ! -f "$PIDFILE" ] && { warn "не запущено"; return 1; }
+    local pid="$(cat "$PIDFILE")"
+    kill "$pid" 2>/dev/null && ok "зупинено (PID $pid)"
+    rm -f "$PIDFILE"
+    log_rt "STOPPED pid=$pid"
+}
+
+do_status() {
+    hdr "EVO CONTROLLER STATUS"
+    if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
+        ok "RUNNING (PID $(cat "$PIDFILE"))"
+    else
+        printf '  %s[·] STOPPED%s\n' "$GR" "$Z"
+    fi
+    printf '\n  Runtime log (last 10):\n'
+    tail -10 "$RT_LOG" 2>/dev/null | sed 's/^/    /' || printf '    (empty)\n'
+    printf '\n  Evolution ledger (last 10):\n'
+    tail -10 "$EVO_LOG" 2>/dev/null | sed 's/^/    /' || printf '    (empty)\n'
+    printf '\n  Blocked (last 10):\n'
+    tail -10 "$BLOCK_LOG" 2>/dev/null | sed 's/^/    /' || printf '    (empty)\n'
+    printf '\n  Reward (last 10):\n'
+    tail -10 "$REW_LOG" 2>/dev/null | sed 's/^/    /' || printf '    (empty)\n'
+}
+
+# ═══════════════════════════════════════════════════════════
+# CLI
+# ═══════════════════════════════════════════════════════════
+case "${1:-run}" in
+    run|r)       run_evo 0 ;;
+    quiet|q)     run_evo 1 ;;
+    approve|a)   do_approve ;;
+    start|s)     do_start ;;
+    stop|S)      do_stop ;;
+    restart|re)  do_stop; sleep 1; do_start ;;
+    status|st)   do_status ;;
+    *)
+        cat <<USAGE
+Usage: cybra_evo_ctl [command]
+
+  run       — прогнати (verbose)
+  quiet     — прогнати (тихо, для runtime)
+  approve   — зафіксувати baseline (owner)
+  start     — запустити runtime у фоні (кожні 60с)
+  stop      — зупинити runtime
+  restart   — перезапустити
+  status    — статус + логи
+
+Файли:
+  $EVO_LOG   — ledger
+  $BLOCK_LOG — blocked
+  $REW_LOG   — reward
+  $RT_LOG    — runtime
+USAGE
+        ;;
+esac

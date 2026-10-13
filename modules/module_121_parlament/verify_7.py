@@ -1,0 +1,148 @@
+#!/usr/bin/env python3
+"""7 рівнів верифікації виконання контракту. Кожен рівень = окремий критерій.
+Стан зберігається у data/executions/<cid>.json. Всі переходи через hooks."""
+import json, os, time, hashlib, sys
+from pathlib import Path
+
+D = Path(__file__).resolve().parent
+EX = D / "data" / "executions"
+EX.mkdir(parents=True, exist_ok=True)
+
+LEVELS = {
+    1: {"id":"signed",              "name":"Контракт підписаний обома сторонами"},
+    2: {"id":"escrow_funded",       "name":"Кошти заблоковані в ескроу"},
+    3: {"id":"deliverable_declared","name":"Виконавець заявив про виконання"},
+    4: {"id":"deliverable_verified","name":"Покупець підтвердив отримання"},
+    5: {"id":"quality_ok",          "name":"Якість/кількість відповідає умовам"},
+    6: {"id":"dispute_window",      "name":"Вікно спорів минуло"},
+    7: {"id":"released",            "name":"Кошти розблоковано, контракт закрито"},
+}
+
+def _path(cid): return EX / f"{cid}.json"
+
+def load(cid):
+    p = _path(cid)
+    if not p.exists():
+        return {"cid": cid, "created": _iso(), "levels": {},
+                "history": [], "deviation_log": []}
+    try: return json.loads(p.read_text())
+    except Exception: return None
+
+def save(state):
+    p = _path(state["cid"])
+    p.parent.mkdir(parents=True, exist_ok=True)
+    tmp = str(p)+".tmp"
+    Path(tmp).write_text(json.dumps(state, indent=2, ensure_ascii=False))
+    os.replace(tmp, p)
+
+def _iso(t=None): return time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(t))
+
+def _hash(o): return hashlib.sha256(
+    json.dumps(o, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+
+def set_level(cid, lvl, ok, payload=None, actor="system"):
+    """Позначає рівень виконаним/невиконаним. Пише у history."""
+    if lvl not in LEVELS: return False, f"невірний рівень {lvl}"
+    st = load(cid)
+    if not st: return False, "немає стану"
+    prev = st["levels"].get(str(lvl), {})
+    entry = {
+        "level": lvl, "id": LEVELS[lvl]["id"], "ok": bool(ok),
+        "at": _iso(), "by": actor, "payload": payload or {},
+        "prev_ok": prev.get("ok", False),
+    }
+    st["levels"][str(lvl)] = entry
+    h = {"prev": st["history"][-1]["_hash"] if st["history"] else "0"*64,
+         "level": lvl, "ok": bool(ok), "at": entry["at"], "by": actor}
+    h["_hash"] = _hash(h)
+    st["history"].append(h)
+    save(st)
+
+    # hooks
+    try:
+        import hooks
+        ev = "level_up" if ok else "level_down"
+        hooks.fire(ev, cid=cid, level=lvl, payload=payload, actor=actor)
+        if ok and lvl == 7:
+            hooks.fire("contract_closed", cid=cid)
+    except Exception: pass
+    return True, "ok"
+
+def status(cid):
+    """Повертає повний статус: які рівні ok, прогрес, що блокує."""
+    st = load(cid)
+    if not st or not isinstance(st, dict) or "levels" not in st:
+        return None
+    levels = {}
+    done = 0
+    for i in range(1, 8):
+        e = st["levels"].get(str(i))
+        ok_ = e.get("ok", False) if e else False
+        levels[i] = {"id": LEVELS[i]["id"], "name": LEVELS[i]["name"],
+                     "ok": ok_, "at": e.get("at") if e else None,
+                     "by": e.get("by") if e else None}
+        if ok_: done += 1
+
+    # послідовність: кожен наступний рівень вимагає попередній
+    blocked_at = None
+    for i in range(1, 8):
+        if not levels[i]["ok"]:
+            blocked_at = i; break
+
+    progress = round(done / 7 * 100, 1)
+    next_action = None
+    if blocked_at:
+        next_action = LEVELS[blocked_at]["name"]
+
+    return {
+        "cid": cid, "levels": levels, "done": done, "total": 7,
+        "progress": progress, "blocked_at": blocked_at,
+        "next_action": next_action,
+        "history_len": len(st["history"]),
+    }
+
+def advance(cid, actor="system"):
+    """Автоматично рухає рівні, які можна виконати без участі сторін."""
+    st = load(cid)
+    if not st or not isinstance(st, dict) or "levels" not in st:
+        return False, "немає стану"
+    moved = []
+    # 6-й рівень: якщо 5 ок і минуло N секунд
+    c = st.get("config", {})
+    if st["levels"].get("5",{}).get("ok") and not st["levels"].get("6",{}).get("ok"):
+        wait = c.get("dispute_window_sec", 3600)
+        t5 = st["levels"]["5"].get("at")
+        try:
+            t5u = time.mktime(time.strptime(t5, "%Y-%m-%dT%H:%M:%SZ"))
+            if time.time() - t5u >= wait:
+                set_level(cid, 6, True, {"waited_sec": int(time.time()-t5u)}, actor="auto")
+                moved.append(6)
+        except Exception: pass
+    return True, {"moved": moved}
+
+def print_status(cid):
+    s = status(cid)
+    if not s:
+        print(f"  ✗ немає стану для {cid}")
+        return
+    G='\033[32m'; Y='\033[33m'; R='\033[31m'; B='\033[36m'; D='\033[2m'; N='\033[0m'
+    print(f"\n  {B}═══ {cid} · прогрес {s['progress']}% ═══{N}")
+    bar_w = 40
+    filled = int(bar_w * s["progress"]/100)
+    bar = "█"*filled + "░"*(bar_w-filled)
+    print(f"  {G}{bar}{N} {s['progress']}%  ({s['done']}/{s['total']})")
+    print()
+    for i in range(1, 8):
+        l = s["levels"][i]
+        mark = f"{G}✓{N}" if l["ok"] else f"{Y}○{N}"
+        by = f"{D}by {l['by']} @ {l['at']}{N}" if l["at"] else ""
+        print(f"  {mark} L{i} · {l['name']:40s} {by}")
+    if s["next_action"]:
+        print(f"\n  {Y}→ Далі:{N} {s['next_action']}")
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2: print("usage: verify_7.py <cid> [advance]"); sys.exit(1)
+    if len(sys.argv) > 2 and sys.argv[2] == "advance":
+        ok, r = advance(sys.argv[1]); print(r)
+    else:
+        print_status(sys.argv[1])

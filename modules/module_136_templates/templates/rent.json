@@ -1,0 +1,12 @@
+{
+  "type": "rent",
+  "name": "Оренда",
+  "fields": [
+    {"id":"landlord","label":"Орендодавець","required":true,"type":"address"},
+    {"id":"tenant","label":"Орендар","required":true,"type":"address"},
+    {"id":"amount_bnb","label":"Оренда (BNB/міс)","required":true,"type":"number"},
+    {"id":"months","label":"Місяців","required":true,"type":"number"},
+    {"id":"object","label":"Об'єкт","required":true,"type":"text"}
+  ],
+  "default_terms": "Орендодавець передає об'єкт, орендар оплачує помісячно."
+}

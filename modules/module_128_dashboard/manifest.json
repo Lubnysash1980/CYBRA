@@ -1,0 +1,13 @@
+{
+  "name": "CYBRA Dashboard",
+  "short_name": "CYBRA",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0f14",
+  "theme_color": "#0b0f14",
+  "orientation": "portrait",
+  "icons": [
+    {"src":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjQwIiBmaWxsPSIjMGIwZjE0Ii8+PHRleHQgeD0iOTYiIHk9IjEyMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSI5NiIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzJjYTA0MyI+QzwvdGV4dD48L3N2Zz4=","sizes":"192x192","type":"image/svg+xml"},
+    {"src":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjEwMCIgZmlsbD0iIzBiMGYxNCIvPjx0ZXh0IHg9IjI1NiIgeT0iMzQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ibW9ub3NwYWNlIiBmb250LXNpemU9IjI1NiIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzJjYTA0MyI+QzwvdGV4dD48L3N2Zz4=","sizes":"512x512","type":"image/svg+xml"}
+  ]
+}

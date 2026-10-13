@@ -1,0 +1,10 @@
+{
+  "tests": {
+    "pass": 204,
+    "fail": 0,
+    "skip": 2
+  },
+  "exec_moved": 0,
+  "scheduled_run": 2,
+  "duration_ms": 26295
+}

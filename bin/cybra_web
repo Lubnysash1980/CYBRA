@@ -1,0 +1,109 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# CYBRA WEB — повноцінний web dashboard
+# Доступ з іншого пристрою: http://<IP>:8765/
+
+ROOT="$HOME/CYBRA"
+PORT="${PORT:-8765}"
+PIDFILE="$ROOT/.cybra_web.pid"
+WEB_LOGS="$ROOT/logs"
+
+mkdir -p "$ROOT/web" "$WEB_LOGS"
+
+if [ -t 1 ]; then
+    G=$'\033[32m'; Y=$'\033[33m'; R=$'\033[31m'
+    B=$'\033[1m'; C=$'\033[36m'; Z=$'\033[0m'
+else
+    G=""; Y=""; R=""; B=""; C=""; Z=""
+fi
+
+# ─── Отримати IP ───
+get_ip() {
+    # Termux
+    if command -v ifconfig >/dev/null 2>&1; then
+        ifconfig 2>/dev/null | grep -E 'inet ' | grep -v '127.0.0.1' | awk '{print $2}' | head -1
+    elif command -v ip >/dev/null 2>&1; then
+        ip addr show 2>/dev/null | grep -E 'inet ' | grep -v '127.0.0.1' | awk '{print $2}' | cut -d/ -f1 | head -1
+    else
+        echo "127.0.0.1"
+    fi
+}
+
+case "${1:-status}" in
+    start|s)
+        if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
+            printf '  %s[!]%s web вже запущено (PID %s)\n' "$Y" "$Z" "$(cat "$PIDFILE")"
+            IP="$(get_ip)"
+            printf '  http://%s:%s/\n' "$IP" "$PORT"
+            exit 1
+        fi
+
+        if ! command -v python3 >/dev/null 2>&1; then
+            printf '  %s[FAIL]%s python3 не встановлено\n' "$R" "$Z"
+            printf '  pkg install python\n'
+            exit 1
+        fi
+
+        IP="$(get_ip)"
+        printf '  %s→%s запуск web dashboard...\n' "$C" "$Z"
+        printf '  %s→%s http://%s:%s/\n' "$C" "$Z" "$IP" "$PORT"
+
+        # Запуск Python сервера
+        nohup python3 "$ROOT/bin/cybra_web_server.py" "$PORT" > "$WEB_LOGS/web.log" 2>&1 &
+        echo $! > "$PIDFILE"
+
+        sleep 2
+
+        if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
+            printf '  %s[✓]%s web PID=%s\n' "$G" "$Z" "$(cat "$PIDFILE")"
+            printf '\n'
+            printf '  %sЛокально:%s http://localhost:%s/\n' "$B" "$Z" "$PORT"
+            printf '  %sЗ іншого:%s  http://%s:%s/\n' "$B" "$Z" "$IP" "$PORT"
+            printf '\n'
+        else
+            printf '  %s[FAIL]%s web not started — дивись %s\n' "$R" "$Z" "$WEB_LOGS/web.log"
+            tail -10 "$WEB_LOGS/web.log" 2>/dev/null
+        fi
+        ;;
+
+    stop|S)
+        [ ! -f "$PIDFILE" ] && { printf '  %s[!]%s не запущено\n' "$Y" "$Z"; exit 1; }
+        _pid="$(cat "$PIDFILE")"
+        kill "$_pid" 2>/dev/null
+        # Також вбити python-процес
+        pkill -f "cybra_web_server.py" 2>/dev/null
+        rm -f "$PIDFILE"
+        printf '  %s[✓]%s зупинено\n' "$G" "$Z"
+        ;;
+
+    restart|re)
+        "$0" stop
+        sleep 1
+        "$0" start
+        ;;
+
+    status|st)
+        IP="$(get_ip)"
+        printf '%s═══ CYBRA WEB ═══%s\n\n' "$B$C" "$Z"
+        if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
+            printf '  %s[✓]%s RUNNING (PID %s)\n' "$G" "$Z" "$(cat "$PIDFILE")"
+            printf '  http://localhost:%s/\n' "$PORT"
+            printf '  http://%s:%s/\n' "$IP" "$PORT"
+        else
+            printf '  %s[·]%s STOPPED\n' "$Y" "$Z"
+        fi
+        printf '\n'
+        ;;
+
+    *)
+        cat <<USAGE
+Usage: cybra_web [start|stop|restart|status]
+
+  Доступ з іншого пристрою:
+    Дізнатись IP: cybra_web status
+    Відкрити:     http://<IP>:8765/
+
+  Port: $PORT
+  Log:  $WEB_LOGS/web.log
+USAGE
+        ;;
+esac

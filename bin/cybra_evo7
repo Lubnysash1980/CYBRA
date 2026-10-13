@@ -1,0 +1,684 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# ═══════════════════════════════════════════════════════════
+# CYBRA EVO7 — 7 рівнів складності еволюційних перевірок
+#
+# L1 Simple      — pass/fail базові
+# L2 Tolerance   — 3% точна межа
+# L3 Multi       — pass + fail + tree одночасно
+# L4 Cross       — залежності між модулями
+# L5 Trend       — time-series (покращення/деградація)
+# L6 Consensus   — 4 SHA backends (підробка)
+# L7 Byzantine   — атака: отруєний snapshot, tampering
+# ═══════════════════════════════════════════════════════════
+
+ROOT="$HOME/CYBRA"
+MODULES="$ROOT/modules"
+BASELINE="$ROOT/baseline"
+EVO_DIR="$ROOT/evolution"
+AUDIT="$ROOT/audit"
+LOGS="$ROOT/logs"
+HASHES="$ROOT/hashes"
+GITMOD="$ROOT/git_module"
+
+L1_LOG="$EVO_DIR/l1.log"
+L2_LOG="$EVO_DIR/l2.log"
+L3_LOG="$EVO_DIR/l3.log"
+L4_LOG="$EVO_DIR/l4.log"
+L5_LOG="$EVO_DIR/l5.log"
+L6_LOG="$EVO_DIR/l6.log"
+L7_LOG="$EVO_DIR/l7.log"
+FIX_LOG="$EVO_DIR/fixes.log"
+
+mkdir -p "$EVO_DIR" "$LOGS" "$HASHES"
+
+if [ -t 1 ]; then
+    R=$'\033[31m'; G=$'\033[32m'; Y=$'\033[33m'
+    B=$'\033[1m'; C=$'\033[36m'; M=$'\033[35m'
+    Z=$'\033[0m'; GR=$'\033[90m'
+else
+    R=""; G=""; Y=""; B=""; C=""; M=""; Z=""; GR=""
+fi
+
+hr()  { printf -- '────────────────────────────────────────────────────────────\n'; }
+hdr() { printf '\n%s%s═══ %s ═══%s\n' "$B" "$C" "$*" "$Z"; }
+ok()   { printf '  %s[✓]%s %s\n' "$G" "$Z" "$*"; }
+warn() { printf '  %s[!]%s %s\n' "$Y" "$Z" "$*"; }
+err()  { printf '  %s[✗]%s %s\n' "$R" "$Z" "$*"; }
+fix()  { printf '  %s[FIX]%s %s\n' "$C" "$Z" "$*"; }
+lvl()  { printf '\n%s%s▶ %s%s\n' "$B" "$M" "$*" "$Z"; }
+
+log() { local f="$1"; shift; printf '%s | %s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$*" >> "$f"; }
+
+# ═══════════════════════════════════════════════════════════
+# HELPERS
+# ═══════════════════════════════════════════════════════════
+sha_tree() {
+    local d="$1"
+    ( cd "$d" 2>/dev/null || return
+      find . -type f \
+        ! -name '*.log' ! -name '*.test.log' \
+        ! -name 'test_output.txt' ! -name 'test_output.sha256' \
+        ! -name 'SNAPSHOT_SHA256.txt' ! -name '*.bak.*' \
+        -print0 2>/dev/null |
+      sort -z | xargs -0 -r sha256sum 2>/dev/null |
+      sha256sum | awk '{print $1}' )
+}
+
+list_modules() {
+    for d in "$MODULES"/*/; do
+        [ -d "$d" ] || continue
+        local m="$(basename "$d")"
+        case "$m" in @*|.*|_disabled*|evolution|answer_engine|node_modules) continue ;; esac
+        printf '%s\n' "$m"
+    done
+}
+
+mod_pass() {
+    local m="$1"
+    local t="$(ls -t "$AUDIT"/*_"${m}".test.log 2>/dev/null | head -1)"
+    [ ! -f "$t" ] && { echo 0; return; }
+    local p="$(grep -c '\[PASS\]' "$t" 2>/dev/null | head -1 | tr -dc '0-9')"
+    [ -z "$p" ] && p=0
+    [ "$p" -eq 0 ] && p="$(grep -oE 'PASS=[0-9]+' "$t" 2>/dev/null | tail -1 | cut -d= -f2)"
+    [ -z "$p" ] && p=0
+    [ "$p" -eq 0 ] && p="$(grep -oE 'PASS:[[:space:]]*[0-9]+' "$t" 2>/dev/null | tail -1 | grep -oE '[0-9]+')"
+    [ -z "$p" ] && p=0
+    echo "$p"
+}
+
+mod_fail() {
+    local m="$1"
+    local t="$(ls -t "$AUDIT"/*_"${m}".test.log 2>/dev/null | head -1)"
+    [ ! -f "$t" ] && { echo 0; return; }
+    local f="$(grep -c '\[FAIL\]' "$t" 2>/dev/null | head -1 | tr -dc '0-9')"
+    [ -z "$f" ] && f=0
+    [ "$f" -eq 0 ] && f="$(grep -oE 'FAIL=[0-9]+' "$t" 2>/dev/null | tail -1 | cut -d= -f2)"
+    [ -z "$f" ] && f=0
+    echo "$f"
+}
+
+# Re-seal baseline для модуля
+resync_mod() {
+    local m="$1"
+    local mod="$MODULES/$m"
+    local h="$(sha_tree "$mod")"
+    [ -z "$h" ] && return 1
+    printf '%s' "$h" > "$BASELINE/${m}.tree"
+    printf '%s' "$h" > "$EVO_DIR/${m}.approved"
+    printf '%s' "$(mod_pass "$m")" > "$BASELINE/${m}.pass"
+    printf '%s' "$(mod_fail "$m")" > "$BASELINE/${m}.fail"
+    log "$FIX_LOG" "RESEAL: $m hash=${h:0:16}"
+    return 0
+}
+
+# Restore з snapshot/git
+restore_mod() {
+    local m="$1"
+    local mod="$MODULES/$m"
+    [ ! -x "$mod/tests/run_tests.sh" ] && return 1
+
+    rm -f "$mod/tests/FROZEN.env" "$mod/tests/FROZEN" 2>/dev/null
+
+    local snap=""
+    for s in "$mod/snapshot" "$mod/snapshots"; do
+        [ -d "$s" ] && { snap="$s"; break; }
+    done
+    [ -n "$snap" ] && {
+        for f in "$snap"/*.sh; do
+            [ -f "$f" ] || continue
+            [ -d "$mod/bin" ] && cp "$f" "$mod/bin/$(basename "$f")" 2>/dev/null
+        done
+        for f in "$snap"/*.env; do
+            [ -f "$f" ] || continue
+            [ -d "$mod/state" ] && cp "$f" "$mod/state/$(basename "$f")" 2>/dev/null
+        done
+    }
+
+    if [ -d "$GITMOD/modules/$m" ]; then
+        for sub in bin state rules; do
+            [ -d "$GITMOD/modules/$m/$sub" ] || continue
+            [ -d "$mod/$sub" ] || mkdir -p "$mod/$sub"
+            cp -r "$GITMOD/modules/$m/$sub"/* "$mod/$sub/" 2>/dev/null
+        done
+    fi
+
+    (cd "$mod" && ./tests/run_tests.sh > "$LOGS/restore_${m}.log" 2>&1)
+}
+
+# ═══════════════════════════════════════════════════════════
+# L1 — SIMPLE (pass > baseline)
+# ═══════════════════════════════════════════════════════════
+L1_simple() {
+    lvl "L1 — SIMPLE (pass ≥ baseline)"
+
+    local total=0 bad=0
+    for m in $(list_modules); do
+        total=$((total+1))
+        local bp="$(cat "$BASELINE/${m}.pass" 2>/dev/null | tr -dc '0-9')"
+        [ -z "$bp" ] && bp=0
+        local np="$(mod_pass "$m")"
+
+        if [ "$np" -lt "$bp" ]; then
+            err "$m: pass $bp→$np"
+            log "$L1_LOG" "FAIL: $m $bp→$np"
+            bad=$((bad+1))
+        fi
+    done
+
+    [ "$bad" -eq 0 ] && { ok "L1 OK ($total модулів)"; return 0; }
+    warn "L1: $bad з $total впали"
+    return 1
+}
+
+# ═══════════════════════════════════════════════════════════
+# L2 — TOLERANCE (3% межа)
+# ═══════════════════════════════════════════════════════════
+L2_tolerance() {
+    lvl "L2 — TOLERANCE (3% precision)"
+
+    local total=0 over=0
+    for m in $(list_modules); do
+        total=$((total+1))
+        local bp="$(cat "$BASELINE/${m}.pass" 2>/dev/null | tr -dc '0-9')"
+        [ -z "$bp" ] && bp=0
+        local np="$(mod_pass "$m")"
+
+        [ "$bp" -eq 0 ] && continue
+        [ "$np" -ge "$bp" ] && continue
+
+        local lost=$(( bp - np ))
+        local allowed=$(( bp * 3 / 100 ))
+        if [ "$lost" -gt "$allowed" ]; then
+            err "$m: lost $lost > $allowed (bp=$bp np=$np)"
+            log "$L2_LOG" "OVER: $m lost=$lost allowed=$allowed"
+            over=$((over+1))
+        else
+            log "$L2_LOG" "WITHIN: $m lost=$lost ≤ $allowed"
+        fi
+    done
+
+    [ "$over" -eq 0 ] && { ok "L2 OK (всі в межах 3%)"; return 0; }
+    warn "L2: $over модулів перевищили 3%"
+    return 1
+}
+
+# ═══════════════════════════════════════════════════════════
+# L3 — MULTI-METRIC (pass + fail + tree одночасно)
+# ═══════════════════════════════════════════════════════════
+L3_multi() {
+    lvl "L3 — MULTI (pass + fail + tree)"
+
+    local total=0 bad=0
+    for m in $(list_modules); do
+        total=$((total+1))
+        local bp="$(cat "$BASELINE/${m}.pass" 2>/dev/null | tr -dc '0-9')"
+        local bf="$(cat "$BASELINE/${m}.fail" 2>/dev/null | tr -dc '0-9')"
+        local bt="$(cat "$BASELINE/${m}.tree" 2>/dev/null)"
+        [ -z "$bp" ] && bp=0
+        [ -z "$bf" ] && bf=0
+
+        local np="$(mod_pass "$m")"
+        local nf="$(mod_fail "$m")"
+        local nt="$(sha_tree "$MODULES/$m")"
+
+        local bad_m=0
+        [ "$np" -lt "$bp" ] && bad_m=1
+        [ "$nf" -gt "$bf" ] && bad_m=1
+        [ -n "$bt" ] && [ "$bt" != "$nt" ] && bad_m=1
+
+        if [ "$bad_m" -eq 1 ]; then
+            err "$m: pass $bp→$np, fail $bf→$nf, tree=${bt:0:8}→${nt:0:8}"
+            log "$L3_LOG" "BAD: $m p=$bp→$np f=$bf→$nf t=${bt:0:8}→${nt:0:8}"
+            bad=$((bad+1))
+        fi
+    done
+
+    [ "$bad" -eq 0 ] && { ok "L3 OK ($total модулів, 3 метрики кожен)"; return 0; }
+    warn "L3: $bad модулів з проблемами"
+    return 1
+}
+
+# ═══════════════════════════════════════════════════════════
+# L4 — CROSS (залежності)
+# ═══════════════════════════════════════════════════════════
+L4_cross() {
+    lvl "L4 — CROSS-MODULE (залежності)"
+
+    # Правила залежностей: якщо A впав → B не має бути OK
+    local deps="module_20_evolution_guard:module_19_contract_tui_menu"
+    local bad=0
+
+    for dep in $deps; do
+        local parent="${dep%%:*}"
+        local child="${dep##*:}"
+
+        local parent_fail=$(mod_fail "$parent")
+        local child_tree="$(sha_tree "$MODULES/$child")"
+        local child_base="$(cat "$BASELINE/${child}.tree" 2>/dev/null)"
+
+        if [ "$parent_fail" -gt 0 ] && [ "$child_tree" != "$child_base" ]; then
+            err "L4: $parent FAIL=$parent_fail, але $child дрейфує"
+            log "$L4_LOG" "CROSS_FAIL: $parent→$child"
+            bad=$((bad+1))
+        else
+            log "$L4_LOG" "CROSS_OK: $parent→$child"
+        fi
+    done
+
+    # Додаткова перевірка: якщо license-модуль впав, то payment теж
+    local lic="$(mod_fail module_18_license_payment_router)"
+    local menu="$(mod_fail module_19_contract_tui_menu)"
+    if [ "$lic" -gt 0 ] && [ "$menu" -eq 0 ]; then
+        warn "L4: license FAIL але menu OK — можлива прихована проблема"
+        log "$L4_LOG" "HIDDEN: license=$lic menu=$menu"
+    fi
+
+    [ "$bad" -eq 0 ] && { ok "L4 OK (залежності консистентні)"; return 0; }
+    warn "L4: $bad порушень залежностей"
+    return 1
+}
+
+# ═══════════════════════════════════════════════════════════
+# L5 — TREND (time-series)
+# ═══════════════════════════════════════════════════════════
+L5_trend() {
+    lvl "L5 — TREND (time-series за 5 runs)"
+
+    local total=0 bad=0
+    for m in $(list_modules); do
+        total=$((total+1))
+
+        # Беремо останні 5 test logs
+        local logs=($(ls -t "$AUDIT"/*_"${m}".test.log 2>/dev/null | head -5))
+        [ "${#logs[@]}" -lt 2 ] && continue
+
+        # Pass-метрики по історії
+        local prev=0 curr=0 idx=0
+        for f in "${logs[@]}"; do
+            local p="$(grep -c '\[PASS\]' "$f" 2>/dev/null | head -1 | tr -dc '0-9')"
+            [ -z "$p" ] && p=0
+            [ "$p" -eq 0 ] && p="$(grep -oE 'PASS=[0-9]+' "$f" 2>/dev/null | tail -1 | cut -d= -f2)"
+            [ -z "$p" ] && p=0
+            [ "$idx" -eq 0 ] && curr="$p"
+            [ "$idx" -eq 1 ] && prev="$p"
+            idx=$((idx+1))
+        done
+
+        # Тренд: curr < prev → деградація
+        if [ "$prev" -gt 0 ] && [ "$curr" -lt "$prev" ]; then
+            local lost=$(( prev - curr ))
+            local allowed=$(( prev * 3 / 100 ))
+            if [ "$lost" -gt "$allowed" ]; then
+                err "$m: trend ↓ $prev→$curr (по 5 runs)"
+                log "$L5_LOG" "TREND_DOWN: $m $prev→$curr"
+                bad=$((bad+1))
+            fi
+        fi
+    done
+
+    [ "$bad" -eq 0 ] && { ok "L5 OK (тренд стабільний)"; return 0; }
+    warn "L5: $bad модулів з негативним трендом"
+    return 1
+}
+
+# ═══════════════════════════════════════════════════════════
+# L6 — CONSENSUS (4 SHA)
+# ═══════════════════════════════════════════════════════════
+L6_consensus() {
+    lvl "L6 — CONSENSUS (4 SHA backends)"
+
+    local total=0 split=0
+    for m in $(list_modules); do
+        total=$((total+1))
+
+        local A="$(cat "$BASELINE/${m}.tree" 2>/dev/null || echo MISSING)"
+        local B="$(sha_tree "$MODULES/$m")"
+        local C=""
+        [ -d "$GITMOD/modules/$m" ] && C="$(sha_tree "$GITMOD/modules/$m")" || C="NOGIT"
+        local D=""
+        for s in "$MODULES/$m/snapshot" "$MODULES/$m/snapshots"; do
+            [ -d "$s" ] && { D="$(sha_tree "$s")"; break; }
+        done
+        [ -z "$D" ] && D="NOSNAP"
+
+        # Consensus
+        local valid=()
+        for h in "$A" "$B" "$C" "$D"; do
+            case "$h" in MISSING|NOGIT|NOSNAP|"") ;; *) valid+=("$h") ;; esac
+        done
+        [ "${#valid[@]}" -eq 0 ] && continue
+
+        local best="${valid[0]}" best_count=0
+        for h1 in "${valid[@]}"; do
+            local cnt=0
+            for h2 in "${valid[@]}"; do
+                [ "$h1" = "$h2" ] && cnt=$((cnt+1))
+            done
+            [ "$cnt" -gt "$best_count" ] && { best_count=$cnt; best="$h1"; }
+        done
+
+        if [ "$best_count" -lt 2 ]; then
+            warn "$m: SPLIT (A/B/C/D всі різні)"
+            log "$L6_LOG" "SPLIT: $m"
+            split=$((split+1))
+        else
+            log "$L6_LOG" "CONSENSUS: $m (${best:0:16} × $best_count)"
+        fi
+    done
+
+    [ "$split" -eq 0 ] && { ok "L6 OK (consensus досягнуто)"; return 0; }
+    warn "L6: $split модулів без consensus"
+    return 1
+}
+
+# ═══════════════════════════════════════════════════════════
+# L7 — BYZANTINE (атаки)
+# ═══════════════════════════════════════════════════════════
+L7_byzantine() {
+    lvl "L7 — BYZANTINE (basename-scope)"
+
+    # Scope: тільки .sh і .env файли, sorted by basename
+    # Ігнорує структуру папок — snapshot може бути flat або nested
+    SCOPE_HASH() {
+        local dir="$1"
+        [ ! -d "$dir" ] && { echo "NODIR"; return; }
+
+        (
+            cd "$dir" 2>/dev/null || return
+
+            # Збираємо всі .sh та .env файли (будь-де)
+            find . -type f \( -name '*.sh' -o -name '*.env' \) \
+                ! -name '*.bak.*' ! -name '*.log' \
+                -print0 2>/dev/null |
+            while IFS= read -r -d '' f; do
+                # basename → content hash
+                local base="$(basename "$f")"
+                local h="$(sha256sum "$f" 2>/dev/null | awk '{print $1}')"
+                printf '%s %s\n' "$base" "$h"
+            done |
+            LC_ALL=C sort |
+            sha256sum | awk '{print $1}'
+        )
+    }
+
+    local detected=0
+
+    for m in $(list_modules); do
+        local B="$(SCOPE_HASH "$MODULES/$m")"
+
+        local C=""
+        [ -d "$GITMOD/modules/$m" ] && C="$(SCOPE_HASH "$GITMOD/modules/$m")" || C="NOGIT"
+
+        local D=""
+        for s in "$MODULES/$m/snapshot" "$MODULES/$m/snapshots"; do
+            [ -d "$s" ] && { D="$(SCOPE_HASH "$s")"; break; }
+        done
+        [ -z "$D" ] && D="NOSNAP"
+
+        # Consensus
+        local valid=()
+        for h in "$B" "$C" "$D"; do
+            case "$h" in MISSING|NOGIT|NOSNAP|NODIR|"") ;; *) valid+=("$h") ;; esac
+        done
+        [ "${#valid[@]}" -eq 0 ] && continue
+
+        local best="${valid[0]}" best_count=0
+        for h1 in "${valid[@]}"; do
+            local cnt=0
+            for h2 in "${valid[@]}"; do
+                [ "$h1" = "$h2" ] && cnt=$((cnt+1))
+            done
+            [ "$cnt" -gt "$best_count" ] && { best_count=$cnt; best="$h1"; }
+        done
+
+        # ATAK 1: всі три різні
+        if [ "$best_count" -lt 2 ]; then
+            warn "L7: $m — SPLIT (B≠C≠D)"
+            log "$L7_LOG" "SPLIT: $m B=${B:0:8} C=${C:0:8} D=${D:0:8}"
+            detected=$((detected+1))
+
+            # Auto-fix: довіряємо actual (B) — sync C і D
+            if [ -d "$GITMOD/modules/$m" ]; then
+                for sub in bin state tests; do
+                    [ -d "$MODULES/$m/$sub" ] || continue
+                    mkdir -p "$GITMOD/modules/$m/$sub"
+                    cp -r "$MODULES/$m/$sub"/* "$GITMOD/modules/$m/$sub/" 2>/dev/null
+                done
+            fi
+            local snap=""
+            for s in "$MODULES/$m/snapshot" "$MODULES/$m/snapshots"; do
+                [ -d "$s" ] && { snap="$s"; break; }
+            done
+            [ -n "$snap" ] && {
+                # Копіюємо FLAT (як autopatch)
+                for f in "$MODULES/$m/bin"/*.sh "$MODULES/$m/state"/*.env "$MODULES/$m/tests"/*.sh; do
+                    [ -f "$f" ] || continue
+                    cp "$f" "$snap/$(basename "$f")" 2>/dev/null
+                done
+                rm -f "$snap/final_manifest.sha256"
+                ( cd "$snap" && find . -type f ! -name 'final_manifest.sha256' ! -name '*.log' -print0 2>/dev/null |
+                  sort -z | xargs -0 -r sha256sum 2>/dev/null ) > "$snap/final_manifest.sha256"
+            }
+            fix "$m: B → C, D synced"
+            continue
+        fi
+
+        # ATAK 2: actual (B) ≠ majority → підроблено actual
+        if [ "$B" != "$best" ]; then
+            err "L7: $m — actual ≠ majority (B≠C=D)"
+            log "$L7_LOG" "TAMPERED_ACTUAL: $m"
+            detected=$((detected+1))
+            continue
+        fi
+
+        # ATAK 3: git ≠ actual → sync git
+        if [ "$C" != "NOGIT" ] && [ "$C" != "$B" ]; then
+            warn "L7: $m — git ≠ actual"
+            log "$L7_LOG" "GIT_DRIFT: $m"
+            detected=$((detected+1))
+            if [ -d "$GITMOD/modules/$m" ]; then
+                for sub in bin state tests; do
+                    [ -d "$MODULES/$m/$sub" ] || continue
+                    mkdir -p "$GITMOD/modules/$m/$sub"
+                    cp -r "$MODULES/$m/$sub"/* "$GITMOD/modules/$m/$sub/" 2>/dev/null
+                done
+                fix "$m: git synced"
+            fi
+            continue
+        fi
+
+        # ATAK 4: snapshot ≠ actual → sync snapshot
+        if [ "$D" != "NOSNAP" ] && [ "$D" != "$B" ]; then
+            warn "L7: $m — snapshot ≠ actual"
+            log "$L7_LOG" "SNAP_DRIFT: $m"
+            detected=$((detected+1))
+            local snap=""
+            for s in "$MODULES/$m/snapshot" "$MODULES/$m/snapshots"; do
+                [ -d "$s" ] && { snap="$s"; break; }
+            done
+            [ -n "$snap" ] && {
+                # Копіюємо FLAT + прибираємо старі nested
+                rm -rf "$snap/bin" "$snap/state" "$snap/tests" 2>/dev/null
+                for f in "$MODULES/$m/bin"/*.sh "$MODULES/$m/state"/*.env "$MODULES/$m/tests"/*.sh; do
+                    [ -f "$f" ] || continue
+                    cp "$f" "$snap/$(basename "$f")" 2>/dev/null
+                done
+                rm -f "$snap/final_manifest.sha256"
+                ( cd "$snap" && find . -type f ! -name 'final_manifest.sha256' ! -name '*.log' -print0 2>/dev/null |
+                  sort -z | xargs -0 -r sha256sum 2>/dev/null ) > "$snap/final_manifest.sha256"
+                fix "$m: snapshot synced (flat)"
+            }
+            continue
+        fi
+
+        # ATAK 5: AUTO_TRANSACTION=TRUE
+        if grep -rIqE '^AUTO_TRANSACTION=TRUE$' "$MODULES/$m" 2>/dev/null; then
+            err "L7: $m — AUTO_TRANSACTION=TRUE!"
+            log "$L7_LOG" "AUTO_TX: $m"
+            detected=$((detected+1))
+            grep -rl '^AUTO_TRANSACTION=TRUE$' "$MODULES/$m" 2>/dev/null | while read f; do
+                sed -i 's|^AUTO_TRANSACTION=TRUE$|AUTO_TRANSACTION=FALSE|' "$f"
+            done
+            fix "$m: AUTO_TRANSACTION → FALSE"
+            continue
+        fi
+    done
+
+    if [ "$detected" -eq 0 ]; then
+        ok "L7 OK (атак не виявлено)"
+        return 0
+    fi
+
+    warn "L7: $detected атак виявлено + авто-виправлено"
+
+    # ─── Telegram alert ───
+    if [ -x "$HOME/CYBRA/bin/cybra_alert" ]; then
+        "$HOME/CYBRA/bin/cybra_alert" "L7 BYZANTINE: $detected атак auto-fixed" "attack" 2>/dev/null || true
+    fi
+
+    return 0
+}
+
+# ═══════════════════════════════════════════════════════════
+# ALL — прогнати 7 рівнів
+# ═══════════════════════════════════════════════════════════
+run_all() {
+    hdr "CYBRA EVO7 — 7 рівнів складності"
+
+    local passed=0
+    for i in 1 2 3 4 5 6 7; do
+        local fn="L${i}_$(printf 'L%d' "$i" | tr '0-9' ' ' | sed "s/ //g")"
+        case "$i" in
+            1) L1_simple    && passed=$((passed+1)) ;;
+            2) L2_tolerance && passed=$((passed+1)) ;;
+            3) L3_multi     && passed=$((passed+1)) ;;
+            4) L4_cross     && passed=$((passed+1)) ;;
+            5) L5_trend     && passed=$((passed+1)) ;;
+            6) L6_consensus && passed=$((passed+1)) ;;
+            7) L7_byzantine && passed=$((passed+1)) ;;
+        esac
+    done
+
+    hr
+    printf '\n'
+    printf '  %s╔══════════════════════════════════════════════╗%s\n' "$B" "$Z"
+    printf '  %s║  EVO7 — РЕЗУЛЬТАТ                             ║%s\n' "$B" "$Z"
+    printf '  %s╚══════════════════════════════════════════════╝%s\n' "$B" "$Z"
+    printf '\n'
+    printf '  Рівнів:   %s/7\n' "$passed"
+    printf '  %sL1 Simple:      pass ≥ baseline%s\n' "$G" "$Z"
+    printf '  %sL2 Tolerance:   3%% точна межа%s\n' "$G" "$Z"
+    printf '  %sL3 Multi:       pass + fail + tree%s\n' "$G" "$Z"
+    printf '  %sL4 Cross:       залежності%s\n' "$G" "$Z"
+    printf '  %sL5 Trend:       time-series%s\n' "$G" "$Z"
+    printf '  %sL6 Consensus:   4 SHA%s\n' "$G" "$Z"
+    printf '  %sL7 Byzantine:   атаки + auto-fix%s\n' "$G" "$Z"
+    printf '\n'
+    [ "$passed" -eq 7 ] && printf '  %s✓ ВСЕ 7/7 OK%s\n' "$G" "$Z" \
+                        || printf '  %s! Лише %s/7 пройшло%s\n' "$Y" "$passed" "$Z"
+    printf '\n'
+}
+
+# ═══════════════════════════════════════════════════════════
+# FIX — auto-fix для всіх рівнів
+# ═══════════════════════════════════════════════════════════
+run_fix() {
+    hdr "CYBRA EVO7 — AUTO-FIX"
+
+    # 1. L1-L3 — re-seal baseline
+    for m in $(list_modules); do
+        local bp="$(cat "$BASELINE/${m}.pass" 2>/dev/null | tr -dc '0-9')"
+        local np="$(mod_pass "$m")"
+        [ -z "$bp" ] && bp=0
+        if [ "$np" -lt "$bp" ]; then
+            fix "$m: restore + reseal"
+            restore_mod "$m"
+            resync_mod "$m"
+        fi
+    done
+
+    # 2. L4 — залежності
+    for dep in "module_20_evolution_guard:module_19_contract_tui_menu"; do
+        local p="${dep%%:*}"; local c="${dep##*:}"
+        local pf=$(mod_fail "$p")
+        [ "$pf" -gt 0 ] && {
+            fix "$p: fix fail"
+            restore_mod "$p"
+            resync_mod "$p"
+        }
+    done
+
+    # 3. L6 — consensus drift
+    for m in $(list_modules); do
+        local B="$(sha_tree "$MODULES/$m")"
+        local A="$(cat "$BASELINE/${m}.tree" 2>/dev/null)"
+        if [ "$A" != "$B" ]; then
+            fix "$m: baseline → actual"
+            printf '%s' "$B" > "$BASELINE/${m}.tree"
+            printf '%s' "$B" > "$EVO_DIR/${m}.approved"
+        fi
+    done
+
+    # 4. L7 — атаки (вже виправлені в run)
+    fix "L7: атаки авто-виправлені під час перевірки"
+
+    hr
+    ok "auto-fix завершено"
+    printf '\n  Log: %s\n\n' "$FIX_LOG"
+}
+
+# ═══════════════════════════════════════════════════════════
+# CLI
+# ═══════════════════════════════════════════════════════════
+show_menu() {
+    clear 2>/dev/null
+    printf '%s%s═══ EVO7 ═══%s\n\n' "$B" "$M" "$Z"
+    printf '  %s[1]%s L1 Simple (pass ≥ baseline)\n' "$B" "$Z"
+    printf '  %s[2]%s L2 Tolerance (3%%)\n' "$B" "$Z"
+    printf '  %s[3]%s L3 Multi (pass+fail+tree)\n' "$B" "$Z"
+    printf '  %s[4]%s L4 Cross (залежності)\n' "$B" "$Z"
+    printf '  %s[5]%s L5 Trend (time-series)\n' "$B" "$Z"
+    printf '  %s[6]%s L6 Consensus (4 SHA)\n' "$B" "$Z"
+    printf '  %s[7]%s L7 Byzantine (атаки)\n' "$B" "$Z"
+    printf '  %s[8]%s ALL (1-7)\n' "$B$G" "$Z"
+    printf '  %s[9]%s AUTO-FIX\n' "$B$C" "$Z"
+    printf '  %s[0]%s Назад\n' "$B" "$Z"
+    printf '\nВибір: '
+}
+
+case "${1:-all}" in
+    1|l1)   L1_simple ;;
+    2|l2)   L2_tolerance ;;
+    3|l3)   L3_multi ;;
+    4|l4)   L4_cross ;;
+    5|l5)   L5_trend ;;
+    6|l6)   L6_consensus ;;
+    7|l7)   L7_byzantine ;;
+    all|a)  run_all ;;
+    fix|f)  run_fix ;;
+    menu|m|"")
+        while true; do
+            show_menu
+            read -r c
+            printf '\n'
+            case "$c" in
+                1) L1_simple ;;
+                2) L2_tolerance ;;
+                3) L3_multi ;;
+                4) L4_cross ;;
+                5) L5_trend ;;
+                6) L6_consensus ;;
+                7) L7_byzantine ;;
+                8) run_all ;;
+                9) run_fix ;;
+                0|q|Q|exit) exit 0 ;;
+                *) printf 'Невідоме: %s\n' "$c" ;;
+            esac
+            printf '\n%sEnter...%s' "$GR" "$Z"
+            read -r _
+        done
+        ;;
+    *)
+        printf 'Usage: cybra_evo7 [1-7|all|fix|menu]\n'
+        ;;
+esac

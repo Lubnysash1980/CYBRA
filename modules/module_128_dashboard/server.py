@@ -1,0 +1,209 @@
+#!/usr/bin/env python3
+"""Web Dashboard — єдина панель: контракти, парламент, мережі, автонода."""
+import http.server, json, os, socketserver, sys
+from pathlib import Path
+H = Path.home() / "CYBRA"
+sys.path.insert(0, str(H/"modules/module_121_parlament"))
+PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 8790
+
+def _load_json(p, default=None):
+    try: return json.loads(Path(p).read_text())
+    except Exception: return default if default is not None else {}
+
+def gather():
+    out = {"ts": __import__("time").strftime("%Y-%m-%dT%H:%M:%SZ", __import__("time").gmtime())}
+    # AutoNode
+    out["autonode"] = _load_json(H/"run/autonode.json", {})
+    # Parliament
+    try:
+        import parliament as P
+        props = P.proposals()
+        out["parliament"] = {
+            "total": len(props),
+            "open": len([p for p in props if p.get("status")=="open"]),
+            "approved": len([p for p in props if p.get("status")=="approved"]),
+            "vetoed": len([p for p in props if p.get("status")=="vetoed"]),
+            "recent": [{"pid":p["pid"], "title":p["title"][:50], "status":p["status"]} for p in props[:5]],
+            "chain": P.verify_chain(),
+        }
+    except Exception as e:
+        out["parliament"] = {"error": str(e)}
+    # Signatures
+    ev = H/"modules/module_19_contract_tui_menu/evidence"
+    sigs = sorted(ev.glob("*.sig"), key=lambda p: p.stat().st_mtime, reverse=True) if ev.exists() else []
+    out["signatures"] = {"total": len(sigs), "recent": [s.name for s in sigs[:5]]}
+    # Executions
+    try:
+        import verify_7
+        ex_dir = H/"modules/module_121_parlament/data/executions"
+        execs = []
+        if ex_dir.exists():
+            for f in sorted(ex_dir.glob("C-*.json"), key=lambda p: p.stat().st_mtime, reverse=True)[:5]:
+                s = verify_7.status(f.stem)
+                if s: execs.append({"cid": s["cid"], "progress": s["progress"], "blocked_at": s["blocked_at"]})
+        out["executions"] = execs
+    except Exception: out["executions"] = []
+    return out
+
+HTML = r"""<!doctype html><html lang="uk"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CYBRA Dashboard</title>
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#0b0f14">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black"><style>
+body{font-family:system-ui;background:#0b0f14;color:#e6edf3;max-width:1000px;margin:0 auto;padding:24px}
+h1{font-size:20px;margin:0 0 4px}
+h2{font-size:14px;color:#58a6ff;margin:20px 0 8px;text-transform:uppercase;letter-spacing:.5px}
+.card{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:16px;margin:8px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.kpi{font-size:28px;font-weight:800;color:#2ea043}
+.kpi-lbl{font-size:11px;color:#8b949e;text-transform:uppercase}
+.row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #21262d;font-family:monospace;font-size:12px}
+.row:last-child{border-bottom:0}
+.badge{padding:2px 8px;border-radius:20px;font-size:11px;font-weight:700}
+.ok{background:#0d2818;color:#2ea043}.warn{background:#3d2814;color:#f0883e}.fail{background:#3d1418;color:#f85149}
+.bar{height:6px;background:#21262d;border-radius:3px;overflow:hidden;margin-top:6px}
+.fill{height:100%;background:#2ea043}
+</style></head><body>
+<h1>CYBRA · Dashboard</h1>
+<div class="card" id="head">loading…</div>
+<div class="grid" id="kpis"></div>
+<div class="card"><h2>AutoNode (мережі)</h2><div id="nets"></div></div>
+<div class="card"><h2>Парламент</h2><div id="parl"></div></div>
+<div class="card"><h2>Останні підписи</h2><div id="sigs"></div></div>
+<div class="card"><h2>Виконання контрактів</h2><div id="execs"></div></div>
+<script>
+async function refresh(){
+  const r = await fetch('/api/state');
+  return await r.json();
+}
+function render(d){
+  document.getElementById('head').innerHTML =
+    '<b>Оновлено:</b> '+d.ts+' &nbsp; <span class="badge ok">online</span>';
+
+  // KPI
+  const p = d.parliament||{};
+  document.getElementById('kpis').innerHTML = `
+    <div class="card"><div class="kpi">${d.signatures.total}</div><div class="kpi-lbl">Підписів</div></div>
+    <div class="card"><div class="kpi">${p.total||0}</div><div class="kpi-lbl">Пропозицій</div></div>
+    <div class="card"><div class="kpi">${p.open||0}</div><div class="kpi-lbl">Відкрито</div></div>
+    <div class="card"><div class="kpi">${d.executions.length}</div><div class="kpi-lbl">Активних контрактів</div></div>`;
+
+  // мережі
+  const a = d.autonode||{};
+  const nets = a.networks||{};
+  document.getElementById('nets').innerHTML = Object.values(nets).map(n=>{
+    const st = n.state==='ok' ? '<span class="badge ok">online</span>' : '<span class="badge fail">'+n.state+'</span>';
+    return `<div class="row"><span>${n.name||'?'}</span><span>${n.block||'-'} блок</span>${st}</div>`;
+  }).join('') || '<div style="color:#8b949e">немає даних</div>';
+
+  // парламент
+  let ph = '';
+  if (p.recent) ph = p.recent.map(x=>`<div class="row"><span>${x.pid.slice(0,20)}…</span><span>${x.title}</span><span class="badge ${x.status==='approved'?'ok':'warn'}">${x.status}</span></div>`).join('');
+  if (p.chain) {
+    const broken = Object.values(p.chain).reduce((s,x)=>s+x.broken,0);
+    ph += `<div class="row"><span>Hash-chain</span><span class="badge ${broken?'fail':'ok'}">${broken?broken+' порушень':'цілісно'}</span></div>`;
+  }
+  document.getElementById('parl').innerHTML = ph || '<div style="color:#8b949e">немає</div>';
+
+  // підписи
+  document.getElementById('sigs').innerHTML = (d.signatures.recent||[]).map(s=>
+    `<div class="row"><span>${s}</span></div>`).join('') || '<div style="color:#8b949e">—</div>';
+
+  // виконання
+  document.getElementById('execs').innerHTML = (d.executions||[]).map(e=>{
+    const pct = e.progress;
+    return `<div class="row"><span>${e.cid.slice(0,26)}</span><span>L${e.blocked_at||7}</span><span>${pct}%</span></div>
+      <div class="bar"><div class="fill" style="width:${pct}%"></div></div>`;
+  }).join('') || '<div style="color:#8b949e">—</div>';
+}
+// SSE live — замість polling
+let evtSource = null;
+let fallbackInterval = null;
+function startSSE(){
+  try {
+    evtSource = new EventSource('/events');
+    evtSource.onmessage = (e) => {
+      try {
+        const d = JSON.parse(e.data);
+        render(d);
+      } catch(_) {}
+    };
+    evtSource.onerror = () => {
+      evtSource && evtSource.close();
+      evtSource = null;
+      if (!fallbackInterval) {
+        fallbackInterval = setInterval(() => refresh().then(render), 5000);
+      }
+      setTimeout(startSSE, 3000);
+    };
+  } catch(_) {
+    fallbackInterval = setInterval(() => refresh().then(render), 5000);
+  }
+}
+refresh().then(render);
+startSSE();
+window.addEventListener('beforeunload', () => evtSource && evtSource.close());
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js').catch(()=>{});
+}
+</script></body></html>"""
+
+class H2(http.server.SimpleHTTPRequestHandler):
+    def log_message(s,f,*a): sys.stderr.write("[dash] "+f%a+"\n")
+    def do_GET(s):
+        from urllib.parse import urlparse
+        p = urlparse(s.path).path
+        if p == "/":
+            s.send_response(200); s.send_header("Content-Type","text/html; charset=utf-8")
+            s.send_header("Content-Length", str(len(HTML.encode()))); s.end_headers()
+            s.wfile.write(HTML.encode()); return
+        if p == "/manifest.json":
+            mf = Path(__file__).parent / "manifest.json"
+            body = mf.read_bytes()
+            s.send_response(200); s.send_header("Content-Type","application/manifest+json")
+            s.send_header("Content-Length", str(len(body))); s.end_headers()
+            s.wfile.write(body); return
+        if p == "/sw.js":
+            sw = Path(__file__).parent / "sw.js"
+            body = sw.read_bytes()
+            s.send_response(200); s.send_header("Content-Type","application/javascript")
+            s.send_header("Content-Length", str(len(body))); s.end_headers()
+            s.wfile.write(body); return
+        if p == "/events":
+            s.send_response(200)
+            s.send_header("Content-Type", "text/event-stream")
+            s.send_header("Cache-Control", "no-cache")
+            s.send_header("Connection", "keep-alive")
+            s.send_header("Access-Control-Allow-Origin", "*")
+            s.end_headers()
+            try:
+                import time as _t
+                last_json = None
+                start = _t.time()
+                while _t.time() - start < 3600:  # 1h max connection
+                    st = json.dumps(gather(), ensure_ascii=False, default=str)
+                    if st != last_json:
+                        last_json = st
+                        s.wfile.write(f"data: {st}\n\n".encode())
+                        s.wfile.flush()
+                    else:
+                        # heartbeat
+                        s.wfile.write(b": ping\n\n")
+                        s.wfile.flush()
+                    _t.sleep(3)
+            except (BrokenPipeError, ConnectionResetError):
+                return
+            return
+        if p == "/api/state":
+            body = json.dumps(gather(), ensure_ascii=False).encode()
+            s.send_response(200); s.send_header("Content-Type","application/json")
+            s.send_header("Content-Length", str(len(body))); s.end_headers()
+            s.wfile.write(body); return
+        s.send_error(404)
+
+socketserver.TCPServer.allow_reuse_address = True
+with socketserver.TCPServer(("127.0.0.1", PORT), H2) as x:
+    x.serve_forever()

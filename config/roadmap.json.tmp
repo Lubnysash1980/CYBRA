@@ -1,0 +1,24 @@
+{
+  "items": {
+    "127": {
+      "id": "127",
+      "name": "Multi-sig QR",
+      "cat": "crypto",
+      "prio": "med",
+      "desc": "QR з N підписами парламенту",
+      "deps": [
+        "119",
+        "121"
+      ],
+      "missing_deps": [],
+      "ready": true,
+      "status": "planned",
+      "first_seen": "2026-10-13",
+      "last_seen": "2026-10-13"
+    }
+  },
+  "hotspots": {},
+  "action_failures": {},
+  "existing_modules": 81,
+  "generated": "2026-10-13T08:03:59Z"
+}

@@ -1,0 +1,283 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# ═══════════════════════════════════════════════════════════
+# CYBRA 3% — контролер відхилення (non-degradation)
+# Правило: PASS не може впасти > 3%. FAIL не може вирости.
+# ═══════════════════════════════════════════════════════════
+
+ROOT="$HOME/CYBRA"
+MODULES="$ROOT/modules"
+BASELINE="$ROOT/baseline"
+EVO_DIR="$ROOT/evolution"
+AUDIT="$ROOT/audit"
+
+if [ -t 1 ]; then
+    R=$'\033[31m'; G=$'\033[32m'; Y=$'\033[33m'
+    B=$'\033[1m'; C=$'\033[36m'; M=$'\033[35m'
+    Z=$'\033[0m'; GR=$'\033[90m'
+else
+    R=""; G=""; Y=""; B=""; C=""; M=""; Z=""; GR=""
+fi
+
+hr()  { printf -- '────────────────────────────────────────────────────────────\n'; }
+hdr() { printf '\n%s%s═══ %s ═══%s\n' "$B" "$C" "$*" "$Z"; }
+ok()   { printf '  %s[✓]%s %s\n' "$G" "$Z" "$*"; }
+warn() { printf '  %s[!]%s %s\n' "$Y" "$Z" "$*"; }
+err()  { printf '  %s[✗]%s %s\n' "$R" "$Z" "$*"; }
+
+# ═══════════════════════════════════════════════════════════
+# 3% TOLERANCE — базова формула
+# ═══════════════════════════════════════════════════════════
+pct_check() {
+    local old="$1" new="$2" tol="${3:-3}"
+
+    # Порожні значення → fail
+    [ -z "$old" ] || [ -z "$new" ] && return 1
+
+    # Захист від багаторядкових значень
+    old="$(printf '%s' "$old" | head -1 | tr -dc '0-9')"
+    new="$(printf '%s' "$new" | head -1 | tr -dc '0-9')"
+    [ -z "$old" ] && old=0
+    [ -z "$new" ] && new=0
+
+    # old = 0
+    if [ "$old" -eq 0 ]; then
+        [ "$new" -eq 0 ] && return 0
+        return 1        # 0 → щось = BLOCKED (несправедливе відхилення)
+    fi
+
+    # ПОКРАЩЕННЯ або рівність — завжди OK
+    [ "$new" -ge "$old" ] && return 0
+
+    # ДЕГРАДАЦІЯ — перевіряємо 3% (floor, без мінімуму)
+    local lost=$(( old - new ))
+    local allowed=$(( old * tol / 100 ))
+
+    [ "$lost" -le "$allowed" ] && return 0
+    return 1
+}
+
+# ═══════════════════════════════════════════════════════════
+# 1. UNIT TESTS — перевірка самої формули
+# ═══════════════════════════════════════════════════════════
+three_pct_tests() {
+    hdr "3% TOLERANCE — UNIT TESTS"
+
+    local pass=0 fail=0
+
+    t() {
+        local name="$1" old="$2" new="$3" exp="$4"
+        local res
+        if pct_check "$old" "$new" 3; then res="OK"; else res="BLOCKED"; fi
+
+        if [ "$res" = "$exp" ]; then
+            printf '  %s[PASS]%s %-30s %s→%s = %s\n' "$G" "$Z" "$name" "$old" "$new" "$res"
+            pass=$((pass+1))
+        else
+            printf '  %s[FAIL]%s %-30s %s→%s = %s (очікувалось %s)\n' \
+                "$R" "$Z" "$name" "$old" "$new" "$res" "$exp"
+            fail=$((fail+1))
+        fi
+    }
+
+    t "equal values"            100 100 "OK"
+    t "improvement +20"         100 120 "OK"
+    t "improvement +400%"       50  500 "OK"
+    t "3% deviation (exact)"    100 97  "OK"
+    t "4% deviation"            100 96  "BLOCKED"
+    t "5% deviation"            100 95  "BLOCKED"
+    t "50% degradation"         100 50  "BLOCKED"
+    t "zero→zero"               0   0   "OK"
+    t "zero→one (несправедливо)" 0   1   "BLOCKED"
+
+    # Межові на маленьких числах (строгі 3%, floor)
+    t "10→9 (10%, allowed=0)"   10  9   "BLOCKED"
+    t "10→10 equal"             10  10  "OK"
+    t "33→32 (allowed=0)"       33  32  "BLOCKED"
+    t "34→33 (allowed=1)"       34  33  "OK"
+    t "100→98 (2% < 3%)"        100 98  "OK"
+    t "100→97 (3% = межа)"      100 97  "OK"
+    t "100→96 (4% > 3%)"        100 96  "BLOCKED"
+    t "500→485 (3% = межа)"     500 485 "OK"
+    t "500→484 (3.2% > 3%)"     500 484 "BLOCKED"
+
+    hr
+    printf '  %sPASS: %s%s   %sFAIL: %s%s\n' "$G" "$pass" "$Z" "$R" "$fail" "$Z"
+
+    [ "$fail" -eq 0 ] && return 0 || return 1
+}
+
+# ═══════════════════════════════════════════════════════════
+# 2. МЕЖІ — таблиця для 3%
+# ═══════════════════════════════════════════════════════════
+three_pct_table() {
+    hdr "3% — МЕЖІ ДЛЯ РІЗНИХ BASELINE"
+
+    printf '  %-10s %-12s %-12s %s\n' "BASELINE" "ALLOWED" "MIN OK" "MAX LOST"
+    printf '  %-10s %-12s %-12s %s\n' "────────" "───────" "──────" "────────"
+    for base in 10 20 33 50 100 200 500 1000 5000; do
+        local allowed=$(( base * 3 / 100 ))
+        [ "$allowed" -lt 1 ] && allowed=1
+        local min_ok=$(( base - allowed ))
+        printf '  %-10s %-12s %-12s %s\n' "$base" "$allowed" "$min_ok" "$allowed"
+    done
+
+    hr
+    printf '  Правило: |new - old| ≤ max(1, old × 3 / 100)\n'
+    printf '  Мінімум 1 (для малих чисел)\n'
+}
+
+# ═══════════════════════════════════════════════════════════
+# 3. РЕАЛЬНІ ДАНІ — перевірка модулів
+# ═══════════════════════════════════════════════════════════
+three_pct_real() {
+    hdr "3% — РЕАЛЬНІ МОДУЛІ"
+
+    local total=0 ok_n=0 blocked=0
+
+    for d in "$MODULES"/*/; do
+        [ -d "$d" ] || continue
+        local m="$(basename "$d")"
+        case "$m" in @*|.*|_disabled*|evolution|answer_engine|node_modules) continue ;; esac
+        total=$((total+1))
+
+        # baseline pass/fail
+        local old_pass="$(cat "$BASELINE/${m}.pass" 2>/dev/null || echo 0)"
+        local old_fail="$(cat "$BASELINE/${m}.fail" 2>/dev/null || echo 0)"
+
+        # реальний pass/fail з останнього тесту
+        local tlog="$(ls -t "$AUDIT"/*_"${m}".test.log 2>/dev/null | head -1)"
+        local new_pass="$old_pass"
+        local new_fail="$old_fail"
+        [ -z "$new_pass" ] && new_pass=0
+        [ -z "$new_fail" ] && new_fail=0
+        if [ -f "$tlog" ]; then
+            new_pass="$(grep -c '\[PASS\]' "$tlog" 2>/dev/null | head -1 | tr -dc '0-9')"
+            new_fail="$(grep -c '\[FAIL\]' "$tlog" 2>/dev/null | head -1 | tr -dc '0-9')"
+        fi
+
+        # перевірка
+        local pass_ok=1 fail_ok=1
+        pct_check "$old_pass" "$new_pass" 3 || pass_ok=0
+        [ "$new_fail" -le "$old_fail" ] || fail_ok=0
+
+        if [ "$pass_ok" = "1" ] && [ "$fail_ok" = "1" ]; then
+            printf '  %s[OK]%s   %-45s  pass %s→%s  fail %s→%s\n' \
+                "$G" "$Z" "$m" "$old_pass" "$new_pass" "$old_fail" "$new_fail"
+            ok_n=$((ok_n+1))
+        else
+            printf '  %s[BLOCKED]%s %-45s' "$R" "$Z" "$m"
+            [ "$pass_ok" = "0" ] && printf ' pass %s→%s' "$old_pass" "$new_pass"
+            [ "$fail_ok" = "0" ] && printf ' FAIL %s→%s' "$old_fail" "$new_fail"
+            printf '\n'
+            blocked=$((blocked+1))
+        fi
+    done
+
+    hr
+    printf '  Total:   %s\n' "$total"
+    printf '  OK:      %s%s%s\n' "$G" "$ok_n" "$Z"
+    printf '  Blocked: %s%s%s\n' "$R" "$blocked" "$Z"
+}
+
+# ═══════════════════════════════════════════════════════════
+# 4. SUMMARY — коротко
+# ═══════════════════════════════════════════════════════════
+three_pct_summary() {
+    hdr "3% — SUMMARY"
+
+    local total=0 ok_n=0 blocked=0
+
+    for d in "$MODULES"/*/; do
+        [ -d "$d" ] || continue
+        local m="$(basename "$d")"
+        case "$m" in @*|.*|_disabled*|evolution|answer_engine|node_modules) continue ;; esac
+        total=$((total+1))
+
+        local old_pass="$(cat "$BASELINE/${m}.pass" 2>/dev/null || echo 0)"
+        local old_fail="$(cat "$BASELINE/${m}.fail" 2>/dev/null || echo 0)"
+        local tlog="$(ls -t "$AUDIT"/*_"${m}".test.log 2>/dev/null | head -1)"
+        local new_pass="$old_pass" new_fail="$old_fail"
+        if [ -f "$tlog" ]; then
+            new_pass="$(grep -c '\[PASS\]' "$tlog" 2>/dev/null | head -1 | tr -dc '0-9')"
+            new_fail="$(grep -c '\[FAIL\]' "$tlog" 2>/dev/null | head -1 | tr -dc '0-9')"
+        fi
+
+        local pass_ok=1 fail_ok=1
+        pct_check "$old_pass" "$new_pass" 3 || pass_ok=0
+        [ "$new_fail" -le "$old_fail" ] || fail_ok=0
+        [ "$pass_ok" = "1" ] && [ "$fail_ok" = "1" ] && ok_n=$((ok_n+1)) || blocked=$((blocked+1))
+    done
+
+    printf '\n'
+    printf '  %s╔══════════════════════════════════════════════════╗%s\n' "$B" "$Z"
+    printf '  %s║  3%% NON-DEGRADATION CONTROL                    ║%s\n' "$B" "$Z"
+    printf '  %s╚══════════════════════════════════════════════════╝%s\n' "$B" "$Z"
+    printf '\n'
+    printf '  Модулів:      %s\n' "$total"
+    printf '  OK:           %s%s%s\n' "$G" "$ok_n" "$Z"
+    printf '  Blocked:      %s%s%s\n' "$R" "$blocked" "$Z"
+    printf '  Tolerance:    %s3%%%s\n' "$C" "$Z"
+    printf '\n'
+    if [ "$blocked" -eq 0 ]; then
+        printf '  %s✓ СИСТЕМА СТАБІЛЬНА (0 деградацій)%s\n' "$G" "$Z"
+    else
+        printf '  %s✗ ДЕГРАДАЦІЯ: %s модулів%s\n' "$R" "$blocked" "$Z"
+        printf '  Перевір: %s\n' "$EVO_DIR/blocked.log"
+    fi
+    printf '\n'
+}
+
+# ═══════════════════════════════════════════════════════════
+# 5. ALL
+# ═══════════════════════════════════════════════════════════
+three_pct_all() {
+    three_pct_tests
+    three_pct_table
+    three_pct_real
+    three_pct_summary
+}
+
+# ═══════════════════════════════════════════════════════════
+# MENU
+# ═══════════════════════════════════════════════════════════
+show_menu() {
+    clear 2>/dev/null
+    printf '%s%s═══ CYBRA 3%% CONTROL ═══%s\n\n' "$B" "$M" "$Z"
+    printf '  %s[1]%s Unit tests (формула)\n'    "$B" "$Z"
+    printf '  %s[2]%s Таблиця меж\n'               "$B" "$Z"
+    printf '  %s[3]%s Реальні модулі\n'            "$B" "$Z"
+    printf '  %s[4]%s Summary\n'                   "$B" "$Z"
+    printf '  %s[5]%s ALL (1+2+3+4)\n'             "$B$G" "$Z"
+    printf '  %s[0]%s Вихід\n'                     "$B" "$Z"
+    printf '\n  Вибір: '
+}
+
+case "${1:-menu}" in
+    tests|t|1)     three_pct_tests ;;
+    table|tb|2)    three_pct_table ;;
+    real|r|3)      three_pct_real ;;
+    summary|s|4)   three_pct_summary ;;
+    all|a|5)       three_pct_all ;;
+    menu|m|"")
+        while true; do
+            show_menu
+            read -r c
+            printf '\n'
+            case "$c" in
+                1) three_pct_tests ;;
+                2) three_pct_table ;;
+                3) three_pct_real ;;
+                4) three_pct_summary ;;
+                5) three_pct_all ;;
+                0|q|Q|exit) printf 'Вихід\n'; exit 0 ;;
+                *) err "Невідома: $c" ;;
+            esac
+            printf '\n%sEnter...%s' "$GR" "$Z"
+            read -r _
+        done
+        ;;
+    *)
+        printf 'Usage: cybra_3pct [tests|table|real|summary|all|menu]\n'
+        exit 1
+        ;;
+esac

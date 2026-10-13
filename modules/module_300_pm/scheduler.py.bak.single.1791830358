@@ -1,0 +1,89 @@
+#!/usr/bin/env python3
+"""Scheduler — піднімає interval-mode задачі за розкладом.
+Кожні 30 сек перевіряє які прострочені і запускає.
+"""
+import json, os, subprocess, sys, time, signal
+from pathlib import Path
+
+H = Path.home() / "CYBRA"
+CFG = H / "config/pm_processes.json"
+STATE = H / "config/pm_scheduler_state.json"
+LOG = H / "logs/scheduler.log"
+
+RUN = True
+def stop(*a):
+    global RUN; RUN = False
+signal.signal(signal.SIGTERM, stop)
+signal.signal(signal.SIGINT, stop)
+
+def _now(): return time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+def _log(msg):
+    line = f"[{_now()}] {msg}"
+    print(line, flush=True)
+    try:
+        with open(LOG, "a") as f: f.write(line + "\n")
+    except Exception: pass
+
+def _run(cmd, timeout=15):
+    try:
+        r = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=timeout)
+        return r.returncode, (r.stdout + r.stderr)[:200]
+    except Exception: return 1, ""
+
+def is_running(pat):
+    rc, _ = _run(f"pgrep -f '{pat}'")
+    return rc == 0
+
+def load_state():
+    if not STATE.exists(): return {}
+    try: return json.loads(STATE.read_text())
+    except Exception: return {}
+
+def save_state(s):
+    STATE.write_text(json.dumps(s, indent=2))
+
+def start_interval_task(name, proc):
+    """Запустити interval задачу один раз (не daemon)."""
+    cmd = proc["cmd"].replace("$HOME", str(H))
+    pat = proc.get("match_pattern", name)
+    if is_running(pat):
+        return  # вже працює
+    log_file = Path(proc.get("log_file", str(H/"logs"/f"{name}.log")).replace("$HOME", str(H)))
+    log_file.parent.mkdir(parents=True, exist_ok=True)
+    _log(f"start interval {name}: {cmd[:60]}")
+    with open(log_file, "a") as lf:
+        lf.write(f"\n=== SCHEDULED START {_now()} ===\n")
+        lf.flush()
+        subprocess.Popen(["bash", "-c", cmd], stdout=lf, stderr=lf,
+                        stdin=subprocess.DEVNULL, cwd=str(H))
+
+def loop():
+    _log("═══ Scheduler START ═══")
+    while RUN:
+        try:
+            if not CFG.exists():
+                time.sleep(30); continue
+            d = json.loads(CFG.read_text())
+            state = load_state()
+            now = int(time.time())
+
+            for name, proc in d["processes"].items():
+                if proc.get("mode") != "interval": continue
+                if not proc.get("enabled", True): continue
+                sec = proc.get("interval_sec", 3600)
+                last = state.get(name, {}).get("last", 0)
+                if now - last >= sec:
+                    start_interval_task(name, proc)
+                    state.setdefault(name, {})["last"] = now
+                    state[name]["at"] = _now()
+
+            save_state(state)
+        except Exception as e:
+            _log(f"err: {e}")
+        for _ in range(30):
+            if not RUN: break
+            time.sleep(1)
+    _log("═══ Scheduler STOP ═══")
+
+if __name__ == "__main__":
+    loop()

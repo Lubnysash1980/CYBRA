@@ -1,0 +1,11 @@
+{
+  "type": "nda",
+  "name": "NDA",
+  "fields": [
+    {"id":"party_a","label":"Сторона А","required":true,"type":"address"},
+    {"id":"party_b","label":"Сторона Б","required":true,"type":"address"},
+    {"id":"scope","label":"Предмет NDA","required":true,"type":"text"},
+    {"id":"duration_days","label":"Термін (днів)","required":true,"type":"number"}
+  ],
+  "default_terms": "Сторони зобов'язуються не розголошувати конфіденційну інформацію."
+}

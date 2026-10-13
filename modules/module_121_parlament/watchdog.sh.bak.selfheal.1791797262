@@ -1,0 +1,109 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# CYBRA Parliament watchdog v2 — справжній daemon
+D="$HOME/CYBRA/modules/module_121_parlament"
+PID="$HOME/CYBRA/run/parlament.pid"
+LOG="$HOME/CYBRA/logs/parlament.log"
+INTERVAL="${PARLAMENT_INTERVAL:-900}"
+REPORT_EVERY="${PARLAMENT_REPORT_EVERY:-8}"
+mkdir -p "$HOME/CYBRA/run" "$HOME/CYBRA/logs"
+
+running(){ [ -f "$PID" ] && kill -0 "$(cat "$PID" 2>/dev/null)" 2>/dev/null; }
+
+# Функція одного циклу — викликається як окремий bash процес
+run_cycle(){
+  local i="$1"
+  {
+    echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] цикл $i"
+    python3 "$D/executor.py" auto 2>&1
+    python3 "$D/executor.py" apply 2>&1
+    python3 "$D/progress.py" tick 2>&1
+    python3 "$D/orchestrator.py" run 2>&1
+    python3 "$D/evolve.py" run 2>&1
+    # HEALTH + AUTO-HEAL
+    python3 "$D/health.py" heal 2>&1
+    python3 "$D/completion.py" run 2>&1
+    # контролери
+    python3 "$HOME/CYBRA/modules/module_320_controllers/controllers.py" check 2>&1
+    if [ $((i % 2)) -eq 0 ]; then
+      python3 "$D/self_audit.py" 2>&1
+    fi
+    if [ $((i % 4)) -eq 0 ]; then
+      python3 "$D/sync.py" sync 2>&1
+    fi
+    if [ $((i % REPORT_EVERY)) -eq 0 ]; then
+      python3 "$D/telegram_report.py" 2>&1
+    fi
+    python3 "$D/executor.py auto" 2>&1
+    python3 "$D/progress.py tick" 2>&1
+    python3 "$D/orchestrator.py run" 2>&1
+    python3 "$D/evolve.py run" 2>&1
+    python3 "$D/completion.py run" 2>&1
+    python3 "$D/controllers.py check" 2>&1
+    echo "── кінець циклу $i ──"
+  } >> "$LOG" 2>&1
+  # ротація
+  if [ -f "$LOG" ] && [ "$(wc -c < "$LOG")" -gt 1000000 ]; then
+    tail -2000 "$LOG" > "$LOG.tmp" && mv "$LOG.tmp" "$LOG"
+  fi
+}
+
+daemon_loop(){
+  local i=0
+  while :; do
+    i=$((i+1))
+    run_cycle "$i"
+    sleep "$INTERVAL"
+  done
+}
+
+case "${1:-status}" in
+  start)
+    if running; then
+      echo "вже працює (PID $(cat $PID))"
+      exit 0
+    fi
+    # прямий запуск daemon_loop у фоні
+    nohup bash "$0" daemon </dev/null >>"$HOME/CYBRA/logs/parlament.log" 2>&1 &
+    echo $! > "$PID"
+    sleep 3
+    if running; then
+      echo "parlament watchdog PID $(cat $PID), інтервал ${INTERVAL}s"
+    else
+      echo "✗ не запустився"
+      tail -20 "$LOG" 2>/dev/null
+      rm -f "$PID"
+    fi
+    ;;
+  daemon)
+    echo $$ > "$PID"
+    # щоб при виході прибрати pid
+    trap 'rm -f "$PID"; exit 0' INT TERM EXIT
+    daemon_loop
+    ;;
+  stop)
+    if running; then
+      kill "$(cat $PID)" 2>/dev/null
+      sleep 1
+      kill -9 "$(cat $PID)" 2>/dev/null
+      rm -f "$PID"
+      echo "зупинено"
+    else
+      rm -f "$PID"
+      echo "не працював"
+    fi
+    ;;
+  status)
+    if running; then
+      echo "● працює PID $(cat $PID)"
+    else
+      echo "○ не працює"
+    fi
+    ;;
+  log)
+    tail -${2:-40} "$LOG"
+    ;;
+  once)
+    run_cycle "manual-$(date +%s)"
+    echo "цикл виконано, див. $LOG"
+    ;;
+esac

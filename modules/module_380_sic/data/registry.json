@@ -1,0 +1,595 @@
+{
+  "version": "1.0",
+  "built": "2026-10-12T10:35:46Z",
+  "total": 30,
+  "modules": {
+    "121": {
+      "id": "121",
+      "name": "parliament",
+      "path": "module_121_parlament",
+      "provides": [
+        "governance",
+        "audit",
+        "hash_chain"
+      ],
+      "consumes": [
+        "signatures",
+        "controllers_ok"
+      ],
+      "resources": [
+        "data/proposals.jsonl"
+      ],
+      "events_pub": [
+        "proposal_created",
+        "proposal_approved",
+        "vote_cast"
+      ],
+      "events_sub": [
+        "controller_change",
+        "signature_added"
+      ],
+      "mapped": true
+    },
+    "320": {
+      "id": "320",
+      "name": "controllers",
+      "path": "module_320_controllers",
+      "provides": [
+        "health_check"
+      ],
+      "consumes": [
+        "all_module_state"
+      ],
+      "resources": [],
+      "events_pub": [
+        "controller_change"
+      ],
+      "events_sub": [],
+      "mapped": true
+    },
+    "330": {
+      "id": "330",
+      "name": "selfheal",
+      "path": "module_330_selfheal",
+      "provides": [
+        "auto_heal"
+      ],
+      "consumes": [
+        "controller_state",
+        "health"
+      ],
+      "resources": [],
+      "events_pub": [
+        "heal_action",
+        "heal_done"
+      ],
+      "events_sub": [
+        "controller_change",
+        "health_drop"
+      ],
+      "mapped": true
+    },
+    "340": {
+      "id": "340",
+      "name": "payment_confirm",
+      "path": "module_340_payment_confirm",
+      "provides": [
+        "nbu_qr"
+      ],
+      "consumes": [
+        "invoice",
+        "health_100"
+      ],
+      "resources": [],
+      "events_pub": [
+        "payment_initiated"
+      ],
+      "events_sub": [
+        "invoice_signed"
+      ],
+      "mapped": true
+    },
+    "341": {
+      "id": "341",
+      "name": "dual_confirm",
+      "path": "module_341_dual_confirm",
+      "provides": [
+        "dual_signature"
+      ],
+      "consumes": [
+        "invoice",
+        "signature"
+      ],
+      "resources": [],
+      "events_pub": [
+        "receipt_signed",
+        "receipt_expired"
+      ],
+      "events_sub": [
+        "delivered",
+        "order_signed"
+      ],
+      "mapped": true
+    },
+    "350": {
+      "id": "350",
+      "name": "controller_worker",
+      "path": "module_350_controller_worker",
+      "provides": [
+        "heal_loop"
+      ],
+      "consumes": [
+        "controllers",
+        "health",
+        "completion",
+        "mapping"
+      ],
+      "resources": [],
+      "events_pub": [
+        "worker_cycle"
+      ],
+      "events_sub": [
+        "health_drop",
+        "controller_change"
+      ],
+      "mapped": true
+    },
+    "360": {
+      "id": "360",
+      "name": "mapping",
+      "path": "module_360_mapping",
+      "provides": [
+        "priority_map",
+        "role_map"
+      ],
+      "consumes": [
+        "modules",
+        "controllers"
+      ],
+      "resources": [],
+      "events_pub": [],
+      "events_sub": [
+        "module_added",
+        "module_removed"
+      ],
+      "mapped": true
+    },
+    "370": {
+      "id": "370",
+      "name": "runtime",
+      "path": "module_370_runtime",
+      "provides": [
+        "job_execution"
+      ],
+      "consumes": [
+        "jobs"
+      ],
+      "resources": [
+        "data/jobs/"
+      ],
+      "events_pub": [
+        "job_done",
+        "job_failed"
+      ],
+      "events_sub": [
+        "submit_job"
+      ],
+      "mapped": true
+    },
+    "371": {
+      "id": "371",
+      "name": "job_controller",
+      "path": "module_371_job_controller",
+      "provides": [
+        "failover",
+        "runtime_guard"
+      ],
+      "consumes": [
+        "runtime_state",
+        "binmixer_state"
+      ],
+      "resources": [],
+      "events_pub": [
+        "failover_started",
+        "failover_done"
+      ],
+      "events_sub": [
+        "runtime_down",
+        "runtime_up"
+      ],
+      "mapped": true
+    },
+    "380": {
+      "id": "380",
+      "name": "sic",
+      "path": "module_380_sic",
+      "provides": [
+        "integration",
+        "routing",
+        "snapshot"
+      ],
+      "consumes": [
+        "all"
+      ],
+      "resources": [
+        "data/registry.json"
+      ],
+      "events_pub": [
+        "sic_event"
+      ],
+      "events_sub": [
+        "all"
+      ],
+      "mapped": true
+    },
+    "108": {
+      "id": "108",
+      "name": "metamask_sign",
+      "path": "module_108_metamask_sign",
+      "provides": [
+        "signature"
+      ],
+      "consumes": [
+        "contract",
+        "health_100"
+      ],
+      "resources": [],
+      "events_pub": [
+        "signature_added"
+      ],
+      "events_sub": [
+        "contract_created"
+      ],
+      "mapped": true
+    },
+    "109": {
+      "id": "109",
+      "name": "metamask_verify",
+      "path": "module_109_metamask_verify",
+      "provides": [
+        "verification"
+      ],
+      "consumes": [
+        "signature"
+      ],
+      "resources": [],
+      "events_pub": [],
+      "events_sub": [
+        "signature_added"
+      ],
+      "mapped": true
+    },
+    "114": {
+      "id": "114",
+      "name": "autonode",
+      "path": "module_114_autonode",
+      "provides": [
+        "chain_state"
+      ],
+      "consumes": [
+        "networks_config"
+      ],
+      "resources": [
+        "run/autonode.json"
+      ],
+      "events_pub": [
+        "block_new",
+        "rpc_fail",
+        "rpc_recover"
+      ],
+      "events_sub": [
+        "network_switch"
+      ],
+      "mapped": true
+    },
+    "119": {
+      "id": "119",
+      "name": "qr_sign",
+      "path": "module_119_qr_sign",
+      "provides": [
+        "qr_proof"
+      ],
+      "consumes": [
+        "signature"
+      ],
+      "resources": [],
+      "events_pub": [
+        "qr_generated"
+      ],
+      "events_sub": [
+        "signature_added"
+      ],
+      "mapped": true
+    },
+    "124": {
+      "id": "124",
+      "name": "timelock",
+      "path": "module_124_timelock",
+      "provides": [
+        "timelock"
+      ],
+      "consumes": [
+        "contract"
+      ],
+      "resources": [],
+      "events_pub": [
+        "lock_created",
+        "lock_released"
+      ],
+      "events_sub": [],
+      "mapped": true
+    },
+    "125": {
+      "id": "125",
+      "name": "anchor",
+      "path": "module_125_anchor",
+      "provides": [
+        "on_chain_anchor"
+      ],
+      "consumes": [
+        "hash"
+      ],
+      "resources": [],
+      "events_pub": [
+        "anchor_confirmed"
+      ],
+      "events_sub": [],
+      "mapped": true
+    },
+    "137": {
+      "id": "137",
+      "name": "escrow",
+      "path": "module_137_escrow",
+      "provides": [
+        "escrow"
+      ],
+      "consumes": [
+        "contract",
+        "payment"
+      ],
+      "resources": [],
+      "events_pub": [
+        "escrow_funded",
+        "escrow_released"
+      ],
+      "events_sub": [],
+      "mapped": true
+    },
+    "1": {
+      "id": "1",
+      "name": "create_contract",
+      "path": "builtin:create_contract",
+      "provides": [
+        "contract"
+      ],
+      "consumes": [
+        "buyer",
+        "items"
+      ],
+      "resources": [],
+      "events_pub": [
+        "contract_created"
+      ],
+      "events_sub": [],
+      "mapped": false
+    },
+    "11": {
+      "id": "11",
+      "name": "invoice",
+      "path": "builtin:invoice",
+      "provides": [
+        "invoice"
+      ],
+      "consumes": [
+        "contract"
+      ],
+      "resources": [
+        "data/"
+      ],
+      "events_pub": [
+        "invoice_created"
+      ],
+      "events_sub": [
+        "contract_created"
+      ],
+      "mapped": false
+    },
+    "122": {
+      "id": "122",
+      "name": "validator",
+      "path": "module_122_contract_validator",
+      "provides": [
+        "validation"
+      ],
+      "consumes": [
+        "contract"
+      ],
+      "resources": [],
+      "events_pub": [
+        "validated"
+      ],
+      "events_sub": [
+        "contract_created"
+      ],
+      "mapped": true
+    },
+    "123": {
+      "id": "123",
+      "name": "multisig",
+      "path": "module_123_multisig",
+      "provides": [
+        "multisig"
+      ],
+      "consumes": [
+        "signatures"
+      ],
+      "resources": [],
+      "events_pub": [
+        "ms_complete"
+      ],
+      "events_sub": [
+        "signature_added"
+      ],
+      "mapped": true
+    },
+    "131": {
+      "id": "131",
+      "name": "kyc",
+      "path": "module_131_kyc",
+      "provides": [
+        "sanctions_check"
+      ],
+      "consumes": [
+        "address"
+      ],
+      "resources": [
+        "data/lists/"
+      ],
+      "events_pub": [
+        "kyc_clean",
+        "kyc_sanctioned"
+      ],
+      "events_sub": [
+        "address_added"
+      ],
+      "mapped": true
+    },
+    "92": {
+      "id": "92",
+      "name": "autosave",
+      "path": "builtin:autosave",
+      "provides": [
+        "backup"
+      ],
+      "consumes": [
+        "data"
+      ],
+      "resources": [
+        "backups/"
+      ],
+      "events_pub": [
+        "saved"
+      ],
+      "events_sub": [],
+      "mapped": false
+    },
+    "61": {
+      "id": "61",
+      "name": "backup_local",
+      "path": "builtin:backup_local",
+      "provides": [
+        "local_backup"
+      ],
+      "consumes": [
+        "data"
+      ],
+      "resources": [
+        "backups/"
+      ],
+      "events_pub": [],
+      "events_sub": [],
+      "mapped": false
+    },
+    "62": {
+      "id": "62",
+      "name": "backup_cloud",
+      "path": "builtin:backup_cloud",
+      "provides": [
+        "cloud_backup"
+      ],
+      "consumes": [
+        "data"
+      ],
+      "resources": [],
+      "events_pub": [],
+      "events_sub": [],
+      "mapped": false
+    },
+    "128": {
+      "id": "128",
+      "name": "dashboard",
+      "path": "module_128_dashboard",
+      "provides": [
+        "ui"
+      ],
+      "consumes": [
+        "all_state"
+      ],
+      "resources": [
+        "run/dash.pid"
+      ],
+      "events_pub": [],
+      "events_sub": [
+        "state_change"
+      ],
+      "mapped": true
+    },
+    "143": {
+      "id": "143",
+      "name": "email",
+      "path": "module_143_email",
+      "provides": [
+        "send_email"
+      ],
+      "consumes": [
+        "smtp_config"
+      ],
+      "resources": [],
+      "events_pub": [
+        "email_sent"
+      ],
+      "events_sub": [],
+      "mapped": true
+    },
+    "144": {
+      "id": "144",
+      "name": "lightning",
+      "path": "module_144_lightning",
+      "provides": [
+        "ln_payment"
+      ],
+      "consumes": [
+        "ln_config"
+      ],
+      "resources": [],
+      "events_pub": [
+        "ln_invoice",
+        "ln_paid"
+      ],
+      "events_sub": [],
+      "mapped": true
+    },
+    "145": {
+      "id": "145",
+      "name": "ipfs",
+      "path": "module_145_ipfs",
+      "provides": [
+        "ipfs_pin"
+      ],
+      "consumes": [
+        "file"
+      ],
+      "resources": [],
+      "events_pub": [
+        "pinned"
+      ],
+      "events_sub": [],
+      "mapped": true
+    },
+    "146": {
+      "id": "146",
+      "name": "merkle",
+      "path": "module_146_merkle",
+      "provides": [
+        "batch_proof"
+      ],
+      "consumes": [
+        "hashes"
+      ],
+      "resources": [],
+      "events_pub": [],
+      "events_sub": [],
+      "mapped": true
+    }
+  }
+}

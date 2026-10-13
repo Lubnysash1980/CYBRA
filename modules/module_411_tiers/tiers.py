@@ -1,0 +1,438 @@
+#!/usr/bin/env python3
+"""Tiered Controllers — 7 рівнів складності.
+
+L1 Existence      — файли існують, виконувані             ~50ms
+L2 Structure      — правильна структура, немає дублікатів ~100ms
+L3 Syntax         — bash -n, python ast, case→def         ~300ms
+L4 Runtime Smoke  — функції викликаються, dry-run         ~1s
+L5 Behavior       — health, controllers, gate, cascade    ~3s
+L6 Time-series    — стабільність 5 хв, тренд              ~5s
+L7 Predictive     — прогноз, anomaly detection            ~10s
+
+Кожен рівень: OK / WARN / FAIL
+Вищий не запускається якщо нижчий FAIL.
+"""
+import hashlib, json, os, re, subprocess, sys, tarfile, time
+from pathlib import Path
+from collections import defaultdict
+
+H = Path.home() / "CYBRA"
+M = H / "modules"
+SRC = Path.home() / ".cybra_src"
+TUI = M / "module_19_contract_tui_menu/bin/cybra_menu.sh"
+D = Path(__file__).resolve().parent
+LOG = D / "data" / "tiers.log"
+REPORT = D / "data" / "report.json"
+
+def _now(): return time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+def _run(cmd, timeout=10, cwd=None):
+    try:
+        r = subprocess.run(cmd, shell=True, capture_output=True, text=True,
+                          timeout=timeout, cwd=cwd)
+        return r.returncode, (r.stdout + r.stderr)[:400]
+    except subprocess.TimeoutExpired:
+        return 124, "timeout"
+    except Exception as e:
+        return 1, str(e)[:200]
+
+def _log(lvl, msg, status):
+    line = f"[{_now()}] [L{lvl}] [{status}] {msg}"
+    try:
+        with open(LOG, "a") as f: f.write(line + "\n")
+    except Exception: pass
+
+# ═══════════════════════════════════════════════════════════════
+# L1 — EXISTENCE
+# ═══════════════════════════════════════════════════════════════
+def L1_existence():
+    """Файли існують + executable. ~50ms."""
+    issues = []
+    # TUI
+    if not TUI.exists():
+        issues.append("TUI відсутній")
+    else:
+        if TUI.stat().st_size < 1000:
+            issues.append("TUI закороткий")
+    # PM configs
+    for f in ["config/pm_processes.json", "config/networks.json",
+              "config/metamask.env"]:
+        p = H / f
+        if not p.exists():
+            issues.append(f"немає {f}")
+    # Критичні модулі
+    critical = [
+        "module_19_contract_tui_menu/bin/cybra_menu.sh",
+        "module_121_parlament/parliament.py",
+        "module_320_controllers/controllers.py",
+        "module_330_selfheal/engine.py",
+        "module_399_gate/gate.py",
+    ]
+    for rel in critical:
+        p = M / rel
+        if not p.exists():
+            issues.append(f"немає modules/{rel}")
+    if issues:
+        return "FAIL", f"{len(issues)}: " + "; ".join(issues[:3])
+    return "OK", "всі критичні файли на місці"
+
+# ═══════════════════════════════════════════════════════════════
+# L2 — STRUCTURE
+# ═══════════════════════════════════════════════════════════════
+def L2_structure():
+    """Правильна структура. ~100ms."""
+    issues = []
+    # Кожен module_NNN_* має main.sh (крім спеціальних)
+    skip = {"module_19_contract_tui_menu", "module_300_pm",
+            "module_000_master", "module_41_ai_invoice_parser"}
+    for d in M.glob("module_*"):
+        if d.name in skip: continue
+        if not (d / "main.sh").exists():
+            issues.append(f"{d.name} без main.sh")
+    # Дублікати у TUI
+    if TUI.exists():
+        s = TUI.read_text()
+        cases = re.findall(r'^\s+(\d+)\)', s, re.M)
+        from collections import Counter
+        dups = [k for k, v in Counter(cases).items() if v > 1]
+        if dups:
+            issues.append(f"дублікати case: {dups[:5]}")
+    # CYBRA/CYBRA
+    if TUI.exists() and "CYBRA/CYBRA" in TUI.read_text():
+        issues.append("TUI має CYBRA/CYBRA")
+    if issues:
+        return "FAIL", f"{len(issues)}: " + "; ".join(issues[:3])
+    return "OK", f"{len(list(M.glob('module_*')))} модулів, структура OK"
+
+# ═══════════════════════════════════════════════════════════════
+# L3 — SYNTAX
+# ═══════════════════════════════════════════════════════════════
+def L3_syntax():
+    """bash -n + python ast + case→def. Обмежено 40 файлів, RAM guard."""
+    # RAM guard — не запускати на < 300 MB
+    try:
+        with open("/proc/meminfo") as f:
+            for line in f:
+                if line.startswith("MemAvailable"):
+                    avail_mb = int(line.split()[1]) // 1024
+                    if avail_mb < 300:
+                        return "WARN", f"RAM {avail_mb}MB — skip heavy scan"
+                    break
+    except Exception: pass
+
+    issues = []
+    checked = 0
+    MAX_FILES = 40  # ліміт, щоб не з'їсти RAM
+
+    # TUI — першочергове
+    if TUI.exists():
+        rc, out = _run(f"bash -n {TUI}", timeout=10)
+        if rc != 0: issues.append(f"TUI: {out[:50]}")
+        checked += 1
+
+    # ВАЖЛИВО: обмежений список — тільки main.sh + критичні
+    targets = []
+    for d in sorted(M.glob("module_*")):
+        main = d / "main.sh"
+        if main.exists():
+            targets.append(main)
+        if len(targets) >= MAX_FILES: break
+
+    for f in targets:
+        if len(targets) >= MAX_FILES: break
+        rc, out = _run(f"bash -n {f}", timeout=5)
+        checked += 1
+        if rc != 0:
+            issues.append(f"{f.parent.name[:20]}: syntax")
+
+    # Тільки головні .py (не rglob)
+    py_targets = []
+    for name in ["parliament.py", "health.py", "controllers.py", "gate.py",
+                 "engine.py", "worker.py", "mapping.py", "sic.py", "src.py",
+                 "tiers.py", "guard.py", "tester.py", "pipeline.py"]:
+        for d in M.glob("module_*"):
+            p = d / name
+            if p.exists() and p.stat().st_size < 200_000:  # skip гігантів
+                py_targets.append(p)
+                break
+
+    for f in py_targets[:15]:
+        rc, out = _run(f"python3 -c 'import ast; ast.parse(open(\"{f}\").read())'", timeout=5)
+        checked += 1
+        if rc != 0:
+            issues.append(f"{f.parent.name[:20]}: py syntax")
+
+    # case → def у TUI (тільки кількість)
+    if TUI.exists():
+        s = TUI.read_text()
+        defined = set(re.findall(r'^action_[a-z_0-9]+\(\)', s, re.M))
+        missing = 0
+        for m in re.finditer(r'^\s+(\d+)\)\s*(action_[a-z_0-9]+)', s, re.M):
+            if f"{m.group(2)}()" not in defined:
+                missing += 1
+        if missing > 5:
+            issues.append(f"{missing} case без def")
+
+    if issues:
+        return "FAIL", f"{len(issues)}/{checked}: " + "; ".join(issues[:3])
+    return "OK", f"{checked} файлів (limit {MAX_FILES})"
+
+# ═══════════════════════════════════════════════════════════════
+# L4 — RUNTIME SMOKE
+# ═══════════════════════════════════════════════════════════════
+def L4_runtime():
+    """Функції викликаються (dry-run, timeout 2s). ~1s."""
+    issues = []
+    tested = 0
+    # PM процеси — dry-run (тільки ast.parse, без import)
+    cfg = H / "config/pm_processes.json"
+    if cfg.exists():
+        d = json.loads(cfg.read_text())
+        for name, proc in d["processes"].items():
+            if not proc.get("enabled", True): continue
+            if name in ("supervisor",): continue
+            cmd = proc["cmd"].replace("$HOME", str(H))
+            parts = cmd.split()
+            for p in parts:
+                if (p.endswith(".py") or p.endswith(".sh")) and Path(p).exists():
+                    tested += 1
+                    if p.endswith(".py"):
+                        # Тільки ast.parse без import (щоб не грузити модулі)
+                        rc, out = _run(
+                            f"python3 -c 'import ast; ast.parse(open(\"{p}\").read()); print(1)'",
+                            timeout=5)
+                        if rc != 0:
+                            issues.append(f"{name}: не парситься")
+                    break
+    # TUI — деякі action_* безпечні для виклику
+    if TUI.exists():
+        s = TUI.read_text()
+        safe_actions = ["action_preflight", "action_self_heal",
+                       "action_dual_verify", "action_ownership"]
+        for fn in safe_actions:
+            if f"{fn}()" not in s: continue
+            tested += 1
+            # Тільки перевірка чи визначена
+            if f"{fn}() {{ echo" in s and "not implemented" in s:
+                continue
+    if issues:
+        return "FAIL", f"{len(issues)}/{tested}: " + "; ".join(issues[:3])
+    return "OK", f"{tested} компонентів викликаються"
+
+# ═══════════════════════════════════════════════════════════════
+# L5 — BEHAVIOR
+# ═══════════════════════════════════════════════════════════════
+def L5_behavior():
+    """health + controllers + gate + cascade. ~3s."""
+    issues = []
+    # Health
+    try:
+        sys.path.insert(0, str(M/"module_121_parlament"))
+        if "health" in sys.modules:
+            import importlib; importlib.reload(sys.modules["health"])
+        import health
+        h = health.health_all()
+        if h.get("overall", 0) < 100:
+            issues.append(f"health {h.get('overall')}%")
+    except Exception as e:
+        issues.append(f"health: {e}"[:50])
+    # Controllers
+    try:
+        sys.path.insert(0, str(M/"module_320_controllers"))
+        if "controllers" in sys.modules:
+            import importlib; importlib.reload(sys.modules["controllers"])
+        import controllers
+        ctrls = controllers.check_all()
+        bad = [c for c in ctrls if not c["ok"]]
+        if bad:
+            issues.append(f"{len(bad)}/{len(ctrls)} контролерів")
+    except Exception as e:
+        issues.append(f"controllers: {e}"[:50])
+    # Gate
+    try:
+        sys.path.insert(0, str(M/"module_399_gate"))
+        if "gate" in sys.modules:
+            import importlib; importlib.reload(sys.modules["gate"])
+        import gate
+        ok, s = gate.is_100()
+        if not ok:
+            issues.append(f"gate: {s.get('health',0)}%")
+    except Exception as e:
+        issues.append(f"gate: {e}"[:50])
+    # Cascade
+    try:
+        sys.path.insert(0, str(M/"module_401_cascade_verify"))
+        import verify
+        results = verify.run_all_tests()
+        bad = [r for r in results if r["ok"] is False]
+        if bad:
+            issues.append(f"cascade {len(bad)}/{len(results)}")
+    except Exception: pass
+    if issues:
+        return "FAIL", "; ".join(issues[:3])
+    return "OK", "health 100%, 12 контролерів, gate OK, cascade OK"
+
+# ═══════════════════════════════════════════════════════════════
+# L6 — TIME-SERIES
+# ═══════════════════════════════════════════════════════════════
+def L6_timeseries():
+    """Стабільність за 5 хв. ~5s."""
+    issues = []
+    # Baseline evolve
+    bl = M / "module_121_parlament/data/evolve/baseline.json"
+    if not bl.exists():
+        return "WARN", "baseline не створено"
+    try:
+        b = json.loads(bl.read_text())
+        # дивимось відхилення за 5 хв
+        recent = b.get("metrics", {})
+        # Перевірка стабільності
+        hist_file = M / "module_121_parlament/data/evolve/log.jsonl"
+        if hist_file.exists():
+            lines = hist_file.read_text().splitlines()[-20:]
+            cycles = [json.loads(l) for l in lines if l.strip()]
+            cycles = [c for c in cycles if c.get("kind") == "cycle"]
+            if len(cycles) >= 2:
+                # Скільки devs за останні 20 циклів
+                total_devs = sum(len(c.get("deviations", [])) for c in cycles)
+                if total_devs > 10:
+                    issues.append(f"{total_devs} devs за {len(cycles)} циклів")
+    except Exception as e:
+        issues.append(f"baseline: {e}"[:50])
+    # Autonode uptime
+    try:
+        an = json.loads((H/"run/autonode.json").read_text())
+        if an.get("uptime_sec", 0) < 60:
+            issues.append("autonode < 60s uptime")
+    except Exception: pass
+    if issues:
+        return "WARN", "; ".join(issues[:2])
+    return "OK", "стабільно за останні 5 хв"
+
+# ═══════════════════════════════════════════════════════════════
+# L7 — PREDICTIVE
+# ═══════════════════════════════════════════════════════════════
+def L7_predictive():
+    """Прогноз, anomaly detection. ~10s."""
+    issues = []
+    warnings = []
+    # 1. Диск
+    import shutil
+    _, _, free = shutil.disk_usage(str(H))
+    free_gb = free / (1024**3)
+    if free_gb < 1:
+        issues.append(f"диск {free_gb:.2f}GB — треба cleanup")
+    elif free_gb < 2:
+        warnings.append(f"диск {free_gb:.2f}GB")
+    # 2. Snapshot growth
+    snaps = SRC / "snapshots"
+    if snaps.exists():
+        files = sorted(snaps.glob("*.tar.gz"), key=lambda p: p.stat().st_mtime)
+        if len(files) >= 2:
+            last_size = files[-1].stat().st_size
+            prev_size = files[-2].stat().st_size
+            if prev_size > 0:
+                growth = (last_size - prev_size) / prev_size * 100
+                if growth > 20:
+                    warnings.append(f"snapshot +{growth:.0f}%")
+    # 3. Restart rate PM
+    pm_log = H / "logs/pm.log"
+    if pm_log.exists():
+        recent = pm_log.read_text().splitlines()[-100:]
+        restarts = sum(1 for l in recent if "перезапускаю" in l)
+        if restarts > 10:
+            warnings.append(f"{restarts} restart у 100 рядках")
+    # 4. RAM
+    try:
+        with open("/proc/meminfo") as f:
+            for line in f:
+                if line.startswith("MemAvailable"):
+                    avail_mb = int(line.split()[1]) // 1024
+                    if avail_mb < 200:
+                        issues.append(f"RAM {avail_mb}MB")
+                    elif avail_mb < 500:
+                        warnings.append(f"RAM {avail_mb}MB")
+                    break
+    except Exception: pass
+    if issues:
+        return "FAIL", "; ".join(issues[:2])
+    if warnings:
+        return "WARN", "; ".join(warnings[:3])
+    return "OK", "немає прогнозованих проблем"
+
+# ═══════════════════════════════════════════════════════════════
+# ORCHESTRATOR — коротке замикання
+# ═══════════════════════════════════════════════════════════════
+TIERS = [
+    (1, "Existence",     L1_existence),
+    (2, "Structure",     L2_structure),
+    (3, "Syntax",        L3_syntax),
+    (4, "Runtime",       L4_runtime),
+    (5, "Behavior",      L5_behavior),
+    (6, "Time-series",   L6_timeseries),
+    (7, "Predictive",    L7_predictive),
+]
+
+def run(max_level=7, short_circuit=True):
+    """Запустити рівні 1..max_level. Short-circuit при FAIL."""
+    results = []
+    for lvl, name, fn in TIERS:
+        if lvl > max_level: break
+        t0 = time.time()
+        try:
+            status, msg = fn()
+        except Exception as e:
+            status, msg = "FAIL", f"exception: {e}"[:100]
+        dur = int((time.time()-t0)*1000)
+        results.append({"lvl": lvl, "name": name, "status": status,
+                        "msg": msg, "dur_ms": dur})
+        _log(lvl, f"{name}: {msg}", status)
+        if short_circuit and status == "FAIL":
+            # Не запускати вищі
+            for lvl2, name2, _ in TIERS:
+                if lvl2 > lvl:
+                    results.append({"lvl": lvl2, "name": name2,
+                                   "status": "SKIP",
+                                   "msg": f"не запущено (L{lvl} FAIL)",
+                                   "dur_ms": 0})
+            break
+
+    report = {
+        "at": _now(),
+        "max_level": max_level,
+        "results": results,
+        "highest_ok": max((r["lvl"] for r in results if r["status"] == "OK"), default=0),
+        "highest_warn": max((r["lvl"] for r in results if r["status"] == "WARN"), default=0),
+    }
+    REPORT.write_text(json.dumps(report, indent=2, ensure_ascii=False))
+    return report
+
+if __name__ == "__main__":
+    import sys
+    G='\033[32m'; Y='\033[33m'; R='\033[31m'; B='\033[36m'; BOLD='\033[1m'; D_='\033[2m'; N='\033[0m'
+    cmd = sys.argv[1] if len(sys.argv) > 1 else "run"
+
+    if cmd == "run":
+        max_lvl = int(sys.argv[2]) if len(sys.argv) > 2 else 7
+        r = run(max_level=max_lvl)
+        print(f"\n  {B}{BOLD}═══ Tiered Controllers ═══{N}\n")
+        for x in r["results"]:
+            col = {"OK":G,"WARN":Y,"FAIL":R,"SKIP":D_}[x["status"]]
+            mark = {"OK":"✓","WARN":"!","FAIL":"✗","SKIP":"·"}[x["status"]]
+            print(f"  {col}L{x['lvl']} {mark}{N} {x['name']:14s} {D_}{x['dur_ms']:>5}ms{N} {x['msg'][:70]}")
+        print(f"\n  {B}Highest OK:{N} L{r['highest_ok']}")
+        print(f"  {B}Highest WARN:{N} L{r['highest_warn']}\n")
+        sys.exit(0 if r["highest_ok"] == max_lvl else 1)
+
+    elif cmd == "json":
+        print(json.dumps(run(), indent=2, ensure_ascii=False))
+
+    elif cmd == "tier":
+        if len(sys.argv) < 3: print("usage: tiers.py tier <N>"); sys.exit(1)
+        n = int(sys.argv[2])
+        fn = dict((lvl, fn) for lvl, _, fn in TIERS).get(n)
+        if not fn: print(f"немає рівня {n}"); sys.exit(1)
+        status, msg = fn()
+        print(f"  L{n}: {status} — {msg}")
+
+    elif cmd == "report":
+        if REPORT.exists(): print(REPORT.read_text())

@@ -1,0 +1,136 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# CYBRA EXPORT — упакувати систему
+# Usage: cybra_export [output.tar.gz]
+
+ROOT="$HOME/CYBRA"
+STAMP="$(date -u +%Y%m%dT%H%M%SZ)"
+OUT="${1:-$HOME/cybra_export_${STAMP}.tar.gz}"
+
+if [ -t 1 ]; then
+    G=$'\033[32m'; Y=$'\033[33m'; R=$'\033[31m'
+    B=$'\033[1m'; C=$'\033[36m'; Z=$'\033[0m'
+else
+    G=""; Y=""; R=""; B=""; C=""; Z=""
+fi
+
+hr()  { printf -- '────────────────────────────────────────────────────────────\n'; }
+hdr() { printf '\n%s%s═══ %s ═══%s\n' "$B" "$C" "$*" "$Z"; }
+ok()   { printf '  %s[✓]%s %s\n' "$G" "$Z" "$*"; }
+warn() { printf '  %s[!]%s %s\n' "$Y" "$Z" "$*"; }
+err()  { printf '  %s[✗]%s %s\n' "$R" "$Z" "$*"; }
+
+hdr "CYBRA EXPORT"
+
+# ─── Manifest ───
+MANIFEST="$ROOT/.export_manifest"
+{
+    echo "CYBRA_EXPORT=1"
+    echo "STAMP=$STAMP"
+    echo "DATE=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+    echo "HOST=$(uname -n)"
+    echo "OS=Termux $(uname -m)"
+    echo ""
+
+    # Модулів
+    MODS=0
+    for d in "$ROOT/modules"/*/; do
+        [ -d "$d" ] || continue
+        m="$(basename "$d")"
+        case "$m" in @*|.*|_disabled*|evolution|answer_engine|node_modules) continue ;; esac
+        MODS=$((MODS+1))
+    done
+    echo "MODULES=$MODS"
+
+    # Контракти
+    echo "CONTRACTS=$(ls "$ROOT/modules/module_19_contract_tui_menu/contracts"/*.env 2>/dev/null | wc -l)"
+    echo "LINKS=$(ls "$ROOT/modules/module_19_contract_tui_menu/links"/*.link 2>/dev/null | wc -l)"
+
+    # Git
+    if [ -d "$ROOT/git_module/.git" ]; then
+        cd "$ROOT/git_module" || cd "$ROOT"
+        echo "GIT_COMMIT=$(git rev-parse HEAD 2>/dev/null | head -c 16)"
+        echo "GIT_REMOTE=$(git remote get-url origin 2>/dev/null || echo NONE)"
+        cd "$ROOT"
+    fi
+
+    echo ""
+    echo "# Module list:"
+    for d in "$ROOT/modules"/*/; do
+        [ -d "$d" ] || continue
+        m="$(basename "$d")"
+        case "$m" in @*|.*|_disabled*|evolution|answer_engine|node_modules) continue ;; esac
+        echo "MODULE=$m"
+    done
+} > "$MANIFEST"
+
+cat "$MANIFEST" | sed 's/^/  /'
+
+# ─── Tar ───
+hr
+printf '  Архівування...\n'
+
+TAR_LOG="$ROOT/logs/export_${STAMP}.log"
+
+tar -czf "$OUT" \
+    -C "$HOME" \
+    --exclude='CYBRA/logs' \
+    --exclude='CYBRA/backups' \
+    --exclude='CYBRA/hashes' \
+    --exclude='CYBRA/audit' \
+    --exclude='CYBRA/git_module/.git' \
+    --exclude='CYBRA/**/node_modules' \
+    --exclude='CYBRA/.export_manifest' \
+    --exclude='CYBRA/.watchdog.pid' \
+    --exclude='CYBRA/.evo_ctl.pid' \
+    --exclude='CYBRA/.parawatch.pid' \
+    --exclude='CYBRA/.schedule.pid' \
+    --exclude='CYBRA/.cybra_http.pid' \
+    --exclude='CYBRA/.cybra_web.pid' \
+    --exclude='CYBRA/*.tar.gz' \
+    CYBRA 2> "$TAR_LOG"
+
+TAR_RC=$?
+
+rm -f "$MANIFEST"
+
+hr
+
+# Перевірка
+if [ ! -f "$OUT" ] || [ ! -s "$OUT" ]; then
+    err "Архів не створено (tar rc=$TAR_RC)"
+    echo ""
+    echo "  Останні рядки tar log:"
+    tail -10 "$TAR_LOG" | sed 's/^/    /'
+    exit 1
+fi
+
+if [ "$TAR_RC" -gt 1 ]; then
+    err "tar завершився з помилкою (rc=$TAR_RC)"
+    tail -5 "$TAR_LOG" | sed 's/^/    /'
+    exit 1
+fi
+
+# ─── Checksum ───
+sha256sum "$OUT" > "${OUT}.sha256"
+SIZE="$(du -h "$OUT" | cut -f1)"
+HASH="$(awk '{print $1}' "${OUT}.sha256")"
+FILES="$(tar -tzf "$OUT" 2>/dev/null | wc -l)"
+
+ok "Export: $OUT"
+ok "Size:   $SIZE"
+ok "Files:  $FILES"
+ok "SHA256: ${HASH:0:32}..."
+echo ""
+
+cat <<INSTRUCTIONS
+
+  %sПеренести на інший пристрій:%s
+
+    scp $OUT user@other-pc:/tmp/
+    # або через git LFS / телеграм / rclone
+
+  %sІмпортувати на іншому:%s
+
+    cybra_import $OUT
+
+INSTRUCTIONS

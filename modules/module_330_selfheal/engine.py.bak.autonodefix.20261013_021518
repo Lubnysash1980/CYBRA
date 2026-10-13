@@ -1,0 +1,342 @@
+#!/usr/bin/env python3
+"""Self-Heal Engine — єдина система авто-відновлення CYBRA.
+
+Шари:
+  1. Detect    — знайти проблему (health, controllers, evolve)
+  2. Classify  — визначити рівень (safe/warn/danger)
+  3. Heal      — вилікувати (auto для safe, лог для решти)
+  4. Verify    — перевірити що вилікувалось
+  5. Log       — записати у журнал
+
+Інтегрується:
+  · watchdog (кожні 15 хв)
+  · evolve    (при відхиленні > 3%)
+  · parliament gate (100% health)
+"""
+import json, os, subprocess, sys, time
+from pathlib import Path
+
+H = Path.home() / "CYBRA"
+M = H / "modules"
+D = Path(__file__).resolve().parent
+LOG = D / "data" / "heals.jsonl"
+STATE = D / "data" / "state.json"
+
+def _now(): return time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+
+def _run(cmd, timeout=60):
+    try:
+        r = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=timeout)
+        return r.returncode, (r.stdout + r.stderr).strip()[:300]
+    except Exception as e:
+        return 1, str(e)[:200]
+
+def _log(entry):
+    entry["ts"] = _now()
+    with open(LOG, "a") as f: f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+    try:
+        if LOG.stat().st_size > 1_000_000:
+            lines = LOG.read_text().splitlines()
+            LOG.write_text("\n".join(lines[-500:]) + "\n")
+    except Exception: pass
+
+def _load_state():
+    if not STATE.exists(): return {"count": 0, "last_heal": None, "recent": []}
+    try: return json.loads(STATE.read_text())
+    except Exception: return {"count": 0, "last_heal": None, "recent": []}
+
+def _save_state(s):
+    s["last_heal"] = _now()
+    s["recent"] = s.get("recent", [])[-50:]
+    STATE.write_text(json.dumps(s, indent=2, ensure_ascii=False))
+
+# ═══════════════════════════════════════════════════════════════
+# DETECT + CLASSIFY
+# ═══════════════════════════════════════════════════════════════
+def detect_issues():
+    """Повертає список проблем зі всіх джерел."""
+    issues = []
+
+    # Dual-confirm — вікно отримання
+    try:
+        sys.path.insert(0, str(M/"module_341_dual_confirm"))
+        import engine as dual_engine
+        import glob
+        for f in glob.glob(str(M/"module_341_dual_confirm/data/*_dual.json")):
+            try:
+                d = json.loads(open(f).read())
+            except Exception: continue
+            cid = d["cid"]
+            r = d.get("confirmations", {}).get("receipt", {})
+            if r.get("status") == "awaiting_buyer":
+                left = dual_engine.time_left(cid)
+                if left and left.get("expired"):
+                    issues.append({"source":"dual_confirm", "level":"warn",
+                                  "cid": cid,
+                                  "detail": f"3-денне вікно прострочено: {cid[:20]}"})
+                elif left and left.get("days", 99) <= 1:
+                    issues.append({"source":"dual_confirm", "level":"warn",
+                                  "cid": cid,
+                                  "detail": f"залишилось {left['days']}д {left['hours']}г"})
+    except Exception: pass
+
+    # 1. Health парламенту
+    try:
+        sys.path.insert(0, str(M/"module_121_parlament"))
+        import health
+        h = health.health_all()
+        if h["parliament"]["score"] < 100:
+            issues.append({"source":"parliament", "level":"warn",
+                          "score": h["parliament"]["score"],
+                          "detail": h["parliament"]["issues"]})
+        if h["system"]["score"] < 100:
+            issues.append({"source":"system", "level":"warn",
+                          "score": h["system"]["score"],
+                          "detail": h["system"]["issues"]})
+    except Exception as e:
+        issues.append({"source":"health", "level":"critical", "detail":str(e)[:100]})
+
+    # 2. Контролери
+    try:
+        sys.path.insert(0, str(M/"module_320_controllers"))
+        import controllers
+        for c in controllers.check_all():
+            if not c["ok"]:
+                issues.append({"source":"controller", "level":"warn",
+                              "id": c["id"], "name": c["name"],
+                              "detail": c["msg"]})
+    except Exception: pass
+
+    # 3. Completion
+    try:
+        sys.path.insert(0, str(M/"module_121_parlament"))
+        import completion
+        s = completion.completion_score()
+        if s.get("overall", 0) < 100:
+            issues.append({"source":"completion", "level":"warn",
+                          "score": s["overall"],
+                          "detail": [f"{k}: {v['pct']}%" for k,v in s["components"].items() if v["pct"] < 100]})
+    except Exception: pass
+
+    # 4. AutoNode state
+    try:
+        an = json.loads((H/"run/autonode.json").read_text())
+        if an.get("state") != "ok":
+            issues.append({"source":"autonode", "level":"warn",
+                          "state": an.get("state"),
+                          "detail": f"{an.get('nets_ok',0)}/{an.get('nets_total',0)} мереж"})
+    except Exception:
+        issues.append({"source":"autonode", "level":"critical",
+                      "detail":"autonode.json недоступний"})
+
+    # 5. Git брудний
+    gm = H / "git_module"
+    if (gm/".git").exists():
+        rc, out = _run(f"cd {gm} && git status --porcelain | wc -l")
+        n = int(out.strip() or 0)
+        if n > 0:
+            issues.append({"source":"git", "level":"safe",
+                          "count": n, "detail": f"{n} файлів незакомічено"})
+
+    # 6. Процеси через PM
+    for name, pat in [("autonode","autonode/daemon.py"),
+                     ("watchdog","parlament/watchdog"),
+                     ("orchestrator","orchestrator.py daemon"),
+                     ("supervisor","module_300_pm/supervisor.py"),
+                     ("dashboard","module_128_dashboard/server.py")]:
+        rc, _ = _run(f"pgrep -f '{pat}'")
+        if rc != 0:
+            issues.append({"source":"process", "level":"safe",
+                          "process": name, "detail": f"{name} не працює"})
+
+    # 7. Disk
+    import shutil
+    try:
+        _, _, free = shutil.disk_usage(str(H))
+        if free < 200 * 1024 * 1024:
+            issues.append({"source":"disk", "level":"warn",
+                          "free_mb": free // (1024*1024)})
+    except Exception: pass
+
+    return issues
+
+# ═══════════════════════════════════════════════════════════════
+# HEAL
+# ═══════════════════════════════════════════════════════════════
+
+def _wait_for_autonode(timeout=30):
+    """Чекає поки autonode.json покаже state=ok."""
+    an_file = H / "run" / "autonode.json"
+    start = time.time()
+    while time.time() - start < timeout:
+        try:
+            an = json.loads(an_file.read_text())
+            if an.get("state") == "ok" and an.get("nets_ok", 0) > 0:
+                return True, f"{an.get('nets_ok')}/{an.get('nets_total')} мереж"
+        except Exception: pass
+        time.sleep(2)
+    return False, f"timeout {timeout}s"
+
+def heal(issue):
+    """Лікує одну проблему. Повертає (healed: bool, action: str, detail: str)."""
+    src = issue.get("source")
+
+    if src == "process":
+        name = issue.get("process")
+        rc, out = _run(f"cybra-pm start {name}", timeout=30)
+        return rc == 0, f"cybra-pm start {name}", out[:100]
+
+    if src == "controller":
+        cid = issue.get("id")
+        if cid == "backend":
+            rc, out = _run("cybra-pm start-all", timeout=60)
+            return rc == 0, "cybra-pm start-all", out[:100]
+        if cid == "node_state":
+            rc, out = _run("cybra-pm restart autonode", timeout=30)
+            ok, msg = _wait_for_autonode(timeout=40)
+            return ok, f"restart autonode: {msg}", out[:100]
+        if cid == "git_sync":
+            rc, out = _run(f"cd {H}/git_module && git add -A && git commit -m 'selfheal' --allow-empty", timeout=30)
+            return rc == 0, "git commit", out[:100]
+        if cid == "integrity":
+            rc, out = _run(f"python3 {M}/module_121_parlament/completion.py run", timeout=90)
+            return rc == 0, "completion run", out[:100]
+        if cid in ("level", "exoskeleton", "binmix"):
+            # перевірити чи є модулі
+            paths = {
+                "level": M/"module_96_evo7",
+                "exoskeleton": M/"module_97_evo_controller",
+                "binmix": M/"module_102_binmix_daemon",
+            }
+            if paths[cid].exists():
+                return True, f"{cid}: модуль є", "ok"
+            return False, f"{cid}: немає модуля", ""
+
+    if src == "autonode":
+        rc, out = _run("cybra-pm restart autonode", timeout=30)
+        ok, msg = _wait_for_autonode(timeout=40)
+        if ok:
+            return True, f"autonode: {msg}", "ok"
+        return rc == 0, "autonode restarted", f"but {msg}"
+
+    if src == "git":
+        rc, out = _run(f"cd {H}/git_module && git add -A && git commit -m 'selfheal auto' --allow-empty", timeout=30)
+        return rc == 0, "git commit", out[:100]
+
+    if src == "completion":
+        rc, out = _run(f"python3 {M}/module_121_parlament/completion.py run", timeout=90)
+        return rc == 0, "completion run", out[:100]
+
+    if src == "parliament":
+        rc, out = _run(f"python3 {M}/module_121_parlament/health.py heal", timeout=90)
+        return rc == 0, "health heal", out[:100]
+
+    if src == "system":
+        rc, out = _run(f"python3 {M}/module_121_parlament/health.py heal", timeout=90)
+        return rc == 0, "health heal", out[:100]
+
+    if src == "dual_confirm":
+        # Тільки нотифікація — не лікується автоматично
+        return False, "notification", issue.get("detail", "")
+
+    if src == "disk":
+        rc, out = _run(f"python3 {M}/module_121_parlament/actions.py" if (M/"module_121_parlament/actions.py").exists() else "echo skip", timeout=60)
+        return rc == 0, "cleanup logs", out[:100]
+
+    return False, "no handler", f"не знаю як лікувати {src}"
+
+# ═══════════════════════════════════════════════════════════════
+# CYCLE
+# ═══════════════════════════════════════════════════════════════
+def cycle(verbose=True):
+    """Повний цикл: detect → heal → verify → log."""
+    t0 = time.time()
+    if verbose:
+        print(f"\n{B}═══ SELF-HEAL CYCLE ═══{N}")
+
+    before = detect_issues()
+    if verbose:
+        print(f"  Виявлено проблем: {len(before)}")
+
+    healed = []
+    failed = []
+    for issue in before:
+        healed_ok, action, detail = heal(issue)
+        entry = {"source": issue.get("source"), "level": issue.get("level"),
+                "action": action, "ok": healed_ok, "detail": detail}
+        _log(entry)
+        if healed_ok:
+            healed.append(entry)
+            if verbose:
+                print(f"  {G}✓{N} {issue['source']:14s} → {action}")
+        else:
+            failed.append(entry)
+            if verbose:
+                print(f"  {R}✗{N} {issue['source']:14s} → {action} ({detail[:50]})")
+
+    # verify — з затримкою і повторною перевіркою
+    time.sleep(3)
+    after = detect_issues()
+    # якщо ще є process/controller problems — чекаємо ще
+    if any(i.get("source") in ("process", "controller") for i in after):
+        time.sleep(5)
+        after = detect_issues()
+    duration = int((time.time()-t0)*1000)
+
+    state = _load_state()
+    state["count"] = state.get("count", 0) + 1
+    state["recent"].append({
+        "at": _now(),
+        "before": len(before),
+        "after": len(after),
+        "healed": len(healed),
+        "failed": len(failed),
+        "duration_ms": duration
+    })
+    _save_state(state)
+
+    if verbose:
+        print(f"\n  {B}Результат:{N} {len(before)} → {len(after)} проблем ({duration}ms)")
+        if len(after) == 0:
+            print(f"  {G}✓ система 100%{N}")
+        else:
+            print(f"  {Y}! залишилось {len(after)}{N}")
+
+    return {"before": len(before), "after": len(after),
+            "healed": len(healed), "failed": len(failed),
+            "duration_ms": duration}
+
+def auto_loop(interval=900):
+    """Daemon — цикл кожні interval секунд."""
+    while True:
+        try: cycle(verbose=False)
+        except Exception as e:
+            _log({"error": str(e)})
+        time.sleep(interval)
+
+if __name__ == "__main__":
+    import sys
+    G='\033[32m'; R='\033[31m'; B='\033[36m'; BOLD='\033[1m'; Y='\033[33m'; N='\033[0m'
+    cmd = sys.argv[1] if len(sys.argv) > 1 else "cycle"
+    if cmd == "cycle": cycle()
+    elif cmd == "json": print(json.dumps({"issues": detect_issues()}, indent=2, ensure_ascii=False))
+    elif cmd == "status":
+        s = _load_state()
+        print(f"\n  Self-Heal engine")
+        print(f"  циклів: {s.get('count',0)}")
+        print(f"  останній: {s.get('last_heal','?')}")
+        for r in s.get("recent", [])[-5:]:
+            print(f"    {r['at']}  {r['before']}→{r['after']}  healed={r['healed']}  ({r['duration_ms']}ms)")
+        print()
+    elif cmd == "log":
+        n = int(sys.argv[2]) if len(sys.argv) > 2 else 20
+        if LOG.exists():
+            for line in LOG.read_text().splitlines()[-n:]:
+                try: e = json.loads(line)
+                except: continue
+                mark = f"{G}✓{N}" if e.get("ok") else f"{R}✗{N}"
+                print(f"  {e.get('ts','?')[:19]} {mark} {e.get('source','?'):14s} {e.get('action','')[:50]}")
+    elif cmd == "daemon":
+        iv = int(sys.argv[2]) if len(sys.argv) > 2 else 900
+        print(f"Self-heal daemon, interval={iv}s")
+        auto_loop(iv)

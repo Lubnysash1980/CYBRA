@@ -1,0 +1,90 @@
+{
+  "at": "2026-10-13T08:16:51Z",
+  "duration_ms": 34054,
+  "rounds": [
+    {
+      "round": 1,
+      "ok": false,
+      "actions": [
+        "heal_controllers",
+        "heal_health",
+        "heal_completion",
+        "heal_processes"
+      ],
+      "devs": 1,
+      "health": 62,
+      "completion": 98.3,
+      "controllers_ok": 0,
+      "controllers_total": 1
+    },
+    {
+      "round": 2,
+      "ok": false,
+      "actions": [
+        "heal_controllers",
+        "heal_health",
+        "heal_completion",
+        "heal_processes"
+      ],
+      "devs": 1,
+      "health": 62,
+      "completion": 98.3,
+      "controllers_ok": 0,
+      "controllers_total": 1
+    },
+    {
+      "round": 3,
+      "ok": false,
+      "actions": [
+        "heal_controllers",
+        "heal_health",
+        "heal_completion",
+        "heal_processes"
+      ],
+      "devs": 1,
+      "health": 62,
+      "completion": 98.3,
+      "controllers_ok": 0,
+      "controllers_total": 1
+    },
+    {
+      "round": 4,
+      "ok": false,
+      "actions": [
+        "heal_controllers",
+        "heal_health",
+        "heal_completion",
+        "heal_processes"
+      ],
+      "devs": 1,
+      "health": 62,
+      "completion": 98.3,
+      "controllers_ok": 0,
+      "controllers_total": 1
+    },
+    {
+      "round": 5,
+      "ok": false,
+      "actions": [
+        "heal_controllers",
+        "heal_health",
+        "heal_completion",
+        "heal_processes"
+      ],
+      "devs": 1,
+      "health": 62,
+      "completion": 98.3,
+      "controllers_ok": 0,
+      "controllers_total": 1
+    }
+  ],
+  "final": {
+    "ts": "2026-10-13T08:16:51Z",
+    "ts_unix": 1791879411,
+    "health": 62,
+    "completion": 98.3,
+    "processes_offline": 2,
+    "disk_free_mb": 48399
+  },
+  "all_ok": false
+}

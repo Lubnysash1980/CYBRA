@@ -1,0 +1,235 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# ═══════════════════════════════════════════════════════════
+# CYBRA BINMIX v2 — daemon + snapshot by timestamp
+# ═══════════════════════════════════════════════════════════
+ROOT="$HOME/CYBRA"
+Q="$ROOT/.binmix/q"
+R="$ROOT/.binmix/r"
+L="$ROOT/.binmix/log"
+PID="$ROOT/.binmix/pid"
+SNAP="$ROOT/hashes/snapshots"
+mkdir -p "$Q" "$R" "$L" "$SNAP"
+
+MAX_LOG=100000
+MAX_FILES=3
+SNAP_INTERVAL=60   # секунд між авто-snapshot
+
+# ─── Log rotation ───
+log() {
+    local f="$L/run.log"
+    [ -f "$f" ] && [ "$(wc -c < "$f")" -gt "$MAX_LOG" ] && {
+        mv "$f" "$f.1" 2>/dev/null
+        [ -f "$f.1" ] && [ "$(wc -c < "$f.1")" -gt "$MAX_LOG" ] && mv "$f.1" "$f.2" 2>/dev/null
+        rm -f "$f.$MAX_FILES" 2>/dev/null
+    }
+    printf '%s | %s\n' "$(date -u +%H:%M:%S)" "$*" >> "$f"
+}
+
+# ─── Snapshot по timestamp ───
+do_snapshot() {
+    local ts="$(date -u +%Y%m%dT%H%M%SZ)"
+    local out="$SNAP/bm_${ts}.env"
+
+    # Викликати hash ecosystem і витягти чисто
+    local ultra=""
+    if [ -x "$ROOT/cybra_hash.sh" ]; then
+        ultra="$("$ROOT/cybra_hash.sh" layers 2>&1 | grep -m1 'ULTRA=' | cut -d= -f2)"
+    fi
+    [ -z "$ultra" ] && ultra="NOHASH"
+
+    # Модулі count
+    local mcount=0
+    for d in "$ROOT/modules"/*/; do
+        [ -d "$d" ] || continue
+        m="$(basename "$d")"
+        case "$m" in @*|.*|_disabled*|evolution|answer_engine|node_modules) continue;; esac
+        mcount=$((mcount+1))
+    done
+
+    # Git state
+    local gcommit=""
+    [ -d "$ROOT/git_module/.git" ] && \
+        gcommit="$(cd "$ROOT/git_module" && git rev-parse HEAD 2>/dev/null | head -c 12)"
+
+    # Записати snapshot
+    {
+        printf 'TS=%s\n' "$ts"
+        printf 'ULTRA=%s\n' "$ultra"
+        printf 'MODULES=%s\n' "$mcount"
+        printf 'GIT=%s\n' "$gcommit"
+        printf 'PID=%s\n' "$(cat "$PID" 2>/dev/null)"
+    } > "$out"
+
+    # Посилання на попередній (chain)
+    local prev="$(ls -t "$SNAP"/bm_*.env 2>/dev/null | tail -2 | head -1)"
+    if [ -n "$prev" ] && [ -f "$prev" ]; then
+        local prev_ultra="$(grep '^ULTRA=' "$prev" | cut -d= -f2)"
+        printf 'PREV_ULTRA=%s\n' "$prev_ultra" >> "$out"
+        local link_hash="$(printf '%s|%s' "$prev_ultra" "$ultra" | sha256sum | awk '{print $1}')"
+        printf 'CHAIN_LINK=%s\n' "$link_hash" >> "$out"
+    fi
+
+    # Ротація — 100 останніх
+    ls -t "$SNAP"/bm_*.env 2>/dev/null | tail -n +101 | xargs -r rm -f
+
+    printf '%s' "$ultra"
+}
+
+# ─── Обробка запиту ───
+process() {
+    local id="$1" cmd="$2"
+
+    case "$cmd" in
+        ping)      echo "pong $(date +%s)" ;;
+        status)
+            local m=$(ls "$ROOT/modules" 2>/dev/null | wc -l)
+            local q=$(ls "$Q" 2>/dev/null | wc -l)
+            local r=$(ls "$R" 2>/dev/null | wc -l)
+            local s=$(ls "$SNAP"/bm_*.env 2>/dev/null | wc -l)
+            echo "mods=$m q=$q r=$r snap=$s pid=$(cat "$PID" 2>/dev/null)"
+            ;;
+        hash)
+            local ultra=""
+            [ -x "$ROOT/cybra_hash.sh" ] && \
+                ultra="$("$ROOT/cybra_hash.sh" layers 2>&1 | grep -m1 'ULTRA=' | cut -d= -f2)"
+            echo "${ultra:-NOHASH}"
+            ;;
+        snapshot)
+            do_snapshot
+            ;;
+        chain)
+            # Показати останні 5 snapshot + chain links
+            ls -t "$SNAP"/bm_*.env 2>/dev/null | head -5 | while read f; do
+                local ts="$(grep '^TS=' "$f" | cut -d= -f2)"
+                local u="$(grep '^ULTRA=' "$f" | cut -d= -f2)"
+                local c="$(grep '^CHAIN_LINK=' "$f" | cut -d= -f2)"
+                printf '%s ultra=%.12s chain=%.12s\n' "$ts" "$u" "$c"
+            done
+            ;;
+        push)
+            cd "$ROOT/git_module" 2>/dev/null || { echo "no git"; return; }
+            # Перед push — snapshot
+            do_snapshot >/dev/null
+            mkdir -p hashes/snapshots
+            cp "$SNAP"/bm_*.env hashes/snapshots/ 2>/dev/null
+            git add hashes/ 2>/dev/null
+            if [ -n "$(git status --porcelain hashes/ 2>/dev/null)" ]; then
+                git commit -m "binmix push $(date -u +%Y%m%dT%H%M%SZ)" 2>&1 | tail -1
+            fi
+            git push origin main 2>&1 | tail -1
+            ;;
+        check)
+            "$ROOT/cybra_node.sh" check 2>&1 | tail -1
+            ;;
+        help|*)
+            echo "usage: ping|status|hash|snapshot|chain|push|check"
+            ;;
+    esac
+}
+
+# ─── Client ───
+request() {
+    local cmd="$1"
+    local id="$(date +%s%N)"
+    printf '%s' "$cmd" > "$Q/$id"
+    local i=0
+    while [ "$i" -lt 150 ]; do  # 15 сек timeout
+        [ -f "$R/$id" ] && { cat "$R/$id"; rm -f "$R/$id"; return 0; }
+        sleep 0.1
+        i=$((i+1))
+    done
+    echo "TIMEOUT"
+    rm -f "$Q/$id"
+    return 1
+}
+
+# ─── Daemon loop ───
+daemon() {
+    trap 'rm -f "$PID"; exit 0' TERM INT
+    echo $$ > "$PID"
+    log "START pid=$$"
+
+    local last_snap=0
+
+    while true; do
+        # Обробка черги
+        for f in "$Q"/*; do
+            [ -f "$f" ] || continue
+            local id="$(basename "$f")"
+            local cmd="$(cat "$f" 2>/dev/null)"
+            rm -f "$f"
+            local out="$(process "$id" "$cmd")"
+            printf '%s' "$out" > "$R/$id"
+            # Обрізати лог (щоб не писати весь snapshot)
+            log "REQ $cmd → $(printf '%s' "$out" | head -c 100)"
+        done
+
+        # Авто-snapshot кожні SNAP_INTERVAL сек
+        local now=$(date +%s)
+        if [ $((now - last_snap)) -ge "$SNAP_INTERVAL" ]; then
+            local ultra="$(do_snapshot)"
+            log "SNAP auto ultra=${ultra:0:16}"
+            last_snap=$now
+        fi
+
+        sleep 0.5
+    done
+}
+
+# ─── CLI ───
+case "${1:-help}" in
+    start)
+        [ -f "$PID" ] && kill -0 "$(cat "$PID")" 2>/dev/null && {
+            echo "already running PID=$(cat "$PID")"; exit 1; }
+        nohup bash -c "source '$0'; daemon" >/dev/null 2>&1 &
+        sleep 0.5
+        echo "started PID=$(cat "$PID")"
+        ;;
+    stop)
+        [ -f "$PID" ] && kill "$(cat "$PID")" 2>/dev/null
+        rm -f "$PID"
+        echo "stopped"
+        ;;
+    status)
+        [ -f "$PID" ] && kill -0 "$(cat "$PID")" 2>/dev/null \
+            && echo "RUNNING PID=$(cat "$PID")" || echo "STOPPED"
+        echo "queue: $(ls "$Q" 2>/dev/null | wc -l) pending"
+        echo "snapshots: $(ls "$SNAP"/bm_*.env 2>/dev/null | wc -l)"
+        ;;
+    log)
+        tail -20 "$L/run.log" 2>/dev/null
+        ;;
+    clean)
+        rm -rf "$Q"/* "$R"/*
+        echo "queue cleared"
+        ;;
+    ping|status|hash|snapshot|chain|push|check)
+        [ -f "$PID" ] && kill -0 "$(cat "$PID")" 2>/dev/null \
+            && request "$1" || process "0" "$1"
+        ;;
+    *)
+        cat <<USAGE
+CYBRA BINMIX v2
+
+  start     — запустити демон
+  stop      — зупинити
+  status    — стан
+  log       — логи
+
+  # Запити:
+  ping      — перевірка
+  status    — модулі + черга + snapshots
+  hash      — поточний ULTRA
+  snapshot  — створити snapshot зараз
+  chain     — ланцюг останніх 5 snapshot
+  check     — node check
+  push      — snapshot + git push
+
+  clean     — очистити чергу
+
+Авто-snapshot: кожні $SNAP_INTERVAL сек
+Snapshot: $SNAP/bm_<timestamp>.env
+Chain: кожен snapshot посилається на попередній
+USAGE
+        ;;
+esac

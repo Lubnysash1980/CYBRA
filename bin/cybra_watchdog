@@ -1,0 +1,130 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# CYBRA WATCHDOG — супервізор для evoctl + parawatch
+# Якщо процес впав — перезапускає
+
+ROOT="$HOME/CYBRA"
+LOGS="$ROOT/logs"
+PIDFILE="$ROOT/.watchdog.pid"
+WD_LOG="$LOGS/watchdog.log"
+
+EVOCTL_PID="$ROOT/.evo_ctl.pid"
+PARAWATCH_PID="$ROOT/.parawatch.pid"
+EVOCTL_BIN="$ROOT/bin/cybra_evo_ctl"
+PARAWATCH_BIN="$ROOT/bin/cybra_parawatch"
+
+mkdir -p "$LOGS"
+
+if [ -t 1 ]; then
+    G=$'\033[32m'; Y=$'\033[33m'; R=$'\033[31m'
+    B=$'\033[1m'; C=$'\033[36m'; Z=$'\033[0m'
+else
+    G=""; Y=""; R=""; B=""; C=""; Z=""
+fi
+
+log() { printf '%s | %s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$*" >> "$WD_LOG"; }
+
+# ─── Перевірка і рестарт одного процесу ───
+ensure_running() {
+    local name="$1"
+    local pidfile="$2"
+    local cmd="$3"
+
+    if [ -f "$pidfile" ]; then
+        local pid="$(cat "$pidfile" 2>/dev/null)"
+        if [ -n "$pid" ] && kill -0 "$pid" 2>/dev/null; then
+            return 0   # OK
+        fi
+        # Stale pidfile
+        rm -f "$pidfile"
+    fi
+
+    # Запускаємо
+    log "RESTART: $name"
+    ( "$cmd" start >/dev/null 2>&1 ) || true
+
+    if [ -f "$pidfile" ]; then
+        local new_pid="$(cat "$pidfile" 2>/dev/null)"
+        log "STARTED: $name PID=$new_pid"
+        return 0
+    fi
+    log "FAILED: $name"
+    return 1
+}
+
+# ─── Основна петля ───
+loop() {
+    while true; do
+        ensure_running "evo_ctl"   "$EVOCTL_PID"    "$EVOCTL_BIN"    2>/dev/null
+        ensure_running "parawatch" "$PARAWATCH_PID" "$PARAWATCH_BIN" 2>/dev/null
+        sleep 120
+    done
+}
+
+# ─── Команди ───
+case "${1:-status}" in
+    start|s)
+        if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
+            printf '  %s[!]%s watchdog вже запущено (PID %s)\n' "$Y" "$Z" "$(cat "$PIDFILE")"
+            exit 1
+        fi
+
+        printf '  %s→%s запуск watchdog у фоні...\n' "$C" "$Z"
+        nohup bash -c "source '$0'; loop" >/dev/null 2>&1 &
+        echo $! > "$PIDFILE"
+        printf '  %s[✓]%s watchdog PID=%s\n' "$G" "$Z" "$(cat "$PIDFILE")"
+        log "WATCHDOG_STARTED pid=$(cat "$PIDFILE")"
+        ;;
+
+    stop|S)
+        [ ! -f "$PIDFILE" ] && { printf '  %s[!]%s не запущено\n' "$Y" "$Z"; exit 1; }
+        _pid="$(cat "$PIDFILE")"
+        kill "$_pid" 2>/dev/null
+        rm -f "$PIDFILE"
+        printf '  %s[✓]%s зупинено (PID %s)\n' "$G" "$Z" "$_pid"
+        log "WATCHDOG_STOPPED pid=$_pid"
+        ;;
+
+    status|st)
+        printf '%s═══ WATCHDOG STATUS ═══%s\n\n' "$B$C" "$Z"
+
+        if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
+            printf '  %s[✓]%s watchdog RUNNING (PID %s)\n' "$G" "$Z" "$(cat "$PIDFILE")"
+        else
+            printf '  %s[·]%s watchdog STOPPED\n' "$Y" "$Z"
+        fi
+
+        for p in evo_ctl parawatch; do
+            _pf="$ROOT/.${p}.pid"
+            if [ -f "$_pf" ] && kill -0 "$(cat "$_pf")" 2>/dev/null; then
+                printf '  %s[✓]%s %-12s RUNNING (PID %s)\n' "$G" "$Z" "$p" "$(cat "$_pf")"
+            else
+                printf '  %s[✗]%s %-12s STOPPED\n' "$R" "$Z" "$p"
+            fi
+        done
+
+        printf '\n  Останні 10 подій watchdog:\n'
+        tail -10 "$WD_LOG" 2>/dev/null | sed 's/^/    /' || printf '    (порожньо)\n'
+        printf '\n'
+        ;;
+
+    once|o)
+        printf '  → одна перевірка...\n'
+        ensure_running "evo_ctl"   "$EVOCTL_PID"    "$EVOCTL_BIN"    2>/dev/null
+        ensure_running "parawatch" "$PARAWATCH_PID" "$PARAWATCH_BIN" 2>/dev/null
+        printf '  [✓] done\n'
+        ;;
+
+    *)
+        cat <<USAGE
+Usage: cybra_watchdog [command]
+
+  start    — запустити у фоні (перевірка кожні 120с)
+  stop     — зупинити
+  status   — статус
+  once     — одна перевірка
+
+Перевіряє evoctl + parawatch. Рестартує якщо впали.
+Log: $WD_LOG
+USAGE
+        ;;
+esac

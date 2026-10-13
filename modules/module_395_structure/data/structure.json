@@ -1,0 +1,75 @@
+{
+  "at": "2026-10-12T22:48:21Z",
+  "files": {
+    "modules/module_19_contract_tui_menu/bin/cybra_menu.sh": {
+      "hash": "f8fdcfb894383eadd1f68ff7964c0d63b58a9c7ae6605a5ac3795cb98d879f65",
+      "size": 46987
+    },
+    "modules/module_108_metamask_sign/main.sh": {
+      "hash": "a2a2df0d7763c89e1912a90d3d96eb74e59996811d078f3ff366e61d824a9acd",
+      "size": 7208
+    },
+    "modules/module_114_autonode/daemon.py": {
+      "hash": "a8b526e79a1142ff75b26d9984a5bc0547b8a9d3548b8e2fa64096d1a3ba432f",
+      "size": 12003
+    },
+    "modules/module_121_parlament/parliament.py": {
+      "hash": "ca1c1dfa97027cbb984a8f68584ace0bdd282df7c0959dba4a5c2c5580631782",
+      "size": 17736
+    },
+    "modules/module_121_parlament/health.py": {
+      "hash": "bb2eb0ffe5dc97aa0b3602078c17af4524ee71d1c12baadd80934b79d9a92984",
+      "size": 7134
+    },
+    "modules/module_121_parlament/controller_gate.py": {
+      "hash": "23206812f544e84b9c006ccf99e20ce59219d310b2cd2c9b5ac1189583f09855",
+      "size": 2332
+    },
+    "modules/module_320_controllers/controllers.py": {
+      "hash": "e6aa9960dd2db45520a91645f8cbf1ce7f29ce78bd232b4279b739edb5e26b80",
+      "size": 9345
+    },
+    "modules/module_330_selfheal/engine.py": {
+      "hash": "22402d3d885bbed590fd6d06b1f41dfce6ba92bb123b8d3c0b82b0dc9248eb13",
+      "size": 14709
+    },
+    "modules/module_350_controller_worker/worker.py": {
+      "hash": "77c9610b9ea7b8e277ef67ca3919f03d5f2faccd055479eba77b7b4b0eaa2449",
+      "size": 12700
+    },
+    "modules/module_360_mapping/mapping.py": {
+      "hash": "b2aa2e0dbbf5b9f1ef2cfb1b8af19cbdd527c7759ebe1272584b54643628946e",
+      "size": 27848
+    },
+    "modules/module_380_sic/sic.py": {
+      "hash": "a93242d1ba9300da0b6304f823c998adaee3f1679c4d0a196f843291429c3b9e",
+      "size": 21934
+    },
+    "modules/module_390_src/src.py": {
+      "hash": "86b24ca5a74a988ed70f34dc8eb73881779eb130d3aaabdcad79b0d2cdcf83dd",
+      "size": 15388
+    },
+    "config/networks.json": {
+      "hash": "8160703ad2c81c65ab7b4fc94a8a189ad478ce146455d8d987d0608f69681b17",
+      "size": 2552
+    },
+    "config/metamask.env": {
+      "hash": "13c1dba2fa3f4d97db1e51fa42c32521e4589f61c674457df91f51c1e1912512",
+      "size": 133
+    },
+    "config/pm_processes.json": {
+      "hash": "9c1726fa5f888d1cf234e9f7ecd1878a6857359efe3020023419bba101ab2e7f",
+      "size": 2424
+    },
+    "../.cybra_src/bootstrap_seed.sh": {
+      "hash": "8c51e6f25a8d6eab11b1d8dc8fe534f458a10f7b3d3d208ad6ab42401c99f88d",
+      "size": 1204
+    },
+    "../.cybra_src/checkpoint.json": {
+      "hash": "4adb738ac50c9daa4fa98647a65516b2bfcd6862bd7412cfcbe2f35bef468a5f",
+      "size": 126
+    }
+  },
+  "missing": [],
+  "extra_critical": []
+}

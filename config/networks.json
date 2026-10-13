@@ -1,0 +1,96 @@
+{
+  "current": "bsc_testnet",
+  "networks": {
+    "bsc_mainnet": {
+      "name": "BSC Mainnet",
+      "chain_id": 56,
+      "symbol": "BNB",
+      "explorer": "https://bscscan.com",
+      "faucet": null,
+      "rpc_http": [
+        "https://bsc-dataseed.binance.org",
+        "https://bsc-dataseed1.binance.org",
+        "https://bsc-dataseed1.defibit.io",
+        "https://bsc-dataseed1.ninicoin.io"
+      ],
+      "rpc_ws": [
+        "wss://bsc-ws-node.nariox.org:443"
+      ],
+      "type": "mainnet",
+      "is_paid": true
+    },
+    "bsc_testnet": {
+      "name": "BSC Testnet",
+      "chain_id": 97,
+      "symbol": "tBNB",
+      "explorer": "https://testnet.bscscan.com",
+      "faucet": "https://testnet.bnbchain.org/faucet-smart",
+      "rpc_http": [
+        "https://bsc-testnet.drpc.org",
+        "https://bsc-testnet.bnbchain.org"
+      ],
+      "rpc_ws": [
+        "wss://bsc-testnet.publicnode.com"
+      ],
+      "type": "testnet",
+      "is_paid": false
+    },
+    "eth_mainnet": {
+      "name": "Ethereum Mainnet",
+      "chain_id": 1,
+      "symbol": "ETH",
+      "explorer": "https://etherscan.io",
+      "faucet": null,
+      "rpc_http": [
+        "https://rpc.flashbots.net",
+        "https://ethereum-rpc.publicnode.com"
+      ],
+      "rpc_ws": [],
+      "type": "mainnet",
+      "is_paid": true
+    },
+    "eth_sepolia": {
+      "name": "Ethereum Sepolia",
+      "chain_id": 11155111,
+      "symbol": "SepoliaETH",
+      "explorer": "https://sepolia.etherscan.io",
+      "faucet": "https://sepoliafaucet.com",
+      "rpc_http": [
+        "https://sepolia.drpc.org"
+      ],
+      "rpc_ws": [
+        "wss://ethereum-sepolia.publicnode.com"
+      ],
+      "type": "testnet",
+      "is_paid": false
+    },
+    "polygon_mainnet": {
+      "name": "Polygon Mainnet",
+      "chain_id": 137,
+      "symbol": "MATIC",
+      "explorer": "https://polygonscan.com",
+      "faucet": null,
+      "rpc_http": [
+        "https://polygon-bor-rpc.publicnode.com",
+        "https://polygon.drpc.org"
+      ],
+      "rpc_ws": [],
+      "type": "mainnet",
+      "is_paid": true
+    },
+    "polygon_amoy": {
+      "name": "Polygon Amoy",
+      "chain_id": 80002,
+      "symbol": "MATIC",
+      "explorer": "https://amoy.polygonscan.com",
+      "faucet": "https://faucet.polygon.technology",
+      "rpc_http": [
+        "https://polygon-amoy-bor-rpc.publicnode.com",
+        "https://polygon-amoy.drpc.org"
+      ],
+      "rpc_ws": [],
+      "type": "testnet",
+      "is_paid": false
+    }
+  }
+}

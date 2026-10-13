@@ -1,0 +1,287 @@
+#!/usr/bin/env python3
+import json, os, sys, time, signal, datetime, threading
+from datetime import timezone
+import urllib.request, urllib.error
+
+ROOT = os.path.dirname(os.path.abspath(__file__))
+H = os.path.expanduser("~/CYBRA")
+RUN_DIR = os.path.join(H, "run")
+LOG = os.path.join(H, "logs", "autonode.log")
+STATUS = os.path.join(RUN_DIR, "autonode.json")
+EVENTS = os.path.join(RUN_DIR, "autonode_events.jsonl")
+# Читаємо з глобального config/networks.json якщо є
+GLOBAL_NET = os.path.join(os.path.expanduser("~/CYBRA"), "config", "networks.json")
+if os.path.exists(GLOBAL_NET):
+    CFG = GLOBAL_NET
+else:
+    CFG = os.path.join(ROOT, "networks.json")
+WATCH = os.path.join(ROOT, "watch.json")
+TG = os.path.join(H, "config", "telegram.env")
+
+RUN = True
+def stop(*a):
+    global RUN; RUN = False
+signal.signal(signal.SIGTERM, stop); signal.signal(signal.SIGINT, stop)
+
+def log(m):
+    ts = datetime.datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    line = f"{ts} {m}"; print(line, flush=True)
+    try:
+        with open(LOG, "a") as f: f.write(line + "\n")
+        if os.path.getsize(LOG) > 5_000_000:
+            with open(LOG) as f: d = f.readlines()
+            with open(LOG, "w") as f: f.writelines(d[-2000:])
+    except Exception: pass
+
+def notify(title, body):
+    os.system(f'termux-notification --title "{title}" --content "{body}" 2>/dev/null &')
+
+def tg_send(text):
+    try:
+        if not os.path.isfile(TG): return
+        env = {}
+        for line in open(TG):
+            line = line.strip()
+            if "=" in line and not line.startswith("#"):
+                k, v = line.split("=", 1)
+                env[k.strip()] = v.strip().strip('"').strip("'")
+        token = env.get("TG_TOKEN"); chat = env.get("TG_CHAT")
+        if not token or not chat: return
+        data = json.dumps({"chat_id": chat, "text": text, "parse_mode": "Markdown"}).encode()
+        req = urllib.request.Request(
+            f"https://api.telegram.org/bot{token}/sendMessage",
+            data=data, headers={"Content-Type": "application/json"})
+        urllib.request.urlopen(req, timeout=8).read()
+    except Exception as e:
+        log(f"tg error: {e}")
+
+def alert(title, body):
+    notify(title, body)
+    tg_send(f"*{title}*\n{body}")
+
+def event(ev):
+    ev["ts"] = datetime.datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    try:
+        with open(EVENTS, "a") as f: f.write(json.dumps(ev) + "\n")
+        if os.path.getsize(EVENTS) > 2_000_000:
+            with open(EVENTS) as f: d = f.readlines()
+            with open(EVENTS, "w") as f: f.writelines(d[-1000:])
+    except Exception: pass
+
+def write_status(d):
+    os.makedirs(RUN_DIR, exist_ok=True)
+    tmp = STATUS + ".tmp"
+    with open(tmp, "w") as f: json.dump(d, f, indent=2)
+    os.replace(tmp, STATUS)
+
+UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+
+def rpc(url, method, params=None, timeout=10):
+    payload = json.dumps({"jsonrpc":"2.0","id":1,"method":method,"params":params or []}).encode()
+    req = urllib.request.Request(url, data=payload,
+        headers={"Content-Type":"application/json", "User-Agent": UA,
+                 "Accept": "application/json"}, method="POST")
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+        return json.loads(r.read())
+
+def try_endpoint(url):
+    t0 = time.time()
+    try:
+        r = rpc(url, "eth_blockNumber")
+        return int(r["result"], 16), int((time.time()-t0)*1000)
+    except Exception as e:
+        log(f"  ✗ {url}: {e}")
+        return None
+
+def load_watch():
+    try:
+        w = json.load(open(WATCH))
+        return [a for a in w.get("addresses", []) if a.get("addr")]
+    except Exception: return []
+
+def check_watch(addr, networks, seen_blocks):
+    """Перевіряє баланс і nonce для адреси. Повертає (balance, nonce) по мережі."""
+    out = {}
+    for net in networks:
+        net_cfg = NET_CFG.get(net)
+        if not net_cfg: continue
+        for url in net_cfg["rpc_http"][:2]:
+            try:
+                b = rpc(url, "eth_getBalance", [addr, "latest"])
+                n = rpc(url, "eth_getTransactionCount", [addr, "latest"])
+                out[net] = {
+                    "balance_wei": int(b["result"], 16),
+                    "nonce": int(n["result"], 16)
+                }
+                break
+            except Exception: continue
+    return out
+
+NET_CFG = {}
+STATE = {}
+
+def auto_recover():
+    """Пробує знайти робочі endpoints зі списку якщо всі мертві."""
+    import urllib.request
+    UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/120"
+    candidates = {
+        "bsc_mainnet": ["https://bsc-dataseed.binance.org", "https://bsc-dataseed1.binance.org",
+                        "https://bsc-dataseed1.defibit.io", "https://bsc-dataseed1.ninicoin.io"],
+        "eth_mainnet": ["https://rpc.flashbots.net", "https://eth.llamarpc.com",
+                        "https://ethereum-rpc.publicnode.com"],
+        "polygon_mainnet": ["https://polygon-bor-rpc.publicnode.com", "https://polygon.drpc.org"],
+        "bsc_testnet": ["https://bsc-testnet.bnbchain.org", "https://bsc-testnet.drpc.org"],
+        "eth_sepolia": ["https://ethereum-sepolia-rpc.publicnode.com", "https://sepolia.drpc.org"],
+        "polygon_amoy": ["https://polygon-amoy-bor-rpc.publicnode.com", "https://polygon-amoy.drpc.org"],
+    }
+    cfg = json.load(open(CFG))
+    changed = 0
+    for net_name, urls in candidates.items():
+        if net_name not in cfg["networks"]: continue
+        alive = []
+        for url in urls:
+            try:
+                body = json.dumps({"jsonrpc":"2.0","id":1,"method":"eth_blockNumber","params":[]}).encode()
+                req = urllib.request.Request(url, data=body,
+                    headers={"Content-Type":"application/json","User-Agent":UA}, method="POST")
+                with urllib.request.urlopen(req, timeout=6) as r:
+                    d = json.loads(r.read())
+                    if "result" in d: alive.append(url)
+            except Exception: pass
+        if alive and alive != cfg["networks"][net_name]["rpc_http"]:
+            cfg["networks"][net_name]["rpc_http"] = alive
+            changed += 1
+            log(f"  auto_recover [{net_name}]: {len(alive)} endpoints")
+    if changed:
+        json.dump(cfg, open(CFG, "w"), indent=2, ensure_ascii=False)
+        log(f"  ✓ auto_recover: {changed} мереж оновлено")
+    return changed
+
+def main():
+    global NET_CFG
+    cfg = json.load(open(CFG))
+    NET_CFG = cfg["networks"]
+    nets = list(NET_CFG.keys())
+    poll_active = cfg.get("poll_active_sec", 3)
+    poll_idle = cfg.get("poll_idle_sec", 30)
+    health_sec = cfg.get("health_sec", 60)
+    backoff_max = cfg.get("reconnect_backoff_max", 300)
+
+    log(f"═══ AUTONODE v2 START · networks: {','.join(nets)} ═══")
+    # автоперевірка + відновлення endpoints
+    try:
+        auto_recover()
+    except Exception as e:
+        log(f"  auto_recover err: {e}")
+
+    # стан по кожній мережі
+    for net in nets:
+        STATE[net] = {
+            "endpoint": None, "idx": 0, "fails": 0,
+            "block": None, "prev_block": None,
+            "latency_ms": None, "last_ok": None,
+            "started": time.time(),
+            "endpoint_fails": {},   # url → [timestamps]
+        }
+
+    watch = load_watch()
+    log(f"watch: {len(watch)} адрес")
+
+    last_health = 0
+    last_watch_check = 0
+
+    while RUN:
+        now = time.time()
+        any_active = False
+        summary = {"state": "connected", "networks": {}, "watch_count": len(watch)}
+
+        for net in nets:
+            s = STATE[net]; nc = NET_CFG[net]
+            eps = nc["rpc_http"]
+            url = eps[s["idx"] % len(eps)]
+            res = try_endpoint(url)
+
+            if res:
+                blk, lat = res
+                if s["endpoint"] != url:
+                    if s["endpoint"] is not None:
+                        log(f"[{net}] switch → {url}")
+                        alert(f"AutoNode · {nc['name']}", f"Switched to {url}")
+                    s["endpoint"] = url; s["fails"] = 0
+                s["prev_block"] = s["block"]
+                s["block"] = blk; s["latency_ms"] = lat
+                s["last_ok"] = now
+
+                # нова транзакція у watch? — перевірка
+                if s["prev_block"] is not None and blk > s["prev_block"]:
+                    any_active = True
+                    if watch and (now - last_watch_check > 15):
+                        last_watch_check = now
+                        for w in watch:
+                            nets_w = w.get("networks", [net])
+                            if net not in nets_w: continue
+                            try:
+                                b = rpc(url, "eth_getBalance", [w["addr"], "latest"])
+                                bal = int(b["result"], 16)
+                                prev = w.get("_last_balance", {}).get(net)
+                                if prev is not None and bal != prev:
+                                    diff = bal - prev
+                                    sign = "+" if diff > 0 else ""
+                                    msg = f"`{w['label']}` ({net})\nBalance: {sign}{diff/1e18:.6f} {nc['symbol']}\nBlock: {blk}"
+                                    alert(f"Balance changed · {w['label']}", msg.replace('`',''))
+                                    event({"type":"balance_change","addr":w["addr"],
+                                           "net":net,"old":prev,"new":bal,"block":blk})
+                                w.setdefault("_last_balance", {})[net] = bal
+                            except Exception as e:
+                                log(f"watch err {w['addr']}: {e}")
+
+                summary["networks"][net] = {
+                    "name": nc["name"], "chain_id": nc["chain_id"],
+                    "endpoint": url, "block": blk, "latency_ms": lat,
+                    "fails": 0, "state": "ok"
+                }
+            else:
+                s["fails"] += 1
+                s["idx"] += 1
+                log(f"[{net}] fail #{s['fails']} на {url}")
+                if s["fails"] in (1, 5, 10):
+                    alert(f"AutoNode · {nc['name']} down",
+                          f"Endpoint {url} недоступний (fails={s['fails']})")
+                summary["networks"][net] = {
+                    "name": nc["name"], "chain_id": nc["chain_id"],
+                    "endpoint": url, "block": s["block"],
+                    "latency_ms": None, "fails": s["fails"],
+                    "state": "reconnecting"
+                }
+
+        # визначаємо глобальний state
+        nets_ok = sum(1 for s in STATE.values() if s.get("latency_ms"))
+        nets_total = len(STATE)
+        if nets_ok == nets_total:
+            summary["state"] = "ok"
+        elif nets_ok > 0:
+            summary["state"] = "degraded"
+        else:
+            summary["state"] = "down"
+        summary["nets_ok"] = nets_ok
+        summary["nets_total"] = nets_total
+        summary["uptime_sec"] = int(now - min(s["started"] for s in STATE.values()))
+        summary["ts"] = datetime.datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        write_status(summary)
+
+        if now - last_health > health_sec:
+            last_health = now
+            avg_lat = [s["latency_ms"] for s in STATE.values() if s["latency_ms"]]
+            if avg_lat:
+                log(f"♥ ok nets={sum(1 for s in STATE.values() if s['latency_ms'])}/{len(nets)} "
+                    f"avg_latency={sum(avg_lat)//len(avg_lat)}ms")
+
+        time.sleep(poll_active if any_active else poll_idle)
+
+    write_status({"state": "stopped"})
+    log("═══ AUTONODE STOP ═══")
+
+if __name__ == "__main__":
+    try: main()
+    except Exception as e:
+        log(f"FATAL: {e}"); raise

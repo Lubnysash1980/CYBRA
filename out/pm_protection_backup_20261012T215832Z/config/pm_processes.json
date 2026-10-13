@@ -1,0 +1,69 @@
+{
+  "supervisor": {
+    "check_interval_sec": 60,
+    "max_restart_per_hour": 5,
+    "restart_delay_sec": 15
+  },
+  "processes": {
+    "supervisor": {
+      "name": "supervisor",
+      "desc": "PM supervisor",
+      "cmd": "python3 $HOME/CYBRA/modules/module_300_pm/supervisor.py loop",
+      "cwd": "$HOME/CYBRA",
+      "pid_file": "$HOME/CYBRA/run/pm_supervisor.pid",
+      "log_file": "$HOME/CYBRA/logs/pm.log",
+      "auto_restart": false,
+      "enabled": true,
+      "mode": "daemon",
+      "match_pattern": "module_300_pm/supervisor.py loop"
+    },
+    "autonode": {
+      "name": "autonode",
+      "desc": "AutoNode — 6 мереж",
+      "cmd": "python3 $HOME/CYBRA/modules/module_114_autonode/daemon.py",
+      "cwd": "$HOME/CYBRA",
+      "pid_file": "$HOME/CYBRA/run/autonode.pid",
+      "log_file": "$HOME/CYBRA/logs/autonode.log",
+      "auto_restart": true,
+      "enabled": true,
+      "mode": "daemon",
+      "match_pattern": "module_114_autonode/daemon.py"
+    },
+    "watchdog": {
+      "name": "watchdog",
+      "desc": "Watchdog — evolve + health",
+      "cmd": "bash $HOME/CYBRA/modules/module_121_parlament/watchdog.sh daemon",
+      "cwd": "$HOME/CYBRA",
+      "pid_file": "$HOME/CYBRA/run/pm_watchdog.pid",
+      "log_file": "$HOME/CYBRA/logs/parlament.log",
+      "auto_restart": true,
+      "enabled": true,
+      "mode": "daemon",
+      "match_pattern": "parlament/watchdog.sh daemon"
+    },
+    "selfheal": {
+      "name": "selfheal",
+      "desc": "Self-Heal",
+      "cmd": "python3 $HOME/CYBRA/modules/module_330_selfheal/engine.py daemon 900",
+      "cwd": "$HOME/CYBRA",
+      "pid_file": "$HOME/CYBRA/run/pm_selfheal.pid",
+      "log_file": "$HOME/CYBRA/logs/selfheal.log",
+      "auto_restart": true,
+      "enabled": true,
+      "mode": "daemon",
+      "match_pattern": "module_330_selfheal/engine.py daemon"
+    },
+    "pid_security_controller": {
+      "name": "pid_security_controller",
+      "desc": "PID Security Controller — observe and verify",
+      "cmd": "python3 $HOME/CYBRA/modules/module_412_pid_security/pid_security_controller.py daemon",
+      "cwd": "$HOME/CYBRA",
+      "pid_file": "$HOME/CYBRA/run/pid_security_controller.pid",
+      "log_file": "$HOME/CYBRA/logs/pid_security_controller.log",
+      "auto_restart": true,
+      "enabled": true,
+      "mode": "daemon",
+      "match_pattern": "module_412_pid_security/pid_security_controller.py daemon"
+    }
+  }
+}

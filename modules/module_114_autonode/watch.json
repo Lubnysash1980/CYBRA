@@ -1,0 +1,4 @@
+{
+  "addresses": [],
+  "note": "Формат: {\"addr\":\"0x...\",\"label\":\"My Wallet\",\"networks\":[\"bsc\",\"eth\"]}"
+}

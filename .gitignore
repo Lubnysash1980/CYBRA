@@ -1,19 +1,52 @@
+# node
+node_modules/
+npm-debug.log*
+
+# build/out
 out/
-cache/
-.lock/
-.logs/
-.backup/
-legacy/
-*.log
-run.log
-status.log
-recover.out
-autolayout.out
-.cargo/
+build/
+dist/
 .cache/
-.npm/
-.rustup/
-.bash_history
-.lesshst
-.wget-hsts
-.ssh/
+.next/
+.nuxt/
+coverage/
+
+# runtime артефакти
+run/
+runtime/
+logs/
+tmp/
+temp/
+*.log
+*.pid
+*.sock
+
+# cargo
+.cargo/
+target/
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# env
+.env
+.env.*
+!.env.example
+
+# OS/IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# сміття
+*.bak
+*.old
+*.orig
+tash list

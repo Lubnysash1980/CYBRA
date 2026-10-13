@@ -1,0 +1,60 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# CYBRA Deep Autofix — перевірка 6 систем
+H="$HOME/CYBRA"; M="$H/modules"
+G=$'\e[32m'; Y=$'\e[33m'; R=$'\e[31m'; B=$'\e[36m'; N=$'\e[0m'
+echo "${B}════════════════════════════════════════════════════${N}"
+echo "${B}  CYBRA · Deep Autofix${N}"
+echo "${B}════════════════════════════════════════════════════${N}"
+
+# 1 · GIT
+cd "$H/git_module" 2>/dev/null && {
+  if [ "$(git status --porcelain 2>/dev/null | wc -l)" -gt 0 ]; then
+    git add -A && git commit -q -m "autofix $(date -u +%Y-%m-%dT%H:%M)" --allow-empty
+    git push -q origin "$(git rev-parse --abbrev-ref HEAD)" 2>/dev/null
+    echo "  ${G}✓${N} git: commit + push"
+  else
+    echo "  ${G}✓${N} git: чисто"
+  fi
+}
+
+# 2 · NODES
+cybra-pm restart autonode >/dev/null 2>&1
+sleep 3
+ONLINE=$(python3 -c "
+import json
+d = json.load(open('$H/run/autonode.json'))
+nets = d.get('networks', {})
+print(sum(1 for v in nets.values() if v.get('state')=='ok'))
+" 2>/dev/null)
+echo "  ${G}✓${N} nodes: $ONLINE/6 online"
+
+# 3 · BACKEND
+curl -sf http://127.0.0.1:8790/ -o /dev/null 2>/dev/null && \
+  echo "  ${G}✓${N} backend: dashboard :8790" || \
+  echo "  ${Y}!${N} backend: dashboard offline"
+
+# 4 · WATCHDOG
+pgrep -f "parlament/watchdog.sh daemon" >/dev/null && \
+  echo "  ${G}✓${N} watchdog: живий" || {
+  cybra-pm restart watchdog >/dev/null 2>&1
+  echo "  ${Y}!${N} watchdog: перезапущено"
+}
+
+# 5 · AUTOHEAL
+COMP=$(python3 "$M/module_121_parlament/completion.py" score 2>/dev/null | python3 -c "import sys,json;print(json.load(sys.stdin)['overall'])" 2>/dev/null)
+echo "  ${G}✓${N} autoheal: completion ${COMP}%"
+
+# 6 · PARLIAMENT
+PBROKEN=$(python3 -c "
+import sys
+sys.path.insert(0, '$M/module_121_parlament')
+import parliament as P
+print(sum(x['broken'] for x in P.verify_chain().values()))
+" 2>/dev/null)
+echo "  ${G}✓${N} parliament: hash-chain ($PBROKEN порушень)"
+
+# ═══ КОНТРОЛЕРИ ═══
+echo "  ${B}▷ контролери${N}"
+python3 ~/CYBRA/modules/module_320_controllers/controllers.py check 2>&1 | sed 's/^/  /'
+
+echo "${B}════════════════════════════════════════════════════${N}"

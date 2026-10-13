@@ -1,0 +1,53 @@
+<!doctype html><html lang="uk"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CYBRA Sign</title><style>
+body{font-family:system-ui;background:#0b0f14;color:#e6edf3;max-width:520px;margin:0 auto;padding:24px}
+h1{font-size:18px;margin:0 0 16px}
+.cid{font-family:monospace;background:#161b22;padding:10px;border-radius:8px;
+word-break:break-all;font-size:12px;margin-bottom:8px}
+button{width:100%;padding:14px;margin:8px 0;border:0;border-radius:10px;
+font-size:16px;font-weight:600;cursor:pointer}
+#connect{background:#f6851b;color:#fff}#sign{background:#2ea043;color:#fff}
+button:disabled{opacity:.5;cursor:not-allowed}
+.status{margin-top:16px;padding:12px;border-radius:8px;background:#161b22;
+font-size:14px;min-height:20px;white-space:pre-wrap}
+.ok{color:#2ea043;background:#0d2818!important}.err{color:#f85149}
+.pulse{animation:p 1.5s infinite}@keyframes p{0%,100%{opacity:1}50%{opacity:.5}}
+</style></head><body>
+<h1>CYBRA · Підпис контракту</h1>
+<div class="cid">CID: {{CID}}</div>
+<div class="cid">Buyer: {{BUYER}}</div>
+<button id="connect" hidden>1️⃣ Підключити MetaMask</button>
+<button id="sign" hidden disabled>2️⃣ Підписати</button>
+<div class="status pulse" id="st">Ініціалізація…</div>
+<script>
+const CID="{{CID}}",BUYER="{{BUYER}}",MSG=atob("{{MSG_B64}}");
+let account=null,signed=false;
+const st=document.getElementById('st'),bc=document.getElementById('connect'),bs=document.getElementById('sign');
+function show(m,c){st.className='status '+(c||'');st.textContent=m;}
+function pulse(o){st.classList.toggle('pulse',!!o);}
+async function autoRun(){
+  if(!window.ethereum){show('MetaMask не знайдено — відкрийте цей URL всередині MetaMask','err');return;}
+  try{pulse(true);show('Запит на підключення…');
+    const a=await window.ethereum.request({method:'eth_requestAccounts'});
+    account=a[0];pulse(false);show('Підключено: '+account,'ok');
+  }catch(e){pulse(false);show('Помилка підключення: '+(e.message||e),'err');bc.hidden=false;return;}
+  await doSign();
+}
+async function doSign(){
+  if(!account||signed)return;
+  try{pulse(true);show('Запит на підпис у MetaMask…');
+    const s=await window.ethereum.request({method:'personal_sign',params:[MSG,account]});
+    pulse(false);show('Підпис отримано, надсилаю…');
+    const r=await fetch('/sign',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({cid:CID,address:account,message:MSG,signature:s})});
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    signed=true;show('✅ Готово! Можете закрити вкладку.','ok');
+  }catch(e){pulse(false);show('Помилка підпису: '+(e.message||e),'err');bs.hidden=false;bs.disabled=false;}
+}
+bc.onclick=async()=>{try{const a=await window.ethereum.request({method:'eth_requestAccounts'});
+  account=a[0];show('Підключено: '+account,'ok');bc.hidden=true;bs.hidden=false;bs.disabled=false;
+}catch(e){show('Помилка: '+(e.message||e),'err');}};
+bs.onclick=doSign;
+window.addEventListener('load',autoRun);
+</script></body></html>

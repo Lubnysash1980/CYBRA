@@ -1,0 +1,136 @@
+{
+  "max_foreground_sec": 10,
+  "max_retries": 3,
+  "check_interval_sec": 300,
+  "auto_migrate": true,
+  "migrated": {
+    "module_130_test_suite": {
+      "at": "2026-10-12T18:24:00Z",
+      "reason": "повний test suite"
+    },
+    "module_401_cascade_verify": {
+      "at": "2026-10-12T18:24:00Z",
+      "reason": "cascade tests"
+    },
+    "module_408_menu_tester": {
+      "at": "2026-10-12T18:24:00Z",
+      "reason": "тест усіх 161 пунктів"
+    },
+    "module_409_pipeline": {
+      "at": "2026-10-12T18:24:00Z",
+      "reason": "8-кроковий pipeline"
+    },
+    "module_411_tiers": {
+      "at": "2026-10-12T18:24:00Z",
+      "reason": "7 рівнів перевірки"
+    },
+    "auto_module_130_test_suite": {
+      "at": "2026-10-12T18:32:14Z",
+      "reason": "AUTO (413) — повний test suite"
+    },
+    "auto_module_401_cascade_verify": {
+      "at": "2026-10-12T18:32:14Z",
+      "reason": "AUTO (413) — cascade tests"
+    },
+    "auto_module_409_pipeline": {
+      "at": "2026-10-12T18:32:14Z",
+      "reason": "AUTO (413) — 8-кроковий pipeline"
+    },
+    "auto_auto_module_130_test_suite": {
+      "at": "2026-10-12T18:33:24Z",
+      "reason": "AUTO (413) — AUTO (413) — повний test suite"
+    },
+    "auto_auto_module_401_cascade_verify": {
+      "at": "2026-10-12T18:33:24Z",
+      "reason": "AUTO (413) — AUTO (413) — cascade tests"
+    },
+    "auto_auto_module_409_pipeline": {
+      "at": "2026-10-12T18:33:24Z",
+      "reason": "AUTO (413) — AUTO (413) — 8-кроковий pipeline"
+    },
+    "auto_auto_auto_module_130_test_suite": {
+      "at": "2026-10-12T18:34:43Z",
+      "reason": "AUTO (413) — AUTO (413) — AUTO (413) — повний test suite"
+    },
+    "auto_auto_auto_module_401_cascade_verify": {
+      "at": "2026-10-12T18:34:43Z",
+      "reason": "AUTO (413) — AUTO (413) — AUTO (413) — cascade tests"
+    },
+    "auto_auto_auto_module_409_pipeline": {
+      "at": "2026-10-12T18:34:43Z",
+      "reason": "AUTO (413) — AUTO (413) — AUTO (413) — 8-кроковий pipeline"
+    }
+  },
+  "history": [
+    {
+      "at": "2026-10-12T18:24:00Z",
+      "name": "module_130_test_suite",
+      "reason": "повний test suite"
+    },
+    {
+      "at": "2026-10-12T18:24:00Z",
+      "name": "module_401_cascade_verify",
+      "reason": "cascade tests"
+    },
+    {
+      "at": "2026-10-12T18:24:00Z",
+      "name": "module_408_menu_tester",
+      "reason": "тест усіх 161 пунктів"
+    },
+    {
+      "at": "2026-10-12T18:24:00Z",
+      "name": "module_409_pipeline",
+      "reason": "8-кроковий pipeline"
+    },
+    {
+      "at": "2026-10-12T18:24:00Z",
+      "name": "module_411_tiers",
+      "reason": "7 рівнів перевірки"
+    },
+    {
+      "at": "2026-10-12T18:32:14Z",
+      "name": "auto_module_130_test_suite",
+      "reason": "AUTO (413) — повний test suite"
+    },
+    {
+      "at": "2026-10-12T18:32:14Z",
+      "name": "auto_module_401_cascade_verify",
+      "reason": "AUTO (413) — cascade tests"
+    },
+    {
+      "at": "2026-10-12T18:32:14Z",
+      "name": "auto_module_409_pipeline",
+      "reason": "AUTO (413) — 8-кроковий pipeline"
+    },
+    {
+      "at": "2026-10-12T18:33:24Z",
+      "name": "auto_auto_module_130_test_suite",
+      "reason": "AUTO (413) — AUTO (413) — повний test suite"
+    },
+    {
+      "at": "2026-10-12T18:33:24Z",
+      "name": "auto_auto_module_401_cascade_verify",
+      "reason": "AUTO (413) — AUTO (413) — cascade tests"
+    },
+    {
+      "at": "2026-10-12T18:33:24Z",
+      "name": "auto_auto_module_409_pipeline",
+      "reason": "AUTO (413) — AUTO (413) — 8-кроковий pipeline"
+    },
+    {
+      "at": "2026-10-12T18:34:43Z",
+      "name": "auto_auto_auto_module_130_test_suite",
+      "reason": "AUTO (413) — AUTO (413) — AUTO (413) — повний test suite"
+    },
+    {
+      "at": "2026-10-12T18:34:43Z",
+      "name": "auto_auto_auto_module_401_cascade_verify",
+      "reason": "AUTO (413) — AUTO (413) — AUTO (413) — cascade tests"
+    },
+    {
+      "at": "2026-10-12T18:34:43Z",
+      "name": "auto_auto_auto_module_409_pipeline",
+      "reason": "AUTO (413) — AUTO (413) — AUTO (413) — 8-кроковий pipeline"
+    }
+  ]
+}

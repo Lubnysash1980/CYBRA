@@ -1,0 +1,183 @@
+{
+  "procs": {
+    "autonode": {
+      "restarts": [
+        1791830118.3185482,
+        1791830374.8304734,
+        1791830516.9527276
+      ],
+      "last_check": "2026-10-12T21:57:52Z"
+    },
+    "watchdog": {
+      "restarts": [],
+      "last_check": "2026-10-12T21:57:52Z"
+    },
+    "orchestrator": {
+      "restarts": [],
+      "last_check": "2026-10-12T18:34:24Z"
+    },
+    "supervisor": {
+      "restarts": [],
+      "last_check": null
+    },
+    "dashboard": {
+      "restarts": [
+        1791827070.1898665,
+        1791827141.3340158,
+        1791827213.1161065,
+        1791827778.653541,
+        1791827879.8678396,
+        1791827951.0131378,
+        1791828022.1647189,
+        1791828093.3148625,
+        1791828164.9635184,
+        1791828337.5006003
+      ],
+      "last_check": "2026-10-12T18:39:50Z"
+    },
+    "selfheal": {
+      "restarts": [
+        1791839237.0144558,
+        1791839297.3165703,
+        1791839549.5812402,
+        1791839636.9928293,
+        1791839697.2116873
+      ],
+      "last_check": "2026-10-12T21:57:52Z"
+    },
+    "controller_worker": {
+      "restarts": [
+        1791802326.0149996
+      ],
+      "last_check": "2026-10-12T18:26:11Z"
+    },
+    "runtime": {
+      "restarts": [
+        1791827224.1786685,
+        1791828348.5535243
+      ],
+      "last_check": "2026-10-12T18:26:11Z"
+    },
+    "job_controller": {
+      "restarts": [
+        1791810109.6564393
+      ],
+      "last_check": "2026-10-12T18:26:11Z"
+    },
+    "src": {
+      "restarts": [
+        1791810408.3569102
+      ],
+      "last_check": "2026-10-12T18:26:11Z"
+    },
+    "structure": {
+      "restarts": [
+        1791811118.4980574
+      ],
+      "last_check": "2026-10-12T18:26:11Z"
+    },
+    "diffrecover": {
+      "restarts": [],
+      "last_check": "2026-10-12T18:26:11Z"
+    },
+    "load": {
+      "restarts": [],
+      "last_check": "2026-10-12T18:26:11Z"
+    },
+    "webui": {
+      "restarts": [],
+      "last_check": "2026-10-12T18:34:35Z"
+    },
+    "tui_guard": {
+      "restarts": [
+        1791830390.8689795
+      ],
+      "last_check": "2026-10-12T18:39:34Z"
+    },
+    "task_engine": {
+      "restarts": [],
+      "last_check": null
+    },
+    "heavy_tiers": {
+      "restarts": [],
+      "last_check": null
+    },
+    "heavy_pipeline": {
+      "restarts": [],
+      "last_check": null
+    },
+    "heavy_cascade": {
+      "restarts": [],
+      "last_check": null
+    },
+    "cron_migrate": {
+      "restarts": [],
+      "last_check": null
+    },
+    "auto_module_130_test_suite": {
+      "restarts": [],
+      "last_check": null
+    },
+    "auto_module_401_cascade_verify": {
+      "restarts": [],
+      "last_check": null
+    },
+    "auto_module_408_menu_tester": {
+      "restarts": [],
+      "last_check": null
+    },
+    "auto_module_409_pipeline": {
+      "restarts": [],
+      "last_check": null
+    },
+    "auto_module_411_tiers": {
+      "restarts": [],
+      "last_check": null
+    },
+    "scheduler": {
+      "restarts": [
+        1791829950.1607046,
+        1791830097.4357085
+      ],
+      "last_check": "2026-10-12T18:39:50Z"
+    },
+    "auto_auto_module_130_test_suite": {
+      "restarts": [],
+      "last_check": "2026-10-12T18:34:57Z"
+    },
+    "auto_auto_module_401_cascade_verify": {
+      "restarts": [],
+      "last_check": "2026-10-12T18:34:58Z"
+    },
+    "auto_auto_module_409_pipeline": {
+      "restarts": [],
+      "last_check": "2026-10-12T18:34:58Z"
+    },
+    "keeper": {
+      "restarts": [],
+      "last_check": "2026-10-12T18:34:58Z"
+    },
+    "auto_auto_auto_module_130_test_suite": {
+      "restarts": [],
+      "last_check": "2026-10-12T18:34:58Z"
+    },
+    "auto_auto_auto_module_401_cascade_verify": {
+      "restarts": [],
+      "last_check": "2026-10-12T18:34:59Z"
+    },
+    "auto_auto_auto_module_409_pipeline": {
+      "restarts": [],
+      "last_check": "2026-10-12T18:34:59Z"
+    },
+    "pid_security_controller": {
+      "restarts": [
+        1791841014.7006142,
+        1791841060.1067402,
+        1791841228.000621,
+        1791841346.8478608,
+        1791841578.5549624
+      ],
+      "last_check": "2026-10-12T21:57:52Z"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# Запустити важку операцію у фоні через PM
+B=$'\e[36m'; G=$'\e[32m'; Y=$'\e[33m'; R=$'\e[31m'; N=$'\e[0m'
+case "${1:-help}" in
+  tiers)
+    echo "${B}Запускаю tiered controllers у фоні...${N}"
+    cybra-pm start heavy_tiers
+    echo "${G}✓${N} див: tail -f ~/CYBRA/logs/tiers_full.log"
+    ;;
+  pipeline)
+    echo "${B}Запускаю pipeline у фоні...${N}"
+    cybra-pm start heavy_pipeline
+    echo "${G}✓${N} див: tail -f ~/CYBRA/logs/pipeline.log"
+    ;;
+  cascade)
+    echo "${B}Запускаю cascade verify у фоні...${N}"
+    cybra-pm start heavy_cascade
+    echo "${G}✓${N} див: tail -f ~/CYBRA/logs/cascade_verify.log"
+    ;;
+  status)
+    for p in heavy_tiers heavy_pipeline heavy_cascade; do
+      st=$(cybra-pm list 2>/dev/null | grep "^$p" | awk '{print $2}')
+      printf "  %-20s %s\n" "$p" "${st:-—}"
+    done
+    ;;
+  logs)
+    case "${2:-tiers}" in
+      tiers)    tail -30 "$HOME/CYBRA/logs/tiers_full.log" ;;
+      pipeline) tail -30 "$HOME/CYBRA/logs/pipeline.log" ;;
+      cascade)  tail -30 "$HOME/CYBRA/logs/cascade_verify.log" ;;
+    esac
+    ;;
+  stop)
+    for p in heavy_tiers heavy_pipeline heavy_cascade; do
+      cybra-pm stop $p >/dev/null 2>&1
+    done
+    echo "${G}✓${N} зупинено"
+    ;;
+  *)
+    cat <<EOF
+${B}cybra-heavy${N} — запуск важких операцій у фоні
+
+  cybra-heavy tiers       — Tiered Controllers (L1-L7)
+  cybra-heavy pipeline    — Full Pipeline (8 кроків)
+  cybra-heavy cascade     — Cascade Verify
+  cybra-heavy status      — стан
+  cybra-heavy logs [ім'я] — логи (tiers|pipeline|cascade)
+  cybra-heavy stop        — зупинити всі
+EOF
+    ;;
+esac

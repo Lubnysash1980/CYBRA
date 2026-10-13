@@ -1,0 +1,57 @@
+{
+  "at": "2026-10-13T07:32:36Z",
+  "max_level": 2,
+  "results": [
+    {
+      "lvl": 1,
+      "name": "Existence",
+      "status": "OK",
+      "msg": "всі критичні файли на місці",
+      "dur_ms": 0
+    },
+    {
+      "lvl": 2,
+      "name": "Structure",
+      "status": "FAIL",
+      "msg": "2: module_412_heavy без main.sh; module_412_pid_security без main.sh",
+      "dur_ms": 9
+    },
+    {
+      "lvl": 3,
+      "name": "Syntax",
+      "status": "SKIP",
+      "msg": "не запущено (L2 FAIL)",
+      "dur_ms": 0
+    },
+    {
+      "lvl": 4,
+      "name": "Runtime",
+      "status": "SKIP",
+      "msg": "не запущено (L2 FAIL)",
+      "dur_ms": 0
+    },
+    {
+      "lvl": 5,
+      "name": "Behavior",
+      "status": "SKIP",
+      "msg": "не запущено (L2 FAIL)",
+      "dur_ms": 0
+    },
+    {
+      "lvl": 6,
+      "name": "Time-series",
+      "status": "SKIP",
+      "msg": "не запущено (L2 FAIL)",
+      "dur_ms": 0
+    },
+    {
+      "lvl": 7,
+      "name": "Predictive",
+      "status": "SKIP",
+      "msg": "не запущено (L2 FAIL)",
+      "dur_ms": 0
+    }
+  ],
+  "highest_ok": 1,
+  "highest_warn": 0
+}

@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-13T08:17:06Z",
+  "load": {
+    "cpu_count": 8,
+    "ram_total_mb": 3611,
+    "ram_avail_mb": 762,
+    "ram_pct": 78.9,
+    "disk_free_mb": 48399
+  },
+  "mode": "idle",
+  "reason": "Час для важких задач (evolve, autopilot, snapshot)",
+  "actions": [
+    "snapshot"
+  ]
+}

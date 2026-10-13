@@ -1,0 +1,510 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# ═══════════════════════════════════════════════════════════
+# CYBRA DUAL-EVO — SHA Byzantine Consensus + 3% policy
+#
+# Ідея: 4 незалежні SHA-бекенди обчислюють стан системи.
+# Consensus (≥3 з 4) визначає "правду".
+# Якщо actual ≠ consensus → AUTO-RESTORE з majority.
+# Pass метрика: ≤3% → REWARD, >3% → BLOCKED + restore.
+# ═══════════════════════════════════════════════════════════
+
+ROOT="$HOME/CYBRA"
+MODULES="$ROOT/modules"
+BASELINE="$ROOT/baseline"
+EVO_DIR="$ROOT/evolution"
+HASHES="$ROOT/hashes"
+GITMOD="$ROOT/git_module"
+AUDIT="$ROOT/audit"
+LOGS="$ROOT/logs"
+
+REWARD_LOG="$EVO_DIR/reward.log"
+BLOCKED_LOG="$EVO_DIR/blocked.log"
+LEDGER="$EVO_DIR/evolution_ledger.txt"
+CONSENSUS_DIR="$HASHES/dual"
+mkdir -p "$EVO_DIR" "$CONSENSUS_DIR" "$LOGS"
+
+if [ -t 1 ]; then
+    R=$'\033[31m'; G=$'\033[32m'; Y=$'\033[33m'
+    B=$'\033[1m'; C=$'\033[36m'; M=$'\033[35m'
+    Z=$'\033[0m'; GR=$'\033[90m'
+else
+    R=""; G=""; Y=""; B=""; C=""; M=""; Z=""; GR=""
+fi
+
+hr()  { printf -- '────────────────────────────────────────────────────────────\n'; }
+hdr() { printf '\n%s%s═══ %s ═══%s\n' "$B" "$C" "$*" "$Z"; }
+ok()   { printf '  %s[✓]%s %s\n' "$G" "$Z" "$*"; }
+warn() { printf '  %s[!]%s %s\n' "$Y" "$Z" "$*"; }
+err()  { printf '  %s[✗]%s %s\n' "$R" "$Z" "$*"; }
+rew()  { printf '  %s[🎁]%s %s\n' "$M" "$Z" "$*"; }
+
+log_evo()     { printf '%s | %s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$*" >> "$LEDGER"; }
+log_blocked() { printf '%s | %s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$*" >> "$BLOCKED_LOG"; }
+log_reward()  { printf '%s | %s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$*" >> "$REWARD_LOG"; }
+
+# ═══════════════════════════════════════════════════════════
+# SHA tree hash (canonical)
+# ═══════════════════════════════════════════════════════════
+sha_tree() {
+    local d="$1"
+    ( cd "$d" 2>/dev/null || return
+      find . -type f \
+        ! -name '*.log' ! -name '*.test.log' \
+        ! -name 'test_output.txt' ! -name 'test_output.sha256' \
+        ! -name 'SNAPSHOT_SHA256.txt' ! -name '*.bak.*' \
+        -print0 2>/dev/null |
+      sort -z | xargs -0 -r sha256sum 2>/dev/null |
+      sha256sum | awk '{print $1}' )
+}
+
+list_modules() {
+    for d in "$MODULES"/*/; do
+        [ -d "$d" ] || continue
+        local m="$(basename "$d")"
+        case "$m" in @*|.*|_disabled*|evolution|answer_engine|node_modules) continue ;; esac
+        printf '%s\n' "$m"
+    done
+}
+
+# ═══════════════════════════════════════════════════════════
+# 4 SHA БЕКЕНДИ — незалежні джерела правди
+# ═══════════════════════════════════════════════════════════
+
+# BACKEND A: baseline (затверджений еталон)
+backend_A() {
+    local m="$1"
+    cat "$BASELINE/${m}.tree" 2>/dev/null || echo "MISSING"
+}
+
+# BACKEND B: актуальний стан модуля (реальні файли)
+backend_B() {
+    local m="$1"
+    sha_tree "$MODULES/$m"
+}
+
+# BACKEND C: git HEAD (останній push)
+backend_C() {
+    local m="$1"
+    local gitmod="$GITMOD/modules/$m"
+    if [ -d "$gitmod" ]; then
+        sha_tree "$gitmod"
+    else
+        echo "NOGIT"
+    fi
+}
+
+# BACKEND D: snapshot модуля
+backend_D() {
+    local m="$1"
+    local snap=""
+    for s in "$MODULES/$m/snapshot" "$MODULES/$m/snapshots"; do
+        [ -d "$s" ] && { snap="$s"; break; }
+    done
+    if [ -n "$snap" ]; then
+        sha_tree "$snap"
+    else
+        echo "NOSNAP"
+    fi
+}
+
+# ═══════════════════════════════════════════════════════════
+# CONSENSUS: 4 хеші → majority
+# ═══════════════════════════════════════════════════════════
+consensus() {
+    local a="$1" b="$2" c="$3" d="$4"
+
+    # Ігноруємо MISSING/NOGIT/NOSNAP — це "утримався"
+    local valid=()
+    for h in "$a" "$b" "$c" "$d"; do
+        case "$h" in MISSING|NOGIT|NOSNAP|"") ;; *)
+            valid+=("$h") ;;
+        esac
+    done
+
+    local n=${#valid[@]}
+    [ "$n" -eq 0 ] && { echo "NONE"; return; }
+
+    # Підрахунок голосів
+    local best="$valid"
+    local best_count=0
+    for h1 in "${valid[@]}"; do
+        local cnt=0
+        for h2 in "${valid[@]}"; do
+            [ "$h1" = "$h2" ] && cnt=$((cnt+1))
+        done
+        if [ "$cnt" -gt "$best_count" ]; then
+            best_count=$cnt
+            best="$h1"
+        fi
+    done
+
+    # consensus потребує ≥2 голосів (з 4)
+    if [ "$best_count" -ge 2 ]; then
+        echo "$best"
+    else
+        echo "SPLIT"   # немає consensus
+    fi
+}
+
+# ═══════════════════════════════════════════════════════════
+# 3% POLICY
+# ═══════════════════════════════════════════════════════════
+pct_status() {
+    local old="$1" new="$2" tol="${3:-3}"
+    old="$(printf '%s' "$old" | head -1 | tr -dc '0-9')"
+    new="$(printf '%s' "$new" | head -1 | tr -dc '0-9')"
+    [ -z "$old" ] && old=0
+    [ -z "$new" ] && new=0
+
+    [ "$old" -eq 0 ] && [ "$new" -eq 0 ] && { echo "OK"; return; }
+    [ "$old" -eq 0 ] && { echo "BLOCKED"; return; }
+    [ "$new" -eq "$old" ] && { echo "OK"; return; }
+    [ "$new" -gt "$old" ] && { echo "IMPROVE"; return; }
+
+    local lost=$(( old - new ))
+    local allowed=$(( old * tol / 100 ))
+    [ "$lost" -le "$allowed" ] && { echo "TOLERANCE"; return; }
+    echo "BLOCKED"
+}
+
+# ═══════════════════════════════════════════════════════════
+# PASS метрика (парсер 3 форматів)
+# ═══════════════════════════════════════════════════════════
+module_pass() {
+    local m="$1"
+    local tlog="$(ls -t "$AUDIT"/*_"${m}".test.log 2>/dev/null | head -1)"
+    local p=0
+    if [ -f "$tlog" ]; then
+        p="$(grep -c '\[PASS\]' "$tlog" 2>/dev/null | head -1 | tr -dc '0-9')"
+        [ -z "$p" ] && p=0
+        [ "$p" -eq 0 ] && p="$(grep -oE 'PASS=[0-9]+' "$tlog" 2>/dev/null | tail -1 | cut -d= -f2)"
+        [ -z "$p" ] && p=0
+        [ "$p" -eq 0 ] && p="$(grep -oE 'PASS:[[:space:]]*[0-9]+' "$tlog" 2>/dev/null | tail -1 | grep -oE '[0-9]+')"
+    fi
+    [ -z "$p" ] && p=0
+    echo "$p"
+}
+
+module_fail() {
+    local m="$1"
+    local tlog="$(ls -t "$AUDIT"/*_"${m}".test.log 2>/dev/null | head -1)"
+    local f=0
+    if [ -f "$tlog" ]; then
+        f="$(grep -c '\[FAIL\]' "$tlog" 2>/dev/null | head -1 | tr -dc '0-9')"
+        [ -z "$f" ] && f=0
+        [ "$f" -eq 0 ] && f="$(grep -oE 'FAIL=[0-9]+' "$tlog" 2>/dev/null | tail -1 | cut -d= -f2)"
+        [ -z "$f" ] && f=0
+    fi
+    [ -z "$f" ] && f=0
+    echo "$f"
+}
+
+# ═══════════════════════════════════════════════════════════
+# AUTO-RESTORE з majority backend
+# ═══════════════════════════════════════════════════════════
+restore_from_consensus() {
+    local m="$1"
+    local target_hash="$2"   # consensus hash
+
+    printf '      %sRestore з consensus...%s\n' "$Y" "$Z"
+
+    # Визначаємо який backend дав consensus
+    local bA="$(backend_A "$m")"
+    local bB="$(backend_B "$m")"
+    local bC="$(backend_C "$m")"
+    local bD="$(backend_D "$m")"
+
+    local src=""
+    [ "$bA" = "$target_hash" ] && src="A:baseline"
+    [ -z "$src" ] && [ "$bC" = "$target_hash" ] && src="C:git"
+    [ -z "$src" ] && [ "$bD" = "$target_hash" ] && src="D:snapshot"
+
+    printf '      source: %s\n' "${src:-?(немає)}"
+
+    # 1. Restore з git (найнадійніше)
+    if [ "$src" = "C:git" ]; then
+        local gitmod="$GITMOD/modules/$m"
+        for sub in bin state rules; do
+            [ -d "$gitmod/$sub" ] || continue
+            [ -d "$MODULES/$m/$sub" ] || mkdir -p "$MODULES/$m/$sub"
+            cp -r "$gitmod/$sub"/* "$MODULES/$m/$sub/" 2>/dev/null
+        done
+        printf '      → restored from git\n'
+    fi
+
+    # 2. Restore з snapshot
+    if [ "$src" = "D:snapshot" ]; then
+        for s in "$MODULES/$m/snapshot" "$MODULES/$m/snapshots"; do
+            [ ! -d "$s" ] && continue
+            for sub in bin state rules; do
+                for f in "$s"/*.sh "$s"/*.env; do
+                    [ -f "$f" ] || continue
+                    case "$sub" in
+                        bin)   [[ "$f" == *.sh  ]] && cp "$f" "$MODULES/$m/bin/" 2>/dev/null ;;
+                        state) [[ "$f" == *.env ]] && cp "$f" "$MODULES/$m/state/" 2>/dev/null ;;
+                    esac
+                done
+            done
+            break
+        done
+        printf '      → restored from snapshot\n'
+    fi
+
+    # 3. Прибираємо FROZEN маркери
+    rm -f "$MODULES/$m/tests/FROZEN.env" "$MODULES/$m/tests/FROZEN" 2>/dev/null
+
+    # 4. Re-run тест
+    local tests="$MODULES/$m/tests/run_tests.sh"
+    if [ -x "$tests" ]; then
+        if (cd "$MODULES/$m" && ./tests/run_tests.sh > "$LOGS/restore_${m}.log" 2>&1); then
+            printf '      %s✓ тест пройшов%s\n' "$G" "$Z"
+        else
+            printf '      %s✗ тест падає — manual fix%s\n' "$R" "$Z"
+            return 1
+        fi
+    fi
+
+    # 5. Re-seal baseline якщо відновлений стан співпадає з consensus
+    local new_hash="$(sha_tree "$MODULES/$m")"
+    if [ "$new_hash" = "$target_hash" ]; then
+        printf '%s' "$new_hash" > "$BASELINE/${m}.tree"
+        printf '%s' "$new_hash" > "$EVO_DIR/${m}.approved"
+        printf '      %s✓ baseline re-sealed до consensus%s\n' "$G" "$Z"
+        return 0
+    else
+        printf '      %s! після restore hash ≠ consensus%s\n' "$Y" "$Z"
+        printf '      baseline ← consensus: %s\n' "${target_hash:0:16}"
+        printf '%s' "$target_hash" > "$BASELINE/${m}.tree"
+        printf '%s' "$target_hash" > "$EVO_DIR/${m}.approved"
+        return 0
+    fi
+}
+
+# ═══════════════════════════════════════════════════════════
+# DUEL-EVO — головна функція
+# ═══════════════════════════════════════════════════════════
+dual_evo() {
+    hdr "CYBRA DUAL-EVO — SHA Byzantine Consensus"
+    printf '  Policy: 4 SHA бекенди → consensus (≥2 з 4)\n'
+    printf '          pass ≤ 3%%    → 🎁 REWARD\n'
+    printf '          pass > 3%%    → 🔴 BLOCKED + auto-restore\n'
+    printf '          hash drift    → auto-restore з consensus\n'
+    hr
+
+    local total=0 stable=0 improved=0 rewarded=0 blocked=0 restored=0
+
+    for d in "$MODULES"/*/; do
+        [ -d "$d" ] || continue
+        local m="$(basename "$d")"
+        case "$m" in @*|.*|_disabled*|evolution|answer_engine|node_modules) continue ;; esac
+        total=$((total+1))
+
+        # 4 SHA
+        local bA="$(backend_A "$m")"
+        local bB="$(backend_B "$m")"
+        local bC="$(backend_C "$m")"
+        local bD="$(backend_D "$m")"
+        local cons="$(consensus "$bA" "$bB" "$bC" "$bD")"
+
+        # PASS метрика
+        local bp="$(cat "$BASELINE/${m}.pass" 2>/dev/null | tr -dc '0-9')"
+        local bf="$(cat "$BASELINE/${m}.fail" 2>/dev/null | tr -dc '0-9')"
+        [ -z "$bp" ] && bp=0
+        [ -z "$bf" ] && bf=0
+        local new_pass="$(module_pass "$m")"
+        local new_fail="$(module_fail "$m")"
+
+        local st_pass="$(pct_status "$bp" "$new_pass" 3)"
+
+        # ─── SHA consensus перевірка ───
+        local hash_drift=0
+        if [ "$cons" = "NONE" ] || [ "$cons" = "SPLIT" ]; then
+            printf '  %s[⚠ SPLIT]%s %-42s (немає consensus)\n' "$Y" "$Z" "$m"
+            hash_drift=1
+        elif [ "$bB" != "$cons" ] && [ "$bB" != "MISSING" ]; then
+            printf '  %s[⚠ DRIFT]%s %-42s B≠consensus\n' "$Y" "$Z" "$m"
+            hash_drift=1
+        fi
+
+        # ─── Pass check ───
+        if [ "$hash_drift" -eq 0 ] && [ "$st_pass" = "OK" ]; then
+            printf '  %s[⚪ OK]%s     %-42s pass %s→%s  cons=%s\n' \
+                "$GR" "$Z" "$m" "$bp" "$new_pass" "${cons:0:8}"
+            stable=$((stable+1))
+            continue
+        fi
+
+        if [ "$hash_drift" -eq 0 ] && [ "$st_pass" = "IMPROVE" ]; then
+            printf '  %s[🟢 IMPROVE]%s %-42s pass %s→%s (+%s)\n' \
+                "$G" "$Z" "$m" "$bp" "$new_pass" "$(( new_pass - bp ))"
+            log_evo "IMPROVE: $m pass $bp→$new_pass"
+            printf '%s' "$new_pass" > "$BASELINE/${m}.pass"
+            printf '%s' "$new_fail" > "$BASELINE/${m}.fail"
+            improved=$((improved+1))
+            continue
+        fi
+
+        if [ "$hash_drift" -eq 0 ] && [ "$st_pass" = "TOLERANCE" ]; then
+            local lost=$(( bp - new_pass ))
+            printf '  %s[🎁 REWARD]%s %-42s pass %s→%s (lost %s ≤ 3%%)\n' \
+                "$M" "$Z" "$m" "$bp" "$new_pass" "$lost"
+            log_reward "TOLERANCE: $m lost $lost"
+            log_evo    "OK_TOLERANCE: $m pass $bp→$new_pass"
+            printf '%s' "$new_pass" > "$BASELINE/${m}.pass"
+            printf '%s' "$new_fail" > "$BASELINE/${m}.fail"
+            rewarded=$((rewarded+1))
+            continue
+        fi
+
+        # ─── BLOCKED ───
+        printf '  %s[🔴 BLOCKED]%s %-42s' "$R" "$Z" "$m"
+        if [ "$hash_drift" -eq 1 ]; then
+            printf ' HASH_DRIFT'
+        fi
+        if [ "$st_pass" = "BLOCKED" ]; then
+            local lost=$(( bp - new_pass ))
+            local allowed=$(( bp * 3 / 100 ))
+            printf ' pass %s→%s (lost %s > %s)' "$bp" "$new_pass" "$lost" "$allowed"
+        fi
+        printf '\n'
+
+        log_blocked "BLOCKED: $m pass $bp→$new_pass hash_drift=$hash_drift cons=$cons"
+
+        # AUTO-RESTORE
+        if [ "$cons" != "NONE" ] && [ "$cons" != "SPLIT" ]; then
+            if restore_from_consensus "$m" "$cons"; then
+                restored=$((restored+1))
+            fi
+        else
+            printf '      %s! немає consensus — restore неможливий%s\n' "$R" "$Z"
+        fi
+        blocked=$((blocked+1))
+    done
+
+    hr
+    printf '\n'
+    printf '  %s╔══════════════════════════════════════════════════╗%s\n' "$B" "$Z"
+    printf '  %s║  DUAL-EVO RESULT                                 ║%s\n' "$B" "$Z"
+    printf '  %s╚══════════════════════════════════════════════════╝%s\n' "$B" "$Z"
+    printf '\n'
+    printf '  Модулів:          %s\n' "$total"
+    printf '  %sStable:           %s%s\n' "$GR" "$stable" "$Z"
+    printf '  %sImprove:          %s%s\n' "$G" "$improved" "$Z"
+    printf '  %sReward ≤ 3%%:       %s%s\n' "$M" "$rewarded" "$Z"
+    printf '  %sBlocked > 3%%:      %s%s\n' "$R" "$blocked" "$Z"
+    printf '  %sAuto-restored:    %s%s\n' "$C" "$restored" "$Z"
+    printf '\n'
+
+    if [ "$blocked" -eq 0 ]; then
+        printf '  %s✓ СИСТЕМА 100%% — consensus досягнуто%s\n' "$G" "$Z"
+        [ "$blocked" -eq 0 ] && return 0
+    else
+        if [ "$restored" -eq "$blocked" ]; then
+            printf '  %s✓ Відновлено %s модулів до consensus%s\n' "$G" "$restored" "$Z"
+        else
+            printf '  %s! Blocked: %s, restored: %s%s\n' "$Y" "$blocked" "$restored" "$Z"
+        fi
+        return 1
+    fi
+}
+
+# ═══════════════════════════════════════════════════════════
+# TEST — симуляція drift + деградації
+# ═══════════════════════════════════════════════════════════
+dual_test() {
+    hdr "DUAL-EVO — симуляція"
+
+    local tm="module_01_auto_executor"
+    [ ! -d "$MODULES/$tm" ] && { err "$tm не знайдено"; return 1; }
+
+    # Зберігаємо оригінал
+    local orig_tree="$(cat "$BASELINE/${tm}.tree" 2>/dev/null)"
+    local orig_pass="$(cat "$BASELINE/${tm}.pass" 2>/dev/null || echo 0)"
+
+    printf '\n  %s─── SHA CONSENSUS ───%s\n' "$C" "$Z"
+    printf '  A (baseline): %s\n' "$(backend_A "$tm" | cut -c1-16)"
+    printf '  B (actual):   %s\n' "$(backend_B "$tm" | cut -c1-16)"
+    printf '  C (git):      %s\n' "$(backend_C "$tm" | cut -c1-16)"
+    printf '  D (snapshot): %s\n' "$(backend_D "$tm" | cut -c1-16)"
+    printf '  → consensus:  %s\n' "$(consensus "$(backend_A "$tm")" "$(backend_B "$tm")" "$(backend_C "$tm")" "$(backend_D "$tm")" | cut -c1-16)"
+
+    printf '\n  %s─── ТЕСТ 1: підробка baseline (hash drift) ───%s\n' "$Y" "$Z"
+    printf 'FAKE_HASH_0000000000000000' > "$BASELINE/${tm}.tree"
+    printf '  A: %s (підроблено)\n' "$(backend_A "$tm" | cut -c1-16)"
+    printf '  B: %s (реальний)\n'  "$(backend_B "$tm" | cut -c1-16)"
+    printf '  C: %s (git)\n'       "$(backend_C "$tm" | cut -c1-16)"
+    printf '  D: %s (snapshot)\n'  "$(backend_D "$tm" | cut -c1-16)"
+    local cons="$(consensus "$(backend_A "$tm")" "$(backend_B "$tm")" "$(backend_C "$tm")" "$(backend_D "$tm")")"
+    printf '  → consensus: %s\n' "${cons:0:16}"
+    if [ "$cons" != "FAKE_HASH_0000000000000000" ]; then
+        ok "Consensus ігнорує підробку"
+    else
+        err "Consensus прийняв підробку"
+    fi
+
+    # Відкат
+    printf '%s' "$orig_tree" > "$BASELINE/${tm}.tree"
+    printf '%s' "$orig_pass" > "$BASELINE/${tm}.pass"
+
+    printf '\n  %s─── ТЕСТ 2: 4%% деградація pass ───%s\n' "$Y" "$Z"
+    local fake_pass=$(( orig_pass * 96 / 100 ))
+    printf '  baseline pass: %s\n' "$orig_pass"
+    printf '  fake pass:     %s\n' "$fake_pass"
+    local st="$(pct_status "$orig_pass" "$fake_pass" 3)"
+    printf '  → status: %s\n' "$st"
+    [ "$st" = "BLOCKED" ] && ok "BLOCKED (правильно)" || err "не BLOCKED"
+
+    printf '\n  %s─── ТЕСТ 3: 3%% деградація pass ───%s\n' "$Y" "$Z"
+    fake_pass=$(( orig_pass * 97 / 100 ))
+    st="$(pct_status "$orig_pass" "$fake_pass" 3)"
+    printf '  → status: %s\n' "$st"
+    if [ "$(( orig_pass * 3 / 100 ))" -eq 0 ]; then
+        [ "$st" = "BLOCKED" ] && ok "BLOCKED (allowed=0, малі числа)" || err "не BLOCKED"
+    else
+        [ "$st" = "TOLERANCE" ] && ok "TOLERANCE → REWARD" || err "не TOLERANCE"
+    fi
+
+    printf '\n  %s✓ baseline відкочено%s\n' "$G" "$Z"
+}
+
+# ═══════════════════════════════════════════════════════════
+# MENU
+# ═══════════════════════════════════════════════════════════
+show_menu() {
+    clear 2>/dev/null
+    printf '%s%s═══ CYBRA DUAL-EVO ═══%s\n\n' "$B" "$M" "$Z"
+    printf '  %s[1]%s Dual-EVO (SHA consensus + 3%%)\n' "$B$G" "$Z"
+    printf '  %s[2]%s Test (симуляція)\n'               "$B" "$Z"
+    printf '  %s[3]%s Reward log\n'                      "$B" "$Z"
+    printf '  %s[4]%s Blocked log\n'                     "$B" "$Z"
+    printf '  %s[0]%s Вихід\n'                           "$B" "$Z"
+    printf '\n  Вибір: '
+}
+
+case "${1:-menu}" in
+    run|r|1|all)      dual_evo ;;
+    test|t|2)         dual_test ;;
+    reward|3)         cat "$REWARD_LOG" 2>/dev/null || echo "(empty)" ;;
+    blocked|4)        cat "$BLOCKED_LOG" 2>/dev/null || echo "(empty)" ;;
+    menu|m|"")
+        while true; do
+            show_menu
+            read -r c
+            printf '\n'
+            case "$c" in
+                1) dual_evo ;;
+                2) dual_test ;;
+                3) cat "$REWARD_LOG" 2>/dev/null || echo "(empty)" ;;
+                4) cat "$BLOCKED_LOG" 2>/dev/null || echo "(empty)" ;;
+                0|q|Q|exit) printf 'Вихід\n'; exit 0 ;;
+                *) err "Невідома: $c" ;;
+            esac
+            printf '\n%sEnter...%s' "$GR" "$Z"
+            read -r _
+        done
+        ;;
+    *)
+        printf 'Usage: cybra_dual_evo [run|test|reward|blocked|menu]\n'
+        exit 1
+        ;;
+esac

@@ -1,0 +1,525 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# ═══════════════════════════════════════════════════════════
+# CYBRA ENTERPRISE — повна автоматизація
+#
+# Фази:
+#   1. Preflight     — перевірка системи
+#   2. Backup        — повний знімок
+#   3. Autopatch     — модулі + контракти
+#   4. Reseal        — snapshot + baseline
+#   5. Enforce       — 3% + dual-evo
+#   6. Hardening     — mega_hardening
+#   7. Push          — git commit + push
+#   8. Report        — підсумок
+# ═══════════════════════════════════════════════════════════
+
+set -u
+export LC_ALL=C
+
+# ─── Paths ───
+ROOT="$HOME/CYBRA"
+MODULES="$ROOT/modules"
+BASELINE="$ROOT/baseline"
+EVO_DIR="$ROOT/evolution"
+LOGS="$ROOT/logs"
+AUDIT="$ROOT/audit"
+HASHES="$ROOT/hashes"
+GITMOD="$ROOT/git_module"
+M19="$MODULES/module_19_contract_tui_menu"
+M20="$MODULES/module_20_evolution_guard"
+M35="$MODULES/module_35_cybra_guardian"
+
+# ─── Binaries ───
+BIN_AUTOPATCH="$ROOT/bin/cybra_autopatch"
+BIN_ENFORCE="$ROOT/bin/cybra_enforce"
+BIN_DUAL="$ROOT/bin/cybra_dual_evo"
+
+# ─── Run ───
+STAMP="$(date -u +%Y%m%dT%H%M%SZ)"
+RUN="$STAMP-$$"
+LOG="$LOGS/enterprise_${STAMP}.log"
+REPORT="$AUDIT/enterprise_${STAMP}.report.env"
+
+mkdir -p "$LOGS" "$AUDIT" "$BASELINE" "$EVO_DIR" "$HASHES"
+
+# ─── Colors ───
+if [ -t 1 ]; then
+    R=$'\033[31m'; G=$'\033[32m'; Y=$'\033[33m'
+    B=$'\033[1m'; C=$'\033[36m'; M=$'\033[35m'
+    Z=$'\033[0m'; GR=$'\033[90m'
+else
+    R=""; G=""; Y=""; B=""; C=""; M=""; Z=""; GR=""
+fi
+
+# ─── Logging ───
+hr()   { printf -- '────────────────────────────────────────────────────────────\n' | tee -a "$LOG"; }
+head1() {
+    printf '\n%s%s════════════════════════════════════════════════════════════%s\n' "$B" "$C" "$Z" | tee -a "$LOG"
+    printf '%s%s  %s%s\n' "$B" "$C" "$*" "$Z" | tee -a "$LOG"
+    printf '%s%s════════════════════════════════════════════════════════════%s\n' "$B" "$C" "$Z" | tee -a "$LOG"
+}
+ok()   { printf '  %s[✓]%s %s\n' "$G" "$Z" "$*" | tee -a "$LOG"; }
+warn() { printf '  %s[!]%s %s\n' "$Y" "$Z" "$*" | tee -a "$LOG"; }
+err()  { printf '  %s[✗]%s %s\n' "$R" "$Z" "$*" | tee -a "$LOG"; }
+info() { printf '  %s[·]%s %s\n' "$GR" "$Z" "$*" | tee -a "$LOG"; }
+step() { printf '  %s→%s %s\n' "$C" "$Z" "$*" | tee -a "$LOG"; }
+
+# ─── Counters ───
+FIX=0; WARN_C=0; FAIL=0
+PHASE=0; PHASE_TOTAL=8
+
+# ═══════════════════════════════════════════════════════════
+# HELPERS
+# ═══════════════════════════════════════════════════════════
+
+hash_tree() {
+    local d="$1"
+    ( cd "$d" 2>/dev/null || return
+      find . -type f \
+        ! -name '*.log' ! -name '*.test.log' \
+        ! -name 'test_output.txt' ! -name 'test_output.sha256' \
+        ! -name 'SNAPSHOT_SHA256.txt' ! -name '*.bak.*' \
+        -print0 2>/dev/null |
+      sort -z | xargs -0 -r sha256sum 2>/dev/null |
+      sha256sum | awk '{print $1}' )
+}
+
+list_modules() {
+    for d in "$MODULES"/*/; do
+        [ -d "$d" ] || continue
+        local m="$(basename "$d")"
+        case "$m" in @*|.*|_disabled*|evolution|answer_engine|node_modules) continue ;; esac
+        printf '%s\n' "$m"
+    done
+}
+
+# ═══════════════════════════════════════════════════════════
+# ФАЗА 1 — PREFLIGHT
+# ═══════════════════════════════════════════════════════════
+phase_preflight() {
+    PHASE=$((PHASE+1))
+    head1 "[$PHASE/$PHASE_TOTAL] PREFLIGHT"
+
+    # Базові директорії
+    for d in "$ROOT" "$MODULES" "$BASELINE" "$EVO_DIR" "$LOGS" "$AUDIT" "$HASHES" "$GITMOD"; do
+        if [ -d "$d" ]; then
+            ok "dir: $(basename "$d")"
+        else
+            mkdir -p "$d"
+            warn "created: $(basename "$d")"
+            FIX=$((FIX+1))
+        fi
+    done
+
+    # Owner marker
+    if [ ! -f "$ROOT/.owner" ]; then
+        printf 'CYBRA_OWNER_%s\n' "$STAMP" > "$ROOT/.owner"
+        chmod 600 "$ROOT/.owner"
+        warn "owner marker created"
+        FIX=$((FIX+1))
+    else
+        ok "owner marker"
+    fi
+
+    # Ключові утиліти
+    for b in "$BIN_AUTOPATCH" "$BIN_ENFORCE" "$BIN_DUAL"; do
+        if [ -x "$b" ]; then
+            ok "bin: $(basename "$b")"
+        else
+            warn "missing: $(basename "$b")"
+            WARN_C=$((WARN_C+1))
+        fi
+    done
+
+    # Синтаксис ключових файлів
+    for f in "$M19/bin/cybra_menu.sh" "$M19/bin/cybra_tui_lib.sh"; do
+        [ ! -f "$f" ] && continue
+        if bash -n "$f" 2>/dev/null; then
+            ok "syntax: $(basename "$f")"
+        else
+            err "BROKEN: $(basename "$f")"
+            FAIL=$((FAIL+1))
+        fi
+    done
+}
+
+# ═══════════════════════════════════════════════════════════
+# ФАЗА 2 — BACKUP
+# ═══════════════════════════════════════════════════════════
+phase_backup() {
+    PHASE=$((PHASE+1))
+    head1 "[$PHASE/$PHASE_TOTAL] BACKUP"
+
+    local bk_dir="$ROOT/backups"
+    mkdir -p "$bk_dir"
+
+    local bk_file="$bk_dir/enterprise_${STAMP}.tar.gz"
+    local tar_log="$LOGS/tar_${STAMP}.log"
+
+    step "архівування $ROOT..."
+
+    # tar може скаржитись "file changed as we read it" для активних
+    # логів/pidfile — це OK, ігноруємо exit code 1
+    tar -czf "$bk_file" \
+        -C "$HOME" \
+        --exclude='CYBRA/backups' \
+        --exclude='CYBRA/hashes' \
+        --exclude='CYBRA/logs' \
+        --exclude='CYBRA/audit' \
+        --exclude='CYBRA/git_module/.git' \
+        --exclude='CYBRA/**/node_modules' \
+        --exclude='CYBRA/**/*.tar.gz' \
+        --exclude='CYBRA/**/*.log' \
+        --exclude='CYBRA/.watchdog.pid' \
+        --exclude='CYBRA/.evo_ctl.pid' \
+        --exclude='CYBRA/.parawatch.pid' \
+        --exclude='CYBRA/.schedule.pid' \
+        --exclude='CYBRA/.cybra_http.pid' \
+        --exclude='CYBRA/.cybra_web.pid' \
+        --exclude='CYBRA/.parawatch.state' \
+        CYBRA 2> "$tar_log"
+
+    local tar_rc=$?
+
+    # rc=0 — OK; rc=1 — попередження (OK); rc>1 — реальна помилка
+    if [ -f "$bk_file" ] && [ -s "$bk_file" ] && [ "$tar_rc" -le 1 ]; then
+        local size="$(du -h "$bk_file" | cut -f1)"
+        sha256sum "$bk_file" > "${bk_file}.sha256"
+        ok "backup: $(basename "$bk_file") ($size)"
+
+        # Показати warnings якщо є
+        if [ -s "$tar_log" ]; then
+            local warns="$(grep -c 'file changed' "$tar_log" 2>/dev/null || echo 0)"
+            [ "$warns" -gt 0 ] && warn "  tar warnings: $warns (file changed — OK)"
+        fi
+    else
+        err "backup failed (tar rc=$tar_rc)"
+        tail -5 "$tar_log" 2>/dev/null | sed 's/^/    /'
+        FAIL=$((FAIL+1))
+    fi
+
+    # Ротація — 10 останніх
+    ls -t "$bk_dir"/enterprise_*.tar.gz 2>/dev/null | tail -n +11 | xargs -r rm -f
+    ls -t "$bk_dir"/enterprise_*.tar.gz.sha256 2>/dev/null | tail -n +11 | xargs -r rm -f
+
+    info "backups: $(ls "$bk_dir"/enterprise_*.tar.gz 2>/dev/null | wc -l) шт."
+}
+
+# ═══════════════════════════════════════════════════════════
+# ФАЗА 3 — AUTOPATCH
+# ═══════════════════════════════════════════════════════════
+phase_autopatch() {
+    PHASE=$((PHASE+1))
+    head1 "[$PHASE/$PHASE_TOTAL] AUTOPATCH"
+
+    # Модулі
+    step "патч модулів..."
+    if [ -x "$BIN_AUTOPATCH" ]; then
+        "$BIN_AUTOPATCH" all 2>&1 | tail -15 | sed 's/^/  /' | tee -a "$LOG"
+        FIX=$((FIX+1))
+    else
+        warn "autopatch missing"
+        WARN_C=$((WARN_C+1))
+    fi
+
+    # Контракти (terms)
+    step "допис умов у контракти..."
+    if [ -x "$BIN_AUTOPATCH" ]; then
+        "$BIN_AUTOPATCH" contracts 2>&1 | tail -8 | sed 's/^/  /' | tee -a "$LOG"
+        FIX=$((FIX+1))
+    fi
+
+    # Скільки контрактів мають terms тепер
+    local total=0 with_terms=0
+    for f in "$M19/contracts"/*.env; do
+        [ -f "$f" ] || continue
+        total=$((total+1))
+        local cid="$(basename "$f" .env)"
+        [ -s "$M19/contracts/$cid.terms" ] && with_terms=$((with_terms+1))
+    done
+    info "contracts: $with_terms/$total have terms"
+}
+
+# ═══════════════════════════════════════════════════════════
+# ФАЗА 4 — RESEAL
+# ═══════════════════════════════════════════════════════════
+phase_reseal() {
+    PHASE=$((PHASE+1))
+    head1 "[$PHASE/$PHASE_TOTAL] RESEAL"
+
+    local count=0
+    for m in $(list_modules); do
+        count=$((count+1))
+
+        # Snapshot
+        local mod="$MODULES/$m"
+        local snap="$mod/snapshot"
+        if [ -d "$snap" ]; then
+            for f in "$mod"/*.sh "$mod/bin"/*.sh "$mod/state"/*.env "$mod/tests"/*.sh; do
+                [ -f "$f" ] || continue
+                cp "$f" "$snap/$(basename "$f")" 2>/dev/null
+            done
+            rm -f "$snap/final_manifest.sha256"
+            (
+                cd "$snap" 2>/dev/null || exit 0
+                find . -type f \
+                    ! -name 'final_manifest.sha256' \
+                    ! -name '*.log' \
+                    -print0 2>/dev/null |
+                sort -z | xargs -0 -r sha256sum 2>/dev/null
+            ) > "$snap/final_manifest.sha256" 2>/dev/null
+        fi
+
+        # Baseline
+        local h="$(hash_tree "$mod")"
+        [ -n "$h" ] && {
+            printf '%s' "$h" > "$BASELINE/${m}.tree"
+            printf '%s' "$h" > "$EVO_DIR/${m}.approved"
+        }
+    done
+
+    ok "resealed $count модулів"
+}
+
+# ═══════════════════════════════════════════════════════════
+# ФАЗА 5 — ENFORCE (3% + dual-evo)
+# ═══════════════════════════════════════════════════════════
+phase_enforce() {
+    PHASE=$((PHASE+1))
+    head1 "[$PHASE/$PHASE_TOTAL] ENFORCE 3% + DUAL-EVO"
+
+    # Enforce 3%
+    step "3% policy..."
+    if [ -x "$BIN_ENFORCE" ]; then
+        "$BIN_ENFORCE" all 2>&1 | tail -12 | sed 's/^/  /' | tee -a "$LOG"
+    else
+        warn "enforce missing"
+        WARN_C=$((WARN_C+1))
+    fi
+
+    # Dual-EVO (SHA consensus)
+    step "dual-evo (SHA consensus)..."
+    if [ -x "$BIN_DUAL" ]; then
+        "$BIN_DUAL" run 2>&1 | tail -15 | sed 's/^/  /' | tee -a "$LOG"
+    else
+        warn "dual-evo missing"
+        WARN_C=$((WARN_C+1))
+    fi
+}
+
+# ═══════════════════════════════════════════════════════════
+# ФАЗА 6 — HARDENING
+# ═══════════════════════════════════════════════════════════
+phase_hardening() {
+    PHASE=$((PHASE+1))
+    head1 "[$PHASE/$PHASE_TOTAL] HARDENING"
+
+    if [ -x "$ROOT/cybra_mega_hardening.sh" ]; then
+        "$ROOT/cybra_mega_hardening.sh" 2>&1 | tail -15 | sed 's/^/  /' | tee -a "$LOG"
+    else
+        warn "hardening missing"
+        WARN_C=$((WARN_C+1))
+    fi
+}
+
+# ═══════════════════════════════════════════════════════════
+# ФАЗА 7 — PUSH
+# ═══════════════════════════════════════════════════════════
+phase_push() {
+    PHASE=$((PHASE+1))
+    head1 "[$PHASE/$PHASE_TOTAL] GIT PUSH"
+
+    [ ! -d "$GITMOD/.git" ] && { err "git repo missing"; FAIL=$((FAIL+1)); return; }
+
+    cd "$GITMOD" || return
+
+    # Синхронізуємо modules у git
+    mkdir -p modules meta
+    for d in "$MODULES"/*/; do
+        [ -d "$d" ] || continue
+        local m="$(basename "$d")"
+        case "$m" in @*|.*|_disabled*|evolution|answer_engine|node_modules) continue ;; esac
+        mkdir -p "modules/$m"
+        for sub in bin state tests snapshot contracts links evidence; do
+            [ ! -d "$d/$sub" ] && continue
+            mkdir -p "modules/$m/$sub"
+            cp -r "$d/$sub"/* "modules/$m/$sub/" 2>/dev/null || true
+        done
+    done
+
+    # Manifest
+    {
+        printf 'CYBRA ENTERPRISE BUILD\n'
+        printf 'RUN=%s\n' "$RUN"
+        printf 'STAMP=%s\n' "$STAMP"
+        printf 'MODULES=%s\n' "$(list_modules | wc -l)"
+        printf 'LICENSE=0x66434c5501242ccC71b5a39C765892921624B66c\n'
+    } > manifest.txt
+
+    git add -A 2>/dev/null
+    local changes="$(git status --porcelain 2>/dev/null | wc -l)"
+    info "змін: $changes"
+
+    if [ "$changes" -eq 0 ]; then
+        ok "немає змін для push"
+    else
+        git commit -m "CYBRA enterprise $STAMP [mod=$(list_modules | wc -l)]" 2>&1 | tail -1 | tee -a "$LOG" || true
+        if git push 2>&1 | tail -2 | tee -a "$LOG"; then
+            ok "pushed"
+        else
+            warn "push failed"
+            WARN_C=$((WARN_C+1))
+        fi
+    fi
+
+    cd "$ROOT"
+}
+
+# ═══════════════════════════════════════════════════════════
+# ФАЗА 8 — REPORT
+# ═══════════════════════════════════════════════════════════
+phase_report() {
+    PHASE=$((PHASE+1))
+    head1 "[$PHASE/$PHASE_TOTAL] REPORT"
+
+    # @cybra node
+    local node="$ROOT/@cybra"
+    rm -rf "$node"
+    mkdir -p "$node/modules"
+
+    {
+        printf '{\n  "run": "%s",\n  "stamp": "%s",\n' "$RUN" "$STAMP"
+        printf '  "modules": [\n'
+    } > "$node/index.json"
+
+    local first=1 count=0
+    for m in $(list_modules); do
+        count=$((count+1))
+        local h="$(cat "$BASELINE/${m}.tree" 2>/dev/null || echo NOHASH)"
+        [ "$first" -eq 0 ] && printf ',\n' >> "$node/index.json"
+        first=0
+        printf '    {"name":"%s","tree":"%s"}' "$m" "$h" >> "$node/index.json"
+        ln -sfn "$MODULES/$m" "$node/modules/$m"
+    done
+    printf '\n  ],\n  "module_count": %s\n}\n' "$count" >> "$node/index.json"
+
+    # Enterprise report
+    cat > "$REPORT" <<EOF
+RUN=$RUN
+STAMP=$STAMP
+FIX=$FIX
+WARN=$WARN_C
+FAIL=$FAIL
+MODULES=$count
+BACKUP=$(ls -t "$ROOT/backups"/enterprise_*.tar.gz 2>/dev/null | head -1)
+LOG=$LOG
+EOF
+
+    printf '\n'
+    printf '  %s╔══════════════════════════════════════════════════╗%s\n' "$B" "$Z"
+    printf '  %s║  ENTERPRISE — ПІДСУМОК                          ║%s\n' "$B" "$Z"
+    printf '  %s╚══════════════════════════════════════════════════╝%s\n' "$B" "$Z"
+    printf '\n'
+    printf '  RUN:        %s\n' "$RUN"
+    printf '  STAMP:      %s\n' "$STAMP"
+    printf '  Модулів:    %s\n' "$count"
+    printf '\n'
+    printf '  %sFixed:      %s%s\n' "$C" "$FIX" "$Z"
+    printf '  %sWarnings:   %s%s\n' "$Y" "$WARN_C" "$Z"
+    printf '  %sFailed:     %s%s\n' "$R" "$FAIL" "$Z"
+    printf '\n'
+    printf '  Backup:     %s\n' "$(ls -t "$ROOT/backups"/enterprise_*.tar.gz 2>/dev/null | head -1)"
+    printf '  Report:     %s\n' "$REPORT"
+    printf '  Log:        %s\n' "$LOG"
+    printf '\n'
+
+    if [ "$FAIL" -eq 0 ]; then
+        printf '  %s✓ ENTERPRISE OK%s\n' "$G" "$Z"
+    else
+        printf '  %s✗ ENTERPRISE з помилками%s\n' "$R" "$Z"
+    fi
+    printf '\n'
+}
+
+# ═══════════════════════════════════════════════════════════
+# SUMMARY
+# ═══════════════════════════════════════════════════════════
+main_summary() {
+    printf '\n'
+    printf '%s%s╔══════════════════════════════════════════════════╗%s\n' "$B" "$C" "$Z"
+    printf '%s%s║  CYBRA ENTERPRISE AUTOMATION                     ║%s\n' "$B" "$C" "$Z"
+    printf '%s%s╚══════════════════════════════════════════════════╝%s\n' "$B" "$C" "$Z"
+    printf '\n'
+    printf '  RUN:  %s\n' "$RUN"
+    printf '  LOG:  %s\n' "$LOG"
+    printf '\n'
+}
+
+# ═══════════════════════════════════════════════════════════
+# ENTRY
+# ═══════════════════════════════════════════════════════════
+main() {
+    main_summary
+
+    phase_preflight
+    phase_backup
+    phase_autopatch
+    phase_reseal
+    phase_enforce
+    phase_hardening
+    phase_push
+    phase_report
+
+    [ "$FAIL" -eq 0 ] && exit 0 || exit 1
+}
+
+case "${1:-full}" in
+    full|f|all|a)
+        main
+        ;;
+    preflight|p)
+        phase_preflight
+        ;;
+    backup|b)
+        phase_backup
+        ;;
+    autopatch|ap)
+        phase_autopatch
+        ;;
+    reseal|r)
+        phase_reseal
+        ;;
+    enforce|e)
+        phase_enforce
+        ;;
+    hardening|h)
+        phase_hardening
+        ;;
+    push|pu)
+        phase_push
+        ;;
+    report|rep)
+        phase_report
+        ;;
+    *)
+        cat <<USAGE
+Usage: cybra_enterprise [phase]
+
+  full (default) — всі фази підряд
+  preflight      — перевірка системи
+  backup         — повний backup
+  autopatch      — модулі + контракти
+  reseal         — snapshot + baseline
+  enforce        — 3% + dual-evo
+  hardening      — mega_hardening
+  push           — git push
+  report         — @cybra node + report
+
+Приклади:
+  cybra_enterprise              # все
+  cybra_enterprise backup       # тільки backup
+  cybra_enterprise enforce      # тільки 3% + dual
+USAGE
+        exit 1
+        ;;
+esac

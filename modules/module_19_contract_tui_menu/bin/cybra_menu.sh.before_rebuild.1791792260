@@ -1,0 +1,137 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# CYBRA CONTRACT MANAGER — TUI v2.0 (auto-generated)
+set -uo pipefail
+
+H="$HOME/CYBRA"; M="$H/modules"
+G=$'\e[32m'; Y=$'\e[33m'; R=$'\e[31m'; B=$'\e[36m'
+C_GREY=$'\e[90m'; C_BOLD=$'\e[1m'; C_RESET=$'\e[0m'; N=$'\e[0m'
+
+menu(){
+  clear
+  echo "${B}${C_BOLD}════════════════════════════════════════════════════════════${C_RESET}"
+  echo "${B}${C_BOLD}  CYBRA CONTRACT MANAGER — TUI v2.0${C_RESET}    $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
+  echo "${B}${C_BOLD}════════════════════════════════════════════════════════════${C_RESET}"
+  echo
+
+  echo "  ${B}─── METAMASK ───${C_RESET}"
+  echo "  ${C_GREY}🟢${C_RESET} ${C_BOLD}[108]${C_RESET} metamask_sign         ${C_GREY}🟢${C_RESET} ${C_BOLD}[109]${C_RESET} metamask_verify"
+  echo "  ${C_GREY}🟢${C_RESET} ${C_BOLD}[110]${C_RESET} metamask_history      ${C_GREY}🟢${C_RESET} ${C_BOLD}[111]${C_RESET} metamask_settings"
+  echo "  ${C_GREY}🟢${C_RESET} ${C_BOLD}[112]${C_RESET} metamask_deeplink     ${C_GREY}🟢${C_RESET} ${C_BOLD}[113]${C_RESET} metamask_batch"
+  echo
+  echo "  ${B}─── AUTONODE ───${C_RESET}"
+  echo "  ${C_GREY}🟢${C_RESET} ${C_BOLD}[114]${C_RESET} autonode              ${C_GREY}🟢${C_RESET} ${C_BOLD}[115]${C_RESET} rpc_bench"
+  echo "  ${C_GREY}🟢${C_RESET} ${C_BOLD}[116]${C_RESET} gas_monitor           ${C_GREY}🟢${C_RESET} ${C_BOLD}[117]${C_RESET} tx_lookup"
+  echo "  ${C_GREY}🟢${C_RESET} ${C_BOLD}[118]${C_RESET} net_health"
+  echo
+  echo "  ${B}─── QR SIGN ───${C_RESET}"
+  echo "  ${C_GREY}🟢${C_RESET} ${C_BOLD}[119]${C_RESET} qr_sign"
+  echo
+  echo "  ${B}─── AI GUARDIAN ───${C_RESET}"
+  echo "  ${C_GREY}🟢${C_RESET} ${C_BOLD}[120]${C_RESET} ai_guardian"
+  echo
+  echo "  ${B}─── PARLIAMENT ───${C_RESET}"
+  echo "  ${C_GREY}🟢${C_RESET} ${C_BOLD}[121]${C_RESET} parlament"
+  echo
+  echo "  ${B}─── VALIDATOR / MULTISIG ───${C_RESET}"
+  echo "  ${C_GREY}🟢${C_RESET} ${C_BOLD}[122]${C_RESET} contract_validator"
+  echo
+  echo "  ${B}─── MULTISIG ───${C_RESET}"
+  echo "  ${C_GREY}🟢${C_RESET} ${C_BOLD}[123]${C_RESET} multisig"
+  echo
+  echo "  ${B}─── LIFECYCLE ───${C_RESET}"
+  echo "  ${C_GREY}🟢${C_RESET} ${C_BOLD}[124]${C_RESET} timelock              ${C_GREY}🟢${C_RESET} ${C_BOLD}[125]${C_RESET} anchor"
+  echo "  ${C_GREY}🟢${C_RESET} ${C_BOLD}[126]${C_RESET} zk                    ${C_GREY}🟢${C_RESET} ${C_BOLD}[128]${C_RESET} dashboard"
+  echo "  ${C_GREY}🟢${C_RESET} ${C_BOLD}[129]${C_RESET} voice                 ${C_GREY}🟢${C_RESET} ${C_BOLD}[130]${C_RESET} test_suite"
+  echo "  ${C_GREY}🟢${C_RESET} ${C_BOLD}[131]${C_RESET} kyc                   ${C_GREY}🟢${C_RESET} ${C_BOLD}[132]${C_RESET} compliance"
+  echo "  ${C_GREY}🟢${C_RESET} ${C_BOLD}[133]${C_RESET} tokens                ${C_GREY}🟢${C_RESET} ${C_BOLD}[134]${C_RESET} discord"
+  echo "  ${C_GREY}🟢${C_RESET} ${C_BOLD}[135]${C_RESET} walletconnect         ${C_GREY}🟢${C_RESET} ${C_BOLD}[136]${C_RESET} templates"
+  echo "  ${C_GREY}🟢${C_RESET} ${C_BOLD}[137]${C_RESET} escrow                ${C_GREY}🟢${C_RESET} ${C_BOLD}[138]${C_RESET} arbitration"
+  echo
+  echo "  ${B}─── ADVANCED ───${C_RESET}"
+  echo "  ${C_GREY}🟢${C_RESET} ${C_BOLD}[139]${C_RESET} reputation            ${C_GREY}🟢${C_RESET} ${C_BOLD}[140]${C_RESET} analytics"
+  echo "  ${C_GREY}🟢${C_RESET} ${C_BOLD}[141]${C_RESET} portfolio             ${C_GREY}🟢${C_RESET} ${C_BOLD}[142]${C_RESET} invoice_pdf"
+  echo "  ${C_GREY}🟢${C_RESET} ${C_BOLD}[143]${C_RESET} email                 ${C_GREY}🟢${C_RESET} ${C_BOLD}[144]${C_RESET} lightning"
+  echo "  ${C_GREY}🟢${C_RESET} ${C_BOLD}[145]${C_RESET} ipfs                  ${C_GREY}🟢${C_RESET} ${C_BOLD}[146]${C_RESET} merkle"
+  echo "  ${C_GREY}🟢${C_RESET} ${C_BOLD}[147]${C_RESET} reputation_v2         ${C_GREY}🟢${C_RESET} ${C_BOLD}[148]${C_RESET} multisig_ui"
+  echo "  ${C_GREY}🟢${C_RESET} ${C_BOLD}[149]${C_RESET} analytics             ${C_GREY}🟢${C_RESET} ${C_BOLD}[150]${C_RESET} scripts"
+  echo
+  echo "  ${B}─── ONBOARDING ───${C_RESET}"
+  echo "  ${C_GREY}🟢${C_RESET} ${C_BOLD}[151]${C_RESET} wizard                ${C_GREY}🟢${C_RESET} ${C_BOLD}[152]${C_RESET} doctor"
+  echo
+  echo "  ${B}─── МЕРЕЖА ───${C_RESET}"
+  echo "  ${C_GREY}🟢${C_RESET} ${C_BOLD}[200]${C_RESET} network"
+  echo
+  echo "  ${C_GREY}🟢 ready  🟡 warning  🔴 error${C_RESET}"
+  echo
+  echo "  [0]  Вихід"
+  echo
+}
+
+# case handler
+run_choice(){
+  case "$1" in
+    0|q|Q|exit|quit)
+      echo "Вихід."
+      exit 0
+      ;;
+
+    108) bash "$H/modules/module_108_metamask_sign/main.sh" ;;
+    109) bash "$H/modules/module_109_metamask_verify/main.sh" ;;
+    110) bash "$H/modules/module_110_metamask_history/main.sh" ;;
+    111) bash "$H/modules/module_111_metamask_settings/main.sh" ;;
+    112) bash "$H/modules/module_112_metamask_deeplink/main.sh" ;;
+    113) bash "$H/modules/module_113_metamask_batch/main.sh" ;;
+    114) bash "$H/modules/module_114_autonode/main.sh" ;;
+    115) bash "$H/modules/module_115_rpc_bench/main.sh" ;;
+    116) bash "$H/modules/module_116_gas_monitor/main.sh" ;;
+    117) bash "$H/modules/module_117_tx_lookup/main.sh" ;;
+    118) bash "$H/modules/module_118_net_health/main.sh" ;;
+    119) bash "$H/modules/module_119_qr_sign/main.sh" ;;
+    120) bash "$H/modules/module_120_ai_guardian/main.sh" ;;
+    121) bash "$H/modules/module_121_parlament/main.sh" ;;
+    122) bash "$H/modules/module_122_contract_validator/main.sh" ;;
+    123) bash "$H/modules/module_123_multisig/main.sh" ;;
+    124) bash "$H/modules/module_124_timelock/main.sh" ;;
+    125) bash "$H/modules/module_125_anchor/main.sh" ;;
+    126) bash "$H/modules/module_126_zk/main.sh" ;;
+    128) bash "$H/modules/module_128_dashboard/main.sh" ;;
+    129) bash "$H/modules/module_129_voice/main.sh" ;;
+    130) bash "$H/modules/module_130_test_suite/main.sh" ;;
+    131) bash "$H/modules/module_131_kyc/main.sh" ;;
+    132) bash "$H/modules/module_132_compliance/main.sh" ;;
+    133) bash "$H/modules/module_133_tokens/main.sh" ;;
+    134) bash "$H/modules/module_134_discord/main.sh" ;;
+    135) bash "$H/modules/module_135_walletconnect/main.sh" ;;
+    136) bash "$H/modules/module_136_templates/main.sh" ;;
+    137) bash "$H/modules/module_137_escrow/main.sh" ;;
+    138) bash "$H/modules/module_138_arbitration/main.sh" ;;
+    139) bash "$H/modules/module_139_reputation/main.sh" ;;
+    140) bash "$H/modules/module_140_analytics/main.sh" ;;
+    141) bash "$H/modules/module_141_portfolio/main.sh" ;;
+    142) bash "$H/modules/module_142_invoice_pdf/main.sh" ;;
+    143) bash "$H/modules/module_143_email/main.sh" ;;
+    144) bash "$H/modules/module_144_lightning/main.sh" ;;
+    145) bash "$H/modules/module_145_ipfs/main.sh" ;;
+    146) bash "$H/modules/module_146_merkle/main.sh" ;;
+    147) bash "$H/modules/module_147_reputation_v2/main.sh" ;;
+    148) bash "$H/modules/module_148_multisig_ui/main.sh" ;;
+    149) bash "$H/modules/module_149_analytics/main.sh" ;;
+    150) bash "$H/modules/module_150_scripts/main.sh" ;;
+    151) bash "$H/modules/module_151_wizard/main.sh" ;;
+    152) bash "$H/modules/module_152_doctor/main.sh" ;;
+    200) bash "$H/modules/module_200_network/main.sh" ;;
+    *)
+      echo "${R}Не підтримується: $1${N}"
+      sleep 1
+      ;;
+  esac
+}
+
+# main loop
+while :; do
+  menu
+  read -rp "  Вибір: " choice
+  run_choice "$choice"
+  echo
+  read -rp "  Enter…" _ 2>/dev/null || true
+done

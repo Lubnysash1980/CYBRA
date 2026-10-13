@@ -1,0 +1,99 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# ═══════════════════════════════════════════════════════════
+# CYBRA BOOT — запускає всю систему однією командою
+# 1. Cleanup (ротація)
+# 2. Watchdog (супервізор)
+# 3. Schedule (cron)
+# 4. HTTP (API)
+# 5. Перевірка evo_ctl + parawatch (watchdog підніме)
+# ═══════════════════════════════════════════════════════════
+
+ROOT="$HOME/CYBRA"
+BIN="$ROOT/bin"
+
+if [ -t 1 ]; then
+    G=$'\033[32m'; Y=$'\033[33m'; R=$'\033[31m'
+    B=$'\033[1m'; C=$'\033[36m'; M=$'\033[35m'; Z=$'\033[0m'; GR=$'\033[90m'
+else
+    G=""; Y=""; R=""; B=""; C=""; M=""; Z=""; GR=""
+fi
+
+hr()  { printf -- '────────────────────────────────────────────────────────────\n'; }
+hdr() { printf '\n%s%s═══ %s ═══%s\n' "$B" "$C" "$*" "$Z"; }
+ok()   { printf '  %s[✓]%s %s\n' "$G" "$Z" "$*"; }
+warn() { printf '  %s[!]%s %s\n' "$Y" "$Z" "$*"; }
+err()  { printf '  %s[✗]%s %s\n' "$R" "$Z" "$*"; }
+info() { printf '  %s[·]%s %s\n' "$GR" "$Z" "$*"; }
+
+# ─── Старт одного демона ───
+start_daemon() {
+    local name="$1"
+    local cmd="$2"
+    local pidfile="$3"
+
+    if [ -f "$pidfile" ] && kill -0 "$(cat "$pidfile")" 2>/dev/null; then
+        ok "$name — вже RUNNING (PID $(cat "$pidfile"))"
+        return 0
+    fi
+
+    "$cmd" start >/dev/null 2>&1
+
+    sleep 1
+
+    if [ -f "$pidfile" ] && kill -0 "$(cat "$pidfile")" 2>/dev/null; then
+        ok "$name — STARTED (PID $(cat "$pidfile"))"
+        return 0
+    fi
+    err "$name — FAILED"
+    return 1
+}
+
+# ═══════════════════════════════════════════════════════════
+hdr "CYBRA BOOT"
+printf '  Час: %s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+hr
+
+# ─── 1. Cleanup ───
+hdr "[1/5] Cleanup"
+"$BIN/cybra_cleanup" 2>&1 | tail -7 | sed 's/^/  /'
+
+# ─── 2. Watchdog ───
+hdr "[2/5] Watchdog (супервізор)"
+start_daemon "watchdog"  "$BIN/cybra_watchdog"  "$ROOT/.watchdog.pid"
+
+# ─── 3. Schedule ───
+hdr "[3/5] Schedule (cron)"
+start_daemon "schedule"  "$BIN/cybra_schedule"  "$ROOT/.schedule.pid"
+
+# ─── 4. HTTP ───
+hdr "[4/5] HTTP API"
+if command -v nc >/dev/null 2>&1; then
+    start_daemon "http"  "$BIN/cybra_http"  "$ROOT/.cybra_http.pid"
+else
+    warn "nc не встановлено — HTTP пропущено"
+    info "pkg install netcat-openbsd"
+fi
+
+# ─── 5. Перевірка всіх ───
+hdr "[5/5] Статус системи"
+hr
+
+printf '  %-20s %s\n' "watchdog:"   "$([ -f "$ROOT/.watchdog.pid" ] && kill -0 "$(cat "$ROOT/.watchdog.pid")" 2>/dev/null && echo "🟢 RUNNING" || echo "🔴 STOPPED")"
+printf '  %-20s %s\n' "evo_ctl:"    "$([ -f "$ROOT/.evo_ctl.pid" ] && kill -0 "$(cat "$ROOT/.evo_ctl.pid")" 2>/dev/null && echo "🟢 RUNNING" || echo "🔴 STOPPED")"
+printf '  %-20s %s\n' "parawatch:"  "$([ -f "$ROOT/.parawatch.pid" ] && kill -0 "$(cat "$ROOT/.parawatch.pid")" 2>/dev/null && echo "🟢 RUNNING" || echo "🔴 STOPPED")"
+printf '  %-20s %s\n' "schedule:"   "$([ -f "$ROOT/.schedule.pid" ] && kill -0 "$(cat "$ROOT/.schedule.pid")" 2>/dev/null && echo "🟢 RUNNING" || echo "🔴 STOPPED")"
+printf '  %-20s %s\n' "http:"       "$([ -f "$ROOT/.cybra_http.pid" ] && kill -0 "$(cat "$ROOT/.cybra_http.pid")" 2>/dev/null && echo "🟢 RUNNING" || echo "🔴 STOPPED")"
+
+hr
+
+# ─── Підказки ───
+printf '\n'
+printf '  %sГотово. Команди:%s\n' "$B" "$Z"
+printf '    curl http://localhost:8765/status\n'
+printf '    curl http://localhost:8765/metrics\n'
+printf '    cybra_evo_ctl run\n'
+printf '    cybra_evo7 all\n'
+printf '    cybra_enterprise full\n'
+printf '\n'
+
+exit 0

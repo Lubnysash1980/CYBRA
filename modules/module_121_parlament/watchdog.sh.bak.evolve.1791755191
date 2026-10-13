@@ -1,0 +1,71 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# Парламент прокидається кожні INTERVAL секунд:
+#  - auto-фіксить
+#  - оновлює статус
+#  - раз на REPORT_EVERY циклів шле звіт у Telegram
+D="$HOME/CYBRA/modules/module_121_parlament"
+PID="$HOME/CYBRA/run/parlament.pid"
+LOG="$HOME/CYBRA/logs/parlament.log"
+INTERVAL="${PARLAMENT_INTERVAL:-900}"     # 15 хв
+REPORT_EVERY="${PARLAMENT_REPORT_EVERY:-8}"  # кожні 8 циклів = ~2 год
+
+running(){ [ -f "$PID" ] && kill -0 "$(cat "$PID")" 2>/dev/null; }
+
+start(){
+  running && { echo "вже працює (PID $(cat $PID))"; return; }
+  mkdir -p "$HOME/CYBRA/run" "$HOME/CYBRA/logs"
+  nohup bash -c '
+    D="'"$D"'"
+    LOG="'"$LOG"'"
+    i=0
+    while :; do
+      i=$((i+1))
+      echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] цикл $i" >> "$LOG"
+      python3 "$D/executor.py" auto >> "$LOG" 2>&1
+      python3 "$D/executor.py" apply >> "$LOG" 2>&1
+      python3 "$D/progress.py" tick >> "$LOG" 2>&1
+      # on-chain anchor check через AutoNode
+      python3 "$HOME/CYBRA/modules/module_114_autonode/parlament_events.py" >> "$LOG" 2>&1
+      if [ $((i % '"$REPORT_EVERY"')) -eq 0 ]; then
+        python3 "$D/telegram_report.py" >> "$LOG" 2>&1
+      fi
+      # backup кожні 4 цикли (~1 год)
+      if [ $((i % 4)) -eq 0 ]; then
+        bash "$D/auto_backup.sh"
+      fi
+      # нічний дайджест о 21:00 UTC (перевіряємо різницю з минулим)
+      DIGEST_MARK="$HOME/CYBRA/run/.digest_last"
+      TODAY=$(date -u +%Y-%m-%d)
+      HOUR=$(date -u +%H)
+      if [ "$HOUR" = "21" ] && [ "$(cat "$DIGEST_MARK" 2>/dev/null)" != "$TODAY" ]; then
+        python3 "$D/digest.py" >> "$LOG" 2>&1
+        echo "$TODAY" > "$DIGEST_MARK"
+      fi
+      # self-audit кожні 2 цикли (~30 хв)
+      if [ $((i % 2)) -eq 0 ]; then
+        python3 "$D/self_audit.py" >> "$LOG" 2>&1
+      fi
+      # orchestrator повний цикл кожні 2 цикли
+      if [ $((i % 2)) -eq 0 ]; then
+        python3 "$D/orchestrator.py" run --interval 0 >> "$LOG" 2>&1
+      fi
+      # ротація логу
+      if [ -f "$LOG" ] && [ $(wc -c < "$LOG") -gt 1000000 ]; then
+        tail -1000 "$LOG" > "$LOG.tmp" && mv "$LOG.tmp" "$LOG"
+      fi
+      sleep '"$INTERVAL"'
+    done
+  ' >/dev/null 2>&1 &
+  echo $! > "$PID"
+  echo "parlament watchdog PID $(cat $PID), інтервал ${INTERVAL}s, звіт кожні ${REPORT_EVERY} циклів"
+}
+
+stop(){ running && kill "$(cat $PID)" 2>/dev/null; rm -f "$PID"; echo "зупинено"; }
+status(){ running && echo "● працює PID $(cat $PID)" || echo "○ зупинено"; }
+
+case "${1:-status}" in
+  start) start ;;
+  stop) stop ;;
+  status|"") status ;;
+  log) tail -${2:-40} "$LOG" ;;
+esac

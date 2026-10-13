@@ -1,0 +1,309 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# ═══════════════════════════════════════════════════════════
+# CYBRA CONTROL — Evolution + SHA + Dual-Backend
+# ═══════════════════════════════════════════════════════════
+
+ROOT="$HOME/CYBRA"
+MODULES="$ROOT/modules"
+BASELINE="$ROOT/baseline"
+EVO_DIR="$ROOT/evolution"
+HASHES="$ROOT/hashes"
+AUDIT="$ROOT/audit"
+GITMOD="$ROOT/git_module"
+M20="$MODULES/module_20_evolution_guard"
+
+if [ -t 1 ]; then
+    R=$'\033[31m'; G=$'\033[32m'; Y=$'\033[33m'
+    B=$'\033[1m'; C=$'\033[36m'; M=$'\033[35m'
+    Z=$'\033[0m'; GR=$'\033[90m'
+else
+    R=""; G=""; Y=""; B=""; C=""; M=""; Z=""; GR=""
+fi
+
+hr()  { printf -- '────────────────────────────────────────────────────────────\n'; }
+hdr() { printf '\n%s%s═══ %s ═══%s\n' "$B" "$C" "$*" "$Z"; }
+ok()   { printf '  %s[✓]%s %s\n' "$G" "$Z" "$*"; }
+warn() { printf '  %s[!]%s %s\n' "$Y" "$Z" "$*"; }
+err()  { printf '  %s[✗]%s %s\n' "$R" "$Z" "$*"; }
+
+# ═══════════════════════════════════════════════════════════
+# HASH TREE (SHA — canonical)
+# ═══════════════════════════════════════════════════════════
+hash_tree() {
+    local d="$1"
+    ( cd "$d" 2>/dev/null || return
+      find . -type f \
+        ! -name '*.log' ! -name '*.test.log' \
+        ! -name 'test_output.txt' ! -name 'test_output.sha256' \
+        ! -name 'SNAPSHOT_SHA256.txt' ! -name '*.bak.*' \
+        -print0 2>/dev/null |
+      sort -z | xargs -0 -r sha256sum 2>/dev/null |
+      sha256sum | awk '{print $1}' )
+}
+
+list_modules() {
+    for d in "$MODULES"/*/; do
+        [ -d "$d" ] || continue
+        local m="$(basename "$d")"
+        case "$m" in @*|.*|_disabled*|evolution|answer_engine|node_modules) continue ;; esac
+        printf '%s\n' "$m"
+    done
+}
+
+# ═══════════════════════════════════════════════════════════
+# 1. EVOLUTION CHECK (read-only)
+# ═══════════════════════════════════════════════════════════
+control_evo_check() {
+    hdr "EVOLUTION CHECK (read-only)"
+    local lib="$M20/bin/cybra_evolution.sh"
+    [ ! -f "$lib" ] && { err "evolution lib не знайдено"; return 1; }
+    source "$lib"
+
+    # 3% tolerance tests
+    printf '  %-25s %s\n' "100→100 (equal):"    "$(evo_within_tolerance 100 100 3 && echo OK || echo BLOCKED)"
+    printf '  %-25s %s\n' "100→120 (improve):"  "$(evo_within_tolerance 100 120 3 && echo OK || echo BLOCKED)"
+    printf '  %-25s %s\n' "100→97 (3%% dev):"    "$(evo_within_tolerance 100 97 3  && echo OK || echo BLOCKED)"
+    printf '  %-25s %s\n' "100→96 (4%% dev):"    "$(evo_within_tolerance 100 96 3  && echo OK || echo BLOCKED)"
+    printf '  %-25s %s\n' "100→50 (50%% deg):"   "$(evo_within_tolerance 100 50 3  && echo OK || echo BLOCKED)"
+    printf '  %-25s %s\n' "50→500 (massive):"   "$(evo_within_tolerance 50 500 3  && echo OK || echo BLOCKED)"
+    printf '  %-25s %s\n' "0→0 (zero):"         "$(evo_within_tolerance 0 0 3     && echo OK || echo BLOCKED)"
+    printf '  %-25s %s\n' "0→1 (zero edge):"    "$(evo_within_tolerance 0 1 3     && echo OK || echo BLOCKED)"
+    hr
+
+    # Baseline drift (READ-ONLY — не переписуємо!)
+    local total=0 drift=0
+    for m in $(list_modules); do
+        total=$((total+1))
+        local h="$(hash_tree "$MODULES/$m")"
+        local base="$(cat "$BASELINE/${m}.tree" 2>/dev/null || echo NONE)"
+        if [ "$h" != "$base" ]; then
+            printf '  %s[DRIFT]%s %s\n' "$Y" "$Z" "$m"
+            drift=$((drift+1))
+        fi
+    done
+
+    hr
+    if [ "$drift" -eq 0 ]; then
+        ok "Baseline OK ($total модулів, drift=0)"
+    else
+        warn "Drift: $drift / $total — 'cybra_control approve' щоб зафіксувати"
+    fi
+}
+
+# ═══════════════════════════════════════════════════════════
+# 2. APPROVE baseline (owner action)
+# ═══════════════════════════════════════════════════════════
+control_approve() {
+    hdr "APPROVE BASELINE (owner action)"
+
+    [ ! -f "$ROOT/.owner" ] && { err "owner marker відсутній"; return 1; }
+    ok "owner: $(cat "$ROOT/.owner")"
+
+    local count=0
+    for m in $(list_modules); do
+        local h="$(hash_tree "$MODULES/$m")"
+        printf '%s' "$h" > "$EVO_DIR/${m}.approved"
+        printf '%s' "$h" > "$BASELINE/${m}.tree"
+        count=$((count+1))
+    done
+    ok "Approved $count модулів"
+}
+
+# ═══════════════════════════════════════════════════════════
+# 3. SHA CHECK (verify baseline vs actual)
+# ═══════════════════════════════════════════════════════════
+control_sha() {
+    hdr "SHA-256 VERIFY"
+    local total=0 match=0 miss=0 missing=0
+
+    for m in $(list_modules); do
+        total=$((total+1))
+        local base="$BASELINE/${m}.tree"
+        if [ ! -f "$base" ]; then
+            printf '  %s[NO-BASE]%s %s\n' "$R" "$Z" "$m"
+            missing=$((missing+1))
+            continue
+        fi
+        local old="$(cat "$base")"
+        local new="$(hash_tree "$MODULES/$m")"
+        if [ "$old" = "$new" ]; then
+            printf '  %s[MATCH]%s   %-45s %s\n' "$G" "$Z" "$m" "${new:0:16}"
+            match=$((match+1))
+        else
+            printf '  %s[MISMATCH]%s %-45s\n' "$R" "$Z" "$m"
+            printf '              old: %s\n' "${old:0:16}"
+            printf '              new: %s\n' "${new:0:16}"
+            miss=$((miss+1))
+        fi
+    done
+
+    hr
+    printf '  Total:    %s\n' "$total"
+    printf '  Match:    %s%s%s\n' "$G" "$match" "$Z"
+    printf '  Mismatch: %s%s%s\n' "$R" "$miss" "$Z"
+    printf '  No-base:  %s%s%s\n' "$Y" "$missing" "$Z"
+}
+
+# ═══════════════════════════════════════════════════════════
+# 4. DUAL-BACKEND VERIFY
+# ═══════════════════════════════════════════════════════════
+control_dual() {
+    hdr "DUAL-BACKEND VERIFY"
+
+    local stamp="$(date -u +%Y%m%dT%H%M%SZ)"
+    local db="$HASHES/$stamp"
+    mkdir -p "$db"
+
+    # BACKEND A: canonical state (baseline/*.tree sorted)
+    local canon="$db/backend_a.input"
+    for t in "$BASELINE"/*.tree; do
+        [ -f "$t" ] || continue
+        printf '%s %s\n' "$(basename "$t" .tree)" "$(cat "$t")"
+    done | LC_ALL=C sort > "$canon"
+    local A="$(sha256sum "$canon" | awk '{print $1}')"
+
+    # BACKEND B: actual tree state (real hash_tree, sorted)
+    local real="$db/backend_b.input"
+    for m in $(list_modules); do
+        printf '%s %s\n' "$m" "$(hash_tree "$MODULES/$m")"
+    done | LC_ALL=C sort > "$real"
+    local B="$(sha256sum "$real" | awk '{print $1}')"
+
+    # DUAL = hash(A+B)
+    local dual="$(printf '%s\n%s\n' "$A" "$B" | sha256sum | awk '{print $1}')"
+
+    # Save
+    printf '%s\n' "$A"    > "$db/backend_a.sha256"
+    printf '%s\n' "$B"    > "$db/backend_b.sha256"
+    printf '%s\n' "$dual" > "$db/dual.sha256"
+
+    cat > "$db/snapshot.env" <<EOF
+STAMP=$stamp
+BACKEND_A=$A
+BACKEND_B=$B
+DUAL=$dual
+EOF
+
+    printf '  %-15s %s\n' "BACKEND_A:" "${A:0:16}..."
+    printf '  %-15s %s\n' "BACKEND_B:" "${B:0:16}..."
+    printf '  %-15s %s%s%s\n' "DUAL:" "$B" "${dual:0:16}" "$Z"
+    hr
+
+    if [ "$A" = "$B" ]; then
+        ok "Dual-backend MATCH — baseline == actual"
+        printf '  Snapshot: %s\n' "$db"
+        return 0
+    else
+        err "Dual-backend MISMATCH — baseline != actual"
+        printf '  Запусти: cybra_control approve\n'
+        printf '  Snapshot: %s\n' "$db"
+        return 1
+    fi
+}
+
+# ═══════════════════════════════════════════════════════════
+# 5. EVOLUTION LEDGER
+# ═══════════════════════════════════════════════════════════
+control_ledger() {
+    hdr "EVOLUTION LEDGER (останні 20)"
+    tail -20 "$EVO_DIR/evolution_ledger.txt" 2>/dev/null || printf '  (порожньо)\n'
+    hr
+    hdr "BLOCKED LOG (останні 10)"
+    tail -10 "$EVO_DIR/blocked.log" 2>/dev/null || printf '  (порожньо)\n'
+}
+
+# ═══════════════════════════════════════════════════════════
+# 6. FREEZE / UNFREEZE
+# ═══════════════════════════════════════════════════════════
+control_freeze() {
+    hdr "FREEZE"
+    printf '%s | FREEZE_ACTIVATED\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > "$EVO_DIR/FROZEN"
+    err "SYSTEM FROZEN — всі операції заблоковані до unfreeze"
+}
+
+control_unfreeze() {
+    hdr "UNFREEZE"
+    [ ! -f "$ROOT/.owner" ] && { err "owner marker відсутній"; return 1; }
+    rm -f "$EVO_DIR/FROZEN"
+    printf '%s | UNFROZEN_BY_OWNER\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$EVO_DIR/evolution_ledger.txt"
+    ok "unfrozen"
+}
+
+control_frozen() {
+    if [ -f "$EVO_DIR/FROZEN" ]; then
+        err "FROZEN"
+        cat "$EVO_DIR/FROZEN"
+    else
+        ok "not frozen"
+    fi
+}
+
+# ═══════════════════════════════════════════════════════════
+# 7. ALL-IN-ONE
+# ═══════════════════════════════════════════════════════════
+control_all() {
+    control_evo_check
+    hr
+    control_sha
+    hr
+    control_dual
+    hr
+    control_ledger
+}
+
+# ═══════════════════════════════════════════════════════════
+# MENU
+# ═══════════════════════════════════════════════════════════
+show_menu() {
+    clear 2>/dev/null
+    printf '%s%s═══ CYBRA CONTROL ═══%s\n\n' "$B" "$M" "$Z"
+    printf '  %s[1]%s Evolution check (3%%)\n'      "$B" "$Z"
+    printf '  %s[2]%s SHA-256 verify\n'             "$B" "$Z"
+    printf '  %s[3]%s Dual-backend verify\n'        "$B" "$Z"
+    printf '  %s[4]%s Ledger + blocked\n'           "$B" "$Z"
+    printf '  %s[5]%s ALL (1+2+3+4)\n'              "$B$G" "$Z"
+    printf '  %s[6]%s APPROVE baseline (owner)\n'   "$B" "$Z"
+    printf '  %s[7]%s FREEZE\n'                     "$B" "$Z"
+    printf '  %s[8]%s UNFREEZE\n'                   "$B" "$Z"
+    printf '  %s[9]%s FROZEN?\n'                    "$B" "$Z"
+    printf '  %s[0]%s Вихід\n'                      "$B" "$Z"
+    printf '\n  Вибір: '
+}
+
+case "${1:-menu}" in
+    evo|e|1)      control_evo_check ;;
+    sha|s|2)      control_sha ;;
+    dual|d|3)     control_dual ;;
+    ledger|l|4)   control_ledger ;;
+    all|a|5)      control_all ;;
+    approve|ap|6) control_approve ;;
+    freeze|f|7)   control_freeze ;;
+    unfreeze|u|8) control_unfreeze ;;
+    frozen|fr|9)  control_frozen ;;
+    menu|m|"")
+        while true; do
+            show_menu
+            read -r c
+            printf '\n'
+            case "$c" in
+                1) control_evo_check ;;
+                2) control_sha ;;
+                3) control_dual ;;
+                4) control_ledger ;;
+                5) control_all ;;
+                6) control_approve ;;
+                7) control_freeze ;;
+                8) control_unfreeze ;;
+                9) control_frozen ;;
+                0|q|Q|exit) printf 'Вихід\n'; exit 0 ;;
+                *) err "Невідома: $c" ;;
+            esac
+            printf '\n%sEnter...%s' "$GR" "$Z"
+            read -r _
+        done
+        ;;
+    *)
+        printf 'Usage: cybra_control [evo|sha|dual|ledger|all|approve|freeze|unfreeze|frozen|menu]\n'
+        exit 1
+        ;;
+esac
