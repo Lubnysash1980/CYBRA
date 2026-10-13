@@ -1,23 +1,61 @@
 {
-  "at": "2026-10-13T09:25:30Z",
-  "duration_ms": 16085,
+  "at": "2026-10-13T09:29:49Z",
+  "duration_ms": 29294,
   "rounds": [
     {
       "round": 1,
       "ok": false,
       "actions": [
-        "heal_controllers"
+        "heal_processes"
       ],
-      "devs": 4,
+      "devs": 1,
       "health": 100,
       "completion": 100.0,
-      "controllers_ok": 7,
+      "controllers_ok": 8,
       "controllers_total": 8
     },
     {
       "round": 2,
-      "ok": true,
-      "actions": [],
+      "ok": false,
+      "actions": [
+        "heal_processes"
+      ],
+      "devs": 1,
+      "health": 100,
+      "completion": 100.0,
+      "controllers_ok": 8,
+      "controllers_total": 8
+    },
+    {
+      "round": 3,
+      "ok": false,
+      "actions": [
+        "heal_processes"
+      ],
+      "devs": 1,
+      "health": 100,
+      "completion": 100.0,
+      "controllers_ok": 8,
+      "controllers_total": 8
+    },
+    {
+      "round": 4,
+      "ok": false,
+      "actions": [
+        "heal_processes"
+      ],
+      "devs": 1,
+      "health": 100,
+      "completion": 100.0,
+      "controllers_ok": 8,
+      "controllers_total": 8
+    },
+    {
+      "round": 5,
+      "ok": false,
+      "actions": [
+        "heal_processes"
+      ],
       "devs": 1,
       "health": 100,
       "completion": 100.0,
@@ -26,15 +64,15 @@
     }
   ],
   "final": {
-    "ts": "2026-10-13T09:25:29Z",
-    "ts_unix": 1791883529,
+    "ts": "2026-10-13T09:29:48Z",
+    "ts_unix": 1791883788,
     "controllers_ok": 8,
     "controllers_total": 8,
     "health": 100,
     "completion": 100.0,
     "signatures_ok": true,
-    "processes_offline": 0,
-    "disk_free_mb": 46953
+    "processes_offline": 10,
+    "disk_free_mb": 48816
   },
   "all_ok": false
 }

@@ -1,4 +1,34 @@
 #!/data/data/com.termux/files/usr/bin/bash
+
+# ─── HARD GUARD: не запускатись якщо disabled ───
+if [ -f "$HOME/CYBRA/config/pm_processes.json" ]; then
+  if python3 -c "
+import json
+from pathlib import Path
+d = json.loads(Path('$HOME/CYBRA/config/pm_processes.json').read_text())
+i = d.get('processes', {}).get('orchestrator', {})
+exit(0 if (not i.get('enabled', True)) or i.get('_phone_disabled', False) else 1)
+" 2>/dev/null; then
+    echo "  [phone-mode] orchestrator вимкнено — exit"
+    exit 0
+  fi
+fi
+
+
+
+_is_disabled() {
+    local name="$1"
+    python3 -c "
+import json
+from pathlib import Path
+cfg = Path('$HOME/CYBRA/config/pm_processes.json')
+d = json.loads(cfg.read_text()).get('processes', {})
+info = d.get('$name', {})
+disabled = (not info.get('enabled', True)) or info.get('_phone_disabled', False)
+exit(0 if disabled else 1)
+"
+}
+
 D="$HOME/CYBRA/modules/module_121_parlament"
 PID="$HOME/CYBRA/run/orch.pid"
 LOG="$HOME/CYBRA/logs/orch.log"

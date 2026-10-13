@@ -14,6 +14,13 @@ PM_LOG = H / "logs" / "pm.log"
 
 RUN = True
 
+
+def _is_phone_disabled(name, cfg):
+    """Чи процес вимкнено (phone mode)."""
+    if not cfg.get("enabled", True): return True
+    if cfg.get("_phone_disabled", False): return True
+    return False
+
 def _is_disabled(name, cfg):
     """Чи процес вимкнено (phone mode)."""
     if not cfg.get("enabled", True): return True
@@ -149,7 +156,7 @@ def loop():
         try:
             cfg = load_cfg()  # reload
             for name, proc in cfg["processes"].items():
-                if not proc.get("enabled", True): continue
+                if _is_phone_disabled(name, proc): continue
                 if name == "supervisor": continue  # себе не чіпаємо
 
                 running, pid = is_running(proc)
