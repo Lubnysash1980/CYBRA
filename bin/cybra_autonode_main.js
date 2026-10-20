@@ -27,7 +27,11 @@ function syncGit() {
     
     log('--- Git Sync ---');
     // 1. Отримуємо зміни з іншого пристрою
-    try { execSync('git pull --rebase -q', { cwd: CYBRA_HOME, stdio: 'ignore' }); } catch(e) {}
+    try { 
+        execSync('git pull --rebase -q', { cwd: CYBRA_HOME, stdio: 'ignore' }); 
+    } catch(e) { 
+        log(`Git Pull Failed: ${e.message}`); 
+    }
     
     // 2. Збираємо поточний стан PM2
     try {
