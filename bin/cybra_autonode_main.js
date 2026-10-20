@@ -28,7 +28,7 @@ function syncGit() {
     log('--- Git Sync ---');
     // 1. Отримуємо зміни з іншого пристрою
     try { 
-        execSync('git pull --rebase -q', { cwd: CYBRA_HOME, stdio: 'ignore' }); 
+        execSync('git pull --rebase --autostash -q', { cwd: CYBRA_HOME, stdio: 'ignore' }); 
     } catch(e) { 
         log(`Git Pull Failed: ${e.message}`); 
     }
