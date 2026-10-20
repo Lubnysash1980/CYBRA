@@ -1,0 +1,77 @@
+{
+  "cid": "MS-20261020001248-b9f0a9",
+  "type": "service",
+  "type_name": "Послуга",
+  "contract": {
+    "cid": "MS-20261020001248-b9f0a9",
+    "terms": "",
+    "payload": {
+      "buyer": "Грабовський Олександр Миколайович",
+      "seller": "ТОВ 'КОМФІ ТРЕЙД'",
+      "amount_bnb": 0.8064114
+    }
+  },
+  "ctx": {
+    "buyer": null,
+    "seller": null,
+    "amount": 0.8064114
+  },
+  "steps": [
+    {
+      "order": 1,
+      "level": 1,
+      "executor": "sign",
+      "payload": {}
+    },
+    {
+      "order": 2,
+      "level": 2,
+      "executor": "escrow",
+      "payload": {
+        "amount_bnb": 0.8064114
+      }
+    },
+    {
+      "order": 3,
+      "level": 3,
+      "executor": "notify",
+      "payload": {
+        "msg": "Очікує акт"
+      }
+    },
+    {
+      "order": 4,
+      "level": 4,
+      "executor": "verify",
+      "payload": {
+        "expected_hash": null
+      }
+    },
+    {
+      "order": 5,
+      "level": 5,
+      "executor": "deviation",
+      "payload": {
+        "expected": null,
+        "actual": null,
+        "threshold": 3.0
+      }
+    },
+    {
+      "order": 6,
+      "level": 6,
+      "executor": "wait",
+      "payload": {
+        "window_sec": 86400
+      }
+    },
+    {
+      "order": 7,
+      "level": 7,
+      "executor": "release",
+      "payload": {
+        "seller": null
+      }
+    }
+  ]
+}

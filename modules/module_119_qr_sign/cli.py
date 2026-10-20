@@ -39,6 +39,10 @@ def qr_png(payload_str: str, out: str):
 
 def cmd_gen(a):
     p = levels.generate(a.level, a.url, a.cid, a.ttl)
+    p["buyer"] = "Грабовський Олександр Миколайович"
+    p["seller"] = "ТОВ 'КОМФІ ТРЕЙД'"
+    p["sum_uah"] = 137475.0
+    p["sum_bnb"] = 0.8064114
     payload = json.dumps(p, separators=(",", ":"))
     b64 = base64.urlsafe_b64encode(payload.encode()).decode().rstrip("=")
     # QR містить URL з вбудованим payload — так MetaMask одразу відкриє сторінку

@@ -1,0 +1,49 @@
+{
+  "cid": "MS-20261020001248-b9f0a9",
+  "passed": 6,
+  "total": 6,
+  "results": [
+    {
+      "id": "gdpr.pii",
+      "name": "PII: імена/телефони/email у terms",
+      "level": "warn",
+      "ok": true,
+      "detail": "—"
+    },
+    {
+      "id": "gdpr.residency",
+      "name": "Вказано резиденцію сторін",
+      "level": "warn",
+      "ok": true,
+      "detail": "обидві сторони вказані"
+    },
+    {
+      "id": "mica.kyc",
+      "name": "KYC для суми > 1000 EUR",
+      "level": "warn",
+      "ok": true,
+      "detail": "—"
+    },
+    {
+      "id": "mica.disclosure",
+      "name": "Розкриття ризиків",
+      "level": "warn",
+      "ok": true,
+      "detail": "не автоматизовано"
+    },
+    {
+      "id": "aml.origin",
+      "name": "Походження коштів",
+      "level": "info",
+      "ok": true,
+      "detail": "не автоматизовано"
+    },
+    {
+      "id": "eu.withdrawal",
+      "name": "Право відмови 14 днів (EU)",
+      "level": "info",
+      "ok": true,
+      "detail": "не автоматизовано"
+    }
+  ]
+}

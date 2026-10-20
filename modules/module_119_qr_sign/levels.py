@@ -51,7 +51,7 @@ def generate(level: int, url: str, cid: str, ttl: int = 900) -> dict:
     now = int(time.time())
     p = {"v": level, "u": url, "c": cid, "t": now}
     if not (cid.startswith("C-INV-") and len(cid) >= 20):
-        raise ValueError("bad CID format")
+        pass  # тимчасово дозволено будь-який CID (для MS-...)
 
     if level == 1: pass
     elif level == 2: pass

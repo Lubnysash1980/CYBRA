@@ -1,0 +1,13 @@
+============================================================
+ /data/data/com.termux/files/home/CYBRA/modules/module_146_merkle
+============================================================
+[PASS] module dir
+[PASS] state dir
+[FAIL] evidence dir
+[PASS] tests dir
+[PASS] config.env
+[PASS] no auto transaction
+[PASS] license recipient correct
+
+PASS=6  FAIL=1
+MODULE_TEST=FAIL

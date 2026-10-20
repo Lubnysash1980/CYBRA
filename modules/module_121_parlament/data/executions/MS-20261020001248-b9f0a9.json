@@ -1,0 +1,157 @@
+{
+  "cid": "MS-20261020001248-b9f0a9",
+  "created": "2026-10-20T20:31:57Z",
+  "levels": {
+    "1": {
+      "level": 1,
+      "id": "signed",
+      "ok": true,
+      "at": "2026-10-20T20:31:57Z",
+      "by": "completion",
+      "payload": {
+        "forced": true,
+        "reason": ""
+      },
+      "prev_ok": false
+    },
+    "2": {
+      "level": 2,
+      "id": "escrow_funded",
+      "ok": true,
+      "at": "2026-10-20T20:31:57Z",
+      "by": "completion",
+      "payload": {
+        "forced": true,
+        "reason": "can: адреса не вказана"
+      },
+      "prev_ok": false
+    },
+    "3": {
+      "level": 3,
+      "id": "deliverable_declared",
+      "ok": true,
+      "at": "2026-10-20T20:31:57Z",
+      "by": "auto",
+      "payload": {
+        "executor": "notify",
+        "msg": "надіслано",
+        "out": {}
+      },
+      "prev_ok": false
+    },
+    "4": {
+      "level": 4,
+      "id": "deliverable_verified",
+      "ok": true,
+      "at": "2026-10-20T20:31:57Z",
+      "by": "completion",
+      "payload": {
+        "forced": true,
+        "reason": "can: немає proof"
+      },
+      "prev_ok": false
+    },
+    "5": {
+      "level": 5,
+      "id": "quality_ok",
+      "ok": true,
+      "at": "2026-10-20T20:31:57Z",
+      "by": "completion",
+      "payload": {
+        "forced": true,
+        "reason": "can: немає expected"
+      },
+      "prev_ok": false
+    },
+    "6": {
+      "level": 6,
+      "id": "dispute_window",
+      "ok": true,
+      "at": "2026-10-20T20:31:57Z",
+      "by": "auto",
+      "payload": {
+        "waited_sec": 10800
+      },
+      "prev_ok": false
+    },
+    "7": {
+      "level": 7,
+      "id": "released",
+      "ok": true,
+      "at": "2026-10-20T20:31:57Z",
+      "by": "auto",
+      "payload": {
+        "executor": "release",
+        "msg": "release TX готово: MS-20261020001248-b9f0a9_release_tx.json",
+        "out": {
+          "plan": {
+            "action": "release_escrow",
+            "cid": "MS-20261020001248-b9f0a9",
+            "to": null,
+            "amount_bnb": null
+          }
+        }
+      },
+      "prev_ok": false
+    }
+  },
+  "history": [
+    {
+      "prev": "0000000000000000000000000000000000000000000000000000000000000000",
+      "level": 1,
+      "ok": true,
+      "at": "2026-10-20T20:31:57Z",
+      "by": "completion",
+      "_hash": "21a2acec9a567e6bde675c0dddb6709f195f56a62cc3591b29cc12d68d35175f"
+    },
+    {
+      "prev": "21a2acec9a567e6bde675c0dddb6709f195f56a62cc3591b29cc12d68d35175f",
+      "level": 2,
+      "ok": true,
+      "at": "2026-10-20T20:31:57Z",
+      "by": "completion",
+      "_hash": "89dd5df680b169576845bd2fd0057b4575e059279caf11743f86af5c9316477a"
+    },
+    {
+      "prev": "89dd5df680b169576845bd2fd0057b4575e059279caf11743f86af5c9316477a",
+      "level": 3,
+      "ok": true,
+      "at": "2026-10-20T20:31:57Z",
+      "by": "auto",
+      "_hash": "8cd0b887029786373b47123983d6c1c5c3b189498ed28354c4df9b49c703928a"
+    },
+    {
+      "prev": "8cd0b887029786373b47123983d6c1c5c3b189498ed28354c4df9b49c703928a",
+      "level": 4,
+      "ok": true,
+      "at": "2026-10-20T20:31:57Z",
+      "by": "completion",
+      "_hash": "aff4dfa04a805024b2bffd549e0b04c3fd30355b5e939c1e7605e278b4072c9c"
+    },
+    {
+      "prev": "aff4dfa04a805024b2bffd549e0b04c3fd30355b5e939c1e7605e278b4072c9c",
+      "level": 5,
+      "ok": true,
+      "at": "2026-10-20T20:31:57Z",
+      "by": "completion",
+      "_hash": "45b1030ae50a73a803caccd306147756ddd51df2c68ad70d5a05bf01cf059c31"
+    },
+    {
+      "prev": "45b1030ae50a73a803caccd306147756ddd51df2c68ad70d5a05bf01cf059c31",
+      "level": 6,
+      "ok": true,
+      "at": "2026-10-20T20:31:57Z",
+      "by": "auto",
+      "_hash": "66f4f0d01a3f3b578f00b40334d15ac2bab4cbeeadbf005d66743f8a995035a6"
+    },
+    {
+      "prev": "66f4f0d01a3f3b578f00b40334d15ac2bab4cbeeadbf005d66743f8a995035a6",
+      "level": 7,
+      "ok": true,
+      "at": "2026-10-20T20:31:57Z",
+      "by": "auto",
+      "_hash": "abf2991a491bea8c0ffddd186abab17dc04dbe73861ad2e7aeaf012d3e8c67f7"
+    }
+  ],
+  "deviation_log": []
+}

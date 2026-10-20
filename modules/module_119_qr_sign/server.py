@@ -189,5 +189,5 @@ class H(http.server.SimpleHTTPRequestHandler):
         s.end_headers(); s.wfile.write(b'{"ok":true}')
 
 socketserver.TCPServer.allow_reuse_address = True
-with socketserver.TCPServer(("127.0.0.1", PORT), H) as x:
+with socketserver.TCPServer(("0.0.0.0", PORT), H) as x:
     x.serve_forever()

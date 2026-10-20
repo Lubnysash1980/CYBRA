@@ -1,0 +1,13 @@
+============================================================
+ /data/data/com.termux/files/home/CYBRA/modules/module_19_contract_tui_menu
+============================================================
+[PASS] module dir
+[PASS] state dir
+[PASS] evidence dir
+[PASS] tests dir
+[PASS] config.env
+[PASS] no auto transaction
+[PASS] license recipient correct
+
+PASS=7  FAIL=0
+MODULE_TEST=PASS
