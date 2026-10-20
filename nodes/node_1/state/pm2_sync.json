@@ -1,12 +1,11 @@
 {
   "device": "node_1_localhost",
-  "updated": "2026-10-20T20:53:42.484Z",
+  "updated": "2026-10-20T20:58:44.862Z",
   "pm2_online": [
     "cybra-autonode",
     "cybra-watchdog",
     "cybra-orchestrator",
-    "cybra-executor",
     "cybra-autonode-main"
   ],
-  "total": 5
+  "total": 4
 }
