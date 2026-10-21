@@ -1659,3 +1659,21 @@
 {"action": "chmod_exec", "target": "", "level": "auto", "source": "auto", "ok": true, "msg": "chmod +x ", "ts": "2026-10-21T08:53:56Z"}
 {"action": "chmod_exec", "target": "", "level": "auto", "source": "auto", "ok": true, "msg": "chmod +x ", "ts": "2026-10-21T08:53:56Z"}
 {"action": "chmod_exec", "target": "", "level": "auto", "source": "auto", "ok": true, "msg": "chmod +x ", "ts": "2026-10-21T08:53:56Z"}
+{"action": "rm_dead_pid", "target": "/data/data/com.termux/files/home/CYBRA/run/autonode.pid", "level": "auto", "source": "auto", "ok": true, "msg": "не існував", "ts": "2026-10-21T08:55:08Z"}
+{"action": "chmod_exec", "target": "", "level": "auto", "source": "auto", "ok": true, "msg": "chmod +x ", "ts": "2026-10-21T08:55:08Z"}
+{"action": "chmod_exec", "target": "", "level": "auto", "source": "auto", "ok": true, "msg": "chmod +x ", "ts": "2026-10-21T08:55:08Z"}
+{"action": "chmod_exec", "target": "", "level": "auto", "source": "auto", "ok": true, "msg": "chmod +x ", "ts": "2026-10-21T08:55:08Z"}
+{"action": "chmod_exec", "target": "", "level": "auto", "source": "auto", "ok": true, "msg": "chmod +x ", "ts": "2026-10-21T08:55:08Z"}
+{"action": "chmod_exec", "target": "", "level": "auto", "source": "auto", "ok": true, "msg": "chmod +x ", "ts": "2026-10-21T08:55:08Z"}
+{"action": "rm_dead_pid", "target": "/data/data/com.termux/files/home/CYBRA/run/autonode.pid", "level": "auto", "source": "auto", "ok": true, "msg": "не існував", "ts": "2026-10-21T08:55:14Z"}
+{"action": "chmod_exec", "target": "", "level": "auto", "source": "auto", "ok": true, "msg": "chmod +x ", "ts": "2026-10-21T08:55:14Z"}
+{"action": "chmod_exec", "target": "", "level": "auto", "source": "auto", "ok": true, "msg": "chmod +x ", "ts": "2026-10-21T08:55:14Z"}
+{"action": "chmod_exec", "target": "", "level": "auto", "source": "auto", "ok": true, "msg": "chmod +x ", "ts": "2026-10-21T08:55:14Z"}
+{"action": "chmod_exec", "target": "", "level": "auto", "source": "auto", "ok": true, "msg": "chmod +x ", "ts": "2026-10-21T08:55:14Z"}
+{"action": "chmod_exec", "target": "", "level": "auto", "source": "auto", "ok": true, "msg": "chmod +x ", "ts": "2026-10-21T08:55:14Z"}
+{"action": "rm_dead_pid", "target": "/data/data/com.termux/files/home/CYBRA/run/autonode.pid", "level": "auto", "source": "auto", "ok": true, "msg": "не існував", "ts": "2026-10-21T08:55:15Z"}
+{"action": "chmod_exec", "target": "", "level": "auto", "source": "auto", "ok": true, "msg": "chmod +x ", "ts": "2026-10-21T08:55:15Z"}
+{"action": "chmod_exec", "target": "", "level": "auto", "source": "auto", "ok": true, "msg": "chmod +x ", "ts": "2026-10-21T08:55:15Z"}
+{"action": "chmod_exec", "target": "", "level": "auto", "source": "auto", "ok": true, "msg": "chmod +x ", "ts": "2026-10-21T08:55:15Z"}
+{"action": "chmod_exec", "target": "", "level": "auto", "source": "auto", "ok": true, "msg": "chmod +x ", "ts": "2026-10-21T08:55:15Z"}
+{"action": "chmod_exec", "target": "", "level": "auto", "source": "auto", "ok": true, "msg": "chmod +x ", "ts": "2026-10-21T08:55:15Z"}
