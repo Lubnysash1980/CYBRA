@@ -1,15 +1,7 @@
 {
-  "count": 63,
-  "last_heal": "2026-10-21T08:26:47Z",
+  "count": 64,
+  "last_heal": "2026-10-21T08:37:08Z",
   "recent": [
-    {
-      "at": "2026-10-13T09:05:23Z",
-      "before": 5,
-      "after": 1,
-      "healed": 5,
-      "failed": 0,
-      "duration_ms": 15100
-    },
     {
       "at": "2026-10-13T09:05:55Z",
       "before": 5,
@@ -401,6 +393,14 @@
       "healed": 2,
       "failed": 1,
       "duration_ms": 96400
+    },
+    {
+      "at": "2026-10-21T08:37:08Z",
+      "before": 3,
+      "after": 3,
+      "healed": 2,
+      "failed": 1,
+      "duration_ms": 10789
     }
   ]
 }
