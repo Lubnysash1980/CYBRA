@@ -27,19 +27,19 @@
     {
       "name": "run_tests",
       "every_sec": 3600,
-      "last": 1792537306,
+      "last": 1792547599,
       "action": "run_tests"
     },
     {
       "name": "advance_exec",
       "every_sec": 600,
-      "last": 1792540674,
+      "last": 1792547599,
       "action": "advance_exec"
     },
     {
       "name": "deploy_contracts",
       "every_sec": 1800,
-      "last": 1792540674,
+      "last": 1792547599,
       "action": "deploy_contracts"
     }
   ]
