@@ -1,39 +1,7 @@
 {
-  "count": 122,
-  "last_heal": "2026-10-21T12:58:18Z",
+  "count": 126,
+  "last_heal": "2026-10-21T13:15:49Z",
   "recent": [
-    {
-      "at": "2026-10-21T09:34:27Z",
-      "before": 3,
-      "after": 3,
-      "healed": 2,
-      "failed": 1,
-      "duration_ms": 11180
-    },
-    {
-      "at": "2026-10-21T09:34:31Z",
-      "before": 3,
-      "after": 3,
-      "healed": 2,
-      "failed": 1,
-      "duration_ms": 10582
-    },
-    {
-      "at": "2026-10-21T09:34:45Z",
-      "before": 3,
-      "after": 3,
-      "healed": 2,
-      "failed": 1,
-      "duration_ms": 10712
-    },
-    {
-      "at": "2026-10-21T09:35:47Z",
-      "before": 3,
-      "after": 3,
-      "healed": 2,
-      "failed": 1,
-      "duration_ms": 10454
-    },
     {
       "at": "2026-10-21T09:49:38Z",
       "before": 3,
@@ -401,6 +369,38 @@
       "healed": 2,
       "failed": 1,
       "duration_ms": 12800
+    },
+    {
+      "at": "2026-10-21T13:13:31Z",
+      "before": 3,
+      "after": 3,
+      "healed": 2,
+      "failed": 1,
+      "duration_ms": 13305
+    },
+    {
+      "at": "2026-10-21T13:13:47Z",
+      "before": 3,
+      "after": 3,
+      "healed": 2,
+      "failed": 1,
+      "duration_ms": 12295
+    },
+    {
+      "at": "2026-10-21T13:14:07Z",
+      "before": 3,
+      "after": 3,
+      "healed": 2,
+      "failed": 1,
+      "duration_ms": 13596
+    },
+    {
+      "at": "2026-10-21T13:15:49Z",
+      "before": 3,
+      "after": 3,
+      "healed": 2,
+      "failed": 1,
+      "duration_ms": 13447
     }
   ]
 }
