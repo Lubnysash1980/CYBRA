@@ -9,13 +9,13 @@
     {
       "name": "monitor",
       "every_sec": 300,
-      "last": 1792595420,
+      "last": 1792596020,
       "action": "monitor"
     },
     {
       "name": "install_missing",
       "every_sec": 3600,
-      "last": 1792592386,
+      "last": 1792596020,
       "action": "install_missing"
     },
     {
