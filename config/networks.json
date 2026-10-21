@@ -26,8 +26,8 @@
       "explorer": "https://testnet.bscscan.com",
       "faucet": "https://testnet.bnbchain.org/faucet-smart",
       "rpc_http": [
-        "https://bsc-testnet.drpc.org",
-        "https://bsc-testnet.bnbchain.org"
+        "https://bsc-testnet.bnbchain.org",
+        "https://bsc-testnet.drpc.org"
       ],
       "rpc_ws": [
         "wss://bsc-testnet.publicnode.com"
