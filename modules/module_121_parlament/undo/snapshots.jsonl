@@ -450,3 +450,15 @@
 {"action": "chmod_exec", "target": "", "kind": "absent", "ts": "2026-10-20T23:57:54Z"}
 {"action": "chmod_exec", "target": "", "kind": "absent", "ts": "2026-10-20T23:57:54Z"}
 {"action": "chmod_exec", "target": "", "kind": "absent", "ts": "2026-10-20T23:57:54Z"}
+{"action": "rm_dead_pid", "target": "/data/data/com.termux/files/home/CYBRA/run/autonode.pid", "kind": "absent", "ts": "2026-10-21T00:51:16Z"}
+{"action": "chmod_exec", "target": "", "kind": "absent", "ts": "2026-10-21T00:51:16Z"}
+{"action": "chmod_exec", "target": "", "kind": "absent", "ts": "2026-10-21T00:51:16Z"}
+{"action": "chmod_exec", "target": "", "kind": "absent", "ts": "2026-10-21T00:51:16Z"}
+{"action": "chmod_exec", "target": "", "kind": "absent", "ts": "2026-10-21T00:51:16Z"}
+{"action": "chmod_exec", "target": "", "kind": "absent", "ts": "2026-10-21T00:51:16Z"}
+{"action": "rm_dead_pid", "target": "/data/data/com.termux/files/home/CYBRA/run/autonode.pid", "kind": "absent", "ts": "2026-10-21T00:51:19Z"}
+{"action": "chmod_exec", "target": "", "kind": "absent", "ts": "2026-10-21T00:51:19Z"}
+{"action": "chmod_exec", "target": "", "kind": "absent", "ts": "2026-10-21T00:51:19Z"}
+{"action": "chmod_exec", "target": "", "kind": "absent", "ts": "2026-10-21T00:51:19Z"}
+{"action": "chmod_exec", "target": "", "kind": "absent", "ts": "2026-10-21T00:51:19Z"}
+{"action": "chmod_exec", "target": "", "kind": "absent", "ts": "2026-10-21T00:51:19Z"}
