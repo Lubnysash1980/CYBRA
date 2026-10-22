@@ -697,6 +697,7 @@ print_menu() {
 
     printf '\n'
     printf '\n'
+    printf '\n'
     printf '  ─── НОВІ ПУНКТИ ───\n'
     printf '  🟢 %s[151]%s Реклама (Ad Contract)\n' "$C_BOLD" "$C_RESET"
     printf '  🟢 %s[152]%s Відкат до чистої ноти EVO\n' "$C_BOLD" "$C_RESET"
