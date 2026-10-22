@@ -1,0 +1,13 @@
+{
+  "cid": "MS-20261020002321-09196f",
+  "buyer": "0x29fA26FC5768Fe1E62160E021Fd3f88d92257A1F",
+  "seller": "",
+  "amount_bnb": 1000.0,
+  "release_requires": [
+    "seller_proof",
+    "buyer_confirm"
+  ],
+  "status": "draft",
+  "created": "2026-10-21T17:06:01Z",
+  "steps": []
+}
