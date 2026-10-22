@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBRA · Підпис контракту</title>
+    <script src="https://cdn.ethers.io/lib/ethers-5.7.umd.min.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0d1117; color: #c9d1d9; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 24px; width: 100%; max-width: 450px; box-shadow: 0 8px 24px rgba(0,0,0,0.5); }
+        h2 { color: #58a6ff; margin-top: 0; text-align: center; }
+        .row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #21262d; font-size: 14px; }
+        .row:last-child { border-bottom: none; }
+        .val { font-weight: bold; color: #ffffff; font-family: monospace; word-break: break-all; text-align: right; max-width: 60%; }
+        button { width: 100%; padding: 12px; margin-top: 16px; border-radius: 6px; border: none; font-weight: bold; cursor: pointer; transition: 0.2s; font-size: 16px; }
+        #connectBtn { background: #238636; color: white; }
+        #connectBtn:hover { background: #2ea043; }
+        #signBtn { background: #1f6feb; color: white; display: none; }
+        #signBtn:hover { background: #388bfd; }
+        #signBtn:disabled { background: #484f58; cursor: not-allowed; }
+        .status { margin-top: 16px; text-align: center; font-size: 14px; color: #8b949e; }
+        .success { color: #2ea043; font-weight: bold; }
+        .error { color: #f85149; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>CYBRA · Підпис контракту</h2>
+    
+    <div class="row"><span>Контракт (CID):</span> <span class="val" id="cid">Завантаження...</span></div>
+    <div class="row"><span>Покупець:</span> <span class="val" id="buyer">Завантаження...</span></div>
+    <div class="row"><span>Продавець:</span> <span class="val" id="seller">ТОВ 'КОМФІ ТРЕЙД'</span></div>
+    <div class="row"><span>Сума (UAH):</span> <span class="val" id="amount_uah">137 475.00</span></div>
+    <div class="row"><span>До сплати (BNB):</span> <span class="val" id="amount_bnb">0.8064114</span></div>
+
+    <button id="connectBtn">1️⃣ Підключити MetaMask</button>
+    <button id="signBtn" disabled>2️⃣ Підписати контракт</button>
+
+    <div class="status" id="status">Будь ласка, підключіть гаманець.</div>
+</div>
+
+<script>
+    // Дані з контракту (зашиті для цього підписанта)
+    const payload = {
+        cid: "MS-20261020001248-b9f0a9",
+        buyer: "Грабовський Олександр Миколайович",
+        seller: "ТОВ 'КОМФІ ТРЕЙД'",
+        amount_uah: 137475.00,
+        amount_bnb: 0.8064114
+    };
+
+    document.getElementById('cid').innerText = payload.cid;
+    document.getElementById('buyer').innerText = payload.buyer;
+
+    let provider;
+    let signer;
+
+    const connectBtn = document.getElementById('connectBtn');
+    const signBtn = document.getElementById('signBtn');
+    const status = document.getElementById('status');
+
+    connectBtn.addEventListener('click', async () => {
+        if (typeof window.ethereum !== 'undefined') {
+            try {
+                await window.ethereum.request({ method: 'eth_requestAccounts' });
+                provider = new ethers.providers.Web3Provider(window.ethereum);
+                signer = provider.getSigner();
+                const address = await signer.getAddress();
+                
+                status.innerHTML = `Підключено: <span class="success">${address.substring(0,6)}...${address.substring(38)}</span>`;
+                connectBtn.style.display = 'none';
+                signBtn.style.display = 'block';
+                signBtn.disabled = false;
+            } catch (error) {
+                status.innerHTML = `<span class="error">Помилка підключення: ${error.message}</span>`;
+            }
+        } else {
+            status.innerHTML = `<span class="error">MetaMask не знайдено! Відкрийте це посилання всередині браузера MetaMask.</span>`;
+        }
+    });
+
+    signBtn.addEventListener('click', async () => {
+        try {
+            signBtn.disabled = true;
+            status.innerText = "Очікування підпису в MetaMask...";
+            
+            const message = `CYBRA Multi-Sig Approval\nSession: ${payload.cid}\nBuyer: ${payload.buyer}\nAmount: ${payload.amount_bnb} BNB`;
+            const signature = await signer.signMessage(message);
+            
+            status.innerHTML = `<span class="success">✅ Підпис успішний!</span><br><br>Скопіюйте цей підпис і надішліть його розробнику (або вставте в термінал):<br><br><textarea style="width:100%; height:60px; background:#0d1117; color:#c9d1d9; border:1px solid #30363d; padding:8px; border-radius:4px;" readonly>${signature}</textarea>`;
+            signBtn.style.display = 'none';
+        } catch (error) {
+            status.innerHTML = `<span class="error">Помилка підпису: ${error.message}</span>`;
+            signBtn.disabled = false;
+        }
+    });
+</script>
+
+</body>
+</html>
