@@ -32,7 +32,8 @@ action_create_contract() {
     printf 'SELLER (0x...): '; read -r S
     printf 'AMOUNT (wei):   '; read -r A
     printf 'TOKEN [BNB]:    '; read -r T; T="${T:-BNB}"
-    [ -z "$B" ] || [ -z "$S" ] || [ -z "$A" ] && { printf '%s\n' "${C_RED}Помилка${C_RESET}"; read -r _; return 1; }
+    [ -z "$B" ] || [ -z "$A" ] && { printf '%s\n' "${C_RED}Помилка: Вкажіть BUYER та AMOUNT${C_RESET}"; read -r _; return 1; }
+    [ -z "$S" ] && S="PENDING_SELLER"
     CID="$(cybra_contract_create "$B" "$S" "$A" "$T")"
     printf '%s\n' "${C_GREEN}OK: $CID${C_RESET}"
     printf 'CONTRACT_ID: %s\n' "$CID"
