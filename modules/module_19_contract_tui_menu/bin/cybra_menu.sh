@@ -694,7 +694,13 @@ print_menu() {
     printf '%s\n' "  ${C_GREY}🟢 ready  🟡 warning  🔴 error${C_RESET}"
     printf '\n'
 
-    printf '  🟢 [154] Менеджер посилань (Тунель)\n'
+    printf '\n'
+    printf '\n'
+    printf '  ─── НОВІ ПУНКТИ ───\n'
+    printf '  🟢 %s[151]%s Реклама (Ad Contract)\n' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[152]%s Відкат до чистої ноти EVO\n' "$C_BOLD" "$C_RESET"
+    printf '  🟢 %s[154]%s Менеджер посилань (Тунель)\n' "$C_BOLD" "$C_RESET"
+    printf '\n'
     printf '  %s[0]%s  Вихід\n\n' "$C_BOLD" "$C_RESET"
 }
 
@@ -1056,6 +1062,8 @@ while true; do
         148) bash "$HOME/CYBRA/modules/module_148_multisig_ui/main.sh" ;;
         149) bash "$HOME/CYBRA/modules/module_149_analytics/main.sh" ;;
         150) bash "$HOME/CYBRA/modules/module_150_scripts/main.sh" ;;
+        151) bash "$HOME/CYBRA/modules/module_151_ad_contract/main.sh" ;;
+        152) bash "$HOME/CYBRA/modules/module_152_rollback_evo/main.sh" ;;
         154) bash "$HOME/CYBRA/bin/cybra-link-manager.sh" ;;
         0|q|Q|exit|quit)
             printf '%s\n' "${C_GREEN}До побачення.${C_RESET}"
