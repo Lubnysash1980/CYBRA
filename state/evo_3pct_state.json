@@ -1,0 +1,24 @@
+{
+  "baseline": 100.0,
+  "baseline_commit": "HEAD",
+  "history": [
+    {
+      "time": "2026-10-23 01:20:32.522263",
+      "event": "rollback",
+      "from": 94.44,
+      "to": 100.0
+    },
+    {
+      "time": "2026-10-23 01:20:47.163918",
+      "event": "rollback",
+      "from": 94.44,
+      "to": 100.0
+    },
+    {
+      "time": "2026-10-23 01:21:02.163838",
+      "event": "rollback",
+      "from": 94.44,
+      "to": 100.0
+    }
+  ]
+}
