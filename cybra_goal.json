@@ -1,0 +1,12 @@
+{
+  "project": "CYBRA Cyber Ecosystem",
+  "ultimate_goal": "100% Priority State - Autonomous, Self-Evolving, Zero-Downtime",
+  "evolution_strategy": "7 Levels of Complexity. Select the level with the minimum error rate.",
+  "rules": {
+    "deviation_rollback": "-3% (Revert to last stable baseline)",
+    "deviation_progress": "+3% (Save as new baseline and restart)",
+    "auto_save": true,
+    "auto_pull": true
+  },
+  "status": "ACTIVE"
+}
