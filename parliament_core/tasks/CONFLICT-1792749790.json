@@ -1,0 +1,8 @@
+{
+  "id": "CONFLICT-1792749790",
+  "type": "CONFLICT_RESOLVED",
+  "issue": "Git merge/rebase conflict",
+  "action_taken": "Aborted merge and hard reset to HEAD",
+  "created": "2026-10-23T10:03:10.395590+00:00",
+  "status": "COMPLETED"
+}
