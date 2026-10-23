@@ -1,6 +1,6 @@
 {
   "device": "node_1_localhost",
-  "updated": "2026-10-23T09:14:04.274Z",
+  "updated": "2026-10-23T09:19:12.385Z",
   "pm2_online": [
     "cybra-parliament",
     "cybra-autonode",
@@ -9,7 +9,8 @@
     "cybra-ultimate-backend",
     "cybra-parliament-evolver",
     "cybra-absolute-state",
-    "cybra-binary-evolution"
+    "cybra-binary-evolution",
+    "cybra-conflict-resolver"
   ],
-  "total": 8
+  "total": 10
 }
