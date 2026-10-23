@@ -1,0 +1,8 @@
+{
+  "id": "ORCH-1792751941",
+  "action": "CLEANUP_DISK",
+  "details": "Вільно лише 0MB",
+  "created": "2026-10-23T10:39:01.547287+00:00",
+  "status": "PENDING",
+  "assigned_to": "AI_Executor"
+}

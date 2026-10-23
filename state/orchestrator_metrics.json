@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-10-23T10:27:49.038349+00:00",
+  "timestamp": "2026-10-23T10:38:59.549249+00:00",
   "pm2_processes": 1,
-  "ram_usage_mb": 0,
+  "ram_usage_mb": 2554,
   "disk_free_mb": 0,
   "missing_controllers": [],
   "system_health": "OK"
