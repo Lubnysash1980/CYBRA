@@ -23,6 +23,8 @@ PROCESSES = [
     ("ConflictResolver", CYBRA / "bin/cybra-conflict-resolver.py", "python3", []),
     ("ClusterLB", CYBRA / "bin/cybra-cluster-lb.py", "python3", []),
     ("EvoSafe", CYBRA / "bin/cybra-evo-safe.py", "python3", []),
+    ("EvoSafe", CYBRA / "bin/cybra-evo-safe.py", "python3", []),
+    ("Orchestrator", CYBRA / "bin/cybra-orchestrator.py", "python3", [])
 ]
 
 children = {}
