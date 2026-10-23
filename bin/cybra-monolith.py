@@ -16,13 +16,8 @@ PROCESSES = [
     ("Autonode", CYBRA / "bin/cybra_autonode_main.js", "node", []),
     ("Parliament", CYBRA / "parliament_core/priority_manager.py", "python3", ["daemon"]),
     ("MainController", CYBRA / "bin/cybra-main-controller.py", "python3", []),
-    ("AbsoluteState", CYBRA / "bin/cybra-absolute-state.py", "python3", []),
-    ("BinaryEvolution", CYBRA / "bin/cybra-binary-evolution.py", "python3", []),
-    ("ConflictResolver", CYBRA / "bin/cybra-conflict-resolver.py", "python3", []),
     ("ClusterLB", CYBRA / "bin/cybra-cluster-lb.py", "python3", []),
-    ("EvoSafe", CYBRA / "bin/cybra-evo-safe.py", "python3", []),
     ("StrictValidator", CYBRA / "bin/cybra-strict-validator.py", "python3", []),
-    ("Sync100", CYBRA / "bin/cybra-100-sync.py", "python3", []),
     ("7Levels", CYBRA / "bin/cybra-7levels-pm2.py", "python3", []),
     ("Orchestrator", CYBRA / "bin/cybra-orchestrator.py", "python3", [])
 ]
