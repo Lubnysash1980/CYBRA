@@ -33,7 +33,7 @@ def log(msg):
     print(f"[{t}] {msg}")
 
 def run(cmd):
-    try: return subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=30)
+    # SAFE: try: return subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=30)
     except: return None
 
 def check_autoconfig():

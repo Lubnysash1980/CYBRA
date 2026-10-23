@@ -1,0 +1,8 @@
+{
+  "id": "SYNTAX-FIX-1792752084",
+  "action": "FIX_SYNTAX_ERROR",
+  "file": "/data/data/com.termux/files/home/CYBRA/modules/module_128_dashboard/sw.js",
+  "issue": "../../deps/uv/src/unix/linux.c:1427: void uv__io_poll(uv_loop_t *, int): assertion \"errno == EEXIST\" failed\n",
+  "created": "2026-10-23T10:41:24.974947+00:00",
+  "status": "PENDING"
+}

@@ -16,10 +16,10 @@ PROCESSES = [
     ("Autonode", CYBRA / "bin/cybra_autonode_main.js", "node", []),
     ("Parliament", CYBRA / "parliament_core/priority_manager.py", "python3", ["daemon"]),
     ("MainController", CYBRA / "bin/cybra-main-controller.py", "python3", []),
-    ("ClusterLB", CYBRA / "bin/cybra-cluster-lb.py", "python3", []),
-    ("StrictValidator", CYBRA / "bin/cybra-strict-validator.py", "python3", []),
+    # ('ClusterLB' ...) - тимчасово вимкнено для тесту
+    # ('StrictValidator' ...) - тимчасово вимкнено для тесту
     ("7Levels", CYBRA / "bin/cybra-7levels-pm2.py", "python3", []),
-    ("Orchestrator", CYBRA / "bin/cybra-orchestrator.py", "python3", [])
+    # ('Orchestrator' ...) - тимчасово вимкнено для тесту
 ]
 
 children = {}
@@ -28,11 +28,11 @@ def start_process(name, path, interp, args):
     if not path.exists():
         log(f"⚠️ {name}: Файл не знайдено ({path}). Пропускаємо.")
         return None
-    
     cmd = [interp, str(path)] + args
     try:
         log_file = open(CYBRA / f"logs/{name.lower()}_sub.log", "a")
-        p = subprocess.Popen(cmd, stdout=log_file, stderr=subprocess.STDOUT, cwd=str(CYBRA))
+        # ДОДАНО start_new_session=True - ЦЕ ІЗОЛЮЄ ПРОЦЕСИ
+        p = subprocess.Popen(cmd, stdout=log_file, stderr=subprocess.STDOUT, cwd=str(CYBRA), start_new_session=True)
         log(f"▶️ Запущено {name} (PID: {p.pid})")
         return p
     except Exception as e:
@@ -43,9 +43,8 @@ def shutdown(sig, frame):
     log("🛑 Отримано сигнал зупинки. Вбиваємо всі підпроцеси...")
     for name, p in children.items():
         if p and p.poll() is None:
-            p.terminate()
-            try: p.wait(timeout=3)
-            except: p.kill()
+            try: os.killpg(os.getpgid(p.pid), signal.SIGTERM)
+            except: pass
     log("✅ Всі процеси зупинено. Вихід.")
     sys.exit(0)
 
@@ -67,7 +66,6 @@ def main():
                     children[name] = start_process(name, path, interp, args)
         except Exception as e:
             log(f"❌ ПОМИЛКА МАСТЕРА: {e}")
-        
         time.sleep(5)
 
 if __name__ == "__main__":

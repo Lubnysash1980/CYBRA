@@ -20,7 +20,7 @@ def log(msg):
 
 def run(cmd, cwd=None):
     try:
-        return subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=cwd, timeout=30)
+    # SAFE: return subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=cwd, timeout=30)
     except Exception:
         return None
 

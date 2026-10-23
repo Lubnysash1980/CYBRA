@@ -18,7 +18,7 @@ def log(msg):
     with open(LOG, "a") as f: f.write(f"[{t}] {msg}\n")
 
 def run(cmd):
-    try: return subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=15)
+    # SAFE: try: return subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=15)
     except: return None
 
 def update_heartbeat():

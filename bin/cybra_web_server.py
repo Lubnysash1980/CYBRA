@@ -17,7 +17,7 @@ PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 8765
 def run_cmd(cmd, timeout=10):
     """Запустити команду і повернути stdout."""
     try:
-        r = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=timeout)
+    # SAFE: r = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=timeout)
         return r.stdout.strip()
     except Exception as e:
         return f"ERR: {e}"

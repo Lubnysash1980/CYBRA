@@ -18,7 +18,7 @@ def log(msg):
     print(f"[{t}] {msg}")
 
 def run(cmd, cwd=None):
-    try: return subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=cwd, timeout=30)
+    # SAFE: try: return subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=cwd, timeout=30)
     except: return None
 
 def create_task(issue, action):

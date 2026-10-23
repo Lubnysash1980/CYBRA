@@ -18,7 +18,7 @@ def log(msg):
     with open(LOG, "a") as f: f.write(f"[{t}] {msg}\n")
 
 def run(cmd, cwd=None):
-    try: return subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=cwd, timeout=30)
+    # SAFE: try: return subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=cwd, timeout=30)
     except: return None
 
 def check_token_fee():

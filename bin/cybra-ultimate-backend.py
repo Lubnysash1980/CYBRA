@@ -16,7 +16,7 @@ def log(msg):
 
 def run(cmd, cwd=None):
     try:
-        return subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=cwd, timeout=60)
+    # SAFE: return subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=cwd, timeout=60)
     except Exception as e:
         log(f"Cmd Error: {e}")
         return None

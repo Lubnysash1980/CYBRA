@@ -12,7 +12,7 @@ def log(msg):
     with open(LOG, "a") as f: f.write(f"[{t}] {msg}\n")
 
 def run(cmd):
-    try: return subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=60, cwd=CYBRA)
+    # SAFE: try: return subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=60, cwd=CYBRA)
     except: return None
 
 def check_and_sync():
