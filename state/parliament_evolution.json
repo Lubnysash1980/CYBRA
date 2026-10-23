@@ -1,7 +1,7 @@
 {
-  "current_level": 3,
-  "best_level": 2,
-  "min_errors": 8.0,
+  "current_level": 4,
+  "best_level": 3,
+  "min_errors": 6.0,
   "history": [
     {
       "time": "2026-10-23 12:07:26.847190",
@@ -12,6 +12,11 @@
       "time": "2026-10-23 12:09:26.863111",
       "level": 2,
       "error_rate": 8.0
+    },
+    {
+      "time": "2026-10-23 12:11:26.873369",
+      "level": 3,
+      "error_rate": 6.0
     }
   ]
 }
