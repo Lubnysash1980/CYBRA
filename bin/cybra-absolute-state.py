@@ -66,10 +66,10 @@ def auto_heal(issue):
     """Автоматичне виправлення простих проблем."""
     if "впав" in issue:
         log(f"🔧 Auto-Heal: Перезапуск процесу...")
-        run("pm2 restart all")
+        log("⚠️ Перезапуск (ігноровано, ми всередині Моноліту)")
     elif "не відповідає" in issue:
         log("🔧 Auto-Heal: Підняття PM2...")
-        run("pm2 resurrect")
+        log("⚠️ Resurrect (ігноровано)")
 
 def main():
     log("=== АБСОЛЮТНИЙ ТРЕКЕР СТАНУ ЗАПУЩЕНО ===")
@@ -98,7 +98,7 @@ def main():
                 if score < 90:
                     log("🚨 КРИТИЧНИЙ РЕГРЕС (<90%). Відкат до Git Baseline!")
                     run("git reset --hard HEAD")
-                    run("pm2 restart all")
+                    log("⚠️ Перезапуск (ігноровано, ми всередині Моноліту)")
             else:
                 log("✅ СИСТЕМА В 100% СТАНІ. Середовище сприятливе для розвитку.")
 
