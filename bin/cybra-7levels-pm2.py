@@ -7,20 +7,18 @@ HOME = Path(os.environ["HOME"])
 CYBRA = HOME / "CYBRA"
 STATE_FILE = CYBRA / "state/7levels_state.json"
 LOG = CYBRA / "logs/7levels_pm2.log"
+TASKS_DIR = CYBRA / "parliament_core/tasks"
+
 STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
 LOG.parent.mkdir(parents=True, exist_ok=True)
+TASKS_DIR.mkdir(parents=True, exist_ok=True)
 
 def log(msg):
     t = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     with open(LOG, "a") as f: f.write(f"[{t}] {msg}\n")
-    print(f"[{t}] {msg}")
-
-def run(cmd):
-    try: return subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=30)
-    except: return None
 
 def get_ram_usage():
-    """Читаємо RAM напряму з /proc/meminfo (працює на будь-якому Android)"""
+    """Читаємо RAM напряму з /proc/meminfo (працює на Android)"""
     try:
         with open("/proc/meminfo", "r") as f:
             meminfo = f.read()
@@ -40,20 +38,8 @@ def calculate_complexity_level(ram_pct):
     elif ram_pct > 45: return 6
     else: return 7
 
-def manage_pm2(level):
-    if level == 1:
-        log("⚠️ Рівень 1 (Критичний): Зупиняємо другорядні модулі.")
-        run("pm2 stop cybra-ultimate-backend cybra-evo-3pct 2>/dev/null")
-    elif level == 3:
-        log("⚖️ Рівень 3: Система стабільна. Працюємо в базовому режимі.")
-
-def auto_pm2_save():
-    run("pm2 save -q")
-    log("💾 PM2 State Saved (Auto-save).")
-
 def main():
     log("=== 7 LEVELS & PM2 MANAGER STARTED ===")
-    last_save = time.time()
     last_level = 0
     
     while True:
@@ -66,16 +52,19 @@ def main():
 
             if level != last_level:
                 log(f"📊 RAM: {ram:.1f}% | Встановлено Рівень Складності: {level}/7")
-                manage_pm2(level)
+                
+                # Якщо рівень критичний (1 або 2) - створюємо задачу для парламенту
+                if level <= 2:
+                    task_file = TASKS_DIR / f"LEVEL-{level}-{int(time.time())}.json"
+                    task_file.write_text(json.dumps({"level": level, "action": "OPTIMIZE_RAM", "created": time.time()}))
+                    log(f"📝 Створено задачу для Парламенту: Оптимізувати RAM (Рівень {level})")
+                
                 last_level = level
-
-            if time.time() - last_save > 600:
-                auto_pm2_save()
-                last_save = time.time()
 
         except Exception as e:
             log(f"❌ ПОМИЛКА 7 LEVELS: {e}")
         
+        # Перевірка кожні 60 секунд
         time.sleep(60)
 
 if __name__ == "__main__":

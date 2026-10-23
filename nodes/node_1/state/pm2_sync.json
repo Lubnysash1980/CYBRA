@@ -1,6 +1,8 @@
 {
   "device": "node_1_localhost",
-  "updated": "2026-10-23T10:08:42.726Z",
-  "pm2_online": [],
+  "updated": "2026-10-23T10:08:47.380Z",
+  "pm2_online": [
+    "cybra-monolith"
+  ],
   "total": 1
 }
