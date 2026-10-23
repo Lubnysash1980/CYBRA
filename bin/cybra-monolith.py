@@ -25,6 +25,8 @@ PROCESSES = [
     ("EvoSafe", CYBRA / "bin/cybra-evo-safe.py", "python3", []),
     ("EvoSafe", CYBRA / "bin/cybra-evo-safe.py", "python3", []),
     ("Orchestrator", CYBRA / "bin/cybra-orchestrator.py", "python3", [])
+    ("StrictValidator", CYBRA / "bin/cybra-strict-validator.py", "python3", []),
+     ("Orchestrator", CYBRA / "bin/cybra-orchestrator.py", "python3", []),
 ]
 
 children = {}
