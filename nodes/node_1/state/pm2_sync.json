@@ -1,11 +1,13 @@
 {
   "device": "node_1_localhost",
-  "updated": "2026-10-23T09:03:51.254Z",
+  "updated": "2026-10-23T09:08:57.562Z",
   "pm2_online": [
     "cybra-parliament",
     "cybra-autonode",
     "cybra-main-controller",
-    "cybra-evo-safe"
+    "cybra-evo-safe",
+    "cybra-ultimate-backend",
+    "cybra-parliament-evolver"
   ],
-  "total": 4
+  "total": 6
 }
