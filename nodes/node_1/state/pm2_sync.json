@@ -1,10 +1,8 @@
 {
   "device": "node_1_localhost",
-  "updated": "2026-10-23T09:42:56.644Z",
+  "updated": "2026-10-23T09:58:23.476Z",
   "pm2_online": [
-    "cybra-parliament",
-    "cybra-autonode",
-    "cybra-main-controller"
+    "cybra-monolith"
   ],
-  "total": 4
+  "total": 1
 }

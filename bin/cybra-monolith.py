@@ -12,8 +12,6 @@ def log(msg):
     t = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     with open(LOG, "a") as f: f.write(f"[{t}] {msg}\n")
 
-# Список усіх процесів, які ми об'єднуємо
-# Формат: (Назва, Шлях до скрипта, Інтерпретатор, Додаткові аргументи)
 PROCESSES = [
     ("Autonode", CYBRA / "bin/cybra_autonode_main.js", "node", []),
     ("Parliament", CYBRA / "parliament_core/priority_manager.py", "python3", ["daemon"]),
@@ -23,12 +21,10 @@ PROCESSES = [
     ("ConflictResolver", CYBRA / "bin/cybra-conflict-resolver.py", "python3", []),
     ("ClusterLB", CYBRA / "bin/cybra-cluster-lb.py", "python3", []),
     ("EvoSafe", CYBRA / "bin/cybra-evo-safe.py", "python3", []),
-    ("EvoSafe", CYBRA / "bin/cybra-evo-safe.py", "python3", []),
-    ("Orchestrator", CYBRA / "bin/cybra-orchestrator.py", "python3", [])
     ("StrictValidator", CYBRA / "bin/cybra-strict-validator.py", "python3", []),
-    ("Orchestrator", CYBRA / "bin/cybra-orchestrator.py", "python3", []),
     ("Sync100", CYBRA / "bin/cybra-100-sync.py", "python3", []),
-     ("StrictValidator", CYBRA / "bin/cybra-strict-validator.py", "python3", []),
+    ("7Levels", CYBRA / "bin/cybra-7levels-pm2.py", "python3", []),
+    ("Orchestrator", CYBRA / "bin/cybra-orchestrator.py", "python3", [])
 ]
 
 children = {}
@@ -40,7 +36,6 @@ def start_process(name, path, interp, args):
     
     cmd = [interp, str(path)] + args
     try:
-        # Запускаємо процес, перенаправляємо вивід у логи
         log_file = open(CYBRA / f"logs/{name.lower()}_sub.log", "a")
         p = subprocess.Popen(cmd, stdout=log_file, stderr=subprocess.STDOUT, cwd=str(CYBRA))
         log(f"▶️ Запущено {name} (PID: {p.pid})")
@@ -64,17 +59,14 @@ def main():
     signal.signal(signal.SIGINT, shutdown)
     signal.signal(signal.SIGTERM, shutdown)
 
-    # Початковий запуск
     for name, path, interp, args in PROCESSES:
         children[name] = start_process(name, path, interp, args)
-        time.sleep(1) # Запускаємо з невеликою затримкою, щоб не було пікового навантаження
+        time.sleep(1)
 
-    # Цикл моніторингу (якщо якийсь скрипт впав — піднімаємо)
     while True:
         try:
             for name, path, interp, args in PROCESSES:
                 p = children.get(name)
-                # Якщо процес є, але він завершився (впав)
                 if p and p.poll() is not None:
                     log(f"⚠️ {name} впав (Код: {p.returncode}). Перезапуск...")
                     children[name] = start_process(name, path, interp, args)
