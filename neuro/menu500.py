@@ -110,6 +110,7 @@ def auto_create():
             proposals.append(("TASK_JSON_REVIEW",item,"Task JSON is invalid and needs manual review"))
         elif item["kind"]=="existing_task" and item.get("status","").lower() in ("failed","error","blocked"):
             proposals.append(("TASK_STATUS_REVIEW",item,"Existing task is failed, error or blocked"))
+    created_now=0
     for kind, item, reason in proposals:
         raw=f'{kind}|{item.get("id")}|{item.get("path")}'
         tid="NEURO-"+hashlib.sha256(raw.encode()).hexdigest()[:12].upper()
@@ -119,8 +120,9 @@ def auto_create():
               "status":"PROPOSED","reason":reason,"evidence":item,
               "safety":{"execution":"DISABLED","apply":"DISABLED","requires_review":True}}
         target.write_text(json.dumps(data,ensure_ascii=False,indent=2)+"\n")
+        created_now+=1
     return {"scanned":len(src),"proposals_found":len(proposals),
-            "new_tasks":len(list(GENERATED.glob("NEURO-*.json"))),"created_now":len(proposals)}
+            "new_tasks":len(list(GENERATED.glob("NEURO-*.json"))),"created_now":created_now}
 
 def evolution_audit():
     """Evidence-based score; 100% is earned only when every check passes."""
