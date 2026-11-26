@@ -6,7 +6,7 @@
 import json, os, sys, time, subprocess, signal, shutil
 from pathlib import Path
 
-H = Path.home() / "CYBRA"
+H = Path(os.environ.get("CYBRA_ROOT", Path(__file__).resolve().parents[2])).expanduser().resolve()
 CFG = H / "config" / "pm_processes.json"
 STATE = H / "config" / "pm_state.json"
 METRICS = H / "config" / "pm_metrics.jsonl"
