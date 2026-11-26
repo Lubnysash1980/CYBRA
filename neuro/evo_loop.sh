@@ -40,9 +40,10 @@ for ((round=1; round<=MAX_ROUNDS; round++)); do
 
   python3 neuro/menu500.py catalog
   python3 neuro/menu500.py auto-create
-  python3 -m unittest neuro/test_menu500.py -v
+  python3 -m unittest neuro.test_menu500 -v
   python3 -m py_compile neuro/menu500.py neuro/test_menu500.py
-  bash -n neuro/menu500.sh neuro/evo_loop.sh
+  bash -n neuro/menu500.sh
+  bash -n neuro/evo_loop.sh
 
   python3 neuro/menu500.py evo > "$EVIDENCE_DIR/latest-evo.json"
   score="$(python3 -c 'import json; print(json.load(open("neuro/state/evolution_report.json"))["score_percent"])')"
