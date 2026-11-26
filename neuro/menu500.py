@@ -147,6 +147,12 @@ def evolution_audit():
             if d.get("status")!="PROPOSED" or d.get("safety",{}).get("apply")!="DISABLED": valid=False
         except Exception: valid=False
     add("generated_tasks_safe",valid,f"proposals={len(generated)}; apply disabled")
+    add("unit_tests_passed",os.environ.get("NEURO_UNIT_TESTS_PASSED")=="1",
+        "set by evo_loop only after unittest exits successfully")
+    add("python_compile_passed",os.environ.get("NEURO_PYTHON_COMPILE_PASSED")=="1",
+        "set by evo_loop only after py_compile exits successfully")
+    add("bash_syntax_passed",os.environ.get("NEURO_BASH_SYNTAX_PASSED")=="1",
+        "set by evo_loop only after both bash -n checks pass")
     passed=sum(1 for x in checks if x["ok"])
     score=round(100*passed/len(checks),1) if checks else 0
     report={"at":now(),"root":str(ROOT),"score_percent":score,"passed":passed,"total":len(checks),
