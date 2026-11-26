@@ -1,0 +1,29 @@
+name: NEURO Menu 500 CI
+
+on:
+  push:
+    branches: [neuro-500-menu, "neuro-evo/**"]
+    paths:
+      - "neuro/**"
+      - ".github/workflows/neuro-menu500.yml"
+  pull_request:
+    paths:
+      - "neuro/**"
+      - ".github/workflows/neuro-menu500.yml"
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Unit tests
+        run: python -m unittest neuro/test_menu500.py -v
+      - name: Python syntax
+        run: python -m py_compile neuro/menu500.py neuro/test_menu500.py
+      - name: Bash syntax
+        run: bash -n neuro/menu500.sh neuro/evo_loop.sh
+      - name: Catalog integrity
+        run: python neuro/menu500.py catalog
