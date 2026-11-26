@@ -216,6 +216,12 @@ def _restart(target: str) -> None:
     except Exception as exc: raise NeuroError(f"не вдалося підтвердити процес: {exc}") from exc
 
 def apply(patch_id: str, restart_target: str) -> None:
+    primary_root = (Path.home() / "CYBRA").resolve()
+    if ROOT.resolve() != primary_root:
+        raise NeuroError(
+            f"apply заблоковано в ізольованій копії {ROOT}; "
+            f"застосування дозволене лише в основному корені {primary_root}"
+        )
     folder = STAGING / patch_id
     mf = folder / "manifest.json"
     if not mf.is_file(): raise NeuroError("patch не знайдений")
