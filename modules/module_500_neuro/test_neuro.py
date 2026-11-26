@@ -17,6 +17,12 @@ class NeuroSafetyTests(unittest.TestCase):
     def test_reject_absolute_path(self):
         with self.assertRaises(neuro.NeuroError):
             neuro.safe_source_path("/tmp/payload.py")
+    def test_isolated_apply_is_blocked(self):
+        if neuro.ROOT.resolve() == (Path.home() / "CYBRA").resolve():
+            self.skipTest("running in primary CYBRA root")
+        with self.assertRaises(neuro.NeuroError):
+            neuro.apply("not-a-real-patch", "watchdog")
+
     def test_sha_is_deterministic(self):
         self.assertEqual(neuro.sha256_bytes(b"CYBRA"), neuro.sha256_bytes(b"CYBRA"))
         self.assertNotEqual(neuro.sha256_bytes(b"CYBRA"), neuro.sha256_bytes(b"cybra"))
