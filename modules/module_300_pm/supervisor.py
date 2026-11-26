@@ -15,6 +15,12 @@ PM_LOG = H / "logs" / "pm.log"
 RUN = True
 
 
+def _require_primary_root():
+    primary = (Path.home() / "CYBRA").resolve()
+    if H != primary:
+        raise RuntimeError(f"PM action blocked outside primary CYBRA root: {H}")
+
+
 def _is_phone_disabled(name, cfg):
     """Чи процес вимкнено (phone mode)."""
     if not cfg.get("enabled", True): return True
