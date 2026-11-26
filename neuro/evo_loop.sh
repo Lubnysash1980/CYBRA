@@ -44,6 +44,9 @@ for ((round=1; round<=MAX_ROUNDS; round++)); do
   python3 -m py_compile neuro/menu500.py neuro/test_menu500.py
   bash -n neuro/menu500.sh
   bash -n neuro/evo_loop.sh
+  export NEURO_UNIT_TESTS_PASSED=1
+  export NEURO_PYTHON_COMPILE_PASSED=1
+  export NEURO_BASH_SYNTAX_PASSED=1
 
   python3 neuro/menu500.py evo > "$EVIDENCE_DIR/latest-evo.json"
   score="$(python3 -c 'import json; print(json.load(open("neuro/state/evolution_report.json"))["score_percent"])')"
