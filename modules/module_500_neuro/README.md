@@ -22,6 +22,11 @@ NEURO is a staged code-writing agent. Generation never edits live source files.
 5. List staged patches:
    python3 modules/module_500_neuro/neuro.py status
 
+## Root isolation
+- NEURO, EVOLUTION, Metrics, the Test Suite, and PM Supervisor resolve the same root from `CYBRA_ROOT` when set, otherwise from their own repository location.
+- A worktree such as `~/CYBRA_NEURO` is a validation copy. NEURO `apply` is blocked there, and PM Supervisor start/stop actions are blocked there, so copied process configuration cannot operate on `~/CYBRA`.
+- The branch does not contain an EVOLUTION baseline. The 3% gate must fail closed until a valid baseline is present in the selected root; NEURO must not create or lower it automatically.
+
 ## Apply guarantees
 - Checks that source files have not changed since generation.
 - Creates a per-patch Golden Dump with SHA-256 metadata before writes.
