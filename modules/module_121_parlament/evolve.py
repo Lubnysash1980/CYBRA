@@ -10,7 +10,7 @@ import json, os, sys, time, subprocess, shutil
 from pathlib import Path
 
 D = Path(__file__).resolve().parent
-H = Path.home() / "CYBRA"
+H = Path(os.environ.get("CYBRA_ROOT", Path(__file__).resolve().parents[2])).expanduser().resolve()
 M = H / "modules"
 sys.path.insert(0, str(D))
 
