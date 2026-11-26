@@ -267,11 +267,21 @@ def apply(patch_id: str, restart_target: str) -> None:
     print(f"NEURO_APPLY=SUCCESS\nRESTARTED={restart_target}\n3%_GATE=PASS\nTEST_SUITE=PASS")
 
 def status() -> None:
-    for mf in sorted(STAGING.glob("*/manifest.json")):
+    manifests = sorted(STAGING.glob("*/manifest.json")) if STAGING.exists() else []
+    if not manifests:
+        print("NEURO_STATUS=READY")
+        print("PATCHES=0")
+        print(f"STAGING={STAGING}")
+        print("DETAIL=no staged patches yet")
+        return
+    print(f"NEURO_STATUS=READY")
+    print(f"PATCHES={len(manifests)}")
+    for mf in manifests:
         try:
             m = json.loads(mf.read_text())
             print(f"{m.get('id')} | {m.get('status')} | parliament={m.get('parliament_pid','-')} | files={len(m.get('files',{}))}")
-        except Exception: print(f"INVALID MANIFEST: {mf}")
+        except Exception:
+            print(f"INVALID MANIFEST: {mf}")
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="CYBRA NEURO — staged code writer")
