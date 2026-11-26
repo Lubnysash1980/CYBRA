@@ -141,7 +141,7 @@ def _is_neuro_patch_payload(payload):
     if not isinstance(payload, dict):
         return False
     patch_id = payload.get("neuro_patch_id", "")
-    if not isinstance(patch_id, str) or not __import__("re").fullmatch(r"\\d{8}_\\d{6}_[a-f0-9]{8}", patch_id):
+    if not isinstance(patch_id, str) or not __import__("re").fullmatch(r"\d{8}_\d{6}_[a-f0-9]{8}", patch_id):
         return False
     if not isinstance(payload.get("diff_sha256"), str) or not __import__("re").fullmatch(r"[a-f0-9]{64}", payload["diff_sha256"]):
         return False
