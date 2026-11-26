@@ -5,7 +5,7 @@ from pathlib import Path
 from collections import Counter
 
 D = Path(__file__).resolve().parent
-H = Path.home() / "CYBRA"
+H = Path(os.environ.get("CYBRA_ROOT", Path(__file__).resolve().parents[2])).expanduser().resolve()
 M = H / "modules"
 METRICS_LOG = D / "data" / "metrics.jsonl"
 
