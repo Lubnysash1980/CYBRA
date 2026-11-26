@@ -274,14 +274,26 @@ def apply(patch_id: str, restart_target: str) -> None:
 
 def status() -> None:
     manifests = sorted(STAGING.glob("*/manifest.json")) if STAGING.exists() else []
+    baseline_path = PARLIAMENT_DIR / "data" / "evolve" / "baseline.json"
+    baseline_ok = False
+    baseline_detail = "missing"
+    try:
+        baseline_data = json.loads(baseline_path.read_text())
+        baseline_ok = isinstance(baseline_data.get("metrics"), dict) and bool(baseline_data["metrics"])
+        baseline_detail = "valid" if baseline_ok else "invalid_or_empty_metrics"
+    except FileNotFoundError:
+        pass
+    except Exception:
+        baseline_detail = "unreadable_or_invalid_json"
+    state = "READY" if baseline_ok else "BLOCKED_BASELINE"
+    print(f"NEURO_STATUS={state}")
+    print(f"PATCHES={len(manifests)}")
+    print(f"STAGING={STAGING}")
+    print(f"BASELINE={baseline_detail}")
+    print(f"BASELINE_PATH={baseline_path}")
     if not manifests:
-        print("NEURO_STATUS=READY")
-        print("PATCHES=0")
-        print(f"STAGING={STAGING}")
         print("DETAIL=no staged patches yet")
         return
-    print(f"NEURO_STATUS=READY")
-    print(f"PATCHES={len(manifests)}")
     for mf in manifests:
         try:
             m = json.loads(mf.read_text())
