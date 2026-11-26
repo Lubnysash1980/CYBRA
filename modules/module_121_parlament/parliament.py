@@ -136,10 +136,35 @@ def total_weight():
 # ─── пропозиції ──────────────────────────────────────────
 PTYPES = ["contract_sign", "dispute", "upgrade", "rule_change", "custom"]
 
+def _is_neuro_patch_payload(payload):
+    """Вузький виняток: лише staged NEURO upgrade з перевірюваними SHA256."""
+    if not isinstance(payload, dict):
+        return False
+    patch_id = payload.get("neuro_patch_id", "")
+    if not isinstance(patch_id, str) or not __import__("re").fullmatch(r"\\d{8}_\\d{6}_[a-f0-9]{8}", patch_id):
+        return False
+    if not isinstance(payload.get("diff_sha256"), str) or not __import__("re").fullmatch(r"[a-f0-9]{64}", payload["diff_sha256"]):
+        return False
+    files = payload.get("files")
+    if not isinstance(files, dict) or not files or len(files) > 8:
+        return False
+    for path, hashes in files.items():
+        if not isinstance(path, str) or not __import__("re").fullmatch(r"modules/module_[A-Za-z0-9_-]+/[A-Za-z0-9_./-]+", path):
+            return False
+        if ".." in Path(path).parts or not isinstance(hashes, dict):
+            return False
+        if not all(isinstance(hashes.get(k), str) and __import__("re").fullmatch(r"[a-f0-9]{64}", hashes[k])
+                   for k in ("before_sha256", "after_sha256")):
+            return False
+    return True
+
+
 def create_proposal(ptype, title, payload, author, ttl=None):
     if ptype not in PTYPES:
         return False, f"невідомий тип: {ptype}", None
-    if not _controllers_ok():
+    # Degraded-mode exception is strictly limited to NEURO code proposals.
+    neuro_patch = ptype == "upgrade" and _is_neuro_patch_payload(payload)
+    if not _controllers_ok("neuro_parliament_propose" if neuro_patch else "parliament_propose"):
         return False, "🚫 контролери не 100% — створення пропозиції заблоковано", None
     a = get_member(author)
     if not a:
@@ -253,12 +278,12 @@ def sic_snapshot():
         return sic.snapshot()
     except Exception: return {}
 
-def _controllers_ok():
-    """Перевіряє 100% через gate 399. Fallback — controller_gate."""
+def _controllers_ok(action="parliament_vote"):
+    """Перевіряє Gate 399; action може бути вузьким NEURO bootstrap винятком."""
     try:
         sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "module_399_gate"))
         import gate
-        ok, _ = gate.allow("parliament_vote")
+        ok, _ = gate.allow(action)
         return ok
     except Exception:
         try:
