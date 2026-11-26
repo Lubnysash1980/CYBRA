@@ -4,7 +4,7 @@ from __future__ import annotations
 import argparse, hashlib, json, os, re, subprocess, sys, tarfile, time, urllib.error, urllib.request, uuid
 from pathlib import Path, PurePosixPath
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(os.environ.get("CYBRA_ROOT", Path(__file__).resolve().parents[2])).expanduser().resolve()
 MODULES = ROOT / "modules"
 NEURO = ROOT / "neuro"
 STAGING = NEURO / "staging"
