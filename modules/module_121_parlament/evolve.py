@@ -273,7 +273,7 @@ def _restore_tui(d):
 
 def _analyze_stream(d):
     try:
-        sys.path.insert(0, str(D))
+        sys.path.insert(0, str(P))
         import stream
         evs = stream.read(200, level="error") + stream.read(200, level="critical")
         if not evs:
@@ -304,7 +304,7 @@ def _restart_orch(d):
 
 def _retry_failed(d):
     try:
-        sys.path.insert(0, str(D))
+        sys.path.insert(0, str(P))
         import actions
         entries = actions.recent(100)
         failed = [e for e in entries if not e.get("ok")]
@@ -363,7 +363,7 @@ def _cleanup_backups(d):
 
 def _install_missing(d):
     try:
-        sys.path.insert(0, str(D))
+        sys.path.insert(0, str(P))
         import orchestrator
         o = orchestrator.Orchestrator(verbose=False)
         r = o.install_missing()
