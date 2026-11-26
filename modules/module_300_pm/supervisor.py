@@ -95,6 +95,7 @@ def is_running(proc):
     return False, None
 
 def start_proc(name, proc):
+    _require_primary_root()
     cmd = _expand(proc["cmd"])
     cwd = _expand(proc.get("cwd", str(H)))
     log_file = Path(_expand(proc["log_file"]))
@@ -126,6 +127,7 @@ def start_proc(name, proc):
         return False, str(e)
 
 def stop_proc(name, proc):
+    _require_primary_root()
     running, pid = is_running(proc)
     if not running:
         return True, "not running"
