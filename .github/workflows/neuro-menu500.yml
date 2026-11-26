@@ -24,6 +24,8 @@ jobs:
       - name: Python syntax
         run: python -m py_compile neuro/menu500.py neuro/test_menu500.py
       - name: Bash syntax
-        run: bash -n neuro/menu500.sh neuro/evo_loop.sh
+        run: |
+          bash -n neuro/menu500.sh
+          bash -n neuro/evo_loop.sh
       - name: Catalog integrity
         run: python neuro/menu500.py catalog
