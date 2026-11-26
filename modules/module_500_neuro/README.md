@@ -16,6 +16,7 @@ NEURO is a staged code-writing agent. Generation never edits live source files.
 2. Submit to Parliament:
    python3 modules/module_500_neuro/neuro.py propose PATCH_ID
 3. Review and approve the upgrade proposal through the existing Parliament workflow. NEURO cannot self-approve.
+   A narrowly validated NEURO proposal may be submitted while health is below 100%; voting and approval remain subject to the normal Parliament/Gate rules. This exception does not permit contracts, transfers, deployment, signing, or other proposal types.
 4. Apply only after approval, naming the exact process:
    python3 modules/module_500_neuro/neuro.py apply PATCH_ID --restart PROCESS_NAME
 5. List staged patches:
