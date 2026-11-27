@@ -6,13 +6,19 @@
 import json, os, sys, time, subprocess, signal, shutil
 from pathlib import Path
 
-H = Path.home() / "CYBRA"
+H = Path(os.environ.get("CYBRA_ROOT", Path(__file__).resolve().parents[2])).expanduser().resolve()
 CFG = H / "config" / "pm_processes.json"
 STATE = H / "config" / "pm_state.json"
 METRICS = H / "config" / "pm_metrics.jsonl"
 PM_LOG = H / "logs" / "pm.log"
 
 RUN = True
+
+
+def _require_primary_root():
+    primary = (Path.home() / "CYBRA").resolve()
+    if H != primary:
+        raise RuntimeError(f"PM action blocked outside primary CYBRA root: {H}")
 
 
 def _is_phone_disabled(name, cfg):
@@ -89,6 +95,7 @@ def is_running(proc):
     return False, None
 
 def start_proc(name, proc):
+    _require_primary_root()
     cmd = _expand(proc["cmd"])
     cwd = _expand(proc.get("cwd", str(H)))
     log_file = Path(_expand(proc["log_file"]))
@@ -120,6 +127,7 @@ def start_proc(name, proc):
         return False, str(e)
 
 def stop_proc(name, proc):
+    _require_primary_root()
     running, pid = is_running(proc)
     if not running:
         return True, "not running"

@@ -1,5 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/bash
-H="$HOME/CYBRA"; M="$H/modules"
+H="${CYBRA_ROOT:-$(cd "$(dirname "$0")/../.." && pwd)}"; M="$H/modules"
 G=$'\e[32m'; R=$'\e[31m'; Y=$'\e[33m'; B=$'\e[36m'; N=$'\e[0m'
 PASS=0; FAIL=0; SKIP=0
 t(){ printf "  %-55s " "$1"; }

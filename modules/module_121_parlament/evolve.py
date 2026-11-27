@@ -9,13 +9,13 @@
 import json, os, sys, time, subprocess, shutil
 from pathlib import Path
 
-D = Path(__file__).resolve().parent
-H = Path.home() / "CYBRA"
+H = Path(os.environ.get("CYBRA_ROOT", Path(__file__).resolve().parents[2])).expanduser().resolve()
 M = H / "modules"
-sys.path.insert(0, str(D))
+P = M / "module_121_parlament"
+sys.path.insert(0, str(P))
 
-BASE = D / "data" / "evolve" / "baseline.json"
-LOG  = D / "data" / "evolve" / "log.jsonl"
+BASE = P / "data" / "evolve" / "baseline.json"
+LOG  = P / "data" / "evolve" / "log.jsonl"
 CFG  = H / "config" / "evolve.json"
 
 DEFAULT_CFG = {
@@ -161,7 +161,7 @@ def _cooldown_ok(action_id):
 def _mark_action(action_id):
     _last_action_at[action_id] = time.time()
     # зберігаємо між запусками
-    p = D / "data" / "evolve" / "action_time.json"
+    p = P / "data" / "evolve" / "action_time.json"
     try:
         d = json.loads(p.read_text()) if p.exists() else {}
     except Exception: d = {}
@@ -169,7 +169,7 @@ def _mark_action(action_id):
     p.write_text(json.dumps(d))
 
 def _load_action_times():
-    p = D / "data" / "evolve" / "action_time.json"
+    p = P / "data" / "evolve" / "action_time.json"
     if not p.exists(): return
     try:
         for k, v in json.loads(p.read_text()).items():
@@ -273,7 +273,7 @@ def _restore_tui(d):
 
 def _analyze_stream(d):
     try:
-        sys.path.insert(0, str(D))
+        sys.path.insert(0, str(P))
         import stream
         evs = stream.read(200, level="error") + stream.read(200, level="critical")
         if not evs:
@@ -288,23 +288,23 @@ def _analyze_stream(d):
 
 def _restart_watchdog(d):
     try:
-        subprocess.run(["bash", str(D/"watchdog.sh"), "stop"], timeout=10)
-        subprocess.run(["bash", str(D/"watchdog.sh"), "start"], timeout=10)
+        subprocess.run(["bash", str(P/"watchdog.sh"), "stop"], timeout=10)
+        subprocess.run(["bash", str(P/"watchdog.sh"), "start"], timeout=10)
         return True, "restarted"
     except Exception as e:
         return False, str(e)[:100]
 
 def _restart_orch(d):
     try:
-        subprocess.run(["bash", str(D/"orch.sh"), "stop"], timeout=10)
-        subprocess.run(["bash", str(D/"orch.sh"), "start"], timeout=10)
+        subprocess.run(["bash", str(P/"orch.sh"), "stop"], timeout=10)
+        subprocess.run(["bash", str(P/"orch.sh"), "start"], timeout=10)
         return True, "restarted"
     except Exception as e:
         return False, str(e)[:100]
 
 def _retry_failed(d):
     try:
-        sys.path.insert(0, str(D))
+        sys.path.insert(0, str(P))
         import actions
         entries = actions.recent(100)
         failed = [e for e in entries if not e.get("ok")]
@@ -363,7 +363,7 @@ def _cleanup_backups(d):
 
 def _install_missing(d):
     try:
-        sys.path.insert(0, str(D))
+        sys.path.insert(0, str(P))
         import orchestrator
         o = orchestrator.Orchestrator(verbose=False)
         r = o.install_missing()
@@ -417,7 +417,7 @@ def _restore_exec(d):
         bdir = H / "backups"
         runs = sorted(bdir.glob("run_*"), key=lambda p: p.stat().st_mtime, reverse=True)
         if not runs: return False, "немає бекапів"
-        exec_dir = D / "data" / "executions"
+        exec_dir = P / "data" / "executions"
         restored = 0
         for f in runs[0].glob("*_dossier.json"):
             try:
@@ -513,7 +513,7 @@ def cycle(dry_run=False, verbose=True):
         try:
             import importlib.util
             spec = importlib.util.spec_from_file_location(
-                "engine", str(D.parent/"module_330_selfheal/engine.py"))
+                "engine", str(M/"module_330_selfheal/engine.py"))
             eng = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(eng)
             r = eng.cycle(verbose=False)

@@ -4,10 +4,10 @@ import json, os, sys, time, subprocess
 from pathlib import Path
 from collections import Counter
 
-D = Path(__file__).resolve().parent
-H = Path.home() / "CYBRA"
+H = Path(os.environ.get("CYBRA_ROOT", Path(__file__).resolve().parents[2])).expanduser().resolve()
 M = H / "modules"
-METRICS_LOG = D / "data" / "metrics.jsonl"
+P = M / "module_121_parlament"
+METRICS_LOG = P / "data" / "metrics.jsonl"
 
 def _run(cmd, timeout=30):
     try:
@@ -47,8 +47,8 @@ def collect():
         m["tests_success_rate"] = None
 
     # 3. Stream — error rate за останні 24 год
-    stream_events = _read_jsonl(D.parent / "module_121_parlament/logs/stream.jsonl", 1000) \
-        if (D.parent / "module_121_parlament/logs/stream.jsonl").exists() \
+    stream_events = _read_jsonl(P / "logs" / "stream.jsonl", 1000) \
+        if (P / "logs" / "stream.jsonl").exists() \
         else _read_jsonl(H / "logs" / "stream.jsonl", 1000)
     cutoff = time.time() - 86400
     recent = [e for e in stream_events if e.get("ts_unix", 0) > cutoff]
@@ -58,7 +58,7 @@ def collect():
     m["stream_error_rate"] = round(len(errs) / max(1, len(recent)) * 100, 2)
 
     # 4. Exec log — failed actions
-    exec_log = _read_jsonl(D / "data" / "exec_log.jsonl", 200)
+    exec_log = _read_jsonl(P / "data" / "exec_log.jsonl", 200)
     recent_exec = [e for e in exec_log if e.get("ts_unix", 0) > cutoff] if exec_log else []
     if not recent_exec:
         # fallback — по timestamp
@@ -101,7 +101,7 @@ def collect():
     # 8. Крипто-цілісність
     try:
         import verify_7
-        ex = D / "data" / "executions"
+        ex = P / "data" / "executions"
         if ex.exists():
             corrupted = 0; total_exec = 0
             for f in ex.glob("C-*.json"):

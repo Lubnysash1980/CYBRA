@@ -26,6 +26,8 @@ ALLOW_ALWAYS = {
     # (без підпису система ніколи не буде 100%)
     "sign", "sign_existing", "contract_sign", "signature_add",
     "buyer_sign", "seller_sign", "multisig_sign",
+    # Narrow bootstrap exception: create a hash-validated NEURO proposal only.
+    "neuro_parliament_propose",
 }
 
 # Дії які ЗАБЛОКОВАНІ при < 100%
